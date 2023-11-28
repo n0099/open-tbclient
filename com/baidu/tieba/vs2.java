@@ -7,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vs2 extends ss2 {
+public class vs2 extends ts2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zs2 A;
-    public double B;
-    public int C;
+    public String A;
+    public ArrayList<String> B;
     public String z;
 
     public vs2() {
@@ -32,36 +33,49 @@ public class vs2 extends ss2 {
             }
         }
         this.z = "";
-        this.C = 1000;
+        this.A = "";
     }
 
-    @Override // com.baidu.tieba.ss2, com.baidu.tieba.x12, com.baidu.tieba.fw2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        zs2 zs2Var = new zs2();
-        this.A = zs2Var;
-        zs2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.x12, com.baidu.tieba.fw2
+    @Override // com.baidu.tieba.y12, com.baidu.tieba.gw2
     public boolean isValid() {
         InterceptResult invokeV;
-        zs2 zs2Var;
+        at2 at2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (zs2Var = this.A) != null && zs2Var.isValid()) {
+            if (!TextUtils.isEmpty(this.c) && (at2Var = this.j) != null && at2Var.isValid()) {
                 return true;
             }
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ts2, com.baidu.tieba.y12, com.baidu.tieba.gw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("scale")) {
+            this.k = jSONObject.optDouble("scale", 18.0d);
+        }
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
+            }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
+        }
     }
 }

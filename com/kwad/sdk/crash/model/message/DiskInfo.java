@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -14,6 +14,16 @@ public class DiskInfo implements b, Serializable {
     public double mExternalStorageTotalGB;
 
     @Override // com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        t.putValue(jSONObject, "mDataTotalGB", this.mDataTotalGB);
+        t.putValue(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
+        t.putValue(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
+        t.putValue(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
+        return jSONObject;
+    }
+
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -22,16 +32,6 @@ public class DiskInfo implements b, Serializable {
         this.mDataAvailableGB = jSONObject.optDouble("mDataAvailableGB");
         this.mExternalStorageTotalGB = jSONObject.optDouble("mExternalStorageTotalGB");
         this.mExternalStorageAvailableGB = jSONObject.optDouble("mExternalStorageAvailableGB");
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "mDataTotalGB", this.mDataTotalGB);
-        r.putValue(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
-        r.putValue(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
-        r.putValue(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
-        return jSONObject;
     }
 
     public String toString() {

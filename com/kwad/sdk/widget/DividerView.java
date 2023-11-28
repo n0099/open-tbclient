@@ -12,12 +12,29 @@ import com.kwad.sdk.R;
 public class DividerView extends View {
     public static int ORIENTATION_HORIZONTAL = 0;
     public static int ORIENTATION_VERTICAL = 1;
-    public int aqw;
+    public int aQI;
     public Paint mPaint;
     public int orientation;
 
     public DividerView(Context context) {
         this(context, null);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        if (this.orientation == ORIENTATION_HORIZONTAL) {
+            float height = getHeight() * 0.5f;
+            canvas.drawLine(0.0f, height, getWidth(), height, this.mPaint);
+            return;
+        }
+        float width = getWidth() * 0.5f;
+        canvas.drawLine(width, 0.0f, width, getHeight(), this.mPaint);
+    }
+
+    public void setDividerColor(int i) {
+        this.aQI = i;
+        this.mPaint.setColor(i);
+        postInvalidate();
     }
 
     public DividerView(Context context, AttributeSet attributeSet) {
@@ -27,13 +44,13 @@ public class DividerView extends View {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(2, 5);
             int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(3, 3);
-            this.aqw = obtainStyledAttributes.getColor(0, -16777216);
+            this.aQI = obtainStyledAttributes.getColor(0, -16777216);
             this.orientation = obtainStyledAttributes.getInt(4, ORIENTATION_HORIZONTAL);
             obtainStyledAttributes.recycle();
             Paint paint = new Paint();
             this.mPaint = paint;
             paint.setAntiAlias(true);
-            this.mPaint.setColor(this.aqw);
+            this.mPaint.setColor(this.aQI);
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setStrokeWidth(dimensionPixelSize3);
             this.mPaint.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
@@ -41,37 +58,5 @@ public class DividerView extends View {
             obtainStyledAttributes.recycle();
             throw th;
         }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        float width;
-        float f;
-        float height;
-        Paint paint;
-        Canvas canvas2;
-        float f2;
-        if (this.orientation == ORIENTATION_HORIZONTAL) {
-            height = getHeight() * 0.5f;
-            f2 = 0.0f;
-            width = getWidth();
-            paint = this.mPaint;
-            canvas2 = canvas;
-            f = height;
-        } else {
-            width = getWidth() * 0.5f;
-            f = 0.0f;
-            height = getHeight();
-            paint = this.mPaint;
-            canvas2 = canvas;
-            f2 = width;
-        }
-        canvas2.drawLine(f2, f, width, height, paint);
-    }
-
-    public void setDividerColor(int i) {
-        this.aqw = i;
-        this.mPaint.setColor(i);
-        postInvalidate();
     }
 }

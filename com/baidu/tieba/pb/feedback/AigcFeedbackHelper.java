@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.ku4;
-import com.baidu.tieba.lo5;
-import com.baidu.tieba.n45;
+import com.baidu.tieba.mu4;
+import com.baidu.tieba.nwa;
+import com.baidu.tieba.r45;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.vra;
+import com.baidu.tieba.to5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,6 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 import tbclient.AigcFeedbackInfo;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J$\u0010\t\u001a\u00020\n2\u0010\u0010\u000b\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\r\u0018\u00010\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fH\u0007J$\u0010\u0010\u001a\u00020\n2\u0010\u0010\u000b\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\r\u0018\u00010\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fH\u0007J\u0012\u0010\u0011\u001a\u00020\n2\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013H\u0007R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/pb/feedback/AigcFeedbackHelper;", "", "()V", "messageHelper", "Lcom/baidu/tbadk/core/message/AgreeMessageHelper;", "getMessageHelper", "()Lcom/baidu/tbadk/core/message/AgreeMessageHelper;", "messageHelper$delegate", "Lkotlin/Lazy;", "agree", "", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "agreeData", "Lcom/baidu/tieba/tbadkCore/data/AgreeData;", "disagree", "openUrl", "postData", "Lcom/baidu/tieba/tbadkCore/data/PostData;", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
@@ -70,13 +69,13 @@ public final class AigcFeedbackHelper {
         }
     }
 
-    public final n45 c() {
+    public final r45 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (n45) b.getValue();
+            return (r45) b.getValue();
         }
-        return (n45) invokeV.objValue;
+        return (r45) invokeV.objValue;
     }
 
     @JvmStatic
@@ -112,11 +111,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            to5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            n45 c = a.c();
+            r45 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -157,11 +156,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            to5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            n45 c = a.c();
+            r45 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -170,27 +169,32 @@ public final class AigcFeedbackHelper {
     }
 
     @JvmStatic
-    public static final void d(vra vraVar) {
+    public static final void d(nwa nwaVar) {
         String str;
-        AigcFeedbackInfo s;
+        AigcFeedbackInfo t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vraVar) == null) {
-            if (vraVar != null && (s = vraVar.s()) != null) {
-                str = s.feedback_url;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nwaVar) == null) {
+            if (nwaVar != null && (t = nwaVar.t()) != null) {
+                str = t.feedback_url;
             } else {
                 str = null;
             }
             if (str != null && !TextUtils.isEmpty(str)) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                String T2 = vraVar.T();
-                Intrinsics.checkNotNullExpressionValue(T2, "postData.id");
-                hashMap.put("post_id", T2);
-                String u = vraVar.u();
-                Intrinsics.checkNotNullExpressionValue(u, "postData.authorId");
-                hashMap.put("bot_uid", u);
+                String U = nwaVar.U();
+                String str2 = "0";
+                if (U == null) {
+                    U = "0";
+                }
+                hashMap.put("post_id", U);
+                String v = nwaVar.v();
+                if (v != null) {
+                    str2 = v;
+                }
+                hashMap.put("bot_uid", str2);
                 Bundle bundle = new Bundle();
                 bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                ku4 j = ku4.j(TbadkCoreApplication.getInst(), str);
+                mu4 j = mu4.j(TbadkCoreApplication.getInst(), str);
                 j.f(hashMap);
                 j.a(bundle);
                 j.p();

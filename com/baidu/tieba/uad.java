@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.UserStory;
 /* loaded from: classes8.dex */
-public class uad {
+public class uad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    @NonNull
+    public static JSONObject b(@NonNull UserStory userStory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Empty";
-            }
-            String[] split = str.split("\\?");
-            if (split.length > 0) {
-                return split[0];
-            }
-            return "Error";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userStory)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "user_id", userStory.user_id);
+            ltc.a(jSONObject, "user_name", userStory.user_name);
+            ltc.a(jSONObject, "portrait", userStory.portrait);
+            ltc.a(jSONObject, "has_read", userStory.has_read);
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

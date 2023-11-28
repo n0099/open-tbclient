@@ -3,13 +3,22 @@ package com.kwad.sdk.core.network;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import com.kwad.sdk.core.network.g;
+import com.kwad.sdk.core.network.f;
+import com.kwad.sdk.core.threads.GlobalThreadPools;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes10.dex */
-public abstract class a<R extends g> {
-    public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.vn();
+public abstract class a<R extends f> {
+    public static final ExecutorService sExecutors = GlobalThreadPools.Ey();
     public Future<?> mTask;
+
+    @NonNull
+    public abstract R createRequest();
+
+    @WorkerThread
+    public abstract void fetchImpl();
+
+    public abstract void onResponse(R r, c cVar);
 
     @CallSuper
     public void cancel() {
@@ -19,9 +28,6 @@ public abstract class a<R extends g> {
         }
     }
 
-    @NonNull
-    public abstract R createRequest();
-
     public void fetch() {
         try {
             this.mTask = getExecutor().submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
@@ -29,22 +35,17 @@ public abstract class a<R extends g> {
                 public final void run() {
                     try {
                         a.this.fetchImpl();
-                    } catch (Exception e) {
-                        com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                    } catch (Throwable th) {
+                        com.kwad.sdk.core.e.c.printStackTraceOnly(th);
                     }
                 }
             });
         } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTrace(th);
+            com.kwad.sdk.core.e.c.printStackTrace(th);
         }
     }
-
-    @WorkerThread
-    public abstract void fetchImpl();
 
     public ExecutorService getExecutor() {
         return sExecutors;
     }
-
-    public abstract void onResponse(R r, c cVar);
 }

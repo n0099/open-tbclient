@@ -1,351 +1,224 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NamoaixudEntry;
 /* loaded from: classes6.dex */
-public class g9a {
+public class g9a extends jl6<q8a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public String F;
-    public String G;
-    public String H;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public int x;
-    public int y;
-    public String z;
+    public View i;
+    public View j;
+    public TextView k;
+    public TextView l;
+    public ImageView m;
+    public TBSpecificationBtn n;
+    public View o;
+    public TextView p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public View v;
+    public TbImageView w;
+    public NamoaixudEntry x;
+    public View.OnClickListener y;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.jl6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0800 : invokeV.intValue;
+    }
 
-        public static String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 1567) {
-                    if (hashCode != 1568) {
-                        if (hashCode != 1570) {
-                            if (hashCode != 1576) {
-                                if (hashCode != 1599) {
-                                    switch (hashCode) {
-                                        case 49:
-                                            if (str.equals("1")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                        case 50:
-                                            if (str.equals("2")) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 51:
-                                            if (str.equals("3")) {
-                                                c = 4;
-                                                break;
-                                            }
-                                            break;
-                                        case 52:
-                                            if (str.equals("4")) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        default:
-                                            switch (hashCode) {
-                                                case 54:
-                                                    if (str.equals("6")) {
-                                                        c = 7;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 55:
-                                                    if (str.equals("7")) {
-                                                        c = 1;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 56:
-                                                    if (str.equals("8")) {
-                                                        c = '\b';
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 57:
-                                                    if (str.equals("9")) {
-                                                        c = '\t';
-                                                        break;
-                                                    }
-                                                    break;
-                                            }
-                                    }
-                                } else if (str.equals("21")) {
-                                    c = '\f';
-                                }
-                            } else if (str.equals("19")) {
-                                c = '\n';
-                            }
-                        } else if (str.equals("13")) {
-                            c = 11;
-                        }
-                    } else if (str.equals("11")) {
-                        c = 6;
-                    }
-                } else if (str.equals("10")) {
-                    c = 5;
-                }
-                switch (c) {
-                    case 0:
-                    case 1:
-                        return "a002";
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        return "a006";
-                    case 7:
-                        return "a005";
-                    case '\b':
-                    case '\t':
-                    case '\n':
-                        return "a020";
-                    case 11:
-                        return "a023";
-                    case '\f':
-                        return "a088";
-                    default:
-                        return "";
-                }
-            }
-            return (String) invokeL.objValue;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public g9a() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g9a a;
+
+        public a(g9a g9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g9aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.l.getId()) {
+                    if (this.a.x != null) {
+                        TbSingleton.getInstance().setDuXiaoManActivityTimestamp(JavaTypesHelper.toLong(this.a.x.activity_timestamp, 0L));
+                        this.a.v.setVisibility(8);
+                        if ("1".equals(this.a.x.activity_link_type)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2001447, this.a.x.activity_link_addr));
+                        } else {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2001451));
+                        }
+                    }
+                    TiebaStatic.log(new StatisticItem("c14713").param("obj_locate", 2));
+                } else if (view2.getId() == this.a.j.getId()) {
+                    if (this.a.x != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2001447, this.a.x.goto_button_url));
+                    }
+                    TiebaStatic.log(new StatisticItem("c14713").param("obj_locate", 1));
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g9a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.z = "index";
+        this.y = new a(this);
+        this.i = i();
+        int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
+        this.i.setPadding(dimens, 0, dimens, 0);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092683);
+        TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0925a2);
+        this.l = textView;
+        textView.setOnClickListener(this.y);
+        View findViewById = this.i.findViewById(R.id.obfuscated_res_0x7f091c9c);
+        this.j = findViewById;
+        findViewById.setOnClickListener(this.y);
+        this.m = (ImageView) this.i.findViewById(R.id.img_arrow);
+        this.n = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f090502);
+        this.o = this.i.findViewById(R.id.obfuscated_res_0x7f090a62);
+        this.p = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090a63);
+        this.q = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092733);
+        this.r = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0904bb);
+        this.s = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0902b1);
+        this.t = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090462);
+        this.u = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0902b2);
+        this.v = this.i.findViewById(R.id.obfuscated_res_0x7f091f7e);
+        this.w = (TbImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091170);
+        k(h(), this.a);
     }
 
-    public StatisticItem a(StatisticItem statisticItem) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jl6
+    /* renamed from: z */
+    public void j(q8a q8aVar) {
         String str;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
-            if (statisticItem != null) {
-                if (!StringUtils.isNull(this.a)) {
-                    statisticItem.param("obj_locate", this.a);
-                    statisticItem.param("page_type", a.a(this.a));
-                    if (this.a.equals("21")) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem.param("tid", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem.param("fid", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    statisticItem.param("uid", this.e);
-                }
-                if (!StringUtils.isNull(this.f)) {
-                    statisticItem.param("obj_source", this.f);
-                } else {
-                    statisticItem.param("obj_source", 0);
-                }
-                if (!StringUtils.isNull(this.g)) {
-                    statisticItem.param("obj_param1", this.g);
-                } else {
-                    statisticItem.param("obj_param1", 0);
-                }
-                if (!StringUtils.isNull(this.h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
-                }
-                if (!StringUtils.isNull(this.i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
-                }
-                int i = this.j;
-                if (i > 0) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
-                }
-                if (!StringUtils.isNull(this.k)) {
-                    statisticItem.param("obj_id", this.k);
-                }
-                if (!StringUtils.isNull(this.l)) {
-                    statisticItem.param("ab_tag", this.l);
-                } else {
-                    statisticItem.param("ab_tag", 0);
-                }
-                if (!StringUtils.isNull(this.n)) {
-                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
-                }
-                if (!StringUtils.isNull(this.o)) {
-                    statisticItem.param("extra", this.o);
-                } else {
-                    statisticItem.param("extra", 0);
-                }
-                if (!StringUtils.isNull(this.p)) {
-                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
-                }
-                if (!StringUtils.isNull(this.q)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
-                }
-                if (!StringUtils.isNull(this.r)) {
-                    statisticItem.param("resource_id", this.r);
-                }
-                if (!StringUtils.isNull(this.s)) {
-                    statisticItem.param("group_id", this.s);
-                }
-                int i2 = this.x;
-                if (i2 > 0) {
-                    statisticItem.param("request_num", i2);
-                }
-                int i3 = this.y;
-                if (i3 > 0) {
-                    statisticItem.param("video_num", i3);
-                }
-                if (!StringUtils.isNull(this.A)) {
-                    statisticItem.addParam("obj_type", this.A);
-                }
-                if (!StringUtils.isNull(this.B)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_TO, this.B);
-                }
-                if (!StringUtils.isNull(this.C)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSID, this.C);
-                }
-                if (!StringUtils.isNull(this.D)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSSID, this.D);
-                }
-                if (!StringUtils.isNull(this.E)) {
-                    statisticItem.param("yyuid", this.E);
-                }
-                if (!StringUtils.isNull(this.F)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYLIVEID, this.F);
-                }
-                if (!StringUtils.isNull(this.G)) {
-                    statisticItem.param("template_id", this.G);
-                }
-                if (!StringUtils.isNull(this.H)) {
-                    statisticItem.param("hdid", this.H);
-                }
-                String str4 = "";
-                if (StringUtils.isNull(this.w)) {
-                    str = "";
-                } else {
-                    str = this.w;
-                }
-                statisticItem.param("obj_extra", str);
-                if (StringUtils.isNull(this.t)) {
-                    str2 = "";
-                } else {
-                    str2 = this.t;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
-                if (StringUtils.isNull(this.u)) {
-                    str3 = "";
-                } else {
-                    str3 = this.u;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
-                if (!StringUtils.isNull(this.v)) {
-                    str4 = this.v;
-                }
-                statisticItem.param("nid", str4);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, q8aVar) == null) && q8aVar != null && q8aVar.c() != null) {
+            NamoaixudEntry c = q8aVar.c();
+            this.x = c;
+            if ("1".equals(c.layout_type)) {
+                this.q.setVisibility(0);
+                this.r.setVisibility(8);
+                this.s.setVisibility(0);
+                this.t.setVisibility(8);
+                this.u.setVisibility(0);
+            } else {
+                this.q.setVisibility(8);
+                this.r.setVisibility(0);
+                this.s.setVisibility(8);
+                this.t.setVisibility(0);
+                this.u.setVisibility(8);
             }
-            return statisticItem;
+            this.q.setText(this.x.tip);
+            if (JavaTypesHelper.toLong(this.x.activity_timestamp, 0L) != TbSingleton.getInstance().getDuXiaoManActivityTimestamp()) {
+                this.v.setVisibility(0);
+            } else {
+                this.v.setVisibility(8);
+            }
+            this.l.setText(this.x.activity_desc);
+            this.s.setText(this.x.amount);
+            this.u.setText(this.x.amount_msg);
+            if (this.a == 0) {
+                str = this.x.encourage_icon;
+            } else {
+                str = this.x.encourage_icon_dark;
+            }
+            this.w.startLoad(str, 10, false);
+            if (TextUtils.isEmpty(this.x.encourage_desc)) {
+                this.o.setVisibility(8);
+            } else {
+                this.o.setVisibility(0);
+                this.p.setText(this.x.encourage_desc);
+            }
+            this.n.setText(this.x.goto_button_name);
+            this.t.setText(this.x.amount_msg);
+            k(h(), this.a);
+            TiebaStatic.log("c14712");
         }
-        return (StatisticItem) invokeL.objValue;
     }
 
-    public g9a b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jl6
+    public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g9a g9aVar = new g9a();
-            g9aVar.a = this.a;
-            g9aVar.b = this.b;
-            g9aVar.c = this.c;
-            g9aVar.d = this.d;
-            g9aVar.e = this.e;
-            g9aVar.f = this.f;
-            g9aVar.g = this.g;
-            g9aVar.h = this.h;
-            g9aVar.i = this.i;
-            g9aVar.k = this.k;
-            g9aVar.l = this.l;
-            g9aVar.m = this.m;
-            g9aVar.n = this.n;
-            g9aVar.q = this.q;
-            g9aVar.r = this.r;
-            g9aVar.s = this.s;
-            g9aVar.t = this.t;
-            g9aVar.u = this.u;
-            g9aVar.v = this.v;
-            g9aVar.x = this.x;
-            g9aVar.y = this.y;
-            g9aVar.H = this.H;
-            return g9aVar;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            EMManager.from(this.j).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.k).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
+            EMManager.from(this.q).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
+            EMManager.from(this.r).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
+            EMManager.from(this.l).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
+            EMManager.from(this.s).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            this.n.k();
+            EMManager.from(this.o).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0321);
+            EMManager.from(this.p).setTextColor(R.color.CAM_X0321).setTextStyle(R.string.F_X01);
+            EMManager.from(this.u).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
+            EMManager.from(this.t).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01);
         }
-        return (g9a) invokeV.objValue;
     }
 }

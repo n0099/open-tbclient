@@ -1,273 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardHListViewData;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class l38 {
+public class l38 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892056, "Lcom/baidu/tieba/l38;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947892056, "Lcom/baidu/tieba/l38;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
+    public static boolean a(ArrayList<pi> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            a.c();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.e();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), false);
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JvmStatic
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), true);
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.m38.j();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int j;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || j <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = m38.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
-                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
-                    int i = 0;
-                    for (String str2 : split$default) {
-                        if (Intrinsics.areEqual(str2, str)) {
-                            i++;
-                        }
-                    }
-                    if (i >= j) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
+            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    pi piVar = arrayList.get(i2);
+                    if ((piVar instanceof CardHListViewData) && str.equals(((CardHListViewData) piVar).threadId)) {
                         return false;
                     }
                 }
-                return true;
+                int i3 = i + 1;
+                if (i3 > 0) {
+                    ListUtils.add(arrayList, i3, cardHListViewData);
+                    return true;
+                }
             }
-            return invokeL.booleanValue;
+            return false;
         }
+        return invokeLLLI.booleanValue;
+    }
 
-        @JvmStatic
-        public final void f(String str) {
-            boolean z;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = m38.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                mutableList.add(str);
-                m38.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+    public static boolean b(FrsRequestData frsRequestData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
+            if (frsRequestData == null || frsRequestData.T() != 1) {
+                return false;
             }
+            return true;
         }
-
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.m38.i();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int i;
-            String g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || i <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = m38.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    m38.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    m38.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
-                        return false;
-                    }
-                    mutableList.add(str);
-                    m38.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    m38.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void c() {
-            int i;
-            String g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = m38.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                for (i = m38.i(); -1 < i; i--) {
-                    mutableList.add(String.valueOf(i));
-                }
-                m38.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

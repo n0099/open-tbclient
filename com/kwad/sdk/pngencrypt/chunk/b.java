@@ -10,12 +10,12 @@ import java.util.regex.Pattern;
 import java.util.zip.InflaterInputStream;
 /* loaded from: classes10.dex */
 public final class b {
-    public static final byte[] alu = dq("IHDR");
-    public static final byte[] alv = dq("PLTE");
-    public static final byte[] alw = dq("IDAT");
-    public static final byte[] alx = dq("IEND");
-    public static byte[] aly = new byte[4096];
-    public static Pattern alz = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+    public static final byte[] aKk = fA("IHDR");
+    public static final byte[] aKl = fA("PLTE");
+    public static final byte[] aKm = fA("IDAT");
+    public static final byte[] aKn = fA("IEND");
+    public static byte[] aKo = new byte[4096];
+    public static Pattern aKp = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
         ArrayList arrayList = new ArrayList();
@@ -25,6 +25,13 @@ public final class b {
             }
         }
         return arrayList;
+    }
+
+    public static String i(byte[] bArr, int i) {
+        if (bArr != null && bArr.length >= 8) {
+            return d(bArr, 4, 4);
+        }
+        return "?";
     }
 
     public static byte[] b(byte[] bArr, int i, int i2, boolean z) {
@@ -67,7 +74,7 @@ public final class b {
             byteArrayInputStream = null;
         }
         try {
-            g(inflaterInputStream, byteArrayOutputStream2);
+            i(inflaterInputStream, byteArrayOutputStream2);
             byte[] byteArray = byteArrayOutputStream2.toByteArray();
             com.kwad.sdk.crash.utils.b.closeQuietly(inflaterInputStream);
             com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayInputStream);
@@ -79,7 +86,7 @@ public final class b {
             inflaterInputStream2 = inflaterInputStream;
             byteArrayOutputStream = byteArrayOutputStream2;
             try {
-                com.kwad.sdk.core.e.b.printStackTrace(e);
+                com.kwad.sdk.core.e.c.printStackTrace(e);
                 com.kwad.sdk.crash.utils.b.closeQuietly(inflaterInputStream2);
                 com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayInputStream);
                 com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream2);
@@ -106,49 +113,48 @@ public final class b {
     }
 
     public static String d(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.alc);
-    }
-
-    public static byte[] dq(String str) {
-        return str.getBytes(com.kwad.sdk.pngencrypt.n.alc);
-    }
-
-    public static boolean dr(String str) {
-        return Character.isUpperCase(str.charAt(0));
-    }
-
-    public static boolean ds(String str) {
-        return Character.isUpperCase(str.charAt(1));
-    }
-
-    public static boolean dt(String str) {
-        return !Character.isUpperCase(str.charAt(3));
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.aJS);
     }
 
     public static String e(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.ald);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.aJT);
     }
 
-    public static void g(InputStream inputStream, OutputStream outputStream) {
-        synchronized (aly) {
-            while (true) {
-                int read = inputStream.read(aly);
-                if (read > 0) {
-                    outputStream.write(aly, 0, read);
-                }
-            }
+    public static byte[] fA(String str) {
+        return str.getBytes(com.kwad.sdk.pngencrypt.n.aJS);
+    }
+
+    public static boolean fB(String str) {
+        return Character.isUpperCase(str.charAt(0));
+    }
+
+    public static boolean fC(String str) {
+        return Character.isUpperCase(str.charAt(1));
+    }
+
+    public static boolean fD(String str) {
+        if (!Character.isUpperCase(str.charAt(3))) {
+            return true;
         }
+        return false;
     }
 
     public static String i(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.alc);
-    }
-
-    public static String i(byte[] bArr, int i) {
-        return (bArr == null || bArr.length < 8) ? "?" : d(bArr, 4, 4);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.aJS);
     }
 
     public static String j(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.ald);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.aJT);
+    }
+
+    public static void i(InputStream inputStream, OutputStream outputStream) {
+        synchronized (aKo) {
+            while (true) {
+                int read = inputStream.read(aKo);
+                if (read > 0) {
+                    outputStream.write(aKo, 0, read);
+                }
+            }
+        }
     }
 }

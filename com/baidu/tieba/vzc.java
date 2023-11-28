@@ -4,28 +4,20 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.LotteryRegular;
+import tbclient.FrsPage.CommonForum;
 /* loaded from: classes8.dex */
-public class vzc extends qoc {
+public class vzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LotteryRegular lotteryRegular) {
+    public static JSONObject b(@NonNull CommonForum commonForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lotteryRegular)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, commonForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "regular", lotteryRegular.regular);
-            if (lotteryRegular.chance != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Integer num : lotteryRegular.chance) {
-                    jSONArray.put(num.intValue());
-                }
-                qoc.a(jSONObject, "chance", jSONArray);
-            }
+            ltc.a(jSONObject, "common_forum", commonForum.common_forum);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -6,45 +6,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Props;
+import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes8.dex */
-public class v1d extends qoc {
+public class v1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Props props) {
+    public static JSONObject b(@NonNull RecommendBook recommendBook) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, props)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendBook)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "props_id", props.props_id);
-            qoc.a(jSONObject, "props_type", props.props_type);
-            qoc.a(jSONObject, "props_category", props.props_category);
-            qoc.a(jSONObject, "left_num", props.left_num);
-            qoc.a(jSONObject, "used_status", props.used_status);
-            qoc.a(jSONObject, "num", props.num);
-            qoc.a(jSONObject, "end_time", props.end_time);
-            qoc.a(jSONObject, "notice", props.notice);
-            qoc.a(jSONObject, "update_time", props.update_time);
-            qoc.a(jSONObject, "open_status", props.open_status);
-            qoc.a(jSONObject, "expiring_notify", props.expiring_notify);
-            qoc.a(jSONObject, "expired_notify", props.expired_notify);
-            qoc.a(jSONObject, "title", props.title);
-            if (props._word != null) {
+            ltc.a(jSONObject, "type", recommendBook.type);
+            ltc.a(jSONObject, "book_id", recommendBook.book_id);
+            ltc.a(jSONObject, "title", recommendBook.title);
+            ltc.a(jSONObject, "image", recommendBook.image);
+            if (recommendBook.desc != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (String str : props._word) {
+                for (String str : recommendBook.desc) {
                     jSONArray.put(str);
                 }
-                qoc.a(jSONObject, "_word", jSONArray);
+                ltc.a(jSONObject, "desc", jSONArray);
             }
-            if (props.pattern != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (String str2 : props.pattern) {
-                    jSONArray2.put(str2);
-                }
-                qoc.a(jSONObject, "pattern", jSONArray2);
-            }
+            ltc.a(jSONObject, "link_url", recommendBook.link_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

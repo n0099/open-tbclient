@@ -1,88 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes7.dex */
-public class k2a extends bi<f2a, PersonCenterIntervalHolder> {
+public class k2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PbFragment a;
+    public View.OnClickListener b;
+    public RelativeLayout c;
+    public HeadImageView d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k2a(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public k2a(PbFragment pbFragment, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {pbFragment, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.a = pbFragment;
+        this.b = onClickListener;
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: t */
-    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(BdTypeListView bdTypeListView, int i) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d048b, viewGroup, false));
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
+            bdTypeListView.w(relativeLayout, i);
         }
-        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f2a f2aVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        u(i, view2, viewGroup, f2aVar, personCenterIntervalHolder);
-        return view2;
-    }
-
-    public View u(int i, View view2, ViewGroup viewGroup, f2a f2aVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f2aVar, personCenterIntervalHolder})) == null) {
-            if (f2aVar != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, f2aVar.c);
-                }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = f2aVar.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = f2aVar.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
+            return;
+        }
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07f0, (ViewGroup) null);
+        this.c = relativeLayout;
+        HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0912ac);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setPlaceHolder(1);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092856);
+        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092855);
+        this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0912ab);
+        this.c.setOnClickListener(this.b);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            RelativeLayout relativeLayout = this.c;
+            if (relativeLayout != null) {
+                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
             }
-            return view2;
+            HeadImageView headImageView = this.d;
+            if (headImageView != null) {
+                headImageView.setSkinType(i);
+            }
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            }
+            TextView textView2 = this.f;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void d(BdTypeListView bdTypeListView) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
+            bdTypeListView.removeHeaderView(relativeLayout);
+        }
+    }
+
+    public void e(vv9 vv9Var, BdTypeListView bdTypeListView) {
+        String charSequence;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, vv9Var, bdTypeListView) == null) && vv9Var != null && bdTypeListView != null) {
+            if (vv9Var.R().isVideoThreadType() && vv9Var.R().getSmartApp() != null) {
+                SmartApp smartApp = vv9Var.R().getSmartApp();
+                this.c.setVisibility(0);
+                d(bdTypeListView);
+                a(bdTypeListView, 1);
+                if (!rd.isEmpty(smartApp.avatar)) {
+                    this.d.startLoad(smartApp.avatar, 10, false, false);
+                }
+                if (!rd.isEmpty(smartApp.name)) {
+                    charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.smart_app_suffix));
+                } else {
+                    charSequence = this.a.getText(R.string.intelligent_smart_app).toString();
+                }
+                this.e.setText(charSequence);
+                if (!rd.isEmpty(smartApp._abstract)) {
+                    this.f.setText(smartApp._abstract);
+                } else {
+                    this.f.setText(this.a.getText(R.string.smart_app_default_abstract));
+                }
+                this.c.setTag(smartApp);
+                return;
+            }
+            this.c.setVisibility(8);
+            d(bdTypeListView);
+        }
     }
 }

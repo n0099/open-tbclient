@@ -1,282 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.write.view.AssociatedItemContainer;
+import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Toast;
+import tbclient.ToastContent;
 /* loaded from: classes7.dex */
-public class qdb extends jeb<seb> implements leb {
+public class qdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public AssociatedItemContainer g;
-    public final CustomMessageListener h;
 
-    @Override // com.baidu.tieba.leb
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qdb a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qdb qdbVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qdbVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qdbVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                return;
-            }
-            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements AssociatedItemContainer.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qdb a;
-
-        public b(qdb qdbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qdbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qdbVar;
-        }
-
-        @Override // com.baidu.tieba.write.view.AssociatedItemContainer.b
-        public void a(ItemData itemData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
-                if (this.a.e != null) {
-                    this.a.e.removeItemData(itemData);
-                }
-                if (ListUtils.isEmpty(this.a.g.getItemDataList())) {
-                    this.a.g.setVisibility(8);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qdb(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, seb.class);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = new a(this, 2921516);
-    }
-
-    public final void D(ItemData itemData) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) && this.g != null && (writeData = this.e) != null) {
-            writeData.addItemData(itemData);
-            this.g.setVisibility(0);
-            this.g.a(itemData);
-        }
-    }
-
-    @Override // com.baidu.tieba.oeb
-    public void a(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-            G(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.oeb
-    public void c(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
-            G(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.oeb
-    public void d(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) && !ListUtils.isEmpty(writeData.getItemDatas())) {
-            Iterator<ItemData> it = writeData.getItemDatas().iterator();
-            while (it.hasNext()) {
-                D(it.next());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.jeb, com.baidu.tieba.oeb
-    public void j(@NonNull qeb qebVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qebVar) == null) {
-            super.j(qebVar);
-            this.a.registerListener(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.oeb
-    public void onChangeSkinType(int i) {
-        AssociatedItemContainer associatedItemContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (associatedItemContainer = this.g) != null) {
-            associatedItemContainer.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.jeb, com.baidu.tieba.oeb
-    public void r(yd5 yd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, yd5Var) == null) {
-            super.r(yd5Var);
-            if (yd5Var.a == 61) {
-                F();
-            }
-        }
-    }
-
-    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, evaluateRelevanceItemSelectedMessage) == null) {
-            ItemData itemData = new ItemData();
-            itemData.itemId = JavaTypesHelper.toLong(evaluateRelevanceItemSelectedMessage.item_id, 0L);
-            itemData.mTags = evaluateRelevanceItemSelectedMessage.tags;
-            itemData.mScore = evaluateRelevanceItemSelectedMessage.score;
-            itemData.mStar = evaluateRelevanceItemSelectedMessage.star;
-            itemData.mIconUrl = evaluateRelevanceItemSelectedMessage.icon_url;
-            itemData.mIconSize = evaluateRelevanceItemSelectedMessage.icon_size;
-            itemData.mTitle = evaluateRelevanceItemSelectedMessage.item_name;
-            D(itemData);
-        }
-    }
-
-    public final void G(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
-            writeData.getItemDatas().clear();
-            writeData.getItemDataIds().clear();
-            AssociatedItemContainer associatedItemContainer = this.g;
-            if (associatedItemContainer != null) {
-                for (ItemData itemData : associatedItemContainer.getItemDataList()) {
-                    writeData.addItemData(itemData);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oeb
-    public View s(@NonNull ViewGroup viewGroup) {
+    public static BdToastData a(Toast toast) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0525, viewGroup, false);
-            this.c = inflate;
-            AssociatedItemContainer associatedItemContainer = (AssociatedItemContainer) inflate.findViewById(R.id.obfuscated_res_0x7f0902f3);
-            this.g = associatedItemContainer;
-            if (associatedItemContainer != null) {
-                associatedItemContainer.setOnDeletedListener(new b(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toast)) == null) {
+            if (toast == null) {
+                return null;
             }
-            return this.c;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public final void F() {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (writeData = this.e) == null) {
-            return;
-        }
-        if (!writeData.canAddItem()) {
-            BdUtilHelper.showToast(this.a.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1908);
-            return;
-        }
-        RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(this.a.getPageActivity(), 0);
-        relevanceItemSearchActivityConfig.setSelectedIds(this.e.getItemDataIds());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, relevanceItemSearchActivityConfig));
-    }
-
-    @Override // com.baidu.tieba.jeb, com.baidu.tieba.oeb
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            AssociatedItemContainer associatedItemContainer = this.g;
-            if (associatedItemContainer != null && associatedItemContainer.getVisibility() == 0 && !ListUtils.isEmpty(this.g.getItemDataList())) {
-                return true;
+            BdToastData bdToastData = new BdToastData();
+            bdToastData.setIconType(toast.icon_type.intValue());
+            bdToastData.setIconUrl(toast.icon_url);
+            bdToastData.setIconWidth(toast.icon_width.intValue());
+            bdToastData.setIconHeight(toast.icon_height.intValue());
+            bdToastData.setHudWidth(toast.hud_width.intValue());
+            ArrayList arrayList = new ArrayList();
+            for (ToastContent toastContent : toast.content) {
+                if (toastContent != null) {
+                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
+                    contentBean.setText(toastContent.text);
+                    contentBean.setHasColor(toastContent.has_color.intValue());
+                    contentBean.setTextColor(toastContent.text_color);
+                    contentBean.setTextColorDark(toastContent.text_color_dark);
+                    arrayList.add(contentBean);
+                }
             }
-            return false;
+            List<Integer> list = toast.task_ids;
+            if (list != null) {
+                int[] iArr = new int[list.size()];
+                for (int i = 0; i < toast.task_ids.size(); i++) {
+                    iArr[i] = toast.task_ids.get(i).intValue();
+                }
+                bdToastData.setTaskIds(iArr);
+            }
+            bdToastData.setContent(arrayList);
+            bdToastData.setUrl(toast.url);
+            bdToastData.setBackground(toast.background);
+            return bdToastData;
         }
-        return invokeV.booleanValue;
+        return (BdToastData) invokeL.objValue;
     }
 }

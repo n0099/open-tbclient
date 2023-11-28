@@ -1,53 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedHeadButton;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadImg;
-import tbclient.FeedHeadSymbol;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes7.dex */
-public class msc extends qoc {
+public final class msc {
     public static /* synthetic */ Interceptable $ic;
+    public static final foc<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedHeadComponent feedHeadComponent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadComponent)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            FeedHeadImg feedHeadImg = feedHeadComponent.image_data;
-            if (feedHeadImg != null) {
-                qoc.a(jSONObject, "image_data", qsc.b(feedHeadImg));
+    /* loaded from: classes7.dex */
+    public static class a implements foc<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.foc
+        public final void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
-            if (feedHeadComponent.main_data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol : feedHeadComponent.main_data) {
-                    jSONArray.put(rsc.b(feedHeadSymbol));
-                }
-                qoc.a(jSONObject, "main_data", jSONArray);
-            }
-            if (feedHeadComponent.extra_data != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol2 : feedHeadComponent.extra_data) {
-                    jSONArray2.put(rsc.b(feedHeadSymbol2));
-                }
-                qoc.a(jSONObject, WriteVoteActivityConfig.EXTRA_DATA_KEY, jSONArray2);
-            }
-            qoc.a(jSONObject, "schema", feedHeadComponent.schema);
-            FeedHeadButton feedHeadButton = feedHeadComponent.button;
-            if (feedHeadButton != null) {
-                qoc.a(jSONObject, NativeConstants.ID_BUTTON, lsc.b(feedHeadButton));
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+
+        @Override // com.baidu.tieba.foc
+        public final void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.foc
+        public final void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                throw new OnErrorNotImplementedException(th);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984684, "Lcom/baidu/tieba/msc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984684, "Lcom/baidu/tieba/msc;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public static <T> foc<T> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (foc<T>) a;
+        }
+        return (foc) invokeV.objValue;
     }
 }

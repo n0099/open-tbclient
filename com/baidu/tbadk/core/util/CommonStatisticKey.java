@@ -84,6 +84,7 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_BANNER_FORUM_MOUNT_SHOW = "c15435";
     public static final String KEY_FRS_CONTENT_COLLECTION_TAB_LOG = "c15138";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
+    public static final String KEY_FRS_FULL_PUSH_DAILOG_SHOW = "c15603";
     public static final String KEY_FRS_HOT_PEI_WAN_CARD_CLICK = "c15423";
     public static final String KEY_FRS_HOT_PEI_WAN_CARD_SHOW = "c15421";
     public static final String KEY_FRS_HOT_PEI_WAN_VOICE_CLICK = "c15422";
@@ -126,6 +127,7 @@ public class CommonStatisticKey {
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
     public static final String KEY_HEATING_THREAD_EXPOSE = "c14202";
+    public static final String KEY_HEAT_INFARCTION_SEARCH_SHOW = "c15562";
     public static final String KEY_HOME_PAGE_CLICK = "c15428";
     public static final String KEY_HOME_PAGE_MESSGAE_AGREE_PAGE_SHOW = "c14601";
     public static final String KEY_HOME_PAGE_MESSGAE_AT_CLICK = "c14598";

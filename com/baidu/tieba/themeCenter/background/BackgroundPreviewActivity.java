@@ -9,9 +9,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.bya;
-import com.baidu.tieba.sh5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
+import com.baidu.tieba.u2b;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public bya b;
+    public u2b b;
     public int c;
     public int d;
     public int e;
@@ -137,7 +137,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.f = new a(this);
     }
 
-    public int L0() {
+    public int I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -170,19 +170,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            bya byaVar = this.b;
-            if (byaVar != null) {
-                byaVar.h();
+            u2b u2bVar = this.b;
+            if (u2bVar != null) {
+                u2bVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        bya byaVar;
+        u2b u2bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (byaVar = this.b) != null) {
-            showLoadingView(byaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (u2bVar = this.b) != null) {
+            showLoadingView(u2bVar.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            bya byaVar = this.b;
-            if (byaVar != null) {
-                byaVar.g();
+            u2b u2bVar = this.b;
+            if (u2bVar != null) {
+                u2bVar.g();
             }
         }
     }
@@ -205,7 +205,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                sh5.d().h();
+                yh5.d().h();
             }
         }
     }
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.T(this.f);
-            bya byaVar = new bya(this);
-            this.b = byaVar;
-            showLoadingView(byaVar.f());
+            u2b u2bVar = new u2b(this);
+            this.b = u2bVar;
+            showLoadingView(u2bVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

@@ -22,12 +22,6 @@ public class KsDialogFragment extends KsFragment implements IDialogFragmentLifec
         setBase(resDialogFragment);
     }
 
-    @Keep
-    public KsDialogFragment(DelegateDialogFragment delegateDialogFragment) {
-        super(delegateDialogFragment);
-        this.mBase = delegateDialogFragment;
-    }
-
     @KsAdSdkDynamicApi
     @Keep
     public void dismiss() {
@@ -62,6 +56,12 @@ public class KsDialogFragment extends KsFragment implements IDialogFragmentLifec
     @Keep
     public boolean isCancelable() {
         return this.mBase.isCancelable();
+    }
+
+    @Keep
+    public KsDialogFragment(DelegateDialogFragment delegateDialogFragment) {
+        super(delegateDialogFragment);
+        this.mBase = delegateDialogFragment;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IDialogFragmentLifecycle

@@ -1,150 +1,37 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.SocketMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SyncServiceConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tieba.ia5;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.ft8;
+import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONException;
+import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class it8 {
     public static /* synthetic */ Interceptable $ic;
-    public static it8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SocketMessageListener a;
-    public CustomMessageListener b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947865148, "Lcom/baidu/tieba/it8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947865148, "Lcom/baidu/tieba/it8;");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
 
     /* loaded from: classes6.dex */
-    public class a extends SocketMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(it8 it8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = it8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: g */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
-                this.a.d((PushNotifyMessage) socketResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
+    public class a implements ft8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(it8 it8Var, int i) {
-            super(i);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ImMessageCenterPojo imMessageCenterPojo;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
-                return;
-            }
-            at8.n().v(JavaTypesHelper.toLong(imMessageCenterPojo.getGid(), 0L), jw8.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements ia5.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(it8 it8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,136 +42,110 @@ public class it8 {
             }
         }
 
-        @Override // com.baidu.tieba.ia5.a
-        public void a() {
+        @Override // com.baidu.tieba.ft8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                YunDialogManager.onShow(TbadkCoreApplication.getInst(), "topNotify", new JSONObject());
-            }
-        }
-    }
-
-    public it8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        new ArrayList();
-        this.a = new a(this, 202006);
-        this.b = new b(this, 0);
-    }
-
-    public static synchronized it8 b() {
-        InterceptResult invokeV;
-        it8 it8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (it8.class) {
-                if (c == null) {
-                    c = new it8();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                boolean isOpen = ChatStatusManager.getInst().getIsOpen(0);
+                String curId = ChatStatusManager.getInst().getCurId(0);
+                if (TextUtils.isEmpty(str) || !isOpen || !str.equals(curId)) {
+                    return false;
                 }
-                it8Var = c;
+                return true;
             }
-            return it8Var;
-        }
-        return (it8) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
+            return invokeL.booleanValue;
         }
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
-            MessageManager.getInstance().registerListener(2016014, this.b);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class b implements ft8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final void d(PushNotifyMessage pushNotifyMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushNotifyMessage) == null) && pushNotifyMessage != null) {
-            if (pushNotifyMessage.getType() == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
-            } else if (pushNotifyMessage.getType() == 4) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-            } else if (pushNotifyMessage.getType() == 36) {
-                if (!TextUtils.isEmpty(pushNotifyMessage.getContent())) {
-                    try {
-                        String optString = new JSONObject(pushNotifyMessage.getContent()).optString("url");
-                        if (TbConfig.GET_POLLING_DATA.equals(optString)) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
-                        }
-                        if (!TextUtils.isEmpty(optString)) {
-                            da5.b().f(optString);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ft8.a
+        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
+                if (chatMessage != null && chatMessage.getMsgType() == 22) {
+                    if (rz8.A(chatMessage)) {
+                        return true;
                     }
-                }
-            } else {
-                if (pushNotifyMessage.getType() == 39) {
-                    if (!TextUtils.isEmpty(pushNotifyMessage.getContent())) {
-                        nq6.b().c(new qq9(pushNotifyMessage.getContent()));
+                    long a = it8.a(chatMessage);
+                    if (a > imMessageCenterPojo.getRead_msgId()) {
+                        imMessageCenterPojo.setRead_msgId(a);
                     }
-                } else if (pushNotifyMessage.getType() == 41 && StringUtils.isNotNull(pushNotifyMessage.getContent())) {
-                    try {
-                        String optString2 = new JSONObject(pushNotifyMessage.getContent()).optString("url");
-                        if (StringUtils.isNotNull(optString2)) {
-                            ia5.a.j(optString2, new c(this));
-                        }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
+                    return true;
                 }
-                if (!ts8.n().w()) {
-                    return;
-                }
-                String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
-                boolean z = false;
-                Logger.addLog("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
-                if (TextUtils.isEmpty(valueOf)) {
-                    return;
-                }
-                BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
-                if (pushNotifyMessage.getGroupType() == 0) {
-                    at8.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                    return;
-                }
-                int a2 = zs8.a(pushNotifyMessage.getGroupType());
-                if (ts8.n().h(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
-                    z = true;
-                }
-                if (z) {
-                    at8.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                } else {
-                    g(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
-                }
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
-    public final void g(long j, long j2, int i) {
+    public static long a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) != null) || j2 <= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return -1L;
+            }
+            if (chatMessage.getMsgType() == 22) {
+                try {
+                    String content = chatMessage.getContent();
+                    if (TextUtils.isEmpty(content)) {
+                        return -1L;
+                    }
+                    JSONObject jSONObject = new JSONObject(content);
+                    String optString = jSONObject.optString("eventId");
+                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong("groupId") != tw8.j.longValue()) {
+                        return -1L;
+                    }
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return qz8.a(optJSONObject.optLong("readMsgId"));
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ft8.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            ft8.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        }
+    }
+
+    public static void c(GroupMsgData groupMsgData) {
+        LinkedList<ChatMessage> listMessage;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, groupMsgData) != null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
             return;
         }
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setCustomGroupType(i);
-        imMessageCenterPojo.setGid(String.valueOf(j));
-        imMessageCenterPojo.setPulled_msgId(jw8.a(j2 - 1));
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
+        for (int i = 0; i < listMessage.size(); i++) {
+            try {
+                if (new JSONObject(listMessage.get(i).getContent()).optString("eventId").equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            } catch (Exception unused) {
+            }
+        }
     }
 }

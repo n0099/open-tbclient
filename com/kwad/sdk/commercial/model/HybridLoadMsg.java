@@ -1,7 +1,7 @@
 package com.kwad.sdk.commercial.model;
 
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.core.response.kwai.a;
+import com.kwad.sdk.commercial.d.a;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes10.dex */
@@ -15,7 +15,6 @@ public class HybridLoadMsg extends a implements Serializable {
     public String interval;
     public int loadType;
     public String packageUrl;
-    public double ratioCount;
     public String sceneId;
     public int state;
     public String url;
@@ -47,11 +46,6 @@ public class HybridLoadMsg extends a implements Serializable {
 
     public HybridLoadMsg setPackageUrl(String str) {
         this.packageUrl = str;
-        return this;
-    }
-
-    public HybridLoadMsg setRatioCount(double d) {
-        this.ratioCount = d;
         return this;
     }
 

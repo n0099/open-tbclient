@@ -1,54 +1,141 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.task.TbSocketMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class wva extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
+public class wva {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wva(MainTabActivity mainTabActivity) {
-        super(2921734);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948285415, "Lcom/baidu/tieba/wva;")) == null) {
+            return;
         }
-        this.a = mainTabActivity;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948285415, "Lcom/baidu/tieba/wva;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (StringUtils.isNull(str)) {
-                new AlaTabFeedActivityConfig(this.a).start();
-            } else {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static kq5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
+            try {
+                kq5 kq5Var = new kq5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(kq5Var);
+                return kq5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (kq5) invokeIL.objValue;
+    }
+
+    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i2);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
+        }
+        return (TbHttpMessageTask) invokeCommon.objValue;
+    }
+
+    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls}) == null) {
+            c(i2, i, str, cls, false, true, true, false);
+        }
+    }
+
+    public static TbSocketMessageTask h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2);
+        }
+        return (TbSocketMessageTask) invokeCommon.objValue;
+    }
+
+    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
+        }
+        return (TbHttpMessageTask) invokeCommon.objValue;
+    }
+
+    public static TbSocketMessageTask f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true);
+        }
+        return (TbSocketMessageTask) invokeCommon.objValue;
+    }
+
+    public static TbSocketMessageTask g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(i);
+            tbSocketMessageTask.setResponsedClass(cls);
+            tbSocketMessageTask.setNeedCompress(z);
+            tbSocketMessageTask.setDupLicateMode(dupLicateMode);
+            tbSocketMessageTask.setRetry(a);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+            tbSocketMessageTask.setNeedEncrypt(z2);
+            return tbSocketMessageTask;
+        }
+        return (TbSocketMessageTask) invokeCommon.objValue;
     }
 }

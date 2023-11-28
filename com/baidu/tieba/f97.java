@@ -1,153 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.feed.data.ThreadManageType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.LayoutManageInfo;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes5.dex */
 public final class f97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final q77 a(LayoutManageInfo layoutManageInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public static final void a(FeedLinkComponent feedLinkComponent, List<nb7<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, layoutManageInfo)) == null) {
-            String str = layoutManageInfo.text;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            String text = layoutManageInfo.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            Integer type = layoutManageInfo.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            q77 q77Var = new q77(text, type.intValue());
-            try {
-                String ext = layoutManageInfo.ext;
-                Intrinsics.checkNotNullExpressionValue(ext, "ext");
-                Integer type2 = layoutManageInfo.type;
-                Intrinsics.checkNotNullExpressionValue(type2, "type");
-                Object c = c(ext, type2.intValue());
-                if (c == null) {
-                    return null;
-                }
-                q77Var.d(c);
-                return q77Var;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (q77) invokeL.objValue;
-    }
-
-    public static final List<q77> b(List<LayoutManageInfo> list) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (LayoutManageInfo layoutManageInfo : list) {
-                q77 a = a(layoutManageInfo);
-                if (a != null) {
-                    arrayList.add(a);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static final Object c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            int i2 = 0;
-            if (i == ThreadManageType.ID_DEL.getValue()) {
-                JSONArray jSONArray = jSONObject.getJSONArray("reason_list");
+        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            List<PbLinkInfo> list = feedLinkComponent.links;
+            if (list != null) {
                 ArrayList arrayList = new ArrayList();
-                int length = jSONArray.length();
-                while (i2 < length) {
-                    r57 a = s57.a(jSONArray.optJSONObject(i2));
-                    if (a != null) {
-                        arrayList.add(a);
+                for (PbLinkInfo it : list) {
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    g77 b = b(it);
+                    if (b != null) {
+                        arrayList.add(b);
                     }
-                    i2++;
                 }
-                if (arrayList.isEmpty()) {
-                    return null;
-                }
-                return q57.a(arrayList, ea7.a.b(jSONObject.optJSONArray("business_info")));
-            } else if (i == ThreadManageType.ID_FORBID.getValue()) {
-                return i67.a(ea7.a.b(jSONObject.optJSONArray("business_info")));
-            } else {
-                if (i == ThreadManageType.ID_TOP.getValue()) {
-                    return t77.a(ea7.a.b(jSONObject.optJSONArray("business_info")));
-                }
-                if (i == ThreadManageType.ID_GOOD.getValue()) {
-                    return l67.a(ea7.a.b(jSONObject.optJSONArray("business_info")));
-                }
-                if (i == ThreadManageType.ID_MULTI_DEL.getValue()) {
-                    JSONArray jSONArray2 = jSONObject.getJSONArray("reason_list");
-                    ArrayList arrayList2 = new ArrayList();
-                    int length2 = jSONArray2.length();
-                    while (i2 < length2) {
-                        r57 a2 = s57.a(jSONArray2.optJSONObject(i2));
-                        if (a2 != null) {
-                            arrayList2.add(a2);
-                        }
-                        i2++;
-                    }
-                    if (arrayList2.isEmpty()) {
-                        return null;
-                    }
-                    return q57.a(arrayList2, ea7.a.b(jSONObject.optJSONArray("business_info")));
-                } else if (i == ThreadManageType.ID_RECOMMEND.getValue()) {
-                    return i77.a(a57.a(jSONObject.optJSONObject("bawu_thrones")), ea7.a.b(jSONObject.optJSONArray("business_info")));
+                if (arrayList.size() > 1) {
+                    mutableList.add(new n47(arrayList));
                 } else {
-                    if (i == ThreadManageType.ID_MOVE_AREA.getValue()) {
-                        JSONArray jSONArray3 = jSONObject.getJSONArray("tab_list");
-                        ArrayList arrayList3 = new ArrayList();
-                        int length3 = jSONArray3.length();
-                        while (i2 < length3) {
-                            a77 a3 = z67.a(jSONArray3.optJSONObject(i2));
-                            if (a3 != null) {
-                                arrayList3.add(a3);
-                            }
-                            i2++;
-                        }
-                        if (arrayList3.isEmpty()) {
-                            return null;
-                        }
-                        return b77.a(arrayList3, ea7.a.b(jSONObject.optJSONArray("business_info")));
-                    } else if (i != ThreadManageType.ID_BROADCAST.getValue()) {
-                        return null;
-                    } else {
-                        return c57.a(ea7.a.b(jSONObject.optJSONArray("business_info")));
-                    }
+                    mutableList.add(new t47((g77) arrayList.get(0)));
                 }
             }
         }
-        return invokeLI.objValue;
+    }
+
+    public static final g77 b(PbLinkInfo pbLinkInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        int intValue;
+        String str6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
+            String str7 = pbLinkInfo.title;
+            if (str7 == null) {
+                str = "";
+            } else {
+                str = str7;
+            }
+            String str8 = pbLinkInfo.to_url;
+            if (str8 == null) {
+                str2 = "";
+            } else {
+                str2 = str8;
+            }
+            String str9 = pbLinkInfo.pic_url;
+            if (str9 == null) {
+                str3 = "";
+            } else {
+                str3 = str9;
+            }
+            String str10 = pbLinkInfo.link_from;
+            if (str10 == null) {
+                str4 = "";
+            } else {
+                str4 = str10;
+            }
+            String str11 = pbLinkInfo.ext_txt;
+            if (str11 == null) {
+                str5 = "";
+            } else {
+                str5 = str11;
+            }
+            Integer num = pbLinkInfo.sort;
+            int i = 0;
+            if (num == null) {
+                intValue = 0;
+            } else {
+                intValue = num.intValue();
+            }
+            Integer num2 = pbLinkInfo.url_type;
+            if (num2 != null) {
+                i = num2.intValue();
+            }
+            String str12 = pbLinkInfo.content1;
+            if (str12 == null) {
+                str6 = "";
+            } else {
+                str6 = str12;
+            }
+            String str13 = pbLinkInfo.content2;
+            if (str13 == null) {
+                str13 = "";
+            }
+            return new g77(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        }
+        return (g77) invokeL.objValue;
     }
 }

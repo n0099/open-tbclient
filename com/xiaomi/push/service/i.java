@@ -6,7 +6,7 @@ public class i {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f981a;
+    public static b f977a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -18,19 +18,19 @@ public class i {
     }
 
     public static void a(b bVar) {
-        f981a = bVar;
+        f977a = bVar;
     }
 
     public static boolean a(ig igVar) {
         String str;
         if (a == null || igVar == null) {
             str = "rc params is null, not cpra";
-        } else if (com.xiaomi.push.j.m717a(com.xiaomi.push.s.m728a())) {
+        } else if (com.xiaomi.push.j.m721a(com.xiaomi.push.s.m732a())) {
             return a.a(igVar);
         } else {
             str = "rc app not permission to cpra";
         }
-        com.xiaomi.channel.commonutils.logger.b.m186a(str);
+        com.xiaomi.channel.commonutils.logger.b.m190a(str);
         return false;
     }
 }

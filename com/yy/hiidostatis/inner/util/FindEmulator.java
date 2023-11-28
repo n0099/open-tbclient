@@ -7,8 +7,8 @@ import android.telephony.TelephonyManager;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.kuaishou.weapon.p0.h;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.api.HiidoSDK;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FindEmulator {
     public static int emurs;
     public static boolean isCheck;
@@ -31,7 +31,7 @@ public class FindEmulator {
     public static final String[] known_geny_files = {"/dev/socket/genyd", "/dev/socket/baseband_genyd"};
     public static final String[] known_qemu_drivers = {"goldfish"};
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Property {
         public String name;
         public String seek_value;
@@ -42,7 +42,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class tcp {
         public int id;
         public long localIp;
@@ -130,7 +130,7 @@ public class FindEmulator {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean hasQEmuDrivers() {
-        File[] fileArr = {new File("/proc/tty/drivers"), new File(k1.a)};
+        File[] fileArr = {new File("/proc/tty/drivers"), new File(bk.a)};
         for (int i = 0; i < 2; i++) {
             File file = fileArr[i];
             if (file.exists() && file.canRead()) {
@@ -334,7 +334,7 @@ public class FindEmulator {
     }
 
     public static boolean hasKnownDeviceId(Context context) {
-        if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
+        if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, g.c)) {
             String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
             for (String str : known_device_ids) {
                 if (str.equalsIgnoreCase(deviceId)) {
@@ -346,7 +346,7 @@ public class FindEmulator {
     }
 
     public static boolean hasKnownImsi(Context context) {
-        if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
+        if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, g.c)) {
             String subscriberId = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
             for (String str : known_imsi_ids) {
                 if (str.equalsIgnoreCase(subscriberId)) {

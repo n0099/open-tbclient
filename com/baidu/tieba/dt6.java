@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
-import com.baidu.tieba.lt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dt6 extends ct6 {
+public final class dt6 implements Comparator<as6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dt6() {
-        super(new BottomRetainer(0.5f), new jt6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,12 +20,23 @@ public final class dt6 extends ct6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((lt6) objArr[0], (lt6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(as6 o1, as6 o2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
+            Intrinsics.checkNotNullParameter(o1, "o1");
+            Intrinsics.checkNotNullParameter(o2, "o2");
+            return o1.compareTo(o2);
+        }
+        return invokeLL.intValue;
     }
 }

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.mxa;
-import com.baidu.tieba.nxa;
-import com.baidu.tieba.qya;
-import com.baidu.tieba.txa;
+import com.baidu.tieba.f2b;
+import com.baidu.tieba.g2b;
+import com.baidu.tieba.j3b;
+import com.baidu.tieba.m2b;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +32,8 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundGroupActivity a;
-    public qya b;
-    public List<txa> c;
+    public j3b b;
+    public List<m2b> c;
     public c d;
     public boolean e;
     public NetMessageListener f;
@@ -41,7 +41,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(int i, String str, qya qyaVar, List<txa> list);
+        void a(int i, String str, j3b j3bVar, List<m2b> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -159,21 +159,21 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 if (responsedMessage.getError() == 2270014) {
                     return;
                 }
-                int i = nxa.b;
-                if (responsedMessage.getError() == nxa.c) {
-                    i = nxa.a;
+                int i = g2b.b;
+                if (responsedMessage.getError() == g2b.c) {
+                    i = g2b.a;
                 }
                 boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                 if (fromDetail) {
                     return;
                 }
-                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.M0() && (W2 = this.a.W(propId)) != null) {
+                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.K0() && (W2 = this.a.W(propId)) != null) {
                     this.a.b0(i, responsedMessage.getErrorString(), W2, fromDetail);
                     return;
                 }
                 return;
             }
-            if (propId == this.a.a.M0() && (W = this.a.W(propId)) != null) {
+            if (propId == this.a.a.K0() && (W = this.a.W(propId)) != null) {
                 TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", W.getFreeUserLevel()));
             }
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
@@ -222,11 +222,11 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<txa> list = this.c;
+            List<m2b> list = this.c;
             if (list != null && list.size() > 0) {
-                for (txa txaVar : this.c) {
-                    if (txaVar != null && txaVar.a() != null) {
-                        for (DressItemData dressItemData : txaVar.a()) {
+                for (m2b m2bVar : this.c) {
+                    if (m2bVar != null && m2bVar.a() != null) {
+                        for (DressItemData dressItemData : m2bVar.a()) {
                             if (dressItemData != null && dressItemData.getPropsId() == i) {
                                 return dressItemData;
                             }
@@ -241,12 +241,12 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     }
 
     public final void c0(int i) {
-        List<txa> list;
+        List<m2b> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (txa txaVar : this.c) {
-                if (txaVar != null && txaVar.a() != null) {
-                    for (DressItemData dressItemData : txaVar.a()) {
+            for (m2b m2bVar : this.c) {
+                if (m2bVar != null && m2bVar.a() != null) {
+                    for (DressItemData dressItemData : m2bVar.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);
@@ -272,16 +272,16 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dra.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            dra.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            wva.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            wva.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            dra.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            dra.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            wva.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            wva.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -308,20 +308,20 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             }
             if (!StringUtils.isNull(str)) {
                 int i4 = 4;
-                if (i == nxa.a) {
+                if (i == g2b.a) {
                     TbPageContext<BackgroundGroupActivity> pageContext = this.a.getPageContext();
                     if (z) {
                         i3 = 4;
                     } else {
                         i3 = 2;
                     }
-                    mxa.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-                } else if (i == nxa.b) {
+                    f2b.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+                } else if (i == g2b.b) {
                     TbPageContext<BackgroundGroupActivity> pageContext2 = this.a.getPageContext();
                     if (!z) {
                         i4 = 2;
                     }
-                    mxa.c(pageContext2, i4, str, i2);
+                    f2b.c(pageContext2, i4, str, i2);
                 }
             }
         }

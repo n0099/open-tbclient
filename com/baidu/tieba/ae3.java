@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes5.dex */
-public class ae3 extends d83 {
+public class ae3 extends e83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae3(d73 d73Var) {
-        super(d73Var, "/swanAPI/removeStorageSync");
+    public ae3(e73 e73Var) {
+        super(e73Var, "/swanAPI/removeStorage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
+            Object[] objArr = {e73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,12 +38,12 @@ public class ae3 extends d83 {
         }
     }
 
-    @Override // com.baidu.tieba.d83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+    @Override // com.baidu.tieba.e83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
-            if (g63Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
+            if (h63Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
@@ -52,14 +52,14 @@ public class ae3 extends d83 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            String R = iw1.R(optParamsAsJo);
+            String R = jw1.R(optParamsAsJo);
             if (R == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            g63Var.g0().g().remove(R);
-            ci3.h.b();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+            h63Var.g0().g().remove(R);
+            di3.h.b();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;

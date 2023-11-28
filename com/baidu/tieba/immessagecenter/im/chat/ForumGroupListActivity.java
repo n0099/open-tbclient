@@ -118,7 +118,7 @@ public final class ForumGroupListActivity extends BaseFragmentActivity {
         });
     }
 
-    public final GroupChatDialogFragment m1() {
+    public final GroupChatDialogFragment l1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -131,7 +131,7 @@ public final class ForumGroupListActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            m1().K2();
+            l1().W2();
         }
     }
 
@@ -143,7 +143,7 @@ public final class ForumGroupListActivity extends BaseFragmentActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d003b);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             Intrinsics.checkNotNullExpressionValue(beginTransaction, "supportFragmentManager.beginTransaction()");
-            beginTransaction.replace(R.id.obfuscated_res_0x7f090c15, m1());
+            beginTransaction.replace(R.id.obfuscated_res_0x7f090c35, l1());
             beginTransaction.commitAllowingStateLoss();
         }
     }

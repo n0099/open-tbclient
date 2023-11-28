@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.koa;
-import com.baidu.tieba.loa;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.da;
+import com.baidu.tieba.dta;
+import com.baidu.tieba.eta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(boolean z, int i, loa loaVar, String str, boolean z2);
+        void a(boolean z, int i, eta etaVar, String str, boolean z2);
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, Integer, koa> {
+    public class b extends BdAsyncTask<Object, Integer, dta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public koa b;
+        public dta b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new koa();
+            this.b = new dta();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,16 +90,16 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public koa doInBackground(Object... objArr) {
+        public dta doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                yz4.l();
-                ca<String> m = yz4.m("tb.my_posts");
-                if (m != null) {
-                    str = m.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
+                b05.k();
+                da<String> l = b05.l("tb.my_posts");
+                if (l != null) {
+                    str = l.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
                     str = null;
                 }
@@ -125,8 +125,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
                     this.b.e(postNetData);
                     this.c.f = true;
-                    if (m != null) {
-                        m.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir", postNetData, 86400000L);
+                    if (l != null) {
+                        l.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir", postNetData, 86400000L);
                     }
                 } else {
                     this.b.g(this.a.getErrorString());
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (koa) invokeL.objValue;
+            return (dta) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(koa koaVar) {
+        public void onPostExecute(dta dtaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, koaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dtaVar) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, koaVar.b(), this.c.g);
-                } else if (koaVar.h() != null) {
-                    this.c.b.a(true, koaVar.a(), koaVar.h(), koaVar.b(), this.c.g);
+                    this.c.b.a(false, -1, null, dtaVar.b(), this.c.g);
+                } else if (dtaVar.h() != null) {
+                    this.c.b.a(true, dtaVar.a(), dtaVar.h(), dtaVar.b(), this.c.g);
                 }
             }
         }

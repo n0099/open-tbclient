@@ -66,19 +66,19 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce7;
-import com.baidu.tieba.eq6;
-import com.baidu.tieba.ly4;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.jp9;
+import com.baidu.tieba.kp9;
+import com.baidu.tieba.lp9;
+import com.baidu.tieba.mp9;
 import com.baidu.tieba.myAttentionAndFans.ConcernSelectView;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.pe7;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tl9;
-import com.baidu.tieba.ul9;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.tieba.vl9;
-import com.baidu.tieba.wl9;
-import com.baidu.tieba.y95;
-import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,12 +94,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public static final int Q;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernSelectView A;
-    public eq6 B;
-    public eq6 C;
+    public oq6 B;
+    public oq6 C;
     public View D;
     public TextView E;
     public TextView F;
-    public ce7 G;
+    public pe7 G;
     public AttentionMode H;
     public boolean I;
     public final AntiHelper.k J;
@@ -116,7 +116,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public TextView f;
     public View g;
     public TextView h;
-    public tl9 i;
+    public jp9 i;
     public PersonListModel j;
     public NoDataView k;
     public NoPressedRelativeLayout l;
@@ -236,7 +236,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (currentAccount == null || currentAccount.length() <= 0) {
                     TbadkCoreApplication.getInst().login(this.a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.a.getPageContext().getPageActivity(), true, 11028)));
                 } else {
-                    this.a.J0();
+                    this.a.H0();
                 }
             }
         }
@@ -272,7 +272,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.P1();
+            this.a.M1();
         }
     }
 
@@ -307,7 +307,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (this.a.c != null && !this.a.c.p()) {
                     this.a.c.U();
                 }
-                this.a.P1();
+                this.a.M1();
             }
         }
     }
@@ -356,7 +356,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     }
                     return;
                 }
-                this.a.O1();
+                this.a.K1();
             }
         }
     }
@@ -397,15 +397,15 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (i != 1) {
                     if (i == 2) {
                         this.a.H = AttentionMode.ALL;
-                        this.a.s.setText(R.string.obfuscated_res_0x7f0f02a2);
-                        this.a.K1(1);
+                        this.a.s.setText(R.string.obfuscated_res_0x7f0f02aa);
+                        this.a.H1(1);
                         return;
                     }
                     return;
                 }
                 this.a.H = AttentionMode.TIEBA;
-                this.a.s.setText(R.string.obfuscated_res_0x7f0f16a9);
-                this.a.K1(2);
+                this.a.s.setText(R.string.obfuscated_res_0x7f0f16b9);
+                this.a.H1(2);
             }
         }
     }
@@ -473,7 +473,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.F1();
+            this.a.D1();
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -518,7 +518,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.I1();
+            this.a.G1();
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -590,17 +590,17 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(zz4 zz4Var) {
+        public void onNavigationButtonClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(zz4 zz4Var) {
+        public void onPositiveButtonClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -688,7 +688,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (!this.a.i.b) {
                     return;
                 }
-                this.a.H1(null, false);
+                this.a.F1(null, false);
             }
         }
     }
@@ -752,7 +752,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class n implements ce7.e {
+    public class n implements pe7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonListActivity a;
@@ -775,7 +775,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.a = personListActivity;
         }
 
-        @Override // com.baidu.tieba.ce7.e
+        @Override // com.baidu.tieba.pe7.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -784,7 +784,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ce7.e
+        @Override // com.baidu.tieba.pe7.e
         public void b(int i, String str, boolean z, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -842,17 +842,17 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
 
         @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.d
-        public ly4 a(ly4 ly4Var, boolean z) {
+        public ny4 a(ny4 ny4Var, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, ly4Var, z)) == null) {
-                if (ly4Var != null && ly4Var.e != this.a.x && this.a.j != null && this.a.j.U() && this.a.j.V() == 0) {
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, ny4Var, z)) == null) {
+                if (ny4Var != null && ny4Var.e != this.a.x && this.a.j != null && this.a.j.U() && this.a.j.V() == 0) {
                     this.a.j.g0(this.a.y);
                 }
-                this.a.Q1(ly4Var, z);
+                this.a.O1(ny4Var, z);
                 return null;
             }
-            return (ly4) invokeLZ.objValue;
+            return (ny4) invokeLZ.objValue;
         }
 
         @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.d
@@ -866,7 +866,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (!TextUtils.isEmpty(str)) {
                     this.a.showToast(str);
                 }
-                this.a.H1(null, false);
+                this.a.F1(null, false);
             }
         }
     }
@@ -1004,7 +1004,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                         str = "c14286";
                         str2 = YYLiveUtil.SOURCE_PERSON_LIST_OWNER;
                     }
-                    wl9.a(str, userData);
+                    mp9.a(str, userData);
                     AlaInfoData alaInfo = userData.getAlaInfo();
                     if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
                         YYLiveUtil.jumpYYLiveRoom(this.b.getPageContext(), alaInfo, str2);
@@ -1034,24 +1034,24 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         Q = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     }
 
-    public final void F1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TiebaStatic.log(new StatisticItem("c13103"));
             if (!BdUtilHelper.isNetOk()) {
-                showToast(getString(R.string.obfuscated_res_0x7f0f0e61));
+                showToast(getString(R.string.obfuscated_res_0x7f0f0e6f));
             } else {
                 sendMessage(new CustomMessage(2002001, new MyForbiddenFansActivityConfig(getActivity())));
             }
         }
     }
 
-    public final void I1() {
+    public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             TiebaStatic.log(new StatisticItem("c13104").param("obj_locate", 1));
             if (!BdUtilHelper.isNetOk()) {
-                showToast(getString(R.string.obfuscated_res_0x7f0f0e61));
+                showToast(getString(R.string.obfuscated_res_0x7f0f0e6f));
             } else {
                 this.G.e();
             }
@@ -1099,7 +1099,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.s.setText(R.string.obfuscated_res_0x7f0f02a2);
+            this.s.setText(R.string.obfuscated_res_0x7f0f02aa);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.s.getLayoutParams();
             int i2 = P;
             layoutParams.rightMargin = i2;
@@ -1121,7 +1121,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void L1(boolean z) {
+    public final void I1(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (view2 = this.u) != null) {
@@ -1129,10 +1129,10 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void T1(ly4 ly4Var) {
+    public final void R1(ny4 ny4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ly4Var) == null) {
-            this.j.f0(ly4Var.d);
+        if (interceptable == null || interceptable.invokeL(1048592, this, ny4Var) == null) {
+            this.j.f0(ny4Var.d);
         }
     }
 
@@ -1140,7 +1140,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048597, this, i2, i3, intent) == null) && i3 == -1 && i2 == 11028) {
-            J0();
+            H0();
         }
     }
 
@@ -1161,7 +1161,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         return invokeIL.booleanValue;
     }
 
-    public final void B1(Bundle bundle) {
+    public final void A1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             PersonListModel personListModel = new PersonListModel(this, this.N);
@@ -1187,18 +1187,18 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void S1(ly4 ly4Var) {
+    public final void Q1(ny4 ny4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, ly4Var) != null) || ly4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, ny4Var) != null) || ny4Var == null) {
             return;
         }
-        if (!ly4Var.f && !StringUtils.isNull(ly4Var.g) && !this.w) {
-            z1(ly4Var.g, ly4Var.h);
+        if (!ny4Var.f && !StringUtils.isNull(ny4Var.g) && !this.w) {
+            z1(ny4Var.g, ny4Var.h);
             this.b.removeFooterView(this.D);
             this.b.addFooterView(this.D);
             this.b.removeFooterView(this.c.c());
             TiebaStatic.log(new StatisticItem("c13106").param("obj_locate", 2));
-        } else if (!ly4Var.f) {
+        } else if (!ny4Var.f) {
             this.b.removeFooterView(this.D);
             this.c.H(getString(R.string.no_more_data_tip));
             this.c.g();
@@ -1220,63 +1220,63 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0802);
-            B1(bundle);
-            D1();
-            ce7 ce7Var = new ce7(getPageContext(), getUniqueId());
-            this.G = ce7Var;
-            ce7Var.g(new n(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d081c);
+            A1(bundle);
+            B1();
+            pe7 pe7Var = new pe7(getPageContext(), getUniqueId());
+            this.G = pe7Var;
+            pe7Var.g(new n(this));
             registerListener(this.K);
             registerListener(this.L);
             this.j.Z();
             this.j.Y();
             if (this.m) {
                 this.m = false;
-                E1();
+                C1();
             }
         }
     }
 
-    public final void D1() {
+    public final void B1() {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.l = (NoPressedRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091acb);
+            this.l = (NoPressedRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b40);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.o = navigationBar;
             this.s = navigationBar.setCenterTextTitle("");
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.q = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091956);
-            this.r = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091959);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092369);
+            this.q = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f0919c9);
+            this.r = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f0919cc);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923eb);
             this.d = findViewById;
-            this.e = findViewById.findViewById(R.id.obfuscated_res_0x7f0919c9);
+            this.e = findViewById.findViewById(R.id.obfuscated_res_0x7f091a3c);
             this.d.setVisibility(8);
             this.d.setClickable(false);
             this.d.setEnabled(false);
-            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091c97);
-            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f0921d3);
-            this.p = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f091949);
+            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091d0c);
+            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f09224d);
+            this.p = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f0919bc);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String id = this.j.getId();
             if (currentAccount != null && currentAccount.equals(id)) {
                 if (this.j.U()) {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f0d44);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f0d52);
                     if (FollowListSwitch.isOn()) {
                         u1();
                     }
                     this.l.setDispathEventAction(new p(this));
                 } else {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f071e);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f0726);
                 }
             } else if (this.j.U()) {
                 int i2 = this.v;
                 if (i2 == 2) {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f09dd);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f09e7);
                 } else if (i2 == 1) {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f09eb);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f09f5);
                 } else {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f0b70);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f0b7d);
                 }
             } else {
                 int i3 = this.v;
@@ -1299,16 +1299,16 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
             int sex = this.j.getSex();
             if (getIntent().getBooleanExtra("follow", false)) {
-                this.i = new vl9(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
+                this.i = new lp9(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
                 this.d.setVisibility(0);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, BdUtilHelper.getDimens(getActivity(), R.dimen.tbds530)), null, null);
             } else {
-                this.i = new ul9(getPageContext(), z, sex, qVar, bVar);
+                this.i = new kp9(getPageContext(), z, sex, qVar, bVar);
                 this.d.setVisibility(8);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, BdUtilHelper.getDimens(getActivity(), R.dimen.tbds530)), null, null);
             }
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907db);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091596);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907f7);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091607);
             this.b = bdListView;
             bdListView.setAdapter((ListAdapter) this.i);
             v1();
@@ -1330,7 +1330,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void E1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             showLoadingView(this.a);
@@ -1338,12 +1338,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void P1() {
+    public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            tl9 tl9Var = this.i;
-            if (tl9Var != null) {
-                tl9Var.notifyDataSetChanged();
+            jp9 jp9Var = this.i;
+            if (jp9Var != null) {
+                jp9Var.notifyDataSetChanged();
             }
             this.j.c0();
         }
@@ -1381,13 +1381,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (this.i != null) {
                 this.i = null;
             }
-            eq6 eq6Var = this.B;
-            if (eq6Var != null) {
-                eq6Var.h();
+            oq6 oq6Var = this.B;
+            if (oq6Var != null) {
+                oq6Var.h();
             }
-            eq6 eq6Var2 = this.C;
-            if (eq6Var2 != null) {
-                eq6Var2.h();
+            oq6 oq6Var2 = this.C;
+            if (oq6Var2 != null) {
+                oq6Var2.h();
             }
             this.p.f();
             this.j.a0();
@@ -1417,13 +1417,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             return;
         }
         SharedPrefHelper.getInstance().putBoolean("key_follow_guide_tip", true);
-        N1();
+        J1();
     }
 
     public void y1() {
-        eq6 eq6Var;
+        oq6 oq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (eq6Var = this.C) != null && eq6Var.i()) {
+        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (oq6Var = this.C) != null && oq6Var.i()) {
             this.C.h();
         }
     }
@@ -1433,13 +1433,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void G1(ly4 ly4Var) {
+    public final void E1(ny4 ny4Var) {
         TextView textView;
         String string;
         String string2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, ly4Var) != null) || ly4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ny4Var) != null) || ny4Var == null) {
             return;
         }
         this.b.setVisibility(0);
@@ -1453,20 +1453,20 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.A.setVisibility(0);
                 if (FollowListSwitch.isOn()) {
                     if (this.j.V() == 0) {
-                        string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02b5);
+                        string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02bd);
                     } else {
                         string = getPageContext().getString(R.string.each_concerned);
                     }
                     string2 = getPageContext().getString(R.string.forum_friend);
                 } else {
                     if (this.j.V() == 0) {
-                        string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02a3);
+                        string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02ab);
                     } else {
                         string = getPageContext().getString(R.string.each_concerned);
                     }
-                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f107b);
+                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f108b);
                 }
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ec5)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ed3)));
             } else {
                 this.d.setVisibility(8);
                 this.g.setVisibility(0);
@@ -1475,21 +1475,21 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.A.setVisibility(8);
                 int i2 = this.v;
                 if (i2 == 2) {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1417);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1427);
                 } else if (i2 == 1) {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09d5);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09df);
                 } else {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09d5);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09df);
                 }
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ec6)));
-                string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f107b);
-                z = !ListUtils.isEmpty(ly4Var.a());
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ed4)));
+                string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f108b);
+                z = !ListUtils.isEmpty(ny4Var.a());
                 if (!z) {
                     textView.setVisibility(0);
-                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f189c));
+                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f18ac));
                     return;
                 }
-                textView.setText(string + StringHelper.numberUniformFormat(ly4Var.e) + string2);
+                textView.setText(string + StringHelper.numberUniformFormat(ny4Var.e) + string2);
                 return;
             }
         } else {
@@ -1499,22 +1499,22 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.A.setVisibility(8);
             textView.setVisibility(8);
             if (this.j.getId() != null && this.j.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                string = getPageContext().getString(R.string.obfuscated_res_0x7f0f0d4a);
-                string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f0724);
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ec8)));
+                string = getPageContext().getString(R.string.obfuscated_res_0x7f0f0d58);
+                string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f072c);
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ed6)));
             } else {
                 int i3 = this.v;
                 if (i3 == 2) {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09de);
-                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f0724);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09e8);
+                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f072c);
                 } else if (i3 == 1) {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09ec);
-                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f0724);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09f6);
+                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f072c);
                 } else {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09ec);
-                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f0724);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09f6);
+                    string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f072c);
                 }
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f09e0)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f09ea)));
             }
         }
         z = false;
@@ -1522,12 +1522,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void H1(ly4 ly4Var, boolean z) {
+    public final void F1(ny4 ny4Var, boolean z) {
         String string;
         String string2;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, ly4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, ny4Var, z) == null) {
             this.b.setVisibility(8);
             if (!z) {
                 this.k.setVisibility(0);
@@ -1540,23 +1540,23 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     this.g.setVisibility(8);
                     if (FollowListSwitch.isOn()) {
                         if (this.j.V() == 0) {
-                            string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02b5);
+                            string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02bd);
                         } else {
                             string = getPageContext().getString(R.string.each_concerned);
                         }
                         string2 = getPageContext().getString(R.string.forum_friend);
                     } else {
                         if (this.j.V() == 0) {
-                            string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02a3);
+                            string = getPageContext().getString(R.string.obfuscated_res_0x7f0f02ab);
                         } else {
                             string = getPageContext().getString(R.string.each_concerned);
                         }
-                        string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f107b);
+                        string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f108b);
                     }
                     if (this.j.V() == 0) {
-                        i2 = R.string.obfuscated_res_0x7f0f0ec5;
+                        i2 = R.string.obfuscated_res_0x7f0f0ed3;
                     } else {
-                        i2 = R.string.obfuscated_res_0x7f0f0ec7;
+                        i2 = R.string.obfuscated_res_0x7f0f0ed5;
                     }
                     this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(i2)));
                     TextView textView = this.f;
@@ -1565,31 +1565,31 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 }
                 this.A.setVisibility(8);
                 this.f.setVisibility(8);
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ec6)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ed4)));
                 return;
             }
             this.A.setVisibility(8);
             this.f.setVisibility(8);
             if (this.j.getId() != null && this.j.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                if (ly4Var != null && !StringUtils.isNull(ly4Var.g) && !this.w) {
-                    this.k.getSuTextView().setText(x1(ly4Var.g, ly4Var.h));
+                if (ny4Var != null && !StringUtils.isNull(ny4Var.g) && !this.w) {
+                    this.k.getSuTextView().setText(x1(ny4Var.g, ny4Var.h));
                     this.k.getSuTextView().setMovementMethod(LinkMovementMethod.getInstance());
                     this.k.getSuTextView().setHighlightColor(getResources().getColor(R.color.transparent));
                     TiebaStatic.log(new StatisticItem("c13106").param("obj_locate", 1));
                     return;
                 }
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ec8)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ed6)));
                 return;
             }
-            this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f09e0)));
+            this.k.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f09ea)));
         }
     }
 
-    public final void J0() {
-        tl9 tl9Var;
+    public final void H0() {
+        jp9 jp9Var;
         UserData userData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tl9Var = this.i) != null && tl9Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (jp9Var = this.i) != null && jp9Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "enter_chat", "personlistclick", 1, new Object[0]);
             try {
                 if (getPageContext() != null && getPageContext().getPageActivity() != null) {
@@ -1601,23 +1601,23 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void K1(int i2) {
+    public final void H1(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             BdListView bdListView = this.b;
             if (bdListView != null) {
                 bdListView.setVisibility(8);
             }
-            tl9 tl9Var = this.i;
-            if (tl9Var != null) {
-                tl9Var.e();
+            jp9 jp9Var = this.i;
+            if (jp9Var != null) {
+                jp9Var.e();
             }
             PersonListModel personListModel = this.j;
             if (personListModel != null) {
                 personListModel.f0(0);
             }
             showLoadingView(this.a);
-            L1(false);
+            I1(false);
             PersonListModel personListModel2 = this.j;
             if (personListModel2 != null) {
                 personListModel2.b0(i2);
@@ -1637,27 +1637,27 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    public final void N1() {
+    public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.C == null) {
-                eq6 eq6Var = new eq6(getPageContext(), this.u);
-                this.C = eq6Var;
-                eq6Var.L(R.drawable.bg_tip_blue_up);
+                oq6 oq6Var = new oq6(getPageContext(), this.u);
+                this.C = oq6Var;
+                oq6Var.L(R.drawable.bg_tip_blue_up);
                 this.C.w(1);
                 this.C.n(3000);
                 this.C.Q(50);
             }
-            this.C.S(getResources().getString(R.string.obfuscated_res_0x7f0f0475));
+            this.C.S(getResources().getString(R.string.obfuscated_res_0x7f0f047d));
         }
     }
 
-    public final void O1() {
+    public final void K1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.B == null) {
-            eq6 eq6Var = new eq6(getPageContext(), this.A.h);
-            this.B = eq6Var;
-            eq6Var.L(R.drawable.bg_tip_blue_up);
+            oq6 oq6Var = new oq6(getPageContext(), this.A.h);
+            this.B = oq6Var;
+            oq6Var.L(R.drawable.bg_tip_blue_up);
             this.B.w(2);
             this.B.n(3000);
             this.B.Q(-10);
@@ -1669,72 +1669,72 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0805, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d081f, (ViewGroup) null);
             this.g = inflate;
             inflate.setVisibility(8);
             this.g.setClickable(false);
             this.g.setEnabled(false);
-            this.h = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091c97);
+            this.h = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091d0c);
             this.b.addHeaderView(this.g, null, false);
         }
     }
 
-    public final synchronized void Q1(ly4 ly4Var, boolean z) {
+    public final synchronized void O1(ny4 ny4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048589, this, ly4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048589, this, ny4Var, z) == null) {
             synchronized (this) {
-                if (this.j != null && ly4Var != null) {
+                if (this.j != null && ny4Var != null) {
                     if (z && this.n) {
                         return;
                     }
                     if (!z) {
                         this.n = true;
-                        T1(ly4Var);
+                        R1(ny4Var);
                     }
-                    S1(ly4Var);
-                    R1(ly4Var, z);
+                    Q1(ny4Var);
+                    P1(ny4Var, z);
                     if (!this.j.U()) {
-                        y95.p0().j0(0);
+                        da5.p0().j0(0);
                     }
-                    V1(ly4Var, z);
-                    U1(ly4Var);
+                    T1(ny4Var, z);
+                    S1(ny4Var);
                 }
             }
         }
     }
 
-    public final void R1(ly4 ly4Var, boolean z) {
-        tl9 tl9Var;
+    public final void P1(ny4 ny4Var, boolean z) {
+        jp9 jp9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048590, this, ly4Var, z) == null) && (tl9Var = this.i) != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048590, this, ny4Var, z) == null) && (jp9Var = this.i) != null) {
             if (!z) {
-                if (ly4Var.d == 1) {
-                    tl9Var.e();
+                if (ny4Var.d == 1) {
+                    jp9Var.e();
                 }
-                this.i.f(ly4Var.f);
-                this.i.a(ly4Var);
+                this.i.f(ny4Var.f);
+                this.i.a(ny4Var);
                 this.i.b();
                 this.i.notifyDataSetChanged();
                 return;
             }
-            tl9Var.f(false);
-            this.i.a(ly4Var);
+            jp9Var.f(false);
+            this.i.a(ny4Var);
             this.i.b();
             this.i.notifyDataSetChanged();
         }
     }
 
-    public final void U1(ly4 ly4Var) {
+    public final void S1(ny4 ny4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, ly4Var) == null) && this.u != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, ny4Var) == null) && this.u != null) {
             if (isLoadingViewAttached()) {
                 hideLoadingView(this.a);
-                L1(true);
+                I1(true);
             }
-            if (ly4Var.e > 0) {
-                G1(ly4Var);
+            if (ny4Var.e > 0) {
+                E1(ny4Var);
             }
-            int i2 = ly4Var.j;
+            int i2 = ny4Var.j;
             if (i2 != 1) {
                 if (i2 != 2) {
                     this.H = AttentionMode.NULL;
@@ -1742,26 +1742,26 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 }
                 this.H = AttentionMode.TIEBA;
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f16a9);
+                this.s.setText(R.string.obfuscated_res_0x7f0f16b9);
                 return;
             }
             this.H = AttentionMode.ALL;
             this.u.setVisibility(0);
-            this.s.setText(R.string.obfuscated_res_0x7f0f02a2);
+            this.s.setText(R.string.obfuscated_res_0x7f0f02aa);
             w1();
         }
     }
 
-    public final void V1(ly4 ly4Var, boolean z) {
+    public final void T1(ny4 ny4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, ly4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048594, this, ny4Var, z) == null) {
             if (this.j.W() == 0 || this.j.W() == 1) {
                 hideLoadingView(this.a);
-                L1(true);
-                if (ly4Var.e > 0 && !ListUtils.isEmpty(ly4Var.b())) {
-                    G1(ly4Var);
+                I1(true);
+                if (ny4Var.e > 0 && !ListUtils.isEmpty(ny4Var.b())) {
+                    E1(ny4Var);
                 } else {
-                    H1(ly4Var, z);
+                    F1(ny4Var, z);
                 }
             }
         }
@@ -1775,9 +1775,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.a, R.color.CAM_X0201);
             this.o.onChangeSkinType(getPageContext(), i2);
-            tl9 tl9Var = this.i;
-            if (tl9Var != null) {
-                tl9Var.notifyDataSetChanged();
+            jp9 jp9Var = this.i;
+            if (jp9Var != null) {
+                jp9Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.k;
             if (noDataView != null) {
@@ -1808,7 +1808,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.G.d();
             this.c.J(SkinManager.getColor(R.color.CAM_X0109));
             this.c.e(i2);
-            WebPManager.setPureDrawable(this.t, R.drawable.obfuscated_res_0x7f080c41, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.t, R.drawable.obfuscated_res_0x7f080c4b, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -1827,21 +1827,21 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     if (i2 != 3) {
                         str2 = null;
                     } else {
-                        str3 = getString(R.string.obfuscated_res_0x7f0f0467);
-                        str2 = getString(R.string.obfuscated_res_0x7f0f1257);
+                        str3 = getString(R.string.obfuscated_res_0x7f0f046f);
+                        str2 = getString(R.string.obfuscated_res_0x7f0f1267);
                         spannableStringBuilder.append((CharSequence) "，");
                         spannableStringBuilder.append((CharSequence) str3);
-                        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f16de));
+                        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f16ee));
                         spannableStringBuilder.append((CharSequence) str2);
                     }
                 } else {
                     spannableStringBuilder.append((CharSequence) "，");
-                    str2 = getString(R.string.obfuscated_res_0x7f0f1257);
+                    str2 = getString(R.string.obfuscated_res_0x7f0f1267);
                     spannableStringBuilder.append((CharSequence) str2);
                 }
             } else {
                 spannableStringBuilder.append((CharSequence) "，");
-                String string = getString(R.string.obfuscated_res_0x7f0f0467);
+                String string = getString(R.string.obfuscated_res_0x7f0f046f);
                 spannableStringBuilder.append((CharSequence) string);
                 str3 = string;
                 str2 = null;
@@ -1861,9 +1861,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048610, this, str, i2) == null) {
             if (this.D == null) {
-                View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f9, (ViewGroup) null);
+                View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0301, (ViewGroup) null);
                 this.D = inflate;
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0929c9);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092a4f);
                 this.E = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.D, R.color.CAM_X0201);

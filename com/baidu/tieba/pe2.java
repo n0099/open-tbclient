@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface pe2 {
-    void a(String str);
+    @NonNull
+    Context a();
 }

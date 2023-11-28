@@ -14,6 +14,8 @@ public interface IOfflineCompoRequest {
 
     Map<String, String> getHeader();
 
+    String getMethod();
+
     String getRequestHost();
 
     @Nullable

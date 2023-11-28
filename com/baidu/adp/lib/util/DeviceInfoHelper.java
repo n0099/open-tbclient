@@ -15,7 +15,7 @@ import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.searchbox.common.security.DeviceIdBag;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.ud;
+import com.baidu.tieba.vd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class DeviceInfoHelper {
     public static final String DEFAULT_IMEI = "000000000000000";
     public static final String PURPOSE = "定位问题，安全保障，个性化展示";
     public static final String SCENE = "初始化";
-    public static ud permissionUtil;
+    public static vd permissionUtil;
     @NonNull
     public static final Map<String, String> sCache;
     public static final Application sContext;
@@ -162,6 +162,7 @@ public class DeviceInfoHelper {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     @SuppressLint({"HardwareIds"})
     public static String getIdByInfoName(@NonNull String str) {
         InterceptResult invokeL;
@@ -169,9 +170,9 @@ public class DeviceInfoHelper {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            ud udVar = permissionUtil;
+            vd vdVar = permissionUtil;
             String str2 = "";
-            if (udVar != null && udVar.isBrowseMode()) {
+            if (vdVar != null && vdVar.isBrowseMode()) {
                 return "";
             }
             String str3 = sCache.get(str);
@@ -273,6 +274,7 @@ public class DeviceInfoHelper {
         return (String) invokeL.objValue;
     }
 
+    @NonNull
     public static String getNonNullId(@NonNull DeviceIdBag deviceIdBag, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -285,6 +287,7 @@ public class DeviceInfoHelper {
         return (String) invokeLL.objValue;
     }
 
+    @NonNull
     public static String getUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,10 +309,10 @@ public class DeviceInfoHelper {
         return (String) invokeV.objValue;
     }
 
-    public static void setPermissionUtil(ud udVar) {
+    public static void setPermissionUtil(vd vdVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, udVar) == null) {
-            permissionUtil = udVar;
+        if (interceptable == null || interceptable.invokeL(65550, null, vdVar) == null) {
+            permissionUtil = vdVar;
         }
     }
 }

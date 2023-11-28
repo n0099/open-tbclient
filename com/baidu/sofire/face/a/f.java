@@ -84,7 +84,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public IDetectStrategy S;
 
     /* renamed from: T  reason: collision with root package name */
-    public Map<Long, String> f1070T;
+    public Map<Long, String> f1066T;
     public int U;
     public long V;
     public JSONArray W;
@@ -1071,7 +1071,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                             fVar.p = true;
                             Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
-                                this.a.f1070T = a;
+                                this.a.f1066T = a;
                             } else {
                                 this.a.a(-8);
                             }
@@ -1140,7 +1140,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                             fVar.p = true;
                             Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
-                                this.a.f1070T = a;
+                                this.a.f1066T = a;
                             } else {
                                 this.a.a(-8);
                             }
@@ -1660,10 +1660,10 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     }
                     this.j = null;
                 }
-                Map<Long, String> map = this.f1070T;
+                Map<Long, String> map = this.f1066T;
                 if (map != null) {
                     map.clear();
-                    this.f1070T = null;
+                    this.f1066T = null;
                 }
                 com.baidu.sofire.face.b.b.a(this.a, this.r, 2, i2, null);
             } catch (Throwable unused2) {
@@ -1753,11 +1753,11 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 if (jSONObject3 == null) {
                     jSONObject3 = new JSONObject();
                 }
-                if (this.f1070T.size() == 1) {
-                    jSONObject3.put("image", this.f1070T.values().iterator().next());
-                } else if (this.f1070T.size() >= 2) {
+                if (this.f1066T.size() == 1) {
+                    jSONObject3.put("image", this.f1066T.values().iterator().next());
+                } else if (this.f1066T.size() >= 2) {
                     JSONArray jSONArray = new JSONArray();
-                    for (String str2 : this.f1070T.values()) {
+                    for (String str2 : this.f1066T.values()) {
                         jSONArray.put(str2);
                     }
                     jSONObject3.put("images", jSONArray);

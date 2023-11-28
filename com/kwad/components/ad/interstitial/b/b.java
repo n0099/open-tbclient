@@ -1,38 +1,67 @@
 package com.kwad.components.ad.interstitial.b;
 
-import com.kwad.sdk.mvp.Presenter;
-import java.util.List;
+import com.kwad.sdk.core.response.model.AdInfo;
 /* loaded from: classes10.dex */
-public class b extends Presenter {
-    public c gh;
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public void aq() {
-        super.aq();
-        this.gh = (c) xR();
-    }
-
-    public void cv() {
-        List<Presenter> xQ = xQ();
-        if (xQ == null) {
-            return;
-        }
-        for (Presenter presenter : xQ) {
-            if (presenter instanceof b) {
-                ((b) presenter).cv();
+public final class b {
+    public static int b(AdInfo adInfo) {
+        int intValue = a.jv.getValue().intValue();
+        if (com.kwad.sdk.core.response.b.a.bc(adInfo)) {
+            int L = com.kwad.sdk.core.response.b.a.L(adInfo);
+            if (intValue == 0) {
+                return L;
             }
+            return Math.min(intValue, L);
+        } else if (intValue > 60 || intValue <= 0) {
+            return 60;
+        } else {
+            return intValue;
         }
     }
 
-    public void cw() {
-        List<Presenter> xQ = xQ();
-        if (xQ == null) {
-            return;
+    public static boolean cE() {
+        return a.jx.getValue().booleanValue();
+    }
+
+    public static boolean cF() {
+        if (a.jr.getValue().intValue() == 1) {
+            return true;
         }
-        for (Presenter presenter : xQ) {
-            if (presenter instanceof b) {
-                ((b) presenter).cw();
-            }
+        return false;
+    }
+
+    public static int cG() {
+        return a.js.getValue().intValue();
+    }
+
+    public static boolean cH() {
+        if (a.jt.getValue().intValue() == 1) {
+            return true;
         }
+        return false;
+    }
+
+    public static boolean cI() {
+        if (a.ju.getValue().intValue() == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public static int cJ() {
+        return a.jz.getValue().intValue();
+    }
+
+    public static boolean cK() {
+        if (a.jw.getValue().intValue() == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean cL() {
+        if (a.jy.getValue().intValue() == 1) {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,72 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.viewpager.widget.PagerAdapter;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tieba.personCenter.view.PersonCenterSmartAppPageView;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class l4a extends zk6<b4a> {
+public class l4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<r3a> i;
-    public List<PersonCenterSmartAppPageView> j;
-    public BdBaseViewPager k;
-    public View l;
-    public a m;
-    public PersonCenterSmartAppPageView n;
-    public LinearLayout o;
-    public TextView p;
-    public LinearLayout q;
-
-    @Override // com.baidu.tieba.zk6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07ea : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
 
     /* loaded from: classes7.dex */
-    public class a extends PagerAdapter {
+    public class a implements qx5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<PersonCenterSmartAppPageView> a;
+        public final /* synthetic */ PbModel a;
+        public final /* synthetic */ j1a b;
 
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public boolean isViewFromObject(View view2, Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
-        }
-
-        public a(l4a l4aVar, List<PersonCenterSmartAppPageView> list) {
+        public a(PbModel pbModel, j1a j1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l4aVar, list};
+                Object[] objArr = {pbModel, j1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,152 +45,133 @@ public class l4a extends zk6<b4a> {
                     return;
                 }
             }
-            this.a = list;
+            this.a = pbModel;
+            this.b = j1aVar;
         }
 
-        public void b(List<PersonCenterSmartAppPageView> list) {
+        @Override // com.baidu.tieba.qx5
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a = list;
-                notifyDataSetChanged();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.H4(false);
             }
         }
 
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public int getItemPosition(Object obj) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.qx5
+        public void b(List<String> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                int indexOf = this.a.indexOf(obj);
-                if (indexOf == -1) {
-                    return -2;
-                }
-                return indexOf;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
-                viewGroup.removeView((View) obj);
-            }
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public Object instantiateItem(ViewGroup viewGroup, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.a.get(i);
-                viewGroup.addView(personCenterSmartAppPageView);
-                return personCenterSmartAppPageView;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l4a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.s1() == null) {
                 return;
             }
-        }
-        this.l = i();
-        int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
-        this.l.setPadding(dimens, 0, dimens, 0);
-        this.q = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f0916f3);
-        this.p = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f0922b7);
-        this.k = (BdBaseViewPager) this.l.findViewById(R.id.obfuscated_res_0x7f092a5f);
-        this.o = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f0922b8);
-        ArrayList arrayList = new ArrayList();
-        this.j = arrayList;
-        a aVar = new a(this, arrayList);
-        this.m = aVar;
-        this.k.setAdapter(aVar);
-        l(h(), this.a);
-    }
-
-    @Override // com.baidu.tieba.zk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.j) {
-                if (personCenterSmartAppPageView != null) {
-                    personCenterSmartAppPageView.c();
+            ArrayList<nwa> I = this.a.s1().I();
+            if (!ListUtils.isEmpty(I) && !ListUtils.isEmpty(list)) {
+                Iterator<nwa> it = I.iterator();
+                while (it.hasNext()) {
+                    nwa next = it.next();
+                    int i = 0;
+                    while (true) {
+                        if (i >= list.size()) {
+                            break;
+                        } else if (TextUtils.equals(list.get(i), next.U())) {
+                            it.remove();
+                            if (this.a.s1().R() != null) {
+                                this.a.s1().R().setReply_num(this.a.s1().R().getReply_num() - 1);
+                            }
+                        } else {
+                            i++;
+                        }
+                    }
                 }
+                this.b.Y1(this.a.s1());
             }
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
-            EMManager.from(this.k).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            EMManager.from(this.o).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 
-    public final void p(r3a r3aVar) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r3aVar) == null) {
-            if (this.n.b()) {
-                this.n.a(r3aVar);
-                return;
-            }
-            PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(c());
-            this.n = personCenterSmartAppPageView;
-            this.j.add(personCenterSmartAppPageView);
-            this.n.a(r3aVar);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            px5.b().a();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk6
-    /* renamed from: r */
-    public void k(b4a b4aVar) {
+    public static sx5 b(PbModel pbModel, j1a j1aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b4aVar) == null) {
-            if (b4aVar != null && b4aVar.c() != null && !ListUtils.isEmpty(b4aVar.c())) {
-                o(0);
-                this.j.clear();
-                this.i = b4aVar.c();
-                PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(c());
-                this.n = personCenterSmartAppPageView;
-                this.j.add(personCenterSmartAppPageView);
-                int min = Math.min(7, this.i.size());
-                for (int i = 0; i < min; i++) {
-                    p((r3a) ListUtils.getItem(this.i, i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, j1aVar)) == null) {
+            if (pbModel != null && j1aVar != null) {
+                sx5 sx5Var = new sx5();
+                if (pbModel.s1() != null && pbModel.s1().n() != null) {
+                    if (pbModel.s1().n().getDeletedReasonInfo() != null) {
+                        sx5Var.p(pbModel.s1().n().getDeletedReasonInfo().is_grays_cale_forum.intValue());
+                        sx5Var.o(pbModel.s1().n().getDeletedReasonInfo().is_boomgrow.intValue());
+                    }
+                    sx5Var.l(pbModel.s1().n().getId());
+                    sx5Var.m(pbModel.s1().n().getName());
+                    sx5Var.k(pbModel.s1().n().getImage_url());
+                    sx5Var.t(pbModel.s1().n().getUser_level());
                 }
-                if (this.i.isEmpty()) {
-                    o(8);
-                } else {
-                    p(new c4a());
+                if (pbModel.s1() != null && pbModel.s1().q() != null) {
+                    sx5Var.n(pbModel.s1().q().has_forum_rule.intValue());
                 }
-                this.m.b(this.j);
-                l(h(), this.a);
-                return;
+                if (pbModel.s1() != null && pbModel.s1().Y() != null) {
+                    sx5Var.s(pbModel.s1().Y());
+                }
+                sx5Var.q(new a(pbModel, j1aVar));
+                if (pbModel.s1() != null) {
+                    AntiData f = pbModel.s1().f();
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    if (f != null && f.getDelThreadInfoList() != null) {
+                        List<DeleteThreadInfo> delThreadInfoList = f.getDelThreadInfoList();
+                        for (int i = 0; i < delThreadInfoList.size(); i++) {
+                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                            }
+                        }
+                    }
+                    sx5Var.r(sparseArray);
+                }
+                return sx5Var;
             }
-            o(8);
+            return null;
         }
+        return (sx5) invokeLL.objValue;
+    }
+
+    public static boolean c(vv9 vv9Var, nwa nwaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, vv9Var, nwaVar)) == null) {
+            if (vv9Var != null && nwaVar != null) {
+                ux5 ux5Var = new ux5();
+                ux5Var.d(nwaVar.Q() + "");
+                if (vv9Var.R() != null) {
+                    ux5Var.f(vv9Var.R().getId());
+                }
+                ux5Var.e(nwaVar.U());
+                return px5.b().c(ux5Var);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, j1a j1aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, pbModel, j1aVar) == null) && tbPageContext != null && pbModel != null && j1aVar != null) {
+            px5.b().e(tbPageContext, j1aVar.u1(), b(pbModel, j1aVar));
+            px5.b().d(1);
+        }
+    }
+
+    public static boolean e(nwa nwaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nwaVar)) == null) {
+            if (nwaVar == null) {
+                return false;
+            }
+            return px5.b().f(nwaVar.U());
+        }
+        return invokeL.booleanValue;
     }
 }

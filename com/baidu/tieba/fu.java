@@ -2,24 +2,60 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.BjhArticleLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.os;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fu extends us {
+public class fu extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout h;
-    public ItemCardView i;
+    public LinearLayout h;
+    public BjhArticleLayout i;
+    public cw4 j;
+    public int k;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fu a;
+
+        public a(fu fuVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fuVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fuVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            fu fuVar;
+            os.a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (fuVar = this.a).e) != null) {
+                aVar.a(fuVar.j);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu(Context context) {
@@ -39,66 +75,81 @@ public class fu extends us {
                 return;
             }
         }
-        q(Boolean.TRUE);
+        this.k = 3;
     }
 
-    @Override // com.baidu.tieba.ns
+    @Override // com.baidu.tieba.os
+    public void n(im6<cw4> im6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, im6Var) == null) {
+            super.n(im6Var);
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.setSubClickListener(im6Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.it
+    /* renamed from: y */
+    public void onBindDataToView(cw4 cw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) {
+            this.j = cw4Var;
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.onBindDataToView(cw4Var);
+            }
+        }
+    }
+
+    public void z(os.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.os
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.h == null) {
-                FrameLayout frameLayout = new FrameLayout(this.b);
-                this.h = frameLayout;
-                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
+                LinearLayout linearLayout = new LinearLayout(this.b);
+                this.h = linearLayout;
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
+                this.h.setOrientation(1);
                 this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.h.removeAllViews();
             if (this.i == null) {
-                ItemCardView itemCardView = new ItemCardView(this.b);
-                this.i = itemCardView;
-                itemCardView.setBackGroundColor(R.color.CAM_X0205);
-                this.i.setIsShowRightBtn(true);
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.b);
+                this.i = bjhArticleLayout;
+                bjhArticleLayout.setJumpToPbListener(new a(this));
             }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.topMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
             this.h.addView(this.i, layoutParams);
             return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.it
+    @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && i != this.k) {
+            this.k = i;
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
-            ItemCardView itemCardView = this.i;
-            if (itemCardView != null) {
-                itemCardView.M();
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.onChangeSkinType(tbPageContext, i);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
-    /* renamed from: x */
-    public void onBindDataToView(bw4 bw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) {
-            if (bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().originalThreadData != null && bw4Var.getThreadData().originalThreadData.C != null) {
-                if (!bw4Var.getThreadData().originalThreadData.m && !bw4Var.getThreadData().shouldShowBlockedState()) {
-                    this.h.setVisibility(0);
-                    this.i.setData(bw4Var.getThreadData().originalThreadData.D, 13, bw4Var.getThreadData().originalThreadData.f);
-                    return;
-                }
-                this.h.setVisibility(8);
-                return;
-            }
-            this.h.setVisibility(8);
         }
     }
 }

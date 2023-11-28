@@ -1,159 +1,288 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public final class zy0 extends sz0 {
+public final class zy0 extends uz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kz0 A;
-    public static final kz0[] B;
-    public static final kz0[][] C;
-    public static final kz0[] D;
-    public static final kz0 o;
-    public static final kz0 p;
-    public static final kz0 q;
-    public static final kz0 r;
-    public static final kz0 s;
-    public static final kz0 t;
-    public static final kz0 u;
-    public static final kz0 v;
-    public static final kz0 w;
-    public static final kz0 x;
-    public static final kz0 y;
-    public static final kz0 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringColumn a;
-    public final IntegerColumn b;
-    public final IntegerColumn c;
-    public final StringColumn d;
-    public final StringColumn e;
-    public final StringColumn f;
-    public final IntegerColumn g;
-    public final IntegerColumn h;
-    public final LongColumn i;
-    public final LongColumn j;
-    public final StringColumn k;
-    public final StringColumn l;
-    public final StringColumn m;
-    public final Column[] n;
-
-    @Override // com.baidu.tieba.sz0
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376152, "Lcom/baidu/tieba/zy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948376152, "Lcom/baidu/tieba/zy0;");
-                return;
-            }
-        }
-        o = sz0.b(4, "key", "                   key", 0, 2);
-        p = sz0.a(2, "task_id", "               task_id", 1);
-        q = sz0.a(2, "status", "                status", 2);
-        r = sz0.a(4, "package_name", "          package_name", 3);
-        s = sz0.a(4, "url", "                   url", 4);
-        t = sz0.a(4, "file", "                  file", 5);
-        u = sz0.a(2, "progress", "              progress", 6);
-        v = sz0.a(2, "v_progress", "            v_progress", 7);
-        w = sz0.a(3, "start_download_time", "   start_download_time", 8);
-        x = sz0.a(3, "finished_download_time", "finished_download_time", 9);
-        y = sz0.a(4, "mt", "                    mt", 10);
-        z = sz0.a(4, "ctrl", "                  ctrl", 11);
-        kz0 a = sz0.a(4, "extra", "                 extra", 12);
-        A = a;
-        kz0 kz0Var = o;
-        B = new kz0[]{kz0Var, p, q, r, s, t, u, v, w, x, y, z, a};
-        C = new kz0[0];
-        D = new kz0[]{kz0Var};
-    }
+    public final az0 a;
 
     public zy0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new StringColumn(o);
-        this.b = new IntegerColumn(p);
-        this.c = new IntegerColumn(q);
-        this.d = new StringColumn(r);
-        this.e = new StringColumn(s);
-        this.f = new StringColumn(t);
-        this.g = new IntegerColumn(u);
-        this.h = new IntegerColumn(v);
-        this.i = new LongColumn(w);
-        this.j = new LongColumn(x);
-        this.k = new StringColumn(y);
-        this.l = new StringColumn(z);
-        StringColumn stringColumn = new StringColumn(A);
-        this.m = stringColumn;
-        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
+        this.a = new az0();
     }
 
-    @Override // com.baidu.tieba.sz0
-    public Column[] c() {
+    public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
+            return this.a.e.getValue();
         }
-        return (Column[]) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sz0
-    public kz0[] d() {
+    public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return B;
+            return this.a.h.getValue();
         }
-        return (kz0[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sz0
-    public kz0[][] e() {
+    @Override // com.baidu.tieba.uz0
+    public tz0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return C;
+            return this.a;
         }
-        return (kz0[][]) invokeV.objValue;
+        return (tz0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sz0
-    public kz0[] f() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return D;
+            return this.a.l.getValue();
         }
-        return (kz0[]) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.m.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.f.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.j.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.a.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.k.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.d.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.g.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public long x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.a.i.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public int y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.c.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.a.b.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public zy0 k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            this.a.l.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            this.a.m.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.a.f.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 n(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
+            this.a.j.setValue(j);
+            return this;
+        }
+        return (zy0) invokeJ.objValue;
+    }
+
+    public zy0 o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            this.a.a.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            this.a.k.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            this.a.d.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.a.g.setValue(i);
+            return this;
+        }
+        return (zy0) invokeI.objValue;
+    }
+
+    public zy0 s(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+            this.a.i.setValue(j);
+            return this;
+        }
+        return (zy0) invokeJ.objValue;
+    }
+
+    public zy0 t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.a.c.setValue(i);
+            return this;
+        }
+        return (zy0) invokeI.objValue;
+    }
+
+    public zy0 u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.a.b.setValue(i);
+            return this;
+        }
+        return (zy0) invokeI.objValue;
+    }
+
+    public zy0 v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            this.a.e.setValue(str);
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            this.a.h.setValue(i);
+            return this;
+        }
+        return (zy0) invokeI.objValue;
     }
 }

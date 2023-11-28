@@ -1,90 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class f3c {
+public class f3c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static a b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            HandlerThread handlerThread = new HandlerThread("BlockCanary-" + str);
-            handlerThread.start();
-            this.a = new Handler(handlerThread.getLooper());
-        }
-
-        public Handler a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (Handler) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714643, "Lcom/baidu/tieba/f3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947714643, "Lcom/baidu/tieba/f3c;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f3c(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a("loop");
-        b = new a("writer");
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object invoke;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (obj instanceof IBasicCPUData) {
+                    Object findField = ReflectionUtils.findField("java.lang.Object", obj);
+                    Object findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.aq", obj);
+                    if (findField2 == null) {
+                        findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.ap", obj);
+                    }
+                    if (findField == null || findField2 == null || (invoke = ReflectionUtils.invoke(findField2, "b", new Class[]{Object.class, String.class, Object[].class}, findField, "getNativeResonse", new Object[0])) == null) {
+                        return null;
+                    }
+                    Field declaredField = invoke.getClass().getDeclaredField("x");
+                    declaredField.setAccessible(true);
+                    Object obj2 = declaredField.get(invoke);
+                    if (obj2 instanceof JSONObject) {
+                        JSONObject jSONObject = (JSONObject) obj2;
+                        JSONObject optJSONObject = jSONObject.optJSONObject("apo");
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("publisher")).setTitle(jSONObject.optString("tit")).setDescription(jSONObject.optString("desc")).setImageUrl(jSONObject.optString("w_picurl")).setIconUrl(jSONObject.optString("icon")).setClickUrl(jSONObject.optString("curl")).setVideoUrl(jSONObject.optString("vurl")).setAppName(jSONObject.optString("appname")).setAppPkg(jSONObject.optString("apk_name")).setAppUrl(jSONObject.optString("app_store_link"));
+                        if (optJSONObject != null) {
+                            builder.setDeepLinkUrl(optJSONObject.optString("page"));
+                        }
+                        return builder.build();
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static Handler b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a();
-        }
-        return (Handler) invokeV.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

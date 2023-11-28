@@ -10,13 +10,13 @@ public class fo {
     public static final byte[] a = {80, 85, 83, 72};
 
     /* renamed from: a  reason: collision with other field name */
-    public byte f392a;
+    public byte f388a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f393a;
+    public int f389a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f394a;
+    public short f390a;
     public byte[] b;
 
     /* loaded from: classes10.dex */
@@ -24,16 +24,16 @@ public class fo {
         public static final c a = new c();
 
         /* renamed from: a  reason: collision with other field name */
-        public static final d f395a = new d();
+        public static final d f391a = new d();
 
         public static byte[] a(byte[] bArr) {
-            return a(bArr, f395a);
+            return a(bArr, f391a);
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
-            if (fo.m499a(bArr)) {
+            if (fo.m503a(bArr)) {
                 fo a2 = fo.a(bArr);
-                return (a2.f392a == 0 || a2.f392a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f393a);
+                return (a2.f388a == 0 || a2.f388a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f389a);
             }
             return bArr;
         }
@@ -102,10 +102,10 @@ public class fo {
     }
 
     public fo(short s, byte b2, int i, byte[] bArr) {
-        this.f394a = (short) 1;
-        this.f394a = s;
-        this.f392a = b2;
-        this.f393a = i;
+        this.f390a = (short) 1;
+        this.f390a = s;
+        this.f388a = b2;
+        this.f389a = i;
         this.b = bArr;
     }
 
@@ -118,7 +118,7 @@ public class fo {
     }
 
     public static fo a(byte[] bArr) {
-        if (m499a(bArr)) {
+        if (m503a(bArr)) {
             ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
             order.getInt();
             short s = order.getShort();
@@ -132,7 +132,7 @@ public class fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m499a(byte[] bArr) {
+    public static boolean m503a(byte[] bArr) {
         byte[] bArr2 = a;
         return a(bArr2, bArr, bArr2.length);
     }

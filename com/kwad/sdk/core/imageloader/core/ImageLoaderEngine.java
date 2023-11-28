@@ -30,22 +30,6 @@ public class ImageLoaderEngine {
         this.taskDistributor = imageLoaderConfiguration.taskDistributor;
     }
 
-    private Executor createTaskExecutor() {
-        ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
-        return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void initExecutorsIfNeed() {
-        if (!this.configuration.customExecutor && ((ExecutorService) this.taskExecutor).isShutdown()) {
-            this.taskExecutor = createTaskExecutor();
-        }
-        if (this.configuration.customExecutorForCachedImages || !((ExecutorService) this.taskExecutorForCachedImages).isShutdown()) {
-            return;
-        }
-        this.taskExecutorForCachedImages = createTaskExecutor();
-    }
-
     public void cancelDisplayTaskFor(ImageAware imageAware) {
         this.cacheKeysForImageAwares.remove(Integer.valueOf(imageAware.getId()));
     }
@@ -72,16 +56,52 @@ public class ImageLoaderEngine {
         return reentrantLock;
     }
 
+    public void handleSlowNetwork(boolean z) {
+        this.slowNetwork.set(z);
+    }
+
+    public void submit(final LoadAndDisplayImageTask loadAndDisplayImageTask) {
+        this.taskDistributor.execute(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.ImageLoaderEngine.1
+            @Override // java.lang.Runnable
+            public void run() {
+                boolean z;
+                File file = ImageLoaderEngine.this.configuration.diskCache.get(loadAndDisplayImageTask.getLoadingUri());
+                if (file != null && file.exists()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ImageLoaderEngine.this.initExecutorsIfNeed();
+                if (z) {
+                    ImageLoaderEngine.this.taskExecutorForCachedImages.execute(loadAndDisplayImageTask);
+                } else {
+                    ImageLoaderEngine.this.taskExecutor.execute(loadAndDisplayImageTask);
+                }
+            }
+        });
+    }
+
+    private Executor createTaskExecutor() {
+        ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
+        return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void initExecutorsIfNeed() {
+        if (!this.configuration.customExecutor && ((ExecutorService) this.taskExecutor).isShutdown()) {
+            this.taskExecutor = createTaskExecutor();
+        }
+        if (!this.configuration.customExecutorForCachedImages && ((ExecutorService) this.taskExecutorForCachedImages).isShutdown()) {
+            this.taskExecutorForCachedImages = createTaskExecutor();
+        }
+    }
+
     public AtomicBoolean getPause() {
         return this.paused;
     }
 
     public Object getPauseLock() {
         return this.pauseLock;
-    }
-
-    public void handleSlowNetwork(boolean z) {
-        this.slowNetwork.set(z);
     }
 
     public boolean isNetworkDenied() {
@@ -94,10 +114,6 @@ public class ImageLoaderEngine {
 
     public void pause() {
         this.paused.set(true);
-    }
-
-    public void prepareDisplayTaskFor(ImageAware imageAware, String str) {
-        this.cacheKeysForImageAwares.put(Integer.valueOf(imageAware.getId()), str);
     }
 
     public void resume() {
@@ -118,16 +134,8 @@ public class ImageLoaderEngine {
         this.uriLocks.clear();
     }
 
-    public void submit(final LoadAndDisplayImageTask loadAndDisplayImageTask) {
-        this.taskDistributor.execute(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.ImageLoaderEngine.1
-            @Override // java.lang.Runnable
-            public void run() {
-                File file = ImageLoaderEngine.this.configuration.diskCache.get(loadAndDisplayImageTask.getLoadingUri());
-                boolean z = file != null && file.exists();
-                ImageLoaderEngine.this.initExecutorsIfNeed();
-                (z ? ImageLoaderEngine.this.taskExecutorForCachedImages : ImageLoaderEngine.this.taskExecutor).execute(loadAndDisplayImageTask);
-            }
-        });
+    public void prepareDisplayTaskFor(ImageAware imageAware, String str) {
+        this.cacheKeysForImageAwares.put(Integer.valueOf(imageAware.getId()), str);
     }
 
     public void submit(ProcessAndDisplayImageTask processAndDisplayImageTask) {

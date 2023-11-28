@@ -14,16 +14,16 @@ public class bv {
     public static bv a = new bv();
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f952a;
+    public static String f948a;
 
     /* renamed from: a  reason: collision with other field name */
-    public am.b f953a;
+    public am.b f949a;
 
     /* renamed from: a  reason: collision with other field name */
-    public dv.a f954a;
+    public dv.a f950a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<a> f955a = new ArrayList();
+    public List<a> f951a = new ArrayList();
 
     /* loaded from: classes10.dex */
     public static abstract class a {
@@ -39,38 +39,38 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m810a() {
+    public static synchronized String m814a() {
         String str;
         synchronized (bv.class) {
-            if (f952a == null) {
-                SharedPreferences sharedPreferences = com.xiaomi.push.s.m728a().getSharedPreferences("XMPushServiceConfig", 0);
+            if (f948a == null) {
+                SharedPreferences sharedPreferences = com.xiaomi.push.s.m732a().getSharedPreferences("XMPushServiceConfig", 0);
                 String string = sharedPreferences.getString("DeviceUUID", null);
-                f952a = string;
+                f948a = string;
                 if (string == null) {
-                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m728a(), false);
-                    f952a = a2;
+                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m732a(), false);
+                    f948a = a2;
                     if (a2 != null) {
-                        sharedPreferences.edit().putString("DeviceUUID", f952a).commit();
+                        sharedPreferences.edit().putString("DeviceUUID", f948a).commit();
                     }
                 }
             }
-            str = f952a;
+            str = f948a;
         }
         return str;
     }
 
     private void b() {
-        if (this.f954a == null) {
+        if (this.f950a == null) {
             d();
         }
     }
 
     private void c() {
-        if (this.f953a != null) {
+        if (this.f949a != null) {
             return;
         }
         bw bwVar = new bw(this);
-        this.f953a = bwVar;
+        this.f949a = bwVar;
         gy.a(bwVar);
     }
 
@@ -85,15 +85,15 @@ public class bv {
         Exception e;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m728a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m732a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f954a = dv.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f950a = dv.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                 } catch (Exception e2) {
                     e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.m186a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m190a("load config failure: " + e.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
-                    if (this.f954a != null) {
+                    if (this.f950a != null) {
                     }
                 }
             } catch (Throwable th2) {
@@ -111,30 +111,30 @@ public class bv {
             throw th;
         }
         com.xiaomi.push.y.a(bufferedInputStream);
-        if (this.f954a != null) {
-            this.f954a = new dv.a();
+        if (this.f950a != null) {
+            this.f950a = new dv.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            if (this.f954a != null) {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m728a().openFileOutput("XMCloudCfg", 0));
+            if (this.f950a != null) {
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m732a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                this.f954a.a(a2);
-                a2.m315a();
+                this.f950a.a(a2);
+                a2.m319a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("save config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m190a("save config failure: " + e.getMessage());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m813a() {
+    public int m817a() {
         b();
-        dv.a aVar = this.f954a;
+        dv.a aVar = this.f950a;
         if (aVar != null) {
             return aVar.c();
         }
@@ -142,23 +142,23 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dv.a m814a() {
+    public dv.a m818a() {
         b();
-        return this.f954a;
+        return this.f950a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m815a() {
-        this.f955a.clear();
+    public synchronized void m819a() {
+        this.f951a.clear();
     }
 
     public void a(dw.b bVar) {
         a[] aVarArr;
-        if (bVar.m398d() && bVar.d() > m813a()) {
+        if (bVar.m402d() && bVar.d() > m817a()) {
             c();
         }
         synchronized (this) {
-            aVarArr = (a[]) this.f955a.toArray(new a[this.f955a.size()]);
+            aVarArr = (a[]) this.f951a.toArray(new a[this.f951a.size()]);
         }
         for (a aVar : aVarArr) {
             aVar.a(bVar);
@@ -166,6 +166,6 @@ public class bv {
     }
 
     public synchronized void a(a aVar) {
-        this.f955a.add(aVar);
+        this.f951a.add(aVar);
     }
 }

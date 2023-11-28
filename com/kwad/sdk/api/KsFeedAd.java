@@ -9,7 +9,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsFeedAd {
+public interface KsFeedAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -38,6 +38,19 @@ public interface KsFeedAd {
 
     @KsAdSdkApi
     @Keep
+    /* loaded from: classes10.dex */
+    public interface AdRenderListener {
+        @KsAdSdkApi
+        @Keep
+        void onAdRenderFailed(int i, String str);
+
+        @KsAdSdkApi
+        @Keep
+        void onAdRenderSuccess(View view2);
+    }
+
+    @KsAdSdkApi
+    @Keep
     int getECPM();
 
     @Nullable
@@ -55,6 +68,10 @@ public interface KsFeedAd {
 
     @KsAdSdkApi
     @Keep
+    void render(AdRenderListener adRenderListener);
+
+    @KsAdSdkApi
+    @Keep
     void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
@@ -63,7 +80,12 @@ public interface KsFeedAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 
     @KsAdSdkApi
     @Keep

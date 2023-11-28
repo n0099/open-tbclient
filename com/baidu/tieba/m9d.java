@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
+import tbclient.TbVipInfo;
 /* loaded from: classes7.dex */
-public class m9d {
+public class m9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<SplitMinAmountInfo> b;
 
-    public m9d() {
+    @NonNull
+    public static JSONObject b(@NonNull TbVipInfo tbVipInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbVipInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "intro", tbVipInfo.intro);
+            ltc.a(jSONObject, "v_url", tbVipInfo.v_url);
+            ltc.a(jSONObject, "v_detail", tbVipInfo.v_detail);
+            return jSONObject;
         }
-        this.b = new ArrayList();
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "H5OpenPayParams {, customAmount='" + this.a + "', splitMinAmountInfoList='" + this.b + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

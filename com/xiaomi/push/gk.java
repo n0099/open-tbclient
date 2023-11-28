@@ -9,7 +9,7 @@ public class gk extends gm {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, String> f438a;
+    public final Map<String, String> f434a;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -20,10 +20,10 @@ public class gk extends gm {
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        public String f439a;
+        public String f435a;
 
         public a(String str) {
-            this.f439a = str;
+            this.f435a = str;
         }
 
         public static a a(String str) {
@@ -50,19 +50,19 @@ public class gk extends gm {
         }
 
         public String toString() {
-            return this.f439a;
+            return this.f435a;
         }
     }
 
     public gk() {
         this.a = a.a;
-        this.f438a = new HashMap();
+        this.f434a = new HashMap();
     }
 
     public gk(Bundle bundle) {
         super(bundle);
         this.a = a.a;
-        this.f438a = new HashMap();
+        this.f434a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -83,13 +83,13 @@ public class gk extends gm {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/lang/String; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/util/Collection; */
     /* renamed from: a  reason: collision with other method in class */
-    public a m534a() {
+    public a m538a() {
         return this.a;
     }
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a  reason: collision with other method in class */
-    public String mo535a() {
+    public String mo539a() {
         String str;
         StringBuilder sb = new StringBuilder();
         sb.append("<iq ");
@@ -111,7 +111,7 @@ public class gk extends gm {
             sb.append(gx.a(k()));
             sb.append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f438a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f434a.entrySet()) {
             sb.append(gx.a(entry.getKey()));
             sb.append("=\"");
             sb.append(gx.a(entry.getValue()));
@@ -121,7 +121,7 @@ public class gk extends gm {
             str = "type=\"get\">";
         } else {
             sb.append("type=\"");
-            sb.append(m534a());
+            sb.append(m538a());
             str = "\">";
         }
         sb.append(str);
@@ -130,9 +130,9 @@ public class gk extends gm {
             sb.append(b);
         }
         sb.append(o());
-        gq m536a = m536a();
-        if (m536a != null) {
-            sb.append(m536a.m539a());
+        gq m540a = m540a();
+        if (m540a != null) {
+            sb.append(m540a.m543a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -146,7 +146,7 @@ public class gk extends gm {
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f438a.putAll(map);
+        this.f434a.putAll(map);
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.b()Ljava/util/Collection; */

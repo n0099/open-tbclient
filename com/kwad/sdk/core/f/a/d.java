@@ -1,51 +1,45 @@
 package com.kwad.sdk.core.f.a;
 
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.heytap.openid.IOpenID;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
 /* loaded from: classes10.dex */
-public interface d extends IInterface {
+public final class d {
+    public Context mContext;
 
-    /* loaded from: classes10.dex */
-    public static final class a implements d {
-        public IBinder Zy;
-
-        public a(IBinder iBinder) {
-            this.Zy = iBinder;
-        }
-
-        @Override // android.os.IInterface
-        public final IBinder asBinder() {
-            return this.Zy;
-        }
-
-        @Override // com.kwad.sdk.core.f.a.d
-        public final String getSerID(String str, String str2, String str3) {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                obtain.writeString(str);
-                obtain.writeString(str2);
-                obtain.writeString(str3);
-                this.Zy.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                String readString = obtain2.readString();
-                obtain.recycle();
-                obtain2.recycle();
-                return readString;
-            } catch (Exception unused) {
-                obtain.recycle();
-                obtain2.recycle();
-                return null;
-            } catch (Throwable th) {
-                obtain.recycle();
-                obtain2.recycle();
-                throw th;
-            }
-        }
+    public d(Context context) {
+        this.mContext = context;
     }
 
-    String getSerID(String str, String str2, String str3);
+    public static String f(Cursor cursor) {
+        String str = "";
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex("value");
+            if (columnIndex > 0) {
+                str = cursor.getString(columnIndex);
+            }
+            int columnIndex2 = cursor.getColumnIndex("code");
+            if (columnIndex2 > 0) {
+                cursor.getInt(columnIndex2);
+            }
+            int columnIndex3 = cursor.getColumnIndex("expired");
+            if (columnIndex3 > 0) {
+                cursor.getLong(columnIndex3);
+            }
+        }
+        return str;
+    }
+
+    public final String getOAID() {
+        String str = "";
+        try {
+            Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
+            str = f(query);
+            new StringBuilder("getOAID oaid:").append(str);
+            com.kwad.sdk.crash.utils.b.closeQuietly(query);
+        } catch (Exception unused) {
+            return str;
+        }
+    }
 }

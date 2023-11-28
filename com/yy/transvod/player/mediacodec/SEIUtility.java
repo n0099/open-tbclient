@@ -5,7 +5,7 @@ import com.yy.transvod.player.common.MixAudioExtraInfo;
 import com.yy.transvod.player.common.MixVideoExtraInfo;
 import com.yy.transvod.player.common.VideoExtraInfo;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SEIUtility {
     public static native int decodeDSEPayLoadV0(byte[] bArr, ArrayList<Long> arrayList);
 

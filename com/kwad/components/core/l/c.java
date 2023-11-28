@@ -1,116 +1,83 @@
 package com.kwad.components.core.l;
 
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import java.io.InputStream;
+import com.kwad.sdk.m.l;
+import com.kwad.sdk.mvp.Presenter;
+import com.kwad.sdk.mvp.a;
+import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
-public final class c extends InputStream {
-    public InputStream IF;
-    public int IG;
-    public volatile float II;
-    public volatile long IJ;
-    public int IC = -1;
-    public int ID = 10000;
-    public long IE = -1;
-    public long IH = -1;
-    public int IK = 20480;
+public abstract class c<T extends com.kwad.sdk.mvp.a> extends KSFrameLayout {
+    public T Mo;
+    public ViewGroup lC;
+    public Presenter mPresenter;
 
-    public c(@NonNull InputStream inputStream, int i) {
-        i = i < 20480 ? 20480 : i;
-        this.IF = inputStream;
-        this.II = i / 1000.0f;
+    @LayoutRes
+    public abstract int getLayoutId();
+
+    public abstract void initData();
+
+    public boolean kn() {
+        return false;
     }
 
-    public static long c(long j, long j2) {
-        if (j <= 0) {
-            return 0L;
-        }
-        if (j2 <= 0) {
-            return -1L;
-        }
-        return j / j2;
+    public abstract void kp();
+
+    public abstract T kr();
+
+    @NonNull
+    public abstract Presenter onCreatePresenter();
+
+    public c(Context context) {
+        this(context, null);
     }
 
-    private void ot() {
-        this.IC = 0;
-        this.IE = System.currentTimeMillis();
+    public c(Context context, AttributeSet attributeSet) {
+        this(context, null, 0);
     }
 
-    private void ou() {
-        if (this.IC < this.ID) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.IE;
-        float f = this.IC / this.II;
-        this.IJ = c(this.IG, currentTimeMillis - this.IH);
-        float f2 = (float) j;
-        if (f > f2) {
-            p(f - f2);
-        }
-        ot();
-    }
-
-    @WorkerThread
-    public static void p(long j) {
-        try {
-            Thread.sleep(j);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public c(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, 0);
+        if (!kn()) {
+            oz();
         }
     }
 
-    @Override // java.io.InputStream
-    public final int available() {
-        return this.IF.available();
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public final void close() {
-        this.IF.close();
-        b.a(this);
-        this.IH = -1L;
-    }
-
-    @Override // java.io.InputStream
-    public final synchronized void mark(int i) {
-        this.IF.mark(i);
-    }
-
-    @Override // java.io.InputStream
-    public final boolean markSupported() {
-        return this.IF.markSupported();
-    }
-
-    public final long os() {
-        return this.IJ;
-    }
-
-    @Override // java.io.InputStream
-    public final int read() {
-        if (this.IH <= 0) {
-            this.IH = System.currentTimeMillis();
+    private void initMVP() {
+        this.Mo = kr();
+        if (this.mPresenter == null) {
+            Presenter onCreatePresenter = onCreatePresenter();
+            this.mPresenter = onCreatePresenter;
+            onCreatePresenter.G(this.lC);
         }
-        this.IG++;
-        if (b.IA && b.Iz) {
-            if (this.IC < 0) {
-                ot();
-            }
-            int read = this.IF.read();
-            this.IC++;
-            ou();
-            return read;
+        this.mPresenter.k(this.Mo);
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public void ac() {
+        super.ac();
+        initMVP();
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public void ad() {
+        super.ad();
+        T t = this.Mo;
+        if (t != null) {
+            t.release();
         }
-        return this.IF.read();
+        Presenter presenter = this.mPresenter;
+        if (presenter != null) {
+            presenter.destroy();
+        }
     }
 
-    @Override // java.io.InputStream
-    public final synchronized void reset() {
-        this.IF.reset();
-    }
-
-    @Override // java.io.InputStream
-    public final long skip(long j) {
-        return this.IF.skip(j);
+    public final void oz() {
+        initData();
+        this.lC = (ViewGroup) l.inflate(getContext(), getLayoutId(), this);
+        kp();
     }
 }

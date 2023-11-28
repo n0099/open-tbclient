@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.FeedContentIcon;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fsc extends qoc {
+public abstract class fsc<E> extends hsc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long e;
+    public E[] f;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedContentIcon feedContentIcon) {
-        InterceptResult invokeL;
+    public fsc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentIcon)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "day_url", feedContentIcon.day_url);
-            qoc.a(jSONObject, "night_url", feedContentIcon.night_url);
-            qoc.a(jSONObject, "width", feedContentIcon.width);
-            qoc.a(jSONObject, "height", feedContentIcon.height);
-            return jSONObject;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

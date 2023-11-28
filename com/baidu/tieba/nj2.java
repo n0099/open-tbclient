@@ -1,24 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class nj2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nj2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public JSONObject d;
+    public String a;
+
+    /* loaded from: classes7.dex */
+    public class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t72 a;
+
+        public a(nj2 nj2Var, t72 t72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj2Var, t72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t72Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ad3.e("cancel");
+                this.a.a(Boolean.FALSE);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t72 a;
+
+        public b(nj2 nj2Var, t72 t72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj2Var, t72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t72Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ad3.e("confirm");
+                this.a.a(Boolean.TRUE);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnShowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnShowListener
+        public void onShow(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                ad3.e("show");
+            }
+        }
+    }
 
     public nj2() {
         Interceptable interceptable = $ic;
@@ -34,192 +129,71 @@ public class nj2 {
         }
     }
 
-    public final boolean a() {
+    public static nj2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f63.K().k() == 0) {
-                return c(this.d, "bbasp_guide_");
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String string = ue3.a().getString("swan_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a) {
-                return "special";
-            }
-            if (this.b) {
-                return "normal";
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.b && !this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray optJSONArray = this.d.optJSONArray("custom_guide_list");
-            if (optJSONArray != null && optJSONArray.length() != 0) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("appid", "");
-                    if (g63.h0() == null || TextUtils.equals(g63.h0(), optString)) {
-                        return c(optJSONObject, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (nj2.class) {
+                    if (b == null) {
+                        b = new nj2();
                     }
                 }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        int i;
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            boolean z2 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            String optString = jSONObject.optString(str + "count", "3");
-            try {
-                if (!TextUtils.isEmpty(optString)) {
-                    i = Integer.valueOf(optString).intValue();
-                } else {
-                    i = 0;
-                }
-                String optString2 = jSONObject.optString(str + "interval", "72");
-                if (!TextUtils.isEmpty(optString2)) {
-                    j = Long.valueOf(optString2).longValue();
-                } else {
-                    j = 0;
-                }
-                long optLong = jSONObject.optLong(str + "last_time", 0L);
-                int optInt = jSONObject.optInt(str + "shown_count", 0);
-                int optInt2 = jSONObject.optInt(str + "image_index", 0);
-                if (System.currentTimeMillis() - optLong > j * 3600000) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                boolean i2 = i(jSONObject.optJSONArray("scenes"));
-                if (optInt < i && z && i2) {
-                    z2 = true;
-                }
-                if (z2) {
-                    g(jSONObject, optInt2, str + "images");
-                }
-            } catch (NumberFormatException unused) {
-            }
-            return z2;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final int g(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.c = optJSONArray.optString(i);
-            return i;
-        }
-        return invokeLIL.intValue;
-    }
-
-    public nj2 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.c = null;
-            JSONObject d = d();
-            this.d = d;
-            if (d != null && d.length() != 0) {
-                boolean b = b();
-                this.a = b;
-                if (b) {
-                    return this;
-                }
-                this.b = a();
-            }
-            return this;
+            return b;
         }
         return (nj2) invokeV.objValue;
     }
 
-    public final boolean i(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return true;
-            }
-            String U = f63.K().q().X().U();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.equals(U, jSONArray.optString(i))) {
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || b == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        if (b.a != null) {
+            b.a = null;
+        }
+        b = null;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(Activity activity, t72<Boolean> t72Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, activity, t72Var) == null) && activity != null && t72Var != null) {
+            l53.a aVar = new l53.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f0152);
+            aVar.x(b().a());
+            aVar.n(new pl3());
+            aVar.m(true);
+            aVar.Q(R.color.obfuscated_res_0x7f060452);
+            aVar.O(R.string.obfuscated_res_0x7f0f0149, new a(this, t72Var));
+            aVar.B(R.string.obfuscated_res_0x7f0f0151, new b(this, t72Var));
+            aVar.N(new c(this));
+            aVar.X();
+        }
     }
 }

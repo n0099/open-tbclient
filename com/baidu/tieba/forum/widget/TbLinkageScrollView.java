@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hj;
-import com.baidu.tieba.qm7;
-import com.baidu.tieba.wm7;
+import com.baidu.tieba.dp7;
+import com.baidu.tieba.ij;
+import com.baidu.tieba.ip7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Function0<? extends View> A;
-    public final ArrayList<qm7> B;
+    public final ArrayList<dp7> B;
     public Function0<? extends View> z;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -105,7 +105,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void H(qm7 hook) {
+    public final void H(dp7 hook) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hook) == null) {
             Intrinsics.checkNotNullParameter(hook, "hook");
@@ -129,7 +129,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         return (Boolean) invokeI.objValue;
     }
 
-    public final void K(qm7 hook) {
+    public final void K(dp7 hook) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hook) == null) {
             Intrinsics.checkNotNullParameter(hook, "hook");
@@ -153,21 +153,21 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
 
     public final Boolean J(int i) {
         InterceptResult invokeI;
-        hj hjVar;
+        ij ijVar;
         View nestedScrollTarget;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             View nestedScrollTarget2 = getNestedScrollTarget();
             View view2 = null;
-            if (nestedScrollTarget2 instanceof hj) {
-                hjVar = (hj) nestedScrollTarget2;
+            if (nestedScrollTarget2 instanceof ij) {
+                ijVar = (ij) nestedScrollTarget2;
             } else {
-                hjVar = null;
+                ijVar = null;
             }
-            if (hjVar == null || (nestedScrollTarget = hjVar.getTarget()) == null) {
+            if (ijVar == null || (nestedScrollTarget = ijVar.getTarget()) == null) {
                 nestedScrollTarget = getNestedScrollTarget();
             }
-            if (wm7.a(this)) {
+            if (ip7.a(this)) {
                 boolean z = true;
                 if ((nestedScrollTarget == null || !nestedScrollTarget.canScrollVertically(i)) ? false : false) {
                     nestedScrollTarget.scrollBy(0, i);
@@ -223,26 +223,26 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{target, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             Intrinsics.checkNotNullParameter(target, "target");
-            TbNestedScrollView.l(this, f2, null, 2, null);
+            TbNestedScrollView.n(this, f2, null, 2, null);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean p(MotionEvent e) {
+    public Boolean s(MotionEvent e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
             Boolean bool = null;
-            for (qm7 qm7Var : this.B) {
-                if (Intrinsics.areEqual(qm7Var.a(e), Boolean.TRUE)) {
+            for (dp7 dp7Var : this.B) {
+                if (Intrinsics.areEqual(dp7Var.a(e), Boolean.TRUE)) {
                     bool = Boolean.TRUE;
                 }
             }
             if (bool == null) {
-                return super.p(e);
+                return super.s(e);
             }
             return bool;
         }
@@ -250,11 +250,11 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean t(int i, int i2) {
+    public Boolean u(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            if (wm7.a(this)) {
+            if (ip7.a(this)) {
                 return null;
             }
             return Boolean.FALSE;
@@ -263,7 +263,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean u(int i, int i2) {
+    public Boolean x(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i, i2)) == null) {
@@ -273,7 +273,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean x(int i, int i2) {
+    public Boolean y(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i, i2)) == null) {

@@ -85,7 +85,7 @@ public final class DispatchQueue {
     public final void runOrEnqueue(final Runnable runnable) {
         MainCoroutineDispatcher immediate = Dispatchers.getMain().getImmediate();
         if (immediate.isDispatchNeeded(EmptyCoroutineContext.INSTANCE)) {
-            immediate.mo2350dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: androidx.lifecycle.DispatchQueue$runOrEnqueue$$inlined$with$lambda$1
+            immediate.mo2354dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: androidx.lifecycle.DispatchQueue$runOrEnqueue$$inlined$with$lambda$1
                 @Override // java.lang.Runnable
                 public final void run() {
                     DispatchQueue.this.enqueue(runnable);

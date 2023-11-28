@@ -1,178 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes8.dex */
-public class wp9 extends AccountLoginCoreHelper {
+public class wp9 extends ho5<PbHistoryData, co5> {
     public static /* synthetic */ Interceptable $ic;
-    public static wp9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AccountLoginCoreHelper.IReLoginCallback a;
+    public View f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public View k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948278409, "Lcom/baidu/tieba/wp9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948278409, "Lcom/baidu/tieba/wp9;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements AccountLoginCoreHelper.IReLoginCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onBeforeLogin(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        public a(wp9 wp9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onSuccess(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onFailure(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) && i == 1) {
-                ReloginManager.g().f(null);
-            }
-        }
-    }
-
-    public wp9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp9(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this);
+        this.f = view2;
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092683);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090807);
+        this.h = textView;
+        textView.setSingleLine();
+        this.h.setEllipsize(TextUtils.TruncateAt.END);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09264c);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091696);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
     }
 
-    public static wp9 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ko5
+    /* renamed from: l */
+    public void h(PbHistoryData pbHistoryData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new wp9();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbHistoryData) == null) {
+            super.h(pbHistoryData);
+            if (pbHistoryData == null) {
+                return;
             }
-            return b;
-        }
-        return (wp9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public BdAsyncTask<?, ?, ?> asyncReLogin(String str, String str2, String str3, String str4, AccountLoginCoreHelper.IReLoginCallback iReLoginCallback) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, iReLoginCallback)) == null) {
-            return bl9.a(str, str2, str3, str4, iReLoginCallback);
-        }
-        return (BdAsyncTask) invokeLLLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public AccountLoginCoreHelper.a parseBDUSS(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            AccountLoginCoreHelper.a aVar = null;
-            if (str == null) {
-                return null;
-            }
-            try {
-                String[] split = str.split("[|]");
-                if (split == null || split.length < 1) {
-                    return null;
-                }
-                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
-                try {
-                    aVar2.a = split[0];
-                    if (split.length >= 2) {
-                        aVar2.b = split[1];
+            int i = 0;
+            if (this.g != null) {
+                if (pbHistoryData.getThreadType() == 49) {
+                    if (StringUtils.isNull(pbHistoryData.getDescription())) {
+                        if (StringUtils.isNull(pbHistoryData.getUserName())) {
+                            this.g.setText(g(R.string.obfuscated_res_0x7f0f102b));
+                        } else {
+                            this.g.setText(pbHistoryData.getUserName());
+                        }
+                    } else {
+                        this.g.setText(pbHistoryData.getDescription());
                     }
-                    return aVar2;
-                } catch (Exception e) {
-                    e = e;
-                    aVar = aVar2;
-                    BdLog.e(e.getMessage());
-                    return aVar;
+                } else if (pbHistoryData.getThreadName() != null) {
+                    if (pbHistoryData.isShareThread()) {
+                        this.g.setText(String.format("%s%s", g(R.string.obfuscated_res_0x7f0f102d), pbHistoryData.getThreadName()));
+                    } else {
+                        this.g.setText(pbHistoryData.getThreadName());
+                    }
                 }
-            } catch (Exception e2) {
-                e = e2;
             }
-        } else {
-            return (AccountLoginCoreHelper.a) invokeL.objValue;
+            if (this.h != null) {
+                if (pbHistoryData.getThreadType() == 49 && !TextUtils.isEmpty(pbHistoryData.getUserName())) {
+                    this.h.setText(String.format(g(R.string.obfuscated_res_0x7f0f102e), pbHistoryData.getUserName()));
+                } else if (pbHistoryData.getThreadType() == 49) {
+                    this.h.setText(String.format(g(R.string.obfuscated_res_0x7f0f102e), g(R.string.obfuscated_res_0x7f0f102b)));
+                } else if (pbHistoryData.getForumName() != null) {
+                    this.h.setText(pbHistoryData.getForumName());
+                }
+            }
+            if (pbHistoryData.getThreadType() == 49) {
+                TextView textView = this.j;
+                if (!pbHistoryData.isLive()) {
+                    i = 8;
+                }
+                textView.setVisibility(i);
+            } else {
+                this.j.setVisibility(8);
+            }
+            if (this.i != null) {
+                String postTimeString = StringHelper.getPostTimeString(new Date(pbHistoryData.getTime()));
+                if (postTimeString == null) {
+                    postTimeString = "";
+                }
+                this.i.setText(postTimeString);
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public void reLoginByCacheAccount() {
+    @Override // com.baidu.tieba.mva
+    @SuppressLint({"ResourceAsColor"})
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.list_item_selector);
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.CAM_X0308, R.color.CAM_X0301).into(this.j);
+            return true;
         }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            AccountLoginCoreHelper.a parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS());
-            if (parseBDUSS != null) {
-                bl9.a(currentAccountObj.getAccount(), parseBDUSS.a, parseBDUSS.b, currentAccountObj.getStoken(), this.a);
-                return;
-            }
-            return;
-        }
-        Logger.addLog("account", -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
+        return invokeLI.booleanValue;
     }
 }

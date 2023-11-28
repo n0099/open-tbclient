@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.utils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TraceIdUtil {
     public static synchronized String newTraceId() {
         String valueOf;

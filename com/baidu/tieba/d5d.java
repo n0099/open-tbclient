@@ -4,28 +4,20 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedContentResource;
-import tbclient.TitleComponent;
+import tbclient.MediaNum;
 /* loaded from: classes5.dex */
-public class d5d extends qoc {
+public class d5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TitleComponent titleComponent) {
+    public static JSONObject b(@NonNull MediaNum mediaNum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, titleComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mediaNum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (titleComponent.data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : titleComponent.data) {
-                    jSONArray.put(gsc.b(feedContentResource));
-                }
-                qoc.a(jSONObject, "data", jSONArray);
-            }
+            ltc.a(jSONObject, pic.f, mediaNum.pic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

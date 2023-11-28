@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.p3;
-import com.kuaishou.weapon.p0.x;
+import com.kuaishou.weapon.p0.dp;
+import com.kuaishou.weapon.p0.w;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class A {
@@ -45,7 +45,7 @@ public class A {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                p3 a = p3.a();
+                dp a = dp.a();
                 if (a != null) {
                     return a.a(str, "");
                 }
@@ -57,30 +57,10 @@ public class A {
         return (String) invokeL.objValue;
     }
 
-    public static JSONArray getJsonObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? jsonObject : (JSONArray) invokeV.objValue;
-    }
-
     public static void setA(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
-            return;
-        }
-        jsonObject = new x(context).c(flag);
-    }
-
-    public static void setE(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            try {
-                p3 a = p3.a();
-                if (a != null) {
-                    a.b(str, str2);
-                }
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && context != null) {
+            jsonObject = new w(context).b(flag);
         }
     }
 
@@ -88,6 +68,28 @@ public class A {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
             jsonObject = jSONArray;
+        }
+    }
+
+    public static JSONArray getJsonObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return jsonObject;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public static void setE(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            try {
+                dp a = dp.a();
+                if (a != null) {
+                    a.b(str, str2);
+                }
+            } catch (Exception unused) {
+            }
         }
     }
 }

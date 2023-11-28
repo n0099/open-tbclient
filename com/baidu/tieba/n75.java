@@ -1,86 +1,195 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n75 {
+public class n75 implements tb<l75> {
     public static /* synthetic */ Interceptable $ic;
-    public static Domain a;
-    public static boolean b;
-    public static o75 c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955389, "Lcom/baidu/tieba/n75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947955389, "Lcom/baidu/tieba/n75;");
-                return;
-            }
-        }
-        a = Domain.DOMAIN_ONLINE;
-        if (vya.a(AppRuntime.getAppContext(), "USE_QA_PASS_LOGIN_ADDRESS")) {
-            a = Domain.DOMAIN_QA;
-        }
-        b = true;
-        c = null;
-    }
-
-    public static void c() {
-        CustomResponsedMessage runTask;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tb
+    /* renamed from: b */
+    public l75 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, o75.class)) != null && runTask.getData() != null) {
-            c = (o75) runTask.getData();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
         }
+        return (l75) invokeCommon.objValue;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (TbConfig.USE_OLD_LOGIN) {
-                b = true;
-                return;
-            }
-            if (Build.VERSION.SDK_INT < 9) {
-                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                    b = false;
-                } else {
-                    b = true;
-                }
-            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-                b = false;
-            } else {
-                b = true;
-            }
-            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
-                TbadkCoreApplication.getInst().incPassportV6CrashCount();
-                b = true;
-            }
-        }
-    }
-
-    public static o75 b() {
+    @Override // com.baidu.tieba.tb
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        return (o75) invokeV.objValue;
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tb
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.tb
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tb
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
+    }
+
+    public n75() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tb
+    /* renamed from: a */
+    public l75 getFromLocal(String str, String str2, int i, int i2, sb sbVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sbVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
+            }
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (sbVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                sbVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (!diskFileOperate.isSuccess()) {
+                return null;
+            }
+            String desPath = diskFileOperate.getDesPath();
+            l75 l75Var = new l75();
+            l75Var.h(str);
+            l75Var.i(desPath);
+            return l75Var;
+        }
+        return (l75) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tb
+    /* renamed from: c */
+    public l75 getFromRemote(String str, String str2, int i, int i2, sb sbVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sbVar, objArr})) == null) {
+            int i3 = 1;
+            String str5 = null;
+            if (objArr.length == 1) {
+                str3 = String.valueOf(objArr[0]);
+            } else {
+                str3 = null;
+            }
+            l75 l75Var = new l75();
+            WebClient webClient = new WebClient();
+            if (sbVar != null) {
+                sbVar.a = webClient;
+            }
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
+                }
+            }
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
+            if (!webClient.IsRequestSuccess()) {
+                l75Var.f(3);
+                l75Var.g(ie.a(R.string.obfuscated_res_0x7f0f0e6f));
+                return l75Var;
+            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                if (str4 == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (sbVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        sbVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
+                } else {
+                    i3 = 6;
+                }
+                if (i3 == 0) {
+                    l75Var.i(str5);
+                    l75Var.h(str4);
+                } else {
+                    l75Var.f(i3);
+                    l75Var.g(l75.a(i3));
+                }
+                return l75Var;
+            } else {
+                l75Var.f(4);
+                l75Var.g(ie.a(R.string.voice_cache_error_no_file));
+                return l75Var;
+            }
+        }
+        return (l75) invokeCommon.objValue;
     }
 }

@@ -17,12 +17,12 @@ import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.hx5;
-import com.baidu.tieba.md;
+import com.baidu.tieba.mx5;
 import com.baidu.tieba.n;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.nd;
+import com.baidu.tieba.nx5;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +46,8 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
     public Lifecycle lifecycle;
     public boolean lifecycleEnable;
     public boolean mDisableRestoreInstanceState;
-    public hx5.a mLoadCallback;
-    public hx5 mLoader;
+    public ox5.a mLoadCallback;
+    public ox5 mLoader;
     public String mUrl;
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
@@ -66,7 +66,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
     }
 
     /* loaded from: classes5.dex */
-    public class a implements hx5.a {
+    public class a implements ox5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -89,10 +89,10 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.hx5.a
+        @Override // com.baidu.tieba.ox5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !qd.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !rd.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
@@ -382,7 +382,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
             try {
                 return file.mkdirs();
             } catch (Exception e2) {
-                TiebaStatic.file(e2, qd.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e2, rd.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -447,13 +447,13 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
 
     private void dealImageAsset(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || qd.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || rd.isEmpty(str)) {
             return;
         }
-        gx5 gx5Var = new gx5();
-        gx5Var.d(str);
-        gx5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(gx5Var);
+        nx5 nx5Var = new nx5();
+        nx5Var.d(str);
+        nx5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(nx5Var);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
@@ -499,7 +499,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || qd.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || rd.isEmpty(str)) {
             return;
         }
         dealImageAsset(str);
@@ -538,7 +538,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
                 lifecycle.removeObserver(this);
             }
             if (z) {
-                Lifecycle a2 = fx5.a(getContext());
+                Lifecycle a2 = mx5.a(getContext());
                 this.lifecycle = a2;
                 if (a2 != null) {
                     a2.addObserver(this);
@@ -549,7 +549,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
 
     private void dealJsonFile(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, this, str) != null) || qd.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65545, this, str) != null) || rd.isEmpty(str)) {
             return;
         }
         boolean z = this.isSettingForPlay;
@@ -564,11 +564,11 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !qd.isEmpty(str) && !str.equals(this.mUrl)) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !rd.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            hx5 hx5Var = new hx5(getAnimationPath(), str, this.mLoadCallback);
-            this.mLoader = hx5Var;
-            hx5Var.execute(new Void[0]);
+            ox5 ox5Var = new ox5(getAnimationPath(), str, this.mLoadCallback);
+            this.mLoader = ox5Var;
+            ox5Var.execute(new Void[0]);
         }
     }
 
@@ -588,7 +588,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
             if (!file.exists() || file.length() <= 0) {
                 return null;
             }
-            return md.v(file);
+            return nd.v(file);
         }
         return (InputStream) invokeLL.objValue;
     }

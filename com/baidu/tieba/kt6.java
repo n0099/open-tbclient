@@ -1,46 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.lt6;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class kt6 implements lt6.a {
+public final class kt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kt6() {
+    public static final ps6 a(y0 y0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            return (ps6) y0Var.d(ps6.class);
         }
+        return (ps6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lt6.a
-    public void a(qr6 item, long j, qt6 displayer, kr6 config) {
+    public static final ms6 b(y0 y0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            DrawState f = item.f();
-            if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
-                f.H(true);
-                return;
-            }
-            f.H(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            return (ms6) y0Var.d(ms6.class);
         }
+        return (ms6) invokeL.objValue;
+    }
+
+    public static final long c(y0 y0Var) {
+        InterceptResult invokeL;
+        as6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            ms6 b = b(y0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.g();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static final ls6 d(y0 y0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            return (ls6) y0Var.d(ls6.class);
+        }
+        return (ls6) invokeL.objValue;
+    }
+
+    public static final ns6 e(y0 y0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            return (ns6) y0Var.d(ns6.class);
+        }
+        return (ns6) invokeL.objValue;
+    }
+
+    public static final long f(y0 y0Var) {
+        InterceptResult invokeL;
+        as6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, y0Var)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            ms6 b = b(y0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.j();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(y0 y0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, y0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            if (j - f(y0Var) < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(y0 y0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, y0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(y0Var, "<this>");
+            if (j - f(y0Var) > c(y0Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
     }
 }

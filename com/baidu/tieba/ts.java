@@ -1,67 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ts extends ju {
+public class ts extends qs implements it<ThreadData>, jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
+    public final CardForumHeadLayout a;
+    public int b;
+    public int c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ts(Context context) {
-        super(context);
+    public ts(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = false;
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        this.a = new CardForumHeadLayout(tbPageContext.getPageActivity());
+        setInsertIndex(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.leftMargin = this.c;
+        layoutParams.topMargin = this.b;
+        layoutParams.bottomMargin = this.d;
+        setLayoutParams(layoutParams);
+        setDecorView(this.a);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ts(Context context, boolean z) {
-        super(context);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.it
+    /* renamed from: a */
+    public void onBindDataToView(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            if (threadData != null && threadData.getAuthor() != null) {
+                this.a.setVisibility(0);
+                this.a.setData(threadData);
+                this.a.setTag(threadData);
                 return;
             }
+            this.a.setVisibility(8);
         }
-        this.A = false;
-        this.A = z;
     }
 
-    @Override // com.baidu.tieba.ju
-    public l9a t() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jt
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new m9a(this.b, this.i, this.A);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.a.g();
         }
-        return (l9a) invokeV.objValue;
     }
 }

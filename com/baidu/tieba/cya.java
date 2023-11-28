@@ -1,97 +1,248 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class cya {
+public class cya implements aya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
+    public long a;
+    public String b;
+    public String c;
+    public final int d;
+    public int e;
+    public dya f;
+    public boolean g;
+    public eya h;
+    public bp9 i;
 
-    public cya(TbPageContext<?> tbPageContext) {
+    public cya(String str, int i, bp9 bp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str, Integer.valueOf(i), bp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
+        this.c = str;
+        this.d = i;
+        this.i = bp9Var;
+        File file = new File(str);
+        if (!file.exists()) {
             return;
         }
-        boolean a = mxa.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
-        }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                mxa.b(this.a, 5, dressItemData.getActivityUrl());
-            }
+        this.a = file.length();
+        this.b = xd.b(FileHelper.GetStreamFromFile(file));
+        long j = this.a;
+        int i4 = this.d;
+        if (j % i4 == 0) {
+            this.e = (int) (j / i4);
         } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f034c);
-                i = 9;
+            this.e = ((int) (j / i4)) + 1;
+        }
+    }
+
+    public final hya g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, arrayList, str, i)) == null) {
+            if (ListUtils.isEmpty(arrayList) || StringUtils.isNull(str)) {
+                return null;
+            }
+            if (arrayList.size() > 3) {
+                this.h = new fya(this.c, this.d, this.e, this.a, this.b);
             } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0352), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f034e);
+                this.h = new gya(this.c, this.d, this.e, this.a, this.b);
+            }
+            this.h.f(this.f);
+            hya g = this.h.g(arrayList, str, i);
+            this.h = null;
+            return g;
+        }
+        return (hya) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.aya
+    public void a(dya dyaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dyaVar) == null) {
+            this.f = dyaVar;
+        }
+    }
+
+    public final void d(int i) {
+        dya dyaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (dyaVar = this.f) != null) {
+            dyaVar.onProgressUpdate(i / 100.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.aya
+    public VideoFinishResult b(String str, int i) {
+        InterceptResult invokeLI;
+        zxa c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (StringUtils.isNull(str) || this.a <= 0 || StringUtils.isNull(this.b) || i <= 0 || this.g) {
+                return null;
+            }
+            d(10);
+            long j = i;
+            zxa c2 = c(this.e, j, false, null);
+            if (c2 != null && !this.g) {
+                if (c2.e != 0) {
+                    VideoFinishResult videoFinishResult = new VideoFinishResult();
+                    videoFinishResult.setErrorNo(c2.e);
+                    videoFinishResult.setUserMessage(c2.d);
+                    e(302, c2.e, c2.d);
+                    return videoFinishResult;
                 }
-                str = string;
-                i = 0;
+                d(30);
+                if (!StringUtils.isNull(c2.c)) {
+                    VideoFinishResult videoFinishResult2 = new VideoFinishResult();
+                    videoFinishResult2.setVideoMd5(this.b);
+                    videoFinishResult2.setVideoUrl(c2.c);
+                    f();
+                    return videoFinishResult2;
+                } else if (this.g) {
+                    return null;
+                } else {
+                    ArrayList<Integer> arrayList = c2.a;
+                    if (ListUtils.isEmpty(arrayList)) {
+                        arrayList = new ArrayList<>();
+                        int i2 = 0;
+                        while (i2 < this.e) {
+                            i2++;
+                            arrayList.add(Integer.valueOf(i2));
+                        }
+                    }
+                    String str2 = c2.b;
+                    hya g = g(arrayList, str2, i);
+                    if (g != null && !this.g) {
+                        if (g.b != 0) {
+                            VideoFinishResult videoFinishResult3 = new VideoFinishResult();
+                            videoFinishResult3.setErrorNo(g.b);
+                            videoFinishResult3.setUserMessage(g.c);
+                            e(303, g.b, g.c);
+                            return videoFinishResult3;
+                        }
+                        d(85);
+                        if (!StringUtils.isNull(g.a)) {
+                            VideoFinishResult videoFinishResult4 = new VideoFinishResult();
+                            videoFinishResult4.setVideoUrl(g.a);
+                            videoFinishResult4.setVideoMd5(this.b);
+                            f();
+                            return videoFinishResult4;
+                        } else if (this.g || (c = c(this.e, j, true, str2)) == null) {
+                            return null;
+                        } else {
+                            VideoFinishResult videoFinishResult5 = new VideoFinishResult();
+                            int i3 = c.e;
+                            if (i3 == 0) {
+                                videoFinishResult5.setVideoUrl(c.c);
+                                videoFinishResult5.setVideoMd5(this.b);
+                                f();
+                            } else {
+                                videoFinishResult5.setErrorNo(i3);
+                                videoFinishResult5.setUserMessage(c.d);
+                                e(304, c.e, c.d);
+                                TiebaStatic.log(new StatisticItem("c12024").param("params", c.d));
+                            }
+                            d(100);
+                            return videoFinishResult5;
+                        }
+                    }
+                }
             }
-            if (z) {
-                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+            return null;
+        }
+        return (VideoFinishResult) invokeLI.objValue;
+    }
+
+    public final zxa c(int i, long j, boolean z, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), str})) == null) {
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
+            netWork.addPostData("chunk_sum", String.valueOf(i));
+            netWork.addPostData("video_size", String.valueOf(this.a));
+            netWork.addPostData("chunk_size", String.valueOf(this.d));
+            netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.b);
+            netWork.addPostData("video_len", String.valueOf(j));
+            netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            if (!StringUtils.isNull(str)) {
+                netWork.addPostData("upload_id", str);
+            }
+            String postNetData = netWork.postNetData();
+            if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                if (StringUtils.isNull(postNetData)) {
+                    return null;
+                }
+                zxa zxaVar = new zxa();
+                zxaVar.a(postNetData);
+                return zxaVar;
+            }
+            zxa zxaVar2 = new zxa();
+            if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                zxaVar2.e = netWork.getNetContext().getResponse().mServerErrorCode;
             } else {
-                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+                zxaVar2.e = netWork.getNetContext().getResponse().mNetErrorCode;
             }
-            mxa.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            zxaVar2.d = netWork.getNetContext().getResponse().mErrorString;
+            return zxaVar2;
+        }
+        return (zxa) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.aya
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = true;
+            eya eyaVar = this.h;
+            if (eyaVar != null) {
+                eyaVar.a();
+            }
+        }
+    }
+
+    public final void f() {
+        bp9 bp9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bp9Var = this.i) != null) {
+            bp9Var.j();
+        }
+    }
+
+    public final void e(int i, int i2, String str) {
+        bp9 bp9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) && (bp9Var = this.i) != null) {
+            bp9Var.f(i, i2, str);
         }
     }
 }

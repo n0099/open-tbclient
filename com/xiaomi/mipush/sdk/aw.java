@@ -17,11 +17,11 @@ public final class aw implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f69a;
+    public final /* synthetic */ boolean f65a;
 
     public aw(Context context, boolean z) {
         this.a = context;
-        this.f69a = z;
+        this.f65a = z;
     }
 
     @Override // java.lang.Runnable
@@ -33,54 +33,54 @@ public final class aw implements Runnable {
         String str;
         String c;
         String c2;
-        com.xiaomi.channel.commonutils.logger.b.m186a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m190a("do sync info");
         ig igVar = new ig(bd.a(), false);
-        b m230a = b.m230a(this.a);
-        igVar.c(hr.SyncInfo.f508a);
-        igVar.b(m230a.m231a());
+        b m234a = b.m234a(this.a);
+        igVar.c(hr.SyncInfo.f504a);
+        igVar.b(m234a.m235a());
         igVar.d(this.a.getPackageName());
         HashMap hashMap = new HashMap();
-        igVar.f650a = hashMap;
+        igVar.f646a = hashMap;
         Context context = this.a;
-        com.xiaomi.push.k.a(hashMap, "app_version", com.xiaomi.push.g.m521a(context, context.getPackageName()));
-        Map<String, String> map2 = igVar.f650a;
+        com.xiaomi.push.k.a(hashMap, "app_version", com.xiaomi.push.g.m525a(context, context.getPackageName()));
+        Map<String, String> map2 = igVar.f646a;
         Context context2 = this.a;
         com.xiaomi.push.k.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(context2, context2.getPackageName())));
-        com.xiaomi.push.k.a(igVar.f650a, "push_sdk_vn", BuildConfig.VERSION_NAME);
-        com.xiaomi.push.k.a(igVar.f650a, "push_sdk_vc", Integer.toString(50005));
-        com.xiaomi.push.k.a(igVar.f650a, "token", m230a.b());
-        if (!com.xiaomi.push.j.m722d()) {
+        com.xiaomi.push.k.a(igVar.f646a, "push_sdk_vn", BuildConfig.VERSION_NAME);
+        com.xiaomi.push.k.a(igVar.f646a, "push_sdk_vc", Integer.toString(50005));
+        com.xiaomi.push.k.a(igVar.f646a, "token", m234a.b());
+        if (!com.xiaomi.push.j.m726d()) {
             String a = bo.a(com.xiaomi.push.i.c(this.a));
             String e = com.xiaomi.push.i.e(this.a);
             if (!TextUtils.isEmpty(e)) {
                 a = a + "," + e;
             }
             if (!TextUtils.isEmpty(a)) {
-                com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_IMEI_MD5, a);
+                com.xiaomi.push.k.a(igVar.f646a, Constants.EXTRA_KEY_IMEI_MD5, a);
             }
         }
-        az.a(this.a).a(igVar.f650a);
-        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_ID, m230a.m238c());
-        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_SECRET, m230a.d());
-        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
-        if (this.f69a) {
-            Map<String, String> map3 = igVar.f650a;
+        az.a(this.a).a(igVar.f646a);
+        com.xiaomi.push.k.a(igVar.f646a, Constants.EXTRA_KEY_REG_ID, m234a.m242c());
+        com.xiaomi.push.k.a(igVar.f646a, Constants.EXTRA_KEY_REG_SECRET, m234a.d());
+        com.xiaomi.push.k.a(igVar.f646a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
+        if (this.f65a) {
+            Map<String, String> map3 = igVar.f646a;
             c = av.c(MiPushClient.getAllAlias(this.a));
             com.xiaomi.push.k.a(map3, Constants.EXTRA_KEY_ALIASES_MD5, c);
-            Map<String, String> map4 = igVar.f650a;
+            Map<String, String> map4 = igVar.f646a;
             c2 = av.c(MiPushClient.getAllTopic(this.a));
             com.xiaomi.push.k.a(map4, Constants.EXTRA_KEY_TOPICS_MD5, c2);
-            map = igVar.f650a;
+            map = igVar.f646a;
             d3 = av.c(MiPushClient.getAllUserAccount(this.a));
             str = Constants.EXTRA_KEY_ACCOUNTS_MD5;
         } else {
-            Map<String, String> map5 = igVar.f650a;
+            Map<String, String> map5 = igVar.f646a;
             d = av.d(MiPushClient.getAllAlias(this.a));
             com.xiaomi.push.k.a(map5, Constants.EXTRA_KEY_ALIASES, d);
-            Map<String, String> map6 = igVar.f650a;
+            Map<String, String> map6 = igVar.f646a;
             d2 = av.d(MiPushClient.getAllTopic(this.a));
             com.xiaomi.push.k.a(map6, Constants.EXTRA_KEY_TOPICS, d2);
-            map = igVar.f650a;
+            map = igVar.f646a;
             d3 = av.d(MiPushClient.getAllUserAccount(this.a));
             str = Constants.EXTRA_KEY_ACCOUNTS;
         }

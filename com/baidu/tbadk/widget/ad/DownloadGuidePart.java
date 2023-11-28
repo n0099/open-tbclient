@@ -74,63 +74,6 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
         v();
     }
 
-    @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
-    public void t(DownloadData downloadData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            ProgressButton progressButton = this.n;
-            int i = 1;
-            if (progressButton != null) {
-                progressButton.setColorStyle(1);
-            }
-            ProgressButton progressButton2 = this.n;
-            if (progressButton2 != null) {
-                progressButton2.e();
-            }
-            String url = downloadData.getUrl();
-            TiebaPlusInfo tiebaPlusInfo = getTiebaPlusInfo();
-            if (tiebaPlusInfo != null) {
-                str = tiebaPlusInfo.download_url;
-            } else {
-                str = null;
-            }
-            if (Intrinsics.areEqual(url, str)) {
-                int status = downloadData.getStatus();
-                if (status != 0) {
-                    if (status != 1) {
-                        if (status != 5) {
-                            ProgressButton progressButton3 = this.n;
-                            if (progressButton3 != null) {
-                                progressButton3.setCurProgress(getProgress());
-                            }
-                            setProgressText(getDescInfo());
-                            return;
-                        }
-                        u();
-                        return;
-                    }
-                    int length = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
-                    ProgressButton progressButton4 = this.n;
-                    if (progressButton4 != null) {
-                        if (length > 0) {
-                            i = length;
-                        }
-                        progressButton4.j(i);
-                        return;
-                    }
-                    return;
-                }
-                ProgressButton progressButton5 = this.n;
-                if (progressButton5 != null) {
-                    progressButton5.setCurProgress(100);
-                }
-                setProgressText(getDescInfo());
-            }
-        }
-    }
-
     private final void setProgressText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
@@ -148,7 +91,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.p();
+            this$0.q();
         }
     }
 
@@ -156,12 +99,12 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.o();
+            this$0.p();
         }
     }
 
     @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
-    public void i(int i) {
+    public void j(int i) {
         ProgressButton progressButton;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -188,7 +131,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
     }
 
     @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
-    public void q() {
+    public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EMManager.from(this).setBackGroundColor(R.color.CAM_X0905);
@@ -245,7 +188,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
             if (progressButton2 != null) {
                 progressButton2.e();
             }
-            if (m()) {
+            if (n()) {
                 ProgressButton progressButton3 = this.n;
                 if (progressButton3 != null) {
                     progressButton3.setColorStyle(0);
@@ -259,14 +202,14 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
                     progressButton5.setCurProgress(-1);
                 }
                 setProgressText(getDescInfo());
-            } else if (j()) {
+            } else if (k()) {
                 ProgressButton progressButton6 = this.n;
                 if (progressButton6 != null) {
                     progressButton6.setCurProgress(100);
                 }
                 setProgressText(getDescInfo());
-            } else if (k()) {
-                if (l()) {
+            } else if (l()) {
+                if (m()) {
                     ProgressButton progressButton7 = this.n;
                     if (progressButton7 != null) {
                         progressButton7.j(getProgress());
@@ -293,6 +236,79 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
         }
     }
 
+    @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
+    public void t(DownloadData downloadData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            ProgressButton progressButton = this.n;
+            int i = 1;
+            if (progressButton != null) {
+                progressButton.setColorStyle(1);
+            }
+            ProgressButton progressButton2 = this.n;
+            if (progressButton2 != null) {
+                progressButton2.e();
+            }
+            String url = downloadData.getUrl();
+            TiebaPlusInfo tiebaPlusInfo = getTiebaPlusInfo();
+            String str2 = null;
+            if (tiebaPlusInfo != null) {
+                str = tiebaPlusInfo.download_url;
+            } else {
+                str = null;
+            }
+            if (!Intrinsics.areEqual(url, str)) {
+                DownloadData downloadData2 = getDownloadData();
+                if (downloadData2 != null) {
+                    str2 = downloadData2.getId();
+                }
+                if (!Intrinsics.areEqual(str2, downloadData.getId())) {
+                    return;
+                }
+            }
+            int status = downloadData.getStatus();
+            if (status != 0) {
+                if (status != 1) {
+                    if (status != 5) {
+                        if (status != 6) {
+                            ProgressButton progressButton3 = this.n;
+                            if (progressButton3 != null) {
+                                progressButton3.setCurProgress(getProgress());
+                            }
+                            setProgressText(getDescInfo());
+                            return;
+                        }
+                        ProgressButton progressButton4 = this.n;
+                        if (progressButton4 != null) {
+                            progressButton4.setCurProgress(-1);
+                        }
+                        setProgressText(getDescInfo());
+                        return;
+                    }
+                    u();
+                    return;
+                }
+                int length = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
+                ProgressButton progressButton5 = this.n;
+                if (progressButton5 != null) {
+                    if (length > 0) {
+                        i = length;
+                    }
+                    progressButton5.j(i);
+                    return;
+                }
+                return;
+            }
+            ProgressButton progressButton6 = this.n;
+            if (progressButton6 != null) {
+                progressButton6.setCurProgress(100);
+            }
+            setProgressText(getDescInfo());
+        }
+    }
+
     public final void v() {
         TextView textView;
         Interceptable interceptable = $ic;
@@ -312,7 +328,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
                 progressButton = (ProgressButton) view2.findViewById(R.id.guide_progress);
             }
             this.n = progressButton;
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kv5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sv5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -326,7 +342,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
             });
             ProgressButton progressButton2 = this.n;
             if (progressButton2 != null) {
-                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mv5
+                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tv5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -339,7 +355,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
                     }
                 });
             }
-            q();
+            r();
         }
     }
 }

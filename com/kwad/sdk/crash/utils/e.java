@@ -1,92 +1,39 @@
 package com.kwad.sdk.crash.utils;
 
-import android.os.Build;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import java.io.PrintWriter;
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.Set;
+import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.annotation.WorkerThread;
 /* loaded from: classes10.dex */
 public final class e {
+    public static Context awX;
 
-    /* loaded from: classes10.dex */
-    public static abstract class a {
-        public a() {
-        }
-
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
-        public abstract void println(Object obj);
-
-        public abstract Object wY();
+    @WorkerThread
+    public static long DK() {
+        long bg = bg(awX);
+        b(awX, 1 + bg);
+        return bg;
     }
 
-    /* loaded from: classes10.dex */
-    public static class b extends a {
-        public final PrintWriter aij;
-
-        public b(PrintWriter printWriter) {
-            super((byte) 0);
-            this.aij = printWriter;
+    @WorkerThread
+    public static boolean b(Context context, long j) {
+        if (context == null) {
+            return false;
         }
-
-        @Override // com.kwad.sdk.crash.utils.e.a
-        public final void println(Object obj) {
-            this.aij.println(obj);
-        }
-
-        @Override // com.kwad.sdk.crash.utils.e.a
-        public final Object wY() {
-            return this.aij;
-        }
+        SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
+        edit.putLong("crashseq", j);
+        return edit.commit();
     }
 
-    public static void a(Throwable th, a aVar) {
-        StackTraceElement[] stackTrace;
-        Set newSetFromMap = Collections.newSetFromMap(new IdentityHashMap());
-        newSetFromMap.add(th);
-        synchronized (aVar.wY()) {
-            aVar.println(th);
-            for (StackTraceElement stackTraceElement : th.getStackTrace()) {
-                aVar.println("\tat " + stackTraceElement);
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                for (Throwable th2 : th.getSuppressed()) {
-                    a(th2, aVar, "Suppressed: ", "\t", newSetFromMap);
-                }
-            }
-            Throwable cause = th.getCause();
-            if (cause != null) {
-                a(cause, aVar, "Caused by: ", "", newSetFromMap);
-            }
+    @WorkerThread
+    public static long bg(Context context) {
+        SharedPreferences sharedPreferences;
+        if (context != null && (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) != null) {
+            return sharedPreferences.getLong("crashseq", 1L);
         }
+        return 0L;
     }
 
-    public static void a(Throwable th, a aVar, String str, String str2, Set<Throwable> set) {
-        while (!set.contains(th)) {
-            set.add(th);
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            aVar.println(str2 + str + th);
-            for (StackTraceElement stackTraceElement : stackTrace) {
-                aVar.println(str2 + "\tat " + stackTraceElement);
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                for (Throwable th2 : th.getSuppressed()) {
-                    a(th2, aVar, "Suppressed: ", str2 + "\t", set);
-                }
-            }
-            th = th.getCause();
-            if (th == null) {
-                return;
-            }
-            str = "Caused by: ";
-        }
-        aVar.println("\t[CIRCULAR REFERENCE:" + th + PreferencesUtil.RIGHT_MOUNT);
-    }
-
-    public static void a(Throwable th, PrintWriter printWriter) {
-        a(th, new b(printWriter));
+    public static void init(Context context) {
+        awX = context;
     }
 }

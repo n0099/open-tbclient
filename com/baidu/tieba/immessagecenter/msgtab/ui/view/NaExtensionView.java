@@ -146,8 +146,8 @@ public final class NaExtensionView extends LinearLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
                 textView2 = null;
             }
-            textView2.setText(R.string.obfuscated_res_0x7f0f0c70);
-            this.c = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.obfuscated_res_0x7f08113f, null);
+            textView2.setText(R.string.obfuscated_res_0x7f0f0c7e);
+            this.c = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.obfuscated_res_0x7f08115f, null);
         }
     }
 }

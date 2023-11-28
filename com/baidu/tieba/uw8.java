@@ -1,45 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class uw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    public uw8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = qd.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean b(String str) {
+    public String a(String str) {
         InterceptResult invokeL;
+        m85 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null) {
+                try {
+                    p75 p75Var = new p75(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    String storeFile = FileHelper.getStoreFile(str, 1);
+                    p75Var.a("type", 2);
+                    n85 d = p75Var.d(storeFile);
+                    if (d != null && d.d() && (a = d.a()) != null) {
+                        String b = a.b();
+                        m75.b(str, b);
+                        return b;
+                    }
+                    return null;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            String urlDecode = qd.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -3,10 +3,9 @@ package com.kwad.components.core.widget;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
-import android.text.Layout;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.text.SpannableStringBuilder;
-import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -19,27 +18,26 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.baidu.sapi2.views.logindialog.view.AgreementView;
+import com.baidu.tieba.R;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import com.kwad.components.core.m.h;
 import com.kwad.components.core.page.AdWebViewActivityProxy;
-import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.ai;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes10.dex */
 public class ComplianceTextView extends TextView {
-    public String OC;
-    public String OD;
-    public String OE;
-    public String OF;
-    public String OG;
-    public int OH;
-    public String OI;
-    @ColorInt
-    public int OJ;
-    public boolean OK;
+    public String abc;
+    public String abd;
+    public String abe;
+    public String abf;
+    public String abg;
+    public String abh;
+    public String abi;
+    public int abj;
     public AdTemplate mAdTemplate;
+    @ColorInt
+    public int textColor;
 
     public ComplianceTextView(Context context) {
         this(context, null);
@@ -51,161 +49,184 @@ public class ComplianceTextView extends TextView {
 
     public ComplianceTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.OH = Cea708Decoder.COMMAND_DF2;
-        b(context, attributeSet);
+        this.abc = "...";
+        this.abj = Cea708Decoder.COMMAND_DF2;
+        init(context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, String str3) {
-        StringBuilder sb;
+    public void a(String str, String str2, String str3, String str4, String str5, String str6) {
+        int width;
+        boolean z;
         if (TextUtils.isEmpty(str)) {
             setVisibility(8);
             return;
         }
-        StringBuilder sb2 = new StringBuilder();
-        if (!TextUtils.isEmpty(this.OF) || !TextUtils.isEmpty(this.OG)) {
-            sb2.append("   ");
+        StringBuilder sb = new StringBuilder();
+        if (!TextUtils.isEmpty(str3)) {
+            sb.append(" | 版本 ");
+            sb.append(str3);
         }
-        if (!TextUtils.isEmpty(this.OF)) {
-            sb2.append(str2);
+        if (!TextUtils.isEmpty(this.abh)) {
+            sb.append(" | ");
+            sb.append(str4);
         }
-        if (!TextUtils.isEmpty(this.OF) && !TextUtils.isEmpty(this.OG)) {
-            sb2.append(" | ");
+        if (!TextUtils.isEmpty(this.abg)) {
+            sb.append(" | ");
+            sb.append(str5);
         }
-        if (!TextUtils.isEmpty(this.OG)) {
-            sb2.append(str3);
+        if (!TextUtils.isEmpty(this.abi)) {
+            sb.append(" | ");
+            sb.append(str6);
         }
-        int width = ((!ag.cB(getContext()) ? this.OH : getWidth()) - getPaddingLeft()) - getPaddingRight();
+        getContext();
+        if (!ai.Kx()) {
+            width = (this.abj - getPaddingLeft()) - getPaddingRight();
+            z = true;
+        } else {
+            width = (getWidth() - getPaddingLeft()) - getPaddingRight();
+            z = false;
+        }
         if (width < 0) {
             return;
         }
-        if (a(str, sb2.toString(), width)) {
-            sb = new StringBuilder();
-            sb.append(str);
-            sb.append("\n");
+        if (!z && !TextUtils.isEmpty(str2)) {
+            Paint paint = new Paint();
+            paint.setTextSize(getTextSize());
+            float measureText = width - paint.measureText(str + sb.toString());
+            if (paint.measureText(" " + str2) > measureText && measureText > 0.0f) {
+                while (str2.length() > 1) {
+                    str2 = str2.substring(0, str2.length() - 1);
+                    if (paint.measureText(" " + str2 + this.abc) <= measureText) {
+                        break;
+                    }
+                }
+            } else {
+                this.abc = "";
+            }
         } else {
-            sb = new StringBuilder();
-            sb.append(str);
-            sb.append("   ");
+            this.abc = "";
         }
-        this.OI = sb.toString();
-        l(str2, str3);
+        b(str, str2 + this.abc, str3, str4, str5, str6);
         requestLayout();
     }
 
-    private boolean a(String str, String str2, int i) {
-        StaticLayout staticLayout;
-        StaticLayout staticLayout2;
-        String str3 = str + str2;
-        if (Build.VERSION.SDK_INT >= 23) {
-            staticLayout2 = StaticLayout.Builder.obtain(str, 0, str.length(), getPaint(), i).build();
-            staticLayout = StaticLayout.Builder.obtain(str3, 0, str3.length(), getPaint(), i).build();
-        } else {
-            StaticLayout staticLayout3 = new StaticLayout(str, getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 0.0f, 0.0f, true);
-            staticLayout = new StaticLayout(str3, getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 0.0f, 0.0f, true);
-            staticLayout2 = staticLayout3;
+    private void b(String str, String str2, String str3, String str4, String str5, String str6) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (!TextUtils.isEmpty(str)) {
+            spannableStringBuilder.append((CharSequence) str);
         }
-        return staticLayout.getLineCount() > staticLayout2.getLineCount();
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) str2);
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) " | 版本 ").append((CharSequence) str3);
+        }
+        if (!TextUtils.isEmpty(this.abh)) {
+            int length = spannableStringBuilder.length();
+            spannableStringBuilder.append((CharSequence) " | ").append((CharSequence) str4);
+            spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.components.core.widget.ComplianceTextView.2
+                @Override // android.text.style.ClickableSpan
+                public final void onClick(@NonNull View view2) {
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0655a().al("功能介绍").am(ComplianceTextView.this.abh).aB(true).as(ComplianceTextView.this.mAdTemplate).pa());
+                }
+
+                @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+                public final void updateDrawState(@NonNull TextPaint textPaint) {
+                    super.updateDrawState(textPaint);
+                    textPaint.setColor(ComplianceTextView.this.textColor);
+                    textPaint.setUnderlineText(false);
+                }
+            }, length, spannableStringBuilder.length(), 33);
+        }
+        if (!TextUtils.isEmpty(this.abg)) {
+            int length2 = spannableStringBuilder.length();
+            spannableStringBuilder.append((CharSequence) " | ").append((CharSequence) str5);
+            spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.components.core.widget.ComplianceTextView.3
+                @Override // android.text.style.ClickableSpan
+                public final void onClick(@NonNull View view2) {
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0655a().al("权限信息").am(ComplianceTextView.this.abg).aB(true).as(ComplianceTextView.this.mAdTemplate).pa());
+                }
+
+                @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+                public final void updateDrawState(@NonNull TextPaint textPaint) {
+                    super.updateDrawState(textPaint);
+                    textPaint.setColor(ComplianceTextView.this.textColor);
+                    textPaint.setUnderlineText(false);
+                }
+            }, length2, spannableStringBuilder.length(), 33);
+        }
+        if (!TextUtils.isEmpty(this.abi)) {
+            int length3 = spannableStringBuilder.length();
+            spannableStringBuilder.append((CharSequence) " | ").append((CharSequence) str6);
+            spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.components.core.widget.ComplianceTextView.4
+                @Override // android.text.style.ClickableSpan
+                public final void onClick(@NonNull View view2) {
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0655a().al(AgreementView.l).am(ComplianceTextView.this.abi).aB(true).as(ComplianceTextView.this.mAdTemplate).pa());
+                }
+
+                @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+                public final void updateDrawState(@NonNull TextPaint textPaint) {
+                    super.updateDrawState(textPaint);
+                    textPaint.setColor(ComplianceTextView.this.textColor);
+                    textPaint.setUnderlineText(false);
+                }
+            }, length3, spannableStringBuilder.length(), 33);
+        }
+        spannableStringBuilder.append((CharSequence) " ");
+        setMovementMethod(LinkMovementMethod.getInstance());
+        setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0607b3));
+        setText(spannableStringBuilder);
     }
 
     @SuppressLint({"CustomViewStyleable"})
-    private void b(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
-        this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
-        this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06079a));
-        this.OK = obtainStyledAttributes.getBoolean(1, true);
-        if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e5b));
+    private void init(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_ComplianceTextView);
+        this.abj = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
+        int color = obtainStyledAttributes.getColor(0, Color.parseColor("#99FFFFFF"));
+        this.textColor = color;
+        setTextColor(color);
+        if (ai.isOrientationPortrait()) {
+            setBackgroundColor(0);
+        } else {
+            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080e66));
         }
         obtainStyledAttributes.recycle();
     }
 
-    private void l(final String str, final String str2) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) this.OI);
-        if (!TextUtils.isEmpty(this.OF)) {
-            int length = spannableStringBuilder.length();
-            spannableStringBuilder.append((CharSequence) str);
-            spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.components.core.widget.ComplianceTextView.2
-                @Override // android.text.style.ClickableSpan
-                public final void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0632a().ao(str).ap(ComplianceTextView.this.OF).N(ComplianceTextView.this.mAdTemplate).nx());
-                }
-
-                @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-                public final void updateDrawState(@NonNull TextPaint textPaint) {
-                    super.updateDrawState(textPaint);
-                    textPaint.setColor(ComplianceTextView.this.OJ);
-                    textPaint.setUnderlineText(ComplianceTextView.this.OK);
-                }
-            }, length, spannableStringBuilder.length(), 33);
-        }
-        if (!TextUtils.isEmpty(this.OF) && !TextUtils.isEmpty(this.OG)) {
-            spannableStringBuilder.append((CharSequence) " | ");
-        }
-        if (!TextUtils.isEmpty(this.OG)) {
-            int length2 = spannableStringBuilder.length();
-            spannableStringBuilder.append((CharSequence) str2);
-            spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.components.core.widget.ComplianceTextView.3
-                @Override // android.text.style.ClickableSpan
-                public final void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0632a().ao(str2).ap(ComplianceTextView.this.OG).N(ComplianceTextView.this.mAdTemplate).nx());
-                }
-
-                @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-                public final void updateDrawState(@NonNull TextPaint textPaint) {
-                    super.updateDrawState(textPaint);
-                    textPaint.setColor(ComplianceTextView.this.OJ);
-                    textPaint.setUnderlineText(ComplianceTextView.this.OK);
-                }
-            }, length2, spannableStringBuilder.length(), 33);
-        }
-        spannableStringBuilder.append((CharSequence) " ");
-        setMovementMethod(LinkMovementMethod.getInstance());
-        setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f0607ac));
-        setText(spannableStringBuilder);
-    }
-
     public void setAdTemplate(AdTemplate adTemplate) {
         this.mAdTemplate = adTemplate;
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-        StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(bQ.adBaseInfo.appName)) {
-            sb.append("应用名：");
-            sb.append(bQ.adBaseInfo.appName);
-            sb.append("；");
-        }
-        if (!TextUtils.isEmpty(bQ.adBaseInfo.appVersion)) {
-            sb.append("版本号：");
-            sb.append(bQ.adBaseInfo.appVersion);
-            sb.append("；");
-        }
-        if (bQ.adBaseInfo.packageSize > 0) {
-            sb.append("应用大小：");
-            sb.append(h.a(bQ.adBaseInfo.packageSize, true));
-            sb.append("；");
-        }
-        if (!TextUtils.isEmpty(bQ.adBaseInfo.corporationName)) {
-            sb.append("开发者：");
-            sb.append(bQ.adBaseInfo.corporationName);
-            sb.append("；");
-        }
-        this.OC = sb.toString();
-        this.OD = "权限信息";
-        this.OE = AgreementView.l;
-        AdInfo.DownloadSafeInfo downloadSafeInfo = bQ.downloadSafeInfo;
-        this.OF = downloadSafeInfo.appPermissionInfoUrl;
-        this.OG = downloadSafeInfo.appPrivacyUrl;
-        if (this.OH > 0) {
+        final AdInfo dP = com.kwad.sdk.core.response.b.e.dP(adTemplate);
+        this.abd = "功能";
+        this.abe = "权限";
+        this.abf = "隐私";
+        AdInfo.DownloadSafeInfo downloadSafeInfo = dP.downloadSafeInfo;
+        this.abg = downloadSafeInfo.appPermissionInfoUrl;
+        this.abi = downloadSafeInfo.appPrivacyUrl;
+        this.abh = downloadSafeInfo.introductionInfoUrl;
+        if (this.abj > 0) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.width = !ag.cB(getContext()) ? com.kwad.sdk.b.kwai.a.a(getContext(), this.OH) : -1;
+            getContext();
+            if (!ai.Kx()) {
+                layoutParams.width = com.kwad.sdk.d.a.a.a(getContext(), this.abj);
+            } else {
+                layoutParams.width = -1;
+            }
             setLayoutParams(layoutParams);
         }
         post(new Runnable() { // from class: com.kwad.components.core.widget.ComplianceTextView.1
             @Override // java.lang.Runnable
             public final void run() {
+                String str;
                 ComplianceTextView complianceTextView = ComplianceTextView.this;
-                complianceTextView.a(complianceTextView.OC, ComplianceTextView.this.OD, ComplianceTextView.this.OE);
+                AdInfo.DownloadSafeInfo downloadSafeInfo2 = dP.downloadSafeInfo;
+                String str2 = downloadSafeInfo2.appName;
+                if (TextUtils.isEmpty(downloadSafeInfo2.corporationName)) {
+                    str = "";
+                } else {
+                    str = dP.downloadSafeInfo.corporationName;
+                }
+                complianceTextView.a(str2, str, dP.downloadSafeInfo.appVersion, ComplianceTextView.this.abd, ComplianceTextView.this.abe, ComplianceTextView.this.abf);
             }
         });
     }

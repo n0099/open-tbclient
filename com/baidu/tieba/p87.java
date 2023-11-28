@@ -1,36 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedEntrybarComponent;
 /* loaded from: classes7.dex */
-public final class p87 {
+public final class p87 extends yq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final Object b;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<ab7<? extends Object>> mutableList, n77 n77Var) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, n77Var) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(b(feedEntrybarComponent, n77Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof p87) {
+                p87 p87Var = (p87) obj;
+                return Intrinsics.areEqual(this.a, p87Var.a) && Intrinsics.areEqual(this.b, p87Var.b);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static final w37 b(FeedEntrybarComponent feedEntrybarComponent, n77 n77Var) {
-        InterceptResult invokeLL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, n77Var)) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            String text = feedEntrybarComponent.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            String schema = feedEntrybarComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            return new w37(text, schema, null, n77Var, 4, null);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "ThreadEditSelectEvent(context=" + this.a + ", cardData=" + this.b + ')';
         }
-        return (w37) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public p87(Context context, Object cardData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, cardData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(cardData, "cardData");
+        this.a = context;
+        this.b = cardData;
+    }
+
+    public final Object a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public final Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
     }
 }

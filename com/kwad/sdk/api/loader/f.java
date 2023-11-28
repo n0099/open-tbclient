@@ -1,14 +1,12 @@
 package com.kwad.sdk.api.loader;
 
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.kwad.components.offline.api.BuildConfig;
-import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
 import com.kwad.sdk.api.core.TLSConnectionUtils;
 import com.kwad.sdk.api.loader.a;
@@ -18,106 +16,86 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class f {
-    public Map<String, String> Sm = new HashMap();
-    public IKsAdSDK Sn;
-    public String a;
-    public String b;
-    public int c;
+public class f {
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public final v alH;
+    public int alI;
+    public String alJ;
+    public final String mUrl;
 
     /* loaded from: classes10.dex */
     public interface a {
         void a(a.b bVar);
-
-        void a(Exception exc);
     }
 
-    public f(String str, IKsAdSDK iKsAdSDK) {
-        this.b = str;
-        this.a = str;
-        this.Sn = iKsAdSDK;
+    public f(v vVar) {
+        this.alH = vVar;
+        String zr = vVar.zr();
+        this.mUrl = zr;
+        this.alJ = zr;
     }
 
-    private String a() {
-        int i;
-        String a2 = g.a(Loader.get().getContext());
-        IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
-        if (ksAdSDKImpl != null) {
-            if (TextUtils.isEmpty(a2)) {
-                a2 = ksAdSDKImpl.getSDKVersion();
-            }
-            i = ksAdSDKImpl.getSDKVersionCode();
-        } else {
-            i = -1;
-        }
-        JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
-        JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
-        JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("sdkApiVersion", BuildConfig.VERSION_NAME);
-            jSONObject.put("sdkApiVersionCode", BuildConfig.VERSION_CODE);
-            jSONObject.put(com.heytap.mcssdk.constant.b.C, a2);
-            jSONObject.put("SDKVersionCode", i);
-            jSONObject.put("sdkType", 1);
-            jSONObject.put(DI.APP_INFO_NAME, appInfo);
-            jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
-            jSONObject.put("networkInfo", networkInfo);
-            jSONObject.put("sdkAbi", v.a() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (this.Sn != null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("version", BuildConfig.VERSION_NAME);
-                jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.Sn.getRM(jSONObject.toString()));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            this.Sn.sR(this.b, this.Sm, jSONObject2.toString());
-            return jSONObject2.toString();
-        }
-        return jSONObject.toString();
+    public static HttpURLConnection bT(String str) {
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+        TLSConnectionUtils.wrapHttpURLConnection(httpURLConnection);
+        httpURLConnection.setConnectTimeout(10000);
+        httpURLConnection.setReadTimeout(30000);
+        httpURLConnection.setUseCaches(false);
+        httpURLConnection.setDoInput(true);
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        httpURLConnection.setInstanceFollowRedirects(true);
+        return httpURLConnection;
     }
 
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x004c: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:37:0x004c */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0059 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(InputStream inputStream) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         byte[] bArr = new byte[1024];
-        while (true) {
+        ByteArrayOutputStream byteArrayOutputStream3 = null;
+        try {
             try {
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } catch (Throwable th) {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                while (true) {
                     try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } catch (IOException e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        if (byteArrayOutputStream != null) {
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return null;
                     }
-                    throw th;
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+                String byteArrayOutputStream4 = byteArrayOutputStream.toString();
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -127,124 +105,139 @@ public final class f {
                 }
                 try {
                     byteArrayOutputStream.close();
-                    return null;
                 } catch (IOException e5) {
                     e5.printStackTrace();
-                    return null;
                 }
+                return byteArrayOutputStream4;
+            } catch (Throwable th) {
+                th = th;
+                byteArrayOutputStream3 = byteArrayOutputStream2;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                if (byteArrayOutputStream3 != null) {
+                    try {
+                        byteArrayOutputStream3.close();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                }
+                throw th;
             }
-        }
-        String str = new String(byteArrayOutputStream.toByteArray());
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e6) {
-                e6.printStackTrace();
+        } catch (IOException e8) {
+            e = e8;
+            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (inputStream != null) {
             }
+            if (byteArrayOutputStream3 != null) {
+            }
+            throw th;
         }
-        try {
-            byteArrayOutputStream.close();
-        } catch (IOException e7) {
-            e7.printStackTrace();
-        }
-        return str;
     }
 
-    private void a(String str, String str2) {
-        this.Sm.put(str, str2);
+    public static void a(HttpURLConnection httpURLConnection, Map<String, String> map) {
+        if (map != null && httpURLConnection != null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    private String d(Map<String, String> map) {
+        String ay = g.ay(this.alH.getContext());
+        if (TextUtils.isEmpty(ay)) {
+            ay = this.alH.zs().getSDKVersion();
+        }
+        int sDKVersionCode = this.alH.zs().getSDKVersionCode();
+        JSONObject appInfo = this.alH.zs().getAppInfo();
+        JSONObject deviceInfo = this.alH.zs().getDeviceInfo();
+        JSONObject networkInfo = this.alH.zs().getNetworkInfo();
+        JSONObject jSONObject = new JSONObject();
+        l.putValue(jSONObject, "sdkApiVersion", BuildConfig.VERSION_NAME);
+        l.putValue(jSONObject, "sdkApiVersionCode", (int) BuildConfig.VERSION_CODE);
+        l.putValue(jSONObject, com.heytap.mcssdk.constant.b.C, ay);
+        l.putValue(jSONObject, "SDKVersionCode", sDKVersionCode);
+        l.putValue(jSONObject, "sdkType", 1);
+        l.putValue(jSONObject, DI.APP_INFO_NAME, appInfo);
+        l.putValue(jSONObject, GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
+        l.putValue(jSONObject, "networkInfo", networkInfo);
+        l.putValue(jSONObject, "sdkAbi", w.xz());
+        String jSONObject2 = jSONObject.toString();
+        this.alH.zs().addHp(map);
+        JSONObject jSONObject3 = new JSONObject();
+        l.putValue(jSONObject3, "version", BuildConfig.VERSION_NAME);
+        l.putValue(jSONObject3, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+        l.putValue(jSONObject3, "message", this.alH.zs().getRM(jSONObject2));
+        this.alH.zs().sR(this.mUrl, map, jSONObject3.toString());
+        return jSONObject3.toString();
     }
 
     public final void a(a aVar) {
         HttpURLConnection httpURLConnection = null;
         try {
-            try {
-                if (!TextUtils.isEmpty(this.a)) {
-                    URLConnection openConnection = new URL(this.a).openConnection();
-                    TLSConnectionUtils.wrapHttpURLConnection(openConnection);
-                    a("Accept-Language", "zh-CN");
-                    openConnection.setConnectTimeout(10000);
-                    openConnection.setReadTimeout(30000);
-                    openConnection.setUseCaches(false);
-                    openConnection.setDoInput(true);
-                    a(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
-                    a(BOSTokenRequest.CHARSET, "UTF-8");
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) openConnection;
-                    httpURLConnection2.setRequestMethod("POST");
-                    httpURLConnection2.setDoOutput(true);
-                    httpURLConnection2.setInstanceFollowRedirects(true);
-                    a("Content-Type", "application/json; charset=UTF-8");
-                    a("User-Agent", RequestParamsUtils.getUserAgent());
-                    if (this.Sn != null) {
-                        this.Sn.addHp(this.Sm);
-                    }
-                    httpURLConnection = httpURLConnection2;
+            Map<String, String> zi = zi();
+            String d = d(zi);
+            HttpURLConnection bT = bT(this.alJ);
+            a(bT, zi);
+            bT.connect();
+            new DataOutputStream(bT.getOutputStream()).write(d.getBytes());
+            int responseCode = bT.getResponseCode();
+            if (responseCode == 200) {
+                String a2 = a(bT.getInputStream());
+                a.b bVar = new a.b();
+                JSONObject jSONObject = new JSONObject(a2);
+                String optString = jSONObject.optString("data");
+                if (!TextUtils.isEmpty(optString) && !StringUtil.NULL_STRING.equals(optString)) {
+                    jSONObject.put("data", new JSONObject(this.alH.zs().getRD(optString)));
                 }
-                if (httpURLConnection != null) {
-                    String a2 = a();
-                    if (this.Sm != null) {
-                        for (Map.Entry<String, String> entry : this.Sm.entrySet()) {
-                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    httpURLConnection.connect();
-                    new DataOutputStream(httpURLConnection.getOutputStream()).write(a2.getBytes());
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (responseCode == 200) {
-                        String a3 = a(httpURLConnection.getInputStream());
-                        a.b bVar = new a.b();
-                        JSONObject jSONObject = new JSONObject(a3);
-                        if (this.Sn != null) {
-                            String optString = jSONObject.optString("data");
-                            if (!TextUtils.isEmpty(optString)) {
-                                jSONObject.put("data", new JSONObject(this.Sn.getRD(optString)));
-                            }
-                        }
-                        bVar.a = jSONObject.optLong("result");
-                        bVar.b = jSONObject.optString("errorMsg");
-                        a.C0652a c0652a = new a.C0652a();
-                        bVar.Sg = c0652a;
-                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        if (optJSONObject != null) {
-                            c0652a.a = optJSONObject.optInt("dynamicType");
-                            c0652a.b = optJSONObject.optString("dynamicUrl");
-                            c0652a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0652a.Se = optJSONObject.optLong("interval");
-                            c0652a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
-                        }
-                        aVar.a(bVar);
-                    } else if (responseCode / 100 != 3) {
-                        throw new RuntimeException("response code = ".concat(String.valueOf(responseCode)));
-                    } else {
-                        if (this.c < 21) {
-                            this.a = httpURLConnection.getHeaderField("Location");
-                            this.c++;
-                            a(aVar);
-                        }
-                    }
+                bVar.parseJson(jSONObject);
+                aVar.a(bVar);
+            } else if (responseCode / 100 == 3) {
+                if (this.alI < 21) {
+                    this.alJ = bT.getHeaderField("Location");
+                    this.alI++;
+                    a(aVar);
                 }
-                if (httpURLConnection != null) {
-                    try {
-                        httpURLConnection.disconnect();
-                    } catch (Exception unused) {
-                    }
-                }
-            } catch (Exception e) {
-                aVar.a(e);
-                if (0 != 0) {
-                    try {
-                        httpURLConnection.disconnect();
-                    } catch (Exception unused2) {
-                    }
+            } else {
+                throw new RuntimeException("response code = " + responseCode);
+            }
+            if (bT != null) {
+                try {
+                    bT.disconnect();
+                } catch (Exception unused) {
                 }
             }
-        } catch (Throwable th) {
+        } catch (Exception unused2) {
             if (0 != 0) {
                 try {
                     httpURLConnection.disconnect();
                 } catch (Exception unused3) {
                 }
             }
+        } catch (Throwable th) {
+            if (0 != 0) {
+                try {
+                    httpURLConnection.disconnect();
+                } catch (Exception unused4) {
+                }
+            }
             throw th;
         }
+    }
+
+    public static Map<String, String> zi() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("Accept-Language", "zh-CN");
+        hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+        hashMap.put(BOSTokenRequest.CHARSET, "UTF-8");
+        hashMap.put("Content-Type", "application/json; charset=UTF-8");
+        hashMap.put("User-Agent", RequestParamsUtils.getUserAgent());
+        return hashMap;
     }
 }

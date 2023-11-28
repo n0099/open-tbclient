@@ -22,81 +22,124 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
-import com.kwad.components.core.m.n;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
+import com.kwad.components.core.s.n;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
 public class KsShakeView extends KSFrameLayout {
-    public Animator AA;
-    public boolean AB;
-    public int Ar;
-    public float As;
+    public int Ga;
+    public float Gb;
     @ColorInt
-    public int At;
+    public int Gc;
     @ColorInt
-    public int Au;
+    public int Gd;
     @ColorInt
-    public int Av;
-    public float Aw;
-    public float Ax;
+    public int Ge;
+    public float Gf;
+    public float Gg;
     @DrawableRes
-    public int Ay;
+    public int Gh;
+    public Animator Gi;
+    public boolean Gj;
+    public ImageView fq;
     @Nullable
-    public Animator Az;
+    public Animator fr;
     public Paint mPaint;
-    public ImageView nC;
 
     public KsShakeView(@NonNull Context context) {
         this(context, null, 0);
+    }
+
+    private void setBgCirclePaint(Paint paint) {
+        paint.reset();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(this.Gd);
+        paint.setAntiAlias(true);
+    }
+
+    private void setInnerCirclePaint(Paint paint) {
+        paint.reset();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(this.Gf);
+        paint.setColor(this.Ge);
+        paint.setAntiAlias(true);
+    }
+
+    private void setOuterCirclePaint(Paint paint) {
+        paint.reset();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(this.Gb);
+        paint.setColor(this.Gc);
+        paint.setAntiAlias(true);
+    }
+
+    public final void ac(int i) {
+        this.Ga = i;
+        if (i != 2) {
+            setIconDrawableRes(R.drawable.obfuscated_res_0x7f080e83);
+        } else {
+            setIconDrawableRes(R.drawable.obfuscated_res_0x7f080e84);
+        }
+    }
+
+    @MainThread
+    public void setIconDrawableRes(@DrawableRes int i) {
+        ImageView imageView = this.fq;
+        if (imageView != null) {
+            imageView.setImageResource(i);
+        }
     }
 
     public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
+    @Override // com.kwad.sdk.widget.KSFrameLayout, android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+    }
+
     public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mPaint = new Paint();
-        this.AB = false;
+        this.Gj = false;
         a(context, attributeSet, i);
     }
 
     private Animator a(View view2, long j, float f) {
         Interpolator create;
-        float height;
         if (view2 == null) {
             return null;
         }
-        if (this.Ar == 1) {
+        if (this.Ga == 1) {
             create = PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f);
             view2.setPivotX(view2.getWidth());
-            height = view2.getHeight();
+            view2.setPivotY(view2.getHeight());
         } else {
             create = PathInterpolatorCompat.create(0.33f, 0.0f, 0.36f, 1.0f);
             view2.setPivotX(view2.getWidth() / 2.0f);
-            height = view2.getHeight() / 2.0f;
+            view2.setPivotY(view2.getHeight() / 2.0f);
         }
-        view2.setPivotY(height);
         return n.a(view2, create, 100L, 16.0f);
     }
 
     @SuppressLint({"CustomViewStyleable"})
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-        this.As = obtainStyledAttributes.getDimension(4, 1.0f);
-        this.At = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
-        this.Au = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
-        this.Ar = obtainStyledAttributes.getInteger(6, 1);
-        this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
-        this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-        this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e75);
-        this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_KsShakeView, i, 0);
+        this.Gb = obtainStyledAttributes.getDimension(4, 1.0f);
+        this.Gc = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
+        this.Gd = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
+        this.Ga = obtainStyledAttributes.getInteger(6, 1);
+        this.Ge = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
+        this.Gf = obtainStyledAttributes.getDimension(2, 1.0f);
+        this.Gh = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080e83);
+        this.Gg = obtainStyledAttributes.getDimension(0, com.kwad.sdk.d.a.a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
-        this.nC = new ImageView(getContext());
+        this.fq = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addView(this.nC, layoutParams);
-        kp();
+        addView(this.fq, layoutParams);
+        lK();
     }
 
     public static Animator b(View view2, long j, float f) {
@@ -115,76 +158,78 @@ public class KsShakeView extends KSFrameLayout {
         return animatorSet;
     }
 
-    private void kp() {
-        this.nC.setImageResource(this.Ay);
+    private void lK() {
+        this.fq.setImageResource(this.Gh);
     }
 
-    private void setBgCirclePaint(Paint paint) {
-        paint.reset();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(this.Au);
-        paint.setAntiAlias(true);
-    }
-
-    private void setInnerCirclePaint(Paint paint) {
-        paint.reset();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.Aw);
-        paint.setColor(this.Av);
-        paint.setAntiAlias(true);
-    }
-
-    private void setOuterCirclePaint(Paint paint) {
-        paint.reset();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.As);
-        paint.setColor(this.At);
-        paint.setAntiAlias(true);
-    }
-
-    public final void Z(int i) {
-        this.Ar = i;
-        setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e75 : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e76);
-    }
-
-    public final void a(AnimatorListenerAdapter animatorListenerAdapter) {
-        this.AB = true;
-        Animator animator = this.Az;
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public final void ad() {
+        super.ad();
+        Animator animator = this.fr;
         if (animator != null) {
             animator.cancel();
         }
-        this.nC.setRotation(0.0f);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070558);
-        Animator animator2 = this.AA;
+    }
+
+    @MainThread
+    public final void lO() {
+        this.Gj = false;
+        Animator animator = this.fr;
+        if (animator != null) {
+            animator.cancel();
+            this.fr = null;
+        }
+        Animator a = a(this.fq, 100L, 16.0f);
+        this.fr = a;
+        if (a != null) {
+            a.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.KsShakeView.1
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public final void onAnimationCancel(Animator animator2) {
+                    super.onAnimationCancel(animator2);
+                    KsShakeView.this.fq.setRotation(0.0f);
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public final void onAnimationEnd(Animator animator2) {
+                    super.onAnimationEnd(animator2);
+                    if (!KsShakeView.this.Gj && KsShakeView.this.fr != null) {
+                        KsShakeView.this.fr.start();
+                    }
+                }
+            });
+            this.fr.start();
+        }
+    }
+
+    public final void lP() {
+        Animator animator = this.fr;
+        if (animator != null) {
+            animator.cancel();
+        }
+        Animator animator2 = this.Gi;
+        if (animator2 != null) {
+            animator2.cancel();
+        }
+        this.fr = null;
+        this.Gi = null;
+    }
+
+    public final void b(AnimatorListenerAdapter animatorListenerAdapter) {
+        this.Gj = true;
+        Animator animator = this.fr;
+        if (animator != null) {
+            animator.cancel();
+        }
+        this.fq.setRotation(0.0f);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056b);
+        Animator animator2 = this.Gi;
         if (animator2 != null) {
             animator2.cancel();
         }
         Animator b = b(this, 100L, dimensionPixelSize);
-        this.AA = b;
+        this.Gi = b;
         b.addListener(animatorListenerAdapter);
-        this.AA.start();
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void an() {
-        super.an();
-        Animator animator = this.Az;
-        if (animator != null) {
-            animator.cancel();
-        }
-    }
-
-    public final void bt() {
-        Animator animator = this.Az;
-        if (animator != null) {
-            animator.cancel();
-        }
-        Animator animator2 = this.AA;
-        if (animator2 != null) {
-            animator2.cancel();
-        }
-        this.Az = null;
-        this.AA = null;
+        this.Gi.start();
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, android.view.ViewGroup, android.view.View
@@ -194,54 +239,10 @@ public class KsShakeView extends KSFrameLayout {
         canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.mPaint);
         setOuterCirclePaint(this.mPaint);
         canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.mPaint);
-        if (this.Ar == 2) {
+        if (this.Ga == 2) {
             setInnerCirclePaint(this.mPaint);
-            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.Ax, this.mPaint);
+            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.Gg, this.mPaint);
         }
         super.dispatchDraw(canvas);
-    }
-
-    @MainThread
-    public final void kG() {
-        this.AB = false;
-        Animator animator = this.Az;
-        if (animator != null) {
-            animator.cancel();
-            this.Az = null;
-        }
-        Animator a = a(this.nC, 100L, 16.0f);
-        this.Az = a;
-        if (a != null) {
-            a.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.KsShakeView.1
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public final void onAnimationCancel(Animator animator2) {
-                    super.onAnimationCancel(animator2);
-                    KsShakeView.this.nC.setRotation(0.0f);
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public final void onAnimationEnd(Animator animator2) {
-                    super.onAnimationEnd(animator2);
-                    if (KsShakeView.this.AB || KsShakeView.this.Az == null) {
-                        return;
-                    }
-                    KsShakeView.this.Az.start();
-                }
-            });
-            this.Az.start();
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-    }
-
-    @MainThread
-    public void setIconDrawableRes(@DrawableRes int i) {
-        ImageView imageView = this.nC;
-        if (imageView != null) {
-            imageView.setImageResource(i);
-        }
     }
 }

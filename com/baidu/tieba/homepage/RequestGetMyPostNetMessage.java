@@ -18,7 +18,9 @@ public class RequestGetMyPostNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String bFrom;
     public int callFrom;
+    public String frsCommonInfo;
     public boolean hideErrorToast;
+    public int isNewFrs;
     public long mForumId;
     public long mPostId;
     public int mQType;
@@ -62,6 +64,8 @@ public class RequestGetMyPostNetMessage extends NetMessage {
             builder.q_type = Integer.valueOf(this.mQType);
             builder.bfrom = this.bFrom;
             builder.call_from = Integer.valueOf(this.callFrom);
+            builder.frs_common_info = this.frsCommonInfo;
+            builder.is_newfrs = Integer.valueOf(this.isNewFrs);
             NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -136,7 +140,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
     public boolean showErrorToast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return !this.hideErrorToast;
         }
         return invokeV.booleanValue;
@@ -156,23 +160,37 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         }
     }
 
+    public void setFrsCommonInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.frsCommonInfo = str;
+        }
+    }
+
     public void setHideErrorToast(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.hideErrorToast = z;
+        }
+    }
+
+    public void setIsNewFrs(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.isNewFrs = i;
         }
     }
 
     public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.proZone = i;
         }
     }
 
     public void setParams(long j, long j2, long j3, int i, int i2, double d, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)}) == null) {
             this.mPostId = j2;
             this.mThreadId = j;
             this.mForumId = j3;

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.AnrExceptionMessage;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,19 +13,38 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class b extends d {
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00b6  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00c9  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00cc  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00ff  */
-    /* JADX WARN: Removed duplicated region for block: B:69:? A[RETURN, SYNTHETIC] */
+    private AnrExceptionMessage B(File file) {
+        String str;
+        try {
+            str = q.V(file);
+        } catch (IOException e) {
+            this.mErrorMessage += e + "\n";
+            str = null;
+        }
+        AnrExceptionMessage anrExceptionMessage = new AnrExceptionMessage();
+        if (str != null) {
+            try {
+                anrExceptionMessage.parseJson(new JSONObject(str));
+            } catch (Exception e2) {
+                this.mErrorMessage += e2 + "\n";
+            }
+        }
+        q.S(file);
+        return anrExceptionMessage;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:67:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(AnrExceptionMessage anrExceptionMessage, File file) {
-        String str;
-        String df = com.kwad.sdk.crash.utils.f.df(file.getName());
-        anrExceptionMessage.mLogUUID = df;
-        anrExceptionMessage.mIndex = com.kwad.sdk.crash.utils.f.getIndex(df);
+        String fk = com.kwad.sdk.crash.utils.g.fk(file.getName());
+        anrExceptionMessage.mLogUUID = fk;
+        anrExceptionMessage.mIndex = com.kwad.sdk.crash.utils.g.getIndex(fk);
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         BufferedReader bufferedReader = null;
@@ -58,27 +77,25 @@ public final class b extends d {
                     } catch (FileNotFoundException e) {
                         e = e;
                         bufferedReader = bufferedReader2;
-                        str = this.mErrorMessage + e + "\n";
-                        this.mErrorMessage = str;
+                        this.mErrorMessage += e + "\n";
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         if (sb.length() > 1) {
                         }
                         if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
                         }
-                        com.kwad.sdk.core.e.b.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+                        com.kwad.sdk.core.e.c.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
                         if (sb2.length() > 1) {
                         }
                     } catch (IOException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.mErrorMessage + e + "\n";
-                        this.mErrorMessage = str;
+                        this.mErrorMessage += e + "\n";
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         if (sb.length() > 1) {
                         }
                         if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
                         }
-                        com.kwad.sdk.core.e.b.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+                        com.kwad.sdk.core.e.c.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
                         if (sb2.length() > 1) {
                         }
                     } catch (Throwable th) {
@@ -102,82 +119,62 @@ public final class b extends d {
         }
         if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
             anrExceptionMessage.mCrashSource = 0;
-        } else if (da(anrExceptionMessage.mCrashDetail)) {
+        } else if (ff(anrExceptionMessage.mCrashDetail)) {
             anrExceptionMessage.mCrashSource = 1;
         } else {
             anrExceptionMessage.mCrashSource = 2;
         }
-        com.kwad.sdk.core.e.b.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+        com.kwad.sdk.core.e.c.d("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
         if (sb2.length() > 1) {
             anrExceptionMessage.mThreadDetail = sb2.substring(0, sb2.length() - 1);
         }
     }
 
-    private String cZ(String str) {
+    private String fe(String str) {
         File file = new File(str + ".anr");
         String str2 = "";
         if (file.exists()) {
             try {
-                str2 = o.S(file);
+                str2 = q.V(file);
             } catch (IOException e) {
                 this.mErrorMessage += e + "\n";
             }
-            o.P(file);
+            q.S(file);
         }
         return str2;
     }
 
-    public static boolean da(@NonNull String str) {
-        String[] wA;
-        for (String str2 : com.kwad.sdk.crash.d.wz().wA()) {
+    public static boolean ff(@NonNull String str) {
+        String[] Gm;
+        for (String str2 : com.kwad.sdk.crash.e.Gl().Gm()) {
             if (str.contains(str2)) {
-                com.kwad.sdk.core.e.b.d("AnrReporter", " tag=" + str2);
+                com.kwad.sdk.core.e.c.d("AnrReporter", " tag=" + str2);
                 return true;
             }
         }
         return false;
     }
 
-    private AnrExceptionMessage y(File file) {
-        String str;
-        try {
-            str = o.S(file);
-        } catch (IOException e) {
-            this.mErrorMessage += e + "\n";
-            str = null;
-        }
-        AnrExceptionMessage anrExceptionMessage = new AnrExceptionMessage();
-        if (str != null) {
-            try {
-                anrExceptionMessage.parseJson(new JSONObject(str));
-            } catch (Exception e2) {
-                this.mErrorMessage += e2 + "\n";
-            }
-        }
-        o.P(file);
-        return anrExceptionMessage;
-    }
-
     @Override // com.kwad.sdk.crash.report.d
     public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
-        com.kwad.sdk.core.e.b.d("AnrReporter", "AnrReporter parseExceptionInfo basePath=" + str);
-        AnrExceptionMessage y = y(file2);
+        com.kwad.sdk.core.e.c.d("AnrReporter", "AnrReporter parseExceptionInfo basePath=" + str);
+        AnrExceptionMessage B = B(file2);
         try {
-            y.mReason = cZ(str);
-            a(y, file);
-            b(file3, y);
-            com.kwad.sdk.crash.utils.f.a(file, (CharSequence) y.toString(), true);
-            com.kwad.sdk.crash.utils.f.b(file3, file);
+            B.mReason = fe(str);
+            a(B, file);
+            b(file3, B);
+            com.kwad.sdk.crash.utils.g.a(file, (CharSequence) B.toString(), true);
+            com.kwad.sdk.crash.utils.g.d(file3, file);
             file.renameTo(file3);
-            new StringBuilder("------ ANR Report Begin ------\n").append(y);
-            y.mDumpsys = o.S(new File(str + ".minfo"));
+            new StringBuilder("------ ANR Report Begin ------\n").append(B);
+            B.mDumpsys = q.V(new File(str + ".minfo"));
         } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e);
             this.mErrorMessage += e + "\n";
         }
         if (!TextUtils.isEmpty(this.mErrorMessage)) {
-            y.mErrorMessage += this.mErrorMessage;
+            B.mErrorMessage += this.mErrorMessage;
         }
-        return y;
+        return B;
     }
 }

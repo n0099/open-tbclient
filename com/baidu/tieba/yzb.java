@@ -1,34 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes9.dex */
-public class yzb {
+public class yzb extends LoggerManager.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948348872, "Lcom/baidu/tieba/yzb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948348872, "Lcom/baidu/tieba/yzb;");
-                return;
+    public yzb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("gdt_ad_forbid", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            zzb.C();
+        }
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            return zzb.q(j, j2, str, str2, z, z2, str3);
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public Logger d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new zzb(str);
+        }
+        return (Logger) invokeL.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> e(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            return zzb.B(j, j2, str, str2);
+        }
+        return (List) invokeCommon.objValue;
     }
 }

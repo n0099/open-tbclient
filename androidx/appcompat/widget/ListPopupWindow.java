@@ -197,7 +197,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     public ListPopupWindow(@NonNull Context context) {
-        this(context, null, R.attr.obfuscated_res_0x7f040474);
+        this(context, null, R.attr.obfuscated_res_0x7f04047a);
     }
 
     private void setPopupClipToScreenEnabled(boolean z) {
@@ -396,7 +396,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040474);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04047a);
     }
 
     @NonNull

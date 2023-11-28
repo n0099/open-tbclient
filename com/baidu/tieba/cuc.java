@@ -4,32 +4,25 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.Adkiller;
-import tbclient.FrsPage.AdkillerAd;
+import tbclient.Agree;
 /* loaded from: classes5.dex */
-public class cuc extends qoc {
+public class cuc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Adkiller adkiller) {
+    public static JSONObject b(@NonNull Agree agree) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adkiller)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agree)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "show_hint", adkiller.show_hint);
-            qoc.a(jSONObject, "show_ad", adkiller.show_ad);
-            qoc.a(jSONObject, "hint_url", adkiller.hint_url);
-            qoc.a(jSONObject, "ad_left_num", adkiller.ad_left_num);
-            if (adkiller.ad_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (AdkillerAd adkillerAd : adkiller.ad_list) {
-                    jSONArray.put(buc.b(adkillerAd));
-                }
-                qoc.a(jSONObject, "ad_list", jSONArray);
-            }
+            ltc.a(jSONObject, "agree_num", agree.agree_num);
+            ltc.a(jSONObject, "has_agree", agree.has_agree);
+            ltc.a(jSONObject, "agree_type", agree.agree_type);
+            ltc.a(jSONObject, "disagree_num", agree.disagree_num);
+            ltc.a(jSONObject, "diff_agree_num", agree.diff_agree_num);
+            ltc.a(jSONObject, "lz_agree", agree.lz_agree);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -2,34 +2,47 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
 import com.baidu.sdk.container.filedownloader.MaterialLoader;
-import com.baidu.sdk.container.widget.AdView;
+import com.baidu.sdk.container.gif.GifAnimView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng1 extends lg1 {
+public class ng1 extends mg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView j0;
-    public Bitmap r0;
+    public FileInputStream j0;
+    public GifAnimView r0;
+
+    @Override // com.baidu.tieba.mg1
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     @Override // com.baidu.sdk.container.widget.AdView.a
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mg1, com.baidu.sdk.container.widget.AdView.a
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
@@ -37,7 +50,7 @@ public class ng1 extends lg1 {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
             return false;
         }
         return invokeIL.booleanValue;
@@ -46,31 +59,31 @@ public class ng1 extends lg1 {
     @Override // com.baidu.sdk.container.widget.AdView.a
     public void onLayoutComplete(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
         }
     }
 
     @Override // com.baidu.sdk.container.widget.AdView.a
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
         }
     }
 
     @Override // com.baidu.sdk.container.widget.AdView.a
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements pg1 {
+    public class a implements qg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ng1 a;
 
-        @Override // com.baidu.tieba.pg1
+        @Override // com.baidu.tieba.qg1
         public void onLoadingStarted(String str, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
@@ -95,33 +108,60 @@ public class ng1 extends lg1 {
             this.a = ng1Var;
         }
 
-        @Override // com.baidu.tieba.pg1
+        @Override // com.baidu.tieba.qg1
         public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                ng1 ng1Var = this.a;
-                ng1Var.O("StaticImage Load Failed: " + materialLoadErrorCode.toString());
+                this.a.O("cache gif, load failed");
             }
         }
 
-        @Override // com.baidu.tieba.pg1
+        @Override // com.baidu.tieba.qg1
         public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                this.a.r0 = bitmap;
-                this.a.Y();
-                this.a.P();
+                ng1 ng1Var = this.a;
+                ng1Var.c0(MaterialLoader.k(ng1Var.a).l(str));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
+    public class b implements ug1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ug1
+        public void callback() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public b(ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ng1 a;
 
-        public b(ng1 ng1Var) {
+        public c(ng1 ng1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,19 +189,12 @@ public class ng1 extends lg1 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements pg1 {
+    public class d implements vg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ng1 a;
 
-        @Override // com.baidu.tieba.pg1
-        public void onLoadingStarted(String str, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
-            }
-        }
-
-        public c(ng1 ng1Var) {
+        public d(ng1 ng1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,20 +212,11 @@ public class ng1 extends lg1 {
             this.a = ng1Var;
         }
 
-        @Override // com.baidu.tieba.pg1
-        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
+        @Override // com.baidu.tieba.vg1
+        public void onAdPresent() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                ng1 ng1Var = this.a;
-                ng1Var.O("Get Static Image error: " + materialLoadErrorCode.getMessage());
-            }
-        }
-
-        @Override // com.baidu.tieba.pg1
-        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                this.a.r0 = bitmap;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.R();
             }
         }
     }
@@ -216,19 +240,19 @@ public class ng1 extends lg1 {
                 return;
             }
         }
-        this.r = "image";
+        this.r = "gif";
     }
 
-    @Override // com.baidu.tieba.lg1
+    @Override // com.baidu.tieba.mg1
     public void B() {
-        ImageView imageView;
+        GifAnimView gifAnimView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (imageView = this.j0) != null) {
-            imageView.setOnClickListener(null);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gifAnimView = this.r0) != null) {
+            gifAnimView.setOnClickListener(null);
         }
     }
 
-    @Override // com.baidu.tieba.lg1, com.baidu.tieba.wg1
+    @Override // com.baidu.tieba.mg1, com.baidu.tieba.xg1
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,115 +262,56 @@ public class ng1 extends lg1 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lg1, com.baidu.sdk.container.widget.AdView.a
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onDetachedFromWindow();
-            Z();
-        }
-    }
-
-    @Override // com.baidu.tieba.lg1
+    @Override // com.baidu.tieba.mg1
     public void E() {
-        RelativeLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != 2) {
-            try {
-                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-                AdImageView adImageView = new AdImageView(this.a);
-                this.j0 = adImageView;
-                adImageView.setVisibility(0);
-                this.j0.setOnClickListener(new b(this));
-                this.j0.setLayoutParams(layoutParams);
-                c0();
-            } catch (Exception e) {
-                O(lg1.i0 + " exception=" + Log.getStackTraceString(e));
-            }
-            if (this.r0 == null) {
-                O("bitmap is null!!!");
-                return;
-            }
-            this.j0.setDrawingCacheEnabled(true);
-            this.j0.setImageBitmap(this.r0);
-            l(this.j0, layoutParams);
-            this.j0.requestLayout();
+            GifAnimView gifAnimView = new GifAnimView(this.a, new b(this));
+            this.r0 = gifAnimView;
+            gifAnimView.setGifImage(this.j0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            this.r0.setLayoutParams(layoutParams);
+            this.r0.setShowDimension(this.k.getWidth(), this.k.getHeight());
+            this.r0.setAlpha(255);
+            this.r0.setOnClickListener(new c(this));
+            this.r0.i();
+            l(this.r0, layoutParams);
+            this.r0.requestLayout();
+            this.r0.j = new d(this);
             super.E();
-            this.j0.requestFocus();
-            R();
         }
     }
 
-    @Override // com.baidu.tieba.lg1
-    public void F() {
-        AdView adView;
+    public final void c0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = this.j0;
-            if (imageView != null && (adView = this.k) != null && adView.indexOfChild(imageView) >= 0) {
-                if (this.j0.getDrawingCache() != null) {
-                    this.j0.getDrawingCache().recycle();
-                }
-                this.k.removeAllViews();
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                this.j0 = new FileInputStream(str);
+                P();
+            } catch (Exception unused) {
             }
-            Bitmap bitmap = this.r0;
-            if (bitmap != null && !bitmap.isRecycled()) {
-                this.r0.recycle();
-                this.r0 = null;
-            }
+            Y();
         }
     }
 
-    public final void c0() {
-        ImageView.ScaleType scaleType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ImageView imageView = this.j0;
-            if (imageView != null) {
-                if (this.F == 17) {
-                    scaleType = ImageView.ScaleType.CENTER_CROP;
-                } else {
-                    scaleType = ImageView.ScaleType.FIT_XY;
-                }
-                imageView.setScaleType(scaleType);
-            }
-            if (this.r0 != null) {
-                return;
-            }
-            this.r0 = this.h.a(this.t, new c(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.lg1, com.baidu.tieba.wg1
-    public void b(xg1 xg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xg1Var) == null) {
-            super.b(xg1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.lg1, com.baidu.tieba.wg1
-    public void c(vg1 vg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vg1Var) == null) {
-            super.c(vg1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.lg1, com.baidu.tieba.wg1
+    @Override // com.baidu.tieba.mg1, com.baidu.tieba.xg1
     public void load() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.load();
-            if (this.h.c(this.t, MaterialLoader.MaterialCacheType.PICTURE)) {
-                Y();
-                P();
+            String optString = this.i.optString("cached_path");
+            if (!TextUtils.isEmpty(optString)) {
+                c0(optString);
                 return;
             }
             try {
-                MaterialLoader.k(this.a).f(this.t, new a(this));
-            } catch (Exception e) {
-                O("StaticImage,Exception: " + e.toString());
+                if (!this.h.c(this.t, MaterialLoader.MaterialCacheType.VIDEO)) {
+                    MaterialLoader.k(this.a).f(this.t, new a(this));
+                } else {
+                    c0(this.h.b(this.t, MaterialLoader.MaterialCacheType.VIDEO));
+                }
+            } catch (Throwable unused) {
+                O("gif渲染失败");
             }
         }
     }

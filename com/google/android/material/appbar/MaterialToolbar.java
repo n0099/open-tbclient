@@ -48,7 +48,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04081e);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040824);
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

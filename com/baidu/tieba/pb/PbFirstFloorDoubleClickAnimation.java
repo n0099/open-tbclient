@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wd5;
-import com.baidu.tieba.xb;
-import com.baidu.tieba.xd5;
+import com.baidu.tieba.ce5;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,7 +101,7 @@ public class PbFirstFloorDoubleClickAnimation {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements wd5 {
+    public class b implements ce5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -130,7 +130,7 @@ public class PbFirstFloorDoubleClickAnimation {
             this.c = i2;
         }
 
-        @Override // com.baidu.tieba.wd5
+        @Override // com.baidu.tieba.ce5
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -142,7 +142,7 @@ public class PbFirstFloorDoubleClickAnimation {
             }
         }
 
-        @Override // com.baidu.tieba.wd5
+        @Override // com.baidu.tieba.ce5
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -153,7 +153,7 @@ public class PbFirstFloorDoubleClickAnimation {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements wd5 {
+    public class c implements ce5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -182,7 +182,7 @@ public class PbFirstFloorDoubleClickAnimation {
             this.c = i2;
         }
 
-        @Override // com.baidu.tieba.wd5
+        @Override // com.baidu.tieba.ce5
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -196,7 +196,7 @@ public class PbFirstFloorDoubleClickAnimation {
             }
         }
 
-        @Override // com.baidu.tieba.wd5
+        @Override // com.baidu.tieba.ce5
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -306,7 +306,7 @@ public class PbFirstFloorDoubleClickAnimation {
     /* JADX INFO: Access modifiers changed from: private */
     public void playAnimation(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65544, this, view2, i, i2) == null) && xb.m(this.popupWindow, view2, this.mGravity, i - this.lottieXOffset, i2 - this.lottieYOffset)) {
+        if ((interceptable == null || interceptable.invokeLII(65544, this, view2, i, i2) == null) && yb.m(this.popupWindow, view2, this.mGravity, i - this.lottieXOffset, i2 - this.lottieYOffset)) {
             this.agreeView.playAnimation();
         }
     }
@@ -316,7 +316,7 @@ public class PbFirstFloorDoubleClickAnimation {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             this.lottieXOffset = this.lottieWidth / 2;
             this.lottieYOffset = this.lottieHeight / 2;
-            xd5.g().b(str, str2, new b(this, view2, i, i2));
+            de5.g().b(str, str2, new b(this, view2, i, i2));
         }
     }
 
@@ -331,7 +331,7 @@ public class PbFirstFloorDoubleClickAnimation {
             } else {
                 str3 = "/duang2";
             }
-            xd5.g().e(str3, str, str2, z, new c(this, view2, i, i2));
+            de5.g().e(str3, str, str2, z, new c(this, view2, i, i2));
         }
     }
 }

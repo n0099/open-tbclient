@@ -277,7 +277,7 @@ public class l {
                 }
                 if (q.c && q.b(context)) {
                     z = true;
-                    if (z || !a(context, com.kuaishou.weapon.p0.h.i)) {
+                    if (z || !a(context, com.kuaishou.weapon.p0.g.i)) {
                         return "";
                     }
                     file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");

@@ -3,7 +3,8 @@ package com.kwad.sdk.crash.model.message;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +33,11 @@ public class MemoryInfo implements b, Serializable {
 
     public MemoryInfo(String str) {
         try {
-            if (TextUtils.isEmpty(str) || "Unknown".equals(str)) {
-                return;
+            if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
+                parseJson(new JSONObject(str));
             }
-            parseJson(new JSONObject(str));
         } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            c.printStackTraceOnly(e);
         }
     }
 
@@ -88,38 +88,37 @@ public class MemoryInfo implements b, Serializable {
                 }
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("mAllThreads");
-            if (optJSONArray4 == null || optJSONArray4.length() <= 0) {
-                return;
-            }
-            for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i4);
-                if (optJSONObject3 != null) {
-                    ThreadInfo threadInfo3 = new ThreadInfo();
-                    threadInfo3.parseJson(optJSONObject3);
-                    this.mAllThreads.add(threadInfo3);
+            if (optJSONArray4 != null && optJSONArray4.length() > 0) {
+                for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                    JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i4);
+                    if (optJSONObject3 != null) {
+                        ThreadInfo threadInfo3 = new ThreadInfo();
+                        threadInfo3.parseJson(optJSONObject3);
+                        this.mAllThreads.add(threadInfo3);
+                    }
                 }
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            c.printStackTraceOnly(e);
         }
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "mTotalMB", this.mTotalMB);
-        r.putValue(jSONObject, "mAvailableMB", this.mAvailableMB);
-        r.putValue(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
-        r.putValue(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
-        r.putValue(jSONObject, "mVssMB", this.mVssMB);
-        r.putValue(jSONObject, "mRssMB", this.mRssMB);
-        r.putValue(jSONObject, "mPssMB", this.mPssMB);
-        r.putValue(jSONObject, "mThreadsCount", this.mThreadsCount);
-        r.putValue(jSONObject, "mFdCount", this.mFdCount);
-        r.putValue(jSONObject, "mFds", this.mFds);
-        r.putValue(jSONObject, "mJavaThreads", this.mJavaThreads);
-        r.putValue(jSONObject, "mNativeThreads", this.mNativeThreads);
-        r.putValue(jSONObject, "mAllThreads", this.mAllThreads);
+        t.putValue(jSONObject, "mTotalMB", this.mTotalMB);
+        t.putValue(jSONObject, "mAvailableMB", this.mAvailableMB);
+        t.putValue(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
+        t.putValue(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
+        t.putValue(jSONObject, "mVssMB", this.mVssMB);
+        t.putValue(jSONObject, "mRssMB", this.mRssMB);
+        t.putValue(jSONObject, "mPssMB", this.mPssMB);
+        t.putValue(jSONObject, "mThreadsCount", this.mThreadsCount);
+        t.putValue(jSONObject, "mFdCount", this.mFdCount);
+        t.putValue(jSONObject, "mFds", this.mFds);
+        t.putValue(jSONObject, "mJavaThreads", this.mJavaThreads);
+        t.putValue(jSONObject, "mNativeThreads", this.mNativeThreads);
+        t.putValue(jSONObject, "mAllThreads", this.mAllThreads);
         return jSONObject;
     }
 

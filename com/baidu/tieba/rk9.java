@@ -1,395 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.tieba.memberCenter.tail.message.GetTailsHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.GetTailsNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.GetTailsSocketResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.SetTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.DuMediaConstants;
+import com.baidu.searchbox.live.interfaces.player.DuMediaView;
+import com.baidu.searchbox.live.interfaces.player.IDuMediaPnPController;
+import com.baidu.searchbox.live.interfaces.player.LiveDlnaSearchListener;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.google.android.exoplayer2.util.MimeTypes;
 /* loaded from: classes8.dex */
-public class rk9 {
+public class rk9 implements IDuMediaService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tk9<uj9> a;
-    public tk9<Integer> b;
-    public List<TailData> c;
-    public Boolean d;
-    public boolean e;
-    public NetMessageListener f;
-    public NetMessageListener g;
-    public CustomMessageListener h;
 
-    /* loaded from: classes8.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rk9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rk9 rk9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rk9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rk9Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.a != null) {
-                uj9 uj9Var = null;
-                if (responsedMessage instanceof GetTailsHttpResponseMessage) {
-                    uj9Var = ((GetTailsHttpResponseMessage) responsedMessage).getResultData();
-                } else if (responsedMessage instanceof GetTailsSocketResponseMessage) {
-                    uj9Var = ((GetTailsSocketResponseMessage) responsedMessage).getResultData();
-                }
-                if (uj9Var == null) {
-                    return;
-                }
-                this.a.c = new ArrayList();
-                if (uj9Var.c() != null) {
-                    for (TailData tailData : uj9Var.c()) {
-                        TailData tailData2 = new TailData();
-                        tailData2.setId(tailData.getId());
-                        tailData2.setContent(tailData.getContent());
-                        tailData2.setFontColor(tailData.getFontColor());
-                        tailData2.setFontType(tailData.getFontType());
-                        tailData2.setSelected(tailData.isSelected());
-                        this.a.c.add(tailData2);
-                    }
-                }
-                this.a.a.a(responsedMessage.hasError(), responsedMessage.getErrorString(), uj9Var);
-                this.a.q();
-            }
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaRefresh(@NonNull LiveDlnaSearchListener liveDlnaSearchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, liveDlnaSearchListener) == null) {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rk9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(rk9 rk9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rk9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rk9Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            wj9 wj9Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.a != null) {
-                Integer num = null;
-                if (responsedMessage instanceof SetTailHttpResponseMessage) {
-                    wj9Var = ((SetTailHttpResponseMessage) responsedMessage).getResultData();
-                } else if (responsedMessage instanceof SetTailSocketResponseMessage) {
-                    wj9Var = ((SetTailSocketResponseMessage) responsedMessage).getResultData();
-                } else {
-                    wj9Var = null;
-                }
-                if (wj9Var != null) {
-                    num = Integer.valueOf(wj9Var.a());
-                }
-                this.a.b.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
-            }
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rk9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(rk9 rk9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rk9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rk9Var;
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public IDuMediaPnPController getCtrlPoint(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
         }
-
-        public final void g(vj9 vj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vj9Var) == null) {
-                boolean z = false;
-                int i = 0;
-                while (true) {
-                    if (i >= this.a.c.size()) {
-                        break;
-                    } else if (((TailData) this.a.c.get(i)).getId() == vj9Var.b.getId()) {
-                        z = true;
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                if (!z) {
-                    this.a.c.add(vj9Var.b);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof vj9)) {
-                vj9 vj9Var = (vj9) customResponsedMessage.getData();
-                if (vj9Var.b != null && this.a.c != null) {
-                    int i = vj9Var.a;
-                    if (i == 1) {
-                        g(vj9Var);
-                    } else if (i == 3) {
-                        h(vj9Var);
-                    } else if (i == 2) {
-                        i(vj9Var);
-                    }
-                    this.a.a.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
-                }
-            }
-        }
-
-        public final void h(vj9 vj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vj9Var) == null) {
-                boolean z = false;
-                for (int i = 0; i < this.a.c.size(); i++) {
-                    if (((TailData) this.a.c.get(i)).getId() == vj9Var.b.getId()) {
-                        this.a.c.remove(i);
-                        if (this.a.c.size() != 0) {
-                            Iterator it = this.a.c.iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    if (((TailData) it.next()).isSelected()) {
-                                        z = true;
-                                        break;
-                                    }
-                                } else {
-                                    break;
-                                }
-                            }
-                        }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(z)));
-                        return;
-                    }
-                }
-            }
-        }
-
-        public final void i(vj9 vj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vj9Var) == null) {
-                for (int i = 0; i < this.a.c.size(); i++) {
-                    if (((TailData) this.a.c.get(i)).getId() == vj9Var.b.getId()) {
-                        ((TailData) this.a.c.get(i)).setContent(vj9Var.b.getContent());
-                        ((TailData) this.a.c.get(i)).setFontColor(vj9Var.b.getFontColor());
-                        ((TailData) this.a.c.get(i)).setSelected(vj9Var.b.isSelected());
-                        return;
-                    }
-                }
-            }
-        }
+        return (IDuMediaPnPController) invokeL.objValue;
     }
 
-    public rk9(Context context) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public DuMediaView getDuMediaView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (DuMediaView) invokeV.objValue;
+    }
+
+    public rk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = Boolean.FALSE;
-        this.e = false;
-        this.f = new a(this, CmdConfigHttp.CMD_TAIL_GET, 305001);
-        this.g = new b(this, CmdConfigHttp.CMD_TAIL_SET, 305104);
-        this.h = new c(this, 2001340);
-        this.c = new ArrayList();
-        f();
     }
 
-    public void m(boolean z) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getDevicePlayQualityScore(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return Integer.valueOf(CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, i, i2, null));
         }
+        return (Integer) invokeII.objValue;
     }
 
-    public void n(tk9<Integer> tk9Var) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getMediaIntConstant(@Nullable DuMediaConstants.Key key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tk9Var) == null) {
-            this.b = tk9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, key)) == null) {
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROPPING) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.INSTALL_TYPE_CYBER_MEDIA) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.SEEK_PREVIOUS_SYNC) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.SEEK_CLOSEST) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_RESTART_PLAYED) {
+                return 956;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_FIRST_DISP_INTERVAL) {
+                return 904;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_START) {
+                return 701;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_END) {
+                return 702;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_STATUS) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_UNKNOW) {
+                return -1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_IDLE) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PLAYING) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PAUSED) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PREPARED) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_COMPLETE) {
+                return 4;
+            }
+            if (key != DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_CONNECTED) {
+                return 0;
+            }
+            return 5;
         }
+        return (Integer) invokeL.objValue;
     }
 
-    public void p(tk9<uj9> tk9Var) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Boolean isCoreLoaded(@Nullable Integer num) {
+        InterceptResult invokeL;
+        int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tk9Var) == null) {
-            this.a = tk9Var;
-        }
-    }
-
-    public void o(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, z ? 1 : 0));
-        }
-    }
-
-    public final void f() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() != 0) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, num)) == null) {
+            if (num == null) {
+                intValue = 1;
             } else {
-                z = false;
+                intValue = num.intValue();
             }
-            this.d = Boolean.valueOf(z);
+            return Boolean.valueOf(CyberPlayerManager.isCoreLoaded(intValue));
         }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<TailData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new GetTailsNetMessage("stat"));
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().registerListener(this.f);
-            MessageManager.getInstance().registerListener(this.g);
-            MessageManager.getInstance().registerListener(this.h);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.g);
-            MessageManager.getInstance().unRegisterListener(this.h);
-        }
-    }
-
-    public final void q() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Iterator<TailData> it = this.c.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    if (it.next().isSelected()) {
-                        z = true;
-                        break;
-                    }
-                } else {
-                    z = false;
-                    break;
-                }
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(z)));
-        }
+        return (Boolean) invokeL.objValue;
     }
 }

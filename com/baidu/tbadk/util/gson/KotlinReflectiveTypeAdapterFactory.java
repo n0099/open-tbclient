@@ -3,7 +3,7 @@ package com.baidu.tbadk.util.gson;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vu5;
+import com.baidu.tieba.dv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -287,7 +287,7 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
             if (rawType.isLocalClass() || rawType.isInterface() || rawType.isEnum() || rawType.isAnnotationPresent(JsonAdapter.class) || !rawType.isAnnotationPresent(c)) {
                 return null;
             }
-            KClass d = vu5.d(type);
+            KClass d = dv5.d(type);
             boolean z = true;
             if (!d.isInner()) {
                 KFunction primaryConstructor = KClasses.getPrimaryConstructor(d);
@@ -308,15 +308,15 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
                         LinkedHashSet linkedHashSet = new LinkedHashSet();
                         LinkedHashMap linkedHashMap3 = new LinkedHashMap();
                         for (KParameter kParameter : kFunction.getParameters()) {
-                            List<String> b2 = vu5.b(kParameter, declaringClass);
+                            List<String> b2 = dv5.b(kParameter, declaringClass);
                             if (b2.isEmpty() ^ z) {
-                                TypeAdapter<T> adapter = gson.getAdapter(vu5.c(type, kParameter));
+                                TypeAdapter<T> adapter = gson.getAdapter(dv5.c(type, kParameter));
                                 Intrinsics.checkNotNullExpressionValue(adapter, "gson.getAdapter(type.res…ParameterType(parameter))");
                                 linkedHashMap.put(kParameter, adapter);
                             }
                             if (!kParameter.isOptional()) {
                                 if (this.a) {
-                                    obj = vu5.a(kParameter);
+                                    obj = dv5.a(kParameter);
                                 } else {
                                     obj = null;
                                 }

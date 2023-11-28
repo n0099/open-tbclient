@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.mj1;
+import com.baidu.tieba.nj1;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
@@ -59,7 +59,7 @@ public class XRSessionAnchor {
     }
 
     public void requestCameraPermission() {
-        PermissionProxy permissionProxy = mj1.o;
+        PermissionProxy permissionProxy = nj1.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.2
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
@@ -106,7 +106,7 @@ public class XRSessionAnchor {
         PackageInfo packageInfo;
         Context appContext = V8Engine.getAppContext();
         this.mContext = appContext;
-        this.mRotation = mj1.p;
+        this.mRotation = nj1.p;
         if (appContext != null) {
             str = this.mContext.getFilesDir() + "/aigames_folder/game_ar_resource/arcore";
             Log.i(TAG, "apk path is:" + str);
@@ -134,14 +134,14 @@ public class XRSessionAnchor {
                     if (installPackage != 1 && installPackage != -1) {
                         XRSessionAnchor.this.xRSessionCreateFail(XRSessionAnchor.this.mNativeSessionHandle, 1003);
                     }
-                    if (mj1.o != null) {
-                        mj1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
+                    if (nj1.o != null) {
+                        nj1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                             @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                             public void onPermissionResult(String str2, int i) {
                                 if (i == 0) {
                                     Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
                                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;
-                                    xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, mj1.p);
+                                    xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, nj1.p);
                                     XRSessionAnchor.this.mOrientationEventListener.enable();
                                     return;
                                 }
@@ -152,7 +152,7 @@ public class XRSessionAnchor {
                             }
                         });
                     } else {
-                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, mj1.p);
+                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, nj1.p);
                     }
                 } catch (Throwable unused2) {
                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;

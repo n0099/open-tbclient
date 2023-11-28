@@ -1,97 +1,92 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.qj5;
-import com.baidu.tieba.ur5;
-import com.baidu.tieba.ur5.e;
+import com.baidu.tieba.nr5;
+import com.baidu.tieba.or5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class qr5<T extends qj5, D extends ur5.e> {
+public class qr5<Q extends nr5, P extends or5> implements pr5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public ViewType b;
-    public T c;
-    public D d;
+    public int b;
+    public String c;
+    public Q d;
+    public P e;
 
-    public abstract void d(ViewType viewType, T t, D d);
-
-    public abstract T f(ViewType viewType, ViewGroup viewGroup);
-
-    public qr5() {
+    public qr5(int i, int i2, String str, Q q, P p) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
+        this.a = i;
+        this.b = i2;
+        this.c = str;
+        this.d = q;
+        this.e = p;
     }
 
-    public final void a(View view2) {
-        T t;
+    @Override // com.baidu.tieba.pr5
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (t = this.c) != null) {
-            t.attachView(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public final void b(View view2) {
-        T t;
+    @Override // com.baidu.tieba.pr5
+    public Q b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (t = this.c) != null) {
-            t.dettachView(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (Q) invokeV.objValue;
     }
 
-    public void e(int i) {
-        ViewType viewType;
-        T t;
+    @Override // com.baidu.tieba.pr5
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
-                d(viewType, t, this.d);
-            }
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.pr5
+    public P d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
-            this.b = viewType;
-            this.d = d;
-            if (this.c == null) {
-                this.c = f(viewType, viewGroup);
-            }
-            View view2 = this.c.getView();
-            if (viewGroup.indexOfChild(view2) < 0) {
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.width = -1;
-                    layoutParams.height = -1;
-                }
-                a(viewGroup);
-            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
-                view2.bringToFront();
-            }
-            d(viewType, this.c, d);
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
-        return (View) invokeLLL.objValue;
+        return (P) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pr5
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

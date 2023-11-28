@@ -9,17 +9,17 @@ import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.az0;
-import com.baidu.tieba.bm0;
+import com.baidu.tieba.bz0;
 import com.baidu.tieba.cm0;
-import com.baidu.tieba.ef0;
-import com.baidu.tieba.km0;
-import com.baidu.tieba.nl0;
+import com.baidu.tieba.dm0;
+import com.baidu.tieba.ff0;
+import com.baidu.tieba.lm0;
 import com.baidu.tieba.ol0;
-import com.baidu.tieba.om0;
 import com.baidu.tieba.pl0;
-import com.baidu.tieba.vl0;
-import com.baidu.tieba.yl0;
+import com.baidu.tieba.pm0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.wl0;
+import com.baidu.tieba.zl0;
 import java.io.Serializable;
 import java.util.HashMap;
 import kotlin.Lazy;
@@ -36,26 +36,26 @@ public final class AlsComponent extends AbsComponentPlugin {
     public String d;
     public boolean f;
     public boolean g;
-    public final km0 e = new km0();
+    public final lm0 e = new lm0();
     public final Lazy h = LazyKt__LazyJVMKt.lazy(new Function0<AlsComponent$alsService$2.a>() { // from class: com.baidu.nadcore.max.component.AlsComponent$alsService$2
         {
             super(0);
         }
 
         /* loaded from: classes3.dex */
-        public static final class a implements yl0 {
+        public static final class a implements zl0 {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public a() {
             }
 
-            @Override // com.baidu.tieba.yl0
+            @Override // com.baidu.tieba.zl0
             public void a(String type, String area) {
                 Intrinsics.checkNotNullParameter(type, "type");
                 Intrinsics.checkNotNullParameter(area, "area");
                 AlsComponent.this.q(type, area);
             }
 
-            @Override // com.baidu.tieba.yl0
+            @Override // com.baidu.tieba.zl0
             public void c(String type, String area, String ext1) {
                 Intrinsics.checkNotNullParameter(type, "type");
                 Intrinsics.checkNotNullParameter(area, "area");
@@ -72,18 +72,18 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     });
 
-    public final yl0 j() {
-        return (yl0) this.h.getValue();
+    public final zl0 i() {
+        return (zl0) this.h.getValue();
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void y() {
-        super.y();
-        g().w(yl0.class, j());
+    public void z() {
+        super.z();
+        f().v(zl0.class, i());
     }
 
-    public final void k(pl0 pl0Var) {
-        int i = nl0.$EnumSwitchMapping$0[pl0Var.b().ordinal()];
+    public final void j(ql0 ql0Var) {
+        int i = ol0.$EnumSwitchMapping$0[ql0Var.b().ordinal()];
         if (i != 1) {
             if (i == 2) {
                 this.g = false;
@@ -95,7 +95,7 @@ public final class AlsComponent extends AbsComponentPlugin {
         this.g = false;
     }
 
-    public final void o(Intent intent) {
+    public final void m(Intent intent) {
         Serializable serializableExtra = intent.getSerializableExtra("map");
         if (!(serializableExtra instanceof HashMap)) {
             serializableExtra = null;
@@ -110,20 +110,20 @@ public final class AlsComponent extends AbsComponentPlugin {
     public void onNewIntent(Intent intent) {
         Intrinsics.checkNotNullParameter(intent, "intent");
         super.onNewIntent(intent);
-        o(intent);
+        m(intent);
     }
 
-    public final void l(vl0 vl0Var) {
-        int i = nl0.$EnumSwitchMapping$1[vl0Var.b().ordinal()];
+    public final void k(wl0 wl0Var) {
+        int i = ol0.$EnumSwitchMapping$1[wl0Var.b().ordinal()];
         if (i != 1) {
             if (i == 2) {
-                v();
+                u();
                 return;
             }
             return;
         }
-        bm0 bm0Var = (bm0) g().q(bm0.class);
-        if (bm0Var != null && !bm0Var.j()) {
+        cm0 cm0Var = (cm0) f().q(cm0.class);
+        if (cm0Var != null && !cm0Var.j()) {
             this.e.h(System.currentTimeMillis());
         } else {
             this.e.g(System.currentTimeMillis());
@@ -133,21 +133,21 @@ public final class AlsComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         super.onPause();
-        bm0 bm0Var = (bm0) g().q(bm0.class);
-        if (bm0Var == null || !bm0Var.j()) {
+        cm0 cm0Var = (cm0) f().q(cm0.class);
+        if (cm0Var == null || !cm0Var.j()) {
             return;
         }
         this.e.j(System.currentTimeMillis());
         long max = Math.max(this.e.d() - Math.max(this.e.e(), this.e.f()), 0L);
-        km0 km0Var = this.e;
-        km0Var.i(km0Var.c() + max);
+        lm0 lm0Var = this.e;
+        lm0Var.i(lm0Var.c() + max);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
         super.onResume();
-        bm0 bm0Var = (bm0) g().q(bm0.class);
-        if (bm0Var == null || !bm0Var.j()) {
+        cm0 cm0Var = (cm0) f().q(cm0.class);
+        if (cm0Var == null || !cm0Var.j()) {
             return;
         }
         this.e.k(System.currentTimeMillis());
@@ -177,45 +177,45 @@ public final class AlsComponent extends AbsComponentPlugin {
         if (!TextUtils.isEmpty(ext1)) {
             u.k(ext1);
         }
-        az0.e(u);
+        bz0.e(u);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void s(ef0 event) {
+    public void s(ff0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         super.s(event);
         String a = event.a();
-        if (Intrinsics.areEqual(a, pl0.class.getSimpleName())) {
-            k((pl0) event);
-        } else if (Intrinsics.areEqual(a, vl0.class.getSimpleName())) {
-            l((vl0) event);
-        } else if (Intrinsics.areEqual(a, ol0.class.getSimpleName())) {
+        if (Intrinsics.areEqual(a, ql0.class.getSimpleName())) {
+            j((ql0) event);
+        } else if (Intrinsics.areEqual(a, wl0.class.getSimpleName())) {
+            k((wl0) event);
+        } else if (Intrinsics.areEqual(a, pl0.class.getSimpleName())) {
             if (this.e.b() == 0) {
                 this.e.h(System.currentTimeMillis());
             }
             if (!this.g) {
                 this.g = true;
-                bm0 bm0Var = (bm0) g().q(bm0.class);
-                if (bm0Var != null && bm0Var.j()) {
+                cm0 cm0Var = (cm0) f().q(cm0.class);
+                if (cm0Var != null && cm0Var.j()) {
                     long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                    km0 km0Var = this.e;
-                    km0Var.i(km0Var.c() + max);
+                    lm0 lm0Var = this.e;
+                    lm0Var.i(lm0Var.c() + max);
                 }
             }
         }
     }
 
-    public final void v() {
-        bm0 bm0Var = (bm0) g().q(bm0.class);
-        if (bm0Var == null || bm0Var.j()) {
+    public final void u() {
+        cm0 cm0Var = (cm0) f().q(cm0.class);
+        if (cm0Var == null || cm0Var.j()) {
             long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-            km0 km0Var = this.e;
-            km0Var.i(km0Var.c() + max);
+            lm0 lm0Var = this.e;
+            lm0Var.i(lm0Var.c() + max);
         }
-        cm0 cm0Var = (cm0) g().q(cm0.class);
-        if (cm0Var != null) {
+        dm0 dm0Var = (dm0) f().q(dm0.class);
+        if (dm0Var != null) {
             try {
-                om0 b = cm0Var.b();
+                pm0 b = dm0Var.b();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("immersive_video_stay_time", this.e.c());
                 jSONObject.put("immersive_webview_first_show_time", this.e.b());

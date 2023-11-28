@@ -1,36 +1,35 @@
 package com.kwad.components.core.i;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.LayoutRes;
-import com.kwad.sdk.api.loader.Wrapper;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.api.KsInnerAd;
 /* loaded from: classes10.dex */
-public abstract class d extends AlertDialog {
-    public final Context mContext;
+public final class d {
+    @Nullable
+    public Object LY;
 
-    public d(Activity activity) {
-        super(activity);
-        setOwnerActivity(activity);
-        this.mContext = Wrapper.wrapContextIfNeed(activity);
+    public d(Object obj) {
+        this.LY = obj;
     }
 
-    @LayoutRes
-    public abstract int getLayoutId();
-
-    @Override // android.app.AlertDialog, android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        View inflate = View.inflate(this.mContext, getLayoutId(), null);
-        setContentView(inflate);
-        setCanceledOnTouchOutside(false);
-        getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        getWindow().setLayout(-1, -1);
-        u(inflate);
+    public final void c(c cVar) {
+        if (this.LY != null && cVar != null && cVar.getHost() != null) {
+            try {
+                ((KsInnerAd.KsInnerAdInteractionListener) this.LY).onAdClicked((KsInnerAd) cVar.getHost());
+            } catch (Exception unused) {
+            }
+        }
     }
 
-    public abstract void u(View view2);
+    public final void d(c cVar) {
+        if (this.LY != null && cVar != null && cVar.getHost() != null) {
+            try {
+                ((KsInnerAd.KsInnerAdInteractionListener) this.LY).onAdShow((KsInnerAd) cVar.getHost());
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void destroy() {
+        this.LY = null;
+    }
 }

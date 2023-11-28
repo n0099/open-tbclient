@@ -7,10 +7,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IRemoteListener extends IInterface {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Default implements IRemoteListener {
         @Override // com.yy.render.IRemoteListener
         public void action(String str, String str2) throws RemoteException {
@@ -42,7 +42,7 @@ public interface IRemoteListener extends IInterface {
 
     void transData(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IRemoteListener {
         public static final String DESCRIPTOR = "com.yy.render.IRemoteListener";
         public static final int TRANSACTION_action = 1;
@@ -55,7 +55,7 @@ public interface IRemoteListener extends IInterface {
             return this;
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IRemoteListener {
             public static IRemoteListener sDefaultImpl;
             public IBinder mRemote;

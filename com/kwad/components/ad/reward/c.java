@@ -1,63 +1,57 @@
 package com.kwad.components.ad.reward;
 
-import android.os.Looper;
-import com.kwad.sdk.utils.bd;
+import androidx.annotation.Nullable;
+import com.kwad.components.core.webview.tachikoma.b.q;
+import com.kwad.sdk.utils.bn;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public final class c {
-    public final Set<com.kwad.components.ad.reward.d.h> ly;
+    public final Set<com.kwad.components.ad.reward.e.m> on;
 
     /* loaded from: classes10.dex */
     public static class a {
-        public static final c lA = new c((byte) 0);
+        public static final c oq = new c((byte) 0);
     }
 
     public c() {
-        this.ly = new HashSet();
+        this.on = new HashSet();
+    }
+
+    public static c fd() {
+        return a.oq;
     }
 
     public /* synthetic */ c(byte b) {
         this();
     }
 
-    public static c eZ() {
-        return a.lA;
-    }
-
-    private void fa() {
-        if (this.ly.size() == 0) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(@Nullable q qVar) {
+        if (this.on.size() == 0) {
             return;
         }
-        for (com.kwad.components.ad.reward.d.h hVar : this.ly) {
-            hVar.onRewardVerify();
+        for (com.kwad.components.ad.reward.e.m mVar : this.on) {
+            mVar.a(qVar);
         }
     }
 
-    public static boolean isMainThread() {
-        return Looper.getMainLooper() == Looper.myLooper();
-    }
-
-    public final void a(com.kwad.components.ad.reward.d.h hVar) {
-        if (hVar != null) {
-            this.ly.add(hVar);
+    public final void a(com.kwad.components.ad.reward.e.m mVar) {
+        if (mVar != null) {
+            this.on.add(mVar);
         }
     }
 
-    public final void b(com.kwad.components.ad.reward.d.h hVar) {
-        this.ly.remove(hVar);
+    public final void c(@Nullable final q qVar) {
+        bn.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.reward.c.1
+            @Override // java.lang.Runnable
+            public final void run() {
+                c.this.b(qVar);
+            }
+        });
     }
 
-    public final void notifyRewardVerify() {
-        if (isMainThread()) {
-            fa();
-        } else {
-            bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.reward.c.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    c.this.notifyRewardVerify();
-                }
-            });
-        }
+    public final void b(com.kwad.components.ad.reward.e.m mVar) {
+        this.on.remove(mVar);
     }
 }

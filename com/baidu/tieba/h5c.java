@@ -1,77 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import com.qq.e.ads.nativ.NativeExpressADView;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class h5c {
+public class h5c extends e5c<NativeExpressADView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
 
-    public h5c(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h5c(NativeExpressADView nativeExpressADView) {
+        super(nativeExpressADView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {nativeExpressADView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = a(str);
     }
 
-    public static int a(Object... objArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e5c
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            return Arrays.hashCode(objArr);
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((NativeExpressADView) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    public static h5c b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e5c
+    public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new h5c(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((NativeExpressADView) this.a).sendLossNotification(map);
         }
-        return (h5c) invokeL.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e5c
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && h5c.class == obj.getClass()) {
-                return TextUtils.equals(this.a, ((h5c) obj).a);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((NativeExpressADView) this.a).sendWinNotification(map);
         }
-        return invokeL.booleanValue;
     }
 
-    public final int hashCode() {
+    @Override // com.baidu.tieba.e5c
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return ((NativeExpressADView) this.a).getECPM();
         }
         return invokeV.intValue;
     }

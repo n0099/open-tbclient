@@ -15,6 +15,7 @@ import com.baidu.clientupdate.d.j;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tieba.ms;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -222,7 +223,7 @@ public final class ClientUpdater {
             this.d = true;
             long currentTimeMillis = System.currentTimeMillis();
             LogUtil.logD("ClientUpdater", "接收到网络状态的变化，检测上次更新时间");
-            LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.h * 3600000.0d)) + "ms");
+            LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.h * 3600000.0d)) + ms.c);
             StringBuilder sb = new StringBuilder();
             sb.append("当前时间：");
             sb.append(currentTimeMillis);

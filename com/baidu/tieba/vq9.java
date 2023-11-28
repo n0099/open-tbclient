@@ -1,135 +1,130 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes8.dex */
-public final class vq9 implements w15 {
+public class vq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public BdUniqueId b;
+    public BdTypeRecyclerView c;
+    public tq9 d;
+    public mq9 e;
+    public oq9 f;
+    public nq9 g;
+    public pq9 h;
+    public uq9 i;
+    public qq9 j;
+    public rq9 k;
+    public lq9 l;
+    public wq9 m;
+    public sq9 n;
+    public List<ci> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948249579, "Lcom/baidu/tieba/vq9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948249579, "Lcom/baidu/tieba/vq9;");
-        }
-    }
-
-    public vq9() {
+    public vq9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.o = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        this.c = bdTypeRecyclerView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tq9 tq9Var = new tq9(this.a, ThreadData.TYPE_USER_NORMAL, this.b);
+            this.d = tq9Var;
+            tq9Var.D(this.c);
+            this.o.add(this.d);
+            mq9 mq9Var = new mq9(this.a, ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.b);
+            this.e = mq9Var;
+            mq9Var.E(this.c);
+            this.o.add(this.e);
+            oq9 oq9Var = new oq9(this.a, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.b);
+            this.f = oq9Var;
+            oq9Var.D(this.c);
+            this.o.add(this.f);
+            nq9 nq9Var = new nq9(this.a, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.b);
+            this.g = nq9Var;
+            nq9Var.D(this.c);
+            this.o.add(this.g);
+            pq9 pq9Var = new pq9(this.a, ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.b);
+            this.h = pq9Var;
+            pq9Var.D(this.c);
+            this.o.add(this.h);
+            uq9 uq9Var = new uq9(this.a, ThreadData.TYPE_VIDEO, this.b);
+            this.i = uq9Var;
+            uq9Var.G(this.c);
+            this.o.add(this.i);
+            qq9 qq9Var = new qq9(this.a, ThreadData.TYPE_ENTER_FORUM, this.b);
+            this.j = qq9Var;
+            qq9Var.D(this.c);
+            this.o.add(this.j);
+            rq9 rq9Var = new rq9(this.a, ThreadData.TYPE_BOTTOM_NORMAL, this.b);
+            this.k = rq9Var;
+            rq9Var.D(this.c);
+            this.o.add(this.k);
+            lq9 lq9Var = new lq9(this.a, ThreadData.TYPE_ARTICLE, this.b);
+            this.l = lq9Var;
+            lq9Var.E(this.c);
+            this.o.add(this.l);
+            wq9 wq9Var = new wq9(this.a, dx4.b);
+            this.m = wq9Var;
+            wq9Var.C(this.c);
+            this.o.add(this.m);
+            sq9 sq9Var = new sq9(this.a, zm6.u0);
+            this.n = sq9Var;
+            this.o.add(sq9Var);
+            this.c.addAdapters(this.o);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            for (ci ciVar : this.o) {
+                if (ciVar instanceof kq9) {
+                    ((kq9) ciVar).x(z);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.w15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    public void d(List<? extends pi> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "pbFriendBotBottomNewSkill");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.w15
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
-        List<RobotSkillInfo> list;
-        List<RobotSkill> list2;
-        es9 t1;
-        es9 t12;
-        RobotEntrance K;
-        es9 t13;
-        RobotEntrance K2;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导策略校验失败：当前Activity非PbActivity");
-                return false;
-            }
-            PbActivity pbActivity = (PbActivity) currentActivity;
-            PbModel F1 = pbActivity.F1();
-            RobotEntrance robotEntrance = null;
-            if (F1 != null && (t13 = F1.t1()) != null && (K2 = t13.K()) != null) {
-                list = K2.robot_skill_info;
-            } else {
-                list = null;
-            }
-            PbModel F12 = pbActivity.F1();
-            if (F12 != null && (t12 = F12.t1()) != null && (K = t12.K()) != null) {
-                list2 = K.bottom_bar_robot_skill;
-            } else {
-                list2 = null;
-            }
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                PbModel F13 = pbActivity.F1();
-                if (F13 != null && (t1 = F13.t1()) != null) {
-                    robotEntrance = t1.K();
-                }
-                if (robotEntrance == null) {
-                    return false;
-                }
-                String string = SharedPrefHelper.getInstance().getString("pb_friend_bot_bottom_new_skill_text", "default");
-                String j = BotEntranceManager.c.c().j(robotEntrance.robot_skill_info);
-                if (!TextUtils.equals("default", string) && !TextUtils.isEmpty(j)) {
-                    return !TextUtils.equals(string, j);
-                }
-                if (!TextUtils.equals(j, string)) {
-                    SharedPrefHelper.getInstance().putString("pb_friend_bot_bottom_new_skill_text", j);
-                }
-                return false;
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导此时没有数据");
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.getAdapter().notifyDataSetChanged();
         }
-        return invokeL.booleanValue;
     }
 }

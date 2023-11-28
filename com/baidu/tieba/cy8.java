@@ -1,28 +1,81 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import java.util.List;
-import java.util.Map;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface cy8 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatMessageDispatchService");
+public class cy8 implements wp8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(@NonNull Map<Long, ChatRoomInfo> map);
+    public cy8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void a(@NonNull rk5 rk5Var);
+    public static vp8 c(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
+            return new vp8(context, recyclerView, new ay8(), new by8(), i, 1);
+        }
+        return (vp8) invokeLLI.objValue;
+    }
 
-    void b(@NonNull Context context, int i);
+    public static up8 e(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, recyclerView, i)) == null) {
+            return new up8(context, recyclerView, new ay8(), new by8(), i, 1);
+        }
+        return (up8) invokeLLI.objValue;
+    }
 
-    void c(long j, @NonNull List<ChatRoomInfo> list);
+    @Override // com.baidu.tieba.wp8
+    public vp8 b(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, recyclerView, i)) == null) {
+            return c(context, recyclerView, i);
+        }
+        return (vp8) invokeLLI.objValue;
+    }
 
-    void d(@NonNull a aVar);
+    public static vp8 d(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
+            by8 by8Var = new by8();
+            by8Var.e(skillDTO);
+            by8Var.f(userDTO);
+            return new vp8(context, recyclerView, new ay8(), by8Var, i, 2);
+        }
+        return (vp8) invokeCommon.objValue;
+    }
 
-    void onDestroy();
+    @Override // com.baidu.tieba.wp8
+    public vp8 a(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
+            return d(context, recyclerView, i, skillDTO, userDTO);
+        }
+        return (vp8) invokeCommon.objValue;
+    }
 }

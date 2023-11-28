@@ -15,7 +15,7 @@ import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicBehaviorController {
     public static final boolean EMPTY_DATA_FORBIDDEN = false;
     public static final long EMPTY_VALUE = 0;
@@ -36,7 +36,7 @@ public class BasicBehaviorController {
     public final PageActionReporter mPageActionCollector = new PageActionReporter();
     public volatile boolean mIsLoaded = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class AppActionReporter {
         public final AppaInfo mAppaInfo = new AppaInfo();
         public long mBeginStartCpuTimeMillis;
@@ -233,7 +233,7 @@ public class BasicBehaviorController {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class PageActionReporter {
         public long mEnterTimeStamp;
         public PageElemInfo mPageElemInfo;

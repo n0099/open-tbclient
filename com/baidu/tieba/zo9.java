@@ -1,55 +1,27 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes9.dex */
-public class zo9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<xo9> a;
+public interface zo9 {
+    void a(String str);
 
-    public zo9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str, int i, int i2, String str2);
 
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                xo9 xo9Var = new xo9();
-                xo9Var.b = classForumInfo.class_id;
-                xo9Var.c = classForumInfo.class_name;
-                xo9Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new dp9(recommendForumInfo, false));
-                }
-                xo9Var.a = arrayList;
-                this.a.add(xo9Var);
-            }
-        }
-        Page page = dataRes.page;
-    }
+    void c(String str, int i, String str2);
+
+    boolean d(String str);
+
+    boolean e(String str);
+
+    void f(String str, int i, String str2);
+
+    void g(String str, int i, String str2);
+
+    void h(String str, String str2);
+
+    void i(String str, String str2);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(String str, int i, String str2);
 }

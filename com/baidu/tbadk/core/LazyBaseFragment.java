@@ -28,9 +28,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int v2();
+    public abstract int H2();
 
-    public abstract void x2(View view2, Bundle bundle);
+    public abstract void J2(View view2, Bundle bundle);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -67,7 +67,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.w2();
+                    this.a.a.I2();
                 }
             }
         }
@@ -102,7 +102,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (IdleHandlerManager.getInstance().hasRunImmediately()) {
-                    this.a.w2();
+                    this.a.I2();
                 } else {
                     this.a.a.post(new RunnableC0212a(this));
                 }
@@ -132,9 +132,32 @@ public abstract class LazyBaseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             registerListener(this.f);
+        }
+    }
+
+    public synchronized void I2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (!this.b && this.d != null) {
+                    this.b = true;
+                    J2(this.d.inflate(), this.e);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onPrimary();
+            if (isPrimary() && !this.b && getView() != null) {
+                I2();
+            }
         }
     }
 
@@ -143,39 +166,16 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
             ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
             this.d = viewStub;
-            viewStub.setLayoutResource(v2());
+            viewStub.setLayoutResource(H2());
             if (this.c) {
-                w2();
+                I2();
             }
             return inflate;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onPrimary();
-            if (isPrimary() && !this.b && getView() != null) {
-                w2();
-            }
-        }
-    }
-
-    public synchronized void w2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.b && this.d != null) {
-                    this.b = true;
-                    x2(this.d.inflate(), this.e);
-                }
-            }
-        }
     }
 }

@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.kuaishou.weapon.p0.i1;
+import com.kuaishou.weapon.p0.bi;
 import com.yy.gslbsdk.db.DelayTB;
 import java.io.File;
 import java.io.IOException;
@@ -129,7 +129,7 @@ public class c {
                                     }
                                 }
                             }
-                            File file7 = new File(context.getFilesDir().getCanonicalPath() + i1.j + apkInfo.key);
+                            File file7 = new File(context.getFilesDir().getCanonicalPath() + bi.j + apkInfo.key);
                             if (file7.exists() && file7.isDirectory()) {
                                 com.baidu.sofire.k.b.d(file7.getAbsolutePath());
                             }

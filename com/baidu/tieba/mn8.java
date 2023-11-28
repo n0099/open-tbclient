@@ -1,11 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.im.base.core.utility.ImChatLog;
-import com.baidu.tieba.nn8;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.AsyncChatTask;
+import com.baidu.android.imsdk.upload.AsyncUploadTask;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
+import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,150 +20,182 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.inner.util.cipher.Base64Util;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class mn8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final nn8 a;
+public class mn8 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "mn8";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements nn8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.nn8.a
-        public void a(@NonNull String str, @NonNull String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                ImChatLog.getInstance().i(str, str2);
-            }
-        }
-    }
+    public Context a;
+    public String b;
+    public sn8 c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978546, "Lcom/baidu/tieba/mn8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947978546, "Lcom/baidu/tieba/mn8;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978546, "Lcom/baidu/tieba/mn8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947978546, "Lcom/baidu/tieba/mn8;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+    public void onSendMessageResult(int i, ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
+        }
+    }
+
+    public mn8(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new nn8(new a());
+        this.a = context;
+        this.b = str;
     }
 
-    public static void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResult(int i, String str, String str2) {
+        FileOutputStream fileOutputStream;
+        Throwable th;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            a.b();
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.c();
-        }
-    }
-
-    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public static void b(@NonNull StringBuilder sb, long j, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, Long.valueOf(j), th}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append("stackTrace");
-            sb.append("=");
-            sb.append(Log.getStackTraceString(th));
-            sb.append(",");
-        }
-    }
-
-    public static void c(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = "fail";
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+            if (i == 0 && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        byte[] decode = Base64Util.decode(str2);
+                        File file = new File(this.b);
+                        if (file.exists()) {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                try {
+                                    fileOutputStream.write(decode);
+                                    fileOutputStream.flush();
+                                    fileOutputStream2 = fileOutputStream;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    if (this.c != null) {
+                                        this.c.isFailed();
+                                    }
+                                    LogUtils.e(d, e.getMessage());
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                    }
+                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e3) {
+                                        LogUtils.e(d, e3.getMessage());
+                                    }
+                                }
+                                throw th;
+                            }
+                        } else if (this.c != null) {
+                            this.c.isFailed();
+                        }
+                    } catch (Exception e4) {
+                        LogUtils.e(d, e4.getMessage());
+                    }
+                } catch (Exception e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th3) {
+                    fileOutputStream = null;
+                    th = th3;
+                    if (fileOutputStream != null) {
+                    }
+                    throw th;
+                }
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                return;
             }
-            sb.append(str);
-            sb.append(",");
+            sn8 sn8Var = this.c;
+            if (sn8Var != null) {
+                sn8Var.isFailed();
+            }
         }
     }
 
-    public static void f(long j, int i, @NonNull String str) {
+    public void b(@NonNull sn8 sn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("enter_chat_room_user", sb.toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sn8Var) == null) {
+            this.c = sn8Var;
         }
     }
 
-    public static void g(@NonNull String str, long j, @NonNull Throwable th) {
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFailed(int i, int i2, String str) {
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), th}) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, j, th);
-            a.a(str, sb.toString());
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (sn8Var = this.c) != null) {
+            sn8Var.isFailed();
         }
     }
 
-    public static void h(long j, int i, @NonNull String str) {
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFinished(int i, String str) {
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("exit_chat_room_user", sb.toString());
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (sn8Var = this.c) != null) {
+            sn8Var.a(str);
         }
     }
 
-    public static void i(boolean z, long j, int i, @NonNull String str) {
+    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            c(sb, z);
-            a(sb, j, i, str);
-            a.a("get_chat_room_detail", sb.toString());
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            if (i == 0) {
+                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
+                return;
+            }
+            sn8 sn8Var = this.c;
+            if (sn8Var != null) {
+                sn8Var.isFailed();
+            }
         }
     }
 }

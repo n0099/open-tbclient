@@ -1,36 +1,36 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
-import androidx.core.util.Pair;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import com.facebook.common.util.UriUtil;
+import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tt4 {
+public final class tt4 extends AbsJsInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public volatile boolean b;
-    public String c;
-    public Runnable d;
-    public wk6 e;
+    public vt4 a;
 
     public tt4() {
         Interceptable interceptable = $ic;
@@ -42,197 +42,150 @@ public class tt4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = WebViewTrackerEnableSwitch.isOn();
-        this.b = false;
-        this.e = null;
-    }
-
-    public void e() {
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (runnable = this.d) != null) {
-            runnable.run();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
-            vi6.a().e(this.d);
-            this.d = null;
-        }
-    }
-
-    public final void a(final String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !this.b && this.d == null) {
-            this.d = new Runnable() { // from class: com.baidu.tieba.pt4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        tt4.this.d(str);
-                    }
-                }
-            };
-            vi6.a().d(this.d, 10000L);
-        }
-    }
-
-    public /* synthetic */ void d(String str) {
-        g(str, 1);
-    }
-
-    public final void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            try {
-                if (this.e != null && !wj6.a(this.e.f())) {
-                    Map<String, Pair<Long, Long>> g = this.e.g();
-                    JSONArray jSONArray = new JSONArray();
-                    for (Pair<String, Long> pair : this.e.f()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", pair.first);
-                        jSONObject2.put("req", pair.second);
-                        Pair<Long, Long> pair2 = g.get(pair.first);
-                        if (pair2 != null) {
-                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, pair2.first);
-                            jSONObject2.put("hit", pair2.second);
-                        } else {
-                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, -1);
-                            jSONObject2.put("hit", -1);
-                        }
-                        jSONArray.put(jSONObject2);
-                    }
-                    if (!wj6.c(jSONArray)) {
-                        jSONObject.put(PrefetchEvent.MODULE, jSONArray);
-                    }
-                }
-            } catch (JSONException unused) {
             }
         }
     }
 
-    public JSONObject c(WebView webView) {
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void deAttachWebView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.deAttachWebView();
+            vt4 vt4Var = this.a;
+            if (vt4Var != null) {
+                vt4Var.e();
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void attachWebView(@Nullable WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
+            super.attachWebView(webView);
+            if (this.a == null) {
+                this.a = new vt4();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public String getNativeSwitch(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
+            if (baseSwitchs != null && baseSwitchs.get(str) != null) {
+                return String.valueOf(baseSwitchs.get(str));
+            }
+            return "0";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @JavascriptInterface
+    public void reportData(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("TbChannelJsInterfaceNew", "reportData:" + str);
+            vt4 vt4Var = this.a;
+            if (vt4Var != null) {
+                vt4Var.g(str, 2);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public String getInitData() {
+        InterceptResult invokeV;
+        int i;
+        fl6 perfData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            WebView webView = getWebView();
+            String str = "";
             if (webView != null) {
                 try {
                     if (webView.getParent() instanceof TbWebView) {
-                        this.e = ((TbWebView) webView.getParent()).getPerfData();
+                        str = ((TbWebView) webView.getParent()).getUrl();
+                        Map<String, ig6<Object>> bizData = ((TbWebView) webView.getParent()).getBizData();
+                        if (!fk6.b(bizData)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            for (Map.Entry<String, ig6<Object>> entry : bizData.entrySet()) {
+                                try {
+                                    ig6<Object> value = entry.getValue();
+                                    if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
+                                        jSONObject2.put(entry.getKey(), value.call());
+                                    }
+                                } catch (Exception e) {
+                                    BdLog.e(e);
+                                }
+                            }
+                            jSONObject.put("bizData", jSONObject2);
+                        }
                     }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            }
+            try {
+                if (this.a != null) {
+                    jSONObject.put("perfData", this.a.c(webView));
+                }
+            } catch (Exception e3) {
+                BdLog.e(e3);
+            }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject3.put("clientType", "2");
+                jSONObject3.put("clientVersion", TbConfig.getVersion());
+                jSONObject3.put("skin", SkinManager.getCurrentSkinTypeString());
+                if (TbadkCoreApplication.isLogin()) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject3.put("isLogin", i);
+                jSONObject3.put("portrait", TbadkCoreApplication.getCurrentPortrait());
+                jSONObject3.put("uid", TbadkCoreApplication.getCurrentAccount());
+                jSONObject3.put(com.baidu.mobads.sdk.internal.a.g, "new");
+                jSONObject3.put("sid", TbSingleton.getInstance().getSampleId());
+                jSONObject3.put("abtest", UbsABTestDataManager.getInstance().getCurrentABTestJson());
+                jSONObject3.put("scrW", String.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst())));
+                jSONObject3.put("scrH", String.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst())));
+                try {
+                    jSONObject3.put("keyboardInfo", ApiReplaceUtil.Overload.getString(TbadkCoreApplication.getInst().getContentResolver(), "default_input_method"));
                 } catch (Exception unused) {
-                    return null;
                 }
-            }
-            if (this.e != null && this.a && !this.b && wk6.l(this.e.h())) {
-                String h = this.e.h();
-                JSONObject jSONObject = new JSONObject();
-                String c = this.e.c();
-                this.c = c;
-                jSONObject.put("logId", c);
-                jSONObject.put("url", h);
-                if (!TextUtils.isEmpty(this.e.e())) {
-                    jSONObject.put("originUrl", this.e.e());
+                if (webView != null && (webView.getParent() instanceof TbWebView) && (perfData = ((TbWebView) webView.getParent()).getPerfData()) != null) {
+                    jSONObject3.put("isOfflinePackage", perfData.k());
+                    jSONObject3.put("url", perfData.h());
                 }
-                jSONObject.put("clientType", "Android");
-                jSONObject.put("isOfflinePackage", this.e.k());
-                jSONObject.put(com.kuaishou.weapon.p0.u.x, this.e.d());
-                jSONObject.put("wvst", this.e.j());
-                jSONObject.put("wvft", this.e.i());
-                jSONObject.put("lst", this.e.b());
-                a(jSONObject.toString());
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public synchronized void g(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            synchronized (this) {
-                f();
-                if (this.a && !this.b && !TextUtils.isEmpty(str)) {
-                    this.b = true;
-                    UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                    if (uBCManager != null) {
-                        uBCManager.onEvent("5607", str);
-                    }
-                    try {
-                        JSONObject jSONObject = new JSONObject(str);
-                        jSONObject.optString("logId", this.c);
-                        String optString = jSONObject.optString("url", "");
-                        String optString2 = jSONObject.optString("originUrl", "");
-                        boolean optBoolean = jSONObject.optBoolean("isOfflinePackage", false);
-                        long optLong = jSONObject.optLong(com.kuaishou.weapon.p0.u.x, -1L);
-                        long optLong2 = jSONObject.optLong("wvst", -1L);
-                        long optLong3 = jSONObject.optLong("wvft", -1L);
-                        long optLong4 = jSONObject.optLong("lst", -1L);
-                        long optLong5 = jSONObject.optLong("navigationStart", -1L);
-                        long optLong6 = jSONObject.optLong("fetchStart", -1L);
-                        long optLong7 = jSONObject.optLong("domainLookupStart", -1L);
-                        long optLong8 = jSONObject.optLong("domainLookupEnd", -1L);
-                        long optLong9 = jSONObject.optLong("connectStart", -1L);
-                        long optLong10 = jSONObject.optLong("connectEnd", -1L);
-                        long optLong11 = jSONObject.optLong("requestStart", -1L);
-                        long optLong12 = jSONObject.optLong("responseStart", -1L);
-                        long optLong13 = jSONObject.optLong("responseEnd", -1L);
-                        long optLong14 = jSONObject.optLong("ds", -1L);
-                        long optLong15 = jSONObject.optLong("df", -1L);
-                        long optLong16 = jSONObject.optLong("drt", -1L);
-                        long optLong17 = jSONObject.optLong("dt", -1L);
-                        long optLong18 = jSONObject.optLong("autoFMP", -1L);
-                        long optLong19 = jSONObject.optLong("autoFP", -1L);
-                        long optLong20 = jSONObject.optLong("autoFCP", -1L);
-                        int optInt = jSONObject.optInt("autoWVLCP", -1);
-                        int optInt2 = jSONObject.optInt("autoWVFCP", -1);
-                        long optLong21 = jSONObject.optLong("fp", -1L);
-                        long optLong22 = jSONObject.optLong("fmp", -1L);
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("是否离线包：");
-                        sb.append(optBoolean);
-                        sb.append(",总耗时");
-                        long j = optLong22 - optLong;
-                        sb.append(j);
-                        sb.append("-初始化:");
-                        sb.append(optLong4 - optLong);
-                        sb.append(",加载:");
-                        sb.append(optLong14 - optLong4);
-                        sb.append(",解析:");
-                        sb.append(optLong15 - optLong14);
-                        sb.append("，渲染:");
-                        sb.append(optLong22 - optLong15);
-                        qj6.b("newHybrid", sb.toString());
-                        b(jSONObject);
-                        String str3 = TbadkCoreStatisticKey.WEBVIEW_PERF_DATA_KEY;
-                        if (this.e != null && this.e.i) {
-                            str3 = "c15454";
+                if (webView != null) {
+                    jSONObject3.put("webviewId", webView.toString());
+                }
+                if (webView != null && (webView.getParent() instanceof TbWebView)) {
+                    Map<String, String> baseData = ((TbWebView) webView.getParent()).getBaseData();
+                    if (!fk6.b(baseData)) {
+                        for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
+                            if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
+                                jSONObject3.put(entry2.getKey(), entry2.getValue());
+                            }
                         }
-                        StatisticItem param = new StatisticItem(str3).param("obj_param1", jSONObject.toString()).param(TiebaStatic.Params.OBJ_PARAM2, jSONObject.toString());
-                        if (optBoolean) {
-                            str2 = "0";
-                        } else {
-                            str2 = "1";
-                        }
-                        StatisticItem param2 = param.param("obj_id", str2).param("obj_type", i).param("obj_locate", 1).param("obj_source", 1).param(TiebaStatic.Params.OBJ_PARAM3, j).param(com.kuaishou.weapon.p0.u.x, optLong).param("wvst", optLong2).param("wvft", optLong3).param("lst", optLong4).param("navigationStart", optLong5).param("fetchStart", optLong6).param("domainLookupStart", optLong7).param("domainLookupEnd", optLong8).param("connectStart", optLong9).param("connectEnd", optLong10).param("requestStart", optLong11).param("responseStart", optLong12).param("responseEnd", optLong13).param("ds", optLong14).param("df", optLong15).param("drt", optLong16).param("dt", optLong17).param("autoFMP", optLong18).param("autoFP", optLong19).param("autoFCP", optLong20).param("autoWVLCP", optInt).param("autoWVFCP", optInt2).param("fp", optLong21).param("fmp", optLong22).param("url", optString);
-                        if (!TextUtils.isEmpty(optString2)) {
-                            param2.param("originUrl", optString2);
-                        }
-                        TiebaStatic.log(param2);
-                    } catch (Exception unused) {
                     }
                 }
+                jSONObject.put("baseData", jSONObject3);
+            } catch (Exception e4) {
+                BdLog.e(e4);
             }
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("TbChannelJsInterfaceNew", str + " getInitData:" + jSONObject);
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

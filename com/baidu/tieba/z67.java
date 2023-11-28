@@ -1,40 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes9.dex */
-public final class z67 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z67 {
+    void a(String str, Map<String, String> map);
 
-    public static final a77 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int optInt;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject == null || (optInt = jSONObject.optInt("id", -1)) < 0) {
-                return null;
-            }
-            String name = jSONObject.optString("name");
-            boolean z2 = false;
-            if (name != null && name.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            if (jSONObject.optInt("enable", 0) == 1) {
-                z2 = true;
-            }
-            Intrinsics.checkNotNullExpressionValue(name, "name");
-            return new a77(optInt, name, z2);
-        }
-        return (a77) invokeL.objValue;
-    }
+    String getValue(String str, String str2);
 }

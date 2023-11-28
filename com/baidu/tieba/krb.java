@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,172 +10,186 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.nio.ByteBuffer;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class krb {
+public final class krb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static krb f;
-    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioRecord a;
+    public Context a;
+    public String b;
+    public String c;
+    public boolean d;
+    public JSONArray e;
+    public Map<String, com.baidu.ubs.analytics.a.g> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924110, "Lcom/baidu/tieba/krb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final krb a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650690383, "Lcom/baidu/tieba/krb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-650690383, "Lcom/baidu/tieba/krb$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947924110, "Lcom/baidu/tieba/krb;");
-                return;
-            }
+            a = new krb((byte) 0);
         }
-        b = new int[]{1, 0, 5, 7, 6};
-        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        d = 2048;
-        e = 24;
-        g = new byte[0];
     }
 
-    public krb(int i) {
-        int[] iArr;
+    public krb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
-        int i4 = d;
-        int i5 = e * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        if (i != -100) {
-            try {
-                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
-                this.a = audioRecord;
-                if (audioRecord.getState() != 1) {
-                    this.a = null;
-                }
-            } catch (Exception unused) {
-                this.a = null;
-            }
-            if (this.a != null) {
-                xrb.d("audio_source:(if) ---> " + i);
+        this.d = true;
+    }
+
+    public static krb i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (krb) invokeV.objValue;
+    }
+
+    public final Context g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Map<String, com.baidu.ubs.analytics.a.g> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public /* synthetic */ krb(byte b) {
+        this();
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final synchronized void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            synchronized (this) {
+                this.d = z;
             }
         }
-        if (this.a == null) {
-            for (int i6 : b) {
-                try {
-                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
-                    this.a = audioRecord2;
-                    if (audioRecord2.getState() != 1) {
-                        this.a = null;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            synchronized (this) {
+                this.f = new HashMap();
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        this.f.put(list.get(i).getId(), list.get(i));
                     }
-                } catch (Exception unused2) {
-                    this.a = null;
-                }
-                if (this.a != null) {
-                    xrb.d("audio_source:(for) ---> " + i6);
-                    return;
                 }
             }
         }
     }
 
-    public int a(@NonNull ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public final SampleResult f(String str) {
+        InterceptResult invokeL;
+        Map<String, com.baidu.ubs.analytics.a.g> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (g) {
-            g();
-            if (f == this) {
-                f = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g) {
-                if (f == this) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.e != null) {
+                for (int i = 0; i < this.e.length(); i++) {
+                    JSONObject optJSONObject = this.e.optJSONObject(i);
+                    if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
+                        return ssb.a(optJSONObject.optString("group"));
+                    }
                 }
-                if (f != null) {
-                    f.g();
-                    f = null;
+                return SampleResult.OTHERE;
+            } else if (str != null && (map = this.f) != null) {
+                if (map.containsKey(str)) {
+                    return ssb.a(this.f.get(str).getGroup());
                 }
-                f();
-                f = this;
+                return SampleResult.OTHERE;
+            } else {
+                return SampleResult.OTHERE;
             }
         }
-    }
-
-    public AudioRecord d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord != null) {
-                return audioRecord.getRecordingState();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        audioRecord.startRecording();
-    }
-
-    public final void g() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        this.a = null;
-        audioRecord.stop();
-        audioRecord.release();
+        return (SampleResult) invokeL.objValue;
     }
 }

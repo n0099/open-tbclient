@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.r40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class k50 {
+public class k50 extends h50 {
     public static /* synthetic */ Interceptable $ic;
-    public static k50 d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ExecutorService b;
-    public Context c;
+    public r40.d b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863939, "Lcom/baidu/tieba/k50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863939, "Lcom/baidu/tieba/k50;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        e = availableProcessors;
-        f = Math.max(2, Math.min(availableProcessors - 1, 4));
-        g = (e * 2) + 1;
+    @Override // com.baidu.tieba.j50.b
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j50.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h50, com.baidu.tieba.j50.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
     }
 
     public k50(Context context) {
@@ -50,51 +48,114 @@ public class k50 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f, g, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.b = Executors.newSingleThreadExecutor();
+        this.b = null;
+        this.a = context;
     }
 
-    public static k50 a(Context context) {
-        InterceptResult invokeL;
+    public void a(r40.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (d == null) {
-                synchronized (k50.class) {
-                    if (d == null) {
-                        d = new k50(context);
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
         }
-        return (k50) invokeL.objValue;
     }
 
-    public void b(Runnable runnable) {
+    @Override // com.baidu.tieba.j50.b
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Host", DnsTransmitter.IDC_HOST);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j50.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + w40.Z(this.a).D).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j50.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            if (n50.a) {
+                o50.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
+            }
+            r40.g(3, this.a);
+            r40.a(this.a).b(w40.Z(this.a).D, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.j50.d
+    public void onSuccess(byte[] bArr) {
+        int length;
+        int length2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            if (n50.a) {
+                o50.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + w40.Z(this.a).D + " is " + str);
+            }
             try {
-                this.a.submit(runnable);
-            } catch (Throwable th) {
-                if (m50.a) {
-                    n50.c("TaskManager", "Exception ", th);
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(w40.Z(this.a).D);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
+                if (optJSONArray2 == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray2.length();
                 }
+                if (optJSONArray == null) {
+                    length2 = 0;
+                } else {
+                    length2 = optJSONArray.length();
+                }
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    r40.h(arrayList, this.a);
+                    if (this.b != null && r40.b.size() > 0) {
+                        this.b.a(0, DnsModel.MSG_OK, r40.b.get(0));
+                        if (r40.b.size() > 1) {
+                            r40.c++;
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                if (n50.a) {
+                    o50.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
+                }
+                r40.g(3, this.a);
+                r40.a(this.a).b(w40.Z(this.a).D, this.b);
+            } catch (Exception e) {
+                if (n50.a) {
+                    o50.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
+                }
+                r40.g(3, this.a);
+                r40.a(this.a).b(w40.Z(this.a).D, this.b);
             }
         }
     }

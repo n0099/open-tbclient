@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface gjb {
-    void run() throws Exception;
+    void l(@NonNull ljb ljbVar);
+
+    void q(@NonNull ljb ljbVar, boolean z);
 }

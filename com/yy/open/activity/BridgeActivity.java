@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BridgeActivity extends Activity {
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {

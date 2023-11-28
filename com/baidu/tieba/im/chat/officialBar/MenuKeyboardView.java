@@ -8,35 +8,35 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.yd5;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MenuKeyboardView extends LinearLayout implements me5 {
+public class MenuKeyboardView extends LinearLayout implements se5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
     public int b;
 
-    @Override // com.baidu.tieba.zd5
-    public void S(yd5 yd5Var) {
+    @Override // com.baidu.tieba.fe5
+    public void U(ee5 ee5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yd5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ee5Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -71,7 +71,7 @@ public class MenuKeyboardView extends LinearLayout implements me5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g0(new yd5(30, 0, null));
+                this.a.j0(new ee5(30, 0, null));
             }
         }
     }
@@ -95,14 +95,14 @@ public class MenuKeyboardView extends LinearLayout implements me5 {
             }
         }
         this.b = 0;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0768, this);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0781, this);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a), -2);
         ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
         setLayoutParams(layoutParams);
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,34 +110,34 @@ public class MenuKeyboardView extends LinearLayout implements me5 {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.me5
-    public void g0(yd5 yd5Var) {
+    @Override // com.baidu.tieba.se5
+    public void j0(ee5 ee5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yd5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.K(yd5Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ee5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.K(ee5Var);
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -145,7 +145,7 @@ public class MenuKeyboardView extends LinearLayout implements me5 {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

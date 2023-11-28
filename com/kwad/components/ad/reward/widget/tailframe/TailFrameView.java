@@ -7,117 +7,115 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
-import com.kwad.components.ad.reward.k;
+import com.kwad.components.ad.reward.g;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class TailFrameView extends KSFrameLayout {
-    public k nM;
-    public com.kwad.components.ad.reward.widget.tailframe.a xe;
+    public com.kwad.components.ad.reward.widget.tailframe.a BL;
+    public g qn;
 
     /* loaded from: classes10.dex */
     public static class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d0516);
+            super(R.layout.obfuscated_res_0x7f0d052d);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             super.a(adTemplate, jSONObject, bVar);
-            KSImageLoader.loadImage(this.wV, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+            KSImageLoader.loadImage(this.BC, com.kwad.sdk.core.response.b.a.X(this.mAdInfo), this.mAdTemplate);
         }
     }
 
     /* loaded from: classes10.dex */
     public static class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
-        public ImageView xf;
-        public ImageView xg;
-        public ImageView xh;
+        public ImageView BM;
+        public ImageView BN;
+        public ImageView BO;
 
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d0517);
+            super(R.layout.obfuscated_res_0x7f0d052e);
         }
 
-        private void jm() {
-            KSImageLoader.loadImage(this.xf, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
-            KSImageLoader.loadImage(this.xg, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
-            KSImageLoader.loadImage(this.xh, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+        private void kl() {
+            KSImageLoader.loadImage(this.BM, com.kwad.sdk.core.response.b.a.X(this.mAdInfo), this.mAdTemplate);
+            KSImageLoader.loadImage(this.BN, com.kwad.sdk.core.response.b.a.X(this.mAdInfo), this.mAdTemplate);
+            KSImageLoader.loadImage(this.BO, com.kwad.sdk.core.response.b.a.X(this.mAdInfo), this.mAdTemplate);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void E(Context context) {
-            super.E(context);
-            this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0914a2);
-            this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0914a3);
-            this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0914a4);
+        public final void B(Context context) {
+            super.B(context);
+            this.BM = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150e);
+            this.BN = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150f);
+            this.BO = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f091510);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             super.a(adTemplate, jSONObject, bVar);
-            jm();
+            kl();
         }
     }
 
     /* loaded from: classes10.dex */
     public static class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
-        public View xi;
+        public View BP;
 
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d0518);
+            super(R.layout.obfuscated_res_0x7f0d052f);
         }
 
-        private void jm() {
-            AdInfo.AdMaterialInfo.MaterialFeature au = com.kwad.sdk.core.response.a.a.au(this.mAdInfo);
-            int i = au.width;
-            int i2 = au.height;
-            int screenWidth = com.kwad.sdk.b.kwai.a.getScreenWidth(this.wU.getContext());
-            ViewGroup.LayoutParams layoutParams = this.wV.getLayoutParams();
+        private void kl() {
+            AdInfo.AdMaterialInfo.MaterialFeature aX = com.kwad.sdk.core.response.b.a.aX(this.mAdInfo);
+            int i = aX.width;
+            int i2 = aX.height;
+            int screenWidth = com.kwad.sdk.d.a.a.getScreenWidth(this.BB.getContext());
+            ViewGroup.LayoutParams layoutParams = this.BC.getLayoutParams();
             layoutParams.width = screenWidth;
             layoutParams.height = (int) (screenWidth * (i2 / i));
-            KSImageLoader.loadImage(this.wV, au.coverUrl, this.mAdTemplate);
+            KSImageLoader.loadImage(this.BC, aX.coverUrl, this.mAdTemplate);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void E(Context context) {
-            super.E(context);
-            this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f09292b);
+        public final void B(Context context) {
+            super.B(context);
+            this.BP = this.BB.findViewById(R.id.obfuscated_res_0x7f0929b0);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             super.a(adTemplate, jSONObject, bVar);
-            if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
-                this.xi.setVisibility(8);
-                this.bq.setVisibility(8);
-                View view2 = this.wU;
-                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f0607ac));
+            if (e.F(this.mAdTemplate)) {
+                this.BP.setVisibility(8);
+                this.mLogoView.setVisibility(8);
+                this.BB.setBackground(null);
             }
-            jm();
+            kl();
         }
     }
 
     /* loaded from: classes10.dex */
     public static class d extends com.kwad.components.ad.reward.widget.tailframe.a {
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d0519);
+            super(R.layout.obfuscated_res_0x7f0d0530);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             super.a(adTemplate, jSONObject, bVar);
-            if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
-                View view2 = this.wU;
-                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f0607ac));
-                this.wV.setVisibility(8);
-                this.bq.setVisibility(8);
+            if (e.F(this.mAdTemplate)) {
+                this.BB.setBackground(null);
+                this.BC.setVisibility(8);
+                this.mLogoView.setVisibility(8);
             }
-            KSImageLoader.loadImage(this.wV, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+            KSImageLoader.loadImage(this.BC, com.kwad.sdk.core.response.b.a.X(this.mAdInfo), this.mAdTemplate);
         }
     }
 
@@ -125,51 +123,61 @@ public class TailFrameView extends KSFrameLayout {
         super(context);
     }
 
+    public final void a(com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+        this.BL.setCallerContext(this.qn);
+        com.kwad.components.ad.reward.widget.tailframe.a aVar = this.BL;
+        g gVar = this.qn;
+        aVar.a(gVar.mAdTemplate, gVar.mReportExtData, bVar);
+    }
+
+    public void setCallerContext(g gVar) {
+        this.qn = gVar;
+    }
+
     public TailFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+    }
+
+    private void f(boolean z, boolean z2) {
+        if (this.BL != null) {
+            return;
+        }
+        if (z) {
+            if (z2) {
+                this.BL = new d();
+            } else {
+                this.BL = new c();
+            }
+        } else if (z2) {
+            this.BL = new b();
+        } else {
+            this.BL = new a();
+        }
     }
 
     public TailFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
     }
 
+    public final void a(Context context, boolean z, boolean z2) {
+        f(z, z2);
+        this.BL.B(context);
+        this.BL.f(z, z2);
+        addView(this.BL.kh(), -1, -1);
+    }
+
     public TailFrameView(@NonNull Context context, View view2) {
         super(context, view2);
     }
 
-    private void d(boolean z, boolean z2) {
-        if (this.xe != null) {
-            return;
-        }
-        this.xe = z ? z2 ? new d() : new c() : z2 ? new b() : new a();
-    }
-
-    public final void a(Context context, boolean z, boolean z2) {
-        d(z, z2);
-        this.xe.E(context);
-        this.xe.d(z, z2);
-        addView(this.xe.ji(), -1, -1);
-    }
-
-    public final void a(com.kwad.components.ad.reward.widget.tailframe.b bVar) {
-        this.xe.setCallerContext(this.nM);
-        com.kwad.components.ad.reward.widget.tailframe.a aVar = this.xe;
-        k kVar = this.nM;
-        aVar.a(kVar.mAdTemplate, kVar.mReportExtData, bVar);
-    }
-
     public final void destroy() {
-        com.kwad.components.ad.reward.widget.tailframe.a aVar = this.xe;
+        com.kwad.components.ad.reward.widget.tailframe.a aVar = this.BL;
         if (aVar != null) {
             aVar.destroy();
         }
     }
 
-    public final void iP() {
-        this.xe.iP();
-    }
-
-    public void setCallerContext(k kVar) {
-        this.nM = kVar;
+    public final void jO() {
+        this.BL.jO();
     }
 }

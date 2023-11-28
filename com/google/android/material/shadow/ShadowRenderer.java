@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.graphics.ColorUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShadowRenderer {
     public static final int COLOR_ALPHA_END = 0;
     public static final int COLOR_ALPHA_MIDDLE = 20;

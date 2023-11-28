@@ -5,13 +5,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes10.dex */
 public final class c extends RecyclerView.ViewHolder {
-    public final e Fz;
+    public final e NW;
     public final Presenter mPresenter;
 
     public c(View view2, Presenter presenter, e eVar) {
         super(view2);
-        this.Fz = eVar;
+        this.NW = eVar;
         this.mPresenter = presenter;
-        presenter.B(view2);
+        presenter.G(view2);
     }
 }

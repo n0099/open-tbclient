@@ -598,7 +598,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404e2);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404e8);
     }
 
     @Override // android.widget.TextView, android.view.View

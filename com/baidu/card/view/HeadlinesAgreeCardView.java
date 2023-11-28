@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.ht;
-import com.baidu.tieba.oq6;
-import com.baidu.tieba.qu;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.it;
+import com.baidu.tieba.ru;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,8 +52,8 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public zy4 g;
-    public qu h;
+    public bz4 g;
+    public ru h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -165,7 +165,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends oq6 {
+    public static class c extends yq6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -253,12 +253,12 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
+    @Override // com.baidu.tieba.it
     /* renamed from: i */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(cw4 cw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().getTaskInfoData() != null && bw4Var.getThreadData().getTaskInfoData().f() != null) {
-            e(bw4Var.getThreadData().getTaskInfoData());
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null) {
+            e(cw4Var.getThreadData().getTaskInfoData());
         }
     }
 
@@ -308,17 +308,17 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     }
 
     public void g() {
-        zy4 zy4Var;
+        bz4 bz4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zy4Var = this.g) != null && !TextUtils.isEmpty(zy4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bz4Var = this.g) != null && !TextUtils.isEmpty(bz4Var.a())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.a(), true);
         }
     }
 
     public void h() {
-        zy4 zy4Var;
+        bz4 bz4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (zy4Var = this.g) != null && !TextUtils.isEmpty(zy4Var.i())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bz4Var = this.g) != null && !TextUtils.isEmpty(bz4Var.i())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.i(), true);
         }
     }
@@ -344,19 +344,19 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
         }
     }
 
-    public void setOnStatListener(qu quVar) {
+    public void setOnStatListener(ru ruVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, quVar) == null) {
-            this.h = quVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ruVar) == null) {
+            this.h = ruVar;
         }
     }
 
-    public void e(@Nullable fz4 fz4Var) {
+    public void e(@Nullable hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, fz4Var) != null) || fz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hz4Var) != null) || hz4Var == null) {
             return;
         }
-        zy4 f = fz4Var.f();
+        bz4 f = hz4Var.f();
         this.g = f;
         if (f == null) {
             return;
@@ -370,9 +370,9 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
         }
         k();
         this.f.setOnBannerClickListener(new b(this));
-        qu quVar = this.h;
-        if (quVar != null) {
-            quVar.onShow();
+        ru ruVar = this.h;
+        if (ruVar != null) {
+            ruVar.onShow();
         }
     }
 

@@ -5,23 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PluginUser;
+import tbclient.FrsPage.PhotoInfo;
 /* loaded from: classes6.dex */
-public class j1d extends qoc {
+public class j1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PluginUser pluginUser) {
+    public static JSONObject b(@NonNull PhotoInfo photoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pluginUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, photoInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "user_id", pluginUser.user_id);
-            qoc.a(jSONObject, "user_name_show", pluginUser.user_name_show);
-            qoc.a(jSONObject, "user_type", pluginUser.user_type);
-            qoc.a(jSONObject, "user_photo", pluginUser.user_photo);
-            qoc.a(jSONObject, "is_download_card_whiteuser", pluginUser.is_download_card_whiteuser);
+            ltc.a(jSONObject, pic.f, photoInfo.pic);
+            ltc.a(jSONObject, "num", photoInfo.num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

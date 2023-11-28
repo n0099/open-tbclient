@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.card.FeedCardView;
+import com.baidu.tieba.feed.component.CardMultiLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ic7 extends ja7<FeedCardView, f57<?>> {
+public class ic7 extends wa7<CardMultiLinkView, n47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class ic7 extends ja7<FeedCardView, f57<?>> {
         }
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            sc7.h(a);
+            fd7.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.mb7
     /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull f57<?> f57Var) {
+    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull n47 n47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, feedCardView, f57Var) == null) {
-            feedCardView.h(f57Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, n47Var) == null) {
+            cardMultiLinkView.a(n47Var);
         }
     }
 }

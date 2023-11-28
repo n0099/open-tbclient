@@ -1,267 +1,214 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobads.sdk.api.RewardVideoAd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.FatalException;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public final class u3c extends ArCoreApk {
+public class u3c extends d3c<z2c> {
     public static /* synthetic */ Interceptable $ic;
-    public static final u3c h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public ArCoreApk.Availability b;
-    public boolean c;
-    public a4c d;
-    public boolean e;
-    public boolean f;
-    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161508, "Lcom/baidu/tieba/u3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements RewardVideoAd.RewardVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public boolean c;
+        public final /* synthetic */ z2c[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ u3c f;
+
+        public a(u3c u3cVar, z2c[] z2cVarArr, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u3cVar, z2cVarArr, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161508, "Lcom/baidu/tieba/u3c;");
-                return;
+            this.f = u3cVar;
+            this.d = z2cVarArr;
+            this.e = str;
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.onAdClicked((u3c) this.d[0], this.b, this.e);
+                this.b = true;
             }
         }
-        h = new u3c();
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdClose(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                this.f.onAdClose((u3c) this.d[0], this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                LogPrinter.d("Baidu reward error reason:" + str, new Object[0]);
+                z2c z2cVar = this.d[0];
+                if (this.c) {
+                    this.f.onAdError(z2cVar, 0, str, this.e);
+                } else {
+                    this.f.onError(0, str, this.e);
+                }
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                z2c z2cVar = this.d[0];
+                this.c = true;
+                this.f.onAdLoaded(z2cVar, this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.f.onAdShow((u3c) this.d[0], this.a, this.e);
+                this.a = true;
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdSkip(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener
+        public void onRewardVerify(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+                this.f.onRewardedVideo(this.d[0], z, this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onVideoDownloadFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onVideoDownloadSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void playCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d();
+            }
+        }
     }
 
-    public u3c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u3c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static u3c d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h;
-        }
-        return (u3c) invokeV.objValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Exception exc = this.a;
-                if (this.d != null) {
-                    this.d.a();
-                    this.d = null;
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ boolean f(u3c u3cVar, boolean z) {
-        u3cVar.c = false;
-        return false;
-    }
-
-    public static int k(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
-                int i = packageInfo.versionCode;
-                if (i == 0) {
-                    if (packageInfo.services != null) {
-                        if (packageInfo.services.length == 0) {
-                        }
-                    }
-                    return -1;
-                }
-                return i;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new g3c(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public final synchronized a4c e(Context context) {
-        InterceptResult invokeL;
-        a4c a4cVar;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    a4c a4cVar2 = new a4c((byte) 0);
-                    a4cVar2.d(context.getApplicationContext());
-                    this.d = a4cVar2;
-                }
-                a4cVar = this.d;
-            }
-            return a4cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            z2c z2cVar = (z2c) obj;
         }
-        return (a4c) invokeL.objValue;
     }
 
-    public final boolean h(Context context) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            l(context);
-            if (k(context) != 0 && k(context) < this.g) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            z2c z2cVar = new z2c(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ FunAdSdk.getFunAdConfig().isUseTextureView);
+            z2cVar.setDownloadAppConfirmPolicy(3);
+            z2cVar.setUserId(FunAdSdk.getBaiduCustomUserId());
+            z2cVar.setExtraInfo(buildExtra);
+            z2c[] z2cVarArr = {z2cVar};
+            z2cVar.load();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            z2c z2cVar = (z2c) obj;
+            onShowStart(z2cVar);
+            z2cVar.setShowDialogOnSkip(true);
+            z2cVar.setUseRewardCountdown(true);
+            z2cVar.show();
             return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            l(context);
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!i()) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            }
-            try {
-                if (h(context)) {
-                    g();
-                    return t3c.c(context);
-                }
-                synchronized (this) {
-                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
-                        this.c = true;
-                        t3c t3cVar = new t3c(this);
-                        if (h(context)) {
-                            t3cVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
-                        } else if (k(context) != -1) {
-                            t3cVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
-                        } else if (j(context)) {
-                            t3cVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
-                        } else {
-                            e(context).e(context, t3cVar);
-                        }
-                    }
-                    if (this.b != null) {
-                        return this.b;
-                    }
-                    if (this.c) {
-                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
-                    }
-                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
-                    return ArCoreApk.Availability.UNKNOWN_ERROR;
-                }
-            } catch (FatalException e) {
-                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public final synchronized void l(Context context) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
-                }
-                PackageManager packageManager = context.getPackageManager();
-                String packageName = context.getPackageName();
-                try {
-                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
-                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
-                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
-                            try {
-                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
-                                String canonicalName = InstallActivity.class.getCanonicalName();
-                                int length = activityInfoArr.length;
-                                boolean z = false;
-                                int i = 0;
-                                while (true) {
-                                    if (i >= length) {
-                                        break;
-                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                if (!z) {
-                                    String valueOf = String.valueOf(canonicalName);
-                                    if (valueOf.length() != 0) {
-                                        str = "Application manifest must contain activity ".concat(valueOf);
-                                    } else {
-                                        str = new String("Application manifest must contain activity ");
-                                    }
-                                    throw new FatalException(str);
-                                }
-                                this.e = true;
-                                return;
-                            } catch (PackageManager.NameNotFoundException e) {
-                                throw new FatalException("Could not load application package info", e);
-                            }
-                        }
-                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
-                    }
-                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new FatalException("Could not load application package metadata", e2);
-                }
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

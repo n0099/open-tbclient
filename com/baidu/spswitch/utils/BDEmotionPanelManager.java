@@ -111,7 +111,7 @@ public class BDEmotionPanelManager {
                     return;
                 }
             }
-            this.delBtnColor = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06026b);
+            this.delBtnColor = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06026d);
             this.delBtnDrawable = ContextCompat.getDrawable(AppRuntime.getAppContext(), R.drawable.emotion_delete);
             this.showDynamicTab = z;
         }
@@ -131,7 +131,7 @@ public class BDEmotionPanelManager {
                     return;
                 }
             }
-            this.delBtnColor = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06026b);
+            this.delBtnColor = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06026d);
             this.delBtnDrawable = ContextCompat.getDrawable(AppRuntime.getAppContext(), R.drawable.emotion_delete);
             this.showDynamicTab = z;
             this.nid = str;
@@ -281,7 +281,7 @@ public class BDEmotionPanelManager {
         if (interceptable == null || interceptable.invokeLZ(65542, this, viewGroup, z) == null) {
             View findViewById = viewGroup.findViewById(R.id.emotion_type_tab_layout);
             View findViewById2 = viewGroup.findViewById(R.id.emotion_type_layout);
-            findViewById2.setBackgroundColor(ContextCompat.getColor(viewGroup.getContext(), R.color.obfuscated_res_0x7f060216));
+            findViewById2.setBackgroundColor(ContextCompat.getColor(viewGroup.getContext(), R.color.obfuscated_res_0x7f060218));
             int i2 = 0;
             if (z) {
                 i = 0;
@@ -293,7 +293,7 @@ public class BDEmotionPanelManager {
                 i2 = 8;
             }
             findViewById.setVisibility(i2);
-            viewGroup.findViewById(R.id.emotion_type_divider).setBackgroundColor(ContextCompat.getColor(viewGroup.getContext(), R.color.obfuscated_res_0x7f060217));
+            viewGroup.findViewById(R.id.emotion_type_divider).setBackgroundColor(ContextCompat.getColor(viewGroup.getContext(), R.color.obfuscated_res_0x7f060219));
         }
     }
 

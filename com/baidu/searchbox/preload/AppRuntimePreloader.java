@@ -4,14 +4,14 @@ import com.baidu.searchbox.launch.ScheduleStrategy;
 import com.baidu.searchbox.util.ChannelInitHelper;
 import com.baidu.searchbox.util.VersionInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.br6;
+import com.baidu.tieba.lr6;
 /* loaded from: classes4.dex */
 public class AppRuntimePreloader {
     public static void preload(boolean z) {
         if (!z) {
             return;
         }
-        br6.a(new Runnable() { // from class: com.baidu.searchbox.preload.AppRuntimePreloader.1
+        lr6.a(new Runnable() { // from class: com.baidu.searchbox.preload.AppRuntimePreloader.1
             @Override // java.lang.Runnable
             public void run() {
                 VersionInitHelper.init();

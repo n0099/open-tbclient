@@ -1,63 +1,22 @@
 package com.kwad.components.ad.reward.i;
 
-import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.r;
-import java.util.Observable;
-import org.json.JSONObject;
+import android.content.Context;
+import com.kwad.components.core.playable.PlayableSource;
+import com.kwad.components.core.webview.jshandler.bf;
+import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes10.dex */
-public abstract class b extends Observable implements c, com.kwad.sdk.core.b {
-    public boolean tX = false;
-    public String tY;
-    public String tZ;
+public final class b extends bf implements bf.a {
+    public PlayableSource rZ;
 
-    private boolean ix() {
-        return this.tX;
+    public b(Context context, AdTemplate adTemplate, PlayableSource playableSource) {
+        super(context, adTemplate);
+        this.rZ = playableSource;
+        a(this);
     }
 
-    private void iy() {
-        setChanged();
-        notifyObservers(Boolean.valueOf(this.tX));
-    }
-
-    public boolean isCompleted() {
-        return ix();
-    }
-
-    public final void it() {
-        if (this.tX) {
-            return;
-        }
-        this.tX = true;
-        iy();
-    }
-
-    public final void iu() {
-        if (this.tX) {
-            this.tX = false;
-            iy();
-        }
-    }
-
-    @Override // com.kwad.components.ad.reward.i.c
-    public final String iv() {
-        return this.tY;
-    }
-
-    @Override // com.kwad.components.ad.reward.i.c
-    public final String iw() {
-        return this.tZ;
-    }
-
-    public void parseJson(@Nullable JSONObject jSONObject) {
-        try {
-            this.tX = jSONObject.optBoolean("selfCompleted");
-        } catch (Throwable unused) {
-        }
-    }
-
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "selfCompleted", this.tX);
-        return jSONObject;
+    @Override // com.kwad.components.core.webview.jshandler.bf.a
+    public final boolean dK() {
+        com.kwad.components.ad.reward.a.eW().c(this.rZ, new a(this.mContext));
+        return false;
     }
 }

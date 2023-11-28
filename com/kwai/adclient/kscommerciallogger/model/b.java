@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public final class b extends d {
     public static /* synthetic */ Interceptable $ic;
-    public static final d arR;
-    public static final d arS;
-    public static final d arT;
-    public static final d arU;
-    public static final d arV;
-    public static final d arW;
-    public static final d arX;
-    public static final d arY;
-    public static final d arZ;
-    public static final d asa;
-    public static final d asb;
-    public static final d asc;
-    public static final d asd;
+    public static final d aSA;
+    public static final d aSo;
+    public static final d aSp;
+    public static final d aSq;
+    public static final d aSr;
+    public static final d aSs;
+    public static final d aSt;
+    public static final d aSu;
+    public static final d aSv;
+    public static final d aSw;
+    public static final d aSx;
+    public static final d aSy;
+    public static final d aSz;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,19 +38,19 @@ public final class b extends d {
                 return;
             }
         }
-        arR = new d("NETWORK_NO_BODY");
-        arS = new d("NETWORK_FORMAT_ERROR");
-        arT = new d("NETWORK_INFO_INCOMPLETE");
-        arU = new d("NETWORK_BUSINESS_ERROR");
-        arV = new d("NETWORK_ERROR");
-        arW = new d("METHOD_PARAM_ILLEGAL");
-        arX = new d("METHOD_LONG_TIME");
-        arY = new d("METHOD_ERROR");
-        arZ = new d("PAGE_RENDER_FAIL");
-        asa = new d("VIEW_RENDER_FAIL");
-        asb = new d("RENDER_ERROR");
-        asc = new d("MATERIAL_LOAD_FAIL");
-        asd = new d("EXCEPTION");
+        aSo = new d("NETWORK_NO_BODY");
+        aSp = new d("NETWORK_FORMAT_ERROR");
+        aSq = new d("NETWORK_INFO_INCOMPLETE");
+        aSr = new d("NETWORK_BUSINESS_ERROR");
+        aSs = new d("NETWORK_ERROR");
+        aSt = new d("METHOD_PARAM_ILLEGAL");
+        aSu = new d("METHOD_LONG_TIME");
+        aSv = new d("METHOD_ERROR");
+        aSw = new d("PAGE_RENDER_FAIL");
+        aSx = new d("VIEW_RENDER_FAIL");
+        aSy = new d("RENDER_ERROR");
+        aSz = new d("MATERIAL_LOAD_FAIL");
+        aSA = new d("EXCEPTION");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

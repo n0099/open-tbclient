@@ -48,7 +48,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     public ListMenuItemView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040473);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040479);
     }
 
     private void addContentView(View view2, int i) {
@@ -234,20 +234,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     public void onFinishInflate() {
         super.onFinishInflate();
         ViewCompat.setBackground(this, this.mBackground);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925fe);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092683);
         this.mTitleView = textView;
         int i = this.mTextAppearance;
         if (i != -1) {
             textView.setTextAppearance(this.mTextAppearanceContext, i);
         }
-        this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09236c);
+        this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d4);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923ee);
         this.mSubMenuArrowView = imageView;
         if (imageView != null) {
             imageView.setImageDrawable(this.mSubMenuArrow);
         }
-        this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0a);
-        this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907eb);
+        this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f2a);
+        this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090807);
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView

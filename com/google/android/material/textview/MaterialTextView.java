@@ -19,7 +19,7 @@ public class MaterialTextView extends AppCompatTextView {
     }
 
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
-        return MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f0407ce, true);
+        return MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f0407d4, true);
     }
 
     public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {

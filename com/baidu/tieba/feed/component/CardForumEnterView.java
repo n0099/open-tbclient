@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.feed.component.CardForumEnterView;
-import com.baidu.tieba.ta7;
-import com.baidu.tieba.ua7;
-import com.baidu.tieba.w37;
+import com.baidu.tieba.gb7;
+import com.baidu.tieba.hb7;
+import com.baidu.tieba.j47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\b\u001a\u00020\tH\u0016J\u000e\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\f¨\u0006\r"}, d2 = {"Lcom/baidu/tieba/feed/component/CardForumEnterView;", "Landroidx/appcompat/widget/AppCompatTextView;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/component/uistate/CardForumEnterUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardForumEnterView extends AppCompatTextView implements ta7 {
+public final class CardForumEnterView extends AppCompatTextView implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,14 +80,14 @@ public final class CardForumEnterView extends AppCompatTextView implements ta7 {
         setLayoutParams(new ViewGroup.MarginLayoutParams(-2, BdUtilHelper.getDimens(getContext(), R.dimen.tbds62)));
         setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), 0);
         setGravity(17);
-        r();
+        f();
     }
 
     public /* synthetic */ CardForumEnterView(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void e(w37 state, View it) {
+    public static final void e(j47 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -97,12 +97,12 @@ public final class CardForumEnterView extends AppCompatTextView implements ta7 {
         }
     }
 
-    public final void d(final w37 state) {
+    public final void d(final j47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             setText(state.d());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.n37
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,19 +110,19 @@ public final class CardForumEnterView extends AppCompatTextView implements ta7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardForumEnterView.e(w37.this, view2);
+                        CardForumEnterView.e(j47.this, view2);
                     }
                 }
             });
             setOnTouchListener(null);
-            r();
+            f();
         }
     }
 
-    @Override // com.baidu.tieba.ta7
-    public void r() {
+    @Override // com.baidu.tieba.gb7
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ua7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || hb7.a(this)) {
             return;
         }
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);

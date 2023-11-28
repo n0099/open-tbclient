@@ -4,7 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.wd;
+import com.baidu.tieba.xd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +113,7 @@ public class TbMd5 {
             File file = new File(packageInfo.applicationInfo.publicSourceDir);
             if (file.exists()) {
                 try {
-                    return wd.b(new FileInputStream(file));
+                    return xd.b(new FileInputStream(file));
                 } catch (FileNotFoundException e) {
                     BdLog.detailException(e);
                 }
@@ -132,7 +132,7 @@ public class TbMd5 {
                 return null;
             }
             try {
-                return wd.d(signatureArr[0].toCharsString().getBytes());
+                return xd.d(signatureArr[0].toCharsString().getBytes());
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -145,7 +145,7 @@ public class TbMd5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return wd.c(str);
+            return xd.c(str);
         }
         return (String) invokeL.objValue;
     }

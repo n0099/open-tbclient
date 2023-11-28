@@ -432,6 +432,28 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         tbSingleton.setIsNeedShowPbCommentThreadId(str3);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2, boolean z, boolean z2) {
+        this(context, list, str, str2, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65544, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (List) objArr2[1], (String) objArr2[2], (String) objArr2[3], ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65544, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("is_check_pre_floor", z2);
+    }
+
     public void setIsFromBjhPb(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {

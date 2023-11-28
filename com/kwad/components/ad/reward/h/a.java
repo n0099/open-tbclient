@@ -1,31 +1,60 @@
 package com.kwad.components.ad.reward.h;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.utils.y;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class a implements com.kwad.sdk.core.webview.kwai.a {
-    public InterfaceC0600a tJ;
+public final class a {
+    public static long rL = -1;
+    public static int rM;
 
-    /* renamed from: com.kwad.components.ad.reward.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0600a {
+    public static void H(Context context) {
+        b bVar = new b();
+        if (f(System.currentTimeMillis())) {
+            rM++;
+        } else {
+            rM = 1;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        rL = currentTimeMillis;
+        bVar.rN = rM;
+        bVar.gM = currentTimeMillis;
+        y.ab(context, bVar.toJson().toString());
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        ie();
+    public static boolean f(long j) {
+        if (gT() <= 0 || j <= 0 || gT() / 2460601000L != j / 2460601000L) {
+            return false;
+        }
+        return true;
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String getKey() {
-        return "callButtonImpressionWhenFinish";
+    public static int cM() {
+        if (!f(System.currentTimeMillis())) {
+            rM = 0;
+        }
+        return rM;
     }
 
-    public void ie() {
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void onDestroy() {
-        this.tJ = null;
+    public static long gT() {
+        long j = rL;
+        if (j == -1) {
+            String Ke = y.Ke();
+            if (TextUtils.isEmpty(Ke)) {
+                return 0L;
+            }
+            b bVar = new b();
+            try {
+                bVar.parseJson(new JSONObject(Ke));
+                rL = bVar.gM;
+                rM = bVar.rN;
+            } catch (Exception e) {
+                c.printStackTraceOnly(e);
+            }
+            return rL;
+        }
+        return j;
     }
 }

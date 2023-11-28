@@ -36,7 +36,7 @@ import kotlin.ranges.RangesKt___RangesKt;
 /* loaded from: classes5.dex */
 public final class GuideProgressView extends View {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int t = 2131099738;
+    public static final int t = 2131099740;
     public static final int u = 2131099648;
     public static final int v = 2131165320;
     public static final int w;
@@ -199,7 +199,7 @@ public final class GuideProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             if (this.g == null) {
-                this.g = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.icon_pure_pb_recommend_save30);
+                this.g = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.icon_pure_post_download16);
             }
             Bitmap bitmap = this.g;
             Intrinsics.checkNotNull(bitmap);
@@ -242,12 +242,10 @@ public final class GuideProgressView extends View {
             if (this.n == null) {
                 this.n = new Rect(0, 0, arrowIconBitmap.getWidth(), arrowIconBitmap.getHeight());
             }
-            if (this.o == null) {
-                int width = getWidth() - x;
-                int height = getHeight();
-                int i2 = y;
-                this.o = new Rect((getWidth() - x) - y, (getHeight() - y) / 2, width, ((height - i2) / 2) + i2);
-            }
+            int width = getWidth() - x;
+            int height = getHeight();
+            int i2 = y;
+            this.o = new Rect((getWidth() - x) - y, (getHeight() - y) / 2, width, ((height - i2) / 2) + i2);
             this.c.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
             Rect rect = this.n;
             Rect rect2 = this.o;

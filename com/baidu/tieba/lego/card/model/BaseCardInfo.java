@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.rb9;
-import com.baidu.tieba.xc9;
+import com.baidu.tieba.hf9;
+import com.baidu.tieba.ng9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,9 +72,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.UpdateAttentionData) {
                     UpdateAttentionMessage.UpdateAttentionData updateAttentionData = (UpdateAttentionMessage.UpdateAttentionData) obj;
                     return responseAttentionUser(updateAttentionData.toUid, updateAttentionData.isAttention);
-                } else if (obj instanceof xc9) {
-                    xc9 xc9Var = (xc9) obj;
-                    return responseAttentionForum(xc9Var.a, xc9Var.b);
+                } else if (obj instanceof ng9) {
+                    ng9 ng9Var = (ng9) obj;
+                    return responseAttentionForum(ng9Var.a, ng9Var.b);
                 } else {
                     return false;
                 }
@@ -89,7 +89,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return rb9.b.a(str).d("fid");
+                return hf9.b.a(str).d("fid");
             }
             return "";
         }
@@ -101,7 +101,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return rb9.b.a(str).d("touid");
+                return hf9.b.a(str).d("touid");
             }
             return "";
         }

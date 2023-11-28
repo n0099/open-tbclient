@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,14 +21,6 @@ public final class TipsConfigItem extends b<TipConfigData> {
         public transient Map<String, String> tipMap = new HashMap();
         public int tipShowSwitch;
 
-        private void genTipMap(JSONObject jSONObject) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                this.tipMap.put(next, jSONObject.optString(next, ""));
-            }
-        }
-
         @Nullable
         public String getTipInfoData() {
             return this.tipInfo;
@@ -38,12 +30,31 @@ public final class TipsConfigItem extends b<TipConfigData> {
             return this.tipShowSwitch;
         }
 
-        public String getTips(String str) {
-            return this.tipMap.get(str);
+        public boolean isShowTips() {
+            if (this.tipShowSwitch == 0) {
+                return true;
+            }
+            return false;
         }
 
-        public boolean isShowTips() {
-            return this.tipShowSwitch == 0;
+        @Override // com.kwad.sdk.core.b
+        public JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            t.putValue(jSONObject, "tipShowSwitch", this.tipShowSwitch);
+            t.putValue(jSONObject, "tipInfo", this.tipInfo);
+            return jSONObject;
+        }
+
+        private void genTipMap(JSONObject jSONObject) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                this.tipMap.put(next, jSONObject.optString(next, ""));
+            }
+        }
+
+        public String getTips(String str) {
+            return this.tipMap.get(str);
         }
 
         @Override // com.kwad.sdk.core.b
@@ -57,26 +68,17 @@ public final class TipsConfigItem extends b<TipConfigData> {
 
         public void setTipInfoData(String str) {
             this.tipInfo = str;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
-                return;
-            }
-            try {
-                genTipMap(new JSONObject(str));
-            } catch (Exception e) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str) && !StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
+                try {
+                    genTipMap(new JSONObject(str));
+                } catch (Exception e) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+                }
             }
         }
 
         public void setTipShowSwitch(int i) {
             this.tipShowSwitch = i;
-        }
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            r.putValue(jSONObject, "tipShowSwitch", this.tipShowSwitch);
-            r.putValue(jSONObject, "tipInfo", this.tipInfo);
-            return jSONObject;
         }
     }
 
@@ -98,18 +100,22 @@ public final class TipsConfigItem extends b<TipConfigData> {
     @Override // com.kwad.sdk.core.config.item.b
     public final void b(@NonNull SharedPreferences.Editor editor) {
         editor.putInt("tipsSwitch", getValue().getTipShowSwitch());
-        editor.putString("tipsInfo", getValue().getTipInfoData() != null ? getValue().getTipInfoData() : "");
+        if (getValue().getTipInfoData() != null) {
+            editor.putString("tipsInfo", getValue().getTipInfoData());
+        } else {
+            editor.putString("tipsInfo", "");
+        }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
+    public final void j(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) {
-            setValue(sx());
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(getKey())) != null) {
+            TipConfigData tipConfigData = new TipConfigData();
+            tipConfigData.parseJson(optJSONObject);
+            setValue(tipConfigData);
             return;
         }
-        TipConfigData tipConfigData = new TipConfigData();
-        tipConfigData.parseJson(optJSONObject);
-        setValue(tipConfigData);
+        setValue(Bx());
     }
 }

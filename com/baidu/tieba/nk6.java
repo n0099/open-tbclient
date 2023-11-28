@@ -1,83 +1,98 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LinearInterpolator;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class nk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ag6<WebView> a;
 
-    public nk6(ag6<WebView> ag6Var) {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ag6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65536, null, view2) == null) && view2 != null) {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(800L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setRepeatCount(-1);
+            alphaAnimation.setRepeatMode(2);
+            view2.startAnimation(alphaAnimation);
+        }
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static Bitmap b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void d(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            ViewParent parent = view2.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view2);
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void e(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
+            if (i < 17) {
+                c(view2);
                 return;
             }
-        }
-        this.a = ag6Var;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WebView call = this.a.call();
-            if (call != null) {
-                return call.canGoBack();
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, Boolean.TRUE);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WebView call = this.a.call();
-            if (call != null) {
-                return call.getTitle();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c() {
-        WebView call;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (call = this.a.call()) != null) {
-            call.goBack();
         }
     }
 
-    public void d() {
-        WebView call;
+    public static void f(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (call = this.a.call()) != null) {
-            call.reload();
-        }
-    }
-
-    public void e() {
-        WebView call;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (call = this.a.call()) != null) {
-            call.stopLoading();
+        if ((interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) && view2.getVisibility() != i) {
+            view2.setVisibility(i);
         }
     }
 }

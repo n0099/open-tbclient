@@ -1,11 +1,11 @@
 package com.kwad.sdk.components;
 /* loaded from: classes10.dex */
 public interface f extends a {
-    void an(String str);
+    void aj(String str);
 
-    void m(long j);
+    String om();
 
-    String nb();
+    com.kwad.sdk.core.a.g on();
 
-    com.kwad.sdk.core.a.h nc();
+    void w(long j);
 }

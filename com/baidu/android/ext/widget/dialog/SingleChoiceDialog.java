@@ -310,7 +310,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
             this.mListView.setAdapter((ListAdapter) new SingleChoiceAdapter());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             Resources resources = getContext().getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707d5);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707e8);
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.single_choice_dialog_bottom_margin);
             layoutParams.leftMargin = dimensionPixelSize;
             layoutParams.rightMargin = dimensionPixelSize;
@@ -379,7 +379,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView ifOnlyOneBtnGetIt = getBuilder().ifOnlyOneBtnGetIt();
             if (ifOnlyOneBtnGetIt != null) {
-                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020d);
+                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f080210);
             }
             super.show();
         }

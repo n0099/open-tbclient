@@ -48,9 +48,9 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     /* loaded from: classes6.dex */
     public interface e {
-        void G0(boolean z);
+        void F0(boolean z);
 
-        void c0(boolean z);
+        void Y(boolean z);
 
         void onFailed(String str);
 
@@ -112,10 +112,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 this.a.f = true;
                 if (this.a.a != null && this.a.c != null) {
                     if (responsedMessage == null) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e61));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e61));
+                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
                         } else {
                             this.a.c.onFailed(responsedMessage.getErrorString());
                         }
@@ -184,25 +184,25 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             if (requestUpdateMaskInfoMessage.getMaskType() == 6 && this.a.a != null && this.a.c != null) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
                     if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e61);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
                     } else {
                         this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }
                     if (requestUpdateMaskInfoMessage.getMute()) {
-                        this.a.b.N0(requestUpdateMaskInfoMessage.isMuteNotifications());
+                        this.a.b.L0(requestUpdateMaskInfoMessage.isMuteNotifications());
                         return;
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.c.c0(false);
+                        this.a.c.Y(false);
                         return;
                     } else {
-                        this.a.c.G0(false);
+                        this.a.c.F0(false);
                         return;
                     }
                 }
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.c.c0(true);
+                    this.a.c.Y(true);
                 } else {
-                    this.a.c.G0(true);
+                    this.a.c.F0(true);
                 }
                 if (requestUpdateMaskInfoMessage.getMaskType() == 6) {
                     this.a.Y(requestUpdateMaskInfoMessage.isMuteNotifications());

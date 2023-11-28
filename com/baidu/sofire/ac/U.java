@@ -764,14 +764,14 @@ public class U implements Runnable {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:142:0x0555 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0565 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:153:0x0568 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:142:0x0556 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0566 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:153:0x0569 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x0592 A[Catch: all -> 0x05fb, TryCatch #15 {all -> 0x05fb, blocks: (B:159:0x0581, B:161:0x0592, B:162:0x059d, B:164:0x05aa, B:165:0x05b0), top: B:215:0x0581 }] */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x05aa A[Catch: all -> 0x05fb, TryCatch #15 {all -> 0x05fb, blocks: (B:159:0x0581, B:161:0x0592, B:162:0x059d, B:164:0x05aa, B:165:0x05b0), top: B:215:0x0581 }] */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x0601  */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x062d  */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x0593 A[Catch: all -> 0x05fc, TryCatch #16 {all -> 0x05fc, blocks: (B:159:0x0582, B:161:0x0593, B:162:0x059e, B:164:0x05ab, B:165:0x05b1), top: B:213:0x0582 }] */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x05ab A[Catch: all -> 0x05fc, TryCatch #16 {all -> 0x05fc, blocks: (B:159:0x0582, B:161:0x0593, B:162:0x059e, B:164:0x05ab, B:165:0x05b1), top: B:213:0x0582 }] */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x0602  */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x062e  */
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v13 */
     /* JADX WARN: Type inference failed for: r14v15, types: [java.lang.Object] */
@@ -1060,10 +1060,12 @@ public class U implements Runnable {
                                 bVar.c(apkInfo2.packageName);
                                 file2.delete();
                                 if (file2.getParentFile() != null) {
+                                    com.baidu.sofire.k.b.d(file2.getParentFile().getAbsolutePath());
                                 }
                                 bVar.a(apkInfo2.key, apkInfo2.versionName, true, null);
                                 iVar = com.baidu.sofire.b.i.g;
                                 if (iVar != null) {
+                                    iVar.a(apkInfo2.key, false);
                                 }
                                 HashMap hashMap322 = new HashMap();
                                 hashMap322.put("0", 5);
@@ -1220,68 +1222,20 @@ public class U implements Runnable {
                     r1 = "\t";
                     try {
                         sb3 = "\r";
-                        try {
-                            str11 = "3";
-                        } catch (Throwable th10) {
-                            th = th10;
-                            str9 = str10;
-                            charSequence3 = r1;
-                            file3 = file7;
-                            bVar2 = bVar3;
-                            str4 = "3";
-                            charSequence2 = charSequence3;
-                            str5 = str2;
-                            interceptable2 = interceptable;
-                            charSequence = charSequence2;
-                            bVar = bVar2;
-                            str3 = str5;
-                            file2 = file3;
-                            apkInfo2 = apkInfo;
-                            try {
-                                c.a(file2);
-                                bVar.c(apkInfo2.packageName);
-                                file2.delete();
-                                if (file2.getParentFile() != null) {
-                                    com.baidu.sofire.k.b.d(file2.getParentFile().getAbsolutePath());
-                                }
-                                bVar.a(apkInfo2.key, apkInfo2.versionName, true, null);
-                                iVar = com.baidu.sofire.b.i.g;
-                                if (iVar != null) {
-                                    iVar.a(apkInfo2.key, false);
-                                }
-                                HashMap hashMap32222 = new HashMap();
-                                hashMap32222.put("0", 5);
-                                hashMap32222.put(interceptable2, apkInfo2.key + "");
-                                hashMap32222.put(str3, apkInfo2.versionName);
-                                hashMap32222.put(str4, Base64.encodeToString(com.baidu.sofire.a.b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
-                            } catch (Throwable unused2) {
-                            }
-                            try {
-                                com.baidu.sofire.k.b.a(b.e, str9, (Map<String, Object>) hashMap32222, false);
-                            } catch (Throwable unused3) {
-                                int i5 = com.baidu.sofire.a.b.a;
-                                z = false;
-                                if (z) {
-                                }
-                            }
-                            z = false;
-                            if (z) {
-                            }
-                        }
-                    } catch (Throwable th11) {
-                        th = th11;
+                    } catch (Throwable th10) {
+                        th = th10;
                         str9 = str10;
                         sb3 = "\r";
                         charSequence3 = r1;
                     }
-                } catch (Throwable th12) {
-                    th = th12;
+                } catch (Throwable th11) {
+                    th = th11;
                     str9 = str10;
                     sb3 = "\r";
                     charSequence3 = "\t";
                 }
-            } catch (Throwable th13) {
-                th = th13;
+            } catch (Throwable th12) {
+                th = th12;
                 str3 = "2";
                 str9 = str10;
                 sb3 = "\r";
@@ -1291,35 +1245,81 @@ public class U implements Runnable {
                 interceptable2 = "1";
                 str4 = "3";
                 apkInfo2 = apkInfo;
-                c.a(file2);
-                bVar.c(apkInfo2.packageName);
-                file2.delete();
-                if (file2.getParentFile() != null) {
+                try {
+                    c.a(file2);
+                    bVar.c(apkInfo2.packageName);
+                    file2.delete();
+                    if (file2.getParentFile() != null) {
+                    }
+                    bVar.a(apkInfo2.key, apkInfo2.versionName, true, null);
+                    iVar = com.baidu.sofire.b.i.g;
+                    if (iVar != null) {
+                    }
+                    HashMap hashMap32222 = new HashMap();
+                    hashMap32222.put("0", 5);
+                    hashMap32222.put(interceptable2, apkInfo2.key + "");
+                    hashMap32222.put(str3, apkInfo2.versionName);
+                    hashMap32222.put(str4, Base64.encodeToString(com.baidu.sofire.a.b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                } catch (Throwable unused2) {
                 }
-                bVar.a(apkInfo2.key, apkInfo2.versionName, true, null);
-                iVar = com.baidu.sofire.b.i.g;
-                if (iVar != null) {
+                try {
+                    com.baidu.sofire.k.b.a(b.e, str9, (Map<String, Object>) hashMap32222, false);
+                } catch (Throwable unused3) {
+                    int i5 = com.baidu.sofire.a.b.a;
+                    z = false;
+                    if (z) {
+                    }
                 }
-                HashMap hashMap322222 = new HashMap();
-                hashMap322222.put("0", 5);
-                hashMap322222.put(interceptable2, apkInfo2.key + "");
-                hashMap322222.put(str3, apkInfo2.versionName);
-                hashMap322222.put(str4, Base64.encodeToString(com.baidu.sofire.a.b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
-                com.baidu.sofire.k.b.a(b.e, str9, (Map<String, Object>) hashMap322222, false);
                 z = false;
                 if (z) {
                 }
             }
             try {
-                hashMap.put(str11, replace.replace((CharSequence) r1, "").replace(sb3, ""));
-                com.baidu.sofire.k.b.a(b.e, str10, (Map<String, Object>) hashMap, false);
+                str11 = "3";
+                try {
+                    hashMap.put(str11, replace.replace((CharSequence) r1, "").replace(sb3, ""));
+                    com.baidu.sofire.k.b.a(b.e, str10, (Map<String, Object>) hashMap, false);
+                } catch (Throwable th13) {
+                    th = th13;
+                    str9 = str10;
+                    file3 = file7;
+                    bVar2 = bVar3;
+                    str4 = str11;
+                    charSequence2 = r1;
+                    str5 = str2;
+                    interceptable2 = interceptable;
+                    charSequence = charSequence2;
+                    bVar = bVar2;
+                    str3 = str5;
+                    file2 = file3;
+                    apkInfo2 = apkInfo;
+                    c.a(file2);
+                    bVar.c(apkInfo2.packageName);
+                    file2.delete();
+                    if (file2.getParentFile() != null) {
+                    }
+                    bVar.a(apkInfo2.key, apkInfo2.versionName, true, null);
+                    iVar = com.baidu.sofire.b.i.g;
+                    if (iVar != null) {
+                    }
+                    HashMap hashMap322222 = new HashMap();
+                    hashMap322222.put("0", 5);
+                    hashMap322222.put(interceptable2, apkInfo2.key + "");
+                    hashMap322222.put(str3, apkInfo2.versionName);
+                    hashMap322222.put(str4, Base64.encodeToString(com.baidu.sofire.a.b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                    com.baidu.sofire.k.b.a(b.e, str9, (Map<String, Object>) hashMap322222, false);
+                    z = false;
+                    if (z) {
+                    }
+                }
             } catch (Throwable th14) {
                 th = th14;
                 str9 = str10;
+                charSequence3 = r1;
                 file3 = file7;
                 bVar2 = bVar3;
-                str4 = str11;
-                charSequence2 = r1;
+                str4 = "3";
+                charSequence2 = charSequence3;
                 str5 = str2;
                 interceptable2 = interceptable;
                 charSequence = charSequence2;

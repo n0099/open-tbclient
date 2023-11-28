@@ -1,22 +1,11 @@
 package com.kwad.components.ad.splashscreen.a;
 
-import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.sdk.core.config.item.d;
-import com.kwad.sdk.core.config.item.j;
-import com.kwad.sdk.core.config.item.o;
+import com.kwad.sdk.api.KsSplashScreenAd;
+import com.kwad.sdk.api.core.fragment.KsFragment;
+import com.kwad.sdk.components.d;
+import com.kwad.sdk.core.h.b;
+import com.kwad.sdk.core.response.model.AdResultData;
 /* loaded from: classes10.dex */
-public final class a {
-    public static j yl = new j("splashTimeOutMilliSecond", 5000);
-    public static j ym = new j("splashVplusEnterHomeSeconds", 0);
-    public static o yn = new o("splashTimerTips", "");
-    public static o yo = new o("splashBtnText", "点击跳过详情页或第三方应用");
-    public static o yp = new o("splashVplusEnterHomeTips", "");
-    public static j yq = new j("shakeCountDaily", 3);
-    public static j yr = new j("rotateCountDaily", 3);
-    public static j ys = new j("gestureCountDaily", 5);
-    public static d yt = new d("splashCropSwitch", true);
-
-    @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
-    public static void init() {
-    }
+public abstract class a extends d {
+    public abstract KsFragment a(AdResultData adResultData, b bVar, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener);
 }

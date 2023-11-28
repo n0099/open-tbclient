@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,11 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u0a implements oi {
+public class u0a extends nwa {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId l1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public jy4 i1;
+    public jy4 j1;
+    public jy4 k1;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +32,7 @@ public class u0a implements oi {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        l1 = BdUniqueId.gen();
     }
 
     public u0a() {
@@ -42,35 +45,38 @@ public class u0a implements oi {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.oi
+    @Override // com.baidu.tieba.nwa, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l1;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public boolean H1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jy4 jy4Var = this.i1;
+            if (jy4Var != null && !StringUtils.isNull(jy4Var.b)) {
+                return true;
+            }
+            jy4 jy4Var2 = this.j1;
+            if (jy4Var2 != null && !StringUtils.isNull(jy4Var2.b)) {
+                return true;
+            }
+            jy4 jy4Var3 = this.k1;
+            if (jy4Var3 != null) {
+                return !StringUtils.isNull(jy4Var3.b);
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

@@ -4,33 +4,27 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ThemeColorInfo;
-import tbclient.ThreadRecommendTag;
+import tbclient.LotteryRegular;
 /* loaded from: classes9.dex */
-public class y4d extends qoc {
+public class y4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ThreadRecommendTag threadRecommendTag) {
+    public static JSONObject b(@NonNull LotteryRegular lotteryRegular) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadRecommendTag)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lotteryRegular)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "text", threadRecommendTag.text);
-            ThemeColorInfo themeColorInfo = threadRecommendTag.text_color;
-            if (themeColorInfo != null) {
-                qoc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, q4d.b(themeColorInfo));
-            }
-            ThemeColorInfo themeColorInfo2 = threadRecommendTag.background_color;
-            if (themeColorInfo2 != null) {
-                qoc.a(jSONObject, "background_color", q4d.b(themeColorInfo2));
-            }
-            ThemeColorInfo themeColorInfo3 = threadRecommendTag.boundary_color;
-            if (themeColorInfo3 != null) {
-                qoc.a(jSONObject, "boundary_color", q4d.b(themeColorInfo3));
+            ltc.a(jSONObject, "regular", lotteryRegular.regular);
+            if (lotteryRegular.chance != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (Integer num : lotteryRegular.chance) {
+                    jSONArray.put(num.intValue());
+                }
+                ltc.a(jSONObject, "chance", jSONArray);
             }
             return jSONObject;
         }

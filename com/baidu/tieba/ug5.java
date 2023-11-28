@@ -1,203 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class ug5 extends wg5 {
+public class ug5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements zd5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg5 a;
-        public final /* synthetic */ EditorTools b;
-        public final /* synthetic */ ug5 c;
-
-        public a(ug5 ug5Var, vg5 vg5Var, EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug5Var, vg5Var, editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ug5Var;
-            this.a = vg5Var;
-            this.b = editorTools;
-        }
-
-        @Override // com.baidu.tieba.zd5
-        public void S(yd5 yd5Var) {
-            vg5 vg5Var;
-            int size;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, yd5Var) != null) || (vg5Var = this.a) == null || vg5Var.a() == null || yd5Var == null) {
-                return;
-            }
-            int i = yd5Var.a;
-            if (i != 4) {
-                if (i != 5) {
-                    if (i != 7) {
-                        if (i != 8) {
-                            if (i != 14) {
-                                if (i == 15) {
-                                    int intValue = ((Integer) yd5Var.c).intValue();
-                                    if (this.a.y() != null && this.a.y().getChosedFiles() != null && (size = this.a.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.s().getPageActivity(), CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, this.a.y(), intValue)));
-                                        return;
-                                    }
-                                    return;
-                                }
-                                return;
-                            }
-                            if (this.a.y() != null) {
-                                this.a.y().setMaxImagesAllowed(1);
-                            }
-                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.s().getPageActivity(), this.a.y().toJsonString(), true, true);
-                            if (!StringUtils.isNull(this.c.m(), true)) {
-                                albumActivityConfig.getIntent().putExtra("from", this.c.m());
-                            }
-                            if (this.c.l() != null && !StringUtils.isNull(this.c.l().getId(), true)) {
-                                albumActivityConfig.getIntent().putExtra("forum_id", this.c.l().getId());
-                            }
-                            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                            BdUtilHelper.hideSoftKeyPad(this.a.s().getPageActivity(), this.a.s().getPageActivity().getCurrentFocus());
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-                            return;
-                        } else if (!this.c.k(this.a.s(), 11001)) {
-                            return;
-                        } else {
-                            this.a.K(null, null);
-                            return;
-                        }
-                    }
-                    this.a.s().showToast(R.string.over_limit_tip);
-                    return;
-                } else if (!this.b.D()) {
-                    TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            this.a.i0(yd5Var.c.toString());
-        }
-    }
-
-    public ug5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean k(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
-            }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wg5, com.baidu.tieba.ae5
-    public ce5 b(Context context) {
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            editorTools.setBarLauncherType(5);
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0201);
-            editorTools.N(false);
-            editorTools.setMoreButtonAtEnd(true);
-            vg5 vg5Var = new vg5(editorTools);
-            vg5Var.f0(n());
-            vg5Var.t = true;
-            return vg5Var;
-        }
-        return (ce5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wg5, com.baidu.tieba.ae5
-    public void c(ce5 ce5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce5Var) != null) || !(ce5Var instanceof vg5)) {
-            return;
-        }
-        EditorTools a2 = ce5Var.a();
-        a aVar = new a(this, (vg5) ce5Var, a2);
-        a2.setActionListener(5, aVar);
-        a2.setActionListener(4, aVar);
-        a2.setActionListener(7, aVar);
-        a2.setActionListener(14, aVar);
-        a2.setActionListener(15, aVar);
-        a2.setActionListener(8, aVar);
-        a2.setActionListener(32, aVar);
-        a2.setActionListener(45, aVar);
-    }
-
-    @Override // com.baidu.tieba.wg5, com.baidu.tieba.ae5
-    public void d(ce5 ce5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ce5Var) == null) {
-            EditorTools a2 = ce5Var.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            a2.f(new we5(a2.getContext(), 1));
-            a2.f(new PbNewEditorTool(a2.getContext(), true, false, 12004));
-            a2.k(arrayList);
-            le5 u = a2.u(5);
-            if (u != null) {
-                u.l = 2;
-                u.f(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 16) {
+                return false;
             }
-            a2.h();
-            a2.K(new yd5(35, 5, Boolean.FALSE));
+            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & 67108864) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == tg5.a(view2.getContext())) {
+                return false;
+            }
+            int h = sg5.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

@@ -1,51 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class co7 implements CustomMessageTask.CustomRunnable<Object> {
+public final class co7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public co7() {
+    public static final int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (currentTimeMillis < j) {
+                return 1;
             }
+            if (currentTimeMillis > j2) {
+                return 3;
+            }
+            return 2;
         }
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static final boolean b(Object bindData) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
-                byte[] a = new bo7().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
-                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
-                try {
-                    getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bindData)) == null) {
+            Intrinsics.checkNotNullParameter(bindData, "bindData");
+            if (bindData instanceof s57) {
+                Map<String, String> a = ((s57) bindData).e().a().a();
+                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
+                if (JavaTypesHelper.toInt(a.get("is_livepost"), 0) == 1) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return getLevelInfoReadCacheResponsedMessage;
+                long j = JavaTypesHelper.toLong(a.get("task_start_time"), 0L);
+                long j2 = JavaTypesHelper.toLong(a.get("task_end_time"), 0L);
+                if (i == 41 && z && a(j, j2) == 2) {
+                    return true;
+                }
             }
-            return null;
+            return false;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean c(Object bindData) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bindData)) == null) {
+            Intrinsics.checkNotNullParameter(bindData, "bindData");
+            if (bindData instanceof s57) {
+                Map<String, String> a = ((s57) bindData).e().a().a();
+                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
+                if (JavaTypesHelper.toInt(a.get("is_official"), 0) == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (JavaTypesHelper.toInt(a.get("frs_toplive_force"), 0) == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if ((i == 49 || i == 69) && z && z2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

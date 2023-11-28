@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.g65;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void q(a65 a65Var) {
+    public void r(g65 g65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a65Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g65Var) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LightEmotionView extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,15 +118,15 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lightEmotionView, i) == null) && lightEmotionView != null && (arrayList = this.c) != null) {
             LightEmotionData lightEmotionData = arrayList.get(i);
-            o(lightEmotionView, lightEmotionData.getUrl());
-            p(lightEmotionView, lightEmotionData.getName());
+            p(lightEmotionView, lightEmotionData.getUrl());
+            q(lightEmotionView, lightEmotionData.getName());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: m */
+    /* renamed from: n */
     public LightEmotionView onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -137,21 +137,21 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
         return (LightEmotionView) invokeLI.objValue;
     }
 
-    public void o(LightEmotionView lightEmotionView, String str) {
+    public void p(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, lightEmotionView, str) == null) && str != null && lightEmotionView != null && lightEmotionView.a != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, lightEmotionView, str) == null) && str != null && lightEmotionView != null && lightEmotionView.a != null) {
             Glide.with(this.a).load(str).placeholder((int) R.drawable.icon_qinghudong_emotion_load_error).into(lightEmotionView.a);
         }
     }
 
-    public void p(LightEmotionView lightEmotionView, String str) {
+    public void q(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !qd.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !rd.isEmpty(str)) {
             lightEmotionView.b.setText(str);
         }
     }
 
-    public void n(ArrayList<LightEmotionData> arrayList) {
+    public void o(ArrayList<LightEmotionData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, arrayList) != null) || arrayList == null) {
             return;

@@ -3,6 +3,8 @@ package com.kwad.sdk.api;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
@@ -10,51 +12,7 @@ public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes10.dex */
-    public static class Builder {
-        public boolean dataFlowAutoStart;
-        public boolean videoSoundEnable;
-        public boolean isNoCache = false;
-        public KsAdVideoPlayConfig config = (KsAdVideoPlayConfig) Loader.get().newInstance(KsAdVideoPlayConfig.class);
-
-        @KsAdSdkApi
-        @Keep
-        public KsAdVideoPlayConfig build() {
-            return this.config;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        @Deprecated
-        public Builder dataFlowAutoStart(boolean z) {
-            this.config.setDataFlowAutoStart(z);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public Builder noCache() {
-            this.config.setNoCache();
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public Builder videoAutoPlayType(int i) {
-            this.config.setVideoAutoPlayType(i);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public Builder videoSoundEnable(boolean z) {
-            this.config.setVideoSoundEnable(z);
-            return this;
-        }
-    }
-
-    @KsAdSdkApi
-    @Keep
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes10.dex */
     public @interface VideoAutoPlayType {
         public static final int AUTO_PLAY = 1;
@@ -90,9 +48,54 @@ public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
     @Keep
-    void setVideoAutoPlayType(@VideoAutoPlayType int i);
+    void setVideoAutoPlayType(int i);
 
     @KsAdSdkApi
     @Keep
     void setVideoSoundEnable(boolean z);
+
+    @KsAdSdkApi
+    @Keep
+    /* loaded from: classes10.dex */
+    public static class Builder {
+        public boolean dataFlowAutoStart;
+        public boolean videoSoundEnable;
+        public boolean isNoCache = false;
+        public KsAdVideoPlayConfig config = (KsAdVideoPlayConfig) Loader.get().newInstance(KsAdVideoPlayConfig.class);
+
+        @KsAdSdkApi
+        @Keep
+        public KsAdVideoPlayConfig build() {
+            return this.config;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder noCache() {
+            this.config.setNoCache();
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        @Deprecated
+        public Builder dataFlowAutoStart(boolean z) {
+            this.config.setDataFlowAutoStart(z);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder videoAutoPlayType(int i) {
+            this.config.setVideoAutoPlayType(i);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder videoSoundEnable(boolean z) {
+            this.config.setVideoSoundEnable(z);
+            return this;
+        }
+    }
 }

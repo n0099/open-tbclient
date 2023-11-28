@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hsc extends qoc {
+public abstract class hsc<E> extends isc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedContentText feedContentText) {
-        InterceptResult invokeL;
+    public hsc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentText)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "text", feedContentText.text);
-            FeedContentColor feedContentColor = feedContentText.color;
-            if (feedContentColor != null) {
-                qoc.a(jSONObject, "color", csc.b(feedContentColor));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                qoc.a(jSONObject, "bg_color", csc.b(feedContentColor2));
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

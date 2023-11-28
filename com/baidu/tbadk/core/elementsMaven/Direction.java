@@ -14,6 +14,7 @@ public final class Direction {
     public static /* synthetic */ Interceptable $ic;
     public static final Direction BOTTOM;
     public static final Direction LEFT;
+    public static final Direction LEFT_TOP;
     public static final Direction RIGHT;
     public static final Direction TOP;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +35,10 @@ public final class Direction {
         TOP = new Direction("TOP", 0, "top");
         BOTTOM = new Direction("BOTTOM", 1, "bottom");
         LEFT = new Direction("LEFT", 2, "left");
-        Direction direction = new Direction("RIGHT", 3, "right");
-        RIGHT = direction;
-        $VALUES = new Direction[]{TOP, BOTTOM, LEFT, direction};
+        RIGHT = new Direction("RIGHT", 3, "right");
+        Direction direction = new Direction("LEFT_TOP", 4, "left_top");
+        LEFT_TOP = direction;
+        $VALUES = new Direction[]{TOP, BOTTOM, LEFT, RIGHT, direction};
     }
 
     public Direction(String str, int i, String str2) {

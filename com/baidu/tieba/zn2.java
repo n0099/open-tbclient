@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes9.dex */
-public class zn2 extends ak2<ro2> {
+public class zn2 extends bk2<so2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     public zn2() {
@@ -36,22 +36,26 @@ public class zn2 extends ak2<ro2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ro2 ro2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull so2 so2Var) {
+        Object obj;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, ro2Var) == null) {
-            command.ret = ro2Var.prepareAsync() ? 1 : 0;
-            String str = command.what;
-            d(ro2Var, str, "isSupport: " + command.ret, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, so2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.ak2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
+        } else {
+            f = Float.MIN_VALUE;
+        }
+        if (f != Float.MIN_VALUE) {
+            so2Var.setSpeed(f);
+            String str = command.what;
+            d(so2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

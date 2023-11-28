@@ -2,7 +2,7 @@ package com.yy.hiidostatis.defs.obj;
 
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EventInfo extends Info<EventElementInfo> {
     public static final long serialVersionUID = -2909020670205500872L;
 

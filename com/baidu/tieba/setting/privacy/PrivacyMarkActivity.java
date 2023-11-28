@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aja;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
+import com.baidu.tieba.tna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aja a;
+    public tna a;
     public HttpMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -75,9 +75,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.a.F();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1185);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1195);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e61);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            aja ajaVar = new aja(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = ajaVar;
-            setContentView(ajaVar.C());
+            tna tnaVar = new tna(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = tnaVar;
+            setContentView(tnaVar.C());
             registerListener(this.b);
         }
     }

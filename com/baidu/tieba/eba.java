@@ -1,91 +1,79 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
+import android.content.DialogInterface;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class eba {
+public class eba implements ica {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<fba> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729957, "Lcom/baidu/tieba/eba;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729957, "Lcom/baidu/tieba/eba;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof eba) {
-                eba ebaVar = (eba) obj;
-                return Intrinsics.areEqual(this.a, ebaVar.a) && Intrinsics.areEqual(this.b, ebaVar.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public int a;
+    public String b;
+    public TbPageContext c;
+    public BlueCircleProgressDialog d;
+    public i55 e;
+    public BdUniqueId f;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eba a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(eba ebaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ebaVar;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(this.a.f);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(eba ebaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,150 +84,303 @@ public final class eba {
             }
         }
 
-        public final List<fba> a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
-                if (optJSONArray == null) {
-                    return new ArrayList();
-                }
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    fba a = fba.c.a(optJSONArray.optJSONObject(i));
-                    if (a != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
             }
-            return (List) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final eba b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
-                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
-                return new eba(optString, a(jSONObject));
-            }
-            return (eba) invokeL.objValue;
         }
     }
 
-    public eba(String date, List<fba> groups) {
+    /* loaded from: classes5.dex */
+    public class c implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eba a;
+
+        public c(eba ebaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ebaVar;
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                if (Build.VERSION.SDK_INT < 11) {
+                    c05Var.dismiss();
+                    this.a.c.showToast(R.string.frs_header_games_unavailable);
+                    return;
+                }
+                TiebaStatic.log("c10038");
+                c05Var.dismiss();
+                PayPanelUtils.launchPayPanel(this.a.c, 0, MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(eba ebaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
+        public final /* synthetic */ eba b;
+
+        public e(eba ebaVar, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar, userMuteAddAndDelCustomMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ebaVar;
+            this.a = userMuteAddAndDelCustomMessage;
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                this.b.g();
+                MessageManager.getInstance().sendMessage(this.a);
+                c05Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f(eba ebaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ebaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+            }
+        }
+    }
+
+    public eba(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {date, groups};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(date, "date");
-        Intrinsics.checkNotNullParameter(groups, "groups");
-        this.a = date;
-        this.b = groups;
+        this.a = -1;
+        this.b = "";
+        this.c = tbPageContext;
+        i55 i55Var = new i55();
+        this.e = i55Var;
+        i55Var.a = 1000L;
+        this.f = bdUniqueId;
+        UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
+        BdUniqueId bdUniqueId2 = this.f;
+        userMuteAddAndDelCustomMessage.mId = bdUniqueId2;
+        userMuteAddAndDelCustomMessage.from = 0;
+        userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
+        MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
+        UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001432);
+        BdUniqueId bdUniqueId3 = this.f;
+        userMuteCheckCustomMessage.mId = bdUniqueId3;
+        userMuteCheckCustomMessage.setTag(bdUniqueId3);
+        MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ica
+    public void a(int i, int i2, String str, int i3, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
+            BlueCircleProgressDialog blueCircleProgressDialog = this.d;
+            if (blueCircleProgressDialog != null) {
+                blueCircleProgressDialog.setDialogVisiable(false);
+            }
+            this.a = i2;
+            this.b = str;
+            if (i3 == 0) {
+                if (i == 1) {
+                    this.e.d(this.c.getString(R.string.mute_success));
+                } else if (i == 2) {
+                    this.e.d(this.c.getResources().getString(R.string.un_mute_success));
+                }
+            } else if (i3 == 220017) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = this.c.getString(R.string.mute_error_beyond_limit);
+                }
+                i(str2);
+            } else if (i3 == 1990043) {
+                h();
+            } else {
+                if (rd.isEmpty(str2)) {
+                    if (i == 1) {
+                        str2 = this.c.getResources().getString(R.string.mute_fail);
+                    } else if (i == 2) {
+                        str2 = this.c.getResources().getString(R.string.un_mute_fail);
+                    }
+                }
+                this.e.c(str2);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final List<fba> b() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Intrinsics.areEqual(this.a, qd.getDateStringDay(new Date()));
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String dateStringDay = qd.getDateStringDay(new Date());
-            if (dateStringDay == null) {
-                dateStringDay = "";
-            }
-            this.a = dateStringDay;
-            this.b.clear();
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            fba fbaVar = null;
-            for (fba fbaVar2 : this.b) {
-                if (fbaVar2.a() == i) {
-                    fbaVar = fbaVar2;
-                }
-            }
-            if (fbaVar == null) {
-                this.b.add(new fba(i, 1));
-                return;
-            }
-            fbaVar.c(fbaVar.b() + 1);
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
-    }
-
-    public final String g() {
+    public BdUniqueId f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (fba fbaVar : this.b) {
-                jSONArray.put(fbaVar.d());
-            }
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
-            jSONObject.put("groups", jSONArray);
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
-            return jSONObject2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(this.c);
+                this.d = blueCircleProgressDialog;
+                blueCircleProgressDialog.setCancelListener(new a(this));
+            }
+            this.d.setDialogVisiable(true);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c05 c05Var = new c05(this.c.getPageActivity());
+            c05Var.setMessage(this.c.getString(R.string.mute_is_super_member_function));
+            c05Var.setPositiveButton(R.string.open_now, new c(this));
+            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new d(this));
+            c05Var.create(this.c).show();
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            c05 c05Var = new c05(this.c.getPageActivity());
+            c05Var.setMessage(str);
+            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b86, new b(this));
+            c05Var.create(this.c).show();
+        }
+    }
+
+    public void j(boolean z, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), userMuteAddAndDelCustomMessage, str, str2}) == null) {
+            if (z) {
+                g();
+                MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
+                return;
+            }
+            c05 c05Var = new c05(this.c.getPageActivity());
+            if (!rd.isEmpty(str)) {
+                c05Var.setMessage(str);
+            } else {
+                c05Var.setMessage(this.c.getResources().getString(R.string.block_mute_message_alert, str2));
+            }
+            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new e(this, userMuteAddAndDelCustomMessage));
+            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new f(this));
+            c05Var.create(this.c).show();
+        }
     }
 }

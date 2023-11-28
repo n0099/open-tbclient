@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BitFlagTools {
     public static int setFlag(int i, int i2) {
         return i | i2;

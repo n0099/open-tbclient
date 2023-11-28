@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gea;
+import com.baidu.tieba.nia;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.vda;
+import com.baidu.tieba.yia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -125,7 +125,7 @@ public final class NadTagController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091ef2);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091f68);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -165,7 +165,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = vda.b;
+                    i3 = nia.b;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -206,7 +206,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = vda.c;
+                    i3 = nia.c;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -247,7 +247,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = vda.d;
+                    i3 = nia.d;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -310,7 +310,7 @@ public final class NadTagController {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             SkinManager.setViewTextColor(e(), c());
             EMTextView d = d();
-            i = vda.a;
+            i = nia.a;
             SkinManager.setViewTextColor(d, i);
         }
     }
@@ -330,12 +330,12 @@ public final class NadTagController {
                 adCard = null;
             }
             if (adCard == null || TextUtils.isEmpty(adCard.recommendReasonColor)) {
-                i = vda.a;
+                i = nia.a;
                 return i;
             }
             Resources resources = e().getContext().getResources();
             if (resources == null) {
-                i2 = vda.a;
+                i2 = nia.a;
                 return i2;
             }
             return resources.getIdentifier(adCard.recommendReasonColor, "color", e().getContext().getPackageName());
@@ -417,7 +417,7 @@ public final class NadTagController {
                 e().setVisibility(0);
             } else {
                 e().setVisibility(8);
-                d().setText(gea.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
+                d().setText(yia.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
             }
             d().setOnClickListener(tagListener);
         }

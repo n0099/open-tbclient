@@ -4,7 +4,7 @@ import android.content.Context;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.obj.Property;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface HApi {
     @Deprecated
     String getHdid(Context context);

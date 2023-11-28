@@ -1,95 +1,100 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class mdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Fragment a;
+    public Activity b;
+    public ldb c;
 
-    public static int a(Context context) {
+    public mdb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static mdb c(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                String stringExtra = ((Activity) context).getIntent().getStringExtra("from");
-                if ("main_tab".equals(stringExtra)) {
-                    return 0;
-                }
-                if ("frs".equals(stringExtra)) {
-                    return 1;
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            mdb mdbVar = new mdb();
+            mdbVar.a = fragment;
+            return mdbVar;
         }
-        return invokeL.intValue;
+        return (mdb) invokeL.objValue;
     }
 
-    public static void b(Context context, int i) {
+    public void a(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", i).param("obj_source", a(context)));
-        }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65538, null, i, i2) != null) || i == -1) {
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
             return;
         }
-        new StatisticItem("c14823").addParam("obj_source", i).addParam("obj_locate", i2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-    }
-
-    public static void d(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) {
-            new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", 14).addParam("obj_type", i).addParam("obj_source", a(context)).eventStat();
-        }
-    }
-
-    public static void e(WriteData writeData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
-            int i2 = 1;
-            if (writeData.getXiuxiuOriginalContent() != null && !writeData.getXiuxiuOriginalContent().equals(writeData.getContent())) {
-                i = 1;
-            } else {
-                i = 0;
+        if (i2 == -1) {
+            ldb ldbVar = this.c;
+            if (ldbVar != null) {
+                ldbVar.a();
+                return;
             }
-            new StatisticItem("c15065").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, (writeData.getXiuxiuOriginalFname() == null || writeData.getXiuxiuOriginalFname().equals(writeData.getForumName())) ? 0 : 0).eventStat();
+            return;
+        }
+        ldb ldbVar2 = this.c;
+        if (ldbVar2 != null) {
+            ldbVar2.b();
         }
     }
 
-    public static void f(WriteData writeData) {
+    public void b(ldb ldbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
-            int i = 6;
-            String rewardsType = writeData.getRewardsType();
-            if (!TextUtils.isEmpty(rewardsType)) {
-                if (rewardsType.equals("gift")) {
-                    i = 1;
-                } else if (rewardsType.equals("coupon")) {
-                    i = 2;
-                } else if (rewardsType.equals("imprint")) {
-                    i = 3;
-                } else if (rewardsType.equals("memberCard")) {
-                    i = 4;
-                } else if (rewardsType.equals("experience")) {
-                    i = 5;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ldbVar) == null) {
+            this.c = ldbVar;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
                 }
+                ldb ldbVar2 = this.c;
+                if (ldbVar2 != null) {
+                    ldbVar2.a();
+                    return;
+                }
+                return;
             }
-            new StatisticItem("c15064").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).eventStat();
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                ldb ldbVar3 = this.c;
+                if (ldbVar3 != null) {
+                    ldbVar3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

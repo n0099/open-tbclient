@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.idCard.CameraView;
-import com.baidu.tieba.ve6;
-import com.baidu.tieba.xe6;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.df6;
+import com.baidu.tieba.ff6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class CameraActivity extends BaseActivity {
     public FrameOverlayView k;
     public MaskView l;
     public ImageView m;
-    public xe6 n;
+    public ff6 n;
     public View.OnClickListener o;
     public View.OnClickListener p;
     public View.OnClickListener q;
@@ -141,7 +141,7 @@ public class CameraActivity extends BaseActivity {
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                ve6.c(new a(this, bitmap));
+                df6.c(new a(this, bitmap));
             }
         }
     }
@@ -185,11 +185,11 @@ public class CameraActivity extends BaseActivity {
                     this.b.a.d.setVisibility(4);
                     if (this.b.a.l.getMaskType() == 0) {
                         this.b.a.j.setFilePath(this.b.a.a.getAbsolutePath());
-                        this.b.a.o1();
+                        this.b.a.l1();
                         return;
                     }
                     this.b.a.i.setImageBitmap(this.a);
-                    this.b.a.p1();
+                    this.b.a.n1();
                 }
             }
         }
@@ -251,7 +251,7 @@ public class CameraActivity extends BaseActivity {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.j1();
+            this.a.g1();
         }
     }
 
@@ -323,7 +323,7 @@ public class CameraActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements zz4.e {
+    public class d implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -348,18 +348,18 @@ public class CameraActivity extends BaseActivity {
             this.a = activity;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                zz4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements zz4.e {
+    public class e implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -384,11 +384,11 @@ public class CameraActivity extends BaseActivity {
             this.a = activity;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                zz4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
                 Intent intent = new Intent();
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -400,7 +400,7 @@ public class CameraActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements xe6 {
+    public class f implements ff6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CameraActivity a;
@@ -423,7 +423,7 @@ public class CameraActivity extends BaseActivity {
             this.a = cameraActivity;
         }
 
-        @Override // com.baidu.tieba.xe6
+        @Override // com.baidu.tieba.ff6
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -463,8 +463,8 @@ public class CameraActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (ContextCompat.checkSelfPermission(this.a.getApplicationContext(), com.kuaishou.weapon.p0.h.i) != 0 && Build.VERSION.SDK_INT >= 16) {
-                    ActivityCompat.requestPermissions(this.a, new String[]{com.kuaishou.weapon.p0.h.i}, 801);
+                if (ContextCompat.checkSelfPermission(this.a.getApplicationContext(), com.kuaishou.weapon.p0.g.i) != 0 && Build.VERSION.SDK_INT >= 16) {
+                    ActivityCompat.requestPermissions(this.a, new String[]{com.kuaishou.weapon.p0.g.i}, 801);
                     return;
                 }
                 Intent intent = new Intent("android.intent.action.PICK");
@@ -615,7 +615,7 @@ public class CameraActivity extends BaseActivity {
                     frameRect = this.a.l.getFrameRect();
                 }
                 this.a.i.setImageBitmap(this.a.j.e(frameRect));
-                this.a.e1();
+                this.a.c1();
             }
         }
     }
@@ -693,36 +693,36 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            n1(configuration);
+            k1(configuration);
         }
     }
 
-    public final void e1() {
+    public final void c1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.h.getCameraControl().pause();
             r1();
-            j1();
+            g1();
+        }
+    }
+
+    public final void f1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            df6.a();
         }
     }
 
     public final void g1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ve6.a();
-        }
-    }
-
-    public final void j1() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ve6.c(new n(this));
+            df6.c(new n(this));
         }
     }
 
-    public final void o1() {
+    public final void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.h.getCameraControl().pause();
@@ -733,19 +733,30 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
+    public final void n1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.h.getCameraControl().pause();
+            r1();
+            this.d.setVisibility(4);
+            this.f.setVisibility(0);
+            this.e.setVisibility(4);
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            g1();
+            f1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
             this.h.f();
         }
@@ -754,7 +765,7 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
             this.h.e();
         }
@@ -763,7 +774,7 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onStart();
         }
     }
@@ -771,19 +782,8 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onStop();
-        }
-    }
-
-    public final void p1() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.h.getCameraControl().pause();
-            r1();
-            this.d.setVisibility(4);
-            this.f.setVisibility(0);
-            this.e.setVisibility(4);
+            super.onStop();
         }
     }
 
@@ -802,14 +802,14 @@ public class CameraActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             if (this.h.getCameraControl().d() == 1) {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080252);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080255);
             } else {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080251);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080254);
             }
         }
     }
 
-    public final String k1(Uri uri) {
+    public final String h1(Uri uri) {
         Cursor cursor;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -831,7 +831,7 @@ public class CameraActivity extends BaseActivity {
         return (String) invokeL.objValue;
     }
 
-    public final void l1() {
+    public final void i1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String stringExtra = getIntent().getStringExtra(CameraActivityConfig.KEY_OUTPUT_FILE_PATH);
@@ -882,19 +882,19 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
-    public void m1(Activity activity) {
+    public void j1(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            zz4 zz4Var = new zz4(activity);
-            zz4Var.setCanceledOnTouchOutside(false);
-            zz4Var.setTitle(R.string.request_permission_default_title);
-            zz4Var.setMessageId(R.string.request_permission_camera);
-            zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b55, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f03d3, new d(this, activity)).create(getPageContext());
-            zz4Var.show();
+            c05 c05Var = new c05(activity);
+            c05Var.setCanceledOnTouchOutside(false);
+            c05Var.setTitle(R.string.request_permission_default_title);
+            c05Var.setMessageId(R.string.request_permission_camera);
+            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b62, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new d(this, activity)).create(getPageContext());
+            c05Var.show();
         }
     }
 
-    public final void n1(Configuration configuration) {
+    public final void k1(Configuration configuration) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
@@ -922,12 +922,12 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 100) {
                 if (i3 == -1) {
-                    this.j.setFilePath(k1(intent.getData()));
-                    o1();
+                    this.j.setFilePath(h1(intent.getData()));
+                    l1();
                     return;
                 }
                 this.h.getCameraControl().resume();
@@ -938,32 +938,32 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d015e);
-            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0924b8);
-            this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0907d4);
-            CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f090558);
+            setContentView(R.layout.obfuscated_res_0x7f0d0162);
+            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f09253d);
+            this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0907f0);
+            CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f090573);
             this.h = cameraView;
             cameraView.getCameraControl().i(this.n);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09156b);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915dc);
             this.g = imageView;
             imageView.setOnClickListener(this.p);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924b7);
-            findViewById(R.id.obfuscated_res_0x7f09025e).setOnClickListener(this.o);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f09253c);
+            findViewById(R.id.obfuscated_res_0x7f090272).setOnClickListener(this.o);
             this.m.setOnClickListener(this.q);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090910);
-            this.f.findViewById(R.id.obfuscated_res_0x7f0907cf).setOnClickListener(this.v);
-            this.f.findViewById(R.id.obfuscated_res_0x7f09055b).setOnClickListener(this.w);
-            findViewById(R.id.obfuscated_res_0x7f09200e).setOnClickListener(this.x);
-            this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f09084c);
-            this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f09084a);
-            this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f091ab5);
-            this.e.findViewById(R.id.obfuscated_res_0x7f0907cf).setOnClickListener(this.u);
-            this.l = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f09084b);
-            this.e.findViewById(R.id.obfuscated_res_0x7f09055b).setOnClickListener(this.t);
-            n1(getResources().getConfiguration());
-            l1();
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09092c);
+            this.f.findViewById(R.id.obfuscated_res_0x7f0907eb).setOnClickListener(this.v);
+            this.f.findViewById(R.id.obfuscated_res_0x7f090576).setOnClickListener(this.w);
+            findViewById(R.id.obfuscated_res_0x7f092085).setOnClickListener(this.x);
+            this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f090868);
+            this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090866);
+            this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f091b2a);
+            this.e.findViewById(R.id.obfuscated_res_0x7f0907eb).setOnClickListener(this.u);
+            this.l = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f090867);
+            this.e.findViewById(R.id.obfuscated_res_0x7f090576).setOnClickListener(this.t);
+            k1(getResources().getConfiguration());
+            i1();
             this.h.setAutoPictureCallback(this.r);
         }
     }
@@ -971,16 +971,16 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048589, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048590, this, i2, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             if (i2 != 800) {
                 if (i2 == 801 && (iArr.length <= 0 || iArr[0] != 0)) {
-                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f14b9);
+                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f14c9);
                 }
             } else if (iArr.length > 0 && iArr[0] == 0) {
                 this.h.getCameraControl().g();
             } else {
-                m1(this);
+                j1(this);
             }
             CameraView cameraView = this.h;
             if (cameraView != null && cameraView.getCameraControl() != null) {

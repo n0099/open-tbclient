@@ -1,70 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes9.dex */
-public class y5c implements ServiceConnection {
+public class y5c extends c7c<KsInterstitialAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Messenger a;
-    public Bundle b;
-    public Context c;
 
-    public y5c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y5c(KsInterstitialAd ksInterstitialAd) {
+        super(ksInterstitialAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksInterstitialAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @Override // com.baidu.tieba.c7c
+    public double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            Log.i("MessengerSrvConnection", "onServiceConnected");
-            this.a = new Messenger(iBinder);
-            Message obtain = Message.obtain();
-            obtain.setData(this.b);
-            try {
-                this.a.send(obtain);
-            } catch (Exception e) {
-                String str = "message sending failed. " + e.getMessage();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
-            Log.i("MessengerSrvConnection", "start unbind service.");
-            try {
-                this.c.unbindService(this);
-                Log.i("MessengerSrvConnection", "unbind service end.");
-            } catch (Exception unused) {
-            }
+            return ((KsInterstitialAd) a).getECPM();
         }
+        return invokeV.doubleValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    @Override // com.baidu.tieba.c7c
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            Log.i("MessengerSrvConnection", "onServiceDisconnected");
-            this.a = null;
-            this.b = null;
-            this.c = null;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsInterstitialAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    }
+
+    @Override // com.baidu.tieba.c7c
+    public void c(long j, long j2) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        ((KsInterstitialAd) a).setBidEcpm((int) j);
     }
 }

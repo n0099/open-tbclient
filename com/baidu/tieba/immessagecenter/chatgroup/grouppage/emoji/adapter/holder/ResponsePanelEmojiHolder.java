@@ -33,6 +33,6 @@ public class ResponsePanelEmojiHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eba);
+        this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f30);
     }
 }

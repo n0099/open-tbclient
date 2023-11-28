@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bt5;
-import com.baidu.tieba.fq6;
+import com.baidu.tieba.jt5;
+import com.baidu.tieba.pq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fq6 a;
+    public pq6 a;
     public int b;
     public int c;
 
@@ -94,7 +94,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         }
         this.b = R.drawable.icon_pure_card_more22;
         this.c = R.color.CAM_X0111;
-        this.a = new fq6(r((Activity) context), this);
+        this.a = new pq6(u((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -115,16 +115,16 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || bt5.a()) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || jt5.a()) {
             return;
         }
         this.a.n();
     }
 
-    public final TbPageContext r(Activity activity) {
+    public final TbPageContext u(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) {
             if (activity instanceof BaseActivity) {
                 return ((BaseActivity) activity).getPageContext();
             }
@@ -145,7 +145,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public void setWebPResId(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             this.b = i;
             this.c = i2;
             setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));

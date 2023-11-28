@@ -1,29 +1,191 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dd0 {
+public final class dd0 extends bk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700569, "Lcom/baidu/tieba/dd0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ String d;
+
+        public a(long j, long j2, long j3, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947700569, "Lcom/baidu/tieba/dd0;");
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a < fd0.c()) {
+                    fd0.z();
+                } else if (!fd0.f()) {
+                    fd0.h(this.b, this.c, this.d);
+                }
+                fd0.g(this.b, "boot_from_cold", this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+
+        public b(long j, long j2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = j2;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fd0.g(this.a, "boot_from_background", this.b, this.c);
+            }
+        }
+    }
+
+    public dd0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ed0.c();
+        this.a = true;
+    }
+
+    @Override // com.baidu.tieba.bk0, com.baidu.tieba.ek0
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.a) {
+                return;
+            }
+            this.a = false;
+            if (!fd0.d()) {
+                fd0.l();
+                return;
+            }
+            String i = fd0.i();
+            if (!TextUtils.isEmpty(i) && !fd0.b(i)) {
+                long j2 = fd0.j();
+                a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
+                Handler handler = new Handler();
+                j = ed0.a;
+                handler.postDelayed(aVar, j);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bk0, com.baidu.tieba.ek0
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            super.onActivityDestroyed(activity);
+            LinkedList<WeakReference<Activity>> d = ak0.d();
+            if (d != null && d.size() <= 1) {
+                this.a = true;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bk0, com.baidu.tieba.ek0
+    public void onForegroundToBackground(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            fd0.w(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.bk0, com.baidu.tieba.ek0
+    public void onBackgroundToForeground(Activity activity) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!fd0.d()) {
+                fd0.l();
+            } else if (!TextUtils.equals(activity.getLocalClassName(), fd0.k())) {
+            } else {
+                String i = fd0.i();
+                if (!TextUtils.isEmpty(i) && !fd0.b(i)) {
+                    long j2 = fd0.j();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (System.currentTimeMillis() - j2 < fd0.c()) {
+                        fd0.z();
+                        fd0.y();
+                    }
+                    b bVar = new b(j2, currentTimeMillis, i);
+                    Handler handler = new Handler();
+                    j = ed0.a;
+                    handler.postDelayed(bVar, j);
+                }
+            }
+        }
     }
 }

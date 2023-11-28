@@ -1,8 +1,8 @@
 package com.kwad.components.ad.adbit;
 
 import android.text.TextUtils;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.core.response.model.AdResultData;
+import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -13,12 +13,12 @@ public class AdBitResultData extends AdResultData {
     public List<AdBid> adBidList;
     public String adxId;
 
-    public AdBitResultData(KsScene ksScene) {
-        super(ksScene);
+    public AdBitResultData(SceneImpl sceneImpl) {
+        super(sceneImpl);
         this.adBidList = new ArrayList();
     }
 
-    @Override // com.kwad.components.core.response.model.AdResultData, com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
+    @Override // com.kwad.sdk.core.response.model.AdResultData, com.kwad.sdk.core.response.model.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(JSONObject jSONObject) {
         super.parseJson(jSONObject);
         try {
@@ -39,7 +39,7 @@ public class AdBitResultData extends AdResultData {
                 }
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e);
         }
     }
 }

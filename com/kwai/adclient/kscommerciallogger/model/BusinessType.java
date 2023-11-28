@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class BusinessType {
     public static final /* synthetic */ BusinessType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final BusinessType AD_CONVERT;
     public static final BusinessType AD_DRAW;
     public static final BusinessType AD_FEED;
     public static final BusinessType AD_FULLSCREEN;
@@ -81,9 +82,10 @@ public final class BusinessType {
         WEB_CACHE = new BusinessType("WEB_CACHE", 23, "WEB_CACHE");
         AD_SDK_INIT = new BusinessType("AD_SDK_INIT", 24, "AD_SDK_INIT");
         AD_WEBVIEW = new BusinessType("AD_WEBVIEW", 25, "AD_WEBVIEW");
-        BusinessType businessType = new BusinessType("OTHER", 26, "OTHER");
+        AD_CONVERT = new BusinessType("AD_CONVERT", 26, "AD_CONVERT");
+        BusinessType businessType = new BusinessType("OTHER", 27, "OTHER");
         OTHER = businessType;
-        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, WEB_CACHE, AD_SDK_INIT, AD_WEBVIEW, businessType};
+        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, WEB_CACHE, AD_SDK_INIT, AD_WEBVIEW, AD_CONVERT, businessType};
     }
 
     public BusinessType(String str, int i, String str2) {
@@ -110,12 +112,18 @@ public final class BusinessType {
     public static BusinessType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BusinessType) Enum.valueOf(BusinessType.class, str) : (BusinessType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BusinessType) Enum.valueOf(BusinessType.class, str);
+        }
+        return (BusinessType) invokeL.objValue;
     }
 
     public static BusinessType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BusinessType[]) $VALUES.clone() : (BusinessType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BusinessType[]) $VALUES.clone();
+        }
+        return (BusinessType[]) invokeV.objValue;
     }
 }

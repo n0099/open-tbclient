@@ -51,9 +51,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements LoadingViewHold
         int i = this.mType;
         if (i != 0) {
             if (i == 1) {
-                Drawable preloadedDrawable = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0815b5);
+                Drawable preloadedDrawable = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0815d8);
                 if (preloadedDrawable == null) {
-                    this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0815b5));
+                    this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0815d8));
                 } else {
                     this.mShimmerContent.setImageDrawable(preloadedDrawable);
                 }
@@ -62,9 +62,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements LoadingViewHold
             }
             return;
         }
-        Drawable preloadedDrawable2 = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080394);
+        Drawable preloadedDrawable2 = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080397);
         if (preloadedDrawable2 == null) {
-            this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080394));
+            this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080397));
         } else {
             this.mShimmerContent.setImageDrawable(preloadedDrawable2);
         }

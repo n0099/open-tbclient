@@ -1,35 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
 /* loaded from: classes6.dex */
-public class ikb {
+public class ikb implements kkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pkb a;
-    public HashSet<String> b;
-    public HashSet<String> c;
-    public HashSet<String> d;
-    public HashSet<String> e;
-    public HashSet<String> f;
-    public HashSet<String> g;
-    public HashMap<String, Integer> h;
-    public HashMap<String, String> i;
-    public HashMap<String, okb> j;
-    public HashSet<String> k;
-    public HashSet<String> l;
-    public HashMap<String, Integer> m;
-    public HashMap<String, Integer> n;
-    public HashMap<String, Integer> o;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final mjb b;
 
-    public ikb() {
+    public ikb(@NonNull TbPageContext<?> tbPageContext, @NonNull mjb mjbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, mjbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,20 +34,93 @@ public class ikb {
                 return;
             }
         }
-        this.a = new pkb();
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
-        this.d = new HashSet<>();
-        this.e = new HashSet<>();
-        this.f = new HashSet<>();
-        this.g = new HashSet<>();
-        this.h = new HashMap<>();
-        this.i = new HashMap<>();
-        this.j = new HashMap<>();
-        this.k = new HashSet<>();
-        this.l = new HashSet<>();
-        this.m = new HashMap<>();
-        this.n = new HashMap<>();
-        this.o = new HashMap<>();
+        this.a = tbPageContext;
+        this.b = mjbVar;
+    }
+
+    @Override // com.baidu.tieba.fe5
+    public void U(ee5 ee5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ee5Var) == null) {
+            int i = ee5Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.i();
+                        iib.b(this.a.getPageActivity(), 5);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 43) {
+                        iib.b(this.a.getPageActivity(), 4);
+                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
+                        this.b.C(new ee5(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = ee5Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = ee5Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 74) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else if (i == 77) {
+                        this.b.z(ee5Var);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.j();
+                    return;
+                }
+            }
+            iib.b(this.a.getPageActivity(), 1);
+            this.b.r();
+        }
     }
 }

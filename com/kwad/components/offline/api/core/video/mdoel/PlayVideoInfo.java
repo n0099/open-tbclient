@@ -22,10 +22,6 @@ public class PlayVideoInfo {
             this.videoUrl = str;
         }
 
-        public PlayVideoInfo build() {
-            return new PlayVideoInfo(this);
-        }
-
         public Builder ksplayerLogParams(@NonNull KsPlayerLogParams ksPlayerLogParams) {
             this.ksplayerLogParams = ksPlayerLogParams;
             return this;
@@ -49,6 +45,10 @@ public class PlayVideoInfo {
         public Builder videoUrl(String str) {
             this.videoUrl = str;
             return this;
+        }
+
+        public PlayVideoInfo build() {
+            return new PlayVideoInfo(this);
         }
     }
 

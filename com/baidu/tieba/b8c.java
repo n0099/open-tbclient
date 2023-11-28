@@ -1,123 +1,147 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class b8c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "BaseKeyUtil";
+    public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] g = y7c.g();
+                if (g != null && g.length > 0) {
+                    synchronized (b8c.a) {
+                        for (File file : g) {
+                            if (currentTimeMillis - file.lastModified() > com.baidu.mobads.sdk.internal.bj.e) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947600284, "Lcom/baidu/tieba/b8c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947600284, "Lcom/baidu/tieba/b8c;");
-        }
-    }
-
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
-            if (i2 < i) {
-                i = i2;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947600284, "Lcom/baidu/tieba/b8c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return i3 < i ? i3 : i;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947600284, "Lcom/baidu/tieba/b8c;");
+                return;
+            }
         }
-        return invokeIII.intValue;
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
+    public static void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
-    }
-
-    public static boolean c(int i, byte[] bArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-            return b(i) & d(bArr);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a8c.b().post(new a());
         }
-        return invokeIL.booleanValue;
     }
 
-    public static boolean d(byte[] bArr) {
+    public static String c(String str) {
         InterceptResult invokeL;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr.length >= 16) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
             }
-            return false;
+            return d;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, d8c.b(str4), i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return f(str, str2, str3, bArr, 10000, i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            byte[] b = d8c.b(str);
-            byte[] b2 = d8c.b(str2);
-            byte[] b3 = d8c.b(str3);
-            int a2 = a(b.length, b2.length, b3.length);
-            if (c(a2, bArr)) {
-                char[] cArr = new char[a2];
-                for (int i3 = 0; i3 < a2; i3++) {
-                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = y7c.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
+                    }
                 }
-                if (!z) {
-                    g8c.d(a, "exportRootKey: sha1");
-                    return y7c.b(cArr, bArr, i, i2 * 8);
-                }
-                g8c.d(a, "exportRootKey: sha256");
-                return y7c.c(cArr, bArr, i, i2 * 8);
+            } catch (Throwable th2) {
+                th = th2;
             }
-            throw new IllegalArgumentException("key length must be more than 128bit.");
+            return str3;
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, bArr, 16, z);
-        }
-        return (byte[]) invokeCommon.objValue;
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,29 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.PaymentConfirmActivityConfig;
+import com.baidu.tieba.hoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.BookThread;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes7.dex */
-public class mqc extends qoc {
+public final class mqc extends hoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadFactory a;
 
-    @NonNull
-    public static JSONObject b(@NonNull BookThread bookThread) {
-        InterceptResult invokeL;
+    public mqc(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bookThread)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "book_id", bookThread.book_id);
-            qoc.a(jSONObject, PaymentConfirmActivityConfig.BOOK_TYPE, bookThread.book_type);
-            qoc.a(jSONObject, MangaBrowserActivityConfig.CHAPTER_ID, bookThread.chapter_id);
-            return jSONObject;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        this.a = threadFactory;
+    }
+
+    @Override // com.baidu.tieba.hoc
+    public hoc.a createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new nqc(this.a);
+        }
+        return (hoc.a) invokeV.objValue;
     }
 }

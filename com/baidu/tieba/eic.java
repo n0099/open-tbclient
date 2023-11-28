@@ -1,40 +1,83 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.UUID;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface eic {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public class eic {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TreeMap<String, String> a;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    public eic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new TreeMap<>();
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    this.a.put(next, (String) jSONObject.get(next));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+    public eic b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            String replace = UUID.randomUUID().toString().replace("-", "");
+            this.a.remove("urlPropUid");
+            this.a.put("urlPropUid", replace);
+            Log.i("UrlProperty", "setRoomIDAndUserID roomID=" + str + ",userID=" + str2 + ",randUid=" + replace);
+            return this;
+        }
+        return (eic) invokeLL.objValue;
+    }
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketError(WebSocket webSocket, Exception exc);
-
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, sic sicVar, zic zicVar) throws InvalidDataException;
-
-    ajc onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, sic sicVar) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, sic sicVar) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, xic xicVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, String> entry : this.a.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
 }

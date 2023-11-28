@@ -1,101 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ActBtn;
+import tbclient.DetailInfo;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class d9d {
+public class d9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public boolean b;
-    public Runnable c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d9d a;
-
-        public a(d9d d9dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d9dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @NonNull
+    public static JSONObject b(@NonNull TPointPost tPointPost) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tPointPost)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "is_tuiguang", tPointPost.is_tuiguang);
+            ltc.a(jSONObject, CriusAttrConstants.POSITION, tPointPost.position);
+            ltc.a(jSONObject, "template_id", tPointPost.template_id);
+            ltc.a(jSONObject, "template_type", tPointPost.template_type);
+            if (tPointPost.act_btn != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ActBtn actBtn : tPointPost.act_btn) {
+                    jSONArray.put(ptc.b(actBtn));
                 }
+                ltc.a(jSONObject, "act_btn", jSONArray);
             }
-            this.a = d9dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
-                this.a.b = false;
+            if (tPointPost.t_imgs != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (Timgs timgs : tPointPost.t_imgs) {
+                    jSONArray2.put(fad.b(timgs));
+                }
+                ltc.a(jSONObject, "t_imgs", jSONArray2);
             }
-        }
-    }
-
-    public d9d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            DetailInfo detailInfo = tPointPost.detail_info;
+            if (detailInfo != null) {
+                ltc.a(jSONObject, "detail_info", nwc.b(detailInfo));
             }
-        }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = false;
-        this.c = new a(this);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
-            this.b = false;
-            this.a.removeCallbacks(this.c);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
-            this.b = z;
-            this.a.removeCallbacks(this.c);
-            if (this.b) {
-                this.a.postDelayed(this.c, 3000L);
+            ltc.a(jSONObject, "monitor_id", tPointPost.monitor_id);
+            ltc.a(jSONObject, "hidden_day", tPointPost.hidden_day);
+            VideoInfo videoInfo = tPointPost.t_video;
+            if (videoInfo != null) {
+                ltc.a(jSONObject, "t_video", dbd.b(videoInfo));
             }
+            ltc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_NAME, tPointPost.tag_name);
+            ltc.a(jSONObject, "tag_name_url", tPointPost.tag_name_url);
+            ltc.a(jSONObject, "tag_name_wh", tPointPost.tag_name_wh);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

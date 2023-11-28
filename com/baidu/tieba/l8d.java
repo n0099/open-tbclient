@@ -1,40 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.t7d;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONObject;
+import tbclient.SimpleUser;
 /* loaded from: classes7.dex */
-public class l8d implements t7d.a {
+public class l8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l8d(ebd ebdVar) {
+    @NonNull
+    public static JSONObject b(@NonNull SimpleUser simpleUser) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ebdVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, simpleUser)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "user_id", simpleUser.user_id);
+            ltc.a(jSONObject, "user_status", simpleUser.user_status);
+            ltc.a(jSONObject, "secureemail", simpleUser.secureemail);
+            ltc.a(jSONObject, "securemobil", simpleUser.securemobil);
+            ltc.a(jSONObject, "user_name", simpleUser.user_name);
+            ltc.a(jSONObject, "user_nickname", simpleUser.user_nickname);
+            ltc.a(jSONObject, "incomplete_user", simpleUser.incomplete_user);
+            ltc.a(jSONObject, "portrait", simpleUser.portrait);
+            ltc.a(jSONObject, "agree_type", simpleUser.agree_type);
+            ltc.a(jSONObject, "ahead_url", simpleUser.ahead_url);
+            ltc.a(jSONObject, "block_msg", simpleUser.block_msg);
+            ltc.a(jSONObject, "show_onlyme", simpleUser.show_onlyme);
+            return jSONObject;
         }
-        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
-    }
-
-    @Override // com.baidu.tieba.t7d.a
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

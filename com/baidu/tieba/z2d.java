@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ShakeAdSwitch;
+import tbclient.FrsPage.WorldCupGameTeam;
 /* loaded from: classes9.dex */
-public class z2d extends qoc {
+public class z2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ShakeAdSwitch shakeAdSwitch) {
+    public static JSONObject b(@NonNull WorldCupGameTeam worldCupGameTeam) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, shakeAdSwitch)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupGameTeam)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "is_show", shakeAdSwitch.is_show);
-            qoc.a(jSONObject, "title", shakeAdSwitch.title);
-            qoc.a(jSONObject, "desc", shakeAdSwitch.desc);
+            ltc.a(jSONObject, "name", worldCupGameTeam.name);
+            ltc.a(jSONObject, "logo_url", worldCupGameTeam.logo_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

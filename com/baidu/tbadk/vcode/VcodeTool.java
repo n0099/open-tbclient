@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.h95;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.mya;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class VcodeTool {
     @Nullable
     public static PostWriteCallBackData cachedCallbackData;
     @Nullable
-    public static h95 cachedVcodeInfoData;
+    public static l95 cachedVcodeInfoData;
     @Nullable
     public static WriteData cachedWriteData;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,9 +110,9 @@ public class VcodeTool {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                tta.l().k(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
+                mya.l().k(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
             } else {
-                tta.l().k(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
+                mya.l().k(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
             }
             cachedCallbackData = null;
             cachedVcodeInfoData = null;
@@ -123,27 +123,27 @@ public class VcodeTool {
         return invokeIIL.booleanValue;
     }
 
-    public static boolean tryShowOnWriteScene(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable h95 h95Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+    public static boolean tryShowOnWriteScene(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable l95 l95Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, postWriteCallBackData, h95Var, writeData, antiData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, postWriteCallBackData, l95Var, writeData, antiData)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && writeData != null && h95Var != null && !TextUtils.isEmpty(h95Var.c())) {
+            if (currentActivity != null && writeData != null && l95Var != null && !TextUtils.isEmpty(l95Var.c())) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
                 cachedCallbackData = postWriteCallBackData;
-                cachedVcodeInfoData = h95Var;
+                cachedVcodeInfoData = l95Var;
                 cachedWriteData = writeData;
                 cachedAntiData = antiData;
-                writeData.setVcodeMD5(h95Var.b());
-                writeData.setVcodeUrl(h95Var.c());
-                writeData.setVcodeExtra(h95Var.a());
-                if (needVcode(h95Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, h95Var.d())));
+                writeData.setVcodeMD5(l95Var.b());
+                writeData.setVcodeUrl(l95Var.c());
+                writeData.setVcodeExtra(l95Var.a());
+                if (needVcode(l95Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, l95Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }

@@ -10,7 +10,7 @@ import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -178,7 +178,7 @@ public class q {
         BufferedReader bufferedReader2;
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(k1.a), Charset.forName("utf-8"));
+                inputStreamReader = new InputStreamReader(new FileInputStream(bk.a), Charset.forName("utf-8"));
             } catch (Throwable th2) {
                 th = th2;
             }

@@ -1,39 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f28 extends g15 {
+public final class f28 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712349, "Lcom/baidu/tieba/f28;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712349, "Lcom/baidu/tieba/f28;");
+                return;
+            }
+        }
+        b = new a(null);
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(f28 f28Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f28Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,63 +60,82 @@ public class f28 extends g15 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final f28 a(JSONObject jsonObject) {
+            InterceptResult invokeL;
+            int length;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                YunDialogManager.unMarkShowingDialogName("frsToast");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                JSONArray optJSONArray = jsonObject.optJSONArray("image_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null && (length = optJSONArray.length()) >= 0) {
+                    int i = 0;
+                    while (true) {
+                        String optString = optJSONArray.optString(i);
+                        if (optString != null && optString.length() != 0) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (!z) {
+                            String optString2 = optJSONArray.optString(i);
+                            Intrinsics.checkNotNullExpressionValue(optString2, "optString(i)");
+                            arrayList.add(optString2);
+                        }
+                        if (i == length) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                return new f28(arrayList);
             }
+            return (f28) invokeL.objValue;
         }
     }
 
-    public f28() {
+    public f28(List<String> imageList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(imageList, "imageList");
+        this.a = imageList;
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+    public final List<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof c25) {
-                c25 c25Var = (c25) currentActivity;
-                if (c25Var.j1() != null) {
-                    if (c25Var.j1().U() == null) {
-                        YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：当前Frs数据为空");
-                        YunDialogManager.unMarkShowingDialogName("frsToast");
-                        return;
-                    }
-                    String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
-                    if (TextUtils.isEmpty(stringExtra)) {
-                        YunDialogManager.unMarkShowingDialogName("frsToast");
-                        return;
-                    }
-                    BdToastData bdToastData = new BdToastData();
-                    try {
-                        bdToastData.parserJson(new JSONObject(stringExtra));
-                        BdToastHelper.toast(bdToastData);
-                        currentActivity.getIntent().putExtra(FrsActivityConfig.TOAST_DATA, "");
-                        SafeHandler.getInst().postDelayed(new a(this), 3000L);
-                        return;
-                    } catch (JSONException e) {
-                        YunDialogManager.unMarkShowingDialogName("frsToast");
-                        BdLog.e(e);
-                        return;
-                    }
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：获取到的IForumDialogExtSupport为空");
-            YunDialogManager.unMarkShowingDialogName("frsToast");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<String> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            return !z;
+        }
+        return invokeV.booleanValue;
     }
 }

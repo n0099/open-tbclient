@@ -1,15 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.template.state.ViewType;
 /* loaded from: classes7.dex */
-public interface or5 {
-    void a(ViewType viewType, String str);
+public interface or5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-    void b(ViewType viewType);
+    int getErrorCode();
 
-    void c(ViewType viewType, qr5 qr5Var);
+    String getErrorMsg();
 
-    void onChangeSkinType(int i);
-
-    void onDestroy();
+    ir5 getPageInfo();
 }

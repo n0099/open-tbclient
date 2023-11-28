@@ -15,7 +15,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.spswitch.emotion.SpanStringUtils;
 import com.baidu.spswitch.utils.SPConfig;
-import com.baidu.tieba.v30;
+import com.baidu.tieba.w30;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class EmotionLoader {
         public final /* synthetic */ EmotionLoader this$0;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f1071tv;
+        public TextView f1067tv;
 
         public SpannableBeanHolder(EmotionLoader emotionLoader) {
             Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class EmotionLoader {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionType, context, charSequence, textView, Float.valueOf(f)})) == null) {
-            if (!v30.a()) {
+            if (!w30.a()) {
                 EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
             }
             if (charSequence == null) {
@@ -212,7 +212,7 @@ public class EmotionLoader {
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {
-                if (v30.a()) {
+                if (w30.a()) {
                     EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
                 }
                 String group = matcher.group();
@@ -282,7 +282,7 @@ public class EmotionLoader {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                            TextView textView2 = spannableBeanHolder.f1071tv;
+                            TextView textView2 = spannableBeanHolder.f1067tv;
                             SpannableString spannableString = spannableBeanHolder.ss;
                             String str2 = spannableBeanHolder.content;
                             if (EmotionLoader.DEBUG) {
@@ -336,7 +336,7 @@ public class EmotionLoader {
                         SpannableString parseEmotion = this.this$0.parseEmotion(this.val$type, this.val$context, this.val$content, this.val$textView);
                         SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                         spannableBeanHolder.ss = parseEmotion;
-                        spannableBeanHolder.f1071tv = this.val$textView;
+                        spannableBeanHolder.f1067tv = this.val$textView;
                         spannableBeanHolder.content = this.val$content;
                         Message obtain = Message.obtain();
                         obtain.obj = spannableBeanHolder;

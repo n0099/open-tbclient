@@ -1,130 +1,148 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.imagepipeline.memory.DefaultByteArrayPoolParams;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.Closeable;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class mbc {
+public final class mbc {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static volatile String b;
-    public static BufferedWriter c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947968347, "Lcom/baidu/tieba/mbc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947968347, "Lcom/baidu/tieba/mbc;");
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
+        }
+    }
+
+    public static void b(Reader reader, Writer writer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
+    }
+
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
                 return;
             }
-        }
-        a = new Object();
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (a) {
-                if (c != null) {
-                    try {
-                        c.flush();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            writer.write(cArr, 0, read);
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
+    public static Map<String, String> d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
-            new File(str).mkdirs();
-            if (!str.endsWith(File.separator)) {
-                str = str + File.separator;
-            }
-            b = str;
-            b += sbc.n() + ".syslog";
-            pbc.d("CrashLog", "Log file path : " + b);
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
-            if (!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
                 }
             }
-            try {
-                c = new BufferedWriter(new FileWriter(b, true), DefaultByteArrayPoolParams.MAX_SIZE_SOFT_CAP);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                c = null;
-            }
-            return true;
+            return "/" + str.substring(i);
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str, String str2) {
+    public static dbc f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            e(str, str2, true);
-        }
-    }
-
-    public static void e(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            if (z) {
-                pbc.d(str, str2);
-            }
-            try {
-                synchronized (a) {
-                    if (c == null) {
-                        c(sbc.s());
-                        return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
                     }
-                    long currentTimeMillis = System.currentTimeMillis();
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    new Date(currentTimeMillis);
-                    c.write(String.format("%s\n", str2));
+                } else if (str.equals("CN")) {
+                    c = 0;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (c == 0) {
+                    return dbc.c;
+                }
+                if (c == 1) {
+                    return dbc.d;
+                }
+                if (c == 2) {
+                    return dbc.e;
+                }
+                if (c == 3) {
+                    return dbc.f;
+                }
             }
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return dbc.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return dbc.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return dbc.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return dbc.f;
+                }
+            }
+            return dbc.b;
         }
+        return (dbc) invokeLL.objValue;
+    }
+
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

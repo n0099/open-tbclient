@@ -8,124 +8,144 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.kwad.components.core.c.a.a;
-import com.kwad.components.core.c.a.c;
-import com.kwad.components.core.webview.KsAdWebView;
-import com.kwad.components.core.webview.jshandler.aa;
-import com.kwad.components.core.webview.jshandler.ag;
-import com.kwad.components.core.webview.jshandler.b;
+import com.kwad.components.core.e.d.a;
+import com.kwad.components.core.e.d.c;
+import com.kwad.components.core.webview.jshandler.ae;
+import com.kwad.components.core.webview.jshandler.af;
+import com.kwad.components.core.webview.jshandler.ak;
+import com.kwad.components.core.webview.jshandler.aq;
+import com.kwad.components.core.webview.jshandler.aw;
+import com.kwad.components.core.webview.jshandler.be;
+import com.kwad.components.core.webview.jshandler.h;
+import com.kwad.components.core.webview.jshandler.l;
 import com.kwad.components.core.webview.jshandler.m;
 import com.kwad.components.core.webview.jshandler.n;
-import com.kwad.components.core.webview.jshandler.s;
-import com.kwad.components.core.webview.jshandler.x;
+import com.kwad.components.core.webview.tachikoma.a.f;
 import com.kwad.sdk.core.config.d;
-import com.kwad.sdk.core.report.u;
+import com.kwad.sdk.core.report.y;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
+import com.kwad.sdk.core.webview.KsAdWebView;
+import com.kwad.sdk.core.webview.b;
+import com.kwad.sdk.utils.bn;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes10.dex */
-public final class a implements b {
-    public int FR;
-    public final KsAdWebView Hq;
-    public long Hr;
-    public PlayableSource Hs = PlayableSource.UNKNOWN_TRYPLAY_ENTRY_SOURCE;
-    public List<x.b> Ht = new CopyOnWriteArrayList();
-    public List<KsAdWebView.d> Hu = new CopyOnWriteArrayList();
-    public aa bI;
+public final class a implements n {
+    public final KsAdWebView QC;
+    public long QD;
+    public int QE;
+    public PlayableSource QF = PlayableSource.UNKNOWN_TRYPLAY_ENTRY_SOURCE;
+    public List<aq.b> QG = new CopyOnWriteArrayList();
+    public List<KsAdWebView.d> QH = new CopyOnWriteArrayList();
+    @Nullable
+    public com.kwad.components.core.webview.a cN;
+    public aw cQ;
     @Nullable
     public AdTemplate mAdTemplate;
     public c mApkDownloadHelper;
     public Context mContext;
-    @Nullable
-    public com.kwad.components.core.webview.a mJsInterface;
     public AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.playable.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0635a implements ag.b {
-        public final WeakReference<a> Hw;
+    public static class C0659a implements be.b {
+        public final WeakReference<a> QJ;
 
-        public C0635a(a aVar) {
-            this.Hw = new WeakReference<>(aVar);
+        public C0659a(a aVar) {
+            this.QJ = new WeakReference<>(aVar);
         }
 
-        @Override // com.kwad.components.core.webview.jshandler.ag.b
-        public final void al(int i) {
-            a aVar = this.Hw.get();
-            if (aVar != null) {
-                aVar.ak(i);
+        @Override // com.kwad.components.core.webview.jshandler.be.b
+        public final void Q(int i) {
+            a aVar = this.QJ.get();
+            if (aVar == null) {
+                return;
             }
+            aVar.ay(i);
         }
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     public a(KsAdWebView ksAdWebView) {
-        this.Hq = ksAdWebView;
+        this.QC = ksAdWebView;
         ksAdWebView.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.components.core.playable.a.1
             @Override // android.view.View.OnTouchListener
             public final boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    a.this.Hr = SystemClock.elapsedRealtime();
+                    a.this.QD = SystemClock.elapsedRealtime();
+                    a.this.QC.getClientConfig().bt(true);
                     return false;
                 }
                 return false;
             }
         });
-        ksAdWebView.setClientConfig(ksAdWebView.getClientConfig().R(this.mAdTemplate).b(getWebListener()));
-        c(this.Hq);
+        ksAdWebView.setClientConfig(ksAdWebView.getClientConfig().eh(this.mAdTemplate).b(ih()));
+        a(this.QC);
     }
 
-    private void a(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
-        aVar.a(new ag(bVar, cVar, new C0635a(this)));
-        aVar.a(new x(new x.b() { // from class: com.kwad.components.core.playable.a.3
-            @Override // com.kwad.components.core.webview.jshandler.x.b
-            public final void a(x.a aVar2) {
-                a.this.FR = aVar2.status;
+    public final void e(PlayableSource playableSource) {
+        if (playableSource != null) {
+            this.QF = playableSource;
+        }
+        if (this.QC == null) {
+            return;
+        }
+        pt();
+        com.kwad.sdk.core.e.c.d("PlayableViewHelper", "showPlayable");
+        aw awVar = this.cQ;
+        if (awVar != null) {
+            awVar.sg();
+        }
+        this.QC.setVisibility(0);
+        aw awVar2 = this.cQ;
+        if (awVar2 != null) {
+            awVar2.sh();
+        }
+    }
+
+    public static void a(KsAdWebView ksAdWebView) {
+        if (Build.VERSION.SDK_INT >= 17 && d.Bf()) {
+            ksAdWebView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+        }
+    }
+
+    public final void b(@Nullable aq.b bVar) {
+        this.QG.remove(bVar);
+    }
+
+    private void a(b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
+        aVar.a(new be(bVar, cVar, new C0659a(this)));
+        aVar.a(new aq(new aq.b() { // from class: com.kwad.components.core.playable.a.3
+            @Override // com.kwad.components.core.webview.jshandler.aq.b
+            public final void a(aq.a aVar2) {
+                a.this.QE = aVar2.status;
                 if (aVar2.status == 1 && a.this.mAdTemplate != null) {
-                    com.kwad.sdk.core.report.a.aC(a.this.mAdTemplate);
+                    com.kwad.sdk.core.report.a.bS(a.this.mAdTemplate);
                 }
-                for (x.b bVar2 : a.this.Ht) {
+                for (aq.b bVar2 : a.this.QG) {
                     bVar2.a(aVar2);
                 }
             }
         }, getUrl()));
-        aVar.a(new s(bVar));
-        this.bI = new aa();
-        aVar.a(new n());
-        aVar.a(new m(bVar));
-        aVar.a(new com.kwad.components.core.webview.b.kwai.c());
-        aVar.a(this.bI);
-        aVar.a(new com.kwad.components.core.webview.jshandler.a(this));
+        aVar.a(new ak(bVar));
+        aVar.b(new m(bVar));
+        aVar.b(new l(bVar));
+        this.cQ = new aw();
+        aVar.a(new af());
+        aVar.a(new ae(bVar));
+        aVar.a(new f());
+        aVar.a(this.cQ);
+        aVar.a(new h(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ak(int i) {
-        if (getAdTemplate() == null) {
-            return;
-        }
-        long so = d.so();
-        if (so <= 0 || SystemClock.elapsedRealtime() - this.Hr <= so) {
-            u.b bVar = new u.b();
-            bVar.gJ = i;
-            bVar.gL = this.mRootContainer.getTouchCoords();
-            com.kwad.components.core.c.a.a.a(new a.C0625a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
-        }
-    }
-
-    public static void c(KsAdWebView ksAdWebView) {
-        if (Build.VERSION.SDK_INT < 17 || !d.sn()) {
-            return;
-        }
-        ksAdWebView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-    }
-
-    private void clearJsInterfaceRegister() {
-        com.kwad.components.core.webview.a aVar = this.mJsInterface;
+    private void aA() {
+        com.kwad.components.core.webview.a aVar = this.cN;
         if (aVar != null) {
             aVar.destroy();
-            this.mJsInterface = null;
+            this.cN = null;
         }
     }
 
@@ -136,147 +156,160 @@ public final class a implements b {
 
     private String getUrl() {
         AdTemplate adTemplate = this.mAdTemplate;
-        return adTemplate == null ? "" : com.kwad.sdk.core.response.a.a.bc(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
+        if (adTemplate == null) {
+            return "";
+        }
+        return com.kwad.sdk.core.response.b.a.bN(e.dP(adTemplate));
     }
 
-    private KsAdWebView.d getWebListener() {
+    private KsAdWebView.d ih() {
         return new KsAdWebView.d() { // from class: com.kwad.components.core.playable.a.2
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void a(int i, String str, String str2) {
-                for (KsAdWebView.d dVar : a.this.Hu) {
-                    dVar.a(i, str, str2);
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageFinished() {
+                for (KsAdWebView.d dVar : a.this.QH) {
+                    dVar.onPageFinished();
                 }
             }
 
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bv() {
-                for (KsAdWebView.d dVar : a.this.Hu) {
-                    dVar.bv();
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageStart() {
+                for (KsAdWebView.d dVar : a.this.QH) {
+                    dVar.onPageStart();
                 }
             }
 
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bw() {
-                for (KsAdWebView.d dVar : a.this.Hu) {
-                    dVar.bw();
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onReceivedHttpError(int i, String str, String str2) {
+                for (KsAdWebView.d dVar : a.this.QH) {
+                    dVar.onReceivedHttpError(i, str, str2);
                 }
             }
         };
     }
 
-    public final void a(@Nullable KsAdWebView.d dVar) {
-        this.Hu.add(dVar);
-    }
-
-    @Override // com.kwad.components.core.webview.jshandler.b
-    public final void a(com.kwad.components.core.webview.jshandler.a aVar, String str) {
-        AdTemplate adTemplate;
-        if ("playableSrc".equals(str)) {
-            aVar.f(this.Hs);
-        }
-        if (!"getAdType".equals(str) || (adTemplate = this.mAdTemplate) == null) {
-            return;
-        }
-        aVar.as(adTemplate.adStyle);
-    }
-
-    public final void a(@Nullable x.b bVar) {
-        this.Ht.add(bVar);
-    }
-
-    @SuppressLint({"AddJavascriptInterface"})
-    public final void a(AdTemplate adTemplate, AdBaseFrameLayout adBaseFrameLayout, c cVar) {
-        if (this.Hq == null) {
-            com.kwad.sdk.core.e.b.w("PlayableViewHelper", "registerJsBridge mPlayableView is null");
-            return;
-        }
-        this.mContext = adBaseFrameLayout.getContext();
-        this.mRootContainer = adBaseFrameLayout;
-        this.mAdTemplate = adTemplate;
-        this.mApkDownloadHelper = cVar;
-        this.FR = -1;
-        com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
-        bVar.setAdTemplate(adTemplate);
-        bVar.mScreenOrientation = 0;
-        AdBaseFrameLayout adBaseFrameLayout2 = this.mRootContainer;
-        bVar.agd = adBaseFrameLayout2;
-        bVar.Gl = adBaseFrameLayout2;
-        bVar.Fv = this.Hq;
-        clearJsInterfaceRegister();
-        com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.Hq);
-        this.mJsInterface = aVar;
-        a(bVar, aVar, cVar);
-        this.Hq.addJavascriptInterface(this.mJsInterface, "KwaiAd");
-    }
-
-    public final void b(@Nullable x.b bVar) {
-        this.Ht.remove(bVar);
-    }
-
-    public final void e(PlayableSource playableSource) {
-        if (playableSource != null) {
-            this.Hs = playableSource;
-        }
-        if (this.Hq == null) {
-            return;
-        }
-        com.kwad.sdk.core.e.b.d("PlayableViewHelper", "showPlayable");
-        aa aaVar = this.bI;
-        if (aaVar != null) {
-            aaVar.py();
-        }
-        this.Hq.setVisibility(0);
-        aa aaVar2 = this.bI;
-        if (aaVar2 != null) {
-            aaVar2.pz();
-        }
-    }
-
     public final long getLoadTime() {
-        KsAdWebView ksAdWebView = this.Hq;
+        KsAdWebView ksAdWebView = this.QC;
         if (ksAdWebView != null) {
             return ksAdWebView.getLoadTime();
         }
         return -1L;
     }
 
-    public final void ha() {
-        com.kwad.sdk.core.e.b.d("PlayableViewHelper", "showPlayable");
-        if (this.Hq == null) {
+    public final void hx() {
+        com.kwad.sdk.core.e.c.d("PlayableViewHelper", "showPlayable");
+        if (this.QC == null) {
             return;
         }
-        aa aaVar = this.bI;
-        if (aaVar != null) {
-            aaVar.pA();
+        aw awVar = this.cQ;
+        if (awVar != null) {
+            awVar.si();
         }
-        this.Hq.setVisibility(8);
-        aa aaVar2 = this.bI;
-        if (aaVar2 != null) {
-            aaVar2.pB();
+        this.QC.setVisibility(8);
+        aw awVar2 = this.cQ;
+        if (awVar2 != null) {
+            awVar2.sj();
         }
-        this.Hq.reload();
+        this.QC.reload();
     }
 
-    public final void ob() {
-        com.kwad.components.core.webview.a aVar = this.mJsInterface;
+    public final void pS() {
+        com.kwad.components.core.webview.a aVar = this.cN;
         if (aVar != null) {
             aVar.destroy();
-            this.mJsInterface = null;
+            this.cN = null;
         }
     }
 
-    public final void oc() {
-        if (this.mAdTemplate == null || this.Hq == null) {
+    public final void pT() {
+        KsAdWebView ksAdWebView;
+        if (this.mAdTemplate != null && (ksAdWebView = this.QC) != null) {
+            ksAdWebView.getClientConfig().bt(false);
+            String url = getUrl();
+            if (!TextUtils.isEmpty(url)) {
+                this.QC.loadUrl(url);
+            }
+            com.kwad.sdk.core.report.a.bT(this.mAdTemplate);
+        }
+    }
+
+    public final boolean pU() {
+        if (this.QC != null && this.QE == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ay(int i) {
+        if (getAdTemplate() == null) {
             return;
         }
-        String url = getUrl();
-        if (!TextUtils.isEmpty(url)) {
-            this.Hq.loadUrl(url);
+        long Bg = d.Bg();
+        if (Bg > 0 && SystemClock.elapsedRealtime() - this.QD > Bg) {
+            return;
         }
-        com.kwad.sdk.core.report.a.aD(this.mAdTemplate);
+        y.b bVar = new y.b();
+        bVar.kk = i;
+        bVar.km = this.mRootContainer.getTouchCoords();
+        com.kwad.components.core.e.d.a.a(new a.C0644a(this.mContext).aq(this.mAdTemplate).b(this.mApkDownloadHelper).ao(false).a(bVar).aq(true));
     }
 
-    public final boolean od() {
-        return this.Hq != null && this.FR == 1;
+    private void pt() {
+        if (com.kwad.sdk.core.response.b.a.bJ(e.dP(this.mAdTemplate)) > 0) {
+            bn.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.components.core.playable.a.4
+                @Override // java.lang.Runnable
+                @SuppressLint({"SetTextI18n"})
+                public final void run() {
+                    a.this.QC.getClientConfig().bt(true);
+                }
+            }, com.kwad.sdk.core.response.b.a.bJ(e.dP(this.mAdTemplate)));
+        }
+        if (com.kwad.sdk.core.response.b.a.bJ(e.dP(this.mAdTemplate)) == 0) {
+            this.QC.getClientConfig().bt(true);
+        }
+    }
+
+    public final void a(@Nullable aq.b bVar) {
+        this.QG.add(bVar);
+    }
+
+    @Override // com.kwad.components.core.webview.jshandler.n
+    public final void a(h hVar, String str) {
+        AdTemplate adTemplate;
+        if ("playableSrc".equals(str)) {
+            hVar.f(this.QF);
+        }
+        if ("getAdType".equals(str) && (adTemplate = this.mAdTemplate) != null) {
+            hVar.aJ(adTemplate.adStyle);
+        }
+    }
+
+    @SuppressLint({"AddJavascriptInterface"})
+    public final void a(AdTemplate adTemplate, AdBaseFrameLayout adBaseFrameLayout, c cVar) {
+        if (this.QC == null) {
+            com.kwad.sdk.core.e.c.w("PlayableViewHelper", "registerJsBridge mPlayableView is null");
+            return;
+        }
+        this.mContext = adBaseFrameLayout.getContext();
+        this.mRootContainer = adBaseFrameLayout;
+        this.mAdTemplate = adTemplate;
+        this.mApkDownloadHelper = cVar;
+        this.QE = -1;
+        b bVar = new b();
+        bVar.setAdTemplate(adTemplate);
+        bVar.mScreenOrientation = 0;
+        AdBaseFrameLayout adBaseFrameLayout2 = this.mRootContainer;
+        bVar.aCG = adBaseFrameLayout2;
+        bVar.Ov = adBaseFrameLayout2;
+        bVar.NP = this.QC;
+        aA();
+        com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.QC);
+        this.cN = aVar;
+        a(bVar, aVar, cVar);
+        this.QC.addJavascriptInterface(this.cN, "KwaiAd");
+    }
+
+    public final void a(@Nullable KsAdWebView.d dVar) {
+        this.QH.add(dVar);
     }
 }

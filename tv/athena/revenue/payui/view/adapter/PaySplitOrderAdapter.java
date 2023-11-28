@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tad;
+import com.baidu.tieba.xfd;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
@@ -104,11 +104,11 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         return null;
     }
 
-    public void m(c cVar) {
+    public void n(c cVar) {
         this.d = cVar;
     }
 
-    public final void n(SplitOrderItemViewHolder splitOrderItemViewHolder, int i) {
+    public final void o(SplitOrderItemViewHolder splitOrderItemViewHolder, int i) {
         SplitRecordItem l = l(i);
         if (l == null) {
             RLog.error("PaySplitOrderAdapter", "updateSplitOrderItemHolder error splitRecordItem null", new Object[0]);
@@ -133,13 +133,13 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder instanceof SplitOrderItemViewHolder) {
-            n((SplitOrderItemViewHolder) viewHolder, i);
+            o((SplitOrderItemViewHolder) viewHolder, i);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, tad.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
+        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, xfd.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
     }
 }

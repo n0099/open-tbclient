@@ -9,34 +9,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qc1 {
+public final class qc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static qc1 c;
+    public static long c;
+    public static qc1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public b b;
+    public boolean a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onResult(int i, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948086922, "Lcom/baidu/tieba/qc1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948086922, "Lcom/baidu/tieba/qc1;");
+        }
     }
 
     /* loaded from: classes7.dex */
-    public class a extends ob1<JSONObject> {
+    public class a extends pb1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sd1 a;
+        public final /* synthetic */ td1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ qc1 c;
 
-        public a(qc1 qc1Var, sd1 sd1Var) {
+        public a(qc1 qc1Var, td1 td1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qc1Var, sd1Var};
+                Object[] objArr = {qc1Var, td1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,50 +58,59 @@ public class qc1 {
                     return;
                 }
             }
-            this.a = sd1Var;
+            this.c = qc1Var;
+            this.a = td1Var;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.ob1
+        @Override // com.baidu.tieba.pb1
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.a.onResult(119501, "");
-                th.printStackTrace();
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
+                return;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (tb1.b(ld1.a()) && currentTimeMillis - qc1.c <= 3000) {
+                if (this.c.a) {
+                    this.a.onResult(1, "");
+                }
+                this.c.i(this.b, this.a);
+            } else {
+                this.a.onResult(3, "支付失败，请重试");
+            }
+            this.c.a = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ob1
+        @Override // com.baidu.tieba.pb1
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("status", -1);
-                int optInt2 = jSONObject.optInt("signStatus", -1);
-                int optInt3 = jSONObject.optInt("payStatus", -1);
-                if (2 != optInt && 2 != optInt3) {
-                    this.a.onResult(optInt2, "");
-                } else {
-                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948086922, "Lcom/baidu/tieba/qc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948086922, "Lcom/baidu/tieba/qc1;");
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
                 return;
             }
+            int optInt = jSONObject.optInt("status", -1);
+            int optInt2 = jSONObject.optInt("payStatus", -1);
+            if (optInt == 1 && optInt2 == 0) {
+                this.a.onResult(3, "支付失败，请重试");
+                return;
+            }
+            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
+                if (optInt == 1 && optInt2 == 3) {
+                    this.a.onResult(3, "支付失败，请重试");
+                } else if (System.currentTimeMillis() - qc1.c <= 3000) {
+                    if (this.c.a) {
+                        this.a.onResult(1, "");
+                    }
+                    this.c.i(this.b, this.a);
+                } else {
+                    this.a.onResult(6, "支付结果查询失败，请重试");
+                }
+            } else {
+                this.a.onResult(0, "小额免密支付成功");
+            }
+            this.c.a = false;
         }
-        c = new qc1();
     }
 
     public qc1() {
@@ -102,58 +123,63 @@ public class qc1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = false;
     }
 
-    public static qc1 b() {
+    public static qc1 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (d == null) {
+                synchronized (qc1.class) {
+                    if (d == null) {
+                        d = new qc1();
+                    }
+                }
+            }
+            return d;
         }
         return (qc1) invokeV.objValue;
     }
 
-    public b c() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
         }
-        return (b) invokeV.objValue;
     }
 
-    public void a(sd1 sd1Var) {
+    public void g(String str, td1 td1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sd1Var) == null) {
-            String[] split = this.a.split("&");
-            pb1 pb1Var = new pb1();
-            for (String str : split) {
-                String[] split2 = str.split("=");
-                if (split2 != null && split2.length == 2) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, td1Var) == null) {
+            this.b = false;
+            this.a = true;
+            c = System.currentTimeMillis();
+            i(str, td1Var);
+        }
+    }
+
+    public final void i(String str, td1 td1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, td1Var) == null) {
+            String[] split = str.split("&");
+            qb1 qb1Var = new qb1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
                     if (TextUtils.equals(split2[0], "timestamp")) {
-                        pb1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                        qb1Var.d(split2[0], URLDecoder.decode(split2[1]));
                     } else {
-                        pb1Var.d(split2[0], split2[1]);
+                        qb1Var.d(split2[0], split2[1]);
                     }
                 }
             }
-            wb1.j().g(yb1.e(), pb1Var, new a(this, sd1Var));
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+            qb1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
+            xb1.j().g(zb1.e(), qb1Var, new a(this, td1Var, str));
         }
     }
 }

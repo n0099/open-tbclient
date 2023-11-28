@@ -1,30 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
+import android.database.DataSetObservable;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bw5 extends WebChromeClient {
+public abstract class bw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public lsa b;
+    public DataSetObservable a;
 
-    public bw5(Activity activity) {
+    public abstract int a();
+
+    public abstract View b(int i, ViewGroup viewGroup);
+
+    public bw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,89 +33,35 @@ public class bw5 extends WebChromeClient {
                 return;
             }
         }
-        this.a = activity;
+        this.a = new DataSetObservable();
     }
 
-    public void b(lsa lsaVar) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lsaVar) == null) {
-            this.b = lsaVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.notifyChanged();
         }
     }
 
-    public final void a(WebView webView, String str, String str2) {
+    public void d(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !qd.isEmpty(str) && !qd.isEmpty(str2)) {
-            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(this.a)) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
+            try {
+                this.a.registerObserver(dataSetObserver);
+            } catch (Throwable th) {
+                BdLog.e(th, true);
             }
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void e(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(this.a)) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
+            try {
+                this.a.unregisterObserver(dataSetObserver);
+            } catch (Throwable th) {
+                BdLog.e(th, true);
             }
-            return true;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(this.a)) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        lsa lsaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!t85.a(str) && str2.startsWith("tiebaapp")) {
-                osa osaVar = new osa();
-                osaVar.w(ssa.b(str2));
-                osaVar.y(301);
-                a(webView, osaVar.c(), osaVar.d());
-            }
-            if (t85.a(str) && (lsaVar = this.b) != null && lsaVar.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

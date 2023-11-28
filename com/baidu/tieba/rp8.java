@@ -1,38 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.im.chat.officialBar.MenuKeyboardView;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class rp8 extends le5 {
+public final class rp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rp8(Context context) {
-        super(context, (String) null, 21);
+    public rp8(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 1;
-        this.m = new MenuKeyboardView(b());
-        this.p = new int[]{1};
+        Intrinsics.checkNotNullParameter(view2, "view");
+        this.a = view2;
     }
 }

@@ -22,7 +22,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayRespDispatcher {
     public static final String TAG = "PayRespDispatcher";
     public IPayServiceStatisticsApi mPayReporter;

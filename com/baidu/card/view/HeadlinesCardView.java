@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.ht;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.oq6;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.qu;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.it;
+import com.baidu.tieba.ru;
+import com.baidu.tieba.ub5;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,13 +39,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
+public class HeadlinesCardView extends FrameLayout implements it<cw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public bw4 a;
+    public cw4 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -55,7 +55,7 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
     public TbImageAutoSwitch h;
     public TextView i;
     public HeadlinesItemInfoView j;
-    public qu k;
+    public ru k;
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
@@ -131,15 +131,15 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy4 a;
+        public final /* synthetic */ bz4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, zy4 zy4Var) {
+        public b(HeadlinesCardView headlinesCardView, bz4 bz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, zy4Var};
+                Object[] objArr = {headlinesCardView, bz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -150,7 +150,7 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = zy4Var;
+            this.a = bz4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -171,15 +171,15 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy4 a;
+        public final /* synthetic */ bz4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, zy4 zy4Var) {
+        public c(HeadlinesCardView headlinesCardView, bz4 bz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, zy4Var};
+                Object[] objArr = {headlinesCardView, bz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -190,7 +190,7 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = zy4Var;
+            this.a = bz4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -238,16 +238,16 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.b.a != null) {
-                    pb5.f(this.b.getContext(), this.b.a.getThreadData(), 1, 2);
+                    ub5.f(this.b.getContext(), this.b.a.getThreadData(), 1, 2);
                 } else {
-                    nq6.b().c(new e(this.a));
+                    xq6.b().c(new e(this.a));
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class e extends oq6 {
+    public static class e extends yq6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -376,17 +376,17 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
         }
     }
 
-    public void setOnStatListener(qu quVar) {
+    public void setOnStatListener(ru ruVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, quVar) == null) {
-            this.k = quVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ruVar) == null) {
+            this.k = ruVar;
         }
     }
 
-    public void f(@Nullable String str, @Nullable fz4 fz4Var) {
-        zy4 f;
+    public void f(@Nullable String str, @Nullable hz4 hz4Var) {
+        bz4 f;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, fz4Var) != null) || fz4Var == null || (f = fz4Var.f()) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, hz4Var) != null) || hz4Var == null || (f = hz4Var.f()) == null) {
             return;
         }
         this.g.c(f);
@@ -400,9 +400,9 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
         this.j.setOnBannerClickListener(new b(this, f));
         this.j.setOnButtonClickListener(new c(this, f));
         this.f.setOnClickListener(new d(this, str));
-        qu quVar = this.k;
-        if (quVar != null) {
-            quVar.onShow();
+        ru ruVar = this.k;
+        if (ruVar != null) {
+            ruVar.onShow();
         }
     }
 
@@ -441,18 +441,18 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
+    @Override // com.baidu.tieba.it
     /* renamed from: h */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(cw4 cw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bw4Var) == null) {
-            this.a = bw4Var;
-            if (bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().getTaskInfoData() != null && bw4Var.getThreadData().getTaskInfoData().f() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cw4Var) == null) {
+            this.a = cw4Var;
+            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null) {
                 String str = null;
-                if (bw4Var.getThreadData() != null) {
-                    str = bw4Var.getThreadData().tid;
+                if (cw4Var.getThreadData() != null) {
+                    str = cw4Var.getThreadData().tid;
                 }
-                f(str, bw4Var.getThreadData().getTaskInfoData());
+                f(str, cw4Var.getThreadData().getTaskInfoData());
             }
         }
     }

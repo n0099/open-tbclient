@@ -593,7 +593,7 @@ public class d2 extends j1 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.mo7getInput().I1();
+                this.d.mo7getInput().U1();
                 this.k++;
                 this.d.getApplicationListener().render();
             }

@@ -1,205 +1,97 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ma8 extends BaseAdapter {
+public final class ma8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ua8> a;
-    public TbPageContext b;
-    public int c;
-    public int d;
-    public BdUniqueId e;
-    public boolean f;
+    public final Map<String, a> a;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final String a;
+        public final long b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BarImageView b;
-        public ImageView c;
-
-        public b(ma8 ma8Var) {
+        public a(String frsCustomCounts, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ma8Var};
+                Object[] objArr = {frsCustomCounts, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            Intrinsics.checkNotNullParameter(frsCustomCounts, "frsCustomCounts");
+            this.a = frsCustomCounts;
+            this.b = j;
         }
 
-        public /* synthetic */ b(ma8 ma8Var, a aVar) {
-            this(ma8Var);
+        public final JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("frs_csm", this.a);
+                jSONObject.putOpt("last_time", Long.valueOf(this.b));
+                jSONObject.putOpt("is_show", Integer.valueOf(SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_recent_forum_is_show"), false) ? 1 : 0));
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
-    public ma8(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
+    public ma8(Map<String, a> frsVisitedDataMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
+            Object[] objArr = {frsVisitedDataMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -1;
-        this.f = false;
-        this.b = tbPageContext;
-        this.e = bdUniqueId;
-        this.d = i;
-        this.c = SharedPrefHelper.getInstance().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
+        Intrinsics.checkNotNullParameter(frsVisitedDataMap, "frsVisitedDataMap");
+        this.a = frsVisitedDataMap;
     }
 
-    public final void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
-        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return ListUtils.getItem(this.a, i);
-        }
-        return invokeI.objValue;
-    }
-
-    public void b(List<ua8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            if (!this.f && !ListUtils.isEmpty(list)) {
-                for (ua8 ua8Var : list) {
-                    if (!StringUtils.isNull(ua8Var.c)) {
-                        BdResourceLoader.getInstance().loadResource(ua8Var.c, 10, null, this.e);
-                    }
-                }
-                this.f = true;
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final JSONObject a() {
         InterceptResult invokeV;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ListUtils.getCount(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        b bVar;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bVar = new b(this, null);
-                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03ea, (ViewGroup) null);
-                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09106d);
-                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f09106b);
-                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f09106c);
-                bVar.b.setShowOval(true);
-                bVar.b.setAutoChangeStyle(true);
-                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
-                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
-                view3.setTag(bVar);
-            } else {
-                view3 = view2;
-                bVar = (b) view2.getTag();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            for (String str : this.a.keySet()) {
+                a aVar = this.a.get(str);
+                if (aVar != null) {
+                    jSONObject = aVar.a();
+                } else {
+                    jSONObject = null;
+                }
+                jSONObject2.put(str, jSONObject);
             }
-            a(bVar);
-            ua8 ua8Var = (ua8) ListUtils.getItem(this.a, i);
-            if (ua8Var != null) {
-                TextView textView = bVar.a;
-                if (StringUtils.isNull(ua8Var.b)) {
-                    str = "";
-                } else {
-                    str = ua8Var.b;
-                }
-                textView.setText(str);
-                bVar.b.startLoad(ua8Var.c, 10, false);
-                if (ua8Var.d == 1) {
-                    bVar.b.setAlpha(1);
-                    bVar.a.setAlpha(1.0f);
-                } else {
-                    bVar.b.setAlpha(0.5f);
-                    bVar.a.setAlpha(0.5f);
-                }
-                if (ua8Var.a == this.c && this.d != 101) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-            }
-            return view3;
+            return jSONObject2;
         }
-        return (View) invokeILL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

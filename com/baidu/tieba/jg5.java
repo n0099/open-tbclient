@@ -1,30 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.meme.list.MemeData;
+import com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData;
+import com.baidu.tbadk.editortools.meme.pan.SpriteMemePanStateType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jg5 implements gg5 {
+public final class jg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
+    public final SpriteMemePanStateType a;
+    public final SpriteMemeReplyData b;
+    public final List<MemeData> c;
 
-    public jg5(View view2, AttributeSet attributeSet) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof jg5) {
+                jg5 jg5Var = (jg5) obj;
+                return this.a == jg5Var.a && Intrinsics.areEqual(this.b, jg5Var.b) && Intrinsics.areEqual(this.c, jg5Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "SpriteMemePanState(type=" + this.a + ", bubbleData=" + this.b + ", memeDataList=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public jg5(SpriteMemePanStateType type, SpriteMemeReplyData bubbleData, List<? extends MemeData> memeDataList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, attributeSet};
+            Object[] objArr = {type, bubbleData, memeDataList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,111 +65,38 @@ public class jg5 implements gg5 {
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.a = view2;
-        if (attributeSet != null) {
-            TypedArray typedArray = null;
-            try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, dua.KPSwitchPanelLayout);
-                this.c = typedArray.getBoolean(0, false);
-            } finally {
-                if (typedArray != null) {
-                    typedArray.recycle();
-                }
-            }
-        }
+        Intrinsics.checkNotNullParameter(type, "type");
+        Intrinsics.checkNotNullParameter(bubbleData, "bubbleData");
+        Intrinsics.checkNotNullParameter(memeDataList, "memeDataList");
+        this.a = type;
+        this.b = bubbleData;
+        this.c = memeDataList;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    public final SpriteMemeReplyData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                this.b = false;
-            }
-            if (i == this.a.getVisibility()) {
-                return true;
-            }
-            if (!b() || i != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeI.booleanValue;
+        return (SpriteMemeReplyData) invokeV.objValue;
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.c) {
-            return;
-        }
-        og5.d(this.a, i);
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.gg5
-    public boolean b() {
+    public final List<MemeData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gg5
-    public void handleHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.gg5
-    public void handleShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
-        }
-    }
-
-    @Override // com.baidu.tieba.gg5
-    public boolean isVisible() {
+    public final SpriteMemePanStateType c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return !this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public int[] c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            if (this.b) {
-                this.a.setVisibility(8);
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i = makeMeasureSpec;
-            }
-            return new int[]{i, i2};
-        }
-        return (int[]) invokeII.objValue;
+        return (SpriteMemePanStateType) invokeV.objValue;
     }
 }

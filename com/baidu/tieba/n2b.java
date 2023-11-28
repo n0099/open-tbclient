@@ -1,286 +1,265 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
-import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.PersonalBackdropListActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class n2b extends q2b {
+public class n2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
+    public BackgroundGroupActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public MemberRecommendView e;
+    public BdListView f;
+    public TextView g;
+    public TextView h;
+    public int i;
+    public l2b j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n2b(String str) {
-        super(str);
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n2b a;
+
+        public a(n2b n2bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n2bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n2bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log("c10283");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropListActivityConfig(this.a.a.getActivity())));
+            }
+        }
+    }
+
+    public n2b(BackgroundGroupActivity backgroundGroupActivity, o2b o2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {backgroundGroupActivity, o2bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 88200L;
+        this.i = 0;
+        this.a = backgroundGroupActivity;
+        this.i = BdUtilHelper.getDimens(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703bc);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013e, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090444);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f10e7);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092a5b);
+        this.e = memberRecommendView;
+        memberRecommendView.setFromType(4);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09161a);
+        TextView textView = new TextView(this.a.getActivity());
+        this.g = textView;
+        textView.setHeight(BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d062a, (ViewGroup) null);
+        this.h = textView2;
+        textView2.setText(R.string.obfuscated_res_0x7f0f0ce0);
+        this.h.setOnClickListener(new a(this));
+        this.j = new l2b(this.a.getPageContext(), o2bVar);
+        TextView textView3 = new TextView(this.a.getActivity());
+        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+        this.f.w(textView3, 0);
+        this.f.addFooterView(this.h);
+        this.f.setAdapter((ListAdapter) this.j);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.q2b
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(String str) {
-        Throwable th;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        int dequeueOutputBuffer;
-        int dequeueInputBuffer;
-        boolean z;
-        int i;
+    public final void g(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            n2b n2bVar = this;
-            FileInputStream fileInputStream = null;
-            try {
-                try {
-                    if (n2bVar.b == 0) {
-                        n2bVar.b = OpusReader.SAMPLE_RATE;
-                    }
-                    if (n2bVar.c == 0) {
-                        n2bVar.c = 1;
-                    }
-                    n2bVar.d = (n2bVar.b * 16) / 8;
-                    FileInputStream fileInputStream2 = new FileInputStream(n2bVar.a);
-                    try {
-                        fileOutputStream = new FileOutputStream(str);
-                        try {
-                            MediaCodec f = f();
-                            f.start();
-                            ByteBuffer[] inputBuffers = f.getInputBuffers();
-                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
-                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                            byte[] bArr = new byte[4096];
-                            ByteBuffer[] byteBufferArr2 = outputBuffers;
-                            long j2 = 0;
-                            long j3 = 0;
-                            boolean z2 = false;
-                            int i2 = 0;
-                            boolean z3 = false;
-                            boolean z4 = false;
-                            int i3 = 0;
-                            while (!z3) {
-                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
-                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                    byteBuffer.clear();
-                                    int remaining = byteBuffer.remaining();
-                                    if (remaining != bArr.length) {
-                                        bArr = new byte[remaining];
-                                    }
-                                    byte[] bArr2 = bArr;
-                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
-                                        i = i2;
-                                        z = true;
-                                    } else {
-                                        z = z2;
-                                        i = i2;
-                                    }
-                                    if (z) {
-                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                        byteBufferArr = inputBuffers;
-                                        i2 = i;
-                                        bArr = bArr2;
-                                        z2 = z;
-                                        j = 10000;
-                                        z4 = true;
-                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                                        if (dequeueOutputBuffer < 0) {
-                                            if ((bufferInfo.flags & 2) != 0) {
-                                                BdLog.i("audio encoder: codec config buffer");
-                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            } else {
-                                                if (bufferInfo.size != 0) {
-                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
-                                                    byteBuffer2.position(bufferInfo.offset);
-                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                                    if (j2 < bufferInfo.presentationTimeUs) {
-                                                        long j4 = bufferInfo.presentationTimeUs;
-                                                        int i4 = bufferInfo.size;
-                                                        int i5 = i4 + 7;
-                                                        byteBuffer2.position(bufferInfo.offset);
-                                                        byteBuffer2.limit(bufferInfo.offset + i4);
-                                                        byte[] bArr3 = new byte[i5];
-                                                        n2bVar.e(bArr3, i5);
-                                                        byteBuffer2.get(bArr3, 7, i4);
-                                                        fileOutputStream.write(bArr3, 0, i5);
-                                                        BdLog.i(i5 + " bytes written.");
-                                                        j2 = j4;
-                                                    } else {
-                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
-                                                    }
-                                                }
-                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                                if ((bufferInfo.flags & 4) != 0) {
-                                                    n2bVar = this;
-                                                    inputBuffers = byteBufferArr;
-                                                    z3 = true;
-                                                }
-                                            }
-                                        } else if (dequeueOutputBuffer == -3) {
-                                            byteBufferArr2 = f.getOutputBuffers();
-                                        } else if (dequeueOutputBuffer == -2) {
-                                            BdLog.i("format change : " + f.getOutputFormat());
-                                        }
-                                        n2bVar = this;
-                                        inputBuffers = byteBufferArr;
-                                    } else {
-                                        int i6 = i;
-                                        byteBuffer.put(bArr2, 0, i6);
-                                        int i7 = i3 + i6;
-                                        byteBufferArr = inputBuffers;
-                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
-                                        i3 = i7;
-                                        i2 = i6;
-                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / n2bVar.d);
-                                        bArr = bArr2;
-                                        z2 = z;
-                                    }
-                                } else {
-                                    byteBufferArr = inputBuffers;
-                                }
-                                j = 10000;
-                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                                if (dequeueOutputBuffer < 0) {
-                                }
-                                n2bVar = this;
-                                inputBuffers = byteBufferArr;
-                            }
-                            BdLog.i("acc encode done");
-                            fileInputStream2.close();
-                            fileOutputStream.close();
-                        } catch (Exception e) {
-                            e = e;
-                            fileInputStream = fileInputStream2;
-                            try {
-                                e.printStackTrace();
-                                if (fileInputStream != null) {
-                                    fileInputStream.close();
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileInputStream != null) {
-                                    try {
-                                        fileInputStream.close();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        throw th;
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileInputStream = fileInputStream2;
-                            if (fileInputStream != null) {
-                            }
-                            if (fileOutputStream != null) {
-                            }
-                            throw th;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.f.setVisibility(0);
+                this.j.a(list);
+                this.j.notifyDataSetChanged();
+                return;
+            }
+            this.f.setVisibility(8);
+        }
+    }
+
+    public final List<Object> b(List<m2b> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (m2b m2bVar : list) {
+                arrayList.add(m2bVar.b());
+                List<DressItemData> a2 = m2bVar.a();
+                int size = a2.size();
+                if (size > 3) {
+                    size = 3;
+                }
+                for (int i = 0; i < size; i = i + 2 + 1) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i2 = 0; i2 < 3; i2++) {
+                        int i3 = i + i2;
+                        if (i3 < size) {
+                            arrayList2.add(a2.get(i3));
                         }
-                    } catch (Exception e3) {
-                        e = e3;
-                        fileOutputStream = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileOutputStream = null;
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                    arrayList.add(arrayList2);
                 }
-            } catch (Exception e5) {
-                e = e5;
-                fileOutputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                fileOutputStream = null;
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void e(byte[] bArr, int i) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 < 13) {
-                    if (iArr[i2] == this.b) {
-                        break;
-                    }
-                    i2++;
-                } else {
-                    i2 = 4;
-                    break;
-                }
-            }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
         }
     }
 
-    @TargetApi(16)
-    public final MediaCodec f() throws IOException {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.c);
-            mediaFormat.setInteger("sample-rate", this.b);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
+            return this.b;
         }
-        return (MediaCodec) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.setVisibility(8);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(0);
+        }
+    }
+
+    public void f() {
+        l2b l2bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            fq5.a(this.a.getPageContext(), this.b);
+            this.a.getLayoutMode().onModeChanged(this.h);
+            EMManager.from(this.h).setTextColor(R.color.CAM_X0108);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.f;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (l2bVar = this.j) != null) {
+                l2bVar.notifyDataSetChanged();
+            }
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.e.d();
+        }
+    }
+
+    public final boolean h(j3b j3bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, j3bVar)) == null) {
+            if (j3bVar != null && !StringUtils.isNull(j3bVar.c())) {
+                this.e.setVisibility(0);
+                this.e.e(j3bVar);
+                return true;
+            }
+            this.e.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.i);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void k(j3b j3bVar, List<m2b> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, j3bVar, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                c();
+                if (h(j3bVar)) {
+                    this.f.removeHeaderView(this.g);
+                    this.f.addHeaderView(this.g);
+                } else {
+                    this.f.removeHeaderView(this.g);
+                }
+                g(b(list));
+                return;
+            }
+            j();
+        }
     }
 }

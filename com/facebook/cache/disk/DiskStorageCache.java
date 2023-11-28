@@ -1,5 +1,6 @@
 package com.facebook.cache.disk;
 
+import com.baidu.tieba.ms;
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.cache.common.CacheErrorLogger;
 import com.facebook.cache.common.CacheEventListener;
@@ -418,7 +419,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 j2 = j;
             }
             if (z) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i3 + " files , with a total size of " + i + " bytes, and a maximum time delta of " + j4 + "ms", null);
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i3 + " files , with a total size of " + i + " bytes, and a maximum time delta of " + j4 + ms.c, null);
             }
             long j5 = i2;
             if (this.mCacheStats.getCount() != j5 || this.mCacheStats.getSize() != j3) {

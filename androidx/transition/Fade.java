@@ -56,7 +56,7 @@ public class Fade extends Visibility {
     @Override // androidx.transition.Visibility, androidx.transition.Transition
     public void captureStartValues(@NonNull TransitionValues transitionValues) {
         super.captureStartValues(transitionValues);
-        transitionValues.values.put(PROPNAME_TRANSITION_ALPHA, Float.valueOf(ViewUtils.getTransitionAlpha(transitionValues.f1028view)));
+        transitionValues.values.put(PROPNAME_TRANSITION_ALPHA, Float.valueOf(ViewUtils.getTransitionAlpha(transitionValues.f1024view)));
     }
 
     @SuppressLint({"RestrictedApi"})

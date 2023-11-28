@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uba;
-import com.baidu.tieba.vba;
-import com.baidu.tieba.xra;
+import com.baidu.tieba.mga;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.pwa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,14 +54,14 @@ public class QRCodeStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921388, vba.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, nga.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements CustomMessageTask.CustomRunnable<xra> {
+    public class b implements CustomMessageTask.CustomRunnable<pwa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,20 +80,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<xra> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<pwa> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof xra)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof pwa)) {
                     return null;
                 }
-                xra data = customMessage.getData();
+                pwa data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = uba.b(data.c);
+                    str = mga.b(data.c);
                 } else if (i == 1) {
-                    str = uba.c(data.d);
+                    str = mga.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";

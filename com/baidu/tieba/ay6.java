@@ -1,36 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class ay6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<bi> b;
-    public b c;
-    public zx6 d;
+    public TbPageContext<?> a;
+    public View b;
+    public PopupWindow c;
+    public Handler d;
+    public Runnable e;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(dy6 dy6Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements yi {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ay6 a;
@@ -53,25 +50,92 @@ public class ay6 {
             this.a = ay6Var;
         }
 
-        @Override // com.baidu.tieba.yi
-        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (oiVar instanceof dy6)) {
-                dy6 dy6Var = (dy6) oiVar;
-                if (this.a.c != null) {
-                    this.a.c.a(dy6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", dy6Var.a()).param("obj_locate", 2));
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null) {
+                yb.c(this.a.c);
             }
         }
     }
 
-    public ay6(Context context) {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ ay6 c;
+
+        public b(ay6 ay6Var, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ay6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ay6Var;
+            this.a = i;
+            this.b = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.c.g(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ay6 a;
+
+        public c(ay6 ay6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ay6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ay6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    public ay6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,34 +145,82 @@ public class ay6 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
+        this.d = new Handler();
+        this.e = new a(this);
+        this.a = tbPageContext;
     }
 
-    public void d(b bVar) {
+    public final int d(LinkedList<VisitedForumData> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
+            int size = linkedList.size();
+            for (int i = 0; i < 3 && i < size; i++) {
+                VisitedForumData visitedForumData = linkedList.get(i);
+                if (visitedForumData != null && visitedForumData.isAlaForum()) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void c(LinkedList<VisitedForumData> linkedList, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, linkedList, i) == null) {
+            if (linkedList != null && linkedList.size() >= 1) {
+                int d = d(linkedList);
+                if (d < 0) {
+                    SharedPrefHelper.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
+                    return;
+                } else if (SharedPrefHelper.getInstance().getBoolean("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+                    return;
+                } else {
+                    this.d.postDelayed(new b(this, i, d), 100L);
+                    return;
+                }
+            }
+            SharedPrefHelper.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
         }
     }
 
-    public List<bi> b() {
-        InterceptResult invokeV;
+    public void e() {
+        PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (popupWindow = this.c) != null) {
+            yb.c(popupWindow);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final void c() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zx6 zx6Var = new zx6(this.a, dy6.e);
-            this.d = zx6Var;
-            zx6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            SharedPrefHelper.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
+            PopupWindow popupWindow = this.c;
+            if (popupWindow != null && popupWindow.isShowing()) {
+                return;
+            }
+            if (this.b == null) {
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) null);
+                this.b = inflate;
+                inflate.setOnClickListener(new c(this));
+            }
+            if (this.c == null) {
+                PopupWindow popupWindow2 = new PopupWindow(this.b, -2, -2);
+                this.c = popupWindow2;
+                popupWindow2.setOutsideTouchable(true);
+                GreyUtil.grey(this.c);
+            }
+            yb.m(this.c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i2 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i);
+            this.d.postDelayed(this.e, 5000L);
         }
     }
 }

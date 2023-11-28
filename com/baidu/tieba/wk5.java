@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.TreeSet;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 /* loaded from: classes8.dex */
 public interface wk5 {
     @WorkerThread
-    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
+    void a(long j, int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
 }

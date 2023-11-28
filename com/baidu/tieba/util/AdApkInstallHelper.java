@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu4;
-import com.baidu.tieba.fi0;
+import com.baidu.tieba.eu4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
+import com.baidu.tieba.gi0;
+import com.baidu.tieba.ksa;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rna;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -119,10 +119,10 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    rna j = new TbDownloadManager().m().j(this.a, this.b);
+                    ksa k = new TbDownloadManager().m().k(this.a, this.b);
                     ItemData itemData = new ItemData();
-                    itemData.parseJson(j.c());
-                    cu4.b().a(this.c, String.valueOf(j.p()), itemData.mTitle, j.d(), itemData.mTbFileDownloaderType);
+                    itemData.parseJson(k.c());
+                    eu4.b().a(this.c, String.valueOf(k.r()), itemData.mTitle, k.d(), itemData.mTbFileDownloaderType);
                     return 0L;
                 }
                 return (Long) invokeL.objValue;
@@ -209,14 +209,15 @@ public final class AdApkInstallHelper {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                             if (!new File(this.$path).exists()) {
-                                DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，文件不存在");
+                                TbLog downloaderLog2 = DownloaderLog.getInstance();
+                                downloaderLog2.i("AdApkInstallHelper", "下载器：函数 installApp，文件不存在，路径：" + this.$path);
                                 String string = TbadkCoreApplication.getInst().getApp().getString(R.string.file_not_exist);
                                 Intrinsics.checkNotNullExpressionValue(string, "getInst().app.getString(R.string.file_not_exist)");
                                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), string);
                                 return;
                             }
                             DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，开始安装");
-                            fi0.d(new File(this.$path));
+                            gi0.d(new File(this.$path));
                             DownloadData downloadData2 = this.$downloadData;
                             if (downloadData2 != null) {
                                 String id = downloadData2.getId();

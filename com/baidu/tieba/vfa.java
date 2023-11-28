@@ -1,103 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vfa implements hb7, eb7 {
+public final class vfa {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
-    @Override // com.baidu.tieba.eb7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240248, "Lcom/baidu/tieba/vfa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948240248, "Lcom/baidu/tieba/vfa;");
+                return;
+            }
+        }
+        c = new a(null);
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10731" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof vfa) {
+                vfa vfaVar = (vfa) obj;
+                return this.a == vfaVar.a && this.b == vfaVar.b;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public vfa() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a * 31) + this.b : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "PushSceneGroupSingleRecord(groupNo=" + this.a + ", shownCount=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final vfa a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                return new vfa(jSONObject.optInt("group_no"), jSONObject.optInt("shown_count"));
+            }
+            return (vfa) invokeL.objValue;
+        }
+    }
+
+    public vfa(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 businessInfo) {
-        InterceptResult invokeL;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("weight");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_param1", str);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, "1");
-            String str3 = businessInfo.a().get("source");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put("obj_source", str3);
-            String str4 = businessInfo.a().get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("obj_name", str4);
-            String e = jl6.e();
-            Intrinsics.checkNotNullExpressionValue(e, "getCurrentTimeStamp()");
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, e);
-            int i = 0;
-            if (JavaTypesHelper.toInt(businessInfo.a().get("is_live_card"), 0) != 0) {
-                i = 2;
-            } else if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_card"), 0) != 0) {
-                i = 1;
-            }
-            if (i == 0) {
-                String str5 = businessInfo.a().get("pic_count");
-                if (str5 == null) {
-                    str5 = "0";
-                }
-                hashMap.put("obj_type", str5);
-            } else {
-                hashMap.put("obj_type", String.valueOf(i));
-            }
-            String str6 = businessInfo.a().get("abtest_tag");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("ab_tag", str6);
-            String str7 = businessInfo.a().get("nid");
-            if (str7 != null) {
-                str2 = str7;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Map) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("group_no", this.a);
+            jSONObject.put("shown_count", this.b);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
     }
 }

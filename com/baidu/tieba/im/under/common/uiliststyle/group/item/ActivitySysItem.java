@@ -113,7 +113,7 @@ public final class ActivitySysItem extends BaseItem<TbActivitySysMsg> {
                     topBubbleData.setPinnedType("activity");
                     topBubbleData.setActivityID(activityInfo.getId());
                     topBubbleData.setActivityStatus(activityInfo.getStatus());
-                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.tv8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.az8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public final class ActivitySysItem extends BaseItem<TbActivitySysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

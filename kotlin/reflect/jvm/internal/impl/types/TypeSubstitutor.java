@@ -550,7 +550,7 @@ public class TypeSubstitutor {
     private TypeProjection substituteCompoundType(TypeProjection typeProjection, int i) throws SubstitutionException {
         KotlinType type = typeProjection.getType();
         Variance projectionKind = typeProjection.getProjectionKind();
-        if (type.getConstructor().mo2110getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
+        if (type.getConstructor().mo2114getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
             return typeProjection;
         }
         KotlinType kotlinType = null;
@@ -618,9 +618,9 @@ public class TypeSubstitutor {
             TypeProjection unsafeSubstitute = unsafeSubstitute(new TypeProjectionImpl(typeProjection.getProjectionKind(), origin), i + 1);
             return new TypeProjectionImpl(unsafeSubstitute.getProjectionKind(), TypeWithEnhancementKt.wrapEnhancement(unsafeSubstitute.getType().unwrap(), substitute(enhancement, typeProjection.getProjectionKind())));
         } else if (!DynamicTypesKt.isDynamic(type) && !(type.unwrap() instanceof RawType)) {
-            TypeProjection mo2115get = this.substitution.mo2115get(type);
+            TypeProjection mo2119get = this.substitution.mo2119get(type);
             Variance projectionKind = typeProjection.getProjectionKind();
-            if (mo2115get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
+            if (mo2119get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
                 FlexibleType asFlexibleType = FlexibleTypesKt.asFlexibleType(type);
                 int i2 = i + 1;
                 TypeProjection unsafeSubstitute2 = unsafeSubstitute(new TypeProjectionImpl(projectionKind, asFlexibleType.getLowerBound()), i2);
@@ -634,8 +634,8 @@ public class TypeSubstitutor {
                 }
                 return new TypeProjectionImpl(projectionKind2, KotlinTypeFactory.flexibleType(TypeSubstitutionKt.asSimpleType(unsafeSubstitute2.getType()), TypeSubstitutionKt.asSimpleType(unsafeSubstitute3.getType())));
             } else if (!KotlinBuiltIns.isNothing(type) && !KotlinTypeKt.isError(type)) {
-                if (mo2115get != null) {
-                    VarianceConflictType conflictType = conflictType(projectionKind, mo2115get.getProjectionKind());
+                if (mo2119get != null) {
+                    VarianceConflictType conflictType = conflictType(projectionKind, mo2119get.getProjectionKind());
                     if (!CapturedTypeConstructorKt.isCaptured(type)) {
                         int i3 = AnonymousClass2.$SwitchMap$org$jetbrains$kotlin$types$TypeSubstitutor$VarianceConflictType[conflictType.ordinal()];
                         if (i3 != 1) {
@@ -647,22 +647,22 @@ public class TypeSubstitutor {
                         }
                     }
                     CustomTypeVariable customTypeVariable = TypeCapabilitiesKt.getCustomTypeVariable(type);
-                    if (mo2115get.isStarProjection()) {
-                        if (mo2115get == null) {
+                    if (mo2119get.isStarProjection()) {
+                        if (mo2119get == null) {
                             $$$reportNull$$$0(21);
                         }
-                        return mo2115get;
+                        return mo2119get;
                     }
                     if (customTypeVariable != null) {
-                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2115get.getType());
+                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2119get.getType());
                     } else {
-                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2115get.getType(), type.isMarkedNullable());
+                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2119get.getType(), type.isMarkedNullable());
                     }
                     if (!type.getAnnotations().isEmpty()) {
                         makeNullableIfNeeded = TypeUtilsKt.replaceAnnotations(makeNullableIfNeeded, new CompositeAnnotations(makeNullableIfNeeded.getAnnotations(), filterOutUnsafeVariance(this.substitution.filterAnnotations(type.getAnnotations()))));
                     }
                     if (conflictType == VarianceConflictType.NO_CONFLICT) {
-                        projectionKind = combine(projectionKind, mo2115get.getProjectionKind());
+                        projectionKind = combine(projectionKind, mo2119get.getProjectionKind());
                     }
                     return new TypeProjectionImpl(projectionKind, makeNullableIfNeeded);
                 }

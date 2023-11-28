@@ -1,111 +1,103 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.YYPayService;
-import com.baidu.tbadk.pay.IyyPayResultCallback;
-import com.baidu.tbadk.pay.YYPayData;
-import com.baidu.tbadk.pay.YYPayResult;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zg9 implements YYPayService {
+public class zg9 extends f75<h75, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context d;
 
     /* loaded from: classes9.dex */
-    public class a implements IyyPayResultCallback {
+    public class a extends BdBaseViewPagerAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ YYPayService.YYPayResultCallback a;
+        public TbImageView d;
 
-        public a(zg9 zg9Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zg9 zg9Var, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zg9Var, yYPayResultCallback};
+                Object[] objArr = {zg9Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = yYPayResultCallback;
-        }
-
-        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.onFail(i, str);
-            }
-        }
-
-        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
-        public void onSuccess(YYPayResult yYPayResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yYPayResult) == null) {
-                if (yYPayResult != null) {
-                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(yYPayResult.status);
-                    yYPayResultMessage.setAppid(yYPayResult.appid);
-                    yYPayResultMessage.setUid(yYPayResult.uid.longValue());
-                    yYPayResultMessage.setUsedChannel(yYPayResult.usedChannel);
-                    yYPayResultMessage.setCurrencyType(yYPayResult.currencyType);
-                    yYPayResultMessage.setAmount(yYPayResult.amount.longValue());
-                    yYPayResultMessage.setCurrencyAmount(yYPayResult.currencyAmount.longValue());
-                    yYPayResultMessage.setOrderId(yYPayResult.orderId);
-                    yYPayResultMessage.setExpand(yYPayResult.expand);
-                    this.a.onSuccess(yYPayResultMessage);
-                    return;
-                }
-                this.a.onSuccess(null);
+            if (view2 instanceof TbImageView) {
+                TbImageView tbImageView = (TbImageView) view2;
+                this.d = tbImageView;
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }
 
-    public zg9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zg9(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = context;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f75
+    /* renamed from: g */
+    public a c(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
-            startPayment(context, null, yYPayResultCallback);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            TbImageView tbImageView = new TbImageView(this.d);
+            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return new a(this, tbImageView);
         }
+        return (a) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f75
+    /* renamed from: h */
+    public View e(ViewGroup viewGroup, a aVar, h75 h75Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
-            startPayment(context, str, 0L, yYPayResultCallback);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, h75Var)) == null) {
+            aVar.d.startLoad(h75Var.a(), 17, false);
+            return null;
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new YYPayData(context, 1, str, l, new a(this, yYPayResultCallback)));
-        }
+        return (View) invokeLLL.objValue;
     }
 }

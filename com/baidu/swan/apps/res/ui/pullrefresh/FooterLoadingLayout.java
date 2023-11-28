@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q03;
+import com.baidu.tieba.r03;
 /* loaded from: classes4.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public LoadingAnimView e;
@@ -22,10 +22,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091e27);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e26);
+        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091e9d);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e9c);
         this.f = textView;
-        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060453));
+        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060455));
         setState(ILoadingLayout$State.RESET);
     }
 
@@ -44,26 +44,26 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View b = q03.a().b(R.layout.obfuscated_res_0x7f0d00cc, viewGroup, false);
-        b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f06045b));
+        View b = r03.a().b(R.layout.obfuscated_res_0x7f0d00cd, viewGroup, false);
+        b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f06045d));
         return b;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void c() {
         this.f.setVisibility(0);
-        this.f.setText(R.string.obfuscated_res_0x7f0f01e4);
+        this.f.setText(R.string.obfuscated_res_0x7f0f01ec);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
         this.f.setVisibility(0);
-        this.f.setText(R.string.obfuscated_res_0x7f0f01e1);
+        this.f.setText(R.string.obfuscated_res_0x7f0f01e9);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e25);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e9b);
         if (findViewById != null) {
             return findViewById.getHeight();
         }
@@ -75,17 +75,17 @@ public class FooterLoadingLayout extends LoadingLayout {
         this.e.setVisibility(0);
         this.e.d();
         this.f.setVisibility(0);
-        this.f.setText(R.string.obfuscated_res_0x7f0f01e0);
+        this.f.setText(R.string.obfuscated_res_0x7f0f01e8);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
         this.f.setVisibility(0);
-        this.f.setText(R.string.obfuscated_res_0x7f0f01e2);
+        this.f.setText(R.string.obfuscated_res_0x7f0f01ea);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
-        this.f.setText(R.string.obfuscated_res_0x7f0f01e0);
+        this.f.setText(R.string.obfuscated_res_0x7f0f01e8);
     }
 }

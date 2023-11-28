@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicLong;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public abstract class oua implements Comparable<oua> {
+public final class oua implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
+    public long a;
+    public AtomicLong b;
 
     public oua() {
         Interceptable interceptable = $ic;
@@ -27,19 +30,43 @@ public abstract class oua implements Comparable<oua> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1L;
+        this.b = new AtomicLong();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(oua ouaVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ed
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ouaVar)) == null) {
-            return this.a - ouaVar.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.valueOf(Process.myPid());
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ed
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == -1) {
+                this.a = SpeedStats.getInstance().getAppStartTime();
+            }
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.ed
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.incrementAndGet();
+        }
+        return invokeV.longValue;
     }
 }

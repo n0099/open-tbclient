@@ -1,42 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 /* loaded from: classes7.dex */
-public class lk4<D> {
+public class lk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a<D> {
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b<D> {
-    }
-
-    public abstract String a(D d);
-
-    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    public abstract void c(int i, b<D> bVar);
-
-    public abstract void d(a<D> aVar);
-
-    public abstract void e();
-
-    public final void f() {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            throw null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
         }
+        return invokeLI.intValue;
     }
 
-    public abstract void g();
-
-    public abstract void h(b<D> bVar);
-
-    public abstract void i(a<D> aVar);
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
+    }
 }

@@ -1,137 +1,68 @@
 package com.kwad.sdk.internal.api;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.ksad.annotation.invoker.InvokeBy;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.model.IKsAdLabel;
+import com.kwad.sdk.api.model.NativeAdExtraData;
 import com.kwad.sdk.api.model.SplashAdExtraData;
+import com.kwad.sdk.core.response.a.a;
 import com.kwad.sdk.core.scene.URLPackage;
-import com.kwad.sdk.utils.ba;
-import com.kwad.sdk.utils.r;
-import com.kwad.sdk.utils.s;
+import com.kwad.sdk.service.b;
+import com.kwad.sdk.utils.bj;
+import com.kwad.sdk.utils.u;
 import java.io.Serializable;
 import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
 /* loaded from: classes10.dex */
-public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
+public class SceneImpl extends a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;
-    public int adNum;
     public int adStyle;
     public String backUrl;
     public String bidResponse;
     public String bidResponseV2;
+    public String comment;
     public long entryScene;
     public int height;
-    public final EcAttribute mEcAttribute;
-    public transient a mKsAdLabel;
-    public boolean needShowMiniWindow;
+    public AdLabelImpl mKsAdLabel;
+    public NativeAdExtraDataImpl nativeAdExtraData;
     public long posId;
+    public String promoteId;
     public Map<String, String> rewardCallbackExtraData;
-    public int screenOrientation;
-    public b splashExtraData;
+    public SplashExtraDataImpl splashExtraData;
     public URLPackage urlPackage;
+    public long userCommRateBuying;
+    public long userCommRateSharing;
     public int width;
-
-    public SceneImpl() {
-        this.adNum = 1;
-        this.screenOrientation = 0;
-        this.needShowMiniWindow = false;
-        this.mEcAttribute = new EcAttribute();
-    }
-
-    public SceneImpl(long j) {
-        this.adNum = 1;
-        this.screenOrientation = 0;
-        this.needShowMiniWindow = false;
-        this.mEcAttribute = new EcAttribute();
-        this.posId = j;
-        this.entryScene = j;
-        if (ba.getPosId() != 0) {
-            this.posId = ba.getPosId();
-        }
-    }
-
-    public SceneImpl(KsScene ksScene) {
-        this.adNum = 1;
-        this.screenOrientation = 0;
-        this.needShowMiniWindow = false;
-        this.mEcAttribute = new EcAttribute();
-        this.posId = ksScene.getPosId();
-        this.entryScene = ksScene.getPosId();
-        this.adNum = ksScene.getAdNum();
-        this.action = ksScene.getAction();
-        this.width = ksScene.getWidth();
-        this.height = ksScene.getHeight();
-        this.adStyle = ksScene.getAdStyle();
-        this.mEcAttribute.setPromoteId(getPromoteId(ksScene));
-        this.mEcAttribute.setComment(getComment(ksScene));
-        this.backUrl = getBackUrl(ksScene);
-        this.mEcAttribute.setUserCommRateBuying(getUserCommRateBuying(ksScene));
-        this.mEcAttribute.setUserCommRateSharing(getUserCommRateSharing(ksScene));
-        if (ba.getPosId() != 0) {
-            this.posId = ba.getPosId();
-        }
-    }
-
-    private String getComment(KsScene ksScene) {
-        if (ksScene == null) {
-            return "";
-        }
-        try {
-            return ksScene.getComment();
-        } catch (Throwable unused) {
-            return "";
-        }
-    }
-
-    private String getPromoteId(KsScene ksScene) {
-        if (ksScene == null) {
-            return "";
-        }
-        try {
-            return ksScene.getPromoteId();
-        } catch (Throwable unused) {
-            return "";
-        }
-    }
+    public int adNum = 1;
+    public int screenOrientation = 0;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(@Nullable JSONObject jSONObject) {
-        super.afterParseJson(jSONObject);
-        if (jSONObject == null) {
-            return;
-        }
-        this.rewardCallbackExtraData = s.parseJSON2MapString(jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
+    @Keep
+    public void needShowMiniWindow(boolean z) {
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterToJson(JSONObject jSONObject) {
-        super.afterToJson(jSONObject);
-        s.putValue(jSONObject, PrefetchEvent.EVENT_DATA_EXTRA_DATA, s.parseMap2JSON(this.rewardCallbackExtraData));
+    public SceneImpl() {
+    }
+
+    @InvokeBy(invokerClass = b.class, methodId = "initModeImplForInvoker")
+    public static void register() {
+        b.b(KsScene.class, SceneImpl.class);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m181clone() {
-        String jSONObject = toJson().toString();
-        try {
-            SceneImpl sceneImpl = new SceneImpl();
-            sceneImpl.parseJson(new JSONObject(jSONObject));
-            return sceneImpl;
-        } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-            return new SceneImpl();
-        }
+    public SceneImpl m185clone() {
+        return covert(this);
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -154,17 +85,6 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         return this.backUrl;
     }
 
-    public String getBackUrl(KsScene ksScene) {
-        if (ksScene == null) {
-            return "";
-        }
-        try {
-            return ksScene.getBackUrl();
-        } catch (Throwable unused) {
-            return "";
-        }
-    }
-
     @Override // com.kwad.sdk.api.KsScene
     public String getBidResponse() {
         return this.bidResponse;
@@ -177,7 +97,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
 
     @Override // com.kwad.sdk.api.KsScene
     public String getComment() {
-        return this.mEcAttribute.getComment();
+        return this.comment;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -200,7 +120,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
 
     @Override // com.kwad.sdk.api.KsScene
     public String getPromoteId() {
-        return this.mEcAttribute.getPromoteId();
+        return this.promoteId;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -219,34 +139,12 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
 
     @Override // com.kwad.sdk.api.KsScene
     public long getUserCommRateBuying() {
-        return this.mEcAttribute.getUserCommRateBuying();
-    }
-
-    public long getUserCommRateBuying(KsScene ksScene) {
-        if (ksScene == null) {
-            return 0L;
-        }
-        try {
-            return ksScene.getUserCommRateBuying();
-        } catch (Throwable unused) {
-            return 0L;
-        }
+        return this.userCommRateBuying;
     }
 
     @Override // com.kwad.sdk.api.KsScene
     public long getUserCommRateSharing() {
-        return this.mEcAttribute.getUserCommRateSharing();
-    }
-
-    public long getUserCommRateSharing(KsScene ksScene) {
-        if (ksScene == null) {
-            return 0L;
-        }
-        try {
-            return ksScene.getUserCommRateSharing();
-        } catch (Throwable unused) {
-            return 0L;
-        }
+        return this.userCommRateSharing;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -254,9 +152,33 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         return this.width;
     }
 
-    @Override // com.kwad.sdk.api.KsScene
-    public void needShowMiniWindow(boolean z) {
-        this.needShowMiniWindow = z;
+    public SceneImpl(long j) {
+        this.posId = j;
+        this.entryScene = j;
+    }
+
+    public static SceneImpl covert(KsScene ksScene) {
+        SceneImpl sceneImpl = new SceneImpl();
+        try {
+            sceneImpl.parseJson(ksScene.toJson());
+        } catch (Throwable unused) {
+        }
+        return sceneImpl;
+    }
+
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
+        super.afterParseJson(jSONObject);
+        if (jSONObject == null) {
+            return;
+        }
+        this.rewardCallbackExtraData = u.parseJSON2MapString(jSONObject.optString("rewardCallbackExtraData"));
+    }
+
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterToJson(JSONObject jSONObject) {
+        super.afterToJson(jSONObject);
+        u.putValue(jSONObject, "rewardCallbackExtraData", u.parseMap2JSON(this.rewardCallbackExtraData));
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -267,6 +189,9 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     @Override // com.kwad.sdk.api.KsScene
     public void setAdNum(int i) {
         this.adNum = i;
+        if (com.kwad.framework.a.a.mc.booleanValue() && bj.LL() != 0) {
+            this.adNum = (int) bj.LL();
+        }
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -291,7 +216,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
 
     @Override // com.kwad.sdk.api.KsScene
     public void setComment(String str) {
-        this.mEcAttribute.setComment(str);
+        this.comment = str;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -300,31 +225,33 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setKsAdLabel(IKsAdLabel iKsAdLabel) {
-        if (iKsAdLabel == null) {
+    public void setNativeAdExtraData(NativeAdExtraData nativeAdExtraData) {
+        if (nativeAdExtraData == null) {
             return;
         }
-        a aVar = new a();
-        this.mKsAdLabel = aVar;
-        aVar.acZ = iKsAdLabel.getThirdAge();
-        this.mKsAdLabel.ada = iKsAdLabel.getThirdGender();
-        this.mKsAdLabel.adb = iKsAdLabel.getThirdInterest();
-        this.mKsAdLabel.aiz = iKsAdLabel.getPrevTitle();
-        this.mKsAdLabel.aiA = iKsAdLabel.getPostTitle();
-        this.mKsAdLabel.aiB = iKsAdLabel.getHistoryTitle();
-        this.mKsAdLabel.agM = iKsAdLabel.getChannel();
-        this.mKsAdLabel.aiC = iKsAdLabel.getCpmBidFloor();
+        NativeAdExtraDataImpl nativeAdExtraDataImpl = new NativeAdExtraDataImpl();
+        this.nativeAdExtraData = nativeAdExtraDataImpl;
+        try {
+            nativeAdExtraDataImpl.enableShake = nativeAdExtraData.isEnableShake();
+            this.nativeAdExtraData.showLiveStyle = nativeAdExtraData.getShowLiveStyle();
+            this.nativeAdExtraData.showLiveStatus = nativeAdExtraData.getShowLiveStatus();
+        } catch (Throwable unused) {
+        }
     }
 
     @Override // com.kwad.sdk.api.KsScene
     public void setPosId(long j) {
         this.posId = j;
         this.entryScene = j;
+        if (com.kwad.framework.a.a.mc.booleanValue() && bj.getPosId() != 0) {
+            this.posId = bj.getPosId();
+            this.entryScene = bj.getPosId();
+        }
     }
 
     @Override // com.kwad.sdk.api.KsScene
     public void setPromoteId(String str) {
-        this.mEcAttribute.setPromoteId(str);
+        this.promoteId = str;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -342,25 +269,26 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         if (splashAdExtraData == null) {
             return;
         }
-        b bVar = new b();
-        this.splashExtraData = bVar;
-        bVar.disableShake = splashAdExtraData.getDisableShakeStatus();
+        SplashExtraDataImpl splashExtraDataImpl = new SplashExtraDataImpl();
+        this.splashExtraData = splashExtraDataImpl;
+        splashExtraDataImpl.disableShake = splashAdExtraData.getDisableShakeStatus();
         this.splashExtraData.disableSlide = splashAdExtraData.getDisableSlideStatus();
         this.splashExtraData.disableRotate = splashAdExtraData.getDisableRotateStatus();
     }
 
-    public void setUrlPackage(URLPackage uRLPackage) {
+    public SceneImpl setUrlPackage(URLPackage uRLPackage) {
         this.urlPackage = uRLPackage;
+        return this;
     }
 
     @Override // com.kwad.sdk.api.KsScene
     public void setUserCommRateBuying(int i) {
-        this.mEcAttribute.setUserCommRateBuying(i);
+        this.userCommRateBuying = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
     public void setUserCommRateSharing(int i) {
-        this.mEcAttribute.setUserCommRateSharing(i);
+        this.userCommRateSharing = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -368,33 +296,20 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         this.width = i;
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        s.putValue(jSONObject, "posId", this.posId);
-        s.putValue(jSONObject, "entryScene", this.entryScene);
-        s.putValue(jSONObject, "adNum", this.adNum);
-        s.putValue(jSONObject, "action", this.action);
-        s.putValue(jSONObject, "width", this.width);
-        s.putValue(jSONObject, "height", this.height);
-        a aVar = this.mKsAdLabel;
-        if (aVar != null) {
-            long j = aVar.aiC;
-            if (j != 0) {
-                r.putValue(jSONObject, "cpmBidFloor", j);
-            }
+    @Override // com.kwad.sdk.api.KsScene
+    public void setKsAdLabel(IKsAdLabel iKsAdLabel) {
+        if (iKsAdLabel == null) {
+            return;
         }
-        s.putValue(jSONObject, "adStyle", this.adStyle);
-        URLPackage uRLPackage = this.urlPackage;
-        if (uRLPackage != null) {
-            s.putValue(jSONObject, "urlPackage", uRLPackage.toJson());
-        }
-        s.putValue(jSONObject, "promoteId", this.mEcAttribute.getPromoteId());
-        s.putValue(jSONObject, "comment", this.mEcAttribute.getComment());
-        s.putValue(jSONObject, "backUrl", this.backUrl);
-        s.putValue(jSONObject, "userCommRateBuying", this.mEcAttribute.getUserCommRateBuying());
-        s.putValue(jSONObject, "userCommRateSharing", this.mEcAttribute.getUserCommRateSharing());
-        s.putValue(jSONObject, "screenOrientation", this.screenOrientation);
-        return jSONObject;
+        AdLabelImpl adLabelImpl = new AdLabelImpl();
+        this.mKsAdLabel = adLabelImpl;
+        adLabelImpl.thirdAge = iKsAdLabel.getThirdAge();
+        this.mKsAdLabel.thirdGender = iKsAdLabel.getThirdGender();
+        this.mKsAdLabel.thirdInterest = iKsAdLabel.getThirdInterest();
+        this.mKsAdLabel.prevTitle = iKsAdLabel.getPrevTitle();
+        this.mKsAdLabel.postTitle = iKsAdLabel.getPostTitle();
+        this.mKsAdLabel.historyTitle = iKsAdLabel.getHistoryTitle();
+        this.mKsAdLabel.channel = iKsAdLabel.getChannel();
+        this.mKsAdLabel.cpmBidFloor = iKsAdLabel.getCpmBidFloor();
     }
 }

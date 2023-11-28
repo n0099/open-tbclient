@@ -1,133 +1,125 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.ConsoleMessage;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.OfflinePkgAutoCleanSwitch;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public final class jh6 extends lk6 {
+public abstract class jh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean b;
+    public final WebView a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jh6() {
-        super(null);
+    public jh6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = OfflinePkgAutoCleanSwitch.isOn();
-    }
-
-    public final String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = "file://" + ci6.n().m().getAbsolutePath();
-            if (str.startsWith(str2)) {
-                String[] split = str.substring(str2.length()).split("/");
-                if (!wj6.e(split)) {
-                    return split[0];
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
-    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
-            if (this.b && consoleMessage != null && consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.ERROR && TextUtils.equals(consoleMessage.message(), "Uncaught SyntaxError: Invalid or unexpected token")) {
-                String d = d(consoleMessage.sourceId());
-                if (!TextUtils.isEmpty(d)) {
-                    ci6.n().h(d);
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            try {
+                webView.setRendererPriorityPolicy(2, false);
+            } catch (Exception e) {
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    throw e;
                 }
             }
-            return super.onConsoleMessage(consoleMessage);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(si6.a(webView.getContext()))) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings d = d();
+            d.setJavaScriptEnabled(true);
+            d.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                d.setMixedContentMode(0);
             }
-            return true;
+            d.setGeolocationEnabled(true);
+            d.setLoadsImagesAutomatically(true);
+            d.setBlockNetworkImage(false);
+            d.setBlockNetworkLoads(false);
+            d.setLoadWithOverviewMode(true);
+            d.setAllowFileAccess(true);
+            d.setUseWideViewPort(true);
+            d.setSupportZoom(true);
+            d.setBuiltInZoomControls(false);
+            d.setDisplayZoomControls(false);
+            d.setMediaPlaybackRequiresUserGesture(false);
+            d.setDomStorageEnabled(true);
+            try {
+                d.setAppCacheEnabled(true);
+                d.setAppCachePath(b(c(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                d.setAppCachePath(c().getCacheDir().getPath());
+            }
+            String userAgentString = d().getUserAgentString();
+            Pair<Boolean, String> k = qg6.k(userAgentString);
+            if (((Boolean) k.first).booleanValue()) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("WebSetting", "更新UA信息：" + ((String) k.second) + " 原UA：" + userAgentString);
+                d.setUserAgentString((String) k.second);
+            }
+            d.setJavaScriptCanOpenWindowsAutomatically(true);
+            d.setTextZoom(100);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(si6.a(webView.getContext()))) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
             }
-            return true;
+            return file;
         }
-        return invokeLLLL.booleanValue;
+        return (File) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public Context c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            if (xb.e(si6.a(webView.getContext()))) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getContext();
         }
-        return invokeLLLL.booleanValue;
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public WebSettings d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (ej6.a().c(webView, str2, jsPromptResult)) {
-                qj6.c("newHybrid", "端能力执行完成：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
-                return true;
-            } else if (super.onJsPrompt(webView, str, str2, str3, jsPromptResult)) {
-                qj6.c("newHybrid", "外部注册端能力执行成功：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
-                return true;
-            } else {
-                qj6.c("newHybrid", "端能力执行失败：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
-                jsPromptResult.cancel();
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getSettings();
         }
-        return invokeLLLLL.booleanValue;
+        return (WebSettings) invokeV.objValue;
     }
 }

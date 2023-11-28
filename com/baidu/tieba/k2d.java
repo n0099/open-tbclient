@@ -1,42 +1,40 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
+import com.baidu.tieba.write.write.message.QuestionTagListRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.Media;
-import tbclient.RecomTopicList;
+import tbclient.FrsPage.TagInfo;
+import tbclient.RecomTagInfo;
 /* loaded from: classes7.dex */
-public class k2d extends qoc {
+public class k2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomTopicList recomTopicList) {
+    public static JSONObject b(@NonNull TagInfo tagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTopicList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tagInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "topic_id", recomTopicList.topic_id);
-            qoc.a(jSONObject, "topic_name", recomTopicList.topic_name);
-            qoc.a(jSONObject, "type", recomTopicList.type);
-            qoc.a(jSONObject, "discuss_num", recomTopicList.discuss_num);
-            qoc.a(jSONObject, "tag", recomTopicList.tag);
-            qoc.a(jSONObject, "topic_desc", recomTopicList.topic_desc);
-            qoc.a(jSONObject, "topic_pic", recomTopicList.topic_pic);
-            qoc.a(jSONObject, "update_time", recomTopicList.update_time);
-            qoc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, recomTopicList.author);
-            if (recomTopicList.media != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Media media : recomTopicList.media) {
-                    jSONArray.put(zzc.b(media));
-                }
-                qoc.a(jSONObject, "media", jSONArray);
+            ltc.a(jSONObject, "forum_id", tagInfo.forum_id);
+            ltc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_ID, tagInfo.tag_id);
+            ltc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_NAME, tagInfo.tag_name);
+            ltc.a(jSONObject, "color", tagInfo.color);
+            ltc.a(jSONObject, "hot_value", tagInfo.hot_value);
+            ltc.a(jSONObject, "tag_type", tagInfo.tag_type);
+            ltc.a(jSONObject, "tag_level", tagInfo.tag_level);
+            ltc.a(jSONObject, "influence", tagInfo.influence);
+            ltc.a(jSONObject, "relation_weight", tagInfo.relation_weight);
+            ltc.a(jSONObject, "op_time", tagInfo.op_time);
+            RecomTagInfo recomTagInfo = tagInfo.recom_tag;
+            if (recomTagInfo != null) {
+                ltc.a(jSONObject, "recom_tag", l7d.b(recomTagInfo));
             }
-            qoc.a(jSONObject, "is_video_topic", recomTopicList.is_video_topic);
+            ltc.a(jSONObject, QuestionTagListRequestMessage.KEY_CATEGORY, tagInfo.first_category);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

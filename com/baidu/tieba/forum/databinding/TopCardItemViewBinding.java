@@ -85,8 +85,8 @@ public final class TopCardItemViewBinding implements ViewBinding {
             int i = R.id.agree_and_disagreeview;
             AgreeView agreeView = (AgreeView) view2.findViewById(R.id.agree_and_disagreeview);
             if (agreeView != null) {
-                i = R.id.obfuscated_res_0x7f090324;
-                AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f090324);
+                i = R.id.obfuscated_res_0x7f090338;
+                AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f090338);
                 if (autoDegradeTagView != null) {
                     i = R.id.comment_icon;
                     ImageView imageView = (ImageView) view2.findViewById(R.id.comment_icon);
@@ -94,23 +94,23 @@ public final class TopCardItemViewBinding implements ViewBinding {
                         i = R.id.comment_num;
                         EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.comment_num);
                         if (eMTextView != null) {
-                            i = R.id.obfuscated_res_0x7f0922e5;
-                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0922e5);
+                            i = R.id.obfuscated_res_0x7f092365;
+                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092365);
                             if (findViewById != null) {
-                                i = R.id.obfuscated_res_0x7f0926b5;
-                                LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
+                                i = R.id.obfuscated_res_0x7f092738;
+                                LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092738);
                                 if (linearLayout != null) {
-                                    i = R.id.obfuscated_res_0x7f0926b6;
-                                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b6);
+                                    i = R.id.obfuscated_res_0x7f092739;
+                                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092739);
                                     if (textView != null) {
-                                        i = R.id.obfuscated_res_0x7f0926b8;
-                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b8);
+                                        i = R.id.obfuscated_res_0x7f09273b;
+                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09273b);
                                         if (textView2 != null) {
-                                            i = R.id.obfuscated_res_0x7f0926b9;
-                                            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926b9);
+                                            i = R.id.obfuscated_res_0x7f09273c;
+                                            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09273c);
                                             if (relativeLayout != null) {
-                                                i = R.id.obfuscated_res_0x7f0926ba;
-                                                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926ba);
+                                                i = R.id.obfuscated_res_0x7f09273d;
+                                                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09273d);
                                                 if (relativeLayout2 != null) {
                                                     i = R.id.user_avatar;
                                                     HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.user_avatar);
@@ -138,7 +138,7 @@ public final class TopCardItemViewBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09bd, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09d7, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

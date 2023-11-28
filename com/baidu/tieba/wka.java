@@ -1,27 +1,70 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wka {
+public final class wka implements ub7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vka a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized vka a() {
+    @Override // com.baidu.tieba.ub7
+    public String getKey() {
         InterceptResult invokeV;
-        vka vkaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (wka.class) {
-                if (a == null) {
-                    a = new vka();
-                }
-                vkaVar = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public wka() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return vkaVar;
         }
-        return (vka) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub7
+    public Map<String, String> a(r57 businessInfo) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            String str2 = "";
+            if (hdid == null) {
+                hdid = "";
+            }
+            hashMap.put("hdid", hdid);
+            if (PermissionUtil.isBrowseMode()) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null) {
+                str2 = currentAccount;
+            }
+            hashMap.put("uid", str2);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

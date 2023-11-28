@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayFailMsg {
     public static final String FAILED_CALL_THIRD_PARTY_SDK = "调起支付失败";
     public static final String FAILED_GET_RESULT_TIME_OUT = "支付订单查询失败";

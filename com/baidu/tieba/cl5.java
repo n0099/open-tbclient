@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
+import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface cl5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "FrsLiveTabService");
+    void onFailure(int i, String str);
 
-    @NonNull
-    Fragment a(@Nullable String str, @Nullable String str2);
+    void onSuccess(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> map);
 }

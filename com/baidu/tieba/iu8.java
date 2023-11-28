@@ -1,87 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.LoadDraftMessage;
-import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes6.dex */
-public class iu8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
+public class iu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qt8 a;
-    public int b;
+    public Long a;
+    public String b;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
-    public iu8(qt8 qt8Var, int i) {
+    public iu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qt8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = qt8Var;
-        this.b = i;
     }
 
-    public final LoadDraftResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-            loadDraftResponsedMessage.setError(-18);
-            return loadDraftResponsedMessage;
-        }
-        return (LoadDraftResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
+    public static iu8 a(Item item) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
-                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting setting = this.a.getSetting(str, data.a);
-                if (setting == null) {
-                    return a(loadDraftMessage.getCmd());
-                }
-                String draft = setting.getDraft();
-                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-                aVar.a = draft;
-                String str2 = data.a;
-                try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadDraftResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
             }
-            return a(this.b);
+            iu8 iu8Var = new iu8();
+            iu8Var.a = item.itemId;
+            iu8Var.b = item.itemName;
+            iu8Var.c = item.iconSize;
+            iu8Var.d = item.iconUrl;
+            iu8Var.e = item.tags;
+            iu8Var.f = item.score;
+            iu8Var.g = item.star;
+            iu8Var.h = item.buttonName;
+            iu8Var.i = item.buttonLink;
+            iu8Var.j = item.itemAppid;
+            iu8Var.k = item.categoryId;
+            iu8Var.l = item.buttonLinkType;
+            iu8Var.m = item.apkName;
+            iu8Var.n = item.forumName;
+            iu8Var.o = ApkDetailPojo.O(item.apkDetail);
+            return iu8Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (iu8) invokeL.objValue;
+    }
+
+    public static iu8 b(tbclient.Item item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            iu8 iu8Var = new iu8();
+            iu8Var.a = item.item_id;
+            iu8Var.b = item.item_name;
+            iu8Var.c = item.icon_size;
+            iu8Var.d = item.icon_url;
+            iu8Var.e = item.tags;
+            iu8Var.f = item.score;
+            iu8Var.g = item.star;
+            iu8Var.h = item.button_name;
+            iu8Var.i = item.button_link;
+            iu8Var.j = item.item_appid;
+            iu8Var.k = item.category_id;
+            iu8Var.l = item.button_link_type;
+            iu8Var.m = item.apk_name;
+            iu8Var.n = item.forum_name;
+            iu8Var.o = ApkDetailPojo.P(item.apk_detail);
+            return iu8Var;
+        }
+        return (iu8) invokeL.objValue;
     }
 }

@@ -4,22 +4,43 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-import com.kwad.components.ad.reward.k.h;
-import com.kwad.components.ad.reward.k.u;
+import com.kwad.components.ad.reward.n.i;
+import com.kwad.components.ad.reward.n.r;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.ai;
 /* loaded from: classes10.dex */
-public final class d extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.ad.reward.k.b {
-    public ViewGroup es;
-    public KsLogoView pM;
-    public h rM;
+public final class d extends com.kwad.components.ad.reward.presenter.b implements com.kwad.components.ad.reward.n.b {
+    public ViewGroup gS;
+    public KsLogoView sq;
+    public i uT;
+
+    @Override // com.kwad.components.ad.reward.n.b
+    public final void gH() {
+    }
+
+    @Override // com.kwad.components.ad.reward.n.b
+    /* renamed from: if */
+    public final void mo180if() {
+    }
+
+    @Override // com.kwad.components.ad.reward.n.b
+    public final void ig() {
+    }
 
     public d(ViewGroup viewGroup) {
-        this.es = viewGroup;
+        this.gS = viewGroup;
+    }
+
+    public static FrameLayout.LayoutParams a(FrameLayout.LayoutParams layoutParams) {
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams((ViewGroup.MarginLayoutParams) layoutParams);
+        layoutParams2.gravity = layoutParams.gravity;
+        return layoutParams2;
     }
 
     public static FrameLayout.LayoutParams a(Context context, AdInfo adInfo, KsLogoView ksLogoView, int i, boolean z) {
+        boolean z2;
+        boolean z3;
         FrameLayout.LayoutParams layoutParams = null;
         if (ksLogoView != null && context != null) {
             ViewGroup.LayoutParams layoutParams2 = ksLogoView.getLayoutParams();
@@ -28,13 +49,23 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             }
             FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) layoutParams2;
             layoutParams = a(layoutParams3);
-            boolean z2 = false;
+            boolean z4 = false;
             if (z) {
                 ksLogoView.setVisibility(0);
             }
-            z2 = ((!ag.cB(context) && (com.kwad.components.ad.reward.kwai.b.h(adInfo) || com.kwad.sdk.core.response.a.a.bF(adInfo))) || (ag.cB(context) && com.kwad.sdk.core.response.a.a.bE(adInfo))) ? true : true;
+            if (!ai.Kx() && (com.kwad.components.ad.reward.a.b.i(adInfo) || com.kwad.sdk.core.response.b.a.cD(adInfo))) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (ai.Kx() && com.kwad.sdk.core.response.b.a.cC(adInfo)) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            z4 = (z2 || z3) ? true : true;
             layoutParams3.gravity = 85;
-            if (z2) {
+            if (z4) {
                 i = R.dimen.obfuscated_res_0x7f07050a;
             }
             layoutParams3.bottomMargin = context.getResources().getDimensionPixelOffset(i);
@@ -44,36 +75,18 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         return layoutParams;
     }
 
-    public static FrameLayout.LayoutParams a(FrameLayout.LayoutParams layoutParams) {
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams((ViewGroup.MarginLayoutParams) layoutParams);
-        layoutParams2.gravity = layoutParams.gravity;
-        return layoutParams2;
-    }
-
-    @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void aq() {
-        super.aq();
-        h hVar = new h(this.nM, this.es, this.pM);
-        this.rM = hVar;
-        hVar.b(u.D(this.nM.mAdTemplate));
-        a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f070526, false);
-    }
-
-    @Override // com.kwad.components.ad.reward.k.b
-    public final void gn() {
-    }
-
-    @Override // com.kwad.components.ad.reward.k.b
-    public final void hA() {
-    }
-
-    @Override // com.kwad.components.ad.reward.k.b
-    public final void hz() {
+    @Override // com.kwad.components.ad.reward.presenter.b, com.kwad.sdk.mvp.Presenter
+    public final void aj() {
+        super.aj();
+        i iVar = new i(this.qn, this.gS, this.sq);
+        this.uT = iVar;
+        iVar.b(r.R(this.qn.mAdTemplate));
+        a(getContext(), com.kwad.sdk.core.response.b.e.dP(this.qn.mAdTemplate), this.sq, R.dimen.obfuscated_res_0x7f070526, false);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912c1);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
     }
 }

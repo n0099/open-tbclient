@@ -6,13 +6,13 @@ public enum hi {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f473a;
+    public final int f469a;
 
     hi(int i) {
-        this.f473a = i;
+        this.f469a = i;
     }
 
     public int a() {
-        return this.f473a;
+        return this.f469a;
     }
 }

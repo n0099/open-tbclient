@@ -55,10 +55,10 @@ public final class NotifyType {
                 return;
             }
         }
-        AT_ME = new NotifyType("AT_ME", 0, "@我的", R.drawable.obfuscated_res_0x7f081101);
-        AGREE_ME = new NotifyType("AGREE_ME", 1, "点赞", R.drawable.obfuscated_res_0x7f081100);
-        REPLY_ME = new NotifyType("REPLY_ME", 2, "回复", R.drawable.obfuscated_res_0x7f081103);
-        FANS = new NotifyType("FANS", 3, "粉丝", R.drawable.obfuscated_res_0x7f081102);
+        AT_ME = new NotifyType("AT_ME", 0, "@我的", R.drawable.obfuscated_res_0x7f081121);
+        AGREE_ME = new NotifyType("AGREE_ME", 1, "点赞", R.drawable.obfuscated_res_0x7f081120);
+        REPLY_ME = new NotifyType("REPLY_ME", 2, "回复", R.drawable.obfuscated_res_0x7f081123);
+        FANS = new NotifyType("FANS", 3, "粉丝", R.drawable.obfuscated_res_0x7f081122);
         $VALUES = $values();
     }
 

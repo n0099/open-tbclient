@@ -10,7 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.net.URLEncoder;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EncryptProcessor implements MessageProcessor {
     public static final String RSA_PUB_KEY = "MCwwDQYJKoZIhvcNAQEBBQADGwAwGAIRAMRSvSVZEbyQwtFwNtNiZKkCAwEAAQ==";
     public RsaCipher mRsaCipher = null;

@@ -1,16 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.appcompat.app.AlertDialog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public final class lj7 {
+public final class lj7 implements l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
+
+    @Override // com.baidu.tieba.l15
+    public Class<? extends j15> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? kj7.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsCopyLinkGuide" : (String) invokeV.objValue;
+    }
 
     public lj7() {
         Interceptable interceptable = $ic;
@@ -23,21 +38,6 @@ public final class lj7 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public final void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null) {
-            alertDialog.dismiss();
-        }
-    }
-
-    public final void b(AlertDialog alertDialog) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alertDialog) == null) {
-            this.a = alertDialog;
         }
     }
 }

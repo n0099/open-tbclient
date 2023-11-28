@@ -110,7 +110,7 @@ public final class AigcGenerateImageView extends AigcImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, loadingView) == null) {
             Intrinsics.checkNotNullParameter(loadingView, "loadingView");
-            loadingView.i(3000L, 33L, 90);
+            loadingView.j(3000L, 33L, 90);
         }
     }
 }

@@ -1,97 +1,89 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
 public final class n39 {
     public static /* synthetic */ Interceptable $ic;
+    public static final n39 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947951669, "Lcom/baidu/tieba/n39;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951669, "Lcom/baidu/tieba/n39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947951669, "Lcom/baidu/tieba/n39;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new n39();
+    }
+
+    public n39() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947951669, "Lcom/baidu/tieba/n39;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     @JvmStatic
-    public static final boolean a() {
-        InterceptResult invokeV;
+    public static final void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 4);
-            }
-            return hba.d.a().b("agree_message_bar");
+        if ((interceptable == null || interceptable.invokeL(65538, null, runnable) == null) && runnable != null) {
+            SafeHandler.getInst().removeCallbacks(runnable);
+            SafeHandler.getInst().post(runnable);
         }
-        return invokeV.booleanValue;
     }
 
     @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
+    public static final void d(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 3);
-            }
-            return hba.d.a().b("at_message_bar");
+        if ((interceptable == null || interceptable.invokeL(65541, null, runnable) == null) && runnable != null) {
+            SafeHandler.getInst().removeCallbacks(runnable);
         }
-        return invokeV.booleanValue;
     }
 
     @JvmStatic
-    public static final boolean c() {
-        InterceptResult invokeV;
+    public static final void b(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 5);
+        if ((interceptable == null || interceptable.invokeLJ(65539, null, runnable, j) == null) && runnable != null) {
+            if (j <= 0) {
+                SafeHandler.getInst().post(runnable);
+            } else {
+                SafeHandler.getInst().postDelayed(runnable, j);
             }
-            return hba.d.a().b("fan_message_bar");
         }
-        return invokeV.booleanValue;
     }
 
     @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
+    public static final void c(boolean z, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 0);
+        if (interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, runnable) == null) {
+            if (z) {
+                a(runnable);
+            } else {
+                d(runnable);
             }
-            return hba.d.a().b("im");
         }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 6);
-            }
-            return hba.d.a().b("reply_message_bar");
-        }
-        return invokeV.booleanValue;
     }
 }

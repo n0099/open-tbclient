@@ -1,93 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
 import android.util.Pair;
+import android.view.View;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lb3;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class xw1 extends nw1 {
+public class xw1 extends ow1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
 
-    @Override // com.baidu.tieba.ku1
+    public final int C(boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                return i;
+            }
+            return -1;
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.lu1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "RequestFullScreenApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes9.dex */
-    public class a implements zk3<jb3<lb3.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ int a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ xw1 d;
+        public final /* synthetic */ xw1 c;
 
-        public a(xw1 xw1Var, String str, String str2, String str3) {
+        public a(xw1 xw1Var, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xw1Var, str, str2, str3};
+                Object[] objArr = {xw1Var, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = xw1Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.c = xw1Var;
+            this.a = i;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zk3
-        /* renamed from: b */
-        public void a(jb3<lb3.e> jb3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
-                if (!eb3.h(jb3Var)) {
-                    int b = jb3Var.b();
-                    this.d.d(this.a, new hy1(b, eb3.f(b)));
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View b = d53.b();
+                LinearLayout d = d53.d();
+                int i = this.a;
+                if (i != -90) {
+                    if (i != 0) {
+                        if (i != 90) {
+                            d53.o();
+                            if (b != null) {
+                                b.setVisibility(0);
+                            }
+                            if (d != null) {
+                                d.setVisibility(0);
+                            }
+                            xw1.F();
+                        } else {
+                            if (b != null) {
+                                b.setVisibility(8);
+                            }
+                            if (d != null) {
+                                d.setVisibility(8);
+                            }
+                            d53.g();
+                            d53.m(true);
+                            xw1.E(0);
+                        }
+                    } else {
+                        if (d != null) {
+                            d.setVisibility(8);
+                        }
+                        xw1.D();
+                    }
+                } else {
+                    if (b != null) {
+                        b.setVisibility(8);
+                    }
+                    if (d != null) {
+                        d.setVisibility(8);
+                    }
+                    d53.g();
+                    d53.m(true);
+                    xw1.E(8);
                 }
-                this.d.A(this.b, this.c);
-                this.d.d(this.a, new hy1(0));
+                zw1.e().u(this.a);
+                this.c.d(this.b, new iy1(0));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xw1(@NonNull iu1 iu1Var) {
-        super(iu1Var);
+    public xw1(@NonNull ju1 ju1Var) {
+        super(ju1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iu1Var};
+            Object[] objArr = {ju1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iu1) newInitContext.callArgs[0]);
+                super((ju1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,81 +140,93 @@ public class xw1 extends nw1 {
         }
     }
 
-    public void A(@NonNull String str, @NonNull String str2) {
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            i().startActivity(intent);
-            y();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            SwanAppActivity activity = ur2.V().getActivity();
+            if (qi3.d(activity)) {
+                activity.setRequestedOrientation(1);
+            }
+            p52 J = ur2.V().J();
+            if (J != null) {
+                J.Y3(true);
+                J.v2();
+            }
         }
     }
 
-    public hy1 B(String str) {
+    public static void E(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (ur2.V().J() != null) {
+                ur2.V().J().Y3(false);
+            }
+            SwanAppActivity activity = ur2.V().getActivity();
+            if (qi3.d(activity)) {
+                activity.setRequestedOrientation(i);
+            }
+            if (activity.getWindow() != null) {
+                activity.getWindow().clearFlags(2048);
+                activity.getWindow().setFlags(1024, 1024);
+            }
+        }
+    }
+
+    public iy1 G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            r("#openSystemSMSPanel", false);
-            Pair<hy1, JSONObject> t = t(str);
-            hy1 hy1Var = (hy1) t.first;
-            if (!hy1Var.isSuccess()) {
-                return hy1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#setFullScreen", false);
+            Pair<iy1, JSONObject> t = t(str);
+            iy1 iy1Var = (iy1) t.first;
+            if (!iy1Var.isSuccess()) {
+                return iy1Var;
             }
             JSONObject jSONObject = (JSONObject) t.second;
-            g32.b("ShowSMSPanelApi", "params: ", jSONObject);
-            String optString = jSONObject.optString("content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-            if (optJSONArray == null) {
-                return new hy1(202);
-            }
-            String z = z(optJSONArray);
-            if (!TextUtils.isEmpty(z) && !TextUtils.isEmpty(optString)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new hy1(202);
-                }
-                f63.K().q().f0().g(i(), "scope_show_sms_panel", new a(this, optString2, z, optString));
-                return hy1.f();
-            }
-            return new hy1(202);
+            B(C(jSONObject.optBoolean("fullScreen"), jSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION)), jSONObject.optString("cb"));
+            return iy1.f();
         }
-        return (hy1) invokeL.objValue;
+        return (iy1) invokeL.objValue;
     }
 
-    public final void y() {
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            jd3 jd3Var = new jd3();
-            jd3Var.b = "sms_panel";
-            jd3Var.e = String.valueOf(this.f);
-            jd3Var.a("appid", f63.K().getAppId());
-            zc3.x("1639", jd3Var);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            SwanAppActivity activity = ur2.V().getActivity();
+            p52 J = ur2.V().J();
+            if (qi3.d(activity)) {
+                activity.setRequestedOrientation(1);
+            }
+            if (!d53.i(d53.e(activity))) {
+                d53.m(false);
+            }
+            if (activity.getWindow() != null) {
+                activity.getWindow().clearFlags(1024);
+                activity.getWindow().clearFlags(2048);
+            }
+            if (J != null) {
+                J.Y3(false);
+                J.v2();
+                il3 N1 = J.N1();
+                if (N1 != null) {
+                    int i = N1.d().b;
+                    View b = d53.b();
+                    if (b != null) {
+                        b.findViewById(R.id.obfuscated_res_0x7f0901a2).setBackgroundColor(i);
+                    }
+                }
+                SwanAppActionBar P1 = J.P1();
+                P1.f(P1.getCenterTitleView().getCurrentTextColor(), false);
+            }
         }
     }
 
-    public final String z(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public final void B(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            bk3.a0(new a(this, i, str));
         }
-        return (String) invokeL.objValue;
     }
 }

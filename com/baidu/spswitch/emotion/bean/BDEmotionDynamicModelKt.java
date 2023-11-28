@@ -2,6 +2,7 @@ package com.baidu.spswitch.emotion.bean;
 
 import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.pic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -115,7 +116,7 @@ public final class BDEmotionDynamicModelKt {
                 return null;
             }
             try {
-                return new EmotionTypeModel(jSONObject.optString("id"), jSONObject.optString("type"), jSONObject.optString("auth"), jSONObject.optString("title"), jSONObject.optString("icon"), jSONObject.optString("schema"), jSONObject.optString("height"), jSONObject.optString("width"), jSONObject.optString("pic"));
+                return new EmotionTypeModel(jSONObject.optString("id"), jSONObject.optString("type"), jSONObject.optString("auth"), jSONObject.optString("title"), jSONObject.optString("icon"), jSONObject.optString("schema"), jSONObject.optString("height"), jSONObject.optString("width"), jSONObject.optString(pic.f));
             } catch (JSONException e) {
                 if (!AppConfig.isDebug()) {
                     return null;

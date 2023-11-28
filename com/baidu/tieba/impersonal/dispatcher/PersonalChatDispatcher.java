@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.PersonalChatActivity;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.kma;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,10 +25,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u0000 \n2\u00020\u0001:\u0001\nB\u0005¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016J\u0010\u0010\t\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0006H\u0002¨\u0006\u000b"}, d2 = {"Lcom/baidu/tieba/impersonal/dispatcher/PersonalChatDispatcher;", "Lcom/baidu/tieba/schema/SchemaDispatcher;", "()V", "dispatch", "", "params", "Lorg/json/JSONObject;", "context", "Landroid/content/Context;", "getPageParamsObj", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class PersonalChatDispatcher implements rha {
+public final class PersonalChatDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
+    public static final String OPEN_PAGE_FROM = "scene_from";
     public static final String OPEN_PAGE_PARAMS_FORUM_ID = "forumId";
+    public static final String OPEN_PAGE_QUERY = "query";
     public static final String OPEN_TALK_PROLOGUE = "spriteTalk";
     public static final String OPEN_TALK_TYPE = "spriteType";
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +106,7 @@ public final class PersonalChatDispatcher implements rha {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -112,16 +114,22 @@ public final class PersonalChatDispatcher implements rha {
                 String optString = jSONObject.optString(OPEN_TALK_PROLOGUE);
                 String optString2 = jSONObject.optString(OPEN_TALK_TYPE);
                 String optString3 = jSONObject.optString("forumId");
+                String optString4 = jSONObject.optString(OPEN_PAGE_FROM);
+                if (optString4 == null) {
+                    optString4 = "index";
+                }
+                String str = optString4;
+                String optString5 = jSONObject.optString("query");
                 LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
                 loginActivityConfig.setJumpToAfterDestroy(2);
                 loginActivityConfig.setBackScheme(Uri.parse("tiebaapp://router/portal").buildUpon().appendQueryParameter(BdUniDispatchSchemeController.PARAM_CHAT_ROOM_ID_CAMEL, getPageParamsObj(jSONObject).toString()).build().toString());
                 if (!ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
                     return;
                 }
-                PersonalChatActivity.c.a(context, optString2, optString, optString3);
+                PersonalChatActivity.c.a(context, optString2, optString, optString3, str, optString5);
                 return;
             }
-            BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0e5f)).show();
+            BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0e6d)).show();
         }
     }
 }

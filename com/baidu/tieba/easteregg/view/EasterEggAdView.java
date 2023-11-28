@@ -364,7 +364,7 @@ public final class EasterEggAdView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
             MessageManager.getInstance().registerListener(getSkinChangeListener());
-            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.yv6
+            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.iw6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

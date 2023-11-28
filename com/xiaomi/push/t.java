@@ -6,15 +6,15 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import java.util.Collection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class t {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final StringBuilder f1013a;
+        public final StringBuilder f1009a;
         public final String b;
 
         public a() {
@@ -22,17 +22,17 @@ public class t {
         }
 
         public a(String str, String str2) {
-            this.f1013a = new StringBuilder();
+            this.f1009a = new StringBuilder();
             this.a = str;
             this.b = str2;
         }
 
         public a a(String str, Object obj) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.f1013a.length() > 0) {
-                    this.f1013a.append(this.b);
+                if (this.f1009a.length() > 0) {
+                    this.f1009a.append(this.b);
                 }
-                StringBuilder sb = this.f1013a;
+                StringBuilder sb = this.f1009a;
                 sb.append(str);
                 sb.append(this.a);
                 sb.append(obj);
@@ -41,7 +41,7 @@ public class t {
         }
 
         public String toString() {
-            return this.f1013a.toString();
+            return this.f1009a.toString();
         }
     }
 

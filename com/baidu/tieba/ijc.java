@@ -1,9 +1,15 @@
 package com.baidu.tieba;
+
+import com.yy.transvod.player.mediacodec.MediaSample;
 /* loaded from: classes6.dex */
 public interface ijc {
-    void onCompleted();
+    void a();
 
-    void onError(Throwable th);
+    void b(int i);
 
-    void onSubscribe(qjc qjcVar);
+    void d(String str, Object obj, int i, boolean z);
+
+    void e(boolean z);
+
+    void f(MediaSample mediaSample);
 }

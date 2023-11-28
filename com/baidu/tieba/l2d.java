@@ -4,29 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import tbclient.FrsPage.ThreadIdListInfo;
 /* loaded from: classes7.dex */
-public class l2d extends qoc {
+public class l2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecommendInfo recommendInfo) {
+    public static JSONObject b(@NonNull ThreadIdListInfo threadIdListInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadIdListInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "title", recommendInfo.title);
-            if (recommendInfo.user_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                    jSONArray.put(v2d.b(schoolRecomUserInfo));
-                }
-                qoc.a(jSONObject, "user_list", jSONArray);
-            }
+            ltc.a(jSONObject, "tid", threadIdListInfo.tid);
+            ltc.a(jSONObject, "is_partial_visible", threadIdListInfo.is_partial_visible);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

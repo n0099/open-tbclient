@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface sz2 {
-    void end(long j);
 
-    void start(long j);
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public interface sz2 extends tz2 {
+    void b(JSONObject jSONObject);
 }

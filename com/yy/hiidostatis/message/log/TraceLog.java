@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TraceLog {
     public static final int INIT_FAILED = -1;
     public static final int INIT_SUCCESS = 1;

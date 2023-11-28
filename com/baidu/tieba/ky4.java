@@ -1,81 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes7.dex */
-public class ky4 {
+public class ky4 extends nwa {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId r1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public ey4 c;
+    public String i1;
+    public String j1;
+    public String k1;
+    public String l1;
+    public String m1;
+    public String n1;
+    public List<String> o1;
+    public String p1;
+    public String q1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929411, "Lcom/baidu/tieba/ky4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929411, "Lcom/baidu/tieba/ky4;");
+                return;
+            }
+        }
+        r1 = BdUniqueId.gen();
+    }
 
     public ky4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ey4();
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.detailException(e);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b(JSONObject jSONObject) {
+    public boolean H1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!StringUtils.isNull(this.l1)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nwa, com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return r1;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void I1(RecommendBook recommendBook) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendBook) != null) || recommendBook == null) {
             return;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    UserData userData = new UserData();
-                    userData.parserJson(optJSONArray.getJSONObject(i));
-                    userData.mAttentionType = 2;
-                    this.a.add(userData);
-                }
-            }
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    UserData userData2 = new UserData();
-                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                    userData2.mAttentionType = 1;
-                    this.b.add(userData2);
-                }
-            }
-            this.c.i(jSONObject.optJSONObject("page"));
-            jSONObject.optInt("tafriendnum", 0);
-            jSONObject.optInt("commonfriendnum", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        this.i1 = recommendBook.recommend_text;
+        this.j1 = recommendBook.suggest_text;
+        this.k1 = recommendBook.suggest_url;
+        this.l1 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.m1 = recommendBook.book_cover;
+        this.n1 = recommendBook.book_title;
+        this.o1 = recommendBook.book_tips;
+        this.p1 = recommendBook.botton_text;
+        this.q1 = recommendBook.subscript_icon;
     }
 }

@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import com.baidu.tieba.os1;
-import com.baidu.tieba.xj3;
+import com.baidu.tieba.ps1;
+import com.baidu.tieba.yj3;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes4.dex */
 public class WebViewContainer extends FrameLayout {
@@ -30,7 +30,7 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public os1 s;
+    public ps1 s;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -158,12 +158,12 @@ public class WebViewContainer extends FrameLayout {
         this.l = aVar;
     }
 
-    public void setInternalWebView(os1 os1Var) {
-        this.s = os1Var;
+    public void setInternalWebView(ps1 ps1Var) {
+        this.s = ps1Var;
     }
 
     public void setMinFlingVelocity(int i) {
-        this.m = xj3.g(i);
+        this.m = yj3.g(i);
     }
 
     public void setOnUpListener(c cVar) {

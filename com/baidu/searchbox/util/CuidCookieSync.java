@@ -9,7 +9,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.cx;
+import com.baidu.tieba.dx;
 import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONObject;
@@ -66,7 +66,7 @@ public class CuidCookieSync {
     public void setCUIDCookie() {
         IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
         if (!new CT().isDefaultCtv()) {
-            String a = cx.a(BaiduIdentityManager.getInstance().getEnUid());
+            String a = dx.a(BaiduIdentityManager.getInstance().getEnUid());
             String bFECookie = getBFECookie(a);
             baiduIdentityContext.setCookieManualNoBdussOperate("https://www.baidu.com", bFECookie, true);
             String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", a, 31449600L);

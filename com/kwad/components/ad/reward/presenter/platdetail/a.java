@@ -1,13 +1,12 @@
 package com.kwad.components.ad.reward.presenter.platdetail;
 
-import com.kwad.components.ad.reward.presenter.platdetail.kwai.c;
-import com.kwad.components.ad.reward.presenter.platdetail.kwai.d;
+import com.kwad.components.ad.reward.presenter.platdetail.a.d;
 /* loaded from: classes10.dex */
-public final class a extends com.kwad.components.ad.reward.presenter.a {
+public final class a extends com.kwad.components.ad.reward.presenter.b {
     public a() {
-        a(new com.kwad.components.ad.reward.presenter.platdetail.kwai.a());
-        a(new com.kwad.components.ad.reward.presenter.platdetail.kwai.b());
+        a(new com.kwad.components.ad.reward.presenter.platdetail.a.a());
+        a(new com.kwad.components.ad.reward.presenter.platdetail.a.b());
         a(new d());
-        a(new c());
+        a(new com.kwad.components.ad.reward.presenter.platdetail.a.c());
     }
 }

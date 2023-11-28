@@ -5,37 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CoverImageColor;
+import tbclient.AvatarFrame;
 /* loaded from: classes9.dex */
-public class wuc extends qoc {
+public class wuc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static CoverImageColor b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull AvatarFrame avatarFrame) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            CoverImageColor.Builder builder = new CoverImageColor.Builder();
-            if (jSONObject.has("value")) {
-                builder.value = jSONObject.optString("value");
-            }
-            if (jSONObject.has("model")) {
-                builder.model = Integer.valueOf(jSONObject.optInt("model"));
-            }
-            return builder.build(true);
-        }
-        return (CoverImageColor) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull CoverImageColor coverImageColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, coverImageColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, avatarFrame)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "value", coverImageColor.value);
-            qoc.a(jSONObject, "model", coverImageColor.model);
+            ltc.a(jSONObject, "props_id", avatarFrame.props_id);
+            ltc.a(jSONObject, "end_time", avatarFrame.end_time);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

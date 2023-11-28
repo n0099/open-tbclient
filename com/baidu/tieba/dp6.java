@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.text.SpannableString;
+import androidx.core.util.Pair;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.f37;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dp6 implements hb7 {
+public final class dp6 implements f37.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
 
     public dp6() {
         Interceptable interceptable = $ic;
@@ -36,28 +33,51 @@ public final class dp6 implements hb7 {
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f37.p
+    public SpannableString a(Context context, r57 businessInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "1");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str = "";
-            if (currentAccount == null) {
-                currentAccount = "";
+            ThreadData threadData = new ThreadData();
+            String str = businessInfo.a().get("tiebaplus_ad");
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    threadData.tiePlusAdSource = jSONObject.optString("ad_source");
+                    threadData.tiePlusShowUrl = jSONObject.optString("show_url");
+                    threadData.tiePlusCostUrl = jSONObject.optString("cost_url");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            hashMap.put("obj_id", currentAccount);
-            String str2 = a.get("user_id");
+            threadData.tiePlusMonitorShowUrl = businessInfo.a().get("exposure_monitor_url");
+            threadData.tiePlusMonitorClickUrl = businessInfo.a().get("click_monitor_url");
+            String str2 = businessInfo.a().get("works_info");
             if (str2 != null) {
-                str = str2;
+                WorksInfoData worksInfoData = new WorksInfoData();
+                worksInfoData.parseJson(new JSONObject(str2));
+                threadData.worksInfoData = worksInfoData;
             }
-            hashMap.put("obj_param1", str);
-            return hashMap;
+            threadData.threadType = JavaTypesHelper.toInt(businessInfo.a().get("thread_type"), 0);
+            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(businessInfo.a().get("is_tiebaplus_ad"), "1");
+            threadData.tiebaPlusOrderId = businessInfo.a().get("tiebaplus_order_id");
+            threadData.tiebaPlusToken = businessInfo.a().get("tiebaplus_token");
+            threadData.tiebaPlusExtraParam = businessInfo.a().get("tiebaplus_extra_param");
+            threadData.tiebaplusCantDelete = Intrinsics.areEqual(businessInfo.a().get("tiebaplus_cant_delete"), "1");
+            Pair<CharSequence, xy5> s = py5.s(35, threadData, cp6.a(businessInfo));
+            if (s != null) {
+                CharSequence charSequence = s.first;
+                if (charSequence instanceof SpannableString) {
+                    if (charSequence != null) {
+                        return (SpannableString) charSequence;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.text.SpannableString");
+                }
+            }
+            return new SpannableString("");
         }
-        return (Map) invokeL.objValue;
+        return (SpannableString) invokeLL.objValue;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.view.View;
-import com.baidu.tieba.cb7;
-import com.baidu.tieba.i47;
-import com.baidu.tieba.jb7;
-import com.baidu.tieba.u57;
-import com.baidu.tieba.x37;
+import com.baidu.tieba.h67;
+import com.baidu.tieba.k47;
+import com.baidu.tieba.pb7;
+import com.baidu.tieba.v47;
+import com.baidu.tieba.wb7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +20,8 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class CardHeadUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function3<View, String, x37, Unit> a;
-    public static final Function3<View, u57, x37, Unit> b;
+    public static final Function3<View, String, k47, Unit> a;
+    public static final Function3<View, h67, k47, Unit> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public final class CardHeadUiStateKt {
         b = CardHeadUiStateKt$OnTagClick$1.INSTANCE;
     }
 
-    public static final void c(i47 uiState, u57 data) {
+    public static final void c(v47 uiState, h67 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, uiState, data) == null) {
             Intrinsics.checkNotNullParameter(uiState, "uiState");
@@ -51,7 +51,7 @@ public final class CardHeadUiStateKt {
             linkedHashMap.putAll(data.E());
             LinkedHashMap linkedHashMap2 = new LinkedHashMap();
             linkedHashMap2.put("get_position", String.valueOf(uiState.k() + 1));
-            jb7.a.c(new cb7("head_tag_click", linkedHashMap, linkedHashMap2, uiState.f()));
+            wb7.a.c(new pb7("head_tag_click", linkedHashMap, linkedHashMap2, uiState.f()));
         }
     }
 }

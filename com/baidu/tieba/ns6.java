@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class ns6 extends hs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Integer> b;
+    public boolean b;
+    public PointF c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ns6() {
-        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,38 +23,48 @@ public final class ns6 extends hs6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new LinkedHashSet();
+        this.c = new PointF();
+        new RectF();
     }
 
-    @Override // com.baidu.tieba.hs6
-    public boolean b(qr6 item, tt6 timer, kr6 config) {
-        InterceptResult invokeLLL;
+    public final PointF c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            rr6 e = item.e();
-            if ((!this.b.isEmpty()) && !this.b.contains(Integer.valueOf(c(e)))) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeLLL.booleanValue;
+        return (PointF) invokeV.objValue;
     }
 
-    public final int c(rr6 rr6Var) {
-        InterceptResult invokeL;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rr6Var)) == null) {
-            return rr6Var.n() & 16777215;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hs6, com.baidu.tieba.s3.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.reset();
+            this.b = false;
+            this.c = new PointF();
+            new RectF();
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

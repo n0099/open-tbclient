@@ -1,46 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public final class zx8 implements IUiState {
+public class zx8 extends bq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zx8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375439, "Lcom/baidu/tieba/zx8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948375439, "Lcom/baidu/tieba/zx8;");
-                return;
-            }
+    @Override // com.baidu.tieba.yp8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            return false;
         }
-        a = new zx8();
+        return invokeCommon.booleanValue;
     }
 
     public zx8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.bq8
+    public List<xp8> j(@NonNull List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof TbBaseMsg) {
+                    TbBaseMsg tbBaseMsg = (TbBaseMsg) obj;
+                    List<AbilityItem> quickOperate = tbBaseMsg.getQuickOperate();
+                    if (ListUtils.isEmpty(quickOperate)) {
+                        break;
+                    }
+                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
+                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
+                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
+                            jy8 jy8Var = new jy8();
+                            jy8Var.f(abilityItem);
+                            jy8Var.g(tbBaseMsg);
+                            if (tbBaseMsg != null) {
+                                jy8Var.h(tbBaseMsg.getUserId());
+                            }
+                            arrayList.add(jy8Var);
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

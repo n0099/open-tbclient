@@ -1,132 +1,200 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.utils.AlaStringHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ie6;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class ke6 extends ie6<ke6> {
+public class ke6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public le6 s;
-    public float t;
-    public boolean u;
+    public RelativeLayout a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public LinearLayout g;
+    public LinearLayout h;
+    public TextView i;
+    public b j;
+    public AlaEnterEffectData k;
+    public Context l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> ke6(K k, je6<K> je6Var) {
-        super(k, je6Var);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ke6 a;
+
+        public a(ke6 ke6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ke6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
+                this.a.j.a();
+            }
+        }
+    }
+
+    public ke6(Context context, AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, je6Var};
+            Object[] objArr = {context, alaEnterEffectData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (je6) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = null;
-        this.t = Float.MAX_VALUE;
-        this.u = false;
-    }
-
-    @Override // com.baidu.tieba.ie6
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.s.g(e());
-            super.h();
+        if (alaEnterEffectData != null && context != null) {
+            this.l = context;
+            this.k = alaEnterEffectData;
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f8, (ViewGroup) null);
+            this.a = relativeLayout;
+            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0909e6);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0915ba);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091676);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907ec);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09245b);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09245c);
+            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090874);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090873);
+            c(alaEnterEffectData);
         }
     }
 
-    @Override // com.baidu.tieba.ie6
-    public boolean j(long j) {
-        InterceptResult invokeJ;
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.u) {
-                float f = this.t;
-                if (f != Float.MAX_VALUE) {
-                    this.s.e(f);
-                    this.t = Float.MAX_VALUE;
-                }
-                this.b = this.s.a();
-                this.a = 0.0f;
-                this.u = false;
-                return true;
-            }
-            if (this.t != Float.MAX_VALUE) {
-                this.s.a();
-                long j2 = j / 2;
-                ie6.h h = this.s.h(this.b, this.a, j2);
-                this.s.e(this.t);
-                this.t = Float.MAX_VALUE;
-                ie6.h h2 = this.s.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.j = bVar;
+        }
+    }
+
+    public RelativeLayout b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public void c(AlaEnterEffectData alaEnterEffectData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+            return;
+        }
+        this.k = alaEnterEffectData;
+        this.e.setEnabled(true);
+        int i = this.k.categoryType;
+        if (3 != i) {
+            if (2 == i) {
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801f7);
+                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
+                this.g.setVisibility(0);
+                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
+                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
+                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
+                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
+                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
+                this.h.setVisibility(0);
+                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
+                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
+                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
             } else {
-                ie6.h h3 = this.s.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
+                this.d.setVisibility(0);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fcc);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607d7));
             }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (!k(min, this.a)) {
-                return false;
-            }
-            this.b = this.s.a();
-            this.a = 0.0f;
-            return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.s.c(f, f2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            le6 le6Var = this.s;
-            if (le6Var != null) {
-                double a = le6Var.a();
-                if (a <= this.g) {
-                    if (a >= this.h) {
-                        return;
-                    }
-                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+        AlaEnterEffectData alaEnterEffectData2 = this.k;
+        if (alaEnterEffectData2.isOwn) {
+            if (alaEnterEffectData2.isUsing()) {
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fc9);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607d6));
+                this.e.setText(R.string.obfuscated_res_0x7f0f0286);
+                if (2 == this.k.categoryType) {
+                    this.h.setVisibility(8);
                 }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
+            } else {
+                this.e.setText(R.string.obfuscated_res_0x7f0f0257);
             }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
+        } else {
+            int i2 = alaEnterEffectData2.categoryType;
+            if (3 == i2) {
+                this.e.setText(R.string.obfuscated_res_0x7f0f0271);
+                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f0249, alaEnterEffectData.nobilityName));
+            } else if (2 == i2) {
+                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
+                    this.e.setText(R.string.obfuscated_res_0x7f0f024e);
+                } else {
+                    this.e.setText(R.string.obfuscated_res_0x7f0f0247);
+                }
+            } else {
+                this.e.setBackgroundDrawable(null);
+                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
+                this.e.setText(R.string.obfuscated_res_0x7f0f024b);
+                this.e.setEnabled(false);
+            }
         }
-    }
-
-    public ke6 m(le6 le6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, le6Var)) == null) {
-            this.s = le6Var;
-            return this;
+        this.e.setOnClickListener(new a(this));
+        if (!StringUtils.isNull(alaEnterEffectData.name)) {
+            this.b.setText(alaEnterEffectData.name);
         }
-        return (ke6) invokeL.objValue;
+        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
+        if (currentTimeMillis >= 0) {
+            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f025a, StringHelper.formatDayOrHourTime(currentTimeMillis)));
+        }
+        if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
+            this.d.setText(alaEnterEffectData.effect_range_name);
+        }
     }
 }

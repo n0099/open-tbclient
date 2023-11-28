@@ -33,26 +33,26 @@ public class f {
         public static final /* synthetic */ int[] a;
 
         static {
-            int[] iArr = new int[a.EnumC0696a.values().length];
+            int[] iArr = new int[a.EnumC0736a.values().length];
             a = iArr;
             try {
-                iArr[a.EnumC0696a.SUCCESS.ordinal()] = 1;
+                iArr[a.EnumC0736a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[a.EnumC0696a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0736a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[a.EnumC0696a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0736a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[a.EnumC0696a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0736a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[a.EnumC0696a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0736a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -71,7 +71,7 @@ public class f {
 
         /* renamed from: com.meizu.cloud.pushsdk.c.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public enum EnumC0696a {
+        public enum EnumC0736a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -433,7 +433,7 @@ public class f {
             return i != -1 ? i : f.a(this.a);
         }
 
-        public EnumC0696a a(f fVar, String str) {
+        public EnumC0736a a(f fVar, String str) {
             int a;
             int i;
             int a2 = m.a(str, 0, str.length());
@@ -443,13 +443,13 @@ public class f {
                     this.a = "https";
                     a2 += 6;
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0696a.UNSUPPORTED_SCHEME;
+                    return EnumC0736a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = "http";
                     a2 += 5;
                 }
             } else if (fVar == null) {
-                return EnumC0696a.MISSING_SCHEME;
+                return EnumC0736a.MISSING_SCHEME;
             } else {
                 this.a = fVar.b;
             }
@@ -496,13 +496,13 @@ public class f {
                     int g = g(str, i3, a);
                     this.e = g;
                     if (g == -1) {
-                        return EnumC0696a.INVALID_PORT;
+                        return EnumC0736a.INVALID_PORT;
                     }
                 } else {
                     this.e = f.a(this.a);
                 }
                 if (this.d == null) {
-                    return EnumC0696a.INVALID_HOST;
+                    return EnumC0736a.INVALID_HOST;
                 }
                 a2 = a;
             } else {
@@ -526,7 +526,7 @@ public class f {
             if (a4 < b && str.charAt(a4) == '#') {
                 this.h = f.b(str, 1 + a4, b, "", true, false, false, false);
             }
-            return EnumC0696a.SUCCESS;
+            return EnumC0736a.SUCCESS;
         }
 
         public a a(String str) {
@@ -798,7 +798,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0696a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0736a.SUCCESS) {
             return aVar.b();
         }
         return null;

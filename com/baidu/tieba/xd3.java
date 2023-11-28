@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -13,18 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes9.dex */
-public class xd3 extends d83 {
+public class xd3 extends e83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xd3(d73 d73Var) {
-        super(d73Var, "/swanAPI/getStorageSync");
+    public xd3(e73 e73Var) {
+        super(e73Var, "/swanAPI/getStorage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
+            Object[] objArr = {e73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,12 +39,15 @@ public class xd3 extends d83 {
         }
     }
 
-    @Override // com.baidu.tieba.d83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+    @Override // com.baidu.tieba.e83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
-            if (g63Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
+            if (e83.b) {
+                Log.d("SwanAppAction", "start get storage");
+            }
+            if (h63Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
@@ -52,17 +56,17 @@ public class xd3 extends d83 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            String R = iw1.R(optParamsAsJo);
+            String R = jw1.R(optParamsAsJo);
             if (R == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            JSONObject P = iw1.P(g63Var.g0().g().getString(R, null));
+            JSONObject P = jw1.P(h63Var.g0().g().getString(R, null));
             if (P == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
                 return false;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(P, 0);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(P, 0));
             return true;
         }
         return invokeLLLL.booleanValue;

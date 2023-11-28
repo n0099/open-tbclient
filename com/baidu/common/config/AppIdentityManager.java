@@ -2,7 +2,7 @@ package com.baidu.common.config;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pw;
+import com.baidu.tieba.qw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class AppIdentityManager {
             if (!TextUtils.isEmpty(this.mAppName)) {
                 return this.mAppName;
             }
-            return pw.a().getAppName();
+            return qw.a().getAppName();
         }
         return (String) invokeV.objValue;
     }
@@ -61,7 +61,7 @@ public class AppIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String a = pw.b().a();
+            String a = qw.b().a();
             if (TextUtils.isEmpty(a)) {
                 return getAppName();
             }

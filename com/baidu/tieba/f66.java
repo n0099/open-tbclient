@@ -1,78 +1,57 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pay.PayResult;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.nio.charset.Charset;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class f66 extends ActivityDelegation implements tm1 {
+public class f66 implements lq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public i66 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f66 a;
+        public final /* synthetic */ ly1 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(f66 f66Var, int i) {
-            super(i);
+        public a(f66 f66Var, ly1 ly1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f66Var, Integer.valueOf(i)};
+                Object[] objArr = {f66Var, ly1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = f66Var;
+            this.a = ly1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof PayResult)) {
-                    return;
-                }
-                PayResult payResult = (PayResult) data;
-                if (getTag() != payResult.tag && !payResult.isWx) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", payResult.type);
-                this.a.mResult.putString("result_msg", payResult.message);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
         }
     }
@@ -87,85 +66,16 @@ public class f66 extends ActivityDelegation implements tm1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
+    @Override // com.baidu.tieba.lq2
+    public void a(Context context, ly1 ly1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, ly1Var) != null) || !(context instanceof Activity)) {
+            return;
         }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
-        }
-    }
-
-    public void e(i66 i66Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i66Var) == null) {
-            this.b = i66Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            PayResult payResult = new PayResult();
-            payResult.tag = this.a;
-            payResult.type = i;
-            payResult.message = string;
-            payResult.params = (Map) this.mParams.getSerializable("params");
-            payResult.orderinfo = this.d;
-            if (getAgent() != null) {
-                payResult.context = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    payResult.context = activity;
-                } else {
-                    payResult.context = TbadkCoreApplication.getInst().getCurrentActivity();
-                }
-            }
-            CustomMessage customMessage = new CustomMessage(2921393, payResult);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
-            }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
-        }
-        return invokeV.booleanValue;
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, e66.class, new Bundle(), new a(this, ly1Var));
     }
 }

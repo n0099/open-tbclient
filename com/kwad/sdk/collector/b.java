@@ -6,21 +6,22 @@ import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
 import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 import com.kwad.sdk.collector.model.jni.UploadEntryNative;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes10.dex */
 public final class b {
+    public static com.kwad.sdk.collector.a zA() {
+        return new a();
+    }
 
     /* loaded from: classes10.dex */
     public static class a implements com.kwad.sdk.collector.a {
         @Override // com.kwad.sdk.collector.a
-        public final List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
+        public final List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            com.kwad.sdk.collector.model.c.a(strategy, map, arrayList2);
+            com.kwad.sdk.collector.model.c.a(strategy, arrayList2);
             File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
             int size = arrayList2.size();
             long[] jArr = new long[size];
@@ -31,20 +32,20 @@ public final class b {
                 }
                 jArr[i] = ((AnalyseTaskNative) aVar).getNativePtr();
             }
-            if (d.rr()) {
+            if (d.zC()) {
                 try {
                     long[] analysis = AppStatusNative.analysis(jArr, file.getAbsolutePath() + "/");
                     StringBuilder sb = new StringBuilder("analysisByFile: runningInfoPtrs: ");
                     sb.append(analysis);
-                    com.kwad.sdk.core.e.b.d("AppStatusAnalyserNative", sb.toString());
+                    com.kwad.sdk.core.e.c.d("AppStatusAnalyserNative", sb.toString());
                     for (long j : analysis) {
                         arrayList.add(new AppRunningInfoNative(j));
                     }
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
                 }
             }
-            com.kwad.sdk.core.e.b.d("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
+            com.kwad.sdk.core.e.c.d("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
             return arrayList;
         }
 
@@ -59,20 +60,16 @@ public final class b {
                 }
             }
             ArrayList arrayList = new ArrayList();
-            if (d.rr()) {
+            if (d.zC()) {
                 try {
                     for (long j2 : AppStatusNative.nativeGetUploadEntry(jArr, j, str)) {
                         arrayList.add(new UploadEntryNative(j2));
                     }
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
                 }
             }
             return arrayList;
         }
-    }
-
-    public static com.kwad.sdk.collector.a rp() {
-        return new a();
     }
 }

@@ -1,138 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class igb extends bgb {
+public final class igb implements agb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Integer[] a;
+    public final Function1<ee5, Unit> b;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ igb a;
-
-        public a(igb igbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {igbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = igbVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.n0()) {
-                    this.a.e.M0(9, false);
-                    this.a.o0(1);
-                    return;
-                }
-                igb igbVar = this.a;
-                igbVar.e.a(igbVar.a.getString(R.string.obfuscated_res_0x7f0f0622));
-                this.a.o0(0);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public igb(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull neb nebVar, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, nebVar, z);
+    public igb(Integer[] codes, Function1<? super ee5, Unit> onEditorAction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, nebVar, Boolean.valueOf(z)};
+            Object[] objArr = {codes, onEditorAction};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (neb) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(codes, "codes");
+        Intrinsics.checkNotNullParameter(onEditorAction, "onEditorAction");
+        this.a = codes;
+        this.b = onEditorAction;
     }
 
-    @Override // com.baidu.tieba.bgb, com.baidu.tieba.cgb
-    public void K(@NonNull List<oeb<?>> list) {
+    @Override // com.baidu.tieba.agb
+    public Integer[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            wdb f = rfb.f(this.a);
-            list.add(f);
-            xdb g = rfb.g(this.a);
-            f.w(g);
-            list.add(g);
-            list.add(rfb.o(this.a));
-            eeb n = rfb.n(this.a, this, this.s, this.J);
-            this.D = n;
-            list.add(n);
-            deb m = rfb.m(this.a, this, this.d, this.C, this.s, this.J);
-            this.F = m;
-            f.w(m);
-            list.add(this.F);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (Integer[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bgb, com.baidu.tieba.cgb
-    public void M(@NonNull EditorTools editorTools) {
+    @Override // com.baidu.tieba.agb
+    public void b(ee5 action) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setBarMaxLauCount(3);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.setMoreVipIcon(true);
-            editorTools.setBarLauncherType(1);
-            editorTools.M(true);
-            editorTools.N(false);
-            editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            tfb.h(this.a, editorTools, this);
-            tfb.d(editorTools, this);
-            tfb.a(this.a, editorTools, this);
-            tfb.b(this.a, editorTools, this);
-            tfb.i(this.a, editorTools);
-            tfb.m(this.a, editorTools, this.p.getCallFrom(), this);
-            editorTools.h();
-            super.M(editorTools);
-        }
-    }
-
-    @Override // com.baidu.tieba.bgb, com.baidu.tieba.cgb
-    public void N(@NonNull NavigationBar navigationBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.N(navigationBar);
-            if (this.q) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f12a3));
-                q0(0, 0);
-                r0(R.drawable.obfuscated_res_0x7f080bd0, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
-                this.j.setOnClickListener(new a(this));
-                return;
-            }
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1148));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            this.b.invoke(action);
         }
     }
 }

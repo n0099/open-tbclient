@@ -1,222 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.forum.model.FrsGeneralTabListReqMsg;
-import com.baidu.tieba.forum.model.FrsGeneralTabListResMsg;
-import com.baidu.tieba.video.VideoItemData;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.widget.image.TbImage;
+import com.baidu.tieba.forum.databinding.ForumNavBarSecondFloorBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.GeneralTabList.DataRes;
 /* loaded from: classes6.dex */
-public final class gk7 extends uj7 {
+public final class gk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NetMessageListener p;
 
-    /* loaded from: classes6.dex */
-    public static final class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gk7 a;
+    public static final ForumNavBarSecondFloorBinding a(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar navigationBar, ii7 ii7Var, int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{forumNavBarSecondFloorBinding, navigationBar, ii7Var, Integer.valueOf(i), onClickListener})) == null) {
+            if (forumNavBarSecondFloorBinding == null) {
+                forumNavBarSecondFloorBinding = ForumNavBarSecondFloorBinding.c(LayoutInflater.from(navigationBar.getContext()), navigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT), false);
+                Intrinsics.checkNotNullExpressionValue(forumNavBarSecondFloorBinding, "inflate(LayoutInflater.f…HORIZONTAL_RIGHT), false)");
+            }
+            if (forumNavBarSecondFloorBinding.getRoot().getParent() != null) {
+                return forumNavBarSecondFloorBinding;
+            }
+            TbImage tbImage = forumNavBarSecondFloorBinding.b;
+            String c = ii7Var.c();
+            if (c == null) {
+                c = "";
+            }
+            tbImage.l(c);
+            forumNavBarSecondFloorBinding.c.setShadowEnabled(false);
+            forumNavBarSecondFloorBinding.c.refresh(0);
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, forumNavBarSecondFloorBinding.getRoot(), i, onClickListener);
+            return forumNavBarSecondFloorBinding;
+        }
+        return (ForumNavBarSecondFloorBinding) invokeCommon.objValue;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gk7 gk7Var) {
-            super(CmdConfigHttp.CMD_FRS_COMMON_TAB, 309622);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final ForumNavBarSecondFloorBinding b(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar nav, ni7 forumData, View visibilityTarget, View.OnClickListener clickListener) {
+        InterceptResult invokeLLLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, forumNavBarSecondFloorBinding, nav, forumData, visibilityTarget, clickListener)) == null) {
+            Intrinsics.checkNotNullParameter(nav, "nav");
+            Intrinsics.checkNotNullParameter(forumData, "forumData");
+            Intrinsics.checkNotNullParameter(visibilityTarget, "visibilityTarget");
+            Intrinsics.checkNotNullParameter(clickListener, "clickListener");
+            ii7 a = forumData.a();
+            if (a != null && a.g()) {
+                if (visibilityTarget.getVisibility() == 0) {
+                    i = 1;
+                } else {
+                    i = 0;
                 }
+                return a(forumNavBarSecondFloorBinding, nav, a, i, clickListener);
             }
-            this.a = gk7Var;
+            c(forumNavBarSecondFloorBinding);
+            return forumNavBarSecondFloorBinding;
         }
+        return (ForumNavBarSecondFloorBinding) invokeLLLLL.objValue;
+    }
 
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.B(responsedMessage);
-            }
+    public static final void c(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, forumNavBarSecondFloorBinding) != null) || forumNavBarSecondFloorBinding == null) {
+            return;
+        }
+        ViewParent parent = forumNavBarSecondFloorBinding.getRoot().getParent();
+        if (parent instanceof ViewGroup) {
+            viewGroup = (ViewGroup) parent;
+        } else {
+            viewGroup = null;
+        }
+        if (viewGroup != null) {
+            viewGroup.removeView(forumNavBarSecondFloorBinding.getRoot());
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gk7(Context context, BdUniqueId bdUniqueId, Bundle bundle) {
-        super(context, bdUniqueId, bundle);
+    public static final void d(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, Boolean bool) {
+        MessageRedDotView messageRedDotView;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (Bundle) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65539, null, forumNavBarSecondFloorBinding, bool) != null) || bool == null) {
+            return;
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        a aVar = new a(this);
-        this.p = aVar;
-        aVar.setTag(bdUniqueId);
-        this.p.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.p);
-        I();
-    }
-
-    @Override // com.baidu.tieba.uj7
-    public void A(ih7 responseData, boolean z, boolean z2) {
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{responseData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(responseData, "responseData");
-            super.A(responseData, z, z2);
-            Object a2 = responseData.a();
-            if (a2 instanceof DataRes) {
-                dataRes = (DataRes) a2;
+        if (forumNavBarSecondFloorBinding != null) {
+            messageRedDotView = forumNavBarSecondFloorBinding.c;
+        } else {
+            messageRedDotView = null;
+        }
+        if (messageRedDotView != null) {
+            if (bool.booleanValue()) {
+                i = 0;
             } else {
-                dataRes = null;
+                i = 8;
             }
-            if (dataRes != null && m().getInt("forum_tab_type") == 100) {
-                List<VideoItemData> a3 = zh7.a(dataRes);
-                if (!a3.isEmpty()) {
-                    String str = a3.get(0).forum_id;
-                    if (z) {
-                        FrsVideoTabPlayActivityConfig.putVideoTabListByFid(str, a3);
+            messageRedDotView.setVisibility(i);
+        }
+    }
+
+    public static final void e(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, View target) {
+        FrameLayout root;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, forumNavBarSecondFloorBinding, target) == null) {
+            Intrinsics.checkNotNullParameter(target, "target");
+            if (target.getVisibility() == 0 && forumNavBarSecondFloorBinding != null && (root = forumNavBarSecondFloorBinding.getRoot()) != null) {
+                boolean z2 = true;
+                if (target.getAlpha() == 0.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    root.setVisibility(0);
+                    if (root.getTag(R.id.obfuscated_res_0x7f0919af) != null) {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        tm7.a(4);
+                        root.setTag(R.id.obfuscated_res_0x7f0919af, "1");
                         return;
                     }
-                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).clear();
-                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).addAll(a3);
+                    return;
                 }
+                root.setVisibility(8);
             }
         }
-    }
-
-    public final String H() {
-        InterceptResult invokeV;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = 0;
-            boolean z = true;
-            if (q() != 1) {
-                z = false;
-            }
-            if (!z) {
-                i = n27.f(b().a);
-            }
-            if (z) {
-                d = "";
-            } else {
-                nea f = nea.f();
-                d = f.d("FRS_GENERAL_TAB" + v());
-            }
-            String g = n27.g(b().a, z);
-            AdExtParam.a b = AdExtParam.a.b();
-            b.g(i);
-            b.e(g);
-            b.c(d);
-            b.f(n());
-            String a2 = b.a();
-            Intrinsics.checkNotNullExpressionValue(a2, "get().setPreAdThreadCoun…umName(fName).buildJson()");
-            return a2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FrsGeneralTabListReqMsg frsGeneralTabListReqMsg = new FrsGeneralTabListReqMsg();
-            frsGeneralTabListReqMsg.setTag(l());
-            frsGeneralTabListReqMsg.setForumId(m().getLong("forum_id"));
-            frsGeneralTabListReqMsg.setTabId(m().getInt("forum_tab_id"));
-            frsGeneralTabListReqMsg.setTabType(m().getInt("forum_tab_type"));
-            String string = m().getString("forum_tab_name");
-            if (string == null) {
-                string = "";
-            }
-            frsGeneralTabListReqMsg.setTabName(string);
-            frsGeneralTabListReqMsg.setPn(r());
-            frsGeneralTabListReqMsg.setSortType(t());
-            frsGeneralTabListReqMsg.setLoadType(q());
-            frsGeneralTabListReqMsg.setFrsCommonInfo(p());
-            frsGeneralTabListReqMsg.setNewFrs(1);
-            frsGeneralTabListReqMsg.setAdExtParams(H());
-            MessageManager.getInstance().sendMessage(frsGeneralTabListReqMsg);
-        }
-    }
-
-    public final void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_COMMON_TAB, dra.a(TbConfig.FRS_COMMON_TAB, 309622));
-            tbHttpMessageTask.setResponsedClass(FrsGeneralTabListResMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    @Override // com.baidu.tieba.mb7
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.p);
-        }
-    }
-
-    @Override // com.baidu.tieba.mb7
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || e()) {
-            return;
-        }
-        D(1);
-        C(1);
-        J();
-        i(true);
-    }
-
-    @Override // com.baidu.tieba.mb7
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || e()) {
-            return;
-        }
-        D(r() + 1);
-        C(2);
-        J();
-        i(true);
     }
 }

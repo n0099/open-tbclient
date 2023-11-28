@@ -24,7 +24,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.util.ColorParser;
 import com.google.android.exoplayer2.util.MimeTypes;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -270,7 +270,7 @@ public final class FileClassifyHelper {
         add("audio/x-ms-wma", "wma", 1);
         add("audio/x-ms-wax", "wax", 1);
         add("audio/x-pn-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
-        add("audio/x-pn-realaudio", u.B, 1);
+        add("audio/x-pn-realaudio", t.w, 1);
         add("audio/x-pn-realaudio", "ram", 1);
         add("audio/x-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
         add("audio/x-scpls", "pls", 1);
@@ -402,7 +402,7 @@ public final class FileClassifyHelper {
         add("video/vnd.rn-realvideo", "rmvb", 0);
         add("video/x-flv", "flv", 0);
         add("audio/aac", "aac", 1);
-        add("application/vnd.rn-realmedia", u.B, 0);
+        add("application/vnd.rn-realmedia", t.w, 0);
         add("message/rfc822", "mht", 11);
         add("application/x.mpegurl", DownloadStatisticConstants.UBC_TYPE_M3U8, 0);
         add("application/vnd.apple.mpegurl", DownloadStatisticConstants.UBC_TYPE_M3U8, 0);
@@ -792,7 +792,7 @@ public final class FileClassifyHelper {
             return false;
         }
         String lowerCase = str.toLowerCase(Locale.getDefault());
-        if (!"m3u".equals(lowerCase) && !"f4v".equals(lowerCase) && !"asf".equals(lowerCase) && !"wmv".equals(lowerCase) && !"avi".equals(lowerCase) && !"flv".equals(lowerCase) && !"mkv".equals(lowerCase) && !"mov".equals(lowerCase) && !DownloadStatisticConstants.UBC_TYPE_MP4.equals(lowerCase) && !"3gp".equals(lowerCase) && !"3g2".equals(lowerCase) && !"mpg".equals(lowerCase) && !"mpeg".equals(lowerCase) && !"ts".equals(lowerCase) && !"rv".equals(lowerCase) && !"ivf".equals(lowerCase) && !u.B.equals(lowerCase) && !"rmvb".equals(lowerCase) && !DownloadStatisticConstants.UBC_TYPE_M3U8.equals(lowerCase) && !MatroskaExtractor.DOC_TYPE_WEBM.equals(lowerCase)) {
+        if (!"m3u".equals(lowerCase) && !"f4v".equals(lowerCase) && !"asf".equals(lowerCase) && !"wmv".equals(lowerCase) && !"avi".equals(lowerCase) && !"flv".equals(lowerCase) && !"mkv".equals(lowerCase) && !"mov".equals(lowerCase) && !DownloadStatisticConstants.UBC_TYPE_MP4.equals(lowerCase) && !"3gp".equals(lowerCase) && !"3g2".equals(lowerCase) && !"mpg".equals(lowerCase) && !"mpeg".equals(lowerCase) && !"ts".equals(lowerCase) && !"rv".equals(lowerCase) && !"ivf".equals(lowerCase) && !t.w.equals(lowerCase) && !"rmvb".equals(lowerCase) && !DownloadStatisticConstants.UBC_TYPE_M3U8.equals(lowerCase) && !MatroskaExtractor.DOC_TYPE_WEBM.equals(lowerCase)) {
             return false;
         }
         return true;

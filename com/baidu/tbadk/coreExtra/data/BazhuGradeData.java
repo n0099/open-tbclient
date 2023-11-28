@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw4;
+import com.baidu.tieba.tw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
 /* loaded from: classes5.dex */
-public class BazhuGradeData extends rw4 implements Serializable {
+public class BazhuGradeData extends tw4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -53,7 +53,7 @@ public class BazhuGradeData extends rw4 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rw4
+    @Override // com.baidu.tieba.tw4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {

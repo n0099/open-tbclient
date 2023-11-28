@@ -1,21 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.yi0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class pi0 {
+public class pi0 implements wi0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<Class<?>, ArrayList<yi0>> a;
-    public final ConcurrentHashMap<Object, ArrayList<yi0>> b;
+    public final ConcurrentLinkedQueue<yi0.b<?>> a;
+    public final AtomicBoolean b;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pi0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-517345867, "Lcom/baidu/tieba/pi0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-517345867, "Lcom/baidu/tieba/pi0$a;");
+                    return;
+                }
+            }
+            a = new pi0();
+        }
+    }
 
     public pi0() {
         Interceptable interceptable = $ic;
@@ -30,132 +54,49 @@ public class pi0 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    public final void a(@NonNull yi0 yi0Var) {
-        boolean z;
+    public static wi0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yi0Var) == null) {
-            synchronized (this) {
-                ArrayList<yi0> arrayList = this.a.get(yi0Var.b);
-                boolean z2 = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(yi0Var.b, arrayList);
-                } else {
-                    Iterator<yi0> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        if (it.next().a == yi0Var.a) {
-                            z = true;
-                            break;
-                        }
-                    }
-                }
-                z = false;
-                if (!z) {
-                    arrayList.add(yi0Var);
-                }
-                ArrayList<yi0> arrayList2 = this.b.get(yi0Var.a);
-                if (arrayList2 == null) {
-                    arrayList2 = new ArrayList<>();
-                    this.b.put(yi0Var.a, arrayList2);
-                } else {
-                    Iterator<yi0> it2 = arrayList2.iterator();
-                    while (it2.hasNext()) {
-                        if (it2.next().d == yi0Var.d) {
-                            break;
-                        }
-                    }
-                }
-                z2 = false;
-                if (!z2) {
-                    arrayList2.add(yi0Var);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
+        return (wi0) invokeV.objValue;
     }
 
-    public <T extends ti0> void b(@Nullable T t) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        synchronized (this) {
-            ArrayList<yi0> arrayList = this.a.get(t.getClass());
-            if (arrayList != null) {
-                Iterator<yi0> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    yi0 next = it.next();
-                    f(next, next.d, t);
-                }
-            }
-        }
-    }
-
-    public <T extends ti0> void c(@NonNull Object obj, int i, @NonNull wi0<T> wi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, wi0Var) == null) {
-            a(new yi0(i, obj, wi0Var.a(), wi0Var));
-        }
-    }
-
-    public <T extends ti0> void d(@NonNull Object obj, @NonNull wi0<T> wi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, wi0Var) == null) {
-            c(obj, 0, wi0Var);
-        }
-    }
-
-    public final void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            synchronized (this) {
-                ArrayList<yi0> arrayList = this.b.get(obj);
-                if (arrayList != null) {
-                    Iterator<yi0> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        yi0 next = it.next();
-                        ArrayList<yi0> arrayList2 = this.a.get(next.b);
-                        if (arrayList2 != null) {
-                            arrayList2.remove(next);
-                        }
-                    }
-                    arrayList.clear();
-                    this.b.remove(obj);
-                }
-            }
-        }
-    }
-
-    public final <T extends ti0> void f(yi0 yi0Var, wi0<T> wi0Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, yi0Var, wi0Var, t) == null) {
-            int i = yi0Var.c;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            ni0.b().a(yi0Var, wi0Var, t);
-                            return;
-                        }
-                        return;
-                    }
-                    oi0.b().a(yi0Var, wi0Var, t);
-                    return;
-                }
-                xi0.b().a(yi0Var, wi0Var, t);
+        while (true) {
+            yi0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
                 return;
             }
-            wi0Var.onEvent(t);
         }
     }
 
-    public void g(@NonNull Object obj) {
+    @Override // com.baidu.tieba.wi0
+    public <T extends ui0> void a(zi0 zi0Var, xi0<T> xi0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            e(obj);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, zi0Var, xi0Var, t) == null) {
+            if (wf0.b()) {
+                this.a.offer(new yi0.b<>(zi0Var, xi0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    c01.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            xi0Var.onEvent(t);
         }
     }
 }

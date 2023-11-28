@@ -40,7 +40,7 @@ public abstract class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0697a {
+    public static class C0737a {
         public final String a;
         public final Context b;
         public SSLSocketFactory m;
@@ -57,62 +57,62 @@ public abstract class a {
         public TimeUnit l = TimeUnit.SECONDS;
         public com.meizu.cloud.pushsdk.c.c.a o = new com.meizu.cloud.pushsdk.c.c.e();
 
-        public C0697a(String str, Context context, Class<? extends a> cls) {
+        public C0737a(String str, Context context, Class<? extends a> cls) {
             this.a = str;
             this.b = context;
         }
 
-        public C0697a a(int i) {
+        public C0737a a(int i) {
             this.g = i;
             return this;
         }
 
-        public C0697a a(com.meizu.cloud.pushsdk.c.c.a aVar) {
+        public C0737a a(com.meizu.cloud.pushsdk.c.c.a aVar) {
             if (aVar != null) {
                 this.o = aVar;
-                String simpleName = C0697a.class.getSimpleName();
+                String simpleName = C0737a.class.getSimpleName();
                 com.meizu.cloud.pushsdk.d.f.c.c(simpleName, "set new call " + aVar, new Object[0]);
             }
             return this;
         }
 
-        public C0697a a(b bVar) {
+        public C0737a a(b bVar) {
             this.e = bVar;
             return this;
         }
 
-        public C0697a a(f fVar) {
+        public C0737a a(f fVar) {
             this.c = fVar;
             return this;
         }
 
-        public C0697a b(int i) {
+        public C0737a b(int i) {
             this.h = i;
             return this;
         }
 
-        public C0697a c(int i) {
+        public C0737a c(int i) {
             this.i = i;
             return this;
         }
     }
 
-    public a(C0697a c0697a) {
-        this.k = c0697a.d;
-        this.b = c0697a.c;
-        this.a = c0697a.b;
-        this.l = c0697a.e;
-        this.m = c0697a.f;
-        this.n = c0697a.m;
-        this.o = c0697a.n;
-        this.c = c0697a.g;
-        this.d = c0697a.i;
-        this.e = c0697a.h;
-        this.q = c0697a.j;
-        this.r = c0697a.k;
-        this.p = c0697a.a;
-        this.f = c0697a.l;
-        this.s = c0697a.o;
+    public a(C0737a c0737a) {
+        this.k = c0737a.d;
+        this.b = c0737a.c;
+        this.a = c0737a.b;
+        this.l = c0737a.e;
+        this.m = c0737a.f;
+        this.n = c0737a.m;
+        this.o = c0737a.n;
+        this.c = c0737a.g;
+        this.d = c0737a.i;
+        this.e = c0737a.h;
+        this.q = c0737a.j;
+        this.r = c0737a.k;
+        this.p = c0737a.a;
+        this.f = c0737a.l;
+        this.s = c0737a.o;
         c();
         com.meizu.cloud.pushsdk.d.f.c.c(this.h, "Emitter created successfully!", new Object[0]);
     }

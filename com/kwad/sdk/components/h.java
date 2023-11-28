@@ -1,13 +1,21 @@
 package com.kwad.sdk.components;
-
-import android.view.View;
 /* loaded from: classes10.dex */
 public interface h {
-    void a(String str, String str2, g gVar);
+    void a(g gVar);
 
-    void c(com.kwad.sdk.core.webview.kwai.a aVar);
+    void cancelDownload();
 
-    View getView();
+    void installApp();
 
-    void onDestroy();
+    void openApp();
+
+    void pauseDownload();
+
+    void resumeDownload();
+
+    void setCustomReportParam(String str);
+
+    void startDownload();
+
+    void stopDownload();
 }

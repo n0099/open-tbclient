@@ -1,189 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<bi> b;
-    public List<oi> c;
-    public to9 d;
-    public ro9 e;
-    public so9 f;
-    public ip9 g;
 
-    public uo9(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        d(context, bdTypeRecyclerView);
-    }
-
-    public void a(int i, zo9 zo9Var, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), zo9Var, Integer.valueOf(i2)}) == null) {
-            new ep9().a(i, zo9Var, i2, this.c, this.a);
-        }
-    }
-
-    public void b(boolean z) {
-        List<oi> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (list = this.c) != null && list.size() > 0) {
-            for (oi oiVar : this.c) {
-                if (oiVar != null && (oiVar instanceof ap9)) {
-                    ap9 ap9Var = (ap9) oiVar;
-                    ap9Var.s(z);
-                    h(ap9Var);
-                }
-            }
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void j(List<xo9> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || this.a == null) {
-            return;
-        }
-        List<oi> b = new ep9().b(list);
-        if (ListUtils.isEmpty(this.c)) {
-            this.c = b;
-        } else {
-            this.c.addAll(b);
-        }
-        if (!ListUtils.isEmpty(this.c)) {
-            this.a.setData(this.c);
-            this.g.a();
-        }
-    }
-
-    public List<oi> c() {
+    public static String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
+                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return (List) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
-            this.d = new to9(context, cp9.c);
-            this.e = new ro9(context, ap9.i);
-            this.f = new so9(context, bp9.d);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
-        }
-    }
-
-    public boolean e() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<oi> list = this.c;
-            if (list != null && list.size() > 0) {
-                for (oi oiVar : this.c) {
-                    if (oiVar != null && (oiVar instanceof ap9) && ((ap9) oiVar).h()) {
-                        return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+            }
+            return UtilHelper.getGprsIpAddress();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            HashMap hashMap = new HashMap();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayList.get(i).getName());
+                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+            }
+            Collections.sort(arrayList2);
+            StringBuffer stringBuffer = new StringBuffer();
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                try {
+                    String str3 = (String) hashMap.get(str2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
                     }
+                } catch (UnsupportedEncodingException e) {
+                    BdLog.e(e.getMessage());
                 }
+                stringBuffer.append("&");
             }
-            return false;
+            stringBuffer.append("sign_key=" + str);
+            return xd.c(stringBuffer.toString());
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public static AccountLoginCoreHelper.a d(AccountLoginCoreHelper.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<oi> list = this.c;
-            if (list == null || list.size() <= 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            if (aVar == null) {
+                return null;
             }
-            for (oi oiVar : this.c) {
-                if (oiVar != null && (oiVar instanceof ap9) && !((ap9) oiVar).h()) {
-                    return false;
+            try {
+                String[] a = a();
+                if (a == null) {
+                    return null;
                 }
+                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+                arrayList.add(new BasicNameValuePair("crypttype", "1"));
+                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
+                arrayList.add(new BasicNameValuePair("appid", "1"));
+                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
+                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", aVar.a);
+                jSONObject.put("ptoken", aVar.b);
+                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new rv4().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
+                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                netWork.setPostData(arrayList);
+                netWork.getNetContext().getRequest().mRequestGzip = true;
+                netWork.getNetContext().getRequest().mIsBaiduServer = false;
+                String postNetData = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || rd.isEmpty(postNetData)) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject(postNetData);
+                if (!"0".equals(jSONObject2.optString("errno"))) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                aVar2.a = jSONObject2.optString("bduss");
+                aVar2.b = jSONObject2.optString("ptoken");
+                jSONObject2.optString("uname");
+                return aVar2;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
-            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            to9 to9Var = this.d;
-            if (to9Var != null) {
-                to9Var.notifyDataSetChanged();
-            }
-            ro9 ro9Var = this.e;
-            if (ro9Var != null) {
-                ro9Var.notifyDataSetChanged();
-            }
-            so9 so9Var = this.f;
-            if (so9Var != null) {
-                so9Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public final void h(ap9 ap9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ap9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13682");
-            statisticItem.param("obj_type", 2);
-            statisticItem.param("obj_locate", 3);
-            statisticItem.param("fid", ap9Var.c());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void i(hp9 hp9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hp9Var) == null) {
-            this.f.A(hp9Var);
-        }
-    }
-
-    public void k(ip9 ip9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ip9Var) == null) {
-            this.g = ip9Var;
-            this.e.C(ip9Var);
-            this.f.B(ip9Var);
-        }
+        return (AccountLoginCoreHelper.a) invokeL.objValue;
     }
 }

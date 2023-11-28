@@ -105,7 +105,7 @@ public class e implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = this.a;
-            f.a aVar = new f.a() { // from class: com.baidu.tieba.m2c
+            f.a aVar = new f.a() { // from class: com.baidu.tieba.h7c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

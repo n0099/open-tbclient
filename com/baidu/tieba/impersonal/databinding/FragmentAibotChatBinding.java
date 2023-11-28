@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im.biz.aibot.view.PersonChatCustomLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,26 +24,30 @@ public final class FragmentAibotChatBinding implements ViewBinding {
     @NonNull
     public final RelativeLayout a;
     @NonNull
-    public final LinearLayout b;
+    public final FrameLayout b;
     @NonNull
-    public final FrameLayout c;
+    public final LinearLayout c;
     @NonNull
-    public final FragmentContainerView d;
+    public final PersonChatCustomLayout d;
     @NonNull
     public final FrameLayout e;
     @NonNull
-    public final FrameLayout f;
+    public final FragmentContainerView f;
     @NonNull
     public final FrameLayout g;
     @NonNull
-    public final RelativeLayout h;
+    public final FrameLayout h;
+    @NonNull
+    public final FrameLayout i;
+    @NonNull
+    public final RelativeLayout j;
 
-    public FragmentAibotChatBinding(@NonNull RelativeLayout relativeLayout, @NonNull LinearLayout linearLayout, @NonNull FrameLayout frameLayout, @NonNull FragmentContainerView fragmentContainerView, @NonNull FrameLayout frameLayout2, @NonNull FrameLayout frameLayout3, @NonNull FrameLayout frameLayout4, @NonNull RelativeLayout relativeLayout2) {
+    public FragmentAibotChatBinding(@NonNull RelativeLayout relativeLayout, @NonNull FrameLayout frameLayout, @NonNull LinearLayout linearLayout, @NonNull PersonChatCustomLayout personChatCustomLayout, @NonNull FrameLayout frameLayout2, @NonNull FragmentContainerView fragmentContainerView, @NonNull FrameLayout frameLayout3, @NonNull FrameLayout frameLayout4, @NonNull FrameLayout frameLayout5, @NonNull RelativeLayout relativeLayout2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, frameLayout4, relativeLayout2};
+            Object[] objArr = {relativeLayout, frameLayout, linearLayout, personChatCustomLayout, frameLayout2, fragmentContainerView, frameLayout3, frameLayout4, frameLayout5, relativeLayout2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,13 +58,15 @@ public final class FragmentAibotChatBinding implements ViewBinding {
             }
         }
         this.a = relativeLayout;
-        this.b = linearLayout;
-        this.c = frameLayout;
-        this.d = fragmentContainerView;
+        this.b = frameLayout;
+        this.c = linearLayout;
+        this.d = personChatCustomLayout;
         this.e = frameLayout2;
-        this.f = frameLayout3;
-        this.g = frameLayout4;
-        this.h = relativeLayout2;
+        this.f = fragmentContainerView;
+        this.g = frameLayout3;
+        this.h = frameLayout4;
+        this.i = frameLayout5;
+        this.j = relativeLayout2;
     }
 
     @NonNull
@@ -67,26 +74,34 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0904a4;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904a4);
-            if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f09070e;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070e);
-                if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f091189;
-                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091189);
-                    if (fragmentContainerView != null) {
-                        i = R.id.obfuscated_res_0x7f091940;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091940);
+            int i = R.id.obfuscated_res_0x7f090485;
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090485);
+            if (frameLayout != null) {
+                i = R.id.obfuscated_res_0x7f0904be;
+                LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904be);
+                if (linearLayout != null) {
+                    i = R.id.obfuscated_res_0x7f090702;
+                    PersonChatCustomLayout personChatCustomLayout = (PersonChatCustomLayout) view2.findViewById(R.id.obfuscated_res_0x7f090702);
+                    if (personChatCustomLayout != null) {
+                        i = R.id.obfuscated_res_0x7f09072a;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09072a);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f092383;
-                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092383);
-                            if (frameLayout3 != null) {
-                                i = R.id.view_bg;
-                                FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.view_bg);
-                                if (frameLayout4 != null) {
-                                    RelativeLayout relativeLayout = (RelativeLayout) view2;
-                                    return new FragmentAibotChatBinding(relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, frameLayout4, relativeLayout);
+                            i = R.id.obfuscated_res_0x7f0911b2;
+                            FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f0911b2);
+                            if (fragmentContainerView != null) {
+                                i = R.id.obfuscated_res_0x7f0919b3;
+                                FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919b3);
+                                if (frameLayout3 != null) {
+                                    i = R.id.obfuscated_res_0x7f092405;
+                                    FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092405);
+                                    if (frameLayout4 != null) {
+                                        i = R.id.view_bg;
+                                        FrameLayout frameLayout5 = (FrameLayout) view2.findViewById(R.id.view_bg);
+                                        if (frameLayout5 != null) {
+                                            RelativeLayout relativeLayout = (RelativeLayout) view2;
+                                            return new FragmentAibotChatBinding(relativeLayout, frameLayout, linearLayout, personChatCustomLayout, frameLayout2, fragmentContainerView, frameLayout3, frameLayout4, frameLayout5, relativeLayout);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -103,7 +118,7 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0333, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d033c, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

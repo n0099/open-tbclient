@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy6;
+import com.baidu.tieba.ny6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,16 +45,16 @@ public class RecommendThreadView extends LinearLayout {
         }
     }
 
-    public void setData(dy6 dy6Var) {
+    public void setData(ny6 ny6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dy6Var) != null) || dy6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ny6Var) != null) || ny6Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dy6Var.b())) {
-            this.a.startLoad(dy6Var.b(), 10, false);
+        if (!TextUtils.isEmpty(ny6Var.b())) {
+            this.a.startLoad(ny6Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(dy6Var.d())) {
-            this.b.setText(dy6Var.d());
+        if (!TextUtils.isEmpty(ny6Var.d())) {
+            this.b.setText(ny6Var.d());
         }
         d();
     }
@@ -116,22 +116,22 @@ public class RecommendThreadView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             setOrientation(1);
             setLayoutParams(layoutParams);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d086f, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0889, this);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f5e);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708c0));
+            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708d3));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5d);
             d();
         }
     }

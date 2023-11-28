@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.statemachine.base.BaseStateMachine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class epa extends BaseStateMachine {
+public class epa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dpa a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public epa(qpa animationTipStateMap) {
-        super(animationTipStateMap);
+    public static synchronized dpa a() {
+        InterceptResult invokeV;
+        dpa dpaVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {animationTipStateMap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((qpa) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (epa.class) {
+                if (a == null) {
+                    a = new dpa();
+                }
+                dpaVar = a;
             }
+            return dpaVar;
         }
-        Intrinsics.checkNotNullParameter(animationTipStateMap, "animationTipStateMap");
+        return (dpa) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortools.meme.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.yf5;
+import com.baidu.tieba.eg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class SpriteMemeQueryRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yf5 spriteMemeQueryData;
+    public eg5 spriteMemeQueryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpriteMemeQueryRespondedMessage() {
@@ -36,13 +36,13 @@ public final class SpriteMemeQueryRespondedMessage extends JsonHttpResponsedMess
         }
     }
 
-    public final yf5 getSpriteMemeQueryData() {
+    public final eg5 getSpriteMemeQueryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.spriteMemeQueryData;
         }
-        return (yf5) invokeV.objValue;
+        return (eg5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -50,14 +50,14 @@ public final class SpriteMemeQueryRespondedMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.spriteMemeQueryData = yf5.c.a(optJSONObject);
+            this.spriteMemeQueryData = eg5.c.a(optJSONObject);
         }
     }
 
-    public final void setSpriteMemeQueryData(yf5 yf5Var) {
+    public final void setSpriteMemeQueryData(eg5 eg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yf5Var) == null) {
-            this.spriteMemeQueryData = yf5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eg5Var) == null) {
+            this.spriteMemeQueryData = eg5Var;
         }
     }
 }

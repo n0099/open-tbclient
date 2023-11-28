@@ -1,218 +1,110 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.database.Cursor;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"ResourceAsColor"})
+import java.util.Date;
 /* loaded from: classes9.dex */
 public class xxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundListActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public h55 g;
-    public TextView h;
-    public wxa i;
-    public int j;
 
-    public xxa(BackgroundListActivity backgroundListActivity, vxa vxaVar) {
+    public static void a() {
+        d5 mainDBDatabaseManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundListActivity, vxaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
+            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
-        this.g = null;
-        this.j = 0;
-        this.a = backgroundListActivity;
-        this.j = BdUtilHelper.getDimens(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070364);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013d, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09042f);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f10d8);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0929d5);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(5);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0915aa);
-        h55 h55Var = new h55(this.a.getPageContext());
-        this.g = h55Var;
-        this.f.setPullRefresh(h55Var);
-        TextView textView = new TextView(this.a.getActivity());
-        this.h = textView;
-        textView.setHeight(BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        wxa wxaVar = new wxa(this.a.getPageContext(), vxaVar);
-        this.i = wxaVar;
-        this.f.setAdapter((ListAdapter) wxaVar);
     }
 
-    public final List<List<DressItemData>> a(List<DressItemData> list) {
-        InterceptResult invokeL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i = i + 2 + 1) {
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < 3; i2++) {
-                    int i3 = i + i2;
-                    if (i3 < size) {
-                        arrayList2.add(list.get(i3));
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            BdLog.e("deleteVieoChunkUploadData Called");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                return;
+            }
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null && mainDBDatabaseManager != null) {
+                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            }
+        }
+    }
+
+    public static yxa c(String str) {
+        InterceptResult invokeL;
+        yxa yxaVar;
+        Exception e;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Cursor cursor2 = null;
+            yxa yxaVar2 = null;
+            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+                return null;
+            }
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.i("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                try {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            yxaVar = new yxa();
+                            try {
+                                yxaVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                                yxaVar.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                                yxaVar2 = yxaVar;
+                            } catch (Exception e2) {
+                                e = e2;
+                                mainDBDatabaseManager.h(e, "getChunkUploadDataByMd5");
+                                BdCloseHelper.close(cursor);
+                                return yxaVar;
+                            }
+                        }
+                        BdCloseHelper.close(cursor);
+                        return yxaVar2;
+                    } catch (Exception e3) {
+                        yxaVar = null;
+                        e = e3;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = cursor;
+                    BdCloseHelper.close(cursor2);
+                    throw th;
                 }
-                arrayList.add(arrayList2);
+            } catch (Exception e4) {
+                yxaVar = null;
+                e = e4;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                BdCloseHelper.close(cursor2);
+                throw th;
             }
-            return arrayList;
+        } else {
+            return (yxa) invokeL.objValue;
         }
-        return (List) invokeL.objValue;
     }
 
-    public final boolean f(qya qyaVar) {
-        InterceptResult invokeL;
+    public static boolean d(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        d5 mainDBDatabaseManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qyaVar)) == null) {
-            if (qyaVar != null && !StringUtils.isNull(qyaVar.c())) {
-                this.e.setVisibility(0);
-                this.e.e(qyaVar);
-                return true;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+                return false;
             }
-            this.e.setVisibility(8);
-            return false;
+            Date date = new Date();
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
         }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
-        }
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f.z(0L);
-        }
-    }
-
-    public void d() {
-        wxa wxaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xp5.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (wxaVar = this.i) != null) {
-                wxaVar.notifyDataSetChanged();
-            }
-            h55 h55Var = this.g;
-            if (h55Var != null) {
-                h55Var.D(TbadkApplication.getInst().getSkinType());
-            }
-            this.e.d();
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-        }
-    }
-
-    public final void e(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.i.b(list);
-                this.i.notifyDataSetChanged();
-                return;
-            }
-            this.f.setVisibility(8);
-        }
-    }
-
-    public void g(BdListView.p pVar, g55.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.f.setOnSrollToBottomListener(pVar);
-            this.g.a(gVar);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.j);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
-    }
-
-    public void i(qya qyaVar, List<DressItemData> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, qyaVar, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                b();
-                if (f(qyaVar)) {
-                    this.f.removeHeaderView(this.h);
-                    this.f.addHeaderView(this.h);
-                } else {
-                    this.f.removeHeaderView(this.h);
-                }
-                e(a(list));
-                return;
-            }
-            h();
-        }
+        return invokeLLI.booleanValue;
     }
 }

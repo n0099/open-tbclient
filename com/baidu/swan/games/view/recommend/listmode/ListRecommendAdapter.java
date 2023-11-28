@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v94;
+import com.baidu.tieba.w94;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public LayoutInflater a;
     public a b;
-    public v94 c;
+    public w94 c;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,13 +25,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         this.a = LayoutInflater.from(context);
     }
 
-    public void n(a aVar) {
+    public void o(a aVar) {
         this.b = aVar;
-    }
-
-    public void o(v94 v94Var) {
-        this.c = v94Var;
-        notifyDataSetChanged();
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,11 +36,16 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
+    public void p(w94 w94Var) {
+        this.c = w94Var;
+        notifyDataSetChanged();
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         List<RecommendItemModel> list;
-        v94 v94Var = this.c;
-        if (v94Var != null && (list = v94Var.b) != null) {
+        w94 w94Var = this.c;
+        if (w94Var != null && (list = w94Var.b) != null) {
             return list.size();
         }
         return 0;
@@ -70,8 +70,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0961, viewGroup, false));
+        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d097b, viewGroup, false));
     }
 }

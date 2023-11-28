@@ -8,6 +8,37 @@ import java.io.Serializable;
 @Keep
 /* loaded from: classes10.dex */
 public interface KsVideoPlayConfig extends Serializable {
+    @KsAdSdkApi
+    @Keep
+    String getShowScene();
+
+    @KsAdSdkApi
+    @Keep
+    boolean isShowLandscape();
+
+    @KsAdSdkApi
+    @Keep
+    boolean isSkipThirtySecond();
+
+    @KsAdSdkApi
+    @Keep
+    boolean isVideoSoundEnable();
+
+    @KsAdSdkApi
+    @Keep
+    void setShowLandscape(boolean z);
+
+    @KsAdSdkApi
+    @Keep
+    void setShowScene(String str);
+
+    @KsAdSdkApi
+    @Keep
+    void setSkipThirtySecond(boolean z);
+
+    @KsAdSdkApi
+    @Keep
+    void setVideoSoundEnable(boolean z);
 
     @KsAdSdkApi
     @Keep
@@ -57,36 +88,4 @@ public interface KsVideoPlayConfig extends Serializable {
             return this;
         }
     }
-
-    @KsAdSdkApi
-    @Keep
-    String getShowScene();
-
-    @KsAdSdkApi
-    @Keep
-    boolean isShowLandscape();
-
-    @KsAdSdkApi
-    @Keep
-    boolean isSkipThirtySecond();
-
-    @KsAdSdkApi
-    @Keep
-    boolean isVideoSoundEnable();
-
-    @KsAdSdkApi
-    @Keep
-    void setShowLandscape(boolean z);
-
-    @KsAdSdkApi
-    @Keep
-    void setShowScene(String str);
-
-    @KsAdSdkApi
-    @Keep
-    void setSkipThirtySecond(boolean z);
-
-    @KsAdSdkApi
-    @Keep
-    void setVideoSoundEnable(boolean z);
 }

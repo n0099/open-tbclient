@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public final class vkc<T, R> extends pjc<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void g();
+public interface vkc {
+    void a(String str, boolean z, HashMap<String, String> hashMap);
 }

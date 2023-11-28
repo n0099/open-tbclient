@@ -2,15 +2,14 @@ package com.kwad.components.ad.reward;
 
 import androidx.annotation.Keep;
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity;
 @KsAdSdkDynamicImpl(KSRewardLandScapeVideoActivity.class)
 @Keep
 /* loaded from: classes10.dex */
 public class KSRewardLandScapeVideoActivityProxy extends KSRewardVideoActivityProxy {
-    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
+    @InvokeBy(invokerClass = com.kwad.sdk.service.b.class, methodId = "initComponentProxyForInvoker")
     public static void register() {
-        KsAdSDKImpl.putComponentProxy(KSRewardLandScapeVideoActivity.class, KSRewardLandScapeVideoActivityProxy.class);
+        com.kwad.sdk.service.b.a(KSRewardLandScapeVideoActivity.class, KSRewardLandScapeVideoActivityProxy.class);
     }
 }

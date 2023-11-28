@@ -1,159 +1,209 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.tieba.privacy.PrivacyParamType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import java.util.HashMap;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Charsets;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class paa {
+public class paa {
     public static /* synthetic */ Interceptable $ic;
-    public static final paa a;
-    public static final HashMap<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public oaa a;
+    public daa b;
+    public kaa c;
+    public caa d;
+    public eaa e;
+    public jaa f;
+    public gaa g;
+    public maa h;
+    public faa i;
+    public j7a j;
+    public g7a k;
+    public raa l;
+    public yaa m;
+    public vaa n;
+    public aba o;
+    public zaa p;
+    public saa q;
+    public uaa r;
+    public taa s;
+    public waa t;
+    public xaa u;
+    public List<ci> v;
+    public BdTypeRecyclerView w;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056697, "Lcom/baidu/tieba/paa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948056697, "Lcom/baidu/tieba/paa;");
-                return;
-            }
-        }
-        a = new paa();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("TBBRAND", "DNARBBT"));
-    }
-
-    public paa() {
+    public paa(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.v = new ArrayList();
+        a(tbPageContext, bdTypeRecyclerView);
+        e(bdUniqueId);
+    }
+
+    public final void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdTypeRecyclerView) == null) {
+            this.w = bdTypeRecyclerView;
+            this.a = new oaa(tbPageContext);
+            this.b = new daa(tbPageContext);
+            this.c = new kaa(tbPageContext);
+            this.d = new caa(tbPageContext);
+            this.e = new eaa(tbPageContext);
+            this.f = new jaa(tbPageContext, tbPageContext.getUniqueId());
+            this.g = new gaa(tbPageContext, sba.h);
+            this.h = new maa(tbPageContext);
+            this.i = new faa(tbPageContext);
+            this.j = new j7a(tbPageContext, l7a.b);
+            this.k = new g7a(tbPageContext.getPageActivity(), b7a.d);
+            this.l = new raa(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+            this.m = new yaa(tbPageContext, zm6.r0);
+            this.n = new vaa(tbPageContext, zm6.t0);
+            this.o = new aba(tbPageContext, an6.U);
+            this.p = new zaa(tbPageContext, zm6.u0);
+            this.s = new taa(tbPageContext, zm6.w0);
+            this.t = new waa(tbPageContext, zm6.v0);
+            this.u = new xaa(tbPageContext, zm6.x0);
+            this.q = new saa(tbPageContext, tm6.S0);
+            this.r = new uaa(tbPageContext, um6.S0);
+            this.v.add(this.a);
+            this.v.add(this.b);
+            this.v.add(this.c);
+            this.v.add(this.d);
+            this.v.add(this.e);
+            this.v.add(this.f);
+            this.v.add(this.g);
+            this.v.add(this.h);
+            this.v.add(this.i);
+            this.v.add(this.j);
+            this.v.add(this.k);
+            this.v.add(this.l);
+            this.v.add(this.m);
+            this.v.add(this.n);
+            this.v.add(this.o);
+            this.v.add(this.p);
+            this.v.add(this.s);
+            this.v.add(this.t);
+            this.v.add(this.u);
+            this.v.add(this.q);
+            this.v.add(this.r);
+            bdTypeRecyclerView.addAdapters(this.v);
+            c("page_recommend");
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.w.getListAdapter() != null) {
+            this.w.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public final void c(String str) {
+        List<ci> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (list = this.v) == null) {
+            return;
+        }
+        for (ci ciVar : list) {
+            if (ciVar instanceof a26) {
+                ((a26) ciVar).g(str);
             }
         }
     }
 
-    @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.d()) {
-                return true;
-            }
-            if (PrivacyParamType.b() != 1 && PrivacyParamType.b() != 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.l.x(z);
+            this.c.z(z);
+            this.m.A(z);
+            this.n.y(z);
+            this.o.z(z);
+            this.p.y(z);
+            this.q.B(z);
+            this.r.A(z);
+            this.s.A(z);
+            this.t.A(z);
+            this.u.A(z);
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final String c() {
-        InterceptResult invokeV;
+    public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (PrivacyParamType.d() || PrivacyParamType.b() != 1) {
-                return "0";
-            }
-            return "1";
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.m.a = bdUniqueId;
+            this.n.a = bdUniqueId;
+            this.o.a = bdUniqueId;
+            this.p.a = bdUniqueId;
+            this.s.a = bdUniqueId;
+            this.t.a = bdUniqueId;
+            this.u.a = bdUniqueId;
+            this.q.a = bdUniqueId;
+            this.r.a = bdUniqueId;
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final String e() {
-        InterceptResult invokeV;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String model = DeviceInfoHelper.getModel();
-            Intrinsics.checkNotNullExpressionValue(model, "getModel()");
-            return a(model);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.m.B(i);
+            this.n.z(i);
+            this.o.A(i);
+            this.p.z(i);
+            this.q.C(i);
+            this.r.B(i);
+            this.s.B(i);
+            this.t.B(i);
+            this.u.B(i);
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return "";
-            }
-            if (PrivacyParamType.d()) {
-                return str;
-            }
-            int b2 = PrivacyParamType.b();
-            if (b2 != 1) {
-                if (b2 == 2) {
-                    return "";
-                }
-                return str;
-            }
-            byte[] bytes = str.getBytes(Charsets.UTF_8);
-            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
-            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
-            if (B64Encode == null) {
-                return "";
-            }
-            return new String(B64Encode, Charsets.UTF_8);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.m.C(i);
+            this.n.A(i);
+            this.o.B(i);
+            this.p.A(i);
+            this.q.D(i);
+            this.r.C(i);
+            this.s.C(i);
+            this.t.C(i);
+            this.u.C(i);
         }
-        return (String) invokeL.objValue;
     }
 
-    @JvmStatic
-    public static final String d(String key) {
-        InterceptResult invokeL;
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            if (PrivacyParamType.d()) {
-                return key;
-            }
-            int b2 = PrivacyParamType.b();
-            if (b2 != 1) {
-                if (b2 == 2) {
-                    return "";
-                }
-                return key;
-            }
-            String str = b.get(key);
-            if (str != null) {
-                return str;
-            }
-            return key;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.m.D(i);
+            this.n.B(i);
+            this.o.C(i);
+            this.p.B(i);
+            this.q.E(i);
+            this.r.D(i);
+            this.s.D(i);
+            this.t.D(i);
+            this.u.D(i);
         }
-        return (String) invokeL.objValue;
     }
 }

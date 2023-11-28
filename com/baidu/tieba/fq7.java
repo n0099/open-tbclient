@@ -1,146 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.tbadk.module.frs.FrsService;
-import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
-import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import tbclient.MemberGroupInfo;
 /* loaded from: classes6.dex */
-public final class fq7 extends bg1<FrsService> {
+public class fq7 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public MemberGroupInfo a;
+    public String b;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements FrsService {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772861, "Lcom/baidu/tieba/fq7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947772861, "Lcom/baidu/tieba/fq7;");
+                return;
             }
         }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void navToVoiceRoom(TbPageContext<?> tbPageContext, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                navToVoiceRoom(tbPageContext, "bdtiebalive://video/mixlive?room_id=" + j);
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void shareForum(Context context, Object data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, context, data) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(data, "data");
-                x38.d(context, data);
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void statStartRoomEvent(Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, l, str) == null) {
-                VoiceRoomStat.d(l, str);
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void navToVoiceRoom(TbPageContext<?> tbPageContext, long j, Map<String, String> extParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j), extParams}) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                Intrinsics.checkNotNullParameter(extParams, "extParams");
-                navToVoiceRoom(tbPageContext, String.valueOf(j), extParams);
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void navToVoiceRoom(TbPageContext<?> tbPageContext, String scheme) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, scheme) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                Intrinsics.checkNotNullParameter(scheme, "scheme");
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void navToVoiceRoom(TbPageContext<?> tbPageContext, String str, Map<String, String> extParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, extParams) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                Intrinsics.checkNotNullParameter(extParams, "extParams");
-                StringBuilder sb = new StringBuilder();
-                sb.append("bdtiebalive://video/mixlive?room_id=" + str);
-                for (Map.Entry<String, String> entry : extParams.entrySet()) {
-                    if (!Intrinsics.areEqual(entry.getKey(), "room_id")) {
-                        sb.append('&' + entry.getKey() + '=' + entry.getValue());
-                    }
-                }
-                if (!StringsKt__StringsKt.contains$default((CharSequence) sb, (CharSequence) "&source=", false, 2, (Object) null)) {
-                    sb.append("&source=source_audio_unknown");
-                }
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
-            }
-        }
-
-        @Override // com.baidu.tbadk.module.frs.FrsService
-        public void navToVoiceRoomList(Context context, Frs$From from, Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, from, l, str) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(from, "from");
-                VoiceRoomListActivity.a.a(context, from, l, str);
-            }
-        }
+        c = BdUniqueId.gen();
     }
 
     public fq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public FrsService createService() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+            return this.b;
         }
-        return (FrsService) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public MemberGroupInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (MemberGroupInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void e(MemberGroupInfo memberGroupInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, memberGroupInfo) == null) {
+            this.a = memberGroupInfo;
+        }
     }
 }

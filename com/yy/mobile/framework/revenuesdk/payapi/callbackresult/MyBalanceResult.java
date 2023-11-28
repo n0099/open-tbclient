@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.MyBalanceInfo;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MyBalanceResult {
     public MyBalanceInfo myBalanceInfo;
 

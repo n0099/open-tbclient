@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ip4;
+import com.baidu.tieba.jp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ip4 mData;
+    public jp4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserHTTPResMsg() {
@@ -36,13 +36,13 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public ip4 getData() {
+    public jp4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (ip4) invokeV.objValue;
+        return (jp4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
                 setErrorString(backUserResIdl.error.usermsg);
             }
             if (backUserResIdl.data != null) {
-                ip4 ip4Var = new ip4();
-                this.mData = ip4Var;
-                ip4Var.a(backUserResIdl.data);
+                jp4 jp4Var = new jp4();
+                this.mData = jp4Var;
+                jp4Var.a(backUserResIdl.data);
             }
         }
     }

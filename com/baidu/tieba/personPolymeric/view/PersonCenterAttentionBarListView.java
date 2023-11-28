@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ob;
+import com.baidu.tieba.oba;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.s6a;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.rba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,21 +29,21 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public s6a b;
+    public oba b;
     public TextView c;
     public ListViewPager d;
     public View e;
     public View f;
-    public ob<PersonCommonForumItemView> g;
+    public pb<PersonCommonForumItemView> g;
 
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d07fc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0816 : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements pb<PersonCommonForumItemView> {
+    public class a implements qb<PersonCommonForumItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterAttentionBarListView a;
@@ -80,7 +80,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             e(personCommonForumItemView2);
@@ -89,7 +89,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             h(personCommonForumItemView2);
@@ -97,7 +97,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /* renamed from: f */
         public void b(PersonCommonForumItemView personCommonForumItemView) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /* renamed from: g */
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<v6a> e = this.a.e(i);
+                List<rba> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -220,7 +220,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             }
         }
         new b(this, null);
-        this.g = new ob<>(new a(this), 12, 0);
+        this.g = new pb<>(new a(this), 12, 0);
         f(context);
     }
 
@@ -228,11 +228,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fc, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0816, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907a8);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0907a9);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090939);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907c4);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0907c5);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090957);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -257,7 +257,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             }
         }
         new b(this, null);
-        this.g = new ob<>(new a(this), 12, 0);
+        this.g = new pb<>(new a(this), 12, 0);
         f(context);
     }
 
@@ -281,22 +281,22 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             }
         }
         new b(this, null);
-        this.g = new ob<>(new a(this), 12, 0);
+        this.g = new pb<>(new a(this), 12, 0);
         f(context);
     }
 
-    public final List<v6a> e(int i) {
+    public final List<rba> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            s6a s6aVar = this.b;
-            if (s6aVar != null && !ListUtils.isEmpty(s6aVar.a)) {
+            oba obaVar = this.b;
+            if (obaVar != null && !ListUtils.isEmpty(obaVar.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    v6a v6aVar = (v6a) ListUtils.getItem(this.b.a, i3);
-                    if (v6aVar != null) {
-                        arrayList.add(v6aVar);
+                    rba rbaVar = (rba) ListUtils.getItem(this.b.a, i3);
+                    if (rbaVar != null) {
+                        arrayList.add(rbaVar);
                     }
                 }
                 return arrayList;

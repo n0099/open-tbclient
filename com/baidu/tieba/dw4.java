@@ -1,170 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
+import tbclient.ActInfo;
 /* loaded from: classes5.dex */
 public class dw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public c g;
-    @Nullable
-    public b h;
-    @Nullable
-    public a i;
-    public String j;
-    public String k;
-    public AdvertAppInfo l;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "功能");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static c a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                c cVar = new c();
-                cVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                cVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    cVar.b = jSONObject.optString("cmd");
-                }
-                cVar.c = jSONObject.optString("cmd");
-                return cVar;
-            }
-            return (c) invokeL.objValue;
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public int f;
+    public boolean g;
+    public int h;
+    public int i;
+    public dz4 j;
 
     public dw4() {
         Interceptable interceptable = $ic;
@@ -179,109 +40,176 @@ public class dw4 {
                 return;
             }
         }
-        this.e = -1.0f;
+        this.h = 1;
+        this.i = 1;
     }
 
-    public static boolean f() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e16.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean a(dw4 dw4Var) {
-        InterceptResult invokeL;
-        c cVar;
-        b bVar;
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dw4Var)) == null) {
-            if (dw4Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(dw4Var.f) && TextUtils.isEmpty(dw4Var.d) && (((cVar = dw4Var.g) == null || TextUtils.isEmpty(cVar.a)) && ((bVar = dw4Var.h) == null || TextUtils.isEmpty(bVar.a)))) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public static dw4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("activity_type");
+            this.b = jSONObject.optInt("status");
+            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+            this.d = jSONObject.optInt("end_time");
+            this.e = jSONObject.optString("url");
+            this.f = jSONObject.optInt("total_num");
+            jSONObject.optInt("activity_id");
+            jSONObject.optInt("award_act_id");
+            jSONObject.optInt("component_id");
+            this.g = jSONObject.optBoolean("is_senior");
+            jSONObject.optString("banner_img");
+            jSONObject.optInt("show_total_num");
+            String optString = jSONObject.optString("banner_img_size");
+            if (!rd.isEmpty(optString)) {
+                String[] split = optString.split(",");
+                this.h = JavaTypesHelper.toInt(split[0], 1);
+                this.i = JavaTypesHelper.toInt(split[1], 1);
             }
-            dw4 dw4Var = new dw4();
-            dw4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            dw4Var.b = jSONObject.optString("app_icon");
-            dw4Var.c = jSONObject.optString("app_name");
-            dw4Var.d = jSONObject.optString("developer_name");
-            dw4Var.f = jSONObject.optString("version");
-            dw4Var.g = c.a(jSONObject.optJSONObject("privacy"));
-            dw4Var.h = b.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            dw4Var.i = a.a(jSONObject.optJSONObject("feature"));
-            dw4Var.j = jSONObject.optString("apk_size");
-            dw4Var.k = jSONObject.optString("apk_url");
+            if (this.h <= 0) {
+                this.h = 1;
+            }
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void i(ActInfo actInfo) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
+            return;
+        }
+        Integer num = actInfo.activity_type;
+        int i5 = -1;
+        if (num != null) {
+            i = num.intValue();
+        } else {
+            i = -1;
+        }
+        this.a = i;
+        Integer num2 = actInfo.status;
+        if (num2 != null) {
+            i2 = num2.intValue();
+        } else {
+            i2 = -1;
+        }
+        this.b = i2;
+        Integer num3 = actInfo.begin_time;
+        if (num3 != null) {
+            i3 = num3.intValue();
+        } else {
+            i3 = -1;
+        }
+        this.c = i3;
+        Integer num4 = actInfo.end_time;
+        if (num4 != null) {
+            i4 = num4.intValue();
+        } else {
+            i4 = -1;
+        }
+        this.d = i4;
+        this.e = actInfo.url;
+        Integer num5 = actInfo.total_num;
+        if (num5 != null) {
+            i5 = num5.intValue();
+        }
+        this.f = i5;
+        actInfo.activity_id.intValue();
+        actInfo.award_act_id.intValue();
+        actInfo.component_id.intValue();
+        this.g = actInfo.is_senior.booleanValue();
+        String str = actInfo.banner_img;
+        actInfo.show_total_num.intValue();
+        String str2 = actInfo.banner_img_size;
+        if (!rd.isEmpty(str2)) {
             try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    dw4Var.e = parseFloat;
-                } else {
-                    dw4Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                dw4Var.e = -1.0f;
+                String[] split = str2.split(",");
+                this.h = JavaTypesHelper.toInt(split[0], 1);
+                this.i = JavaTypesHelper.toInt(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return dw4Var;
         }
-        return (dw4) invokeL.objValue;
-    }
-
-    public static boolean c(dw4 dw4Var) {
-        InterceptResult invokeL;
-        c cVar;
-        b bVar;
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dw4Var)) == null) {
-            if (dw4Var == null || !dw4Var.a) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(dw4Var.f) && !TextUtils.isEmpty(dw4Var.d) && (cVar = dw4Var.g) != null && !TextUtils.isEmpty(cVar.b) && (bVar = dw4Var.h) != null && !TextUtils.isEmpty(bVar.b)) {
-                a aVar = dw4Var.i;
-                if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
-                    return true;
-                }
-                if (f() && (advertAppInfo = dw4Var.l) != null) {
-                    d(ClogBuilder.LogType.CHECK, advertAppInfo.g, PayUVEventType.PAY_WALLET_BANNER_SHOW, "20001");
-                }
-            }
-            return false;
+        if (this.h <= 0) {
+            this.h = 1;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(@NonNull ClogBuilder.LogType logType, @NonNull String str, @NonNull String str2, @NonNull String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logType, str, str2, str3) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType).p(str).k(str2).l(str3);
-            az0.e(clogBuilder);
+        if (this.i <= 0) {
+            this.i = 1;
         }
-    }
-
-    public void e(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-            this.l = advertAppInfo;
-        }
+        dz4 dz4Var = new dz4();
+        this.j = dz4Var;
+        dz4Var.a(actInfo.lottery_senior);
     }
 }

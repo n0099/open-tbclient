@@ -12,36 +12,36 @@ public class gj implements gn {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gj> f435a;
+    public List<gj> f431a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String[] f436a;
+    public String[] f432a;
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String[] f437b;
+    public String[] f433b;
     public String c;
 
     public gj(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f436a = null;
-        this.f437b = null;
-        this.f435a = null;
+        this.f432a = null;
+        this.f433b = null;
+        this.f431a = null;
         this.a = str;
         this.b = str2;
-        this.f436a = strArr;
-        this.f437b = strArr2;
+        this.f432a = strArr;
+        this.f433b = strArr2;
     }
 
     public gj(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gj> list) {
-        this.f436a = null;
-        this.f437b = null;
-        this.f435a = null;
+        this.f432a = null;
+        this.f433b = null;
+        this.f431a = null;
         this.a = str;
         this.b = str2;
-        this.f436a = strArr;
-        this.f437b = strArr2;
+        this.f432a = strArr;
+        this.f433b = strArr2;
         this.c = str3;
-        this.f435a = list;
+        this.f431a = list;
     }
 
     public static gj a(Bundle bundle) {
@@ -82,7 +82,7 @@ public class gj implements gn {
         }
         Parcelable[] parcelableArr = new Parcelable[gjVarArr.length];
         for (int i = 0; i < gjVarArr.length; i++) {
-            parcelableArr[i] = gjVarArr[i].m531a();
+            parcelableArr[i] = gjVarArr[i].m535a();
         }
         return parcelableArr;
     }
@@ -93,33 +93,33 @@ public class gj implements gn {
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        String[] strArr = this.f436a;
+        String[] strArr = this.f432a;
         if (strArr != null && strArr.length > 0) {
             int i = 0;
             while (true) {
-                String[] strArr2 = this.f436a;
+                String[] strArr2 = this.f432a;
                 if (i >= strArr2.length) {
                     break;
                 }
-                bundle2.putString(strArr2[i], this.f437b[i]);
+                bundle2.putString(strArr2[i], this.f433b[i]);
                 i++;
             }
         }
         bundle.putBundle("attributes", bundle2);
-        List<gj> list = this.f435a;
+        List<gj> list = this.f431a;
         if (list != null && list.size() > 0) {
-            bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f435a));
+            bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f431a));
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m531a() {
+    public Parcelable m535a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m532a() {
+    public String m536a() {
         return this.a;
     }
 
@@ -127,34 +127,34 @@ public class gj implements gn {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f436a == null) {
+        if (this.f432a == null) {
             return null;
         }
         int i = 0;
         while (true) {
-            String[] strArr = this.f436a;
+            String[] strArr = this.f432a;
             if (i >= strArr.length) {
                 return null;
             }
             if (str.equals(strArr[i])) {
-                return this.f437b[i];
+                return this.f433b[i];
             }
             i++;
         }
     }
 
     public void a(gj gjVar) {
-        if (this.f435a == null) {
-            this.f435a = new ArrayList();
+        if (this.f431a == null) {
+            this.f431a = new ArrayList();
         }
-        if (this.f435a.contains(gjVar)) {
+        if (this.f431a.contains(gjVar)) {
             return;
         }
-        this.f435a.add(gjVar);
+        this.f431a.add(gjVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m533a(String str) {
+    public void m537a(String str) {
         if (!TextUtils.isEmpty(str)) {
             str = gx.a(str);
         }
@@ -181,26 +181,26 @@ public class gj implements gn {
             sb.append(this.b);
             sb.append("\"");
         }
-        String[] strArr = this.f436a;
+        String[] strArr = this.f432a;
         if (strArr != null && strArr.length > 0) {
-            for (int i = 0; i < this.f436a.length; i++) {
-                if (!TextUtils.isEmpty(this.f437b[i])) {
+            for (int i = 0; i < this.f432a.length; i++) {
+                if (!TextUtils.isEmpty(this.f433b[i])) {
                     sb.append(" ");
-                    sb.append(this.f436a[i]);
+                    sb.append(this.f432a[i]);
                     sb.append("=\"");
-                    sb.append(gx.a(this.f437b[i]));
+                    sb.append(gx.a(this.f433b[i]));
                     sb.append("\"");
                 }
             }
         }
         if (TextUtils.isEmpty(this.c)) {
-            List<gj> list = this.f435a;
+            List<gj> list = this.f431a;
             if (list == null || list.size() <= 0) {
                 sb.append("/>");
                 return sb.toString();
             }
             sb.append(">");
-            for (gj gjVar : this.f435a) {
+            for (gj gjVar : this.f431a) {
                 sb.append(gjVar.d());
             }
         } else {

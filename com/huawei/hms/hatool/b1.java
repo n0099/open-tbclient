@@ -74,7 +74,7 @@ public class b1 extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (q0.a(context, com.kuaishou.weapon.p0.h.c)) {
+            if (q0.a(context, com.kuaishou.weapon.p0.g.c)) {
                 y.f("hmsSdk", "getMccAndMnc() Pair value is empty");
                 return new Pair<>("", "");
             }

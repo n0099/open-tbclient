@@ -2,7 +2,7 @@ package org.apache.commons.codec.language.bm;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -163,7 +163,7 @@ public class PhoneticEngine {
         EnumMap enumMap = new EnumMap(NameType.class);
         NAME_PREFIXES = enumMap;
         enumMap.put((EnumMap) NameType.ASHKENAZI, (NameType) Collections.unmodifiableSet(new HashSet(Arrays.asList("bar", "ben", "da", "de", "van", "von"))));
-        NAME_PREFIXES.put(NameType.SEPHARDIC, Collections.unmodifiableSet(new HashSet(Arrays.asList("al", u.s, "da", "dal", "de", "del", "dela", "de la", "della", "des", AppIconSetting.DEFAULT_LARGE_ICON, "do", "dos", "du", "van", "von"))));
+        NAME_PREFIXES.put(NameType.SEPHARDIC, Collections.unmodifiableSet(new HashSet(Arrays.asList("al", t.n, "da", "dal", "de", "del", "dela", "de la", "della", "des", AppIconSetting.DEFAULT_LARGE_ICON, "do", "dos", "du", "van", "von"))));
         NAME_PREFIXES.put(NameType.GENERIC, Collections.unmodifiableSet(new HashSet(Arrays.asList("da", "dal", "de", "del", "dela", "de la", "della", "des", AppIconSetting.DEFAULT_LARGE_ICON, "do", "dos", "du", "van", "von"))));
     }
 

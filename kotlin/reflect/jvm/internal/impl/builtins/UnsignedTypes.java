@@ -60,11 +60,11 @@ public final class UnsignedTypes {
     }
 
     public final boolean isUnsignedType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2110getDeclarationDescriptor;
-        if (TypeUtils.noExpectedType(kotlinType) || (mo2110getDeclarationDescriptor = kotlinType.getConstructor().mo2110getDeclarationDescriptor()) == null) {
+        ClassifierDescriptor mo2114getDeclarationDescriptor;
+        if (TypeUtils.noExpectedType(kotlinType) || (mo2114getDeclarationDescriptor = kotlinType.getConstructor().mo2114getDeclarationDescriptor()) == null) {
             return false;
         }
-        Intrinsics.checkExpressionValueIsNotNull(mo2110getDeclarationDescriptor, "type.constructor.declara…escriptor ?: return false");
-        return isUnsignedClass(mo2110getDeclarationDescriptor);
+        Intrinsics.checkExpressionValueIsNotNull(mo2114getDeclarationDescriptor, "type.constructor.declara…escriptor ?: return false");
+        return isUnsignedClass(mo2114getDeclarationDescriptor);
     }
 }

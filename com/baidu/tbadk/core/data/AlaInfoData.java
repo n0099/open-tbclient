@@ -11,10 +11,10 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.sz4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient iw4 label;
+    public transient kw4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -65,11 +65,11 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
     public int live_status;
     public int live_type;
     public transient AlaChallengeInfoData mChallengeInfoData;
-    public sz4 mContainerSize;
+    public vz4 mContainerSize;
     public String mCoverWide;
     public String mFlv;
     public Integer mPageFrom;
-    public sz4 mPlayerSize;
+    public vz4 mPlayerSize;
     public String mScheme;
     public YyExtData mYyExtData;
     public String media_id;
@@ -93,7 +93,7 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
     public String thirdLiveType;
     public String thirdRoomId;
     public long thread_id;
-    public mz4 userLabelInfo;
+    public pz4 userLabelInfo;
     public transient AlaUserInfoData user_info;
     public String user_label_text;
 
@@ -202,7 +202,7 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            if (yyExtData != null && !qd.isEmpty(yyExtData.mSid) && !qd.isEmpty(this.mYyExtData.mSsid)) {
+            if (yyExtData != null && !rd.isEmpty(yyExtData.mSid) && !rd.isEmpty(this.mYyExtData.mSsid)) {
                 return true;
             }
             return false;
@@ -289,9 +289,9 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                iw4 iw4Var = new iw4();
-                this.label = iw4Var;
-                iw4Var.a(optJSONObject);
+                kw4 kw4Var = new kw4();
+                this.label = kw4Var;
+                kw4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {
@@ -342,14 +342,14 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("user_label");
             if (optJSONObject4 != null) {
-                this.userLabelInfo = mz4.g(optJSONObject4);
+                this.userLabelInfo = pz4.g(optJSONObject4);
             }
             this.cutType = jSONObject.optInt("cut_type");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("jump_info");
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i2);
-                    if (optJSONObject5 != null && !qd.isEmpty(optJSONObject5.optString("type"))) {
+                    if (optJSONObject5 != null && !rd.isEmpty(optJSONObject5.optString("type"))) {
                         String optString = optJSONObject5.optString("type");
                         String optString2 = optJSONObject5.optString("url");
                         if ("comment".equals(optString)) {
@@ -367,11 +367,11 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
             this.mScheme = jSONObject.optString("scheme");
             JSONObject optJSONObject6 = jSONObject.optJSONObject("player_size");
             if (optJSONObject6 != null) {
-                this.mPlayerSize = sz4.d(optJSONObject6);
+                this.mPlayerSize = vz4.d(optJSONObject6);
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("container_size");
             if (optJSONObject7 != null) {
-                this.mContainerSize = sz4.d(optJSONObject7);
+                this.mContainerSize = vz4.d(optJSONObject7);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -458,16 +458,16 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
             }
             if (alaLiveInfo.user_label != null) {
-                this.userLabelInfo = mz4.h(alaLiveInfo.user_label);
+                this.userLabelInfo = pz4.h(alaLiveInfo.user_label);
             }
             this.mFlv = alaLiveInfo.flv;
             this.mPageFrom = alaLiveInfo.page_from;
             this.mScheme = alaLiveInfo.scheme;
             if (alaLiveInfo.player_size != null) {
-                this.mPlayerSize = sz4.e(alaLiveInfo.player_size);
+                this.mPlayerSize = vz4.e(alaLiveInfo.player_size);
             }
             if (alaLiveInfo.container_size != null) {
-                this.mContainerSize = sz4.e(alaLiveInfo.container_size);
+                this.mContainerSize = vz4.e(alaLiveInfo.container_size);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

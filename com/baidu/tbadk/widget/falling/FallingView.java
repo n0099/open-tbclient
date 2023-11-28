@@ -39,10 +39,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o0b;
-import com.baidu.tieba.wv5;
-import com.baidu.tieba.xv5;
-import com.baidu.tieba.yv5;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.ew5;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.j5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public abstract class FallingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public o a;
-    public final List<wv5> b;
+    public final List<dw5> b;
     public final Context c;
     public int d;
     public int e;
@@ -80,9 +80,9 @@ public abstract class FallingView extends FrameLayout {
     public r o;
     public View.OnClickListener p;
     @NonNull
-    public xv5 q;
+    public ew5 q;
     @Nullable
-    public yv5 r;
+    public fw5 r;
     public final Runnable s;
     public final Runnable t;
     public final Runnable u;
@@ -94,9 +94,9 @@ public abstract class FallingView extends FrameLayout {
         void onAnimationStart();
     }
 
-    public abstract xv5 p();
+    public abstract ew5 p();
 
-    public abstract wv5 q(Bitmap bitmap);
+    public abstract dw5 q(Bitmap bitmap);
 
     public abstract void u(@NonNull View view2, @NonNull FallingData fallingData);
 
@@ -312,7 +312,7 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    o0b.b(this.b.a.b, 600);
+                    j5b.b(this.b.a.b, 600);
                 }
             }
         }
@@ -760,7 +760,7 @@ public abstract class FallingView extends FrameLayout {
                     return;
                 }
                 for (int i = 0; i < this.b.b.size(); i++) {
-                    ((wv5) this.b.b.get(i)).c();
+                    ((dw5) this.b.b.get(i)).c();
                 }
                 this.b.invalidate();
                 sendEmptyMessageDelayed(0, 5L);
@@ -837,9 +837,9 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public final void m(wv5 wv5Var, int i2) {
+    public final void m(dw5 dw5Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, wv5Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, dw5Var, i2) == null) {
             if (this.d == 0) {
                 this.d = BdUtilHelper.getEquipmentWidth(this.c);
             }
@@ -848,9 +848,9 @@ public abstract class FallingView extends FrameLayout {
             }
             this.b.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                wv5 wv5Var2 = new wv5(wv5Var.i, this.d, this.e);
-                wv5Var2.e = (-i3) * 180;
-                this.b.add(wv5Var2);
+                dw5 dw5Var2 = new dw5(dw5Var.i, this.d, this.e);
+                dw5Var2.e = (-i3) * 180;
+                this.b.add(dw5Var2);
             }
         }
     }
@@ -904,10 +904,10 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public void setEventCallback(@NonNull yv5 yv5Var) {
+    public void setEventCallback(@NonNull fw5 fw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yv5Var) == null) {
-            this.r = yv5Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fw5Var) == null) {
+            this.r = fw5Var;
         }
     }
 

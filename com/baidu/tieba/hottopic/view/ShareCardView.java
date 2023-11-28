@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class ShareCardView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return qd.charSequence2String(editText.getText(), null);
+            return rd.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }

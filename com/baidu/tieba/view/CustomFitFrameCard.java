@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.fz4;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -224,61 +224,74 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         ScalingUtils.ScaleType FIT_XY = ScalingUtils.ScaleType.FIT_XY;
         Intrinsics.checkNotNullExpressionValue(FIT_XY, "FIT_XY");
         tbImage.setScaleType(FIT_XY);
-        r();
+        f();
     }
 
     public /* synthetic */ CustomFitFrameCard(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void e(fz4 fz4Var) {
+    public final void e(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, fz4Var) != null) || fz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hz4Var) != null) || hz4Var == null) {
             return;
         }
-        h(fz4Var);
-        zy4 f = fz4Var.f();
+        h(hz4Var);
+        bz4 f = hz4Var.f();
         if (f == null) {
             return;
         }
-        k(f);
-        i(f);
+        l(f);
+        j(f);
     }
 
-    public final void f(int i) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a.c.setVisibility(i);
             this.a.e.setVisibility(i);
         }
     }
 
-    public final void h(fz4 fz4Var) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fz4Var) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Drawable drawable = SkinManager.getDrawable(R.drawable.pic_use_header_40_n);
+            if (drawable != null) {
+                this.a.b.setPlaceHolderDrawable(drawable);
+            }
+            EMManager.from(this.a.e).setTextColor(R.color.CAM_X0101);
+            EMManager.from(this.a.g).setTextColor(R.color.CAM_X0101);
+            this.a.f.j();
+        }
+    }
+
+    public final void h(hz4 hz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, hz4Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, fz4Var.a());
+            constraintSet.setDimensionRatio(R.id.background_card, hz4Var.a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = fz4Var.m();
+            String m = hz4Var.m();
             Intrinsics.checkNotNullExpressionValue(m, "taskInfoData.threadImgUrl");
             tbImage.l(m);
         }
     }
 
-    public final void setData(bw4 bw4Var) {
+    public final void setData(cw4 cw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null && bw4Var.getThreadData().getTaskInfoData() != null && bw4Var.getThreadData().getTaskInfoData().f() != null) {
-            e(bw4Var.getThreadData().getTaskInfoData());
+        if ((interceptable == null || interceptable.invokeL(1048582, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null) {
+            e(cw4Var.getThreadData().getTaskInfoData());
         }
     }
 
-    public final void i(zy4 zy4Var) {
+    public final void j(bz4 bz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zy4Var) == null) {
-            this.a.g.setText(zy4Var.c());
-            long j = JavaTypesHelper.toLong(zy4Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bz4Var) == null) {
+            this.a.g.setText(bz4Var.c());
+            long j = JavaTypesHelper.toLong(bz4Var.d(), 0L) * 1000;
             if (j <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -290,33 +303,20 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void k(zy4 zy4Var) {
+    public final void l(bz4 bz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zy4Var) == null) {
-            if (ListUtils.isEmpty(zy4Var.e())) {
-                f(8);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bz4Var) == null) {
+            if (ListUtils.isEmpty(bz4Var.e())) {
+                g(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(zy4Var.e());
-            f(0);
+            this.e.addAll(bz4Var.e());
+            g(0);
             this.a.c.q();
-            if (!TextUtils.isEmpty(zy4Var.m())) {
-                this.a.e.setText(zy4Var.m());
+            if (!TextUtils.isEmpty(bz4Var.m())) {
+                this.a.e.setText(bz4Var.m());
             }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Drawable drawable = SkinManager.getDrawable(R.drawable.pic_use_header_40_n);
-            if (drawable != null) {
-                this.a.b.setPlaceHolderDrawable(drawable);
-            }
-            EMManager.from(this.a.e).setTextColor(R.color.CAM_X0101);
-            EMManager.from(this.a.g).setTextColor(R.color.CAM_X0101);
-            this.a.f.j();
         }
     }
 }

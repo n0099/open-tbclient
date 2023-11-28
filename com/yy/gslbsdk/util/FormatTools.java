@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FormatTools {
     public static final String TAG = "FormatTools";
     public static SimpleDateFormat full_date_time_format1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

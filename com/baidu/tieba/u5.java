@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.coder.CoderException;
 import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,56 +17,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public class u5 extends ke {
+public class u5 extends BdAsyncTask<String, SocketResponsedMessage, SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler o;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoderException c;
-    public SocketMessage d;
-    public volatile int e;
-    public Runnable f;
-    public w5 g;
-    public boolean h;
-    public int i;
-    public int j;
-    public long k;
-    public SocketMessageTask l;
-    public long m;
-    public long n;
+    public a a;
+    public c6 b;
+    public v5 c;
+    public int d;
+    public SocketMessageTask e;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public interface a {
+        void a(b bVar);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u5 a;
+        public SocketResponsedMessage a;
+        public v5 b;
 
-        public a(u5 u5Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = u5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.A();
         }
     }
 
@@ -80,318 +69,445 @@ public class u5 extends ke {
                 return;
             }
         }
-        o = new Handler(Looper.getMainLooper());
+        f = BdUniqueId.gen();
     }
 
-    public final void A() {
-        w5 w5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (w5Var = this.g) != null && this.h) {
-            w5Var.A(this);
-        }
-    }
-
-    public int g() {
+    public static BdUniqueId e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.j + 1;
-            this.j = i;
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.i + 1;
-            this.i = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l.isCanRetry();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            o.removeCallbacks(u());
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onCancelled();
+            b(null);
         }
     }
 
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            SocketMessage socketMessage = this.d;
-            if (socketMessage != null) {
-                return socketMessage.getCmd();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int retry = this.l.getRetry();
-            if (retry <= 1) {
-                return 1;
-            }
-            return retry;
-        }
-        return invokeV.intValue;
-    }
-
-    public SocketMessage m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return (SocketMessage) invokeV.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.l.getPriority();
-        }
-        return invokeV.intValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public CoderException r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.c;
-        }
-        return (CoderException) invokeV.objValue;
-    }
-
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.k;
-        }
-        return invokeV.longValue;
-    }
-
-    public SocketMessageTask t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.l;
-        }
-        return (SocketMessageTask) invokeV.objValue;
-    }
-
-    public final Runnable u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.f == null) {
-                this.f = new a(this);
-            }
-            return this.f;
-        }
-        return (Runnable) invokeV.objValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.l.getNeedAck();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            j();
-            this.h = false;
-        }
-    }
-
-    public final void y() {
-        w5 w5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (w5Var = this.g) != null && this.h) {
-            w5Var.y(this);
-        }
-    }
-
-    public final void z() {
-        w5 w5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (w5Var = this.g) != null && this.h) {
-            w5Var.z(this);
-        }
-    }
-
-    public u5(SocketMessage socketMessage, SocketMessageTask socketMessageTask, w5 w5Var) {
+    public u5(c6 c6Var, v5 v5Var, a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {socketMessage, socketMessageTask, w5Var};
+            Object[] objArr = {c6Var, v5Var, aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = null;
-        this.e = 0;
-        this.f = null;
-        this.g = null;
-        this.h = true;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0L;
-        this.l = null;
-        if (socketMessage != null && socketMessageTask != null) {
-            this.l = socketMessageTask;
-            this.d = socketMessage;
-            this.g = w5Var;
-            return;
-        }
-        throw new InvalidParameterException("SenderData msg null");
-    }
-
-    @Override // com.baidu.tieba.nf
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            o.removeCallbacks(u());
-            x(i);
-        }
-    }
-
-    public final void x(int i) {
-        w5 w5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && (w5Var = this.g) != null && this.h) {
-            w5Var.x(i, this);
-        }
-    }
-
-    @Override // com.baidu.tieba.nf
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.k == 0) {
-                this.k = System.currentTimeMillis();
-            }
-            int cmd = this.d.getCmd();
-            int i = 0;
-            if (e() != null) {
-                i = e().length;
-            }
-            long clientLogID = this.d.getClientLogID();
-            int i2 = this.e;
-            y5.b("SenderData", cmd, clientLogID, i2, "StartSend", 0, "SenderData: start send size = " + i);
-            o.removeCallbacks(u());
-            if (this.l.getTimeOut() != null) {
-                o.postDelayed(u(), this.l.getTimeOut().b());
-            }
-            z();
-            g5 g5Var = g5.b;
-            if (g5Var != null) {
-                g5Var.a(this.d.getCmd(), "send", this.d.getData());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nf
-    public void c() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int cmd = this.d.getCmd();
-            if (e() != null) {
-                i = e().length;
-            } else {
-                i = 0;
-            }
-            long clientLogID = this.d.getClientLogID();
-            int i2 = this.e;
-            y5.b("SenderData", cmd, clientLogID, i2, "FinishSend", 0, "SenderData: finish send  size = " + i);
-            if (!this.l.getNeedAck()) {
-                o.removeCallbacks(u());
-            }
-            y();
-        }
-    }
-
-    @Override // com.baidu.tieba.ke
-    public byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.k == 0) {
-                this.k = System.currentTimeMillis();
-            }
-            this.c = null;
-            a6 f = a6.f();
-            this.e = v5.a().b();
-            SocketMessage socketMessage = this.d;
-            if (socketMessage != null) {
-                socketMessage.setSquencedId(this.e);
-            }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = 0;
+        this.e = null;
+        this.b = c6Var;
+        this.c = v5Var;
+        this.a = aVar;
+        this.d = i;
+        if (v5Var != null) {
             try {
-                return f.e(this.d, this.e, this.l.getNeedCompress(), this.l.getNeedEncrypt());
-            } catch (CoderException e) {
-                this.c = e;
+                this.e = v5Var.t();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.e == null) {
+            this.e = (SocketMessageTask) MessageManager.getInstance().findTask(this.b.a.b());
+        }
+        setTag(f);
+        setPriority(4);
+        SocketMessageTask socketMessageTask = this.e;
+        if (socketMessageTask != null) {
+            setKey(String.valueOf(socketMessageTask.getCmd()));
+            setParallel(this.e.getParallel());
+        }
+    }
+
+    public final void b(SocketResponsedMessage socketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && this.a != null) {
+            boolean c = c(socketResponsedMessage, this.c);
+            b bVar = new b();
+            bVar.a = socketResponsedMessage;
+            if (!c) {
+                bVar.b = this.c;
+            }
+            this.a.a(bVar);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public void onProgressUpdate(SocketResponsedMessage... socketResponsedMessageArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socketResponsedMessageArr) == null) {
+            if (socketResponsedMessageArr != null && socketResponsedMessageArr.length > 0) {
+                b(socketResponsedMessageArr[0]);
+            } else {
+                b(null);
+            }
+        }
+    }
+
+    public final boolean c(SocketResponsedMessage socketResponsedMessage, v5 v5Var) {
+        InterceptResult invokeLL;
+        long clientLogID;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage, v5Var)) == null) {
+            if (this.d != 0 && v5Var != null && socketResponsedMessage == null) {
+                int k = v5Var.k();
+                if (v5Var.m() == null) {
+                    clientLogID = -1;
+                } else {
+                    clientLogID = v5Var.m().getClientLogID();
+                }
+                z5.b("unpacker", k, clientLogID, this.d, "checkresponsedMessage", y5.l, "ack cont responsed");
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x009e, code lost:
+        if (r14.d != r14.b.length) goto L25;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x01ff A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:138:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0146 A[Catch: CoderException -> 0x01ad, TRY_LEAVE, TryCatch #3 {CoderException -> 0x01ad, blocks: (B:62:0x013e, B:64:0x0146, B:70:0x017f), top: B:119:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01a8  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01c9  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01ed  */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public SocketResponsedMessage doInBackground(String... strArr) {
+        InterceptResult invokeL;
+        c6 c6Var;
+        int i;
+        SocketResponsedMessage socketResponsedMessage;
+        long j;
+        v5 v5Var;
+        long j2;
+        long j3;
+        long j4;
+        boolean g;
+        int i2;
+        long currentTimeMillis;
+        long j5;
+        long j6;
+        long j7;
+        long j8;
+        long j9;
+        SocketMessage socketMessage;
+        long j10;
+        long j11;
+        long j12;
+        long j13;
+        int i3;
+        long j14;
+        byte[] bArr;
+        c6 c6Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            SocketResponsedMessage socketResponsedMessage2 = null;
+            if (this.b == null) {
                 return null;
             }
+            try {
+                j2 = 0;
+                if (this.c != null) {
+                    try {
+                        j3 = this.c.m;
+                    } catch (CoderException unused) {
+                        c6Var = null;
+                        i = 0;
+                        j = -100;
+                        v5Var = this.c;
+                        if (v5Var != null) {
+                        }
+                        z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                        socketResponsedMessage = socketResponsedMessage2;
+                        if (socketResponsedMessage != null) {
+                        }
+                        publishProgress(socketResponsedMessage);
+                        if (socketResponsedMessage == null) {
+                        }
+                    }
+                } else {
+                    j3 = 0;
+                }
+                if (this.c != null) {
+                    j4 = this.c.n;
+                } else {
+                    j4 = 0;
+                }
+                long currentTimeMillis2 = System.currentTimeMillis();
+                i = this.b.a.b();
+                try {
+                    g = this.b.a.g();
+                    i2 = this.b.d;
+                    b6 f2 = b6.f();
+                    c6Var = this.b;
+                    f2.d(c6Var);
+                    try {
+                        currentTimeMillis = System.currentTimeMillis();
+                        if (this.c != null) {
+                            try {
+                                SocketMessage m = this.c.m();
+                                long startTime = m.getStartTime();
+                                long s = this.c.s();
+                                long j15 = s - startTime;
+                                long j16 = currentTimeMillis2 - s;
+                                if (j3 > 0) {
+                                    j7 = j3 - s;
+                                    if (j4 >= j3) {
+                                        j8 = j4 - s;
+                                        j5 = j4 - j3;
+                                        j6 = currentTimeMillis2 - j4;
+                                        j9 = currentTimeMillis - currentTimeMillis2;
+                                        socketMessage = m;
+                                        j10 = j5;
+                                        j11 = j6;
+                                        j12 = j7;
+                                        j13 = j8;
+                                        j2 = j15;
+                                    } else {
+                                        j5 = 0;
+                                        j6 = 0;
+                                    }
+                                } else {
+                                    j5 = 0;
+                                    j6 = 0;
+                                    j7 = 0;
+                                }
+                                j8 = j16;
+                                j9 = currentTimeMillis - currentTimeMillis2;
+                                socketMessage = m;
+                                j10 = j5;
+                                j11 = j6;
+                                j12 = j7;
+                                j13 = j8;
+                                j2 = j15;
+                            } catch (CoderException unused2) {
+                                j = -100;
+                                v5Var = this.c;
+                                if (v5Var != null) {
+                                    j = this.c.m().getClientLogID();
+                                }
+                                z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                                socketResponsedMessage = socketResponsedMessage2;
+                                if (socketResponsedMessage != null) {
+                                }
+                                publishProgress(socketResponsedMessage);
+                                if (socketResponsedMessage == null) {
+                                }
+                            }
+                        } else {
+                            socketMessage = null;
+                            j13 = 0;
+                            j12 = 0;
+                            j10 = 0;
+                            j11 = 0;
+                            j9 = 0;
+                        }
+                        if (c6Var.c == 0) {
+                            try {
+                            } catch (CoderException unused3) {
+                                socketResponsedMessage2 = null;
+                                j = -100;
+                                v5Var = this.c;
+                                if (v5Var != null) {
+                                }
+                                z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                                socketResponsedMessage = socketResponsedMessage2;
+                                if (socketResponsedMessage != null) {
+                                }
+                                publishProgress(socketResponsedMessage);
+                                if (socketResponsedMessage == null) {
+                                }
+                            }
+                        }
+                    } catch (CoderException unused4) {
+                    }
+                } catch (CoderException unused5) {
+                    socketResponsedMessage2 = null;
+                    c6Var = null;
+                }
+            } catch (CoderException unused6) {
+                socketResponsedMessage2 = null;
+                c6Var = null;
+            }
+            if (c6Var.d <= 0) {
+                c6Var.b = null;
+                i3 = i2;
+                j14 = j11;
+                bArr = null;
+                long j17 = j14;
+                long j18 = j10;
+                try {
+                    socketResponsedMessage = b6.f().b(i, c6Var.b, socketMessage, this.e, g);
+                    if (socketResponsedMessage != null && bArr != null) {
+                        try {
+                            try {
+                                socketResponsedMessage.decodeExtraDataInBackGround(i, bArr);
+                            } catch (Exception unused7) {
+                                throw new CoderException(y5.d);
+                            }
+                        } catch (CoderException unused8) {
+                            socketResponsedMessage2 = socketResponsedMessage;
+                            i = i;
+                            c6Var = c6Var;
+                            j = -100;
+                            v5Var = this.c;
+                            if (v5Var != null) {
+                            }
+                            z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                            socketResponsedMessage = socketResponsedMessage2;
+                            if (socketResponsedMessage != null) {
+                            }
+                            publishProgress(socketResponsedMessage);
+                            if (socketResponsedMessage == null) {
+                            }
+                        }
+                    }
+                    try {
+                        long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
+                        if (socketResponsedMessage == null) {
+                            if (this.c != null && this.b != null) {
+                                socketResponsedMessage.setCostTime(System.currentTimeMillis() - this.c.s());
+                                socketResponsedMessage.setRetry(this.c.o());
+                                socketResponsedMessage.performanceData.a = j2;
+                                socketResponsedMessage.performanceData.c = j13;
+                                socketResponsedMessage.performanceData.d = j12;
+                                socketResponsedMessage.performanceData.e = j18;
+                                socketResponsedMessage.performanceData.h = j17;
+                            }
+                            socketResponsedMessage.setDownSize(i3);
+                            socketResponsedMessage.performanceData.g = currentTimeMillis3;
+                            socketResponsedMessage.performanceData.f = j9;
+                            socketResponsedMessage.sequenceID = this.b.a.h();
+                            c6Var2 = c6Var;
+                            try {
+                                socketResponsedMessage.beforeDispatchInBackGround(i, c6Var2.b);
+                            } catch (Exception e) {
+                                try {
+                                    BdLog.e(e.getMessage());
+                                } catch (CoderException unused9) {
+                                    c6Var = c6Var2;
+                                    socketResponsedMessage2 = socketResponsedMessage;
+                                    i = i;
+                                    j = -100;
+                                    v5Var = this.c;
+                                    if (v5Var != null && v5Var.m() != null) {
+                                        j = this.c.m().getClientLogID();
+                                    }
+                                    z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                                    socketResponsedMessage = socketResponsedMessage2;
+                                    if (socketResponsedMessage != null) {
+                                    }
+                                    publishProgress(socketResponsedMessage);
+                                    if (socketResponsedMessage == null) {
+                                    }
+                                }
+                            }
+                        } else {
+                            c6Var2 = c6Var;
+                        }
+                        c6Var = c6Var2;
+                        i = i;
+                    } catch (CoderException unused10) {
+                        c6Var2 = c6Var;
+                    }
+                } catch (CoderException unused11) {
+                    c6Var = c6Var;
+                    i = i;
+                    socketResponsedMessage2 = null;
+                    j = -100;
+                    v5Var = this.c;
+                    if (v5Var != null) {
+                    }
+                    z5.b("unpacker", i, j, this.d, "unpacktask", y5.k, "onBinaryMesssage decodebody error");
+                    socketResponsedMessage = socketResponsedMessage2;
+                    if (socketResponsedMessage != null) {
+                    }
+                    publishProgress(socketResponsedMessage);
+                    if (socketResponsedMessage == null) {
+                    }
+                }
+                if (socketResponsedMessage != null) {
+                    socketResponsedMessage.setStartTime(System.currentTimeMillis());
+                }
+                publishProgress(socketResponsedMessage);
+                if (socketResponsedMessage == null) {
+                    try {
+                        h5 h5Var = h5.b;
+                        if (h5Var != null) {
+                            h5Var.a(socketResponsedMessage.getCmd(), StatConstants.VALUE_TYPE_RECEIVE, socketResponsedMessage.getDecodeData());
+                        }
+                        if (c6Var != null) {
+                            socketResponsedMessage.afterDispatchInBackGround(i, c6Var.b);
+                            return null;
+                        }
+                        return null;
+                    } catch (Exception e2) {
+                        BdLog.e(e2.getMessage());
+                        return null;
+                    }
+                }
+                return null;
+            }
+            if (this.b.a.e()) {
+                try {
+                    j14 = j11;
+                    short s2 = ByteBuffer.wrap(c6Var.b, c6Var.c, a6.g).getShort();
+                    int i4 = a6.g + s2;
+                    i3 = i2;
+                    byte[] array = ByteBuffer.allocateDirect(s2).put(c6Var.b, c6Var.c + a6.g, s2).array();
+                    c6Var.c += i4;
+                    c6Var.d -= i4;
+                    bArr = array;
+                } catch (Exception unused12) {
+                    throw new CoderException(y5.d);
+                }
+            } else {
+                i3 = i2;
+                j14 = j11;
+                bArr = null;
+            }
+            c6Var.b = ByteBuffer.allocateDirect(c6Var.d).put(c6Var.b, c6Var.c, c6Var.d).array();
+            long j172 = j14;
+            long j182 = j10;
+            socketResponsedMessage = b6.f().b(i, c6Var.b, socketMessage, this.e, g);
+            if (socketResponsedMessage != null) {
+                socketResponsedMessage.decodeExtraDataInBackGround(i, bArr);
+            }
+            long currentTimeMillis32 = System.currentTimeMillis() - currentTimeMillis;
+            if (socketResponsedMessage == null) {
+            }
+            c6Var = c6Var2;
+            i = i;
+            if (socketResponsedMessage != null) {
+            }
+            publishProgress(socketResponsedMessage);
+            if (socketResponsedMessage == null) {
+            }
+        } else {
+            return (SocketResponsedMessage) invokeL.objValue;
         }
-        return (byte[]) invokeV.objValue;
     }
 }

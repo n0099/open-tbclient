@@ -1,10 +1,10 @@
 package com.yy.hiidostatis.inner.implementation;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ITaskExecutor {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface OnTaskRejectedListener {
         void onRejectedTask(ExecutorTask executorTask);
     }
@@ -17,7 +17,7 @@ public interface ITaskExecutor {
 
     void submit(Runnable runnable, int i);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ExecutorTask implements Runnable {
         public Context mContext;
         public TaskData mData;

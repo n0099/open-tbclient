@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class np6 implements hb7 {
+public final class np6 implements ub7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hb7
+    @Override // com.baidu.tieba.ub7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
     }
 
     public np6() {
@@ -37,25 +36,26 @@ public final class np6 implements hb7 {
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 businessInfo) {
+    @Override // com.baidu.tieba.ub7
+    public Map<String, String> a(r57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+            hashMap.put("obj_locate", "1");
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str = "";
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("obj_id", currentAccount);
+            String str2 = a.get("user_id");
+            if (str2 != null) {
+                str = str2;
             }
             hashMap.put("obj_param1", str);
-            String str3 = a.get("live_app_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
             return hashMap;
         }
         return (Map) invokeL.objValue;

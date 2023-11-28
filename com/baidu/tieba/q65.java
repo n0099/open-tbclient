@@ -1,101 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.text.style.ReplacementSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q65 implements SpanWatcher {
+public class q65 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
+    public int a;
     public int b;
     public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public boolean k;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    public q65(@NonNull SpanGroupManager spanGroupManager) {
+    public q65(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = spanGroupManager;
+        this.i = 0;
+        this.j = 0;
+        this.k = true;
+        this.b = i;
+        this.c = i2;
+        this.d = i3;
+        this.e = i4;
+        this.f = i5;
+        this.g = i6;
+        this.h = i7;
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
-        }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            o65 E = spanGroupManager.E(i3);
-            if (E != null) {
-                int f = E.f();
-                int c = E.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
-            }
-        }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            o65 E2 = this.a.E(i3);
-            if (E2 != null) {
-                int f2 = E2.f();
-                int c2 = E2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.k = z;
         }
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        SpanGroupManager spanGroupManager;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
-            spanGroupManager.q();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.j = i;
         }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            float textSize = paint.getTextSize();
+            int color = paint.getColor();
+            float f2 = f + this.h;
+            paint.setTextSize(this.d);
+            paint.setColor(SkinManager.getColor(this.b));
+            paint.setAntiAlias(this.k);
+            int i6 = i3 + i5;
+            int i7 = this.d;
+            int i8 = this.c;
+            int i9 = this.g;
+            int i10 = this.i;
+            RectF rectF = new RectF(f2, ((((i6 - i7) - i8) - i9) / 2) + i10, (this.a + f2) - this.j, ((((i6 + i7) + i8) + i9) / 2) + i10);
+            int i11 = this.c;
+            canvas.drawRoundRect(rectF, i11, i11, paint);
+            paint.setColor(SkinManager.getColor(this.e));
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            canvas.drawText(charSequence, i, i2, f2 + this.c + this.f, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
+            paint.setTextSize(textSize);
+            paint.setColor(color);
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            float textSize = paint.getTextSize();
+            paint.setTextSize(this.d);
+            this.a = (int) (paint.measureText(charSequence, i, i2) + (this.c * 2) + (this.f * 2) + this.j);
+            paint.setTextSize(textSize);
+            return this.a;
+        }
+        return invokeCommon.intValue;
     }
 }

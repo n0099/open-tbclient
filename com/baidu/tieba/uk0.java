@@ -1,19 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.ViewGroup;
+import com.baidu.nadcore.lp.reward.view.NadRewardFullTailView;
+import com.baidu.nadcore.lp.reward.view.NadRewardHalfTailHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public interface uk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardCriusPop");
+    public static final a k0 = a.a;
 
-    void a(sk0 sk0Var);
+    ViewGroup getView();
 
-    void b(gn0 gn0Var, Context context);
+    void setData(hn0 hn0Var);
 
-    View getView();
+    void setOnReplayClickListener(Function0<Unit> function0);
 
-    void release();
+    void setVisibility(boolean z);
 
-    void show();
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-372353070, "Lcom/baidu/tieba/uk0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-372353070, "Lcom/baidu/tieba/uk0$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final uk0 a(hn0 adModel, Context context) {
+            InterceptResult invokeLL;
+            String str;
+            mn0 mn0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, adModel, context)) == null) {
+                Intrinsics.checkNotNullParameter(adModel, "adModel");
+                Intrinsics.checkNotNullParameter(context, "context");
+                kn0 kn0Var = adModel.j;
+                if (kn0Var != null && (mn0Var = kn0Var.i) != null) {
+                    str = mn0Var.a;
+                } else {
+                    str = null;
+                }
+                if (str != null && str.hashCode() == 49 && str.equals("1")) {
+                    return new NadRewardHalfTailHolder(context, null, 0, 6, null);
+                }
+                return new NadRewardFullTailView(context, null, 0, 6, null);
+            }
+            return (uk0) invokeLL.objValue;
+        }
+    }
 }

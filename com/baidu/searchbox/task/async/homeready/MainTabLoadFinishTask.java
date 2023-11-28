@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
-import com.baidu.tieba.dv5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m00;
-import com.baidu.tieba.pf;
-import com.baidu.tieba.s05;
-import com.baidu.tieba.w0b;
+import com.baidu.tieba.lv5;
+import com.baidu.tieba.n00;
+import com.baidu.tieba.qf;
+import com.baidu.tieba.s5b;
+import com.baidu.tieba.v05;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -60,7 +60,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             return "";
         }
         String str2 = split[1];
-        if (StringUtils.isNull(str2) || (b = new m00("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+        if (StringUtils.isNull(str2) || (b = new n00("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
             return "";
         }
         try {
@@ -79,7 +79,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        YunDialogManager.onShow(currentActivity, s05.r);
+                        YunDialogManager.onShow(currentActivity, v05.r);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
                         SharedPrefHelper.getInstance().putString("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
@@ -94,7 +94,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     e.printStackTrace();
                 }
                 MainTabLoadFinishTask.this.statSplashShakeSwitch();
-                TbLog a = pf.a();
+                TbLog a = qf.a();
                 a.i(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + DeviceInfoHelper.getOsVersion());
                 if (InitWriteWebDelaySwitch.isOn()) {
                     WriteWebViewCacheManager.g().j();
@@ -109,7 +109,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                dv5.e(jSONArray);
+                lv5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();
@@ -133,7 +133,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
         boolean contains = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).contains("key_splash_shake_ad_open");
         boolean z3 = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).getBoolean("key_splash_shake_ad_open", true);
         boolean isKVStorageInitSuccess = KVStorageFactory.isKVStorageInitSuccess();
-        String absolutePath = AppRuntime.getAppContext().getDir(w0b.c, 0).getAbsolutePath();
+        String absolutePath = AppRuntime.getAppContext().getDir(s5b.c, 0).getAbsolutePath();
         boolean exists = new File(absolutePath).exists();
         String kVStoragePath = KVStorageRuntime.getKVStorageControl().getKVStoragePath();
         if (kVStoragePath != null && new File(kVStoragePath).exists()) {
@@ -142,7 +142,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             z = false;
         }
         String str2 = "hasSp: " + contains + " isOnSp: " + z3 + " isKVStorageInitSuccess: " + isKVStorageInitSuccess + " spPath: " + absolutePath + " isSpFileExist: " + exists + " kvPath: " + kVStoragePath + " isKvFileExist: " + z + " kvMeta: " + new KVStorageWrapper("settings2").getCustomMeta() + " hasKV: " + KVStorageFactory.getSharedPreferences("settings2", 0).contains("key_splash_shake_ad_open") + " isOnKV: " + TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).getBoolean("key_splash_shake_ad_open", true);
-        pf.a().i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态(详细) " + str2);
+        qf.a().i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态(详细) " + str2);
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "shake_switch_check").param("obj_source", "launch check: " + z2).param("obj_param1", str2));
     }
 }

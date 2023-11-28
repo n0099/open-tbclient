@@ -2,10 +2,11 @@ package com.airbnb.lottie.parser;
 
 import com.airbnb.lottie.model.Font;
 import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class FontParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("fFamily", "fName", "fStyle", "ascent");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("fFamily", AiBotChatDispatcher.AI_SINGLE_FORUM_NAME, "fStyle", "ascent");
 
     public static Font parse(JsonReader jsonReader) throws IOException {
         jsonReader.beginObject();

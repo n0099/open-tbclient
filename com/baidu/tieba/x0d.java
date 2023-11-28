@@ -1,92 +1,49 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.GraffitiInfo;
-import tbclient.Item;
-import tbclient.MemeInfo;
-import tbclient.NativeApp;
-import tbclient.PbContent;
-import tbclient.TiebaPlusInfo;
-import tbclient.TogetherHi;
+import tbclient.FrsPage.LiveModuleList;
 /* loaded from: classes9.dex */
-public class x0d extends qoc {
+public class x0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PbContent pbContent) {
+    public static JSONObject b(@NonNull LiveModuleList liveModuleList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveModuleList)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "type", pbContent.type);
-            qoc.a(jSONObject, "text", pbContent.text);
-            qoc.a(jSONObject, "link", pbContent.link);
-            qoc.a(jSONObject, "src", pbContent.src);
-            qoc.a(jSONObject, "bsize", pbContent.bsize);
-            qoc.a(jSONObject, "big_src", pbContent.big_src);
-            qoc.a(jSONObject, "big_size", pbContent.big_size);
-            qoc.a(jSONObject, "cdn_src", pbContent.cdn_src);
-            qoc.a(jSONObject, "big_cdn_src", pbContent.big_cdn_src);
-            qoc.a(jSONObject, "imgtype", pbContent.imgtype);
-            qoc.a(jSONObject, "c", pbContent.c);
-            qoc.a(jSONObject, "voice_md5", pbContent.voice_md5);
-            qoc.a(jSONObject, "during_time", pbContent.during_time);
-            qoc.a(jSONObject, "is_sub", pbContent.is_sub);
-            qoc.a(jSONObject, "uid", pbContent.uid);
-            qoc.a(jSONObject, PraiseUBCHelper.SOURCE_DYNAMIC, pbContent.dynamic);
-            qoc.a(jSONObject, "static", pbContent._static);
-            qoc.a(jSONObject, "width", pbContent.width);
-            qoc.a(jSONObject, "height", pbContent.height);
-            qoc.a(jSONObject, "packet_name", pbContent.packet_name);
-            qoc.a(jSONObject, "phonetype", pbContent.phonetype);
-            qoc.a(jSONObject, "is_native_app", pbContent.is_native_app);
-            NativeApp nativeApp = pbContent.native_app;
-            if (nativeApp != null) {
-                qoc.a(jSONObject, "native_app", h0d.b(nativeApp));
+            ltc.a(jSONObject, "id", liveModuleList.id);
+            ltc.a(jSONObject, "forum_id", liveModuleList.forum_id);
+            ltc.a(jSONObject, "module_type", liveModuleList.module_type);
+            if (liveModuleList.module_name != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : liveModuleList.module_name) {
+                    jSONArray.put(str);
+                }
+                ltc.a(jSONObject, Info.kBaiduModuleKey, jSONArray);
             }
-            qoc.a(jSONObject, "e_type", pbContent.e_type);
-            qoc.a(jSONObject, "origin_src", pbContent.origin_src);
-            qoc.a(jSONObject, "btn_type", pbContent.btn_type);
-            qoc.a(jSONObject, "origin_size", pbContent.origin_size);
-            qoc.a(jSONObject, "count", pbContent.count);
-            GraffitiInfo graffitiInfo = pbContent.graffiti_info;
-            if (graffitiInfo != null) {
-                qoc.a(jSONObject, "graffiti_info", qyc.b(graffitiInfo));
+            ltc.a(jSONObject, "module_desc", liveModuleList.module_desc);
+            ltc.a(jSONObject, "tag_text", liveModuleList.tag_text);
+            ltc.a(jSONObject, "tag_text_color", liveModuleList.tag_text_color);
+            ltc.a(jSONObject, "background_url", liveModuleList.background_url);
+            if (liveModuleList.head_list != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (String str2 : liveModuleList.head_list) {
+                    jSONArray2.put(str2);
+                }
+                ltc.a(jSONObject, "head_list", jSONArray2);
             }
-            TogetherHi togetherHi = pbContent.high_together;
-            if (togetherHi != null) {
-                qoc.a(jSONObject, "high_together", g5d.b(togetherHi));
-            }
-            qoc.a(jSONObject, "media_subtitle", pbContent.media_subtitle);
-            qoc.a(jSONObject, "url_type", pbContent.url_type);
-            MemeInfo memeInfo = pbContent.meme_info;
-            if (memeInfo != null) {
-                qoc.a(jSONObject, "meme_info", b0d.b(memeInfo));
-            }
-            qoc.a(jSONObject, "is_long_pic", pbContent.is_long_pic);
-            qoc.a(jSONObject, "show_original_btn", pbContent.show_original_btn);
-            qoc.a(jSONObject, "cdn_src_active", pbContent.cdn_src_active);
-            qoc.a(jSONObject, "topic_special_icon", pbContent.topic_special_icon);
-            qoc.a(jSONObject, "item_id", pbContent.item_id);
-            qoc.a(jSONObject, "item_forum_name", pbContent.item_forum_name);
-            TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
-            if (tiebaPlusInfo != null) {
-                qoc.a(jSONObject, "tiebaplus_info", b5d.b(tiebaPlusInfo));
-            }
-            Item item = pbContent.item;
-            if (item != null) {
-                qoc.a(jSONObject, "item", zyc.b(item));
-            }
-            qoc.a(jSONObject, EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, pbContent.pic_id);
-            qoc.a(jSONObject, "link_type", pbContent.link_type);
-            qoc.a(jSONObject, "target_scheme", pbContent.target_scheme);
+            ltc.a(jSONObject, "jump_type", liveModuleList.jump_type);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, liveModuleList.jump_url);
+            ltc.a(jSONObject, "module_sort", liveModuleList.module_sort);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

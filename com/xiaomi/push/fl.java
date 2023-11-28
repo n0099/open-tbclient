@@ -10,14 +10,14 @@ public class fl {
         try {
             byte[] a2 = fo.a.a(bArr);
             if (a) {
-                com.xiaomi.channel.commonutils.logger.b.m187a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + fkVar);
-                if (fkVar.f373a == 1) {
-                    com.xiaomi.channel.commonutils.logger.b.m187a("BCompressed", "decompress not support upStream");
+                com.xiaomi.channel.commonutils.logger.b.m191a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + fkVar);
+                if (fkVar.f369a == 1) {
+                    com.xiaomi.channel.commonutils.logger.b.m191a("BCompressed", "decompress not support upStream");
                 }
             }
             return a2;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m187a("BCompressed", "decompress error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m191a("BCompressed", "decompress error " + e);
             return bArr;
         }
     }

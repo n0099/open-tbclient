@@ -1,94 +1,175 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.pb.databinding.BotGuideViewBinding;
-import com.baidu.tieba.ta;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.img.GetEmotionInfosModel;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.data.FaceData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.tieba.newfaceshop.facemake.UploadFaceGroupModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Ref;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public final class nr9 {
+public class nr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final nr9 a;
-    public static boolean b;
+    public static volatile nr9 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public BlockingQueue<ImageUploader> b;
+    public boolean c;
+    public FaceGroupDraft d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012212, "Lcom/baidu/tieba/nr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012212, "Lcom/baidu/tieba/nr9;");
-                return;
-            }
-        }
-        a = new nr9();
+    /* loaded from: classes7.dex */
+    public interface j {
+        void a(ir9 ir9Var);
+
+        void onFail(String str);
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements ta.a {
+    public interface k {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface l {
+        void a(String str, List<FaceData> list);
+
+        void onFail(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface m {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Ref.ObjectRef<View> a;
-        public final /* synthetic */ Ref.ObjectRef<ObjectAnimator> b;
-        public final /* synthetic */ float c;
+        public List<FaceData> a;
+        public List<String> b;
+        public Map<String, Integer> c;
+        public List<FaceData> d;
+        public final /* synthetic */ List e;
+        public final /* synthetic */ l f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ int h;
+        public final /* synthetic */ nr9 i;
 
         /* loaded from: classes7.dex */
-        public static final class a implements Animator.AnimatorListener {
+        public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Ref.ObjectRef a;
+            public final /* synthetic */ a a;
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            /* renamed from: com.baidu.tieba.nr9$a$b$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class C0420a implements GetEmotionInfosModel.b {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b a;
+
+                public C0420a(b bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = bVar;
+                }
+
+                @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
+                public void onFail(int i, String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                        a aVar = this.a.a;
+                        aVar.i.t(aVar.f, "get pid fail");
+                    }
+                }
+
+                @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
+                public void onSuccess(List<hj5> list) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                        for (hj5 hj5Var : list) {
+                            if (hj5Var != null) {
+                                FaceData faceData = new FaceData();
+                                faceData.type = 2;
+                                faceData.index = this.a.a.c.get(hj5Var.g).intValue();
+                                faceData.pid = hj5Var.a;
+                                faceData.width = hj5Var.b;
+                                faceData.height = hj5Var.c;
+                                EmotionImageData emotionImageData = new EmotionImageData();
+                                emotionImageData.setPicId(hj5Var.a);
+                                emotionImageData.setThumbUrl(hj5Var.e);
+                                emotionImageData.setPicUrl(hj5Var.d);
+                                emotionImageData.setWidth(hj5Var.b);
+                                emotionImageData.setHeight(hj5Var.c);
+                                faceData.emotionImageData = emotionImageData;
+                                this.a.a.a.add(faceData);
+                            }
+                        }
+                        UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
+                        a aVar = this.a.a;
+                        uploadFaceGroupModel.Q(aVar.g, aVar.a, aVar.f, aVar.h);
+                    }
                 }
             }
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                }
-            }
-
-            public a(Ref.ObjectRef objectRef) {
+            public b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {objectRef};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -98,89 +179,174 @@ public final class nr9 {
                         return;
                     }
                 }
-                this.a = objectRef;
+                this.a = aVar;
             }
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    ((ObjectAnimator) this.a.element).start();
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.a.b.size() > 0) {
+                        new GetEmotionInfosModel().Q(this.a.b, new C0420a(this));
+                        return;
+                    }
+                    UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
+                    a aVar = this.a;
+                    uploadFaceGroupModel.Q(aVar.g, aVar.a, aVar.f, aVar.h);
                 }
             }
         }
 
-        public b(Ref.ObjectRef<View> objectRef, Ref.ObjectRef<ObjectAnimator> objectRef2, float f) {
+        /* renamed from: com.baidu.tieba.nr9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0419a implements m {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ jr9 a;
+            public final /* synthetic */ FaceData b;
+            public final /* synthetic */ AtomicInteger c;
+            public final /* synthetic */ a d;
+
+            public C0419a(a aVar, jr9 jr9Var, FaceData faceData, AtomicInteger atomicInteger) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jr9Var, faceData, atomicInteger};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = jr9Var;
+                this.b = faceData;
+                this.c = atomicInteger;
+            }
+
+            @Override // com.baidu.tieba.nr9.m
+            public void a(ImageUploadResult imageUploadResult) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048576, this, imageUploadResult) != null) || !this.a.a()) {
+                    return;
+                }
+                if (imageUploadResult != null && imageUploadResult.error_code == 0) {
+                    this.b.pid = String.valueOf(imageUploadResult.picId);
+                    FaceData faceData = this.b;
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = imageUploadResult.picInfo.bigPic;
+                    faceData.width = picDetailedInfo.width;
+                    faceData.height = picDetailedInfo.height;
+                    this.d.a.add(faceData);
+                    if (this.c.decrementAndGet() == 0) {
+                        this.d.b();
+                    }
+                } else if (this.a.a()) {
+                    this.a.b(false);
+                    a aVar = this.d;
+                    aVar.i.t(aVar.f, "failed to upload image");
+                }
+            }
+        }
+
+        public a(nr9 nr9Var, List list, l lVar, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {objectRef, objectRef2, Float.valueOf(f)};
+                Object[] objArr = {nr9Var, list, lVar, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = objectRef;
-            this.b = objectRef2;
-            this.c = f;
+            this.i = nr9Var;
+            this.e = list;
+            this.f = lVar;
+            this.g = str;
+            this.h = i;
+            this.a = new CopyOnWriteArrayList();
+            this.b = new ArrayList();
+            this.c = new HashMap();
+            this.d = new CopyOnWriteArrayList();
         }
 
-        @Override // com.baidu.tieba.ta.a
-        public void onDismiss() {
+        public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nr9 nr9Var = nr9.a;
-                nr9.b = false;
+                new Handler(Looper.getMainLooper()).post(new b(this));
             }
         }
 
-        /* JADX WARN: Type inference failed for: r0v6, types: [T, android.animation.ObjectAnimator, java.lang.Object] */
-        @Override // com.baidu.tieba.ta.a
-        public void onShown() {
+        @Override // java.lang.Runnable
+        public void run() {
+            EmotionImageData emotionImageData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                nr9 nr9Var = nr9.a;
-                nr9.b = true;
-                View view2 = this.a.element;
-                View view3 = view2;
-                if (view3 != null) {
-                    Ref.ObjectRef<ObjectAnimator> objectRef = this.b;
-                    float f = this.c;
-                    ?? ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f, 5.0f, 0.0f);
-                    Intrinsics.checkNotNullExpressionValue(ofFloat, "ofFloat(contentView, \"translationY\", 0F, 5F, 0F)");
-                    objectRef.element = ofFloat;
-                    ((ObjectAnimator) ofFloat).setRepeatMode(2);
-                    objectRef.element.setDuration(1000L);
-                    objectRef.element.setStartDelay(100L);
-                    objectRef.element.setInterpolator(new LinearInterpolator());
-                    objectRef.element.setRepeatCount(-1);
-                    ValueAnimator b = nr9.a.b(view3, 0.0f, 1.0f, f, 0.0f, 250L);
-                    b.addListener(new a(objectRef));
-                    b.start();
+                for (int i = 0; i < this.e.size(); i++) {
+                    FaceData faceData = (FaceData) this.e.get(i);
+                    faceData.index = i;
+                    int i2 = faceData.type;
+                    if (i2 == 2) {
+                        EmotionImageData emotionImageData2 = faceData.emotionImageData;
+                        if (emotionImageData2 != null) {
+                            if (!TextUtils.isEmpty(emotionImageData2.getPicId())) {
+                                faceData.pid = emotionImageData2.getPicId();
+                                faceData.width = emotionImageData2.getWidth();
+                                faceData.height = emotionImageData2.getHeight();
+                                this.a.add(faceData);
+                            } else {
+                                this.b.add(faceData.emotionImageData.getPicUrl());
+                                this.c.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
+                            }
+                        }
+                    } else if (i2 == 3) {
+                        this.d.add(faceData);
+                    } else if (i2 == 1 && (emotionImageData = faceData.emotionImageData) != null) {
+                        faceData.pid = emotionImageData.getPicId();
+                        faceData.width = emotionImageData.getWidth();
+                        faceData.height = emotionImageData.getHeight();
+                        this.a.add(faceData);
+                    }
                 }
+                if (this.d.size() > 0) {
+                    AtomicInteger atomicInteger = new AtomicInteger(this.d.size());
+                    jr9 jr9Var = new jr9(Boolean.TRUE);
+                    for (int i3 = 0; i3 < Math.min(this.d.size(), 4); i3++) {
+                        this.i.b.offer(new ImageUploader("face group"));
+                    }
+                    for (int i4 = 0; i4 < this.d.size() && jr9Var.a(); i4++) {
+                        FaceData faceData2 = this.d.get(i4);
+                        this.i.B(faceData2.imageFileInfo, new C0419a(this, jr9Var, faceData2, atomicInteger));
+                    }
+                    return;
+                }
+                b();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements ValueAnimator.AnimatorUpdateListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ float c;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ m b;
+        public final /* synthetic */ nr9 c;
 
-        public a(View view2, float f, float f2) {
+        public b(nr9 nr9Var, ImageFileInfo imageFileInfo, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Float.valueOf(f), Float.valueOf(f2)};
+                Object[] objArr = {nr9Var, imageFileInfo, mVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -190,159 +356,79 @@ public final class nr9 {
                     return;
                 }
             }
-            this.a = view2;
-            this.b = f;
-            this.c = f2;
+            this.c = nr9Var;
+            this.a = imageFileInfo;
+            this.b = mVar;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator animation) {
+        public final void a(m mVar, ImageUploadResult imageUploadResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                Intrinsics.checkNotNullParameter(animation, "animation");
-                Object animatedValue = animation.getAnimatedValue();
-                if (animatedValue != null) {
-                    float floatValue = ((Float) animatedValue).floatValue();
-                    View view2 = this.a;
-                    view2.setPivotX(view2.getWidth() - this.b);
-                    View view3 = this.a;
-                    view3.setPivotY(view3.getHeight() - this.c);
-                    this.a.setScaleX(floatValue);
-                    this.a.setScaleY(floatValue);
-                    this.a.setAlpha(floatValue);
-                    return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, mVar, imageUploadResult) == null) && mVar != null) {
+                mVar.a(imageUploadResult);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    String filePath = this.a.getFilePath();
+                    if (this.a.isGif()) {
+                        ImageUploader imageUploader = (ImageUploader) this.c.b.poll(10L, TimeUnit.SECONDS);
+                        if (imageUploader != null) {
+                            a(this.b, imageUploader.uploadInBackground(filePath, true, false));
+                            this.c.v(imageUploader);
+                            return;
+                        }
+                        a(this.b, null);
+                        return;
+                    }
+                    Bitmap b = kr9.b(this.a);
+                    if (b == null) {
+                        this.b.a(null);
+                        return;
+                    }
+                    String y = nr9.y("face_" + Math.abs(filePath.hashCode()), b, 60);
+                    b.recycle();
+                    if (TextUtils.isEmpty(y)) {
+                        a(this.b, null);
+                        return;
+                    }
+                    ImageUploader imageUploader2 = (ImageUploader) this.c.b.poll(10L, TimeUnit.SECONDS);
+                    if (imageUploader2 != null) {
+                        ImageUploadResult uploadInBackground = imageUploader2.uploadInBackground(y, false, false);
+                        FileHelper.deleteFile(new File(y));
+                        a(this.b, uploadInBackground);
+                        this.c.v(imageUploader2);
+                        return;
+                    }
+                    a(this.b, null);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Float");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class c implements ra {
+    public class c implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Ref.ObjectRef<View> b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
+        public final /* synthetic */ jr9 a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ hr9 d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ k f;
+        public final /* synthetic */ nr9 g;
 
-        @Override // com.baidu.tieba.ra
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 2;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ra
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 48;
-            }
-            return invokeV.intValue;
-        }
-
-        public c(String str, Ref.ObjectRef<View> objectRef, int i, int i2) {
+        public c(nr9 nr9Var, jr9 jr9Var, List list, List list2, hr9 hr9Var, String str, k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, objectRef, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = objectRef;
-            this.c = i;
-            this.d = i2;
-        }
-
-        /* JADX WARN: Type inference failed for: r5v2, types: [T, android.widget.RelativeLayout, android.view.View, java.lang.Object] */
-        @Override // com.baidu.tieba.ra
-        public View c(LayoutInflater inflater) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inflater)) == null) {
-                Intrinsics.checkNotNullParameter(inflater, "inflater");
-                BotGuideViewBinding c = BotGuideViewBinding.c(inflater, null, false);
-                Intrinsics.checkNotNullExpressionValue(c, "inflate(inflater, null, false)");
-                c.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e2c);
-                EMManager.from(c.c).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0119);
-                c.c.setText(this.a);
-                Ref.ObjectRef<View> objectRef = this.b;
-                ?? r5 = c.b;
-                objectRef.element = r5;
-                Intrinsics.checkNotNullExpressionValue(r5, "binding.botGuideRoot");
-                return r5;
-            }
-            return (View) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.ra
-        public int getXOffset() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return -this.c;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ra
-        public int getYOffset() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sa a;
-        public final /* synthetic */ kr9 b;
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        public d(sa saVar, kr9 kr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {saVar, kr9Var};
+                Object[] objArr = {nr9Var, jr9Var, list, list2, hr9Var, str, kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -352,22 +438,369 @@ public final class nr9 {
                     return;
                 }
             }
-            this.a = saVar;
-            this.b = kr9Var;
+            this.g = nr9Var;
+            this.a = jr9Var;
+            this.b = list;
+            this.c = list2;
+            this.d = hr9Var;
+            this.e = str;
+            this.f = kVar;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.baidu.tieba.nr9.j
+        public void a(ir9 ir9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                sa saVar = this.a;
-                if (saVar != null) {
-                    saVar.d();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ir9Var) != null) || !this.a.a()) {
+                return;
+            }
+            this.b.add(ir9Var);
+            if (this.b.size() == this.c.size()) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.addAll(this.b);
+                Collections.sort(arrayList);
+                this.d.e = arrayList;
+                if (!this.g.j(this.e + ((ir9) arrayList.get(0)).d, this.e)) {
+                    onFail("face group:fail to create panel");
+                } else {
+                    this.g.o(this.d, this.f);
                 }
-                kr9 kr9Var = this.b;
-                if (kr9Var != null) {
-                    kr9Var.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.nr9.j
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a.a()) {
+                this.a.b(false);
+                this.g.s(this.f, false);
+                if (!TextUtils.isEmpty(str)) {
+                    BdLog.e(str);
                 }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FaceData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ j c;
+
+        public d(nr9 nr9Var, FaceData faceData, String str, j jVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, faceData, str, jVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = faceData;
+            this.b = str;
+            this.c = jVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap resizeBitmap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ImageFileInfo imageFileInfo = this.a.imageFileInfo;
+                String filePath = imageFileInfo.getFilePath();
+                String substring = filePath.substring(filePath.lastIndexOf("/") + 1);
+                if (TextUtils.isEmpty(substring)) {
+                    substring = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis() + ".jpg";
+                }
+                String str = "t_" + substring;
+                if (FileHelper.copyFileByAbsolutelyPath(filePath, this.b + substring)) {
+                    Bitmap b = kr9.b(imageFileInfo);
+                    if (b == null) {
+                        this.c.onFail("face group: fail to get origin bitmap when install album emotion");
+                        return;
+                    }
+                    if (!imageFileInfo.isGif() && (resizeBitmap = BitmapHelper.resizeBitmap(b, 240, 240, false)) != null) {
+                        cr9.e(this.b, substring, resizeBitmap, 100);
+                        if (resizeBitmap != b) {
+                            resizeBitmap.recycle();
+                        }
+                    }
+                    Bitmap resizeBitmap2 = BitmapHelper.resizeBitmap(b, 150, 150, false);
+                    if (resizeBitmap2 == null) {
+                        this.c.onFail("face group: fail to create small file when install album emotion");
+                        return;
+                    }
+                    cr9.e(this.b, str, resizeBitmap2, 100);
+                    if (resizeBitmap2 != b) {
+                        resizeBitmap2.recycle();
+                    }
+                    b.recycle();
+                    ir9 ir9Var = new ir9();
+                    FaceData faceData = this.a;
+                    ir9Var.a = faceData.index;
+                    ir9Var.b = faceData.pid;
+                    ir9Var.c = substring;
+                    ir9Var.d = str;
+                    ir9Var.f = faceData.width;
+                    ir9Var.e = faceData.height;
+                    this.c.a(ir9Var);
+                    return;
+                }
+                this.c.onFail("face group: fail to copy file when install album emotion");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FaceData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ j c;
+
+        public e(nr9 nr9Var, FaceData faceData, String str, j jVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, faceData, str, jVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = faceData;
+            this.b = str;
+            this.c = jVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                EmotionImageData emotionImageData = this.a.emotionImageData;
+                String str = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis();
+                String str2 = "t_" + str;
+                String p = s17.p(this.a.pid, true);
+                String p2 = s17.p(this.a.pid, false);
+                if (!FileHelper.copyFileByAbsolutelyPath(p, this.b + str)) {
+                    this.c.onFail("face group: fail to copy big file when install collect emotion");
+                    return;
+                }
+                if (!FileHelper.copyFileByAbsolutelyPath(p2, this.b + str2)) {
+                    this.c.onFail("face group: fail to copy small file when install collect emotion");
+                    return;
+                }
+                ir9 ir9Var = new ir9();
+                FaceData faceData = this.a;
+                ir9Var.a = faceData.index;
+                ir9Var.b = faceData.pid;
+                ir9Var.c = str;
+                ir9Var.d = str2;
+                ir9Var.f = faceData.width;
+                ir9Var.e = faceData.height;
+                this.c.a(ir9Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FaceData a;
+        public final /* synthetic */ j b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ nr9 d;
+
+        public f(nr9 nr9Var, FaceData faceData, j jVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, faceData, jVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = nr9Var;
+            this.a = faceData;
+            this.b = jVar;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                EmotionImageData emotionImageData = this.a.emotionImageData;
+                String substring = emotionImageData.getPicUrl().substring(emotionImageData.getPicUrl().lastIndexOf(IStringUtil.WINDOWS_FOLDER_SEPARATOR) + 1);
+                String str = "t_" + substring;
+                WebClient webClient = new WebClient();
+                byte[] downloadImageBytes = webClient.downloadImageBytes(emotionImageData.getPicUrl(), false);
+                if (downloadImageBytes == null || !webClient.IsRequestSuccess()) {
+                    this.b.onFail("face group: fail to download big file when install search emotion");
+                    return;
+                }
+                this.d.x(this.c, substring, downloadImageBytes);
+                byte[] downloadImageBytes2 = webClient.downloadImageBytes(emotionImageData.getThumbUrl(), false);
+                if (downloadImageBytes2 == null || !webClient.IsRequestSuccess()) {
+                    this.b.onFail("face group: fail to download small file when install search emotion");
+                    return;
+                }
+                this.d.x(this.c, str, downloadImageBytes2);
+                ir9 ir9Var = new ir9();
+                FaceData faceData = this.a;
+                ir9Var.a = faceData.index;
+                ir9Var.b = faceData.pid;
+                ir9Var.c = substring;
+                ir9Var.d = str;
+                ir9Var.f = faceData.width;
+                ir9Var.e = faceData.height;
+                this.b.a(ir9Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k a;
+        public final /* synthetic */ boolean b;
+
+        public g(nr9 nr9Var, k kVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, kVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kVar;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                k kVar = this.a;
+                if (kVar != null) {
+                    if (this.b) {
+                        kVar.onSuccess();
+                    } else {
+                        kVar.onFail();
+                    }
+                }
+                if (this.b) {
+                    er9.o().z();
+                    MessageManager.getInstance().runTask(2004603, (Class) null);
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("upload_result", new Boolean(true));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, hashMap));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ nr9 c;
+
+        public h(nr9 nr9Var, l lVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, lVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nr9Var;
+            this.a = lVar;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                l lVar = this.a;
+                if (lVar != null) {
+                    lVar.onFail(this.b);
+                }
+                if (this.b != null) {
+                    BdLog.e("face group:" + this.b);
+                }
+                this.c.u(false, null);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+
+        public i(nr9 nr9Var, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr9Var, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hashMap;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, this.a));
             }
         }
     }
@@ -376,137 +809,378 @@ public final class nr9 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = new LinkedBlockingQueue(4);
+    }
+
+    public final void v(ImageUploader imageUploader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, imageUploader) == null) {
+            this.b.offer(imageUploader);
         }
     }
 
-    @JvmStatic
-    public static final boolean c() {
+    public final void m(FaceData faceData, String str, j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, faceData, str, jVar) == null) {
+            ar9.b().a(new d(this, faceData, str, jVar));
+        }
+    }
+
+    public final void n(FaceData faceData, String str, j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, faceData, str, jVar) == null) {
+            ar9.b().a(new e(this, faceData, str, jVar));
+        }
+    }
+
+    public final void q(FaceData faceData, String str, j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, faceData, str, jVar) == null) {
+            ar9.b().a(new f(this, faceData, jVar, str));
+        }
+    }
+
+    public void w(String str, List<FaceData> list, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048591, this, str, list, i2) == null) {
+            FaceGroupDraft faceGroupDraft = new FaceGroupDraft();
+            this.d = faceGroupDraft;
+            faceGroupDraft.setName(str);
+            this.d.setList(list);
+            this.d.setForumId(i2);
+        }
+    }
+
+    public final void B(ImageFileInfo imageFileInfo, m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, mVar) == null) {
+            ar9.b().a(new b(this, imageFileInfo, mVar));
+        }
+    }
+
+    public final void s(k kVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, kVar, z) == null) {
+            this.a.post(new g(this, kVar, z));
+        }
+    }
+
+    public final void t(l lVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, lVar, str) == null) {
+            this.a.post(new h(this, lVar, str));
+        }
+    }
+
+    public static nr9 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (e == null) {
+                synchronized (nr9.class) {
+                    if (e == null) {
+                        e = new nr9();
+                    }
+                }
+            }
+            return e;
+        }
+        return (nr9) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = null;
+            lr9.a();
+        }
+    }
+
+    public FaceGroupDraft k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d == null) {
+                this.d = lr9.b();
+            }
+            return this.d;
+        }
+        return (FaceGroupDraft) invokeV.objValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final void d() {
+    public static String y(String str, Bitmap bitmap, int i2) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b = false;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r13v4, types: [T, android.animation.ObjectAnimator] */
-    @JvmStatic
-    public static final void e(String str, View view2, final BaseFragmentActivity baseFragmentActivity, final kr9 kr9Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, view2, baseFragmentActivity, kr9Var) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, str, bitmap, i2)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            if (!z && view2 != null && view2.getVisibility() == 0 && baseFragmentActivity != null) {
-                ta taVar = new ta();
-                taVar.k(view2);
-                taVar.c(0);
-                taVar.j(true);
-                taVar.i(true);
-                taVar.d(false);
-                taVar.g(false);
-                int dimens = BdUtilHelper.getDimens(baseFragmentActivity, R.dimen.tbds3);
-                int dimens2 = BdUtilHelper.getDimens(baseFragmentActivity, R.dimen.tbds3);
-                final Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                final float abs = Math.abs(view2.getRight() - view2.getLeft()) / 2;
-                final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                objectRef2.element = new ObjectAnimator();
-                taVar.a(new c(str, objectRef, dimens, dimens2));
-                taVar.h(new b(objectRef, objectRef2, abs));
-                final sa b2 = taVar.b();
-                b2.l(false);
-                b2.m(true);
-                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.mr9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            nr9.f(sa.this, baseFragmentActivity, kr9Var, objectRef2, objectRef, abs);
-                        }
-                    }
-                }, 1000L);
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir.exists() && !cacheDir.isDirectory()) {
+                cacheDir.delete();
             }
-        }
-    }
-
-    public static final void f(final sa saVar, BaseFragmentActivity baseFragmentActivity, final kr9 kr9Var, final Ref.ObjectRef shakeAnim, final Ref.ObjectRef contentView, final float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{saVar, baseFragmentActivity, kr9Var, shakeAnim, contentView, Float.valueOf(f)}) == null) {
-            Intrinsics.checkNotNullParameter(shakeAnim, "$shakeAnim");
-            Intrinsics.checkNotNullParameter(contentView, "$contentView");
-            saVar.o(baseFragmentActivity, true);
-            if (kr9Var != null) {
-                kr9Var.onShow();
+            if (!cacheDir.exists()) {
+                cacheDir.mkdirs();
             }
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.lr9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        nr9.g(Ref.ObjectRef.this, contentView, saVar, kr9Var, f);
-                    }
+            File file = new File(cacheDir, str);
+            try {
+                if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                    return null;
                 }
-            }, 4000L);
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                return file.getAbsolutePath();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                TiebaStatic.file(e2, rd.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file.getAbsolutePath()));
+                return null;
+            }
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public void p(String str, List<FaceData> list, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, kVar) == null) {
+            String str2 = dr9.c + str + "/";
+            new File(str2).mkdirs();
+            hr9 hr9Var = new hr9();
+            TbadkCoreApplication.getCurrentAccount();
+            TbadkCoreApplication.getCurrentAccountName();
+            hr9Var.a = str;
+            String.valueOf(System.currentTimeMillis());
+            CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+            jr9 jr9Var = new jr9(Boolean.TRUE);
+            c cVar = new c(this, jr9Var, copyOnWriteArrayList, list, hr9Var, str2, kVar);
+            for (FaceData faceData : list) {
+                if (!jr9Var.a()) {
+                    return;
+                }
+                int i2 = faceData.type;
+                if (i2 == 3) {
+                    m(faceData, str2, cVar);
+                } else if (i2 == 1) {
+                    n(faceData, str2, cVar);
+                } else if (i2 == 2) {
+                    q(faceData, str2, cVar);
+                } else {
+                    cVar.onFail("facegroup:un support type in list");
+                    return;
+                }
+            }
         }
     }
 
-    public static final void g(Ref.ObjectRef shakeAnim, Ref.ObjectRef contentView, sa saVar, kr9 kr9Var, float f) {
+    public void A(String str, List<FaceData> list, l lVar, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{shakeAnim, contentView, saVar, kr9Var, Float.valueOf(f)}) == null) {
-            Intrinsics.checkNotNullParameter(shakeAnim, "$shakeAnim");
-            Intrinsics.checkNotNullParameter(contentView, "$contentView");
-            ((ObjectAnimator) shakeAnim.element).cancel();
-            View view2 = (View) contentView.element;
-            if (view2 != null) {
-                ValueAnimator b2 = a.b(view2, 1.0f, 0.0f, f, 0.0f, 250L);
-                b2.addListener(new d(saVar, kr9Var));
-                b2.start();
+        if (interceptable == null || interceptable.invokeLLLI(1048576, this, str, list, lVar, i2) == null) {
+            this.c = true;
+            w(str, list, i2);
+            if (TextUtils.isEmpty(str)) {
+                t(lVar, "name empty");
+            } else if (list == null) {
+                t(lVar, "list empty");
+            } else {
+                z(list);
+                ar9.b().a(new a(this, list, lVar, str, i2));
+            }
+        }
+    }
+
+    public final boolean j(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            Bitmap a2 = kr9.a(str);
+            if (a2 == null) {
+                BdLog.e("cover bitmap null");
+                return false;
+            } else if (TextUtils.isEmpty(cr9.e(str2, "panel.png", a2, 60))) {
+                BdLog.e("fail to save Panel");
+                return false;
+            } else if (TextUtils.isEmpty(cr9.e(str2, "panel_momo.png", a2, 60))) {
+                BdLog.e("fail to save PanelMomo");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void o(hr9 hr9Var, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, hr9Var, kVar) == null) {
+            int f2 = a17.c().f(hr9Var);
+            if (f2 == 0) {
+                BdLog.e("no valid emotion");
+                s(kVar, false);
                 return;
             }
-            if (saVar != null) {
-                saVar.d();
-            }
-            if (kr9Var != null) {
-                kr9Var.onDismiss();
-            }
+            EmotionGroupData emotionGroupData = new EmotionGroupData();
+            emotionGroupData.setGroupId(hr9Var.a);
+            emotionGroupData.setEmotionsCount(f2);
+            emotionGroupData.setHeight(hr9Var.e.get(0).e);
+            emotionGroupData.setWidth(hr9Var.e.get(0).f);
+            emotionGroupData.setDownloadTime(System.currentTimeMillis());
+            emotionGroupData.setGroupName(hr9Var.b);
+            emotionGroupData.setStatus(1);
+            i17.o().g(emotionGroupData);
+            i17.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
+            s(kVar, true);
         }
     }
 
-    public final ValueAnimator b(View curView, float f, float f2, float f3, float f4, long j) {
-        InterceptResult invokeCommon;
+    public void u(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{curView, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j)})) == null) {
-            Intrinsics.checkNotNullParameter(curView, "curView");
-            ValueAnimator sclevalue = ValueAnimator.ofFloat(f, f2);
-            sclevalue.setDuration(j);
-            sclevalue.addUpdateListener(new a(curView, f3, f4));
-            Intrinsics.checkNotNullExpressionValue(sclevalue, "sclevalue");
-            return sclevalue;
+        if (interceptable == null || interceptable.invokeZL(1048589, this, z, str) == null) {
+            if (this.c) {
+                this.c = false;
+            }
+            if (z) {
+                i();
+                return;
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("upload_result", new Boolean(false));
+            if (!TextUtils.isEmpty(str)) {
+                hashMap.put("upload_msg", str);
+                FaceGroupDraft faceGroupDraft = this.d;
+                if (faceGroupDraft != null) {
+                    faceGroupDraft.setFailMsg(str);
+                }
+            }
+            lr9.c(this.d);
+            this.a.postDelayed(new i(this, hashMap), 1000L);
         }
-        return (ValueAnimator) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String x(String str, String str2, byte[] bArr) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, str2, bArr)) == null) {
+            File file = new File(str + str2);
+            String parent = file.getParent();
+            if (!StringUtils.isNull(parent)) {
+                File file2 = new File(parent);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+            }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                    return null;
+                }
+                FileOutputStream fileOutputStream3 = new FileOutputStream(file);
+                try {
+                    fileOutputStream3.write(bArr, 0, bArr.length);
+                    fileOutputStream3.flush();
+                    fileOutputStream3.close();
+                    return file.getPath();
+                } catch (IOException e2) {
+                    fileOutputStream = fileOutputStream3;
+                    e = e2;
+                    try {
+                        BdLog.e(e.getMessage());
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Throwable th) {
+                                BdLog.e(th.getMessage());
+                            }
+                        }
+                        return null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream2 = fileOutputStream;
+                        if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.close();
+                            } catch (Throwable th3) {
+                                BdLog.e(th3.getMessage());
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream2 = fileOutputStream3;
+                    if (fileOutputStream2 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+            }
+        } else {
+            return (String) invokeLLL.objValue;
+        }
+    }
+
+    public final void z(List<FaceData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && list != null && !list.isEmpty()) {
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 0;
+            for (FaceData faceData : list) {
+                if (faceData != null) {
+                    int i5 = faceData.type;
+                    if (i5 != 1) {
+                        if (i5 != 2) {
+                            if (i5 == 3) {
+                                i4++;
+                            }
+                        } else {
+                            i2++;
+                        }
+                    } else {
+                        i3++;
+                    }
+                }
+            }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_UPLOAD_SOURCE);
+            statisticItem.param("obj_source", 3);
+            statisticItem.param("obj_type", i2);
+            TiebaStatic.log(statisticItem);
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_UPLOAD_SOURCE);
+            statisticItem2.param("obj_source", 2);
+            statisticItem2.param("obj_type", i3);
+            TiebaStatic.log(statisticItem2);
+            StatisticItem statisticItem3 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_UPLOAD_SOURCE);
+            statisticItem3.param("obj_source", 1);
+            statisticItem3.param("obj_type", i4);
+            TiebaStatic.log(statisticItem3);
+        }
     }
 }

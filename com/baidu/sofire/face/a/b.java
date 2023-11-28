@@ -87,7 +87,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
     public JSONArray S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1069T;
+    public int f1065T;
     public Map<Long, FaceInfo> U;
     public long V;
     public long W;
@@ -548,7 +548,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 b bVar = this.a;
-                bVar.f1069T = com.baidu.sofire.face.b.b.b(bVar.a);
+                bVar.f1065T = com.baidu.sofire.face.b.b.b(bVar.a);
                 b bVar2 = this.a;
                 bVar2.S = com.baidu.sofire.face.b.b.a(bVar2.a);
             }
@@ -1181,7 +1181,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         this.L = false;
         this.Q = 1;
         this.R = 0L;
-        this.f1069T = -1;
+        this.f1065T = -1;
         this.U = new HashMap();
         this.W = 0L;
         this.i = eVar;
@@ -1547,7 +1547,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 JSONObject jSONObject6 = new JSONObject();
                 jSONObject6.put("zid", FH.gzfi(this.a, "", 5002));
                 jSONObject6.put(Config.EVENT_PART, UgcTranscoderConstant.URL_GET_FACE);
-                jSONObject6.put(NotificationStyle.NOTIFICATION_STYLE, this.f1069T);
+                jSONObject6.put(NotificationStyle.NOTIFICATION_STYLE, this.f1065T);
                 jSONObject6.put("ts", System.currentTimeMillis());
                 TimeZone timeZone = TimeZone.getDefault();
                 if (timeZone != null) {

@@ -1,95 +1,331 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.text.TextUtils;
+import android.app.AlarmManager;
+import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.RobotMallConfig;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.CommonHelper;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tbadk.data.LightEmotionData;
-import com.baidu.tbadk.data.UserGrowthTaskListData;
-import com.baidu.tbadk.dynamicres.data.AgreeMaterial;
-import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.wallet.YYLiveConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.tieba.service.SignAlertReceiver;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ga5 {
+public class ga5 implements ca5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pib A;
-    public NewGodData B;
-    public q85 C;
-    public v75 D;
-    public c85 E;
-    public UserGrowthTaskListData F;
-    public ArrayList<LightEmotionData> G;
-    public VersionData a;
-    public i85 b;
-    public k85 c;
-    public String d;
-    public CombineDownload e;
-    public v85 f;
-    public l95 g;
-    public w75 h;
-    public r75 i;
-    public t75 j;
-    public p85 k;
-    public final q75 l;
-    public z85 m;
-    public j85 n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public l85 s;
-    public p75 t;
-    public ABTestExtraData u;
-    public JSONArray v;
-    public JSONArray w;
-    public JSONArray x;
-    public JSONObject y;
-    public YYLiveConfig z;
+    public lz5 a;
+    public boolean b;
+    public int c;
+    public int d;
+    public Runnable e;
+
+    public static String u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 1 ? "forum_sign" : i == 4 ? "sign" : "default" : (String) invokeI.objValue;
+    }
+
+    public static int v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            if (i == 1) {
+                return 2;
+            }
+            return i == 4 ? 5 : 0;
+        }
+        return invokeI.intValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class d implements cz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ ga5 c;
 
-        public a(ga5 ga5Var) {
+        /* loaded from: classes6.dex */
+        public class a implements View.OnTouchListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                    return true;
+                }
+                return invokeLL.booleanValue;
+            }
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public b(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (this.a.c.a != null) {
+                        this.a.c.a.D();
+                        this.a.c.a.f();
+                    }
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_OK_CLICK);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    TiebaStatic.log(statisticItem);
+                    boolean G = fa5.e().G();
+                    boolean areNotificationsEnabled = NotificationManagerCompat.from(this.a.b.getPageActivity()).areNotificationsEnabled();
+                    if (!G) {
+                        fa5.e().d0(true);
+                    }
+                    if (areNotificationsEnabled) {
+                        PushOpenUtil.showPushPermissionSucToast(this.a.b.getPageActivity());
+                    } else {
+                        DialogUtil.jumpSystemNotificationSetting(this.a.b);
+                    }
+                    ga5.w(this.a.a, true);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class c implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public c(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (this.a.c.a != null) {
+                        this.a.c.a.f();
+                    }
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_CLOSE_CLICK);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    TiebaStatic.log(statisticItem);
+                    ga5.w(this.a.a, false);
+                }
+            }
+        }
+
+        public d(ga5 ga5Var, int i, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ga5Var, Integer.valueOf(i), tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ga5Var;
+            this.a = i;
+            this.b = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.cz5
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                View findViewById = view2.findViewById(R.id.layout_bottom_title);
+                View findViewById2 = view2.findViewById(R.id.layout_bg);
+                View findViewById3 = view2.findViewById(R.id.layout_bg_top);
+                SkinManager.setBackgroundResource(findViewById2, R.color.CAM_X0208);
+                SkinManager.setBackgroundResource(findViewById3, R.drawable.sign_remind_pic);
+                View findViewById4 = view2.findViewById(R.id.layout_content);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09288e);
+                TextView textView2 = (TextView) view2.findViewById(R.id.sign_remind_timer);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.push_permission_dialog_confirm_button1);
+                this.c.q(tBSpecificationBtn);
+                TextView textView3 = (TextView) view2.findViewById(R.id.push_permission_dialog_cancel_button1);
+                EMManager.from((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091052)).setBackGroundColor(R.color.CAM_X0208);
+                EMManager.from((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09183b)).setBackGroundColor(R.color.CAM_X0208);
+                SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0208);
+                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092653), R.color.CAM_X0306);
+                EMManager.from(textView).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X02);
+                EMManager.from(textView2).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01);
+                EMManager.from(textView3).setTextColor(R.color.CAM_X0110).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
+                Map<String, String> readConfig = PushOpenUtil.readConfig(ga5.u(this.a));
+                textView.setText(readConfig.get(PushOpenUtil.VIEW_PARAMS_KEY_TITLE));
+                textView2.setText(readConfig.get(PushOpenUtil.VIEW_PARAMS_KEY_DESC));
+                if (tBSpecificationBtn != null) {
+                    tBSpecificationBtn.setTextSize(R.dimen.T_X06);
+                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_3));
+                    tBSpecificationBtn.setConfig(new a65());
+                }
+                if (this.a == 3 && tBSpecificationBtn != null) {
+                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04d2));
+                    textView3.setText(TbadkCoreApplication.getInst().getString(R.string.protocol_cancel));
+                }
+                a aVar = new a(this);
+                findViewById.setOnTouchListener(aVar);
+                findViewById4.setOnTouchListener(aVar);
+                tBSpecificationBtn.setOnClickListener(new b(this));
+                textView3.setOnClickListener(new c(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ga5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ga5 ga5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ga5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ga5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0) {
+                    this.a.c();
+                    return;
+                }
+                TbadkSettings.getInst().saveBoolean("alert_sign_on", this.a.b);
+                TbadkSettings.getInst().saveInt("alert_sign_hours", this.a.c);
+                TbadkSettings.getInst().saveInt("alert_sign_mins", this.a.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ga5 a;
+
+        public b(ga5 ga5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,31 +337,34 @@ public class ga5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ga5Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MainTabBottomDynamicIconManager.getInstance().loadImages();
+                this.a.a.x();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class c implements OnTimeSelectListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
 
-        public b(ga5 ga5Var, JSONArray jSONArray) {
+        public c(ga5 ga5Var, Activity activity, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ga5Var, jSONArray};
+                Object[] objArr = {ga5Var, activity, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -135,16 +374,28 @@ public class ga5 {
                     return;
                 }
             }
-            this.a = jSONArray;
+            this.a = activity;
+            this.b = z;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
+            if (r4.b == false) goto L10;
+         */
+        @Override // com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onTimeSelect(Date date, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("WebPreheat", "sync返回预热H5:" + this.a);
-                dv5.e(this.a);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null) {
+                boolean z = true;
+                if ("frs.FrsActivity".equals(this.a.getLocalClassName()) && SharedPrefHelper.getInstance().getBoolean("first_call_attention", true)) {
+                    SharedPrefHelper.getInstance().putBoolean("first_call_attention", false);
+                }
+                z = false;
+                if (z) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
+                }
             }
         }
     }
@@ -162,566 +413,306 @@ public class ga5 {
                 return;
             }
         }
-        this.p = 0;
-        this.a = new VersionData();
-        this.b = new i85();
-        this.c = new k85();
-        this.e = new CombineDownload();
-        this.f = new v85();
-        this.g = new l95();
-        this.n = new j85();
-        this.s = new l85();
-        this.h = new w75();
-        this.i = new r75();
-        this.l = new q75();
-        this.t = new p75();
-        this.m = new z85();
-        this.u = new ABTestExtraData();
-        this.B = new NewGodData();
-        this.C = new q85();
-        this.j = new t75();
-        this.k = new p85();
-        this.D = new v75();
-        this.E = new c85();
-        this.G = new ArrayList<>();
+        this.b = false;
+        this.c = 12;
+        this.d = 0;
+        this.e = new b(this);
+        a aVar = new a(this, CmdConfigHttp.CMD_UPDATE_SIGN_DATA);
+        aVar.setPriority(-1);
+        MessageManager.getInstance().registerListener(aVar);
     }
 
-    public final JSONObject A(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public final void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONObject(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final JSONArray z(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONArray) invokeLL.objValue;
-    }
-
-    public void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                C(new JSONObject(str));
-            } catch (Exception e) {
-                TbLog a2 = pf.a();
-                a2.e(Config.DEVICE_PART, "sync exception1: " + e.getMessage());
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis() + 60000);
+            TbadkSettings.getInst().saveInt("alert_sign_hours", calendar.get(11));
+            TbadkSettings.getInst().saveInt("alert_sign_mins", calendar.get(12));
         }
     }
 
-    public void C(JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        JSONObject jSONObject2;
-        boolean z6;
-        boolean z7;
+    public final void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPDATE_SIGN_DATA, TbConfig.SERVER_ADDRESS + TbConfig.UPDATE_SIGN_DATA);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        try {
-            TbSingleton.getInstance().setSyncJson(jSONObject);
-            YunDialogDataManager.j().p(jSONObject.optJSONArray("h5_pop_ups"));
-            JSONObject optJSONObject = jSONObject.optJSONObject("h5_pop_ups_config");
-            if (optJSONObject != null) {
-                YunDialogDataManager.j().q(optJSONObject);
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                YunDialogManager.onShow(currentActivity, s05.c);
-            }
-            BdTokenController.E().M(jSONObject);
-            TbSingleton.getInstance().setVoiceRoomConfig(j95.a(jSONObject));
-            TbSingleton.getInstance().setUpgradePopWindowConfig(f95.j(jSONObject));
-            TbSingleton.getInstance().setPushStrategyConfig(a95.e(jSONObject));
-            TbSingleton.getInstance().setMainTabPopConfig(w85.c(jSONObject));
-            TbSingleton.getInstance().setRotMallConfig(RobotMallConfig.parseJson(jSONObject));
-            this.C.a(z(jSONObject, "index_tab_info"));
-            this.a.parserJson(jSONObject.optJSONObject("version"));
-            this.b.b(jSONObject.optJSONObject(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT));
-            CommonHelper.setIp(jSONObject.optString("client_ip", null));
-            dc.g(jSONObject.optString("client_ip", null));
-            this.c.f(jSONObject.optJSONObject("config"));
-            this.g.g0(jSONObject.optJSONObject("wl_config"));
-            TbSingleton.getInstance().setWlConfigData(this.g);
-            this.n.b(jSONObject.optJSONObject("common_scheme"));
-            jSONObject.optJSONObject("channel_icon_config");
-            this.j.c(jSONObject.optJSONObject("floating_icon"));
-            TbSingleton.getInstance().setAdFloatViewData(this.j);
-            this.k.d(jSONObject.optJSONObject("home_screen_ad"));
-            TbSingleton.getInstance().setHomeInsertAdData(this.k);
-            qc5 qc5Var = new qc5();
-            qc5Var.d(jSONObject);
-            if (qc5Var.c()) {
-                TbSingleton.getInstance().setHomeOperateData(qc5Var);
-            }
-            String optString = jSONObject.optString("new_god_data", "");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("new_god_data");
-            boolean z8 = true;
-            if (!StringUtils.isNull(optString) && optJSONObject2 != null) {
-                optJSONObject2.put("portrait", ov4.t().r());
-                TbSingleton.getInstance().setNewGodDataJson(optJSONObject2);
-                if (optJSONObject2.optInt("need_show_toast_bubble") == 1) {
-                    SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), true);
-                    SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_tip_is_show"), true);
-                }
-                this.B.parserJson(optString);
-            }
-            this.s.c(jSONObject.optJSONObject("consume_path"));
-            TbadkCoreApplication.getInst().setConsumePathData(this.s);
-            this.d = jSONObject.optString("config_version");
-            this.p = jSONObject.optInt("is_uninterest");
-            this.q = jSONObject.optInt("first_time_motivate");
-            this.r = jSONObject.optInt("needNewUserLead");
-            this.e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f.a(jSONObject.optJSONObject("mainbar"));
-            jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
-            this.o = jSONObject.optInt("faceshop_version");
-            if (this.o > TbadkCoreApplication.getInst().getFaceShopVersion()) {
-                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.o);
-                TbadkCoreApplication.getInst().setFaceShopNew(true);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("lcs_strategy");
-            if (optJSONObject3 != null) {
-                TbadkCoreApplication.getInst().setLcsSwitchStratgy(optJSONObject3.toString());
-            }
-            new ea5().c(jSONObject.optJSONObject("dis_adv_config"));
-            WhiteListData whiteListData = new WhiteListData();
-            whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
-            TbSingleton.getInstance().setHostWhiteList(whiteListData);
-            x75.c(jSONObject.optJSONArray("scheme_whitelist"));
-            UrlSchemaJumpHelper.setBlackList(z(jSONObject, UrlSchemaJumpHelper.KEY_APP_JUMP_BLACK_LIST));
-            this.h.a(jSONObject.optJSONObject("app_entrance"));
-            this.i.g(jSONObject.optJSONObject("ad_adsense"));
-            ja5.d(jSONObject.optJSONObject("video_report_config"));
-            this.l.b(jSONObject.optJSONObject("activity_switch"));
-            this.t.b(A(jSONObject, "abtest_config"));
-            this.u.parseJson(A(jSONObject, "new_abtest_entra"));
-            this.v = z(jSONObject, "new_abtest_config");
-            this.w = z(jSONObject, UbsABTestDataManager.PREF_KEY_SWITCHS);
-            z(jSONObject, "outside_callback_icon");
-            this.x = jSONObject.optJSONArray("windowStrategyList");
-            this.y = A(jSONObject, "bear_sdk_config");
-            if (A(jSONObject, "advertisement_config") != null) {
-                this.D.d(A(jSONObject, "advertisement_config"));
-            }
-            YYLiveConfig yYLiveConfig = new YYLiveConfig();
-            this.z = yYLiveConfig;
-            yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
-            pib pibVar = new pib();
-            this.A = pibVar;
-            pibVar.b(z(jSONObject, "yy_live_tab"));
-            wv4.b().f(this.x);
-            this.m.d(jSONObject.optJSONObject("profile_icon"));
-            TbSingleton tbSingleton = TbSingleton.getInstance();
-            if (jSONObject.optInt("recommend_userstatus", 0) == 1) {
-                z = true;
+    }
+
+    public static void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65547, null, i) == null) {
+            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", v(i)));
+        }
+    }
+
+    public final int s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            return BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static void w(int i, boolean z) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            int v = v(i);
+            StatisticItem statisticItem = new StatisticItem("c13673");
+            if (z) {
+                i2 = 1;
             } else {
-                z = false;
+                i2 = 2;
             }
-            tbSingleton.setNewUser(z);
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            if (jSONObject.optInt("ala_channel_white", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            sharedPrefHelper.putBoolean("key_live_forum_enter_switch", z2);
-            TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
-            JSONArray z9 = z(jSONObject, "offpack");
-            if (z9 != null && z9.length() > 0 && (jSONObject2 = z9.getJSONObject(0)) != null) {
-                aca acaVar = new aca();
-                acaVar.e(jSONObject2.optString("mod_name"));
-                if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
-                    z6 = true;
-                } else {
-                    z6 = false;
-                }
-                acaVar.f(z6);
-                if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
-                    z7 = true;
-                } else {
-                    z7 = false;
-                }
-                acaVar.d(z7);
-                if (!TextUtils.isEmpty(acaVar.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(acaVar);
-                }
-            }
-            String optString2 = jSONObject.optString("proxy_ip");
-            String optString3 = jSONObject.optString("proxy_port");
-            TbadkCoreApplication.getInst().setProxyIp(optString2);
-            TbadkCoreApplication.getInst().setProxyPort(optString3);
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("ad_sdk_priority", jSONObject.optString("ad_sdk_priority", null));
-            jSONObject3.put("12_20_0_screen_fill_Ad_experiment", jSONObject.optString("12_20_0_screen_fill_Ad_experiment", null));
-            jSONObject3.put("ad_origin_config_switch", jSONObject.optString("ad_origin_config_switch", null));
-            jSONObject3.put("bear_sid_type", jSONObject.optString("bear_sid_type", null));
-            jSONObject3.put("screen_fill_data_result", jSONObject.optJSONObject("screen_fill_data_result"));
-            int optInt = jSONObject.optInt("ad_num_competition_frs", 5);
-            int optInt2 = jSONObject.optInt("ad_num_competition_personalize", 2);
-            SharedPrefHelper.getInstance().putInt("key_mix_frs_ad_count", optInt);
-            SharedPrefHelper.getInstance().putInt("key_mix_home_page_ad_count", optInt2);
-            MessageManager.getInstance().runTask(2016552, null, jSONObject3);
-            TbSingleton tbSingleton2 = TbSingleton.getInstance();
-            if (jSONObject.optInt("is_yy_user", 1) == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            tbSingleton2.setSyncYYSwitch(z3);
-            JSONObject optJSONObject4 = jSONObject.optJSONObject(LowFlowsActivityConfig.LF_USER_INFO);
-            if (optJSONObject4 != null) {
-                String optString4 = optJSONObject4.optString(LowFlowsActivityConfig.LF_USER);
-                TbSingleton.getInstance().setLFUser(optString4);
-                if (!StringUtils.isNull(optString4) && "2".equals(optString4)) {
-                    TbSingleton.getInstance().setLFUserTaskId(optJSONObject4.optString(LowFlowsActivityConfig.LF_USER_TASKID));
-                    TbSingleton.getInstance().setBannerText(optJSONObject4.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
-                }
-            }
-            SharedPrefHelper.getInstance().putInt("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("bottom_bubble_config");
-            if (optJSONObject5 != null) {
-                MainTabBottomDynamicIconManager.getInstance().parseJson(optJSONObject5);
-                SafeHandler.getInst().post(new a(this));
-            }
-            SharedPrefHelper.getInstance().putInt("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
-            TbSingleton.getInstance().setVideoEventsConfig(i95.d(jSONObject));
-            SharedPrefHelper.getInstance().putString("key_sync_extra_field", jSONObject.optString("extra"));
-            int optInt3 = jSONObject.optInt("icon_task_flag");
-            TbSingleton tbSingleton3 = TbSingleton.getInstance();
-            if (optInt3 == 1) {
-                z4 = true;
-            } else {
-                z4 = false;
-            }
-            tbSingleton3.showStampMissionDialog = z4;
-            int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            aia d = aia.d();
-            if (optInt4 == 1) {
-                z5 = true;
-            } else {
-                z5 = false;
-            }
-            d.h(z5);
-            int optInt5 = jSONObject.optInt("is_need_remind_live_rooms");
-            TbSingleton tbSingleton4 = TbSingleton.getInstance();
-            if (optInt5 != 1) {
-                z8 = false;
-            }
-            tbSingleton4.setIsNeedRemindLiveRoom(z8);
-            xd5.g().a(AgreeMaterial.Q(jSONObject.optJSONObject("agree_material")));
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("live_activity_guide");
-            if (optJSONObject6 != null) {
-                sc5 sc5Var = new sc5();
-                sc5Var.f(optJSONObject6);
-                TbSingleton.getInstance().mLiveActivityGuide = sc5Var;
-            } else {
-                TbSingleton.getInstance().mLiveActivityGuide = null;
-            }
-            dv5.c(jSONObject.optJSONArray("support_cache_url_list"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("cache_url_list");
-            if (optJSONArray != null) {
-                SharedPrefHelper.getInstance().putString("key_cache_url_list", optJSONArray.toString());
-                SafeHandler.getInst().post(new b(this, optJSONArray));
-            } else {
-                SharedPrefHelper.getInstance().putString("key_cache_url_list", "");
-            }
-            this.E.h(jSONObject.optJSONObject("bear_sid_config"));
-            D();
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("top_level_navi");
-            if (optJSONObject7 != null) {
-                SharedPrefHelper.getInstance().putString("key_home_color_header_config", optJSONObject7.toString());
-            } else {
-                SharedPrefHelper.getInstance().remove("key_home_color_header_config");
-            }
-            TbSingleton.getInstance().setColourHeaderConfig(lc5.s(optJSONObject7));
-            z16.e().k(jSONObject.optJSONObject("member_guide"));
-            z16.e().j(jSONObject.optJSONObject("close_ad_tips"));
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("interact_memes");
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    LightEmotionData lightEmotionData = new LightEmotionData();
-                    lightEmotionData.parseJson(optJSONArray2.getJSONObject(i));
-                    this.G.add(lightEmotionData);
-                }
-                TbSingleton.getInstance().setLightEmotionInfo(this.G);
-                JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
-                jSONLikeSerializable.parseJsonArray(optJSONArray2);
-                TbSingleton.getInstance().setLightEmotionJsonStr(jSONLikeSerializable);
-            }
-            UserGrowthTaskListData userGrowthTaskListData = (UserGrowthTaskListData) new Gson().fromJson(jSONObject.optString("user_growth_task_list"), (Class<Object>) UserGrowthTaskListData.class);
-            TbSingleton.getInstance().setUserGrowthTaskListData(userGrowthTaskListData);
-            HotEventData.getInstance().parsJson(jSONObject.optJSONObject("thread_recommend_info"));
-            this.F = userGrowthTaskListData;
-            new na5().b(jSONObject);
-        } catch (Exception e) {
-            TbLog a2 = pf.a();
-            a2.e(Config.DEVICE_PART, "sync exception2: " + e.getMessage());
-            BdLog.e(e.getMessage());
+            TiebaStatic.log(statisticItem.param("obj_type", i2).param("obj_source", v));
         }
     }
 
-    public final void D() {
+    public final void A(boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.E != null) {
-            SharedPrefHelper.getInstance().putString("key_server_splash_bear_sid", this.E.f());
-            SharedPrefHelper.getInstance().putString("key_server_homepage_bear_sid", this.E.b());
-            SharedPrefHelper.getInstance().putString("key_server_frs_bear_sid", this.E.a());
-            SharedPrefHelper.getInstance().putString("key_server_pb_banner_bear_sid", this.E.c());
-            SharedPrefHelper.getInstance().putString("key_server_pb_comment_bear_sid", this.E.d());
-            SharedPrefHelper.getInstance().putString("key_server_picpage_bear_sid", this.E.e());
-            SharedPrefHelper.getInstance().putString("key_server_videoflow_bear_sid", this.E.g());
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            z();
+            this.b = a();
+            this.c = g();
+            this.d = b();
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(11, i);
+            calendar.set(12, i2);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPDATE_SIGN_DATA);
+            httpMessage.addParam("sign_push_mask", z ? 1 : 0);
+            httpMessage.addParam("sign_push_time_stamp", calendar.getTimeInMillis() / 1000);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public p75 a() {
+    @Override // com.baidu.tieba.ca5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.t;
-        }
-        return (p75) invokeV.objValue;
-    }
-
-    public ABTestExtraData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.u;
-        }
-        return (ABTestExtraData) invokeV.objValue;
-    }
-
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.v;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public q75 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return (q75) invokeV.objValue;
-    }
-
-    public r75 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return (r75) invokeV.objValue;
-    }
-
-    public t75 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (t75) invokeV.objValue;
-    }
-
-    public v75 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.D;
-        }
-        return (v75) invokeV.objValue;
-    }
-
-    public w75 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return (w75) invokeV.objValue;
-    }
-
-    public i85 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (i85) invokeV.objValue;
-    }
-
-    public CombineDownload j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.e;
-        }
-        return (CombineDownload) invokeV.objValue;
-    }
-
-    public j85 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.n;
-        }
-        return (j85) invokeV.objValue;
-    }
-
-    public k85 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.c;
-        }
-        return (k85) invokeV.objValue;
-    }
-
-    public JSONObject m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.y;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.q == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean("alert_sign_on", false);
         }
         return invokeV.booleanValue;
     }
 
-    public int o() {
+    @Override // com.baidu.tieba.ca5
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.r;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("alert_sign_mins", -1);
+            if (loadInt == -1) {
+                y();
+                return TbadkSettings.getInst().loadInt("alert_sign_mins", 30);
+            }
+            return loadInt;
         }
         return invokeV.intValue;
     }
 
-    public int p() {
+    @Override // com.baidu.tieba.ca5
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.p;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("alert_sign_hours", -1);
+            if (loadInt == -1) {
+                y();
+                return TbadkSettings.getInst().loadInt("alert_sign_hours", 12);
+            }
+            return loadInt;
         }
         return invokeV.intValue;
     }
 
-    public NewGodData q() {
+    public final Intent r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.B;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            Intent intent = new Intent(TbConfig.getBroadcastActionSignAlert());
+            intent.setData(Uri.parse("tieba_sign://alert"));
+            intent.setClass(TbadkCoreApplication.getInst(), SignAlertReceiver.class);
+            return intent;
         }
-        return (NewGodData) invokeV.objValue;
+        return (Intent) invokeV.objValue;
     }
 
-    public z85 r() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.m;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            AlarmManager alarmManager = (AlarmManager) inst.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent r = r();
+            if (a()) {
+                Calendar calendar = Calendar.getInstance();
+                int g = g();
+                int i = calendar.get(11);
+                int b2 = b();
+                int i2 = calendar.get(12);
+                calendar.set(11, g);
+                calendar.set(12, b2);
+                calendar.set(13, 0);
+                calendar.set(14, 0);
+                if (i >= g && (i != g || i2 >= b2)) {
+                    calendar.set(6, calendar.get(6) + 1);
+                }
+                alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(inst, 0, r, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+                return;
+            }
+            PendingIntent broadcast = PendingIntent.getBroadcast(inst, 0, r, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+            if (broadcast != null) {
+                alarmManager.cancel(broadcast);
+            }
         }
-        return (z85) invokeV.objValue;
     }
 
-    public JSONArray s() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public Dialog d(int i, TbPageContext tbPageContext, OnTimeSelectListener onTimeSelectListener, boolean z) {
+        InterceptResult invokeCommon;
+        Activity pageActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.w;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tbPageContext, onTimeSelectListener, Boolean.valueOf(z)})) == null) {
+            if (tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null || !yb.e(pageActivity)) {
+                return null;
+            }
+            Calendar calendar = Calendar.getInstance();
+            int k = fa5.e().k();
+            int l = fa5.e().l();
+            if (k > 0 && l > 0) {
+                calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), k, l);
+            } else {
+                calendar.setTimeInMillis(System.currentTimeMillis() + 60000);
+            }
+            az5 az5Var = new az5(pageActivity, onTimeSelectListener);
+            az5Var.g(calendar);
+            az5Var.k(R.layout.dialog_sign_remind, new d(this, i, tbPageContext));
+            az5Var.f(18);
+            az5Var.p(new boolean[]{false, false, false, true, true, false});
+            az5Var.j("年", "月", "日", "", "", "秒");
+            az5Var.l(2.0f);
+            az5Var.o(0, 0, 0, 0, 0, 0);
+            az5Var.b(false);
+            az5Var.i(SkinManager.getColor(R.color.CAM_X0204));
+            az5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+            az5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+            az5Var.d(SkinManager.getColor(R.color.black_alpha30));
+            az5Var.e(SkinManager.getColor(R.color.CAM_X0211));
+            lz5 a2 = az5Var.a();
+            this.a = a2;
+            if (z) {
+                SafeHandler.getInst().postDelayed(this.e, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+            } else {
+                a2.x();
+            }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            x(i);
+            return this.a.j();
         }
-        return (JSONArray) invokeV.objValue;
+        return (Dialog) invokeCommon.objValue;
     }
 
-    public UserGrowthTaskListData t() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.F;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, activity, viewGroup)) == null) {
+            if (activity != null && viewGroup != null) {
+                View findViewById = viewGroup.findViewById(R.id.navbar_cover_tip_view);
+                if (findViewById != null) {
+                    viewGroup.removeView(findViewById);
+                }
+                NavigationBarCoverTip navigationBarCoverTip = new NavigationBarCoverTip(activity);
+                navigationBarCoverTip.setId(R.id.navbar_cover_tip_view);
+                viewGroup.addView(navigationBarCoverTip, new RelativeLayout.LayoutParams(-1, -2));
+                TextView textView = new TextView(activity);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                textView.setMinHeight(s(R.dimen.tbds112));
+                int s = s(R.dimen.tbds20);
+                textView.setPadding(s, 0, s, 0);
+                textView.setGravity(17);
+                textView.setTextSize(0, s(R.dimen.tbfontsize42));
+                textView.setLineSpacing(s(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+                textView.setText(activity.getString(R.string.sign_remind_timer_succ));
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+                SkinManager.setBackgroundColor(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
+                navigationBarCoverTip.j(activity, textView);
+                return navigationBarCoverTip;
+            }
+            return null;
         }
-        return (UserGrowthTaskListData) invokeV.objValue;
+        return (NavigationBarCoverTip) invokeLL.objValue;
     }
 
-    public VersionData u() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
+        Activity pageActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && yb.e(pageActivity)) {
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
+            if (fa5.e().G() && areNotificationsEnabled) {
+                return;
+            }
+            d(i, tbPageContext, new c(this, pageActivity, areNotificationsEnabled), z);
+            SharedPrefHelper.getInstance().putInt("sign_time_set_dialog", 1);
         }
-        return (VersionData) invokeV.objValue;
     }
 
-    public l95 v() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public void h(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            int[] t = t(j);
+            if (t == null) {
+                A(a(), g(), b());
+            } else if (t.length == 2) {
+                i(z, t[0], t[1]);
+                c();
+            }
         }
-        return (l95) invokeV.objValue;
     }
 
-    public YYLiveConfig w() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ca5
+    public void i(boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.z;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            A(z, i, i2);
+            TbadkSettings.getInst().saveBoolean("alert_sign_on", z);
+            TbadkSettings.getInst().saveInt("alert_sign_hours", i);
+            TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
         }
-        return (YYLiveConfig) invokeV.objValue;
     }
 
-    public pib x() {
-        InterceptResult invokeV;
+    public final void q(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.A;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2 != null && view2.getContext() != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.bottomMargin = AndroidUtils.getNavigationBarHeight(view2.getContext()) + UtilHelper.getDimenPixelSize(R.dimen.tbds10);
+                view2.setLayoutParams(marginLayoutParams);
+            }
         }
-        return (pib) invokeV.objValue;
     }
 
-    public String y() {
-        InterceptResult invokeV;
+    public final int[] t(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
+            if (j <= 0) {
+                return null;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            return new int[]{calendar.get(11), calendar.get(12)};
         }
-        return (String) invokeV.objValue;
+        return (int[]) invokeJ.objValue;
     }
 }

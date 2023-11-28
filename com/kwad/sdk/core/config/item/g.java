@@ -1,68 +1,38 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.ksad.json.annotation.KsJson;
-import org.json.JSONException;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class g extends b<a> {
-
-    @KsJson
-    /* loaded from: classes10.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a {
-        public String VB = "";
-        public String VC = "";
+public final class g extends a<Float> {
+    public g(String str, float f) {
+        super(str, Float.valueOf(f));
     }
 
-    public g() {
-        super("idMapping", new a());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: BB */
+    public final Float getValue() {
+        return (Float) super.getValue();
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(SharedPreferences sharedPreferences) {
-        a value = getValue();
-        if (value == null) {
-            value = new a();
-        }
-        String string = sharedPreferences.getString(getKey(), "");
-        if (!TextUtils.isEmpty(string)) {
-            try {
-                value.parseJson(new JSONObject(b.bu(string)));
-            } catch (JSONException e) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-            }
-        }
-        setValue(value);
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        setValue(Float.valueOf(sharedPreferences.getFloat(getKey(), Bx().floatValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(SharedPreferences.Editor editor) {
-        if (getValue() == null || getValue().toJson() == null) {
-            editor.putString(getKey(), "");
-            return;
-        }
-        editor.putString(getKey(), b.bt(getValue().toJson().toString()));
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putFloat(getKey(), getValue().floatValue());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
-        JSONObject optJSONObject = jSONObject.optJSONObject(getKey());
-        if (optJSONObject == null) {
-            return;
+    public final void j(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            setValue(Float.valueOf((float) jSONObject.optDouble(getKey(), Bx().floatValue())));
+        } else {
+            setValue(Bx());
         }
-        a aVar = new a();
-        aVar.parseJson(optJSONObject);
-        setValue(aVar);
-    }
-
-    public final String getImei() {
-        a value = getValue();
-        return (value == null || TextUtils.isEmpty(value.VB)) ? "" : value.VB;
-    }
-
-    public final String getOaid() {
-        a value = getValue();
-        return (value == null || TextUtils.isEmpty(value.VC)) ? "" : value.VC;
     }
 }

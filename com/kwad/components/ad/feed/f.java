@@ -4,12 +4,17 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes10.dex */
 public final class f {
-    public static String d(@NonNull AdTemplate adTemplate) {
-        String ad = com.kwad.sdk.core.response.a.a.ad(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
-        if (com.kwad.components.core.a.b.lR()) {
-            String str = adTemplate.fromCache ? "【cache】" : "";
-            return str + ad;
+    public static String c(@NonNull AdTemplate adTemplate) {
+        String str;
+        String au = com.kwad.sdk.core.response.b.a.au(com.kwad.sdk.core.response.b.e.dP(adTemplate));
+        if (com.kwad.components.core.c.b.mp()) {
+            if (adTemplate.fromCache) {
+                str = "【cache】";
+            } else {
+                str = "";
+            }
+            return str + au;
         }
-        return ad;
+        return au;
     }
 }

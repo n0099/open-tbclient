@@ -49,14 +49,14 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a59;
+import com.baidu.tieba.cz8;
+import com.baidu.tieba.grb;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.kmb;
-import com.baidu.tieba.s19;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +141,7 @@ public class NavigationBarSlice extends Slice {
                 } else {
                     GroupChatFragment groupChatFragment = this.f.k;
                     if (groupChatFragment != null) {
-                        groupChatFragment.D3();
+                        groupChatFragment.P3();
                     }
                 }
                 this.f.J0(this.e);
@@ -176,7 +176,7 @@ public class NavigationBarSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k.P2() && this.a.k.getActivity() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k.b3() && this.a.k.getActivity() != null) {
                 this.a.k.getActivity().finish();
             }
         }
@@ -247,8 +247,8 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{kmb.a(kmb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
-                vv8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{grb.a(grb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
+                cz8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
             }
         }
     }
@@ -312,7 +312,7 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                s19.c((Activity) this.a);
+                a59.c((Activity) this.a);
             }
         }
     }
@@ -420,28 +420,41 @@ public class NavigationBarSlice extends Slice {
             }
         }
 
-        public static i a(@NonNull View view2) {
+        public static int a(@NonNull Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return (int) (((BdUtilHelper.getDimens(context, R.dimen.tbds833) * (BdUtilHelper.getEquipmentWidth(context) / BdUtilHelper.getEquipmentDensity(context))) / 360.0f) + 0.5f);
+            }
+            return invokeL.intValue;
+        }
+
+        public static i b(@NonNull View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
                 i iVar = new i();
                 iVar.a = view2;
-                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091939);
+                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0919aa);
                 iVar.b = navigationBar;
                 View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
                 iVar.e = addSystemImageButton;
                 iVar.f = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d03fd, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0406, (ViewGroup) null);
                 iVar.g = inflate;
-                iVar.h = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ee2);
-                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090ef6);
-                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f09109a);
-                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090efa);
-                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090ee6);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0919ae);
+                ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
+                layoutParams.width = a(view2.getContext());
+                findViewById.setLayoutParams(layoutParams);
+                iVar.h = (RoundTbImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f02);
+                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f16);
+                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f0910c1);
+                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f1a);
+                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f06);
                 iVar.b.setTitleView(iVar.g, null, NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER);
-                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d081b, (View.OnClickListener) null);
+                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0835, (View.OnClickListener) null);
                 iVar.c = addCustomView;
-                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f0d);
+                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f2d);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(iVar.d, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return iVar;
             }
@@ -482,9 +495,9 @@ public class NavigationBarSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 j jVar = new j();
                 jVar.a = (ConstraintLayout) view2.findViewById(R.id.dialog_content);
-                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908f3);
-                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908df);
-                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908d2);
+                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09090f);
+                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908fb);
+                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ee);
                 jVar.e = (ImageView) view2.findViewById(R.id.dialog_image);
                 return jVar;
             }
@@ -534,7 +547,7 @@ public class NavigationBarSlice extends Slice {
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.a0(view2, bundle);
             if (view2 != null) {
-                this.o = i.a(view2);
+                this.o = i.b(view2);
             }
             s0();
         }
@@ -629,7 +642,7 @@ public class NavigationBarSlice extends Slice {
             LinearLayout linearLayout = new LinearLayout(context);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0271, (ViewGroup) null);
             linearLayout.addView(inflate);
             j a2 = j.a(inflate);
             this.m = a2;
@@ -662,10 +675,10 @@ public class NavigationBarSlice extends Slice {
                 E0(activity);
                 SharedPrefHelper.getInstance().putBoolean("key_group_chat_subscribe_click", true);
             } else {
-                s19.c(activity);
+                a59.c(activity);
             }
         } else {
-            s19.d(activity);
+            a59.d(activity);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
     }
@@ -737,8 +750,8 @@ public class NavigationBarSlice extends Slice {
     public final void r0() {
         GroupChatFragment groupChatFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (groupChatFragment = this.k) != null && groupChatFragment.i3() != null) {
-            this.k.i3().j0();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (groupChatFragment = this.k) != null && groupChatFragment.u3() != null) {
+            this.k.u3().j0();
         }
     }
 
@@ -800,7 +813,7 @@ public class NavigationBarSlice extends Slice {
             }
             sharedPrefHelper.putLong(sharedPrefKeyWithAccount, System.currentTimeMillis());
             this.t = true;
-            if (!this.k.i3().k0()) {
+            if (!this.k.u3().k0()) {
                 D0(this.k.requireContext(), R.string.im_group_chat_add_remind_title, R.string.im_group_chat_add_remind_desc, R.drawable.im_group_chat_subscribe_dialog, R.string.im_group_chat_add_success_btn, new e(this));
             }
             return true;
@@ -844,7 +857,7 @@ public class NavigationBarSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0705, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d071e, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

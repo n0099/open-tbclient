@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.flow.CoverFlowAdapter;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.dv7;
 import com.baidu.tieba.frs.FrsBountyTaskData;
 import com.baidu.tieba.frs.ad.FrsTopADView;
 import com.baidu.tieba.frs.banner.data.FrsHeadBannerData;
 import com.baidu.tieba.frs.banner.view.FrsForumMountView;
-import com.baidu.tieba.ss7;
-import com.baidu.tieba.v25;
-import com.baidu.tieba.w25;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u001e*\b\b\u0000\u0010\u0001*\u00020\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003:\u0001\u001eB\r\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0018\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\fH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016J\b\u0010\u000f\u001a\u00020\u000eH\u0016J\b\u0010\u0010\u001a\u00020\u000eH\u0016J\u0010\u0010\u0011\u001a\u00020\u000e2\u0006\u0010\u0012\u001a\u00020\u0013H\u0016J\b\u0010\u0014\u001a\u00020\u000eH\u0016J\u0016\u0010\u0015\u001a\u00020\u000e2\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u0017H\u0002J\u0016\u0010\u0018\u001a\u00020\u000e2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00028\u00000\u001aH\u0002J \u0010\u001b\u001a\u00020\u000e2\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u00172\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/frs/banner/adapter/FrsHeadCommonFlowAdapter;", ExifInterface.GPS_DIRECTION_TRUE, "Lcom/baidu/tbadk/core/flow/data/CoverFlowData;", "Lcom/baidu/tbadk/core/flow/CoverFlowAdapter;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "instantiateItem", "", "container", "Landroid/view/ViewGroup;", CriusAttrConstants.POSITION, "", "onChangeSkinType", "", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onPrimary", "isPrimary", "", "onResume", "processList", "list", "", "processViewList", "dataList", "Ljava/util/ArrayList;", "setData", "factory", "Lcom/baidu/tbadk/core/flow/CoverFlowFactory;", "Companion", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdapter<T> {
+public final class FrsHeadCommonFlowAdapter<T extends z25> extends CoverFlowAdapter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context h;
@@ -101,7 +101,7 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
         this.h = context;
     }
 
-    public final void k(List<? extends T> list) {
+    public final void j(List<? extends T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.b.clear();
@@ -122,8 +122,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof ss7) {
-                    ((ss7) next).onChangeSkinType(TbadkApplication.getInst().getSkinType());
+                if (next instanceof dv7) {
+                    ((dv7) next).onChangeSkinType(TbadkApplication.getInst().getSkinType());
                 }
             }
         }
@@ -136,8 +136,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof ss7) {
-                    ((ss7) next).onPause();
+                if (next instanceof dv7) {
+                    ((dv7) next).onPause();
                 }
             }
         }
@@ -150,8 +150,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof ss7) {
-                    ((ss7) next).onResume();
+                if (next instanceof dv7) {
+                    ((dv7) next).onResume();
                 }
             }
         }
@@ -164,8 +164,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof ss7) {
-                    ((ss7) next).onDestroy();
+                if (next instanceof dv7) {
+                    ((dv7) next).onDestroy();
                 }
             }
         }
@@ -178,25 +178,25 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof ss7) {
-                    ((ss7) next).onPrimary(z);
+                if (next instanceof dv7) {
+                    ((dv7) next).onPrimary(z);
                 }
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.flow.CoverFlowAdapter
-    public void h(List<? extends T> list, v25 v25Var) {
+    public void h(List<? extends T> list, y25 y25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, v25Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, y25Var) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
             if (list.isEmpty()) {
                 return;
             }
-            k(list);
+            j(list);
             ArrayList<T> dataList = this.b;
             Intrinsics.checkNotNullExpressionValue(dataList, "dataList");
-            l(dataList);
+            k(dataList);
             notifyDataSetChanged();
         }
     }
@@ -233,7 +233,7 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
         return invokeLI.objValue;
     }
 
-    public final void l(ArrayList<T> arrayList) {
+    public final void k(ArrayList<T> arrayList) {
         FrsBountyTaskData a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {

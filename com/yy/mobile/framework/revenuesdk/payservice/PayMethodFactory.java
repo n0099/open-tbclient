@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum PayMethodFactory {
     WECHAT_PAY("com.yy.mobile.framework.revenue.wxpay.RevenueWechatPayImpl"),
     ALIPAY_PAY("com.yy.mobile.framework.revenue.alipay.RevenueAlipayImpl"),
@@ -17,7 +17,7 @@ public enum PayMethodFactory {
     public IPayMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
 

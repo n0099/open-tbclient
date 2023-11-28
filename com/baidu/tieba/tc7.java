@@ -1,119 +1,60 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.feed.component.CardPlayVoiceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public final class tc7 {
+public class tc7 extends wa7<CardPlayVoiceView, z47> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176481, "Lcom/baidu/tieba/tc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948176481, "Lcom/baidu/tieba/tc7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tc7(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            fd7.j(a);
+            return a;
         }
+        return (View) invokeL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final v67 a(String iconUrl) {
-            InterceptResult invokeL;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
-                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-                if (!TextUtils.isEmpty(iconUrl) && StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                    Uri parse = Uri.parse(iconUrl);
-                    List<String> pathSegments = parse.getPathSegments();
-                    if (pathSegments.size() > 0) {
-                        boolean z = true;
-                        int identifier = h27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, h27.a.getPackageName());
-                        String queryParameter = parse.getQueryParameter("type");
-                        if (queryParameter == null) {
-                            queryParameter = "";
-                        }
-                        String str = queryParameter;
-                        String queryParameter2 = parse.getQueryParameter("color");
-                        if (queryParameter2 != null && queryParameter2.length() != 0) {
-                            z = false;
-                        }
-                        if (!z) {
-                            i = h27.a.getResources().getIdentifier(queryParameter2, "color", h27.a.getPackageName());
-                        } else {
-                            i = 0;
-                        }
-                        if (identifier > 0) {
-                            return new v67(identifier, str, i, uc7.a(parse.getQueryParameter(CriusAttrConstants.PADDING)), uc7.a(parse.getQueryParameter("left_margin")), uc7.a(parse.getQueryParameter("right_margin")));
-                        }
-                    }
-                }
-                return null;
-            }
-            return (v67) invokeL.objValue;
-        }
-
-        public final String b(r67 iconData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
-                Intrinsics.checkNotNullParameter(iconData, "iconData");
-                String b = iconData.b();
-                int currentSkinType = SkinManager.getCurrentSkinType();
-                if (currentSkinType != 0) {
-                    if (currentSkinType == 4) {
-                        return iconData.a();
-                    }
-                    return b;
-                }
-                return iconData.b();
-            }
-            return (String) invokeL.objValue;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull z47 z47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, z47Var) == null) {
+            cardPlayVoiceView.b(z47Var);
         }
     }
 }

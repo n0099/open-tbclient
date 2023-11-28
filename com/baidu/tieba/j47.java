@@ -1,101 +1,137 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
-import kotlin.jvm.functions.Function1;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j47 extends i47 implements PreLoadImageProvider {
+public final class j47 implements nb7<j47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k47 g;
-    public final String h;
-    public final SpannableString i;
-    public final t57 j;
+    public final String a;
+    public final String b;
+    public final Function2<View, String, Unit> c;
+    public final a87 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j47(k47 cardVideoUiState, String topRightText, SpannableString bottomText, t57 downloadData) {
-        super(null, null, null, null, 15, null);
+    @Override // com.baidu.tieba.nb7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
+    }
+
+    public j47 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (j47) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof j47) {
+                j47 j47Var = (j47) obj;
+                return Intrinsics.areEqual(this.a, j47Var.a) && Intrinsics.areEqual(this.b, j47Var.b) && Intrinsics.areEqual(this.c, j47Var.c) && Intrinsics.areEqual(this.d, j47Var.d);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            a87 a87Var = this.d;
+            return hashCode + (a87Var == null ? 0 : a87Var.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public j47(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, a87 a87Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {cardVideoUiState, topRightText, bottomText, downloadData};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumName, jumpSchema, onClick, a87Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(cardVideoUiState, "cardVideoUiState");
-        Intrinsics.checkNotNullParameter(topRightText, "topRightText");
-        Intrinsics.checkNotNullParameter(bottomText, "bottomText");
-        Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-        this.g = cardVideoUiState;
-        this.h = topRightText;
-        this.i = bottomText;
-        this.j = downloadData;
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
+        this.a = forumName;
+        this.b = jumpSchema;
+        this.c = onClick;
+        this.d = a87Var;
     }
 
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g.getImages();
-        }
-        return (ArrayList) invokeV.objValue;
+    public /* synthetic */ j47(String str, String str2, Function2 function2, a87 a87Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : a87Var);
     }
 
-    public final SpannableString l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (SpannableString) invokeV.objValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.nb7
+    public /* bridge */ /* synthetic */ j47 b() {
+        c();
+        return this;
     }
 
-    public final k47 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return (k47) invokeV.objValue;
-    }
-
-    public final t57 n() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
+            return this.a;
         }
-        return (t57) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String o() {
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
+            return this.b;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Function2) invokeV.objValue;
     }
 }

@@ -4,10 +4,10 @@ import android.animation.ArgbEvaluator;
 import android.animation.TypeEvaluator;
 /* loaded from: classes10.dex */
 public final class b implements TypeEvaluator {
-    public static final ArgbEvaluator aqY = new ArgbEvaluator();
+    public static final ArgbEvaluator aRk = new ArgbEvaluator();
 
-    public static ArgbEvaluator Bv() {
-        return aqY;
+    public static ArgbEvaluator Mp() {
+        return aRk;
     }
 
     @Override // android.animation.TypeEvaluator

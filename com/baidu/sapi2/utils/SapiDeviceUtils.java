@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -94,7 +94,7 @@ public class SapiDeviceUtils {
             if (!TextUtils.isEmpty(mImei)) {
                 return mImei;
             }
-            if (!PassPermissions.checkRequestPermission(h.c, context)) {
+            if (!PassPermissions.checkRequestPermission(g.c, context)) {
                 return "";
             }
             String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));

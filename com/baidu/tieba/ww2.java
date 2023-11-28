@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ww2 extends xw2 {
+public class ww2 extends yw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
+    public e53 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ww2(boolean z) {
-        super(4);
+    public ww2(e53 e53Var) {
+        super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {e53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,14 +29,18 @@ public class ww2 extends xw2 {
                 return;
             }
         }
-        this.e = z;
+        this.e = e53Var;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            e53 e53Var = this.e;
+            if (e53Var != null && "show".equals(e53Var.a())) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

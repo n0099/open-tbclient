@@ -99,13 +99,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0302, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030a, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f31);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f30);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090be8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090f2f);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090f32);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090f58);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f57);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c08);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090f56);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090f59);
             this.b.setPlaceHolder(1);
         }
     }

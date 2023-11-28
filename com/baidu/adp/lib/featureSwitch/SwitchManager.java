@@ -6,9 +6,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.la;
-import com.baidu.tieba.na;
+import com.baidu.tieba.ma;
 import com.baidu.tieba.oa;
+import com.baidu.tieba.pa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +26,8 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, oa> mSwitchs;
-    public la service;
+    public ConcurrentHashMap<String, pa> mSwitchs;
+    public ma service;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class SwitchManager {
         }
         this.mSwitchs = null;
         this.mBaseSwitchs = null;
-        this.service = (la) ServiceManager.getService(la.a);
+        this.service = (ma) ServiceManager.getService(ma.a);
         this.mSwitchs = new ConcurrentHashMap<>();
     }
 
@@ -69,11 +69,11 @@ public class SwitchManager {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        for (oa oaVar : this.mSwitchs.values()) {
-            if (oaVar != null) {
-                oaVar.i(0);
-                edit.putInt(oaVar.d() + oa.e, 0);
-                edit.putInt(oaVar.d() + oa.f, oaVar.c());
+        for (pa paVar : this.mSwitchs.values()) {
+            if (paVar != null) {
+                paVar.i(0);
+                edit.putInt(paVar.d() + pa.e, 0);
+                edit.putInt(paVar.d() + pa.f, paVar.c());
             }
         }
         edit.commit();
@@ -104,18 +104,18 @@ public class SwitchManager {
         return (HashMap) invokeV.objValue;
     }
 
-    public void addSwitchData(na naVar) {
+    public void addSwitchData(oa oaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, naVar) != null) || naVar == null || this.mSwitchs.containsKey(naVar.e())) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, oaVar) != null) || oaVar == null || this.mSwitchs.containsKey(oaVar.e())) {
             return;
         }
-        this.mSwitchs.put(naVar.e(), new oa(naVar));
+        this.mSwitchs.put(oaVar.e(), new pa(oaVar));
     }
 
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<oa> it = this.mSwitchs.values().iterator();
+            Iterator<pa> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -125,9 +125,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            oa oaVar = this.mSwitchs.get(str);
-            if (oaVar != null) {
-                return oaVar.e();
+            pa paVar = this.mSwitchs.get(str);
+            if (paVar != null) {
+                return paVar.e();
             }
             return -1;
         }
@@ -147,28 +147,28 @@ public class SwitchManager {
         }
     }
 
-    public na removeSwitchData(String str) {
+    public oa removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            oa remove = this.mSwitchs.remove(str);
+            pa remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (na) invokeL.objValue;
+        return (oa) invokeL.objValue;
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            la laVar = this.service;
-            if (laVar == null || laVar.isTypeSp() || this.service.isTypeDoubleKv() || this.service.isTypeDoubleSp()) {
+            ma maVar = this.service;
+            if (maVar == null || maVar.isTypeSp() || this.service.isTypeDoubleKv() || this.service.isTypeDoubleSp()) {
                 clearInternal(BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0));
             }
-            la laVar2 = this.service;
-            if (laVar2 == null || laVar2.isTypeDoubleSp() || this.service.isTypeDoubleKv()) {
+            ma maVar2 = this.service;
+            if (maVar2 == null || maVar2.isTypeDoubleSp() || this.service.isTypeDoubleKv()) {
                 clearInternal(KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0));
             }
         }
@@ -188,13 +188,13 @@ public class SwitchManager {
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        oa oaVar;
+        pa paVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i < 0 || (oaVar = this.mSwitchs.get(str)) == null) {
+            if (i < 0 || (paVar = this.mSwitchs.get(str)) == null) {
                 return false;
             }
-            return oaVar.j(i);
+            return paVar.j(i);
         }
         return invokeLI.booleanValue;
     }

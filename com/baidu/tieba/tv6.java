@@ -1,59 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tieba.easteregg.EasterEggAdController;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.downloadmanager.data.DownloadManageModeCardType;
+import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class tv6 extends g15 {
+public class tv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public BdTypeRecyclerView b;
+    public ItemCardViewWrapperAdapter c;
+    public List<ci> d;
+    public int e;
+    public int f;
 
-    public tv6() {
+    public tv6(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = new ArrayList();
+        this.a = baseFragment;
+        this.b = bdTypeRecyclerView;
+        this.e = i;
+        this.f = i2;
+        b();
+    }
+
+    public void a(DownloadManageModeCardType downloadManageModeCardType) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadManageModeCardType) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.F(downloadManageModeCardType);
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(Context context, u05 data) {
-        Unit unit;
+    public void d(ItemCardViewWrapperAdapter.b bVar) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if ((context instanceof Activity) && (context instanceof rva)) {
-                EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-                if (b != null) {
-                    new EasterEggAdController((Activity) context).o(b);
-                    YunDialogManager.markShowingDialogName("easterEgg");
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    YunDialogManager.unMarkShowingDialogName("easterEgg");
-                    return;
-                }
-                return;
-            }
-            YunDialogManager.unMarkShowingDialogName("easterEgg");
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.I(bVar);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), iv6.g, this.e, this.b, this.f);
+            this.c = itemCardViewWrapperAdapter;
+            this.d.add(itemCardViewWrapperAdapter);
+            this.b.addAdapters(this.d);
+        }
+    }
+
+    public void c() {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.notifyDataSetChanged();
         }
     }
 }

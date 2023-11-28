@@ -9,11 +9,11 @@ import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.l80;
 import com.baidu.tieba.m80;
 import com.baidu.tieba.n80;
 import com.baidu.tieba.o80;
-import com.baidu.tieba.x80;
+import com.baidu.tieba.p80;
+import com.baidu.tieba.y80;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.Map;
 import kotlin.LazyKt__LazyJVMKt;
@@ -76,17 +76,17 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class b<T, ResponseDataT> implements n80<a<ResponseDataT>> {
+    public static final class b<T, ResponseDataT> implements o80<a<ResponseDataT>> {
         public final /* synthetic */ Map b;
-        public final /* synthetic */ l80 c;
+        public final /* synthetic */ m80 c;
 
-        public b(Map map, l80 l80Var) {
+        public b(Map map, m80 m80Var) {
             this.b = map;
-            this.c = l80Var;
+            this.c = m80Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n80
+        @Override // com.baidu.tieba.o80
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             INetWork iNetWork = LiveNetwork.this.b;
@@ -96,12 +96,12 @@ public final class LiveNetwork {
             NetResponse res = iNetWork.postSync(this.b);
             Object obj = null;
             try {
-                l80 l80Var = this.c;
-                if (l80Var != null) {
-                    obj = l80Var.onParseResponseInBackground(res);
+                m80 m80Var = this.c;
+                if (m80Var != null) {
+                    obj = m80Var.onParseResponseInBackground(res);
                 }
             } catch (Exception e) {
-                x80.e(e);
+                y80.e(e);
             }
             Intrinsics.checkExpressionValueIsNotNull(res, "res");
             return new a<>(res, obj);
@@ -110,20 +110,20 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class c<T, ResponseDataT> implements o80<a<ResponseDataT>> {
-        public final /* synthetic */ l80 a;
+    public static final class c<T, ResponseDataT> implements p80<a<ResponseDataT>> {
+        public final /* synthetic */ m80 a;
 
-        public c(l80 l80Var) {
-            this.a = l80Var;
+        public c(m80 m80Var) {
+            this.a = m80Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.o80
+        @Override // com.baidu.tieba.p80
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
             NetResponse netResponse;
-            l80 l80Var = this.a;
-            if (l80Var != null) {
+            m80 m80Var = this.a;
+            if (m80Var != null) {
                 ResponseDataT responsedatat = null;
                 if (aVar != null) {
                     netResponse = aVar.b();
@@ -133,7 +133,7 @@ public final class LiveNetwork {
                 if (aVar != null) {
                     responsedatat = aVar.a();
                 }
-                l80Var.onNetResponse(netResponse, responsedatat);
+                m80Var.onNetResponse(netResponse, responsedatat);
             }
         }
     }
@@ -179,10 +179,10 @@ public final class LiveNetwork {
         }
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, l80<ResponseDataT> l80Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, m80<ResponseDataT> m80Var) {
         String str = this.a;
         if (str != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
-            m80.a(new b(map, l80Var), new c(l80Var));
+            n80.a(new b(map, m80Var), new c(m80Var));
         }
     }
 }

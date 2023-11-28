@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ob3 extends rb3<JSONObject> {
+public class ob3 extends sb3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -36,43 +36,43 @@ public class ob3 extends rb3<JSONObject> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.db3
+    @Override // com.baidu.tieba.eb3
     /* renamed from: Q */
     public JSONObject n(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            return eb3.c(jSONObject);
+            return fb3.c(jSONObject);
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rb3
-    public HttpRequest x(rb3 rb3Var) {
+    @Override // com.baidu.tieba.sb3
+    public HttpRequest x(sb3 sb3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rb3Var)) == null) {
-            return np2.o().g(this.m, rb3Var.C());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sb3Var)) == null) {
+            return op2.o().M(this.m, sb3Var.C());
         }
         return (HttpRequest) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rb3
+    @Override // com.baidu.tieba.sb3
     public SwanInterfaceType A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return SwanInterfaceType.SWAN_ID;
+            return SwanInterfaceType.OPEN_ID;
         }
         return (SwanInterfaceType) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.db3
+    @Override // com.baidu.tieba.eb3
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g63 M = g63.M();
+            h63 M = h63.M();
             if (M != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {

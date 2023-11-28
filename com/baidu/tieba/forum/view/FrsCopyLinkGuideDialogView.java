@@ -101,7 +101,7 @@ public final class FrsCopyLinkGuideDialogView extends LinearLayout {
         this.a = c;
         c.f.setText(TbadkCoreApplication.getInst().getString(R.string.forum_broadcast_copy_guide_title));
         this.a.d.setText(TbadkCoreApplication.getInst().getString(R.string.forum_broadcast_copy_guide_hint));
-        this.a.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b79));
+        this.a.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b86));
         SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0107);
         SkinManager.setViewTextColor(this.a.c, (int) R.color.CAM_X0302);

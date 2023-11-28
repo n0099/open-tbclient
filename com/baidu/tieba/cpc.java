@@ -1,42 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.AdInfo;
-import tbclient.Media;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cpc extends qoc {
+public final class cpc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull AdInfo adInfo) {
+    /* JADX INFO: Add missing generic type declarations: [R] */
+    /* loaded from: classes5.dex */
+    public static class a<R> implements bpc<R> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yoc a;
+
+        public a(yoc yocVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yocVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yocVar;
+        }
+
+        @Override // com.baidu.tieba.bpc
+        public R call(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                if (objArr.length == 2) {
+                    return (R) this.a.a(objArr[0], objArr[1]);
+                }
+                throw new IllegalArgumentException("Func2 expecting 2 arguments.");
+            }
+            return (R) invokeL.objValue;
+        }
+    }
+
+    public static <T0, T1, R> bpc<R> a(yoc<? super T0, ? super T1, ? extends R> yocVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "show_rule", adInfo.show_rule);
-            qoc.a(jSONObject, TiebaStatic.Params.AD_TYPE, adInfo.ad_type);
-            qoc.a(jSONObject, TiebaStatic.Params.AD_DESC, adInfo.ad_desc);
-            qoc.a(jSONObject, "ad_pic", adInfo.ad_pic);
-            qoc.a(jSONObject, SignAllForumAdvertActivityConfig.AD_URL, adInfo.ad_url);
-            qoc.a(jSONObject, "ad_name", adInfo.ad_name);
-            qoc.a(jSONObject, "portrait", adInfo.portrait);
-            if (adInfo.media != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Media media : adInfo.media) {
-                    jSONArray.put(zzc.b(media));
-                }
-                qoc.a(jSONObject, "media", jSONArray);
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yocVar)) == null) {
+            return new a(yocVar);
         }
-        return (JSONObject) invokeL.objValue;
+        return (bpc) invokeL.objValue;
     }
 }

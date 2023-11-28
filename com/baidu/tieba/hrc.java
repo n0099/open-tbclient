@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.CustomFigure;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
 /* loaded from: classes6.dex */
-public class hrc extends qoc {
+public abstract class hrc<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull CustomFigure customFigure) {
-        InterceptResult invokeL;
+    public hrc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, customFigure)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "figure_url", customFigure.figure_url);
-            qoc.a(jSONObject, "background_type", customFigure.background_type);
-            qoc.a(jSONObject, "background_value", customFigure.background_value);
-            qoc.a(jSONObject, "dynamic_figure_url", customFigure.dynamic_figure_url);
-            return jSONObject;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

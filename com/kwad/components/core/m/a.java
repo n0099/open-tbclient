@@ -1,45 +1,73 @@
 package com.kwad.components.core.m;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
+import androidx.annotation.NonNull;
+import com.kwad.components.core.request.model.ImpInfo;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.response.b.e;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.utils.ay;
+import com.kwad.sdk.utils.g;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class a extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if (intent == null) {
-            return;
-        }
-        if (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            if (!TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction()) || intent.getData() == null) {
-                return;
-            }
-            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            InstalledAppInfoManager.AppPackageInfo appPackageInfo = new InstalledAppInfoManager.AppPackageInfo();
-            appPackageInfo.packageName = schemeSpecificPart;
-            com.kwad.components.core.j.a.og().e(InstalledAppInfoManager.a(appPackageInfo), 2);
-            com.kwad.sdk.core.e.b.d("APPInstalledChangerReceiver", "uninstalled packageName :" + schemeSpecificPart);
-        } else if (intent.getData() != null) {
-            String schemeSpecificPart2 = intent.getData().getSchemeSpecificPart();
-            if (TextUtils.isEmpty(schemeSpecificPart2)) {
-                return;
-            }
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo = packageManager.getPackageInfo(schemeSpecificPart2, 0);
-                if (packageInfo == null) {
-                    return;
+public class a extends l<com.kwad.components.core.request.a, AdResultData> {
+    public ImpInfo Mp;
+
+    public a(ImpInfo impInfo) {
+        this.Mp = impInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    @Override // com.kwad.sdk.core.network.l
+    /* renamed from: j */
+    public void afterParseData(AdResultData adResultData) {
+        super.afterParseData(adResultData);
+        k(adResultData);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.network.l
+    @NonNull
+    /* renamed from: Z */
+    public AdResultData parseData(String str) {
+        JSONObject jSONObject = new JSONObject(str);
+        AdResultData adResultData = new AdResultData(this.Mp.adScene);
+        adResultData.parseJson(jSONObject);
+        return adResultData;
+    }
+
+    private void k(final AdResultData adResultData) {
+        g.execute(new ay() { // from class: com.kwad.components.core.m.a.1
+            @Override // com.kwad.sdk.utils.ay
+            public final void doTask() {
+                JSONObject json;
+                AdResultData adResultData2 = adResultData;
+                if (adResultData2 != null && (json = adResultData2.toJson()) != null) {
+                    c.i("AdNetworking", "ad result: " + json);
                 }
-                com.kwad.components.core.j.a.og().e(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
-                com.kwad.sdk.core.e.b.d("APPInstalledChangerReceiver", "installed packageName :" + schemeSpecificPart2);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+            }
+        });
+        for (AdTemplate adTemplate : adResultData.getProceedTemplateList()) {
+            AdInfo dP = e.dP(adTemplate);
+            if (com.kwad.sdk.core.response.b.a.bd(dP)) {
+                if (com.kwad.sdk.core.response.b.a.ba(dP).size() == 0) {
+                    com.kwad.components.core.o.a.pX().f(adTemplate, 21005);
+                }
+            } else if (com.kwad.sdk.core.response.b.a.bh(dP) && TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.K(dP))) {
+                com.kwad.components.core.o.a.pX().f(adTemplate, 21006);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.network.a
+    @NonNull
+    /* renamed from: mt */
+    public com.kwad.components.core.request.a createRequest() {
+        return new com.kwad.components.core.request.a(this.Mp);
     }
 }

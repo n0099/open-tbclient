@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h16;
+import com.baidu.tieba.o16;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
@@ -581,7 +581,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h16.VideoClipLayout);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, o16.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -666,9 +666,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09ce, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092859);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092858);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09e8, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0928dc);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f0928db);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;
@@ -1083,14 +1083,14 @@ public class VideoClipLayout extends FrameLayout {
                 J();
             }
             if (z && (videoClipAdapter = this.d) != null) {
-                videoClipAdapter.n(this.u, this.g, this.m, this.n, this.q, UtilHelper.getDimenPixelSize(R.dimen.tbds130));
+                videoClipAdapter.o(this.u, this.g, this.m, this.n, this.q, UtilHelper.getDimenPixelSize(R.dimen.tbds130));
                 if (vlogEditManager == null) {
                     return;
                 }
                 if (this.D >= 0) {
                     this.d.l((MultiMediaData) ListUtils.getItem(vlogEditManager.getInputMultiMediaData(), this.D), this.p);
                 } else {
-                    this.d.m(vlogEditManager, this.p);
+                    this.d.n(vlogEditManager, this.p);
                 }
             }
         }

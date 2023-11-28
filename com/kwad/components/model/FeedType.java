@@ -1,8 +1,8 @@
 package com.kwad.components.model;
 
 import androidx.annotation.NonNull;
-import com.kwad.sdk.core.response.a.a;
-import com.kwad.sdk.core.response.a.d;
+import com.kwad.sdk.core.response.b.a;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes10.dex */
 public enum FeedType {
@@ -20,18 +20,42 @@ public enum FeedType {
     
     public int type;
 
+    public static boolean isH5Type(int i) {
+        return i == 7 || i == 8 || i == 14 || i == 15 || i == 16 || i == 17 || i == 18 || i == 19 || i >= 2000;
+    }
+
     FeedType(int i) {
         this.type = i;
     }
 
     public static boolean checkTypeValid(@NonNull AdTemplate adTemplate) {
-        int aD = a.aD(d.bQ(adTemplate));
+        int be = a.be(e.dP(adTemplate));
         int i = adTemplate.type;
         if (i > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
             return true;
         }
         FeedType fromInt = fromInt(i);
-        return aD != 1 ? aD != 2 ? aD == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
+        if (be != 1) {
+            if (be != 2) {
+                if (be != 3) {
+                    if (be != 8) {
+                        return false;
+                    }
+                } else if (fromInt != FEED_TYPE_UNKNOWN) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (fromInt != FEED_TYPE_UNKNOWN && fromInt != FEED_TYPE_TEXT_ABOVE_GROUP) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW || fromInt == FEED_TYPE_TEXT_IMMERSE) {
+            return true;
+        }
+        return false;
     }
 
     @NonNull
@@ -42,11 +66,10 @@ public enum FeedType {
                 return feedType;
             }
         }
-        return isH5Type(i) ? FEED_TYPE_TEXT_NEW : FEED_TYPE_UNKNOWN;
-    }
-
-    public static boolean isH5Type(int i) {
-        return i == 7 || i == 8 || i == 14 || i == 15 || i == 16 || i >= 2000;
+        if (isH5Type(i)) {
+            return FEED_TYPE_TEXT_NEW;
+        }
+        return FEED_TYPE_UNKNOWN;
     }
 
     public final int getType() {

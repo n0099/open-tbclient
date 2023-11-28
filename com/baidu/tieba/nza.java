@@ -1,45 +1,220 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.MainThread;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hza;
-import com.baidu.tieba.rza;
-import com.baidu.tieba.tracker.core.data.AbsEventNode;
-import com.baidu.tieba.tracker.core.data.ErrCode;
-import com.baidu.tieba.tracker.core.data.TraceEventNode;
+import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.clientConfig.ClientConfigModel;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.tblauncher.alarmRemind.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.PushMessageHelper;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes7.dex */
-public abstract class nza<R extends rza> {
+public class nza {
     public static /* synthetic */ Interceptable $ic;
+    public static nza g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final R a;
-    public final hza b;
-    public AbsEventNode c;
-    public final Handler d;
-    public final Runnable e;
+    public ClientConfigModel a;
+    public d b;
+    public boolean c;
+    public final bv4 d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
 
-    @MainThread
-    public abstract AbsEventNode a(R r, hza hzaVar);
+    /* loaded from: classes7.dex */
+    public class a implements bv4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nza a;
 
-    @MainThread
-    public abstract eza c(R r);
+        public a(nza nzaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nzaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nzaVar;
+        }
 
-    public nza(R thisRef, hza traceType) {
+        @Override // com.baidu.tieba.bv4
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
+                return;
+            }
+            this.a.c = false;
+        }
+
+        @Override // com.baidu.tieba.bv4
+        public void a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.c = false;
+                if (obj != null && (obj instanceof DataRes)) {
+                    DataRes dataRes = (DataRes) obj;
+                    if (dataRes.local_dialog != null) {
+                        String g = mza.g(dataRes);
+                        if (TextUtils.isEmpty(g)) {
+                            return;
+                        }
+                        TbadkSettings.getInst().saveString(this.a.h("remind_recommend_info"), g);
+                        TbadkSettings.getInst().saveInt(this.a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                        TbadkSettings.getInst().saveString(this.a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                        this.a.k(true);
+                        TbadkSettings.getInst().saveLong(this.a.h("remind_recommend_data_time"), System.currentTimeMillis());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nza a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(nza nzaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nzaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nzaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !BdNetTypeUtil.isNetWorkAvailable() || !this.a.f()) {
+                return;
+            }
+            this.a.g();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nza a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(nza nzaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nzaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nzaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.a.f()) {
+                this.a.k(true);
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nza a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(nza nzaVar) {
+            super(2001011);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nzaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nzaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Boolean data;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && !data.booleanValue()) {
+                SharedPrefHelper.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
+                if (this.a.f()) {
+                    this.a.k(true);
+                    this.a.g();
+                }
+            }
+        }
+    }
+
+    public nza() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thisRef, traceType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,102 +224,106 @@ public abstract class nza<R extends rza> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-        Intrinsics.checkNotNullParameter(traceType, "traceType");
-        this.a = thisRef;
-        this.b = traceType;
-        this.d = new Handler(Looper.getMainLooper());
-        this.e = new Runnable() { // from class: com.baidu.tieba.iza
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    nza.d(nza.this);
-                }
-            }
-        };
+        this.c = false;
+        this.d = new a(this);
+        this.e = new b(this, 2000994);
+        this.f = new c(this, 2005016);
     }
 
-    public static final void d(nza this$0) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put(PushMessageHelper.ERROR_TYPE, ErrCode.TIME_OUT.getValue());
-            linkedHashMap.put("error_info", "超时未抵达");
-            this$0.b(linkedHashMap);
-        }
-    }
-
-    @MainThread
-    public final void b(Map<String, String> params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.d.removeCallbacks(this.e);
-            R r = this.a;
-            if (!dza.a.a(r.getTraceId())) {
-                r = null;
-            }
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.n2(), r.Z1(), hza.a.a);
-                traceEventNode.getTrackParams().putAll(params);
-                c(r).c(traceEventNode);
-                oza.a(this, r.getTraceId());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (!mza.f(TbadkSettings.getInst().loadLong(h("remind_recommend_data_time"), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
+                j();
             }
         }
     }
 
-    @MainThread
-    public final void g(Map<String, String> params) {
+    public String h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.d.removeCallbacks(this.e);
-            R r = this.a;
-            if (!dza.a.a(r.getTraceId())) {
-                r = null;
-            }
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.n2(), r.Z1(), hza.b.a);
-                traceEventNode.getTrackParams().putAll(params);
-                c(r).c(traceEventNode);
-                oza.a(this, r.getTraceId());
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + str;
         }
+        return (String) invokeL.objValue;
     }
 
-    @MainThread
-    public final AbsEventNode e() {
+    public static nza i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return f(20000L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (g == null) {
+                synchronized (nza.class) {
+                    if (g == null) {
+                        g = new nza();
+                    }
+                }
+            }
+            return g;
         }
-        return (AbsEventNode) invokeV.objValue;
+        return (nza) invokeV.objValue;
     }
 
-    @MainThread
-    public final AbsEventNode f(long j) {
-        InterceptResult invokeJ;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            AbsEventNode absEventNode = this.c;
-            if (absEventNode != null) {
-                return absEventNode;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                k(false);
+                return false;
+            } else if (!mza.e()) {
+                k(false);
+                return false;
+            } else if (!mza.d()) {
+                k(false);
+                return false;
+            } else {
+                return true;
             }
-            if (j > 0) {
-                this.d.removeCallbacks(this.e);
-                this.d.postDelayed(this.e, j);
-            }
-            AbsEventNode a = a(this.a, this.b);
-            c(this.a).c(a);
-            this.c = a;
-            return a;
         }
-        return (AbsEventNode) invokeJ.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void j() {
+        ClientConfigModel clientConfigModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (clientConfigModel = this.a) != null && !this.c) {
+            this.c = true;
+            clientConfigModel.T("local_dialog");
+        }
+    }
+
+    public void e(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
+            d dVar = new d(this);
+            this.b = dVar;
+            baseFragmentActivity.registerListener(dVar);
+            baseFragmentActivity.registerListener(this.e);
+            baseFragmentActivity.registerListener(this.f);
+            this.a = new ClientConfigModel(baseFragmentActivity, this.d);
+            SharedPrefHelper.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
+            if (f()) {
+                k(true);
+                g();
+            }
+        }
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+            PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            try {
+                if (z) {
+                    alarmManager.setRepeating(0, mza.b() + 86400000, 86400000L, broadcast);
+                } else {
+                    alarmManager.cancel(broadcast);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

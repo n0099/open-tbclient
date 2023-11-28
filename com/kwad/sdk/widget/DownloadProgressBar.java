@@ -17,32 +17,70 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TooltipCompatHandler;
 /* loaded from: classes10.dex */
 public class DownloadProgressBar extends View {
-    public Path ZA;
-    public String aqA;
-    public float aqB;
-    public Rect aqC;
-    public LinearGradient aqD;
-    public LinearGradient aqE;
-    public LinearGradient aqF;
-    public Paint aqx;
-    public Paint aqy;
-    public Paint aqz;
+    public Paint aQJ;
+    public Paint aQK;
+    public Paint aQL;
+    public String aQM;
+    public float aQN;
+    public Rect aQO;
+    public LinearGradient aQP;
+    public LinearGradient aQQ;
+    public LinearGradient aQR;
+    public Runnable aQS;
     public Matrix mMatrix;
+    public Path mPath;
+    public RectF mRectF;
     public long mStartTime;
-    public Runnable yU;
-    public RectF zV;
 
     public DownloadProgressBar(Context context) {
         this(context, null, 0);
+    }
+
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
+        if (i == 0) {
+            float f = this.aQN;
+            if (f > 0.0f && f < 100.0f) {
+                this.mStartTime = SystemClock.elapsedRealtime();
+                post(this.aQS);
+                return;
+            }
+            return;
+        }
+        removeCallbacks(this.aQS);
+    }
+
+    public void setProgress(float f) {
+        this.aQN = f;
+        invalidate();
+        if (f != 0.0f && f != 100.0f) {
+            if (getWindowVisibility() == 0 && this.mStartTime == 0) {
+                post(this.aQS);
+                return;
+            }
+            return;
+        }
+        removeCallbacks(this.aQS);
+    }
+
+    public void setText(String str) {
+        this.aQM = str;
+        invalidate();
     }
 
     public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
+    @Override // android.view.View
+    public void onVisibilityChanged(@NonNull View view2, int i) {
+        super.onVisibilityChanged(view2, i);
+    }
+
     public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.yU = new Runnable() { // from class: com.kwad.sdk.widget.DownloadProgressBar.1
+        this.aQS = new Runnable() { // from class: com.kwad.sdk.widget.DownloadProgressBar.1
             @Override // java.lang.Runnable
             public final void run() {
                 DownloadProgressBar.this.invalidate();
@@ -51,110 +89,80 @@ public class DownloadProgressBar extends View {
                 }
             }
         };
-        this.aqx = new Paint(1);
-        this.aqy = new Paint(1);
-        this.zV = new RectF();
+        this.aQJ = new Paint(1);
+        this.aQK = new Paint(1);
+        this.mRectF = new RectF();
         Paint paint = new Paint(1);
-        this.aqz = paint;
-        paint.setTextSize(com.kwad.sdk.b.kwai.a.a(context, 16.0f));
-        this.aqz.setColor(-1);
-        this.aqz.setTextAlign(Paint.Align.CENTER);
-        this.aqC = new Rect();
+        this.aQL = paint;
+        paint.setTextSize(com.kwad.sdk.d.a.a.a(context, 16.0f));
+        this.aQL.setColor(-1);
+        this.aQL.setTextAlign(Paint.Align.CENTER);
+        this.aQO = new Rect();
         this.mMatrix = new Matrix();
-        this.ZA = new Path();
+        this.mPath = new Path();
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.yU);
+        removeCallbacks(this.aQS);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
+        float f;
         super.onDraw(canvas);
-        canvas.clipPath(this.ZA);
-        this.aqx.setShader(this.aqD);
-        canvas.drawRect(this.zV, this.aqx);
-        this.aqx.setShader(this.aqE);
-        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.aqB) / 100.0f, getHeight(), this.aqx);
-        float f = this.aqB;
-        float f2 = 0.0f;
-        if (f > 0.0f && f < 100.0f) {
+        canvas.clipPath(this.mPath);
+        this.aQJ.setShader(this.aQP);
+        canvas.drawRect(this.mRectF, this.aQJ);
+        this.aQJ.setShader(this.aQQ);
+        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.aQN) / 100.0f, getHeight(), this.aQJ);
+        float f2 = this.aQN;
+        float f3 = 0.0f;
+        if (f2 > 0.0f && f2 < 100.0f) {
             long elapsedRealtime = (SystemClock.elapsedRealtime() - this.mStartTime) % TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS;
             int i = (elapsedRealtime > 1500L ? 1 : (elapsedRealtime == 1500L ? 0 : -1));
-            float f3 = i >= 0 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
-            this.mMatrix.reset();
-            this.mMatrix.setScale(1.0f, f3);
-            this.aqF.setLocalMatrix(this.mMatrix);
-            this.aqy.setShader(this.aqF);
-            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.aqB) / 100.0f) * f3, getHeight(), this.aqy);
-            if (elapsedRealtime > 500 && i <= 0) {
-                f2 = ((float) (elapsedRealtime - 500)) / 1000.0f;
+            if (i >= 0) {
+                f = 0.0f;
+            } else {
+                f = ((float) elapsedRealtime) / 1500.0f;
             }
-            float width = ((getWidth() * this.aqB) / 100.0f) * f2;
             this.mMatrix.reset();
-            this.mMatrix.setScale(1.0f, f3);
-            this.aqF.setLocalMatrix(this.mMatrix);
-            this.aqy.setShader(this.aqF);
-            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.aqy);
+            this.mMatrix.setScale(1.0f, f);
+            this.aQR.setLocalMatrix(this.mMatrix);
+            this.aQK.setShader(this.aQR);
+            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.aQN) / 100.0f) * f, getHeight(), this.aQK);
+            if (elapsedRealtime > 500 && i <= 0) {
+                f3 = ((float) (elapsedRealtime - 500)) / 1000.0f;
+            }
+            float width = ((getWidth() * this.aQN) / 100.0f) * f3;
+            this.mMatrix.reset();
+            this.mMatrix.setScale(1.0f, f);
+            this.aQR.setLocalMatrix(this.mMatrix);
+            this.aQK.setShader(this.aQR);
+            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.aQK);
         }
-        String str = this.aqA;
+        String str = this.aQM;
         if (str != null) {
-            this.aqz.getTextBounds(str, 0, str.length(), this.aqC);
-            Rect rect = this.aqC;
-            canvas.drawText(this.aqA, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.aqz);
+            this.aQL.getTextBounds(str, 0, str.length(), this.aQO);
+            Rect rect = this.aQO;
+            canvas.drawText(this.aQM, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.aQL);
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.aqD = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.aqE = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.aqx.setShader(this.aqD);
+        this.aQP = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+        this.aQQ = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+        this.aQJ.setShader(this.aQP);
         LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{16501004, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.aqF = linearGradient;
-        this.aqy.setShader(linearGradient);
+        this.aQR = linearGradient;
+        this.aQK.setShader(linearGradient);
         float f = i;
-        this.zV.set(0.0f, 0.0f, f, i2);
-        this.ZA.reset();
+        this.mRectF.set(0.0f, 0.0f, f, i2);
+        this.mPath.reset();
         float f2 = f / 2.0f;
-        this.ZA.addRoundRect(this.zV, f2, f2, Path.Direction.CW);
-    }
-
-    @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view2, int i) {
-        super.onVisibilityChanged(view2, i);
-    }
-
-    @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (i != 0) {
-            removeCallbacks(this.yU);
-            return;
-        }
-        float f = this.aqB;
-        if (f <= 0.0f || f >= 100.0f) {
-            return;
-        }
-        this.mStartTime = SystemClock.elapsedRealtime();
-        post(this.yU);
-    }
-
-    public void setProgress(float f) {
-        this.aqB = f;
-        invalidate();
-        if (f == 0.0f || f == 100.0f) {
-            removeCallbacks(this.yU);
-        } else if (getWindowVisibility() == 0 && this.mStartTime == 0) {
-            post(this.yU);
-        }
-    }
-
-    public void setText(String str) {
-        this.aqA = str;
-        invalidate();
+        this.mPath.addRoundRect(this.mRectF, f2, f2, Path.Direction.CW);
     }
 }

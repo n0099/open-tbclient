@@ -135,10 +135,15 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         this.syncLoading = displayImageOptions.isSyncLoading();
     }
 
+    private DecodedResult decodeImage(String str) {
+        return this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener));
+    }
+
     private void checkTaskInterrupted() {
-        if (isTaskInterrupted()) {
-            throw new TaskCancelledException();
+        if (!isTaskInterrupted()) {
+            return;
         }
+        throw new TaskCancelledException();
     }
 
     private void checkTaskNotActual() {
@@ -147,33 +152,82 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     private void checkViewCollected() {
-        if (isViewCollected()) {
-            throw new TaskCancelledException();
+        if (!isViewCollected()) {
+            return;
         }
+        throw new TaskCancelledException();
     }
 
     private void checkViewReused() {
-        if (isViewReused()) {
-            throw new TaskCancelledException();
+        if (!isViewReused()) {
+            return;
+        }
+        throw new TaskCancelledException();
+    }
+
+    private void fireCancelEvent() {
+        if (!this.syncLoading && !isTaskInterrupted()) {
+            runTask(new FireCancelEventRunnable(this), false, this.handler, this.engine);
         }
     }
 
-    private DecodedResult decodeImage(String str) {
-        return this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener));
+    private ImageDownloader getDownloader() {
+        if (this.engine.isNetworkDenied()) {
+            return this.networkDeniedDownloader;
+        }
+        if (this.engine.isSlowNetwork()) {
+            return this.slowNetworkDownloader;
+        }
+        return this.downloader;
+    }
+
+    private boolean isTaskInterrupted() {
+        if (!Thread.interrupted()) {
+            return false;
+        }
+        L.d(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+        return true;
+    }
+
+    private boolean isTaskNotActual() {
+        if (!isViewCollected() && !isViewReused()) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isViewCollected() {
+        if (!this.imageAware.isCollected()) {
+            return false;
+        }
+        L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
+        return true;
+    }
+
+    private boolean isViewReused() {
+        if (!(!this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware)))) {
+            return false;
+        }
+        L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
+        return true;
+    }
+
+    public final String getLoadingUri() {
+        return this.uri;
     }
 
     private boolean delayIfNeed() {
-        if (this.options.shouldDelayBeforeLoading()) {
-            L.d(LOG_DELAY_BEFORE_LOADING, Integer.valueOf(this.options.getDelayBeforeLoading()), this.memoryCacheKey);
-            try {
-                Thread.sleep(this.options.getDelayBeforeLoading());
-                return isTaskNotActual();
-            } catch (InterruptedException unused) {
-                L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-                return true;
-            }
+        if (!this.options.shouldDelayBeforeLoading()) {
+            return false;
         }
-        return false;
+        L.d(LOG_DELAY_BEFORE_LOADING, Integer.valueOf(this.options.getDelayBeforeLoading()), this.memoryCacheKey);
+        try {
+            Thread.sleep(this.options.getDelayBeforeLoading());
+            return isTaskNotActual();
+        } catch (InterruptedException unused) {
+            L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+            return true;
+        }
     }
 
     private boolean downloadImage() {
@@ -186,101 +240,6 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
             return this.configuration.diskCache.save(this.uri, stream, this);
         } finally {
             b.closeQuietly(stream);
-        }
-    }
-
-    private void fireCancelEvent() {
-        if (this.syncLoading || isTaskInterrupted()) {
-            return;
-        }
-        runTask(new FireCancelEventRunnable(this), false, this.handler, this.engine);
-    }
-
-    private void fireFailEvent(FailReason.FailType failType, Throwable th) {
-        if (this.syncLoading || isTaskInterrupted() || isTaskNotActual()) {
-            return;
-        }
-        runTask(new FireFailEventRunnable(this, failType, th), false, this.handler, this.engine);
-    }
-
-    private boolean fireProgressEvent(final int i, final int i2) {
-        if (isTaskInterrupted() || isTaskNotActual()) {
-            return false;
-        }
-        if (this.progressListener != null) {
-            runTask(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.LoadAndDisplayImageTask.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    LoadAndDisplayImageTask loadAndDisplayImageTask = LoadAndDisplayImageTask.this;
-                    loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), i, i2);
-                }
-            }, false, this.handler, this.engine);
-            return true;
-        }
-        return true;
-    }
-
-    private ImageDownloader getDownloader() {
-        return this.engine.isNetworkDenied() ? this.networkDeniedDownloader : this.engine.isSlowNetwork() ? this.slowNetworkDownloader : this.downloader;
-    }
-
-    private boolean isTaskInterrupted() {
-        if (Thread.interrupted()) {
-            L.d(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isTaskNotActual() {
-        return isViewCollected() || isViewReused();
-    }
-
-    private boolean isViewCollected() {
-        if (this.imageAware.isCollected()) {
-            L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isViewReused() {
-        if (!this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware))) {
-            L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
-            return true;
-        }
-        return false;
-    }
-
-    private boolean resizeAndSaveImage(int i, int i2) {
-        File file = this.configuration.diskCache.get(this.uri);
-        if (file == null || !file.exists()) {
-            return false;
-        }
-        DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i, i2), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
-        Bitmap bitmap = decode != null ? decode.mBitmap : null;
-        if (bitmap != null && this.configuration.processorForDiskCache != null) {
-            L.d(LOG_PROCESS_IMAGE_BEFORE_CACHE_ON_DISK, this.memoryCacheKey);
-            bitmap = this.configuration.processorForDiskCache.process(bitmap);
-            if (bitmap == null) {
-                L.e(ERROR_PROCESSOR_FOR_DISK_CACHE_NULL, this.memoryCacheKey);
-            }
-        }
-        if (bitmap != null) {
-            boolean save = this.configuration.diskCache.save(this.uri, bitmap);
-            bitmap.recycle();
-            return save;
-        }
-        return false;
-    }
-
-    public static void runTask(Runnable runnable, boolean z, Handler handler, ImageLoaderEngine imageLoaderEngine) {
-        if (z) {
-            runnable.run();
-        } else if (handler == null) {
-            imageLoaderEngine.fireCallback(runnable);
-        } else {
-            handler.post(runnable);
         }
     }
 
@@ -303,6 +262,72 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
+    private void fireFailEvent(FailReason.FailType failType, Throwable th) {
+        if (!this.syncLoading && !isTaskInterrupted() && !isTaskNotActual()) {
+            runTask(new FireFailEventRunnable(this, failType, th), false, this.handler, this.engine);
+        }
+    }
+
+    private boolean fireProgressEvent(final int i, final int i2) {
+        if (isTaskInterrupted() || isTaskNotActual()) {
+            return false;
+        }
+        if (this.progressListener != null) {
+            runTask(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.LoadAndDisplayImageTask.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    LoadAndDisplayImageTask loadAndDisplayImageTask = LoadAndDisplayImageTask.this;
+                    loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), i, i2);
+                }
+            }, false, this.handler, this.engine);
+            return true;
+        }
+        return true;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.utils.IoUtils.CopyListener
+    public final boolean onBytesCopied(int i, int i2) {
+        if (!this.syncLoading && !fireProgressEvent(i, i2)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean resizeAndSaveImage(int i, int i2) {
+        File file = this.configuration.diskCache.get(this.uri);
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i, i2), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
+        Bitmap bitmap = null;
+        if (decode != null) {
+            bitmap = decode.mBitmap;
+        }
+        if (bitmap != null && this.configuration.processorForDiskCache != null) {
+            L.d(LOG_PROCESS_IMAGE_BEFORE_CACHE_ON_DISK, this.memoryCacheKey);
+            bitmap = this.configuration.processorForDiskCache.process(bitmap);
+            if (bitmap == null) {
+                L.e(ERROR_PROCESSOR_FOR_DISK_CACHE_NULL, this.memoryCacheKey);
+            }
+        }
+        if (bitmap == null) {
+            return false;
+        }
+        boolean save = this.configuration.diskCache.save(this.uri, bitmap);
+        bitmap.recycle();
+        return save;
+    }
+
+    public static void runTask(Runnable runnable, boolean z, Handler handler, ImageLoaderEngine imageLoaderEngine) {
+        if (z) {
+            runnable.run();
+        } else if (handler == null) {
+            imageLoaderEngine.fireCallback(runnable);
+        } else {
+            handler.post(runnable);
+        }
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0047, code lost:
         if (r1.isDecoded() == false) goto L11;
      */
@@ -311,19 +336,18 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     */
     private DecodedResult tryLoadBitmap() {
         DecodedResult decodedResult;
-        FailReason.FailType failType;
         File file;
         DecodedResult decodedResult2 = null;
         try {
             try {
                 File file2 = this.configuration.diskCache.get(this.uri);
-                if (file2 == null || !file2.exists() || file2.length() <= 0) {
-                    decodedResult = null;
-                } else {
+                if (file2 != null && file2.exists() && file2.length() > 0) {
                     L.d(LOG_LOAD_IMAGE_FROM_DISK_CACHE, this.memoryCacheKey);
                     this.loadedFrom = LoadedFrom.DISC_CACHE;
                     checkTaskNotActual();
                     decodedResult = decodeImage(ImageDownloader.Scheme.FILE.wrap(file2.getAbsolutePath()));
+                } else {
+                    decodedResult = null;
                 }
                 if (decodedResult != null) {
                     try {
@@ -332,8 +356,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                         e = e;
                         decodedResult2 = decodedResult3;
                         L.e(e);
-                        failType = FailReason.FailType.IO_ERROR;
-                        fireFailEvent(failType, e);
+                        fireFailEvent(FailReason.FailType.IO_ERROR, e);
                         return decodedResult2;
                     } catch (IllegalStateException unused) {
                         fireFailEvent(FailReason.FailType.NETWORK_DENIED, null);
@@ -343,16 +366,14 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                         e = e2;
                         decodedResult2 = decodedResult4;
                         L.e(e);
-                        failType = FailReason.FailType.OUT_OF_MEMORY;
-                        fireFailEvent(failType, e);
+                        fireFailEvent(FailReason.FailType.OUT_OF_MEMORY, e);
                         return decodedResult2;
                     } catch (Throwable th) {
                         DecodedResult decodedResult5 = decodedResult;
-                        e = th;
+                        th = th;
                         decodedResult2 = decodedResult5;
-                        L.e(e);
-                        failType = FailReason.FailType.UNKNOWN;
-                        fireFailEvent(failType, e);
+                        L.e(th);
+                        fireFailEvent(FailReason.FailType.UNKNOWN, th);
                         return decodedResult2;
                     }
                 }
@@ -379,36 +400,8 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         } catch (OutOfMemoryError e5) {
             e = e5;
         } catch (Throwable th2) {
-            e = th2;
+            th = th2;
         }
-    }
-
-    private boolean waitIfPaused() {
-        AtomicBoolean pause = this.engine.getPause();
-        if (pause.get()) {
-            synchronized (this.engine.getPauseLock()) {
-                if (pause.get()) {
-                    L.d(LOG_WAITING_FOR_RESUME, this.memoryCacheKey);
-                    try {
-                        this.engine.getPauseLock().wait();
-                        L.d(LOG_RESUME_AFTER_PAUSE, this.memoryCacheKey);
-                    } catch (InterruptedException unused) {
-                        L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-                        return true;
-                    }
-                }
-            }
-        }
-        return isTaskNotActual();
-    }
-
-    public final String getLoadingUri() {
-        return this.uri;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.utils.IoUtils.CopyListener
-    public final boolean onBytesCopied(int i, int i2) {
-        return this.syncLoading || fireProgressEvent(i, i2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x00e4 A[Catch: all -> 0x0111, TaskCancelledException -> 0x0113, Merged into TryCatch #0 {all -> 0x0111, TaskCancelledException -> 0x0113, blocks: (B:12:0x0033, B:14:0x0042, B:17:0x0049, B:36:0x00c1, B:38:0x00c9, B:40:0x00e4, B:41:0x00ef, B:18:0x0059, B:20:0x005f, B:23:0x0067, B:25:0x0075, B:27:0x0084, B:28:0x0092, B:30:0x0096, B:32:0x00a3, B:34:0x00ab, B:48:0x0113), top: B:53:0x0033 }] */
@@ -480,5 +473,24 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         } finally {
             reentrantLock.unlock();
         }
+    }
+
+    private boolean waitIfPaused() {
+        AtomicBoolean pause = this.engine.getPause();
+        if (pause.get()) {
+            synchronized (this.engine.getPauseLock()) {
+                if (pause.get()) {
+                    L.d(LOG_WAITING_FOR_RESUME, this.memoryCacheKey);
+                    try {
+                        this.engine.getPauseLock().wait();
+                        L.d(LOG_RESUME_AFTER_PAUSE, this.memoryCacheKey);
+                    } catch (InterruptedException unused) {
+                        L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+                        return true;
+                    }
+                }
+            }
+        }
+        return isTaskNotActual();
     }
 }

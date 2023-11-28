@@ -31,15 +31,15 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.CardLiveLabelView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.ht;
-import com.baidu.tieba.lv4;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.im6;
+import com.baidu.tieba.it;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.rd;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.yh;
-import com.baidu.tieba.yl6;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
+public class MutiImgMutiPicLayout extends LinearLayout implements it<cw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -65,10 +65,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
     public ViewGroup j;
     public String k;
     public boolean l;
-    public yl6<bw4> m;
-    public bw4 n;
+    public im6<cw4> m;
+    public cw4 n;
     public int o;
-    public bx5 p;
+    public ix5 p;
     public LinkedList<MediaData> q;
     public boolean r;
     public int s;
@@ -83,9 +83,9 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
         void a(int i, ThreadData threadData, MediaData mediaData);
     }
 
-    public void setPreloadSizeReadyCallback(yh yhVar) {
+    public void setPreloadSizeReadyCallback(zh zhVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, yhVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, zhVar) == null) {
         }
     }
 
@@ -115,7 +115,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yl6<bw4> subClickListener;
+            im6<cw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -125,7 +125,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements bx5 {
+    public class b implements ix5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgMutiPicLayout a;
@@ -148,11 +148,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
             this.a = mutiImgMutiPicLayout;
         }
 
-        @Override // com.baidu.tieba.bx5
+        @Override // com.baidu.tieba.ix5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                yl6<bw4> subClickListener = this.a.getSubClickListener();
+                im6<cw4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.n.objType = 2;
@@ -167,7 +167,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
                     } else {
                         ThreadCardUtils.startImageViewer(view2, this.a.l, this.a.q, i, this.a.n.getThreadData(), this.a.k);
                     }
-                } else if (ListUtils.getItem(this.a.q, i) != null && !qd.isEmpty(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl())) {
+                } else if (ListUtils.getItem(this.a.q, i) != null && !rd.isEmpty(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl())) {
                     UrlManager.getInstance().dealOneLink(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl());
                 } else {
                     ThreadCardUtils.startImageViewer(view2, this.a.l, this.a.q, i, this.a.n.getThreadData(), this.a.k);
@@ -226,7 +226,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
                 } else {
                     i = 14;
                 }
-                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                BdImage D = TbImageMemoryCache.w().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
                 if (D != null) {
                     i3 = D.getWidth();
@@ -361,14 +361,14 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                 if (this.d.p != null) {
-                    bx5 bx5Var = this.d.p;
+                    ix5 ix5Var = this.d.p;
                     int i2 = this.a;
                     if (this.b && this.c) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    bx5Var.a(view2, i2, z);
+                    ix5Var.a(view2, i2, z);
                 }
                 if (this.d.v != null && this.d.n != null && this.d.n.getThreadData() != null && !this.d.q.isEmpty() && (i = this.a) >= 0 && i < this.d.q.size()) {
                     this.d.v.a(this.a, this.d.n.getThreadData(), (MediaData) this.d.q.get(this.a));
@@ -515,10 +515,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(yl6<bw4> yl6Var) {
+    public void setSubClickListener(im6<cw4> im6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, yl6Var) == null) {
-            this.m = yl6Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, im6Var) == null) {
+            this.m = im6Var;
         }
     }
 
@@ -534,7 +534,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (lv4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (nv4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -605,22 +605,22 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
             this.c.setTag(voiceModel);
             this.c.b();
             if (voiceModel != null) {
-                this.c.k(voiceModel.voice_status.intValue());
+                this.c.j(voiceModel.voice_status.intValue());
             }
-            this.c.m();
+            this.c.l();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
+    @Override // com.baidu.tieba.it
     /* renamed from: i */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(cw4 cw4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) {
-            this.n = bw4Var;
-            ThreadData threadData = bw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) {
+            this.n = cw4Var;
+            ThreadData threadData = cw4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.t);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, getTextViewWidth(), this.t);
             TextView textView = this.a;
@@ -646,13 +646,13 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public yl6<bw4> getSubClickListener() {
+    public im6<cw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.m;
         }
-        return (yl6) invokeV.objValue;
+        return (im6) invokeV.objValue;
     }
 
     public final void h() {
@@ -703,7 +703,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
             viewGroup.getLayoutParams().height = equipmentWidth;
             this.j.getLayoutParams().width = equipmentWidth;
             EMManager.from(this.i).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
-            this.i.setTypeface(r25.L(r25.H(R.string.F_X02)));
+            this.i.setTypeface(u25.L(u25.H(R.string.F_X02)));
             this.p = new b(this);
         }
     }
@@ -779,7 +779,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ht<bw4> {
         if ((interceptable != null && interceptable.invokeLI(1048583, this, mediaData, i) != null) || mediaData == null || this.h == null || i != 0) {
             return;
         }
-        if (mediaData.getLottieType() != 0 && !qd.isEmpty(mediaData.getGuideText())) {
+        if (mediaData.getLottieType() != 0 && !rd.isEmpty(mediaData.getGuideText())) {
             this.h.setVisibility(0);
             this.h.h(mediaData.getGuideText());
             this.h.f();

@@ -46,14 +46,14 @@ public interface ReceiveChannel<E> {
     Object receive(Continuation<? super E> continuation);
 
     /* renamed from: receiveCatching-JP2dKIU */
-    Object mo2302receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation);
+    Object mo2306receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation);
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in favor of 'receiveCatching'. Please note that the provided replacement does not rethrow channel's close cause as 'receiveOrNull' did, for the detailed replacement please refer to the 'receiveOrNull' documentation", replaceWith = @ReplaceWith(expression = "receiveCatching().getOrNull()", imports = {}))
     @LowPriorityInOverloadResolution
     Object receiveOrNull(Continuation<? super E> continuation);
 
     /* renamed from: tryReceive-PtdJZtk */
-    Object mo2303tryReceivePtdJZtk();
+    Object mo2307tryReceivePtdJZtk();
 
     @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
@@ -82,15 +82,15 @@ public interface ReceiveChannel<E> {
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'tryReceive'. Please note that the provided replacement does not rethrow channel's close cause as 'poll' did, for the precise replacement please refer to the 'poll' documentation", replaceWith = @ReplaceWith(expression = "tryReceive().getOrNull()", imports = {}))
         public static <E> E poll(ReceiveChannel<? extends E> receiveChannel) {
-            Object mo2303tryReceivePtdJZtk = receiveChannel.mo2303tryReceivePtdJZtk();
-            if (ChannelResult.m2319isSuccessimpl(mo2303tryReceivePtdJZtk)) {
-                return (E) ChannelResult.m2315getOrThrowimpl(mo2303tryReceivePtdJZtk);
+            Object mo2307tryReceivePtdJZtk = receiveChannel.mo2307tryReceivePtdJZtk();
+            if (ChannelResult.m2323isSuccessimpl(mo2307tryReceivePtdJZtk)) {
+                return (E) ChannelResult.m2319getOrThrowimpl(mo2307tryReceivePtdJZtk);
             }
-            Throwable m2313exceptionOrNullimpl = ChannelResult.m2313exceptionOrNullimpl(mo2303tryReceivePtdJZtk);
-            if (m2313exceptionOrNullimpl == null) {
+            Throwable m2317exceptionOrNullimpl = ChannelResult.m2317exceptionOrNullimpl(mo2307tryReceivePtdJZtk);
+            if (m2317exceptionOrNullimpl == null) {
                 return null;
             }
-            throw StackTraceRecoveryKt.recoverStackTrace(m2313exceptionOrNullimpl);
+            throw StackTraceRecoveryKt.recoverStackTrace(m2317exceptionOrNullimpl);
         }
 
         public static /* synthetic */ void cancel$default(ReceiveChannel receiveChannel, CancellationException cancellationException, int i, Object obj) {
@@ -124,7 +124,7 @@ public interface ReceiveChannel<E> {
         public static <E> Object receiveOrNull(ReceiveChannel<? extends E> receiveChannel, Continuation<? super E> continuation) {
             ReceiveChannel$receiveOrNull$1 receiveChannel$receiveOrNull$1;
             int i;
-            Object mo2302receiveCatchingJP2dKIU;
+            Object mo2306receiveCatchingJP2dKIU;
             if (continuation instanceof ReceiveChannel$receiveOrNull$1) {
                 receiveChannel$receiveOrNull$1 = (ReceiveChannel$receiveOrNull$1) continuation;
                 int i2 = receiveChannel$receiveOrNull$1.label;
@@ -136,19 +136,19 @@ public interface ReceiveChannel<E> {
                     if (i == 0) {
                         if (i == 1) {
                             ResultKt.throwOnFailure(obj);
-                            mo2302receiveCatchingJP2dKIU = ((ChannelResult) obj).m2321unboximpl();
+                            mo2306receiveCatchingJP2dKIU = ((ChannelResult) obj).m2325unboximpl();
                         } else {
                             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                         }
                     } else {
                         ResultKt.throwOnFailure(obj);
                         receiveChannel$receiveOrNull$1.label = 1;
-                        mo2302receiveCatchingJP2dKIU = receiveChannel.mo2302receiveCatchingJP2dKIU(receiveChannel$receiveOrNull$1);
-                        if (mo2302receiveCatchingJP2dKIU == coroutine_suspended) {
+                        mo2306receiveCatchingJP2dKIU = receiveChannel.mo2306receiveCatchingJP2dKIU(receiveChannel$receiveOrNull$1);
+                        if (mo2306receiveCatchingJP2dKIU == coroutine_suspended) {
                             return coroutine_suspended;
                         }
                     }
-                    return ChannelResult.m2314getOrNullimpl(mo2302receiveCatchingJP2dKIU);
+                    return ChannelResult.m2318getOrNullimpl(mo2306receiveCatchingJP2dKIU);
                 }
             }
             receiveChannel$receiveOrNull$1 = new ReceiveChannel$receiveOrNull$1(continuation);
@@ -157,7 +157,7 @@ public interface ReceiveChannel<E> {
             i = receiveChannel$receiveOrNull$1.label;
             if (i == 0) {
             }
-            return ChannelResult.m2314getOrNullimpl(mo2302receiveCatchingJP2dKIU);
+            return ChannelResult.m2318getOrNullimpl(mo2306receiveCatchingJP2dKIU);
         }
     }
 }

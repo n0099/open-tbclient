@@ -11,7 +11,7 @@ import android.os.Looper;
 import android.view.MotionEvent;
 import android.widget.Toast;
 import com.heytap.mcssdk.constant.a;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.defs.ConfigAPI;
 import com.yy.hiidostatis.defs.StatisAPI;
@@ -60,7 +60,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HiidoSDKOld implements HiidoApi {
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
     public static final int INTERVAL_HEART_BEAT = 900000;
@@ -106,13 +106,13 @@ public class HiidoSDKOld implements HiidoApi {
     public ActivityLifecycleController mActivityLifecycleController = new ActivityLifecycleController();
     public boolean isFrontground = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
     /* renamed from: com.yy.hiidostatis.api.HiidoSDKOld$41  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass41 implements Runnable {
         public AnonymousClass41() {
         }
@@ -142,7 +142,7 @@ public class HiidoSDKOld implements HiidoApi {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class QuitTimer {
         public final Runnable mQuitTimer;
 
@@ -204,7 +204,7 @@ public class HiidoSDKOld implements HiidoApi {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean imeiPrepared() {
-        if (HiidoSDK.instance().getOptions().isUseOaid() && Build.VERSION.SDK_INT <= 28 && !this.appRunIsCalled && !ArdUtil.checkPermissions(this.mContext, h.c)) {
+        if (HiidoSDK.instance().getOptions().isUseOaid() && Build.VERSION.SDK_INT <= 28 && !this.appRunIsCalled && !ArdUtil.checkPermissions(this.mContext, g.c)) {
             return false;
         }
         return true;

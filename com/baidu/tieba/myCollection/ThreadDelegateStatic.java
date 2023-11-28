@@ -13,7 +13,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.cv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,13 +66,13 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             FragmentTabStructure fragmentTabStructure;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof av4)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof cv4)) {
                 return;
             }
-            av4 av4Var = (av4) customResponsedMessage.getData();
+            cv4 cv4Var = (cv4) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            av4Var.a(threadDelegateStatic);
-            if (av4Var.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
+            cv4Var.a(threadDelegateStatic);
+            if (cv4Var.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             fragmentTabStructure.frag.setArguments(new Bundle());
@@ -117,9 +117,9 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.frag = ThreadFragment.J2();
+            fragmentTabStructure.frag = ThreadFragment.V2();
             fragmentTabStructure.type = 1;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0481;
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0489;
             return fragmentTabStructure;
         }
         return (FragmentTabStructure) invokeV.objValue;

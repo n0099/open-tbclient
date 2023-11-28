@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.po9;
-import com.baidu.tieba.qo9;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.fs9;
+import com.baidu.tieba.gs9;
+import com.baidu.tieba.ms9;
 import com.baidu.tieba.view.NoScrollGridView;
-import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements po9.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements fs9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public wo9 m;
+    public ms9 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.m.b();
         }
@@ -64,14 +64,14 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             hideNetRefreshView(this.d);
             this.m.c();
             showLoadingView(this.d);
         }
     }
 
-    public static InterestSelectionStyleAFragment y2(int i, String[] strArr) {
+    public static InterestSelectionStyleAFragment K2(int i, String[] strArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, strArr)) == null) {
@@ -85,10 +85,36 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         return (InterestSelectionStyleAFragment) invokeIL.objValue;
     }
 
+    public final void L2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0911d9);
+            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f0911dc);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0911d7);
+            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911db);
+            String[] strArr = this.f;
+            if (strArr != null && strArr.length == 3) {
+                this.j.setText(strArr[0]);
+                this.k.setText(this.f[1]);
+            }
+            a65 a65Var = new a65();
+            this.b.setTextSize(R.dimen.T_X06);
+            this.b.setConfig(a65Var);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1399));
+            this.b.setEnabled(false);
+            this.b.setOnClickListener(this);
+            this.l.setColumnWidth(BdUtilHelper.getEquipmentWidth(getContext()) / 5);
+            this.l.setAdapter((ListAdapter) this.c);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             EMManager.from(this.d).setBackGroundColor(R.color.CAM_X0201);
             EMManager.from(this.j).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X03).setTextStyle(R.string.F_X02);
@@ -103,7 +129,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (this.l != null && this.c != null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -119,11 +145,11 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            qo9 qo9Var = new qo9(null, getContext());
-            this.c = qo9Var;
-            this.m = new wo9(this, qo9Var);
+            gs9 gs9Var = new gs9(null, getContext());
+            this.c = gs9Var;
+            this.m = new ms9(this, gs9Var);
         }
     }
 
@@ -131,43 +157,17 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0341, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
+            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d034a, viewGroup, false);
             if (getArguments() != null) {
                 this.e = getArguments().getInt("scene");
                 this.f = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            z2();
+            L2();
             showLoadingView(this.d);
-            u2();
+            G2();
             return this.d;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public final void z2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0911b0);
-            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f0911b3);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0911ae);
-            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911b5);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911b2);
-            String[] strArr = this.f;
-            if (strArr != null && strArr.length == 3) {
-                this.j.setText(strArr[0]);
-                this.k.setText(this.f[1]);
-            }
-            u55 u55Var = new u55();
-            this.b.setTextSize(R.dimen.T_X06);
-            this.b.setConfig(u55Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1389));
-            this.b.setEnabled(false);
-            this.b.setOnClickListener(this);
-            this.l.setColumnWidth(BdUtilHelper.getEquipmentWidth(getContext()) / 5);
-            this.l.setAdapter((ListAdapter) this.c);
-        }
     }
 }

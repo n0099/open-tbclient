@@ -1,242 +1,265 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.model.ForbidShareRespondedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public class zk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static zk9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public a c;
-    public final b d;
+    public boolean a;
+    public int b;
 
     /* loaded from: classes9.dex */
-    public interface a {
-        void a(yk9 yk9Var);
-
-        void onFail();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948362977, "Lcom/baidu/tieba/zk9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948362977, "Lcom/baidu/tieba/zk9;");
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b extends HttpMessageListener {
+    public class a implements CyberPlayerManager.InstallListener2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zk9 a;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ zk9 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zk9 zk9Var) {
-            super(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
+        public void onInstallInfo(int i, int i2, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        public a(zk9 zk9Var, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zk9Var};
+                Object[] objArr = {zk9Var, installListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zk9Var;
+            this.b = zk9Var;
+            this.a = installListener;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            a b;
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.h(false);
-                if (httpResponsedMessage instanceof ForbidShareRespondedMessage) {
-                    ForbidShareRespondedMessage forbidShareRespondedMessage = (ForbidShareRespondedMessage) httpResponsedMessage;
-                    if (forbidShareRespondedMessage.getError() == 0) {
-                        yk9 data = forbidShareRespondedMessage.getData();
-                        if (data != null && (b = this.a.b()) != null) {
-                            b.a(data);
-                            return;
-                        }
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    zk9.c(this.b);
+                    this.b.g(this.a);
+                    return;
                 }
-                a b2 = this.a.b();
-                if (b2 != null) {
-                    b2.onFail();
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
                 }
             }
         }
     }
 
-    public zk9(BdUniqueId bdUniqueId) {
+    /* loaded from: classes9.dex */
+    public class b implements CyberPlayerManager.InstallListener2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ zk9 b;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
+        public void onInstallInfo(int i, int i2, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        public b(zk9 zk9Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zk9Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zk9Var;
+            this.a = installListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    zk9.c(this.b);
+                    this.b.g(this.a);
+                    return;
+                }
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
+        }
+    }
+
+    public zk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bdUniqueId;
-        this.d = new b(this);
-        e();
+        this.a = true;
     }
 
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        String urlEncode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.b || (urlEncode = qd.getUrlEncode(str)) == null) {
-                return false;
-            }
-            this.b = true;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
-            httpMessage.addParam("scheme", urlEncode);
-            httpMessage.addParam("scheme_encode", 1);
-            httpMessage.setTag(this.a);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void a(ShareItem shareItem) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            Intrinsics.checkNotNullParameter(shareItem, "shareItem");
-            String str = shareItem.linkUrl;
-            boolean z3 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String forbidShareTplText = shareItem.getForbidShareTplText();
-                Intrinsics.checkNotNullExpressionValue(forbidShareTplText, "shareItem.forbidShareTplText");
-                if (forbidShareTplText.length() == 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    String forbidShareToast = shareItem.getForbidShareToast();
-                    Intrinsics.checkNotNullExpressionValue(forbidShareToast, "shareItem.forbidShareToast");
-                    if (forbidShareToast.length() == 0) {
-                        z3 = true;
-                    }
-                    if (!z3 && !shareItem.getOutsideShareDisableMap().isEmpty()) {
-                        HashMap<String, Boolean> outsideShareDisableMap = shareItem.getOutsideShareDisableMap();
-                        Intrinsics.checkNotNullExpressionValue(outsideShareDisableMap, "shareItem.outsideShareDisableMap");
-                        for (Map.Entry<String, Boolean> entry : outsideShareDisableMap.entrySet()) {
-                            Boolean value = entry.getValue();
-                            Intrinsics.checkNotNullExpressionValue(value, "it.value");
-                            if (value.booleanValue()) {
-                                String str2 = shareItem.linkUrl;
-                                Intrinsics.checkNotNullExpressionValue(str2, "shareItem.linkUrl");
-                                f(str2);
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final a b() {
+    public static zk9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                i();
+            }
+            return c;
         }
-        return (a) invokeV.objValue;
+        return (zk9) invokeV.objValue;
     }
 
-    public final void c() {
+    public static synchronized void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN);
-            MessageManager.getInstance().unRegisterListener(this.d);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
-            this.d.setSelfListener(true);
-            this.d.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.d);
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (zk9.class) {
+                if (c == null) {
+                    c = new zk9();
+                }
+            }
         }
     }
 
-    public final void d() {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN, TbConfig.SERVER_ADDRESS + "c/s/schemeToken");
-            tbHttpMessageTask.setResponsedClass(ForbidShareRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
+            if (isCoreLoaded && !this.a) {
+                this.a = true;
+            }
+            return isCoreLoaded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ int c(zk9 zk9Var) {
+        int i = zk9Var.b;
+        zk9Var.b = i + 1;
+        return i;
+    }
+
+    public void g(CyberPlayerManager.InstallListener installListener) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) && !CyberPlayerManager.isCoreLoaded(3)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install((Context) TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, (Map<String, String>) hashMap, (CyberPlayerManager.InstallListener2) new a(this, installListener));
+            } catch (Exception unused) {
+            }
         }
     }
 
-    public final void g(a aVar) {
+    public void h(CyberPlayerManager.InstallListener installListener, int i) {
+        String absolutePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) && !CyberPlayerManager.isCoreLoaded(i)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install((Context) TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, (Map<String, String>) hashMap, (CyberPlayerManager.InstallListener2) new b(this, installListener));
+            } catch (Exception unused) {
+            }
         }
     }
 }

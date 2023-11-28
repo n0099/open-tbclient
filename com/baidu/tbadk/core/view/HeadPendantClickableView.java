@@ -26,6 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
+import com.baidu.tieba.o36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,32 +112,34 @@ public class HeadPendantClickableView extends HeadPendantView {
                     str2 = "";
                 }
                 AlaInfoData alaInfo = this.a.o.getAuthor().getAlaInfo();
-                if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = this.a.getTbPageContext();
-                    YyExtData yyExtData = alaInfo.mYyExtData;
-                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
-                    HeadPendantClickableView headPendantClickableView = this.a;
-                    headPendantClickableView.u(headPendantClickableView.o.getTid(), String.valueOf(this.a.o.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
-                } else if (this.a.o.getPeiwanInfo() != null && this.a.o.getPeiwanInfo().scheme != null) {
-                    UrlManager.getInstance().dealOneLink(this.a.o.getPeiwanInfo().scheme);
-                    HeadPendantClickableView headPendantClickableView2 = this.a;
-                    headPendantClickableView2.t(headPendantClickableView2.o);
-                } else {
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.p, this.a.o.getAuthor().getUserId(), this.a.o.getAuthor().getName_show(), this.a.o.getForum_name(), str2, this.a.o.getTid(), this.a.o.getNid());
-                    if (this.a.o.getThreadVideoInfo() != null) {
-                        z = true;
+                if (!o36.a(this.a.p, this.a.o)) {
+                    if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
+                        TbPageContext tbPageContext = this.a.getTbPageContext();
+                        YyExtData yyExtData = alaInfo.mYyExtData;
+                        YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
+                        HeadPendantClickableView headPendantClickableView = this.a;
+                        headPendantClickableView.u(headPendantClickableView.o.getTid(), String.valueOf(this.a.o.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    } else if (this.a.o.getPeiwanInfo() != null && this.a.o.getPeiwanInfo().scheme != null) {
+                        UrlManager.getInstance().dealOneLink(this.a.o.getPeiwanInfo().scheme);
+                        HeadPendantClickableView headPendantClickableView2 = this.a;
+                        headPendantClickableView2.t(headPendantClickableView2.o);
                     } else {
-                        z = false;
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.p, this.a.o.getAuthor().getUserId(), this.a.o.getAuthor().getName_show(), this.a.o.getForum_name(), str2, this.a.o.getTid(), this.a.o.getNid());
+                        if (this.a.o.getThreadVideoInfo() != null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        personInfoActivityConfig.setIsVideoThread(z);
+                        if (this.a.o.getResource() == 1) {
+                            personInfoActivityConfig.setVideoPersonFrom("home");
+                        } else if (this.a.o.getResource() == 2) {
+                            personInfoActivityConfig.setVideoPersonFrom("frs");
+                        } else if (this.a.o.getResource() == 5) {
+                            personInfoActivityConfig.setVideoPersonFrom("topic_detail");
+                        }
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                     }
-                    personInfoActivityConfig.setIsVideoThread(z);
-                    if (this.a.o.getResource() == 1) {
-                        personInfoActivityConfig.setVideoPersonFrom("home");
-                    } else if (this.a.o.getResource() == 2) {
-                        personInfoActivityConfig.setVideoPersonFrom("frs");
-                    } else if (this.a.o.getResource() == 5) {
-                        personInfoActivityConfig.setVideoPersonFrom("topic_detail");
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                 }
                 if (this.a.q != null) {
                     this.a.q.onClick(view2);

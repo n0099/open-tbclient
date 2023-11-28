@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c16;
-import com.baidu.tieba.d16;
-import com.baidu.tieba.hp7;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.j16;
+import com.baidu.tieba.k16;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.z06;
+import com.baidu.tieba.tr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,13 +39,13 @@ import tbclient.ForumRuleStatus;
 public class FrsMultiManagerBottomView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z06 a;
+    public final g16 a;
     public TextView b;
     public TextView c;
     public TextView d;
     public View e;
     public View f;
-    public d16 g;
+    public k16 g;
     public TbPageContext h;
     public boolean i;
     public FrsViewData j;
@@ -78,7 +78,7 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             if (z) {
                 TextView textView = this.c;
                 if (textView != null) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1418);
+                    textView.setText(R.string.obfuscated_res_0x7f0f1428);
                 }
                 TextView textView2 = this.d;
                 if (textView2 != null) {
@@ -87,16 +87,16 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             } else {
                 TextView textView3 = this.c;
                 if (textView3 != null) {
-                    textView3.setText(R.string.obfuscated_res_0x7f0f0553);
+                    textView3.setText(R.string.obfuscated_res_0x7f0f055b);
                 }
                 TextView textView4 = this.d;
                 if (textView4 != null) {
                     textView4.setText(R.string.delete_and_forbidden_one_day);
                 }
             }
-            d16 d16Var = this.g;
-            if (d16Var != null) {
-                d16Var.G(this.i);
+            k16 k16Var = this.g;
+            if (k16Var != null) {
+                k16Var.G(this.i);
             }
         }
     }
@@ -121,24 +121,24 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             }
         }
         a();
-        this.a = new z06("0");
+        this.a = new g16("0");
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a7, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b0, this);
             TextView textView = (TextView) findViewById(R.id.multi_del_cancel_btn);
             this.b = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03d3);
+            textView.setText(R.string.obfuscated_res_0x7f0f03db);
             TextView textView2 = (TextView) findViewById(R.id.multi_del_btn);
             this.c = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f0553);
+            textView2.setText(R.string.obfuscated_res_0x7f0f055b);
             TextView textView3 = (TextView) findViewById(R.id.multi_del_forbidden_btn);
             this.d = textView3;
             textView3.setText(R.string.delete_and_forbidden_one_day);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09094d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090925);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090969);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090943);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
@@ -178,13 +178,13 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             } else {
                 i = 0;
             }
-            c16 c16Var = new c16(intValue, intValue2, i);
-            c16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            c16Var.h(this.j.getForum().getImage_url());
-            c16Var.j(this.j.getForum().getUser_level());
-            d16 d16Var = new d16(this.h, this, c16Var, this.j.getUserData());
-            this.g = d16Var;
-            d16Var.G(this.i);
+            j16 j16Var = new j16(intValue, intValue2, i);
+            j16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            j16Var.h(this.j.getForum().getImage_url());
+            j16Var.j(this.j.getForum().getUser_level());
+            k16 k16Var = new k16(this.h, this, j16Var, this.j.getUserData());
+            this.g = k16Var;
+            k16Var.G(this.i);
         }
         this.g.K(str);
     }
@@ -195,16 +195,16 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a.e();
             if (view2 == this.b) {
-                hp7.f().m();
+                tr7.f().m();
                 if (this.i) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", hp7.f().d());
-                    statisticItem.param("fname", hp7.f().e());
+                    statisticItem.param("fid", tr7.f().d());
+                    statisticItem.param("fname", tr7.f().e());
                     TiebaStatic.log(statisticItem);
                 }
             } else if (view2 == this.c) {
-                if (ListUtils.isEmpty(hp7.f().g())) {
+                if (ListUtils.isEmpty(tr7.f().g())) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
@@ -213,11 +213,11 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
                 if (this.i) {
                     StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK);
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem2.param("fid", hp7.f().d());
-                    statisticItem2.param("fname", hp7.f().e());
+                    statisticItem2.param("fid", tr7.f().d());
+                    statisticItem2.param("fname", tr7.f().e());
                     TiebaStatic.log(statisticItem2);
                 }
-            } else if (view2 != this.d || ListUtils.isEmpty(hp7.f().g())) {
+            } else if (view2 != this.d || ListUtils.isEmpty(tr7.f().g())) {
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
                 setData(2);
@@ -225,13 +225,13 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
                 if (this.i) {
                     StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK);
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem3.param("fid", hp7.f().d());
-                    statisticItem3.param("fname", hp7.f().e());
+                    statisticItem3.param("fid", tr7.f().d());
+                    statisticItem3.param("fname", tr7.f().e());
                     TiebaStatic.log(statisticItem3);
                     StatisticItem statisticItem4 = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem4.param("fid", hp7.f().d());
-                    statisticItem4.param("fname", hp7.f().e());
+                    statisticItem4.param("fid", tr7.f().d());
+                    statisticItem4.param("fname", tr7.f().e());
                     statisticItem4.param("obj_source", 2);
                     TiebaStatic.log(statisticItem4);
                 }
@@ -255,16 +255,16 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             } else {
                 i2 = 0;
             }
-            c16 c16Var = new c16(intValue, intValue2, i2);
-            c16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            c16Var.h(this.j.getForum().getImage_url());
-            c16Var.j(this.j.getForum().getUser_level());
-            d16 d16Var = new d16(this.h, this, c16Var, this.j.getUserData());
-            this.g = d16Var;
-            d16Var.G(this.i);
+            j16 j16Var = new j16(intValue, intValue2, i2);
+            j16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            j16Var.h(this.j.getForum().getImage_url());
+            j16Var.j(this.j.getForum().getUser_level());
+            k16 k16Var = new k16(this.h, this, j16Var, this.j.getUserData());
+            this.g = k16Var;
+            k16Var.G(this.i);
         }
         SparseArray<String> sparseArray = new SparseArray<>();
-        AntiData c = hp7.f().c();
+        AntiData c = tr7.f().c();
         if (c != null && c.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
             for (int i3 = 0; i3 < delThreadInfoList.size(); i3++) {
@@ -275,7 +275,7 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = hp7.f().g();
+        List<ThreadData> g = tr7.f().g();
         for (int i4 = 0; i4 < g.size(); i4++) {
             if (g.get(i4) != null) {
                 jSONArray.put(g.get(i4).getTid());
@@ -293,18 +293,18 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         negativeFeedBackData.setDeleteType(i);
         negativeFeedBackData.setTidArray(jSONArray);
         negativeFeedBackData.setMaskTidArray(jSONArray2);
-        negativeFeedBackData.setFid(hp7.f().d());
+        negativeFeedBackData.setFid(tr7.f().d());
         this.g.I(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
         this.g.H(negativeFeedBackData);
     }
 
-    public void setDeleteCallback(z06.c cVar) {
-        z06 z06Var;
+    public void setDeleteCallback(g16.c cVar) {
+        g16 g16Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, cVar) != null) || (z06Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, cVar) != null) || (g16Var = this.a) == null) {
             return;
         }
-        z06Var.f(cVar);
+        g16Var.f(cVar);
     }
 
     public void setFrsViewData(FrsViewData frsViewData) {
@@ -324,9 +324,9 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
     public void setSelectNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0553);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f055b);
             if (this.i) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1418);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1428);
             }
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));

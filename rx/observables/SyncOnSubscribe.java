@@ -1,31 +1,31 @@
 package rx.observables;
 
-import com.baidu.tieba.ikc;
-import com.baidu.tieba.jjc;
-import com.baidu.tieba.kjc;
-import com.baidu.tieba.ljc;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.qjc;
-import com.baidu.tieba.vjc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.dpc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.foc;
+import com.baidu.tieba.goc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.qoc;
+import com.baidu.tieba.usc;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
-    public abstract S a(S s, kjc<? super T> kjcVar);
+public abstract class SyncOnSubscribe<S, T> implements eoc.a<T> {
+    public abstract S a(S s, foc<? super T> focVar);
 
     public abstract void b(S s);
 
     /* loaded from: classes2.dex */
-    public static final class SubscriptionProducer<S, T> extends AtomicLong implements ljc, qjc, kjc<T> {
+    public static final class SubscriptionProducer<S, T> extends AtomicLong implements goc, loc, foc<T> {
         public static final long serialVersionUID = -3736864024352728072L;
-        public final pjc<? super T> actualSubscriber;
+        public final koc<? super T> actualSubscriber;
         public boolean hasTerminated;
         public boolean onNextCalled;
         public final SyncOnSubscribe<S, T> parent;
         public S state;
 
-        public SubscriptionProducer(pjc<? super T> pjcVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
-            this.actualSubscriber = pjcVar;
+        public SubscriptionProducer(koc<? super T> kocVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
+            this.actualSubscriber = kocVar;
             this.parent = syncOnSubscribe;
             this.state = s;
         }
@@ -34,20 +34,20 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             try {
                 this.parent.b(this.state);
             } catch (Throwable th) {
-                vjc.e(th);
-                znc.j(th);
+                qoc.e(th);
+                usc.j(th);
             }
         }
 
         private void fastPath() {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-            pjc<? super T> pjcVar = this.actualSubscriber;
+            koc<? super T> kocVar = this.actualSubscriber;
             do {
                 try {
                     this.onNextCalled = false;
                     nextIteration(syncOnSubscribe);
                 } catch (Throwable th) {
-                    handleThrownError(pjcVar, th);
+                    handleThrownError(kocVar, th);
                     return;
                 }
             } while (!tryUnsubscribe());
@@ -62,7 +62,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             return true;
         }
 
-        @Override // com.baidu.tieba.qjc
+        @Override // com.baidu.tieba.loc
         public boolean isUnsubscribed() {
             if (get() < 0) {
                 return true;
@@ -70,7 +70,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.kjc
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
             if (!this.hasTerminated) {
                 this.hasTerminated = true;
@@ -83,7 +83,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             throw new IllegalStateException("Terminal event already emitted.");
         }
 
-        @Override // com.baidu.tieba.qjc
+        @Override // com.baidu.tieba.loc
         public void unsubscribe() {
             long j;
             do {
@@ -95,13 +95,13 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             } while (!compareAndSet(j, -2L));
         }
 
-        private void handleThrownError(pjc<? super T> pjcVar, Throwable th) {
+        private void handleThrownError(koc<? super T> kocVar, Throwable th) {
             if (this.hasTerminated) {
-                znc.j(th);
+                usc.j(th);
                 return;
             }
             this.hasTerminated = true;
-            pjcVar.onError(th);
+            kocVar.onError(th);
             unsubscribe();
         }
 
@@ -111,7 +111,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
 
         private void slowPath(long j) {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-            pjc<? super T> pjcVar = this.actualSubscriber;
+            koc<? super T> kocVar = this.actualSubscriber;
             do {
                 long j2 = j;
                 do {
@@ -125,7 +125,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
                             j2--;
                         }
                     } catch (Throwable th) {
-                        handleThrownError(pjcVar, th);
+                        handleThrownError(kocVar, th);
                         return;
                     }
                 } while (j2 != 0);
@@ -134,7 +134,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             tryUnsubscribe();
         }
 
-        @Override // com.baidu.tieba.kjc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             if (!this.hasTerminated) {
                 this.hasTerminated = true;
@@ -147,7 +147,7 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             throw new IllegalStateException("Terminal event already emitted.");
         }
 
-        @Override // com.baidu.tieba.kjc
+        @Override // com.baidu.tieba.foc
         public void onNext(T t) {
             if (!this.onNextCalled) {
                 this.onNextCalled = true;
@@ -157,9 +157,9 @@ public abstract class SyncOnSubscribe<S, T> implements jjc.a<T> {
             throw new IllegalStateException("onNext called multiple times!");
         }
 
-        @Override // com.baidu.tieba.ljc
+        @Override // com.baidu.tieba.goc
         public void request(long j) {
-            if (j > 0 && ikc.b(this, j) == 0) {
+            if (j > 0 && dpc.b(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {

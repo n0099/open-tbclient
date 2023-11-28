@@ -11,7 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.g7d;
+import com.baidu.tieba.kcd;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -91,7 +91,7 @@ public final class RoundImageView extends ImageView {
         super(context, attributeSet, i);
         this.e = new Paint();
         this.f = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g7d.PayUi_RoundImageView, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, kcd.PayUi_RoundImageView, i, 0);
         this.a = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.b = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(0, 0);

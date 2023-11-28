@@ -1,119 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class y4b extends TimePickerDialog {
+public final class y4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
+    public VersionData a;
+    public final ClientUpdateInfo b;
+    public final String c;
+    public final boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y4b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
-        super(context, onTimeSetListener, i, i2, z);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof y4b) {
+                y4b y4bVar = (y4b) obj;
+                return Intrinsics.areEqual(this.a, y4bVar.a) && Intrinsics.areEqual(this.b, y4bVar.b) && Intrinsics.areEqual(this.c, y4bVar.c) && this.d == y4bVar.d;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            ClientUpdateInfo clientUpdateInfo = this.b;
+            int hashCode2 = (((hashCode + (clientUpdateInfo == null ? 0 : clientUpdateInfo.hashCode())) * 31) + this.c.hashCode()) * 31;
+            boolean z = this.d;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode2 + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "LcUpdateDataWrapper(versionData=" + this.a + ", updateInfo=" + this.b + ", apkMd5Rsa=" + this.c + ", isUserUpdate=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public y4b(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String apkMd5Rsa, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {versionData, clientUpdateInfo, apkMd5Rsa, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(versionData, "versionData");
+        Intrinsics.checkNotNullParameter(apkMd5Rsa, "apkMd5Rsa");
+        this.a = versionData;
+        this.b = clientUpdateInfo;
+        this.c = apkMd5Rsa;
+        this.d = z;
     }
 
-    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            if (i == -1) {
-                this.c = true;
-            } else {
-                int i3 = this.a;
-                if (i3 >= 0 && (i2 = this.b) >= 0) {
-                    updateTime(i3, i2);
-                }
-            }
-            super.onClick(dialogInterface, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.app.TimePickerDialog
-    public void updateTime(int i, int i2) {
+    public final ClientUpdateInfo b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            super.updateTime(i, i2);
-            this.a = i;
-            this.b = i2;
-            this.c = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (ClientUpdateInfo) invokeV.objValue;
     }
 
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public void onRestoreInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onRestoreInstanceState(bundle);
-            updateTime(0, 0);
-            this.a = bundle.getInt("hour_key");
-            int i = bundle.getInt("min_key");
-            this.b = i;
-            updateTime(this.a, i);
-        }
-    }
-
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public Bundle onSaveInstanceState() {
-        Bundle bundle;
+    public final VersionData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                bundle = super.onSaveInstanceState();
-            } catch (Exception unused) {
-                bundle = null;
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            bundle.putInt("hour_key", this.a);
-            bundle.putInt("min_key", this.b);
-            return bundle;
+            return this.a;
         }
-        return (Bundle) invokeV.objValue;
+        return (VersionData) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.c) {
-                updateTime(this.a, this.b);
-            }
-            super.onStop();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
+        return invokeV.booleanValue;
     }
 }

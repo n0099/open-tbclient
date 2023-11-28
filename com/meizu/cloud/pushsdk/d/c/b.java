@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.d.c;
 
 import com.baidu.mobstat.Config;
+import com.baidu.tieba.ms;
 import com.meizu.cloud.pushsdk.d.a.c;
 import com.meizu.cloud.pushsdk.d.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -17,7 +18,7 @@ public class b extends com.meizu.cloud.pushsdk.d.c.a {
     public final int i;
 
     /* loaded from: classes10.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0698a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC0738a<T> {
         public String a;
         public String b;
         public String c;
@@ -80,14 +81,14 @@ public class b extends com.meizu.cloud.pushsdk.d.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.d.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0699b extends a<C0699b> {
-        public C0699b() {
+    public static class C0739b extends a<C0739b> {
+        public C0739b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.d.c.a.AbstractC0698a
+        @Override // com.meizu.cloud.pushsdk.d.c.a.AbstractC0738a
         /* renamed from: c */
-        public C0699b a() {
+        public C0739b a() {
             return this;
         }
     }
@@ -106,7 +107,7 @@ public class b extends com.meizu.cloud.pushsdk.d.c.a {
     }
 
     public static a<?> d() {
-        return new C0699b();
+        return new C0739b();
     }
 
     public c e() {
@@ -117,7 +118,7 @@ public class b extends com.meizu.cloud.pushsdk.d.c.a {
         cVar.a("pv", this.d);
         cVar.a("pn", this.e);
         cVar.a("si", this.f);
-        cVar.a("ms", this.g);
+        cVar.a(ms.c, this.g);
         cVar.a("ect", this.h);
         cVar.a("br", Integer.valueOf(this.i));
         return a(cVar);

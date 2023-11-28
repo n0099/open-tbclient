@@ -10,11 +10,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nb;
+import com.baidu.tieba.dx5;
+import com.baidu.tieba.f26;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.ww5;
-import com.baidu.tieba.y16;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,16 +27,16 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageMemoryCache h;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb<String, BdImage> a;
-    public nb<String, BdImage> b;
-    public y16<String, BdImage> c;
-    public nb<String, Bitmap> d;
-    public nb<String, BdImage> e;
-    public ob<rw5> f;
-    public ww5 g;
+    public ob<String, BdImage> a;
+    public ob<String, BdImage> b;
+    public f26<String, BdImage> c;
+    public ob<String, Bitmap> d;
+    public ob<String, BdImage> e;
+    public pb<yw5> f;
+    public dx5 g;
 
     /* loaded from: classes5.dex */
-    public class a extends nb<String, BdImage> {
+    public class a extends ob<String, BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nb
+        @Override // com.baidu.tieba.ob
         /* renamed from: o */
         public void b(boolean z, String str, BdImage bdImage, BdImage bdImage2) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends nb<String, BdImage> {
+    public class b extends ob<String, BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageMemoryCache h;
@@ -99,7 +99,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nb
+        @Override // com.baidu.tieba.ob
         /* renamed from: p */
         public int m(String str, BdImage bdImage) {
             InterceptResult invokeLL;
@@ -114,7 +114,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nb
+        @Override // com.baidu.tieba.ob
         /* renamed from: o */
         public void b(boolean z, String str, BdImage bdImage, BdImage bdImage2) {
             Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends nb<String, Bitmap> {
+    public class c extends ob<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,7 +151,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nb
+        @Override // com.baidu.tieba.ob
         /* renamed from: o */
         public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             Interceptable interceptable = $ic;
@@ -177,10 +177,10 @@ public class TbImageMemoryCache implements LifecycleObserver {
         h = new TbImageMemoryCache();
     }
 
-    public static TbImageMemoryCache B() {
+    public static TbImageMemoryCache w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             return h;
         }
         return (TbImageMemoryCache) invokeV.objValue;
@@ -196,10 +196,10 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void J() {
-        ob<rw5> obVar;
+        pb<yw5> pbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (obVar = this.f) != null) {
-            obVar.g(0);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pbVar = this.f) != null) {
+            pbVar.g(0);
             this.f.f(0);
             this.f.c();
             this.f = null;
@@ -241,13 +241,13 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new y16<>();
+        this.c = new f26<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
-        this.e = new nb<>(Integer.MAX_VALUE);
+        this.e = new ob<>(Integer.MAX_VALUE);
     }
 
-    public BdImage C(String str) {
+    public BdImage B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -264,7 +264,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
             if (c2 != null && c2.isValidNow()) {
                 return c2;
             }
-            return o(str);
+            return n(str);
         }
         return (BdImage) invokeL.objValue;
     }
@@ -302,7 +302,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public final BdImage o(String str) {
+    public final BdImage n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
@@ -329,7 +329,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public boolean v(int i) {
+    public boolean u(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
@@ -338,7 +338,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return invokeI.booleanValue;
     }
 
-    public Bitmap w(String str) {
+    public Bitmap v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
@@ -350,27 +350,27 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public ob<rw5> G(int i) {
+    public pb<yw5> G(int i) {
         InterceptResult invokeI;
-        ww5 ww5Var;
+        dx5 dx5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.f != null && (ww5Var = this.g) != null) {
-                if (ww5Var.g() == i) {
+            if (this.f != null && (dx5Var = this.g) != null) {
+                if (dx5Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new ww5(i);
+                this.g = new dx5(i);
             }
             if (this.f == null) {
-                this.f = new ob<>(this.g, 6, 0);
+                this.f = new pb<>(this.g, 6, 0);
             }
             return this.f;
         }
-        return (ob) invokeI.objValue;
+        return (pb) invokeI.objValue;
     }
 
     public void I(int i, int i2) {
@@ -389,34 +389,34 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
     }
 
-    public void g(String str, Bitmap bitmap) {
+    public void f(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048588, this, str, bitmap) == null) && !StringUtils.isNull(str) && bitmap != null) {
             this.d.h(str, bitmap);
         }
     }
 
-    public void j(String str, BdImage bdImage) {
+    public void i(String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, bdImage) == null) {
-            k(str, bdImage, false);
+            j(str, bdImage, false);
         }
     }
 
-    public void l(String str, BdImage bdImage) {
-        nb<String, BdImage> nbVar;
+    public void k(String str, BdImage bdImage) {
+        ob<String, BdImage> obVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, bdImage) == null) && bdImage != null && (nbVar = this.b) != null) {
-            nbVar.h(str, bdImage);
-            o(str);
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, bdImage) == null) && bdImage != null && (obVar = this.b) != null) {
+            obVar.h(str, bdImage);
+            n(str);
         }
     }
 
     public void m(String str, BdImage bdImage) {
-        nb<String, BdImage> nbVar;
+        ob<String, BdImage> obVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048592, this, str, bdImage) == null) && bdImage != null && (nbVar = this.e) != null) {
-            nbVar.h(str, bdImage);
+        if ((interceptable == null || interceptable.invokeLL(1048592, this, str, bdImage) == null) && bdImage != null && (obVar = this.e) != null) {
+            obVar.h(str, bdImage);
         }
     }
 
@@ -429,11 +429,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (String) invokeV.objValue;
     }
 
-    public void k(String str, BdImage bdImage, boolean z) {
-        nb<String, BdImage> nbVar;
+    public void j(String str, BdImage bdImage, boolean z) {
+        ob<String, BdImage> obVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048590, this, str, bdImage, z) == null) && bdImage != null && (nbVar = this.a) != null) {
-            nbVar.h(str, bdImage);
+        if ((interceptable == null || interceptable.invokeLLZ(1048590, this, str, bdImage, z) == null) && bdImage != null && (obVar = this.a) != null) {
+            obVar.h(str, bdImage);
         }
     }
 

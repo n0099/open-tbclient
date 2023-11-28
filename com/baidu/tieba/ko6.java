@@ -2,22 +2,23 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compact.RecommendBarCardView;
+import com.baidu.tieba.compact.HotCardView;
+import com.baidu.tieba.fd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ko6 extends ja7<RecommendBarCardView, t27> {
+public final class ko6 extends wa7<HotCardView, ec8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ko6() {
-        super("recommend_bar_layout");
+        super("template_stub_hot_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,26 +34,31 @@ public class ko6 extends ja7<RecommendBarCardView, t27> {
         }
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    public View a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            sc7.h(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            fd7.a aVar = fd7.b;
+            View a = super.a(parent);
+            Intrinsics.checkNotNullExpressionValue(a, "super.createView(parent)");
+            fd7.a.f(aVar, a, null, null, 6, null);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.mb7
     /* renamed from: e */
-    public void b(@NonNull RecommendBarCardView recommendBarCardView, @NonNull t27 t27Var) {
+    public void b(HotCardView view2, ec8 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBarCardView, t27Var) == null) {
-            recommendBarCardView.a(t27Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.setData(data);
+            view2.f();
         }
     }
 }

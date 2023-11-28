@@ -56,11 +56,11 @@ public final class CardPicAndTextViewBinding implements ViewBinding {
             int i = R.id.image_content;
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.image_content);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f091141;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091141);
+                i = R.id.obfuscated_res_0x7f091169;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091169);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f0917fe;
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fe);
+                    i = R.id.obfuscated_res_0x7f09186f;
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09186f);
                     if (eMTextView != null) {
                         return new CardPicAndTextViewBinding(view2, tbImageView, textView, eMTextView);
                     }
@@ -77,7 +77,7 @@ public final class CardPicAndTextViewBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d01de, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d01e4, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

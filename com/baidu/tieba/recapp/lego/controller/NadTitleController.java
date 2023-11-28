@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az0;
-import com.baidu.tieba.dy0;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.gea;
-import com.baidu.tieba.gw4;
-import com.baidu.tieba.ih0;
-import com.baidu.tieba.j11;
+import com.baidu.tieba.bz0;
+import com.baidu.tieba.ey0;
+import com.baidu.tieba.hw4;
+import com.baidu.tieba.jh0;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.oia;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.u25;
-import com.baidu.tieba.vg0;
-import com.baidu.tieba.wda;
-import com.baidu.tieba.wn0;
+import com.baidu.tieba.uf9;
+import com.baidu.tieba.wg0;
+import com.baidu.tieba.x25;
+import com.baidu.tieba.xn0;
+import com.baidu.tieba.yia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public final class NadTitleController {
     public final Lazy a;
     public final Lazy b;
     public AdCard c;
-    public ih0 d;
+    public jh0 d;
     public final Lazy e;
 
     @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\r\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J8\u0010\u001a\u001a\u00020\u00172\u0006\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001e\u001a\u00020\u00062\u0006\u0010\u001f\u001a\u00020\u00062\u0006\u0010 \u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u0019H\u0016J\b\u0010!\u001a\u00020\u0017H\u0002J\b\u0010\"\u001a\u00020#H\u0002J\b\u0010$\u001a\u00020\u0017H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\u0004\u0018\u00010\t8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00030\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013¨\u0006%"}, d2 = {"Lcom/baidu/tieba/recapp/lego/controller/NadTitleController$EMNoPaddingSpan;", "Landroid/text/style/LineHeightSpan;", "textView", "Landroid/widget/TextView;", "(Landroid/widget/TextView;)V", "addMarginBottom", "", "addMarginTop", "marginLayoutParams", "Landroid/view/ViewGroup$MarginLayoutParams;", "getMarginLayoutParams", "()Landroid/view/ViewGroup$MarginLayoutParams;", "originMarginBottom", "originMarginLayoutParams", "originMarginTop", "textSize", "textViewWeakReference", "Ljava/lang/ref/WeakReference;", "getTextViewWeakReference", "()Ljava/lang/ref/WeakReference;", "textViewWeakReference$delegate", "Lkotlin/Lazy;", "autoAdjustMargin", "", "fm", "Landroid/graphics/Paint$FontMetricsInt;", "chooseHeight", "text", "", "start", "end", "spanstartv", "lineHeight", "init", "layoutParamsChanged", "", "restoreMargin", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
@@ -177,7 +177,7 @@ public final class NadTitleController {
                 Intrinsics.checkNotNullParameter(text, "text");
                 Intrinsics.checkNotNullParameter(fm, "fm");
                 f();
-                u25.a(fm, this.b);
+                x25.a(fm, this.b);
                 TextView textView = c().get();
                 if (textView == null || (textView.getGravity() & 112) != 16) {
                     a(fm);
@@ -323,11 +323,11 @@ public final class NadTitleController {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             AdCard adCard;
-            wn0 wn0Var;
-            wn0.b bVar;
+            xn0 xn0Var;
+            xn0.b bVar;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (wn0Var = adCard.richTitleLinkModel) != null && (bVar = wn0Var.a) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (xn0Var = adCard.richTitleLinkModel) != null && (bVar = xn0Var.a) != null) {
                 String str2 = bVar.a;
                 if (!Intrinsics.areEqual(str2, "command")) {
                     if (Intrinsics.areEqual(str2, "download")) {
@@ -338,15 +338,15 @@ public final class NadTitleController {
                         } else {
                             str = null;
                         }
-                        e26.a(str);
+                        l26.a(str);
                         AdCard adCard3 = this.a.c;
                         if (adCard3 != null) {
                             advertAppInfo = adCard3.getAdvertAppInfo();
                         }
-                        ec9.c(advertAppInfo);
-                        ih0 ih0Var = this.a.d;
-                        if (ih0Var != null) {
-                            ih0Var.m();
+                        uf9.c(advertAppInfo);
+                        jh0 jh0Var = this.a.d;
+                        if (jh0Var != null) {
+                            jh0Var.l();
                             return;
                         }
                         return;
@@ -494,24 +494,24 @@ public final class NadTitleController {
         });
     }
 
-    public final Drawable j(wn0.b bVar) {
+    public final Drawable j(xn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            return j11.a.a(f(), bVar.b);
+            return k11.a.a(f(), bVar.b);
         }
         return (Drawable) invokeL.objValue;
     }
 
     @ColorRes
-    public final int k(wn0.b bVar) {
+    public final int k(xn0.b bVar) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
             Resources resources = f().getResources();
             if (resources == null) {
-                i = wda.b;
+                i = oia.b;
                 return i;
             }
             return resources.getIdentifier(bVar.d, "color", f().getPackageName());
@@ -588,11 +588,11 @@ public final class NadTitleController {
         return (TextView) invokeV.objValue;
     }
 
-    public final Drawable h(wn0.b bVar) {
+    public final Drawable h(xn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            Drawable a2 = j11.a.a(f(), bVar.b);
+            Drawable a2 = k11.a.a(f(), bVar.b);
             if (a2 == null) {
                 Resources resources = f().getResources();
                 if (resources != null) {
@@ -626,7 +626,7 @@ public final class NadTitleController {
 
     public final void o(String str) {
         AdvertAppInfo advertAppInfo;
-        gw4 gw4Var;
+        hw4 hw4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             AdCard adCard = this.c;
@@ -636,18 +636,18 @@ public final class NadTitleController {
             } else {
                 advertAppInfo = null;
             }
-            if (advertAppInfo == null || (gw4Var = advertAppInfo.i) == null) {
+            if (advertAppInfo == null || (hw4Var = advertAppInfo.i) == null) {
                 return;
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(gw4Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
-            az0.e(clogBuilder);
+            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(hw4Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
+            bz0.e(clogBuilder);
             AdCard adCard2 = this.c;
             if (adCard2 != null) {
                 advertAppInfo2 = adCard2.getAdvertAppInfo();
             }
-            ec9.c(advertAppInfo2);
-            e26.a(str);
+            uf9.c(advertAppInfo2);
+            l26.a(str);
         }
     }
 
@@ -656,7 +656,7 @@ public final class NadTitleController {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, adCard, i)) == null) {
-            wn0.b bVar = adCard.richTitleLinkModel.a;
+            xn0.b bVar = adCard.richTitleLinkModel.a;
             if (bVar == null) {
                 return false;
             }
@@ -667,23 +667,23 @@ public final class NadTitleController {
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             boolean booleanValue = bool.booleanValue();
-            i2 = wda.a;
-            l.setParams(new dy0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
+            i2 = oia.a;
+            l.setParams(new ey0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
             l().setCustomizedProcessor(new a(this));
-            if (!l().i()) {
+            if (!l().j()) {
                 return false;
             }
             l().postInvalidate();
-            ih0 ih0Var = this.d;
-            if (ih0Var != null) {
-                if (ih0Var != null) {
-                    ih0Var.k();
+            jh0 jh0Var = this.d;
+            if (jh0Var != null) {
+                if (jh0Var != null) {
+                    jh0Var.j();
                 }
                 this.d = null;
             }
-            vg0 d = gea.d(adCard);
+            wg0 d = yia.d(adCard);
             d.q.j = "title_shorturl";
-            this.d = new ih0(d, l());
+            this.d = new jh0(d, l());
             return true;
         }
         return invokeLI.booleanValue;

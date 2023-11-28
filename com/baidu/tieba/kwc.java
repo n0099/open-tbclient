@@ -5,22 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.PostPrefix;
+import tbclient.DeclareInfo;
 /* loaded from: classes7.dex */
-public class kwc extends qoc {
+public class kwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PostPrefix postPrefix) {
+    public static JSONObject b(@NonNull DeclareInfo declareInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postPrefix)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, declareInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "mode", postPrefix.mode);
-            qoc.a(jSONObject, "text", postPrefix.text);
-            qoc.a(jSONObject, "type", postPrefix.type);
-            qoc.a(jSONObject, "time", postPrefix.time);
+            ltc.a(jSONObject, "declare_id", declareInfo.declare_id);
+            ltc.a(jSONObject, "declare_url", declareInfo.declare_url);
+            ltc.a(jSONObject, "declare_text", declareInfo.declare_text);
+            ltc.a(jSONObject, "declare_num", declareInfo.declare_num);
+            ltc.a(jSONObject, "is_declare", declareInfo.is_declare);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

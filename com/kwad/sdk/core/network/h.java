@@ -1,17 +1,35 @@
 package com.kwad.sdk.core.network;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.core.network.g;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes10.dex */
-public interface h<R extends g, T extends BaseResultData> {
-    @WorkerThread
-    void onError(@NonNull R r, int i, String str);
+public class h {
+    public static volatile h atH;
+    public List<a> atG = new CopyOnWriteArrayList();
 
-    @WorkerThread
-    void onStartRequest(@NonNull R r);
+    /* loaded from: classes10.dex */
+    public interface a {
+        void a(f fVar, int i);
+    }
 
-    @WorkerThread
-    void onSuccess(@NonNull R r, @NonNull T t);
+    public static h CC() {
+        if (atH == null) {
+            synchronized (h.class) {
+                if (atH == null) {
+                    atH = new h();
+                }
+            }
+        }
+        return atH;
+    }
+
+    public final void a(a aVar) {
+        this.atG.add(aVar);
+    }
+
+    public final void b(f fVar, int i) {
+        for (a aVar : this.atG) {
+            aVar.a(fVar, i);
+        }
+    }
 }

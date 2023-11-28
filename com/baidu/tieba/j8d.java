@@ -1,81 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONObject;
+import tbclient.Avatar;
+import tbclient.Equipment;
+import tbclient.SignatureInfo;
 /* loaded from: classes6.dex */
-public class j8d implements pbd {
+public class j8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v7d a;
-    public AbsViewEventHandler b;
-    public PayUIKitConfig c;
-    public Activity d;
-    public List<PayWayInfo> e;
-    public IYYPayAmountView.ViewParams f;
-    public IPayCallback<CurrencyChargeMessage> g;
-    public String h;
 
-    public j8d(v7d v7dVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, String str, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @NonNull
+    public static JSONObject b(@NonNull SignatureInfo signatureInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v7dVar, absViewEventHandler, payUIKitConfig, activity, list, viewParams, str, iPayCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            Equipment equipment = signatureInfo.equipment;
+            if (equipment != null) {
+                ltc.a(jSONObject, "equipment", twc.b(equipment));
             }
-        }
-        RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
-        this.a = v7dVar;
-        this.b = absViewEventHandler;
-        this.c = payUIKitConfig;
-        this.d = activity;
-        this.e = list;
-        this.f = viewParams;
-        this.g = iPayCallback;
-        this.h = str;
-    }
-
-    @Override // com.baidu.tieba.pbd
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
-            this.a.g(cancelType, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.pbd
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            n9d a = aad.a((int) (i * 100.0d), this.c);
-            if (nad.b(i)) {
-                this.a.a(this.d, a, this.e, this.h, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, this.f, this.g);
-                RLog.info("AmountInputDialogListener", "confirm but ShowSplitOrderDialog");
-                return;
+            ltc.a(jSONObject, "game_id", signatureInfo.game_id);
+            ltc.a(jSONObject, "game_name", signatureInfo.game_name);
+            ltc.a(jSONObject, DI.LIVE_PLAYER, signatureInfo.player);
+            Avatar avatar = signatureInfo.avatar;
+            if (avatar != null) {
+                ltc.a(jSONObject, "avatar", vuc.b(avatar));
             }
-            RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
-            this.a.t(this.d, a, this.e, this.h, this.f, this.g);
+            ltc.a(jSONObject, "power", signatureInfo.power);
+            ltc.a(jSONObject, CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER, signatureInfo.server);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

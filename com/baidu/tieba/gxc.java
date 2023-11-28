@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.StarSchedule;
+import tbclient.FeedEntrybarComponent;
 /* loaded from: classes6.dex */
-public class gxc extends qoc {
+public class gxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StarSchedule starSchedule) {
+    public static JSONObject b(@NonNull FeedEntrybarComponent feedEntrybarComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starSchedule)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedEntrybarComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "time", starSchedule.time);
-            qoc.a(jSONObject, "type", starSchedule.type);
-            qoc.a(jSONObject, "desc", starSchedule.desc);
-            qoc.a(jSONObject, "url", starSchedule.url);
+            ltc.a(jSONObject, "text", feedEntrybarComponent.text);
+            ltc.a(jSONObject, "schema", feedEntrybarComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class wp2 implements ye4 {
+public class wp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vp2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public wp2() {
+    public static synchronized vp2 a() {
+        InterceptResult invokeV;
+        vp2 vp2Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (wp2.class) {
+                if (a == null) {
+                    a = new vp2();
+                }
+                vp2Var = a;
             }
+            return vp2Var;
         }
-    }
-
-    @Override // com.baidu.tieba.ye4
-    public hm4 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new xe3(str);
-        }
-        return (hm4) invokeL.objValue;
+        return (vp2) invokeV.objValue;
     }
 }

@@ -1,26 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Voice;
+import tbclient.FeedEntrybarComponent;
 /* loaded from: classes5.dex */
 public final class c97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Voice voice, List<ab7<? extends Object>> mutableList, a67 feedExtraData) {
+    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<nb7<? extends Object>> mutableList, a87 a87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, voice, mutableList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(voice, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, a87Var) == null) {
+            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
             Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String voice_md5 = voice.voice_md5;
-            Intrinsics.checkNotNullExpressionValue(voice_md5, "voice_md5");
-            mutableList.add(new bb7(new m47(new w77(CommonStatisticKey.FRS_VOICE_PLAY, voice_md5, voice.during_time.intValue() / 1000), CollectionsKt__CollectionsJVMKt.listOf(b67.d(feedExtraData, "voice_btn_click", null, 2, null))), "feed_voice"));
+            mutableList.add(b(feedEntrybarComponent, a87Var));
         }
+    }
+
+    public static final j47 b(FeedEntrybarComponent feedEntrybarComponent, a87 a87Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, a87Var)) == null) {
+            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
+            String text = feedEntrybarComponent.text;
+            Intrinsics.checkNotNullExpressionValue(text, "text");
+            String schema = feedEntrybarComponent.schema;
+            Intrinsics.checkNotNullExpressionValue(schema, "schema");
+            return new j47(text, schema, null, a87Var, 4, null);
+        }
+        return (j47) invokeLL.objValue;
     }
 }

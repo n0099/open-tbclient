@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h47;
-import com.baidu.tieba.l97;
-import com.baidu.tieba.ta7;
-import com.baidu.tieba.ua7;
+import com.baidu.tieba.gb7;
+import com.baidu.tieba.hb7;
+import com.baidu.tieba.u47;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u0003B\u001b\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0002H\u0014J\b\u0010\u0010\u001a\u00020\u000eH\u0016R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/feed/component/CardTitleView;", "Lcom/baidu/tieba/feed/component/CardFrameView;", "Lcom/baidu/tieba/feed/component/uistate/CardTitleUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "isCardRead", "", "textView", "Landroid/widget/TextView;", "doUpdateState", "", "state", "onChangeSkin", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardTitleView extends CardFrameView<h47> implements ta7 {
+public final class CardTitleView extends CardFrameView<u47> implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView d;
@@ -81,7 +81,7 @@ public final class CardTitleView extends CardFrameView<h47> implements ta7 {
         this.d.setMaxLines(2);
         this.d.setEllipsize(TextUtils.TruncateAt.END);
         this.d.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds15));
-        this.d.setMovementMethod(l97.a);
+        this.d.setMovementMethod(y97.a);
         this.d.setClickable(false);
         this.d.setLongClickable(false);
         addView(this.d, new FrameLayout.LayoutParams(-1, -2));
@@ -94,7 +94,7 @@ public final class CardTitleView extends CardFrameView<h47> implements ta7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: c */
-    public void a(h47 state) {
+    public void a(u47 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -105,12 +105,12 @@ public final class CardTitleView extends CardFrameView<h47> implements ta7 {
             }
             ThreadCardUtils.cutAndSetTextByMaxLineForDot(this.d, state.j(), 2, getMeasuredWidth());
             this.e = state.i().a();
-            r();
+            f();
         }
     }
 
-    @Override // com.baidu.tieba.ta7
-    public void r() {
+    @Override // com.baidu.tieba.gb7
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.e) {
@@ -118,7 +118,7 @@ public final class CardTitleView extends CardFrameView<h47> implements ta7 {
             } else {
                 EMManager.from(this.d).setTextColor(R.color.CAM_X0105);
             }
-            if (ua7.a(this)) {
+            if (hb7.a(this)) {
             }
         }
     }

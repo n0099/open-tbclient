@@ -1,248 +1,252 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class jta implements hta {
+public class jta extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public final int d;
-    public int e;
-    public kta f;
-    public boolean g;
-    public lta h;
-    public ll9 i;
+    public HashSet<String> a;
+    public ArrayList<hta> b;
+    public CoverFlowView<hta> c;
+    public c35<hta> d;
+    public TbPageContext<?> e;
 
-    public jta(String str, int i, ll9 ll9Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements c35<hta> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jta a;
+
+        public a(jta jtaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jtaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jtaVar;
+        }
+
+        @Override // com.baidu.tieba.c35
+        public void b(int i, String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
+                hta htaVar = (hta) ListUtils.getItem(this.a.b, i);
+                if (htaVar != null) {
+                    str2 = htaVar.a();
+                } else {
+                    str2 = null;
+                }
+                if (UrlManager.getInstance().dealOneLink(this.a.e, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(str2)) {
+                    TiebaStatic.eventStat(this.a.e.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(str2), "obj_name", String.valueOf(str2), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion(), "log_ver", "1.1");
+                }
+                TiebaStatic.eventStat(this.a.e.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.c35
+        /* renamed from: c */
+        public void a(int i, hta htaVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, htaVar) != null) || htaVar == null) {
+                return;
+            }
+            String a = htaVar.a();
+            if (i == 2 && !TextUtils.isEmpty(a) && this.a.a.add(a)) {
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(a), "obj_name", String.valueOf(a), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends a35 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public b(jta jtaVar, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jtaVar, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.a35, com.baidu.tieba.y25
+        public b35 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                b35 a = super.a();
+                if (a != null) {
+                    a.d(85);
+                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
+                    a.f(R.dimen.obfuscated_res_0x7f070201);
+                }
+                return a;
+            }
+            return (b35) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.a35, com.baidu.tieba.y25
+        public e35 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                e35 e35Var = new e35();
+                e35Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
+                return e35Var;
+            }
+            return (e35) invokeV.objValue;
+        }
+    }
+
+    public jta(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), ll9Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = str;
-        this.d = i;
-        this.i = ll9Var;
-        File file = new File(str);
-        if (!file.exists()) {
-            return;
-        }
-        this.a = file.length();
-        this.b = wd.b(FileHelper.GetStreamFromFile(file));
-        long j = this.a;
-        int i4 = this.d;
-        if (j % i4 == 0) {
-            this.e = (int) (j / i4);
-        } else {
-            this.e = ((int) (j / i4)) + 1;
+        this.a = new HashSet<>();
+        this.b = new ArrayList<>();
+        this.c = null;
+        this.d = new a(this);
+        this.e = tbPageContext;
+        this.c = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.c.setCoverFlowFactory(new b(this, tbPageContext));
+        this.c.setCallback(this.d);
+    }
+
+    public void e(int i) {
+        CoverFlowView<hta> coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (coverFlowView = this.c) != null) {
+            coverFlowView.v();
         }
     }
 
-    public final ota g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, arrayList, str, i)) == null) {
-            if (ListUtils.isEmpty(arrayList) || StringUtils.isNull(str)) {
-                return null;
-            }
-            if (arrayList.size() > 3) {
-                this.h = new mta(this.c, this.d, this.e, this.a, this.b);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return Integer.valueOf(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public CoverFlowView<hta> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (CoverFlowView) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<hta> arrayList = this.b;
+            if (arrayList != null) {
+                i = arrayList.size() + 0;
             } else {
-                this.h = new nta(this.c, this.d, this.e, this.a, this.b);
+                i = 0;
             }
-            this.h.f(this.f);
-            ota g = this.h.g(arrayList, str, i);
-            this.h = null;
-            return g;
-        }
-        return (ota) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.hta
-    public void a(kta ktaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ktaVar) == null) {
-            this.f = ktaVar;
-        }
-    }
-
-    public final void d(int i) {
-        kta ktaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (ktaVar = this.f) != null) {
-            ktaVar.onProgressUpdate(i / 100.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.hta
-    public VideoFinishResult b(String str, int i) {
-        InterceptResult invokeLI;
-        gta c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (StringUtils.isNull(str) || this.a <= 0 || StringUtils.isNull(this.b) || i <= 0 || this.g) {
-                return null;
+            if (i <= 0) {
+                return 0;
             }
-            d(10);
-            long j = i;
-            gta c2 = c(this.e, j, false, null);
-            if (c2 != null && !this.g) {
-                if (c2.e != 0) {
-                    VideoFinishResult videoFinishResult = new VideoFinishResult();
-                    videoFinishResult.setErrorNo(c2.e);
-                    videoFinishResult.setUserMessage(c2.d);
-                    e(302, c2.e, c2.d);
-                    return videoFinishResult;
-                }
-                d(30);
-                if (!StringUtils.isNull(c2.c)) {
-                    VideoFinishResult videoFinishResult2 = new VideoFinishResult();
-                    videoFinishResult2.setVideoMd5(this.b);
-                    videoFinishResult2.setVideoUrl(c2.c);
-                    f();
-                    return videoFinishResult2;
-                } else if (this.g) {
-                    return null;
-                } else {
-                    ArrayList<Integer> arrayList = c2.a;
-                    if (ListUtils.isEmpty(arrayList)) {
-                        arrayList = new ArrayList<>();
-                        int i2 = 0;
-                        while (i2 < this.e) {
-                            i2++;
-                            arrayList.add(Integer.valueOf(i2));
-                        }
-                    }
-                    String str2 = c2.b;
-                    ota g = g(arrayList, str2, i);
-                    if (g != null && !this.g) {
-                        if (g.b != 0) {
-                            VideoFinishResult videoFinishResult3 = new VideoFinishResult();
-                            videoFinishResult3.setErrorNo(g.b);
-                            videoFinishResult3.setUserMessage(g.c);
-                            e(303, g.b, g.c);
-                            return videoFinishResult3;
-                        }
-                        d(85);
-                        if (!StringUtils.isNull(g.a)) {
-                            VideoFinishResult videoFinishResult4 = new VideoFinishResult();
-                            videoFinishResult4.setVideoUrl(g.a);
-                            videoFinishResult4.setVideoMd5(this.b);
-                            f();
-                            return videoFinishResult4;
-                        } else if (this.g || (c = c(this.e, j, true, str2)) == null) {
-                            return null;
-                        } else {
-                            VideoFinishResult videoFinishResult5 = new VideoFinishResult();
-                            int i3 = c.e;
-                            if (i3 == 0) {
-                                videoFinishResult5.setVideoUrl(c.c);
-                                videoFinishResult5.setVideoMd5(this.b);
-                                f();
-                            } else {
-                                videoFinishResult5.setErrorNo(i3);
-                                videoFinishResult5.setUserMessage(c.d);
-                                e(304, c.e, c.d);
-                                TiebaStatic.log(new StatisticItem("c12024").param("params", c.d));
-                            }
-                            d(100);
-                            return videoFinishResult5;
-                        }
-                    }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(ArrayList<gz4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            ArrayList<hta> arrayList2 = new ArrayList<>();
+            Iterator<gz4> it = arrayList.iterator();
+            while (it.hasNext()) {
+                gz4 next = it.next();
+                if (next != null) {
+                    arrayList2.add(new hta(next));
                 }
             }
-            return null;
-        }
-        return (VideoFinishResult) invokeLI.objValue;
-    }
-
-    public final gta c(int i, long j, boolean z, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), str})) == null) {
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
-            netWork.addPostData("chunk_sum", String.valueOf(i));
-            netWork.addPostData("video_size", String.valueOf(this.a));
-            netWork.addPostData("chunk_size", String.valueOf(this.d));
-            netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
-            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.b);
-            netWork.addPostData("video_len", String.valueOf(j));
-            netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-            if (!StringUtils.isNull(str)) {
-                netWork.addPostData("upload_id", str);
-            }
-            String postNetData = netWork.postNetData();
-            if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                if (StringUtils.isNull(postNetData)) {
-                    return null;
-                }
-                gta gtaVar = new gta();
-                gtaVar.a(postNetData);
-                return gtaVar;
-            }
-            gta gtaVar2 = new gta();
-            if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                gtaVar2.e = netWork.getNetContext().getResponse().mServerErrorCode;
-            } else {
-                gtaVar2.e = netWork.getNetContext().getResponse().mNetErrorCode;
-            }
-            gtaVar2.d = netWork.getNetContext().getResponse().mErrorString;
-            return gtaVar2;
-        }
-        return (gta) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.hta
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = true;
-            lta ltaVar = this.h;
-            if (ltaVar != null) {
-                ltaVar.a();
-            }
+            this.b = arrayList2;
+            this.c.setData(arrayList2);
+            notifyDataSetChanged();
         }
     }
 
-    public final void f() {
-        ll9 ll9Var;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ll9Var = this.i) != null) {
-            ll9Var.j();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            return this.c;
         }
-    }
-
-    public final void e(int i, int i2, String str) {
-        ll9 ll9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) && (ll9Var = this.i) != null) {
-            ll9Var.f(i, i2, str);
-        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -4,22 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import tbclient.ClickBackCard;
+import tbclient.ClickBackCardItem;
 /* loaded from: classes5.dex */
-public class awc extends qoc {
+public class awc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MemberShowIcon memberShowIcon) {
+    public static JSONObject b(@NonNull ClickBackCard clickBackCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, memberShowIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, clickBackCard)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon", memberShowIcon.icon);
-            qoc.a(jSONObject, "name", memberShowIcon.name);
-            qoc.a(jSONObject, "url", memberShowIcon.url);
+            ltc.a(jSONObject, "card_name", clickBackCard.card_name);
+            if (clickBackCard.card_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ClickBackCardItem clickBackCardItem : clickBackCard.card_list) {
+                    jSONArray.put(bwc.b(clickBackCardItem));
+                }
+                ltc.a(jSONObject, "card_list", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

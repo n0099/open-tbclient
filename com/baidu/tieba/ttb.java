@@ -1,123 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.validation.utils.ValidationLog;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ttb {
+public class ttb implements bub {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public gtb a;
+    public float b;
+    public boolean c;
 
-    public static String a() {
+    public ttb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 1.0f;
+        this.c = true;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            gtb gtbVar = this.a;
+            if (gtbVar == null || !gtbVar.putBytes(bArr, i)) {
+                return 0;
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                String str = Build.VERSION.RELEASE;
-                b = str;
-                return str == null ? "" : str;
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bub
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(d)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-                    d = charSequence;
-                    return charSequence;
-                } catch (Throwable unused) {
-                    return null;
-                }
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (gtb) jxb.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
             }
-            return d;
+            gtb gtbVar = this.a;
+            if (gtbVar != null) {
+                gtbVar.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeIIII.booleanValue;
     }
 
-    public static String c(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.bub
+    public byte[] a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            StringBuilder sb = new StringBuilder(str);
-            sb.append(" ");
-            sb.append("Sapi_");
-            sb.append(d());
-            sb.append("_");
-            sb.append("Android_");
-            sb.append(b(context));
-            sb.append("_");
-            sb.append(e(context));
-            sb.append("_");
-            sb.append(f());
-            sb.append("_");
-            sb.append(a());
-            sb.append("_Sapi");
-            ValidationLog.e(sb.toString(), new Object[0]);
-            return sb.toString();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            gtb gtbVar = this.a;
+            return gtbVar != null ? gtbVar.getOutPutBytes() : new byte[0];
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeI.objValue;
     }
 
-    public static String d() {
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            gtb gtbVar = this.a;
+            if (gtbVar != null) {
+                gtbVar.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bub
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                c = "1.0.5";
-                return "1.0.5";
-            }
-            return c;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bub
+    public void c() {
+        gtb gtbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (TextUtils.isEmpty(e)) {
-                try {
-                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    e = str;
-                    return str;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return e;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gtbVar = this.a) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        gtbVar.flush();
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bub
+    public void d() {
+        gtb gtbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                String str = Build.MODEL;
-                a = str;
-                return str == null ? "" : str;
-            }
-            return a;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (gtbVar = this.a) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        gtbVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 }

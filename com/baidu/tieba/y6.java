@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class y6 extends a7 {
+public class y6 extends b7 {
     public static /* synthetic */ Interceptable $ic;
-    public static y6 d;
+    public static y6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7 c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,37 +38,23 @@ public class y6 extends a7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        this.a = new b7(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new b7(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
     }
 
-    public static y6 d() {
+    public static y6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
+            if (c == null) {
                 synchronized (y6.class) {
-                    if (d == null) {
-                        d = new y6();
+                    if (c == null) {
+                        c = new y6();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (y6) invokeV.objValue;
-    }
-
-    public b7 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (b7) invokeV.objValue;
     }
 }

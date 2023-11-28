@@ -1,62 +1,82 @@
 package com.kwad.sdk.core.download.a;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.RemoteViews;
-import com.kwad.sdk.api.core.ICompletedRemoteView;
-import com.kwad.sdk.api.core.RemoteViewBuilder;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import java.util.List;
 /* loaded from: classes10.dex */
 public final class b {
-    public ICompletedRemoteView Xm;
 
-    public b(ICompletedRemoteView iCompletedRemoteView) {
-        this.Xm = iCompletedRemoteView;
+    /* loaded from: classes10.dex */
+    public interface a {
+        void oe();
+
+        void onError(Throwable th);
+
+        void onPreStart();
+
+        void onStart();
+
+        void onSuccess();
     }
 
-    public static b br(Context context) {
-        return new b(RemoteViewBuilder.createCompletedView(context));
-    }
-
-    public final RemoteViews build() {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            return iCompletedRemoteView.build();
+    /* renamed from: com.kwad.sdk.core.download.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes10.dex */
+    public static class C0705b implements a {
+        @Override // com.kwad.sdk.core.download.a.b.a
+        public final void oe() {
         }
-        return null;
-    }
 
-    public final void setIcon(Bitmap bitmap) {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            iCompletedRemoteView.setIcon(bitmap);
+        @Override // com.kwad.sdk.core.download.a.b.a
+        public void onError(Throwable th) {
         }
-    }
 
-    public final void setInstallText(String str) {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            iCompletedRemoteView.setInstallText(str);
+        @Override // com.kwad.sdk.core.download.a.b.a
+        public final void onPreStart() {
         }
-    }
 
-    public final void setName(String str) {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            iCompletedRemoteView.setName(str);
+        @Override // com.kwad.sdk.core.download.a.b.a
+        public void onStart() {
         }
-    }
 
-    public final void setSize(String str) {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            iCompletedRemoteView.setSize(str);
+        @Override // com.kwad.sdk.core.download.a.b.a
+        public void onSuccess() {
         }
     }
 
-    public final void setStatus(String str) {
-        ICompletedRemoteView iCompletedRemoteView = this.Xm;
-        if (iCompletedRemoteView != null) {
-            iCompletedRemoteView.setStatus(str);
+    public static int D(Context context, String str) {
+        return a(context, str, new C0705b());
+    }
+
+    public static int a(Context context, String str, @NonNull a aVar) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return 0;
+        }
+        try {
+            aVar.onPreStart();
+            com.kwad.sdk.core.e.c.d("DeepLinkUtil", "handleDeepLink: " + str);
+            Uri parse = Uri.parse(str);
+            Intent intent = new Intent();
+            intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
+            intent.setData(parse);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities != null && queryIntentActivities.size() > 0) {
+                aVar.onStart();
+                context.startActivity(intent);
+                aVar.onSuccess();
+                return 1;
+            }
+            aVar.oe();
+            return 0;
+        } catch (Throwable th) {
+            aVar.onError(th);
+            return -1;
         }
     }
 }

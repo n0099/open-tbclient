@@ -30,14 +30,14 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 2130968711;
     @StyleRes
     public static final int DEF_STYLE_RES = 2131755314;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969821;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969827;
     @Nullable
     public Drawable background;
     @NonNull

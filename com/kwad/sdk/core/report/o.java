@@ -1,25 +1,13 @@
 package com.kwad.sdk.core.report;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
+import java.util.List;
 /* loaded from: classes10.dex */
-public final class o extends SQLiteOpenHelper {
-    public static int CU = 1;
-    public String abq;
+public interface o<T> {
+    List<T> Dw();
 
-    public o(@Nullable Context context, int i) {
-        super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i);
-        this.abq = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
-    }
+    void j(T t);
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(this.abq);
-    }
+    long size();
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-    }
+    void v(List<T> list);
 }

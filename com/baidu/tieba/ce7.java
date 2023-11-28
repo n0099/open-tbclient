@@ -1,177 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.be7;
-import com.baidu.tieba.x4b;
+import com.baidu.tieba.feed.widget.uistate.ForumAttentionUiStateKt;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ce7 {
+public final class ce7 extends lb7 implements ka7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public be7 c;
-    public g2a d;
-    public x4b e;
-    public e f;
+    public final w67 c;
+    public final String d;
+    public final long e;
+    public final Function2<ce7, TbPageContext<?>, Unit> f;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements be7.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ce7 a;
-
-        public a(ce7 ce7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ce7Var;
-        }
-
-        @Override // com.baidu.tieba.be7.b
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 0, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements RemoveFansController.IResultCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ce7 a;
-
-        public b(ce7 ce7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ce7Var;
-        }
-
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 1, j);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements x4b.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ce7 a;
-
-        public c(ce7 ce7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ce7Var;
-        }
-
-        @Override // com.baidu.tieba.x4b.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.c.d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements x4b.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ce7 a;
-
-        public d(ce7 ce7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ce7Var;
-        }
-
-        @Override // com.baidu.tieba.x4b.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.dismiss();
-        }
-    }
-
-    public ce7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    @JvmOverloads
+    public ce7(w67 forumAttentionData, String tid, long j, Function2<? super ce7, ? super TbPageContext<?>, Unit> onAttentionClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {forumAttentionData, tid, Long.valueOf(j), onAttentionClick};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,62 +40,79 @@ public class ce7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        be7 be7Var = new be7(tbPageContext, bdUniqueId);
-        this.c = be7Var;
-        be7Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
+        Intrinsics.checkNotNullParameter(forumAttentionData, "forumAttentionData");
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
+        this.c = forumAttentionData;
+        this.d = tid;
+        this.e = j;
+        this.f = onAttentionClick;
     }
 
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
-        }
+    public /* synthetic */ ce7(w67 w67Var, String str, long j, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(w67Var, str, j, (i & 8) != 0 ? ForumAttentionUiStateKt.a : function2);
     }
 
-    public void g(e eVar) {
+    @Override // com.baidu.tieba.ka7
+    public void d(Object event) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public void d() {
-        x4b x4bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (x4bVar = this.e) != null) {
-            x4bVar.f();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                x4b x4bVar = new x4b(this.a.getContext());
-                this.e = x4bVar;
-                x4bVar.i(this.a.getString(R.string.obfuscated_res_0x7f0f04d3));
-                ArrayList arrayList = new ArrayList();
-                x4b.b bVar = new x4b.b(this.a.getString(R.string.obfuscated_res_0x7f0f04ca), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.h(new d(this));
-                this.e.g(arrayList);
-                g2a g2aVar = new g2a(this.a.getPageActivity(), this.e.b());
-                this.d = g2aVar;
-                g2aVar.a(0.7f);
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (event instanceof AttentionBarData) {
+                AttentionBarData attentionBarData = (AttentionBarData) event;
+                if (attentionBarData.forumId == this.e) {
+                    this.c.d(attentionBarData.isLike);
+                    b();
+                    z67 a = t67.a.a("tb.feed_home_reco_user_state");
+                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    if (attentionBarData.isLike) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    linkedHashMap.put("is_like", str);
+                    if (a != null) {
+                        a.a(String.valueOf(this.e), linkedHashMap);
+                    }
+                }
             }
-            this.d.show();
         }
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public final w67 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (w67) invokeV.objValue;
+    }
+
+    public final Function2<ce7, TbPageContext<?>, Unit> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

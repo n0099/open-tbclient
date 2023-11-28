@@ -1,50 +1,67 @@
 package com.kwad.components.ad.interstitial.c;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import com.kwad.components.ad.interstitial.b.c;
-import com.kwad.components.core.page.widget.a;
-import com.kwad.sdk.core.report.f;
-import com.kwad.sdk.core.response.a.d;
-import com.kwad.sdk.core.response.model.AdInfo;
+import android.content.Context;
+import android.text.TextUtils;
+import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.utils.y;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes10.dex */
-public final class a {
-    public static boolean c(final c cVar) {
-        Activity ownerActivity;
-        Dialog dialog = cVar.gi;
-        if (dialog != null && (ownerActivity = dialog.getOwnerActivity()) != null && !ownerActivity.isFinishing()) {
-            AdInfo bQ = d.bQ(cVar.mAdTemplate);
-            int cp = com.kwad.components.ad.interstitial.a.b.cp();
-            int cq = com.kwad.components.ad.interstitial.a.b.cq();
-            if (cp > com.kwad.sdk.core.response.a.a.bp(bQ) && cq < com.kwad.sdk.core.response.a.a.bq(bQ)) {
-                if (com.kwad.sdk.core.response.a.a.br(bQ) == 2) {
-                    com.kwad.components.ad.interstitial.widget.d.d(cVar);
-                    return true;
-                } else if (com.kwad.sdk.core.response.a.a.br(bQ) == 1) {
-                    new com.kwad.components.core.page.widget.a(ownerActivity, com.kwad.sdk.core.response.a.a.bs(bQ), new a.InterfaceC0634a() { // from class: com.kwad.components.ad.interstitial.c.a.1
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
-                        public final void a(DialogInterface dialogInterface) {
-                            dialogInterface.dismiss();
-                            com.kwad.sdk.core.report.a.c(c.this.mAdTemplate, (JSONObject) null, new f().aM(8));
-                        }
+public class a extends com.kwad.sdk.core.response.a.a {
+    public static SimpleDateFormat gL = new SimpleDateFormat("yyyy-MM-dd");
+    public long gM = -1;
+    public int jA = 0;
 
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
-                        public final void b(DialogInterface dialogInterface) {
-                            dialogInterface.dismiss();
-                            com.kwad.sdk.core.report.a.a(c.this.mAdTemplate, new f().aK(Cea708Decoder.COMMAND_SWA).aM(8));
-                            c.this.gi.dismiss();
-                        }
+    public static int cM() {
+        String Kd = y.Kd();
+        if (TextUtils.isEmpty(Kd)) {
+            return 0;
+        }
+        a aVar = new a();
+        try {
+            aVar.parseJson(new JSONObject(Kd));
+            if (!c(aVar.gM, System.currentTimeMillis())) {
+                return 0;
+            }
+            return aVar.jA;
+        } catch (Exception e) {
+            c.printStackTraceOnly(e);
+            return 0;
+        }
+    }
 
-                        @Override // com.kwad.components.core.page.widget.a.InterfaceC0634a
-                        public final void c(DialogInterface dialogInterface) {
-                        }
-                    }).show();
-                    com.kwad.sdk.core.report.a.d(cVar.mAdTemplate, new JSONObject(), new f().aK(149).aM(8));
-                    return true;
-                }
+    public static void H(Context context) {
+        String Kd = y.Kd();
+        a aVar = new a();
+        if (TextUtils.isEmpty(Kd)) {
+            aVar.jA = 1;
+            aVar.gM = System.currentTimeMillis();
+            y.Z(context, aVar.toJson().toString());
+            return;
+        }
+        try {
+            aVar.parseJson(new JSONObject(Kd));
+            if (c(aVar.gM, System.currentTimeMillis())) {
+                aVar.jA++;
+            } else {
+                aVar.jA = 1;
+                aVar.gM = System.currentTimeMillis();
+            }
+            y.Z(context, aVar.toJson().toString());
+        } catch (Exception e) {
+            c.printStackTraceOnly(e);
+        }
+    }
+
+    public static boolean c(long j, long j2) {
+        if (j > 0 && j2 > 0) {
+            try {
+                return gL.format(new Date(j)).equals(gL.format(new Date(j2)));
+            } catch (Exception e) {
+                c.printStackTraceOnly(e);
             }
         }
         return false;

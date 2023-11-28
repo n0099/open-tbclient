@@ -1,55 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipRank;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes7.dex */
-public interface pm9 {
-    void a(boolean z);
+public class pm9 implements pi {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public dm9 a;
 
-    void b(int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066989, "Lcom/baidu/tieba/pm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066989, "Lcom/baidu/tieba/pm9;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
-    void c(vi8 vi8Var);
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-    void d();
-
-    void destroy();
-
-    void e(boolean z);
-
-    void f(long j, long j2);
-
-    vi8 g();
-
-    View getRootView();
-
-    void h();
-
-    void i(boolean z, int i);
-
-    void j(int i);
-
-    int k();
-
-    void l();
-
-    void m(vi8 vi8Var);
-
-    void n(long j, long j2, int i);
-
-    ui8 o(int i);
-
-    void onChangeSkinType();
-
-    void p();
-
-    void pause();
-
-    void q();
-
-    void r(int i);
-
-    void resetView();
-
-    void resume();
-
-    void s(ui8 ui8Var, boolean z, int i);
+    public pm9(VipRank vipRank, VipUser vipUser) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipRank, vipUser};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (vipRank == null) {
+            return;
+        }
+        String str = vipRank.card_id;
+        dm9 dm9Var = new dm9();
+        this.a = dm9Var;
+        dm9Var.d(vipRank.class_name);
+        this.a.f(vipRank.class_url_name);
+        this.a.g(vipRank.class_url);
+        vipRank.my_score_rank.intValue();
+        String str2 = vipUser.portrait;
+    }
 }

@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.protocol;
 
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StatsInfo {
     public LinkedList<long[]> its;
     public String sip;

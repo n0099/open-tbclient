@@ -73,30 +73,6 @@ public final class SpriteMemeReplyData {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public SpriteMemeReplyData(String titleStr, String str, SPRITE_SCENE scene, boolean z, a aVar) {
-        this(titleStr, str, scene, z, aVar, false, 32, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {titleStr, str, scene, Boolean.valueOf(z), aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (SPRITE_SCENE) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (a) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), (DefaultConstructorMarker) objArr2[7]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(titleStr, "titleStr");
-        Intrinsics.checkNotNullParameter(scene, "scene");
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -219,12 +195,12 @@ public final class SpriteMemeReplyData {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {titleStr, str, scene, Boolean.valueOf(z), aVar, Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }

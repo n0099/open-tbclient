@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PSCIMessageRequest extends RequestPacket {
     public static final String TAG = "PSCIMessageRequest";
     public int appId;

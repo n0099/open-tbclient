@@ -134,7 +134,7 @@ public class ParseUtils {
                 packageInfo.name = optJSONObject2.optString("name");
                 packageInfo.version = optJSONObject2.optLong("version");
                 packageInfo.downloadUrl = optJSONObject2.optString("download_url");
-                packageInfo.md5 = optJSONObject2.optString(PackageTable.MD5);
+                packageInfo.md5 = optJSONObject2.optString("md5");
                 packageInfo.size = optJSONObject2.optString("size");
                 packageInfo.minHostVersion = optJSONObject2.optString("minv");
                 packageInfo.maxHostVersion = optJSONObject2.optString("maxv");

@@ -5,20 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.LotteryTheme;
+import tbclient.FrsPage.CoverImageColor;
 /* loaded from: classes9.dex */
-public class wzc extends qoc {
+public class wzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LotteryTheme lotteryTheme) {
+    public static CoverImageColor b(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lotteryTheme)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            CoverImageColor.Builder builder = new CoverImageColor.Builder();
+            if (jSONObject.has("value")) {
+                builder.value = jSONObject.optString("value");
+            }
+            if (jSONObject.has("model")) {
+                builder.model = Integer.valueOf(jSONObject.optInt("model"));
+            }
+            return builder.build(true);
+        }
+        return (CoverImageColor) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(@NonNull CoverImageColor coverImageColor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, coverImageColor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "bgcolor", lotteryTheme.bgcolor);
-            qoc.a(jSONObject, "bgimage", lotteryTheme.bgimage);
+            ltc.a(jSONObject, "value", coverImageColor.value);
+            ltc.a(jSONObject, "model", coverImageColor.model);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

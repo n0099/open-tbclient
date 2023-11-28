@@ -1,71 +1,69 @@
 package com.kwad.sdk.core.request.model;
 
-import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.ba;
-import com.kwad.sdk.utils.j;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.bj;
+import com.kwad.sdk.utils.k;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class a implements com.kwad.sdk.core.b {
-    public static JSONObject acl;
-    public String acm;
+    public static JSONObject axZ;
     public String appId;
+    public String aya;
     public String name;
     public String packageName;
     public String version;
-
-    public static boolean j(@Nullable JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return false;
-        }
-        String optString = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        String optString2 = jSONObject.optString("name");
-        return !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString) && optString.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getAppId()) && optString2.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getAppName());
-    }
-
-    public static JSONObject uM() {
-        if (!j(acl)) {
-            acl = uN().toJson();
-        }
-        return acl;
-    }
-
-    public static a uN() {
-        a aVar = new a();
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
-        aVar.appId = dVar.getAppId();
-        aVar.name = dVar.getAppName();
-        Context context = dVar.getContext();
-        if (context != null) {
-            aVar.packageName = context.getPackageName();
-            aVar.version = j.cb(context);
-        }
-        aVar.acm = com.kwad.sdk.utils.e.bR(context);
-        if (!TextUtils.isEmpty(ba.getAppId())) {
-            aVar.appId = ba.getAppId();
-        }
-        if (!TextUtils.isEmpty(ba.getPackageName())) {
-            aVar.packageName = ba.getPackageName();
-        }
-        return aVar;
-    }
 
     @Override // com.kwad.sdk.core.b
     public final void parseJson(@Nullable JSONObject jSONObject) {
     }
 
+    public static JSONObject DP() {
+        if (!l(axZ)) {
+            axZ = DQ().toJson();
+        }
+        return axZ;
+    }
+
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
-        r.putValue(jSONObject, "name", this.name);
-        r.putValue(jSONObject, "packageName", this.packageName);
-        r.putValue(jSONObject, "version", this.version);
-        r.putValue(jSONObject, "sha1", this.acm);
+        t.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
+        t.putValue(jSONObject, "name", this.name);
+        t.putValue(jSONObject, "packageName", this.packageName);
+        t.putValue(jSONObject, "version", this.version);
+        t.putValue(jSONObject, "sha1", this.aya);
         return jSONObject;
+    }
+
+    public static a DQ() {
+        a aVar = new a();
+        aVar.appId = ServiceProvider.Jo().appId;
+        aVar.name = ServiceProvider.Jo().appName;
+        aVar.packageName = ServiceProvider.Jn().getPackageName();
+        aVar.version = k.bQ(ServiceProvider.Jn());
+        aVar.aya = com.kwad.sdk.utils.e.bG(ServiceProvider.Jn());
+        if (!TextUtils.isEmpty(bj.getAppId())) {
+            aVar.appId = bj.getAppId();
+        }
+        if (!TextUtils.isEmpty(bj.getPackageName())) {
+            aVar.packageName = bj.getPackageName();
+        }
+        return aVar;
+    }
+
+    public static boolean l(@Nullable JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return false;
+        }
+        String optString = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        String optString2 = jSONObject.optString("name");
+        if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString) || !optString.equals(ServiceProvider.Jo().appId) || !optString2.equals(ServiceProvider.Jo().appName)) {
+            return false;
+        }
+        return true;
     }
 }

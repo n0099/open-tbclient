@@ -15,6 +15,7 @@ import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import com.baidu.searchbox.bddownload.core.download.DownloadCache;
 import com.baidu.searchbox.bddownload.core.file.ProcessFileStrategy;
 import com.baidu.searchbox.bddownload.core.priority.PriorityStrategy;
+import com.baidu.tieba.ms;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -144,7 +145,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             if (downloadCache != null) {
                 downloadCache.getOutputStream().cancelAsync();
             }
-            Util.d(TAG, "cancel task " + this.task.getId() + " consume: " + (SystemClock.uptimeMillis() - uptimeMillis) + "ms");
+            Util.d(TAG, "cancel task " + this.task.getId() + " consume: " + (SystemClock.uptimeMillis() - uptimeMillis) + ms.c);
             return true;
         }
     }

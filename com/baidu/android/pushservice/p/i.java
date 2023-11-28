@@ -3,13 +3,20 @@ package com.baidu.android.pushservice.p;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
     public String d;
-    public String e = "";
+    public String e;
     public String f;
     public boolean g;
     public String h;
@@ -17,10 +24,25 @@ public class i {
     public boolean j;
 
     public i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.a = "";
         this.b = "";
         this.c = "";
         this.d = "";
+        this.e = "";
         this.f = "";
         this.g = false;
         this.h = "";
@@ -44,6 +66,11 @@ public class i {
     }
 
     public String toString() {
-        return "method=" + this.a + ", accessToken=" + this.b + ", packageName=" + this.c + ", appId=" + this.d + ", userId=" + this.e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "method=" + this.a + ", accessToken=" + this.b + ", packageName=" + this.c + ", appId=" + this.d + ", userId=" + this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

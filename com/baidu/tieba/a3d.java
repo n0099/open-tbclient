@@ -5,23 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ShortUserInfo;
+import tbclient.FrsPage.WorldCupLottery;
 /* loaded from: classes5.dex */
-public class a3d extends qoc {
+public class a3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ShortUserInfo shortUserInfo) {
+    public static JSONObject b(@NonNull WorldCupLottery worldCupLottery) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, shortUserInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupLottery)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "user_id", shortUserInfo.user_id);
-            qoc.a(jSONObject, "portrait", shortUserInfo.portrait);
-            qoc.a(jSONObject, "user_name", shortUserInfo.user_name);
-            qoc.a(jSONObject, "gender", shortUserInfo.gender);
-            qoc.a(jSONObject, "intro", shortUserInfo.intro);
+            ltc.a(jSONObject, "url", worldCupLottery.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

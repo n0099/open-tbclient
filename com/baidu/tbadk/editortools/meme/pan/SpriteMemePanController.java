@@ -8,6 +8,8 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.meme.SpriteMemeShowStrategy;
 import com.baidu.tbadk.editortools.meme.list.GeneratedErrorData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
 import com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel;
@@ -17,12 +19,12 @@ import com.baidu.tbadk.editortools.meme.pan.SpriteMemePan;
 import com.baidu.tbadk.editortools.meme.pan.SpriteMemePanController;
 import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
 import com.baidu.tieba.dg5;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.eg5;
+import com.baidu.tieba.fg5;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.vf5;
+import com.baidu.tieba.wf5;
 import com.baidu.tieba.xf5;
-import com.baidu.tieba.yf5;
-import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +45,8 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0010\u001a\u00020\u0011H\u0007Jd\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\b\b\u0002\u0010\u0017\u001a\u00020\u00182\b\b\u0002\u0010\u0019\u001a\u00020\u001a2\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\b\b\u0002\u0010\u001d\u001a\u00020\u001a2\b\b\u0002\u0010\u001e\u001a\u00020\u00162\b\b\u0002\u0010\u001f\u001a\u00020\u0018H\u0007J\u0018\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u0019\u001a\u00020\u001aH\u0007J4\u0010$\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007J6\u0010'\u001a\u00020\u00112\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u00162\u0006\u0010\u0019\u001a\u00020\u001aH\u0007J\u001a\u0010(\u001a\u00020\u001a2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,J@\u0010-\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u001e\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001a2\n\b\u0002\u0010%\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007JD\u0010.\u001a\u00020\u00112\u0006\u0010/\u001a\u0002002\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u00182\b\b\u0002\u0010%\u001a\u00020\u00162\b\b\u0002\u0010&\u001a\u00020\u00162\u0006\u0010\u001d\u001a\u00020\u001aH\u0002J(\u00101\u001a\u00020\u00112\u0006\u0010\"\u001a\u00020!2\u0006\u00102\u001a\u00020!2\u0006\u00103\u001a\u00020\u00162\u0006\u0010&\u001a\u00020\u0016H\u0002J(\u00104\u001a\u00020\u00112\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\u0006\u00102\u001a\u00020!H\u0007J\b\u00105\u001a\u00020\u0011H\u0007J^\u00106\u001a\u00020\u00112\u0006\u00107\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0017\u001a\u00020\u00182\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\b\b\u0002\u0010\u001d\u001a\u00020\u001a2\u000e\b\u0002\u00108\u001a\b\u0012\u0004\u0012\u00020:092\b\b\u0002\u0010\u0019\u001a\u00020\u001aH\u0003R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006R\u001b\u0010\t\u001a\u00020\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\b\u001a\u0004\b\u000b\u0010\fR\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006;"}, d2 = {"Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePanController;", "", "()V", "generateLoopModel", "Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeLoopModel;", "getGenerateLoopModel", "()Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeLoopModel;", "generateLoopModel$delegate", "Lkotlin/Lazy;", "model", "Lcom/baidu/tbadk/editortools/meme/model/QuerySpriteMemeModel;", "getModel", "()Lcom/baidu/tbadk/editortools/meme/model/QuerySpriteMemeModel;", "model$delegate", "querySpriteMemeRunnable", "Ljava/lang/Runnable;", "cancelModelRequest", "", "firstRequest", "spriteMemePan", "Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePan;", "scene", "", "forumId", "", "hasContent", "", "forumNameNullable", "tidNullable", "needPlayAnimation", "query", "memeId", "getObjSourceByStateType", "", "type", "Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePanStateType;", "hideSpriteMeme", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "tid", "initSpriteMeme", "isSpriteMeme", "context", "Landroid/content/Context;", SapiAccount.SAPI_ACCOUNT_FROMTYPE, "Lcom/baidu/tbadk/editortools/pb/PbNewEditorTool$InputShowType;", "requestQuery", "startLoop", "spriteMemeQueryData", "Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeQueryData;", "statClick", "objSource", "fname", "statSpriteShow", "unRegisterCallbacks", "updateSpriteMemePanState", "stateType", "memeList", "", "Lcom/baidu/tbadk/editortools/meme/list/MemeData;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+import tbclient.SpriteMemeInfo;
+@Metadata(d1 = {"\u0000\u008a\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\r\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0010\u001a\u00020\u0011H\u0007Jd\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\b\b\u0002\u0010\u0017\u001a\u00020\u00182\b\b\u0002\u0010\u0019\u001a\u00020\u001a2\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\b\b\u0002\u0010\u001d\u001a\u00020\u001a2\b\b\u0002\u0010\u001e\u001a\u00020\u00162\b\b\u0002\u0010\u001f\u001a\u00020\u0018H\u0007J\u0018\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u0019\u001a\u00020\u001aH\u0007J4\u0010$\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007J6\u0010'\u001a\u00020\u00112\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u00162\u0006\u0010\u0019\u001a\u00020\u001aH\u0007J\u001c\u0010(\u001a\u00020\u001a2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,H\u0007J8\u0010-\u001a\u00020\u001a2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,2\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0019\u001a\u00020\u001a2\b\u0010.\u001a\u0004\u0018\u00010/H\u0007J&\u00100\u001a\u00020\u00112\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,2\b\u0010\u0013\u001a\u0004\u0018\u00010\u0014H\u0007JJ\u00101\u001a\u00020\u00112\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,2\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007JT\u00102\u001a\u00020\u00112\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,2\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\b\u00103\u001a\u0004\u0018\u0001042\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010%\u001a\u0004\u0018\u00010\u00162\b\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007J@\u00105\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u001e\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001a2\n\b\u0002\u0010%\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010&\u001a\u0004\u0018\u00010\u0016H\u0007JD\u00106\u001a\u00020\u00112\u0006\u00107\u001a\u0002082\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u00182\b\b\u0002\u0010%\u001a\u00020\u00162\b\b\u0002\u0010&\u001a\u00020\u00162\u0006\u0010\u001d\u001a\u00020\u001aH\u0002J(\u00109\u001a\u00020\u00112\u0006\u0010\"\u001a\u00020!2\u0006\u0010:\u001a\u00020!2\u0006\u0010;\u001a\u00020\u00162\u0006\u0010&\u001a\u00020\u0016H\u0002J(\u0010<\u001a\u00020\u00112\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\u0006\u0010:\u001a\u00020!H\u0007J@\u0010=\u001a\u00020\u00112\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,2\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010>\u001a\u00020?2\b\u0010.\u001a\u0004\u0018\u00010/H\u0007J\b\u0010@\u001a\u00020\u0011H\u0007J^\u0010A\u001a\u00020\u00112\u0006\u0010B\u001a\u00020#2\u0006\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0017\u001a\u00020\u00182\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00162\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00162\b\b\u0002\u0010\u001d\u001a\u00020\u001a2\u000e\b\u0002\u0010C\u001a\b\u0012\u0004\u0012\u00020E0D2\b\b\u0002\u0010\u0019\u001a\u00020\u001aH\u0003R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006R\u001b\u0010\t\u001a\u00020\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\b\u001a\u0004\b\u000b\u0010\fR\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006F"}, d2 = {"Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePanController;", "", "()V", "generateLoopModel", "Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeLoopModel;", "getGenerateLoopModel", "()Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeLoopModel;", "generateLoopModel$delegate", "Lkotlin/Lazy;", "model", "Lcom/baidu/tbadk/editortools/meme/model/QuerySpriteMemeModel;", "getModel", "()Lcom/baidu/tbadk/editortools/meme/model/QuerySpriteMemeModel;", "model$delegate", "querySpriteMemeRunnable", "Ljava/lang/Runnable;", "cancelModelRequest", "", "firstRequest", "spriteMemePan", "Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePan;", "scene", "", "forumId", "", "hasContent", "", "forumNameNullable", "tidNullable", "needPlayAnimation", "query", "memeId", "getObjSourceByStateType", "", "type", "Lcom/baidu/tbadk/editortools/meme/pan/SpriteMemePanStateType;", "hideSpriteMeme", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "tid", "initSpriteMeme", "isSpriteMeme", "context", "Landroid/content/Context;", SapiAccount.SAPI_ACCOUNT_FROMTYPE, "Lcom/baidu/tbadk/editortools/pb/PbNewEditorTool$InputShowType;", "needHideSpriteMeme", "ets", "Lcom/baidu/tbadk/editortools/EditorTools;", "onChangeSkinType", "onEditorToolsHide", "onEditorToolsShow", "spriteMemeInfo", "Ltbclient/SpriteMemeInfo;", "requestQuery", "startLoop", "spriteMemeQueryData", "Lcom/baidu/tbadk/editortools/meme/model/SpriteMemeQueryData;", "statClick", "objSource", "fname", "statSpriteShow", "tryRequestSpriteMemeQuery", "charSequence", "", "unRegisterCallbacks", "updateSpriteMemePanState", "stateType", "memeList", "", "Lcom/baidu/tbadk/editortools/meme/list/MemeData;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class SpriteMemePanController {
     public static /* synthetic */ Interceptable $ic;
@@ -79,17 +82,6 @@ public final class SpriteMemePanController {
             iArr[SpriteMemePanStateType.INPUT_HIDE.ordinal()] = 4;
             iArr[SpriteMemePanStateType.INIT.ordinal()] = 5;
             $EnumSwitchMapping$0 = iArr;
-        }
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final void e(SpriteMemePan spriteMemePan, String scene, long j, boolean z, String str, String str2, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{spriteMemePan, scene, Long.valueOf(j), Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(spriteMemePan, "spriteMemePan");
-            Intrinsics.checkNotNullParameter(scene, "scene");
-            g(spriteMemePan, scene, j, z, str, str2, z2, null, 0L, 384, null);
         }
     }
 
@@ -130,7 +122,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel.a
-        public void a(yf5 spriteMemeQueryData, String requestQuery) {
+        public void a(eg5 spriteMemeQueryData, String requestQuery) {
             SpriteMemePanStateType spriteMemePanStateType;
             SpriteMemePanStateType spriteMemePanStateType2;
             Interceptable interceptable = $ic;
@@ -146,7 +138,7 @@ public final class SpriteMemePanController {
                     } else {
                         spriteMemePanStateType2 = SpriteMemePanStateType.UNINPUT_HIDE;
                     }
-                    SpriteMemePanController.u(spriteMemePanStateType2, this.c, this.d, this.e, this.f, this.g, null, false, 192, null);
+                    SpriteMemePanController.y(spriteMemePanStateType2, this.c, this.d, this.e, this.f, this.g, null, false, 192, null);
                     return;
                 }
                 if (this.b) {
@@ -154,12 +146,12 @@ public final class SpriteMemePanController {
                 } else {
                     spriteMemePanStateType = SpriteMemePanStateType.UNINPUT_SHOW;
                 }
-                SpriteMemePanController.a.p(spriteMemeQueryData, spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g);
+                SpriteMemePanController.a.s(spriteMemeQueryData, spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g);
                 List<MemeData> a = spriteMemeQueryData.a();
                 for (MemeData memeData : a) {
                     memeData.setRequestQuery(requestQuery);
                 }
-                SpriteMemePanController.u(spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g, a, false, 128, null);
+                SpriteMemePanController.y(spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g, a, false, 128, null);
             }
         }
 
@@ -173,7 +165,7 @@ public final class SpriteMemePanController {
                 } else {
                     spriteMemePanStateType = SpriteMemePanStateType.UNINPUT_HIDE;
                 }
-                SpriteMemePanController.u(spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g, null, false, 192, null);
+                SpriteMemePanController.y(spriteMemePanStateType, this.c, this.d, this.e, this.f, this.g, null, false, 192, null);
             }
         }
     }
@@ -215,7 +207,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.SpriteMemeLoopModel.a
-        public void a(xf5 spriteMemeLoopData) {
+        public void a(dg5 spriteMemeLoopData) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spriteMemeLoopData) == null) {
@@ -234,9 +226,9 @@ public final class SpriteMemePanController {
                 }
                 List<MemeData> plus = CollectionsKt___CollectionsKt.plus((Collection) arrayList, (Iterable) spriteMemeLoopData.a());
                 for (MemeData memeData : plus) {
-                    memeData.setRequestQuery(SpriteMemePanController.a.i().c());
+                    memeData.setRequestQuery(SpriteMemePanController.a.h().c());
                 }
-                SpriteMemePanController.u(this.b, this.c, this.d, this.e, this.f, this.g, plus, false, 128, null);
+                SpriteMemePanController.y(this.b, this.c, this.d, this.e, this.f, this.g, plus, false, 128, null);
             }
         }
 
@@ -281,9 +273,9 @@ public final class SpriteMemePanController {
                 }
                 List<MemeData> plus = CollectionsKt___CollectionsKt.plus((Collection) arrayList2, (Iterable) arrayList3);
                 for (MemeData memeData : plus) {
-                    memeData.setRequestQuery(SpriteMemePanController.a.i().c());
+                    memeData.setRequestQuery(SpriteMemePanController.a.h().c());
                 }
-                SpriteMemePanController.u(this.b, this.c, this.d, this.e, this.f, this.g, plus, false, 128, null);
+                SpriteMemePanController.y(this.b, this.c, this.d, this.e, this.f, this.g, plus, false, 128, null);
             }
         }
     }
@@ -326,8 +318,8 @@ public final class SpriteMemePanController {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SpriteMemePanController.a.i().f();
-                SpriteMemePanController.a.q(3, 3, this.a, this.b);
+                SpriteMemePanController.a.h().f();
+                SpriteMemePanController.a.t(3, 3, this.a, this.b);
             }
         }
     }
@@ -366,8 +358,8 @@ public final class SpriteMemePanController {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SpriteMemePanController.g(this.a, "click_recom", this.b, false, this.c, this.d, false, null, 0L, FileUtils.S_IRWXU, null);
-                SpriteMemePanController.a.q(2, 1, this.c, this.d);
+                SpriteMemePanController.f(this.a, "click_recom", this.b, false, this.c, this.d, false, null, 0L, FileUtils.S_IRWXU, null);
+                SpriteMemePanController.a.t(2, 1, this.c, this.d);
             }
         }
 
@@ -418,8 +410,8 @@ public final class SpriteMemePanController {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SpriteMemePanController.a.i().f();
-                SpriteMemePanController.a.q(3, 4, this.a, this.b);
+                SpriteMemePanController.a.h().f();
+                SpriteMemePanController.a.t(3, 4, this.a, this.b);
             }
         }
     }
@@ -458,8 +450,8 @@ public final class SpriteMemePanController {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SpriteMemePanController.g(this.a, "click_recom", this.b, true, this.c, this.d, false, null, 0L, FileUtils.S_IRWXU, null);
-                SpriteMemePanController.a.q(2, 2, this.c, this.d);
+                SpriteMemePanController.f(this.a, "click_recom", this.b, true, this.c, this.d, false, null, 0L, FileUtils.S_IRWXU, null);
+                SpriteMemePanController.a.t(2, 2, this.c, this.d);
             }
         }
 
@@ -508,22 +500,22 @@ public final class SpriteMemePanController {
     public static final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.i().a();
-            SpriteMemeLoopModel.m(a.h(), false, 1, null);
+            a.h().a();
+            SpriteMemeLoopModel.m(a.g(), false, 1, null);
         }
     }
 
     @JvmStatic
-    public static final void s() {
+    public static final void w() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, null) == null) && (runnable = d) != null) {
+        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && (runnable = d) != null) {
             SafeHandler.getInst().removeCallbacks(runnable);
             d = null;
         }
     }
 
-    public final SpriteMemeLoopModel h() {
+    public final SpriteMemeLoopModel g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -532,7 +524,7 @@ public final class SpriteMemePanController {
         return (SpriteMemeLoopModel) invokeV.objValue;
     }
 
-    public final QuerySpriteMemeModel i() {
+    public final QuerySpriteMemeModel h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -543,11 +535,11 @@ public final class SpriteMemePanController {
 
     @JvmStatic
     @JvmOverloads
-    public static final void f(SpriteMemePan spriteMemePan, String scene, long j, boolean z, String str, String str2, boolean z2, String query, long j2) {
+    public static final void e(SpriteMemePan spriteMemePan, String scene, long j, boolean z, String str, String str2, boolean z2, String query, long j2) {
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{spriteMemePan, scene, Long.valueOf(j), Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), query, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{spriteMemePan, scene, Long.valueOf(j), Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), query, Long.valueOf(j2)}) == null) {
             Intrinsics.checkNotNullParameter(spriteMemePan, "spriteMemePan");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(query, "query");
@@ -561,18 +553,18 @@ public final class SpriteMemePanController {
             } else {
                 str4 = str2;
             }
-            a.i().m(query);
-            a.i().j(j);
-            a.i().o(scene);
-            a.i().l(j2);
-            a.i().k(str3);
-            a.i().p(str4);
-            a.i().n(new b(query, z, spriteMemePan, j, str3, str4, z2));
-            a.i().b();
+            a.h().m(query);
+            a.h().j(j);
+            a.h().o(scene);
+            a.h().l(j2);
+            a.h().k(str3);
+            a.h().p(str4);
+            a.h().n(new b(query, z, spriteMemePan, j, str3, str4, z2));
+            a.h().b();
         }
     }
 
-    public static /* synthetic */ void g(SpriteMemePan spriteMemePan, String str, long j, boolean z, String str2, String str3, boolean z2, String str4, long j2, int i, Object obj) {
+    public static /* synthetic */ void f(SpriteMemePan spriteMemePan, String str, long j, boolean z, String str2, String str3, boolean z2, String str4, long j2, int i, Object obj) {
         String str5;
         long j3;
         boolean z3;
@@ -615,14 +607,14 @@ public final class SpriteMemePanController {
         if ((i & 256) == 0) {
             j4 = j2;
         }
-        f(spriteMemePan, str5, j3, z3, str6, str7, z4, str8, j4);
+        e(spriteMemePan, str5, j3, z3, str6, str7, z4, str8, j4);
     }
 
     @JvmStatic
-    public static final int j(SpriteMemePanStateType type, boolean z) {
+    public static final int i(SpriteMemePanStateType type, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, type, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, type, z)) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             int i = a.$EnumSwitchMapping$0[type.ordinal()];
             if (i != 1) {
@@ -641,12 +633,80 @@ public final class SpriteMemePanController {
         return invokeLZ.intValue;
     }
 
-    public final boolean m(Context context, PbNewEditorTool.InputShowType inputShowType) {
+    @JvmStatic
+    public static final SpriteMemePanStateType j(SpriteMemePan spriteMemePan, boolean z, long j, String str, String str2) {
+        InterceptResult invokeCommon;
+        SpriteMemePanStateType spriteMemePanStateType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{spriteMemePan, Boolean.valueOf(z), Long.valueOf(j), str, str2})) == null) {
+            Intrinsics.checkNotNullParameter(spriteMemePan, "spriteMemePan");
+            if (z) {
+                spriteMemePanStateType = SpriteMemePanStateType.INPUT_HIDE;
+            } else {
+                spriteMemePanStateType = SpriteMemePanStateType.UNINPUT_HIDE;
+            }
+            y(spriteMemePanStateType, spriteMemePan, j, str, str2, true, null, false, 192, null);
+            return spriteMemePanStateType;
+        }
+        return (SpriteMemePanStateType) invokeCommon.objValue;
+    }
+
+    @JvmStatic
+    public static final boolean m(Context context, PbNewEditorTool.InputShowType inputShowType, SpriteMemePan spriteMemePan, boolean z, EditorTools editorTools) {
+        InterceptResult invokeCommon;
+        String str;
+        String str2;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, inputShowType, spriteMemePan, Boolean.valueOf(z), editorTools})) == null) {
+            if (!l(context, inputShowType) || spriteMemePan == null) {
+                return false;
+            }
+            boolean a2 = spriteMemePan.a();
+            if (a2) {
+                String str3 = "";
+                if (editorTools == null) {
+                    str = "";
+                    str2 = str;
+                    j = 0;
+                } else {
+                    long fid = editorTools.getFid();
+                    String fname = editorTools.getFname();
+                    if (fname == null) {
+                        fname = "";
+                    }
+                    String tid = editorTools.getTid();
+                    if (tid != null) {
+                        str3 = tid;
+                    }
+                    str2 = str3;
+                    j = fid;
+                    str = fname;
+                }
+                j(spriteMemePan, z, j, str, str2);
+            }
+            return a2;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void k(SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) != null) || spriteMemePan == null) {
+            return;
+        }
+        y(SpriteMemePanStateType.INIT, spriteMemePan, j, str, str2, false, null, z, 96, null);
+    }
+
+    @JvmStatic
+    public static final boolean l(Context context, PbNewEditorTool.InputShowType inputShowType) {
         InterceptResult invokeLL;
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, inputShowType)) == null) {
-            if (zf5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, inputShowType)) == null) {
+            if (fg5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE_FLOOR)) {
                 z = true;
             } else {
                 z = false;
@@ -654,7 +714,12 @@ public final class SpriteMemePanController {
             if (context == null) {
                 return z;
             }
-            if (z && !UtilHelper.isFoldScreen() && !UtilHelper.isLargeScreen(context)) {
+            if ((UtilHelper.isFoldScreen() || UtilHelper.isLargeScreen(context)) && inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z && !z2) {
                 return true;
             }
             return false;
@@ -663,50 +728,89 @@ public final class SpriteMemePanController {
     }
 
     @JvmStatic
-    public static final SpriteMemePanStateType k(SpriteMemePan spriteMemePan, boolean z, long j, String str, String str2) {
-        InterceptResult invokeCommon;
-        SpriteMemePanStateType spriteMemePanStateType;
+    public static final void n(Context context, PbNewEditorTool.InputShowType inputShowType, SpriteMemePan spriteMemePan) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{spriteMemePan, Boolean.valueOf(z), Long.valueOf(j), str, str2})) == null) {
-            Intrinsics.checkNotNullParameter(spriteMemePan, "spriteMemePan");
-            if (z) {
-                spriteMemePanStateType = SpriteMemePanStateType.INPUT_HIDE;
-            } else {
-                spriteMemePanStateType = SpriteMemePanStateType.UNINPUT_HIDE;
-            }
-            u(spriteMemePanStateType, spriteMemePan, j, str, str2, true, null, false, 192, null);
-            return spriteMemePanStateType;
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, context, inputShowType, spriteMemePan) == null) && l(context, inputShowType) && spriteMemePan != null) {
+            spriteMemePan.b();
         }
-        return (SpriteMemePanStateType) invokeCommon.objValue;
     }
 
     @JvmStatic
-    public static final void l(SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
+    public static final void u(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) != null) || spriteMemePan == null) {
+        if (interceptable == null || interceptable.invokeLLI(65554, null, str, str2, i) == null) {
+            if (str == null) {
+                str = "";
+            }
+            if (str2 == null) {
+                str2 = "0";
+            }
+            xf5 xf5Var = new xf5();
+            xf5Var.l(1);
+            xf5Var.j(i);
+            xf5Var.g(str);
+            xf5Var.k(str2);
+            wf5.a.c(xf5Var);
+        }
+    }
+
+    @JvmStatic
+    public static final void o(Context context, PbNewEditorTool.InputShowType inputShowType, SpriteMemePan spriteMemePan, boolean z, long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{context, inputShowType, spriteMemePan, Boolean.valueOf(z), Long.valueOf(j), str, str2}) != null) || !l(context, inputShowType)) {
             return;
         }
-        u(SpriteMemePanStateType.INIT, spriteMemePan, j, str, str2, false, null, z, 96, null);
+        k(spriteMemePan, j, str, str2, z);
+        d();
     }
 
     @JvmStatic
-    public static final void n(final SpriteMemePan spriteMemePan, final String query, final long j, final boolean z, final String str, final String str2) {
+    public static final void p(Context context, PbNewEditorTool.InputShowType inputShowType, SpriteMemePan spriteMemePan, SpriteMemeInfo spriteMemeInfo, boolean z, long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65551, null, new Object[]{context, inputShowType, spriteMemePan, spriteMemeInfo, Boolean.valueOf(z), Long.valueOf(j), str, str2}) != null) || !l(context, inputShowType) || spriteMemePan == null) {
+            return;
+        }
+        if (spriteMemeInfo != null) {
+            Long l = spriteMemeInfo.meme_id;
+            Intrinsics.checkNotNullExpressionValue(l, "spriteMemeInfo.meme_id");
+            if (l.longValue() > 0) {
+                String str3 = spriteMemeInfo.query;
+                Intrinsics.checkNotNullExpressionValue(str3, "spriteMemeInfo.query");
+                Long l2 = spriteMemeInfo.meme_id;
+                Intrinsics.checkNotNullExpressionValue(l2, "spriteMemeInfo.meme_id");
+                e(spriteMemePan, "use_same", j, z, str, str2, true, str3, l2.longValue());
+                k(spriteMemePan, j, str, str2, z);
+                return;
+            }
+        }
+        if (z) {
+            j(spriteMemePan, z, j, str, str2);
+        } else if (SpriteMemeShowStrategy.a.l()) {
+            f(spriteMemePan, "click_recom", j, z, str, str2, true, null, 0L, 384, null);
+            k(spriteMemePan, j, str, str2, z);
+        } else {
+            j(spriteMemePan, z, j, str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void q(final SpriteMemePan spriteMemePan, final String query, final long j, final boolean z, final String str, final String str2) {
         SpriteMemePanStateType spriteMemePanStateType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{spriteMemePan, query, Long.valueOf(j), Boolean.valueOf(z), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{spriteMemePan, query, Long.valueOf(j), Boolean.valueOf(z), str, str2}) == null) {
             Intrinsics.checkNotNullParameter(spriteMemePan, "spriteMemePan");
             Intrinsics.checkNotNullParameter(query, "query");
-            s();
+            w();
             if (StringsKt__StringsJVMKt.isBlank(query)) {
                 if (z) {
                     spriteMemePanStateType = SpriteMemePanStateType.INPUT_HIDE;
                 } else {
                     spriteMemePanStateType = SpriteMemePanStateType.UNINPUT_HIDE;
                 }
-                u(spriteMemePanStateType, spriteMemePan, j, str, str2, false, null, false, 224, null);
+                y(spriteMemePanStateType, spriteMemePan, j, str, str2, false, null, false, 224, null);
                 return;
             }
-            d = new Runnable() { // from class: com.baidu.tieba.bg5
+            d = new Runnable() { // from class: com.baidu.tieba.hg5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -714,48 +818,66 @@ public final class SpriteMemePanController {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SpriteMemePanController.o(SpriteMemePan.this, j, z, str, str2, query);
+                        SpriteMemePanController.r(SpriteMemePan.this, j, z, str, str2, query);
                     }
                 }
             };
-            SafeHandler.getInst().postDelayed(d, pf5.a.a().f());
+            SafeHandler.getInst().postDelayed(d, vf5.a.a().f());
         }
     }
 
-    public static final void o(SpriteMemePan spriteMemePan, long j, boolean z, String str, String str2, String query) {
+    @JvmStatic
+    public static final void v(Context context, PbNewEditorTool.InputShowType inputShowType, SpriteMemePan spriteMemePan, boolean z, CharSequence charSequence, EditorTools editorTools) {
+        long j;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{spriteMemePan, Long.valueOf(j), Boolean.valueOf(z), str, str2, query}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{context, inputShowType, spriteMemePan, Boolean.valueOf(z), charSequence, editorTools}) == null) {
+            Intrinsics.checkNotNullParameter(charSequence, "charSequence");
+            if (!l(context, inputShowType)) {
+                return;
+            }
+            String obj = charSequence.toString();
+            String str3 = "";
+            if (editorTools != null) {
+                long fid = editorTools.getFid();
+                String fname = editorTools.getFname();
+                if (fname == null) {
+                    fname = "";
+                }
+                String tid = editorTools.getTid();
+                if (tid != null) {
+                    str3 = tid;
+                }
+                j = fid;
+                str2 = str3;
+                str = fname;
+            } else {
+                j = 0;
+                str = "";
+                str2 = str;
+            }
+            if (spriteMemePan != null) {
+                q(spriteMemePan, obj, j, z, str, str2);
+            }
+        }
+    }
+
+    public static final void r(SpriteMemePan spriteMemePan, long j, boolean z, String str, String str2, String query) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{spriteMemePan, Long.valueOf(j), Boolean.valueOf(z), str, str2, query}) == null) {
             Intrinsics.checkNotNullParameter(spriteMemePan, "$spriteMemePan");
             Intrinsics.checkNotNullParameter(query, "$query");
-            g(spriteMemePan, "input_query", j, z, str, str2, false, query, 0L, 256, null);
+            f(spriteMemePan, "input_query", j, z, str, str2, false, query, 0L, 256, null);
         }
     }
 
     @JvmStatic
-    public static final void r(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65550, null, str, str2, i) == null) {
-            if (str == null) {
-                str = "";
-            }
-            if (str2 == null) {
-                str2 = "0";
-            }
-            rf5 rf5Var = new rf5();
-            rf5Var.l(1);
-            rf5Var.j(i);
-            rf5Var.g(str);
-            rf5Var.k(str2);
-            qf5.a.c(rf5Var);
-        }
-    }
-
-    @JvmStatic
-    public static final void t(SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z, List<? extends MemeData> list, boolean z2) {
+    public static final void x(SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z, List<? extends MemeData> list, boolean z2) {
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z), list, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z), list, Boolean.valueOf(z2)}) == null) {
             if (str == null) {
                 str3 = "";
             } else {
@@ -768,7 +890,7 @@ public final class SpriteMemePanController {
             }
             spriteMemePan.setFname(str3);
             spriteMemePan.setTid(str4);
-            r(str3, str4, j(spriteMemePanStateType, z2));
+            u(str3, str4, i(spriteMemePanStateType, z2));
             int i = a.$EnumSwitchMapping$0[spriteMemePanStateType.ordinal()];
             if (i != 1) {
                 if (i != 2) {
@@ -780,25 +902,25 @@ public final class SpriteMemePanController {
                                 }
                                 return;
                             }
-                            spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
+                            spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
                             return;
                         }
-                        spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
+                        spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
                         d();
                         return;
                     }
-                    spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().g()), pf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
+                    spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().g()), vf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
                     return;
                 }
-                spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
+                spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
                 d();
                 return;
             }
-            spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().k()), pf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
+            spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().k()), vf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
         }
     }
 
-    public static /* synthetic */ void u(SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z, List list, boolean z2, int i, Object obj) {
+    public static /* synthetic */ void y(SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z, List list, boolean z2, int i, Object obj) {
         long j2;
         String str3;
         boolean z3;
@@ -831,38 +953,38 @@ public final class SpriteMemePanController {
         if ((i & 128) == 0) {
             z4 = z2;
         }
-        t(spriteMemePanStateType, spriteMemePan, j2, str3, str4, z3, list2, z4);
+        x(spriteMemePanStateType, spriteMemePan, j2, str3, str4, z3, list2, z4);
     }
 
-    public final void p(yf5 yf5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
+    public final void s(eg5 eg5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{yf5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
-            String b2 = yf5Var.b();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eg5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
+            String b2 = eg5Var.b();
             if (b2.length() == 0) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (z2) {
-                h().j(null);
-                SpriteMemeLoopModel.m(h(), false, 1, null);
+                g().j(null);
+                SpriteMemeLoopModel.m(g(), false, 1, null);
                 return;
             }
-            h().j(new c(yf5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
-            h().k(b2);
+            g().j(new c(eg5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
+            g().k(b2);
         }
     }
 
-    public final void q(int i, int i2, String str, String str2) {
+    public final void t(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            rf5 rf5Var = new rf5();
-            rf5Var.l(i);
-            rf5Var.j(i2);
-            rf5Var.g(str);
-            rf5Var.k(str2);
-            qf5.a.c(rf5Var);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+            xf5 xf5Var = new xf5();
+            xf5Var.l(i);
+            xf5Var.j(i2);
+            xf5Var.g(str);
+            xf5Var.k(str2);
+            wf5.a.c(xf5Var);
         }
     }
 }

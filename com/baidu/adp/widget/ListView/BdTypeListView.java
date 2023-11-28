@@ -9,12 +9,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bi;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ci;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.ji;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,16 +24,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
+public class BdTypeListView extends BdListView implements vi<BdTypeListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TypeAdapter G;
-    public HashMap<BdUniqueId, bi> H;
-    public HashMap<BdUniqueId, ii> I;
+    public HashMap<BdUniqueId, ci> H;
+    public HashMap<BdUniqueId, ji> I;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.tieba.qi
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.tieba.ri
     /* renamed from: getListView */
     public BdListView getListView2() {
         InterceptResult invokeV;
@@ -122,7 +122,7 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                 TypeAdapter typeAdapter = this.a.G;
                 if (typeAdapter != null) {
-                    return typeAdapter.h(adapterView, view2, i, j);
+                    return typeAdapter.f(adapterView, view2, i, j);
                 }
                 return false;
             }
@@ -201,11 +201,11 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<BdUniqueId, ii> hashMap = this.I;
+            HashMap<BdUniqueId, ji> hashMap = this.I;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<BdUniqueId, bi> hashMap2 = this.H;
+            HashMap<BdUniqueId, ci> hashMap2 = this.H;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }
@@ -216,8 +216,8 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.ui
-    public List<oi> getData() {
+    @Override // com.baidu.tieba.vi
+    public List<pi> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -226,13 +226,13 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
         return (List) invokeV.objValue;
     }
 
-    public oi G(int i) {
+    public pi G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.G.getItem(i);
         }
-        return (oi) invokeI.objValue;
+        return (pi) invokeI.objValue;
     }
 
     public final void H() {
@@ -252,53 +252,53 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.ui
-    public void addAdapters(List<bi> list) {
+    @Override // com.baidu.tieba.vi
+    public void addAdapters(List<ci> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            for (bi<oi, TypeAdapter.ViewHolder> biVar : list) {
-                if (biVar != null) {
+            for (ci<pi, TypeAdapter.ViewHolder> ciVar : list) {
+                if (ciVar != null) {
                     BdUniqueId bdUniqueId = null;
-                    if (biVar.getHeaderId() != null) {
-                        bdUniqueId = biVar.getHeaderId();
+                    if (ciVar.getHeaderId() != null) {
+                        bdUniqueId = ciVar.getHeaderId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            ii iiVar = new ii(biVar.mContext, bdUniqueId, biVar.mPageId);
-                            iiVar.x(biVar);
-                            this.G.a(iiVar);
-                            this.I.put(bdUniqueId, iiVar);
+                            ji jiVar = new ji(ciVar.mContext, bdUniqueId, ciVar.mPageId);
+                            jiVar.x(ciVar);
+                            this.G.a(jiVar);
+                            this.I.put(bdUniqueId, jiVar);
                         }
                     }
-                    if (biVar.getContentId() != null) {
-                        bdUniqueId = biVar.getContentId();
+                    if (ciVar.getContentId() != null) {
+                        bdUniqueId = ciVar.getContentId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            ii iiVar2 = new ii(biVar.mContext, bdUniqueId, biVar.mPageId);
-                            iiVar2.x(biVar);
-                            this.G.a(iiVar2);
-                            this.I.put(bdUniqueId, iiVar2);
+                            ji jiVar2 = new ji(ciVar.mContext, bdUniqueId, ciVar.mPageId);
+                            jiVar2.x(ciVar);
+                            this.G.a(jiVar2);
+                            this.I.put(bdUniqueId, jiVar2);
                         }
                     }
-                    if (biVar.getExtendId() != null) {
-                        bdUniqueId = biVar.getExtendId();
+                    if (ciVar.getExtendId() != null) {
+                        bdUniqueId = ciVar.getExtendId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            ii iiVar3 = new ii(biVar.mContext, bdUniqueId, biVar.mPageId);
-                            iiVar3.x(biVar);
-                            this.G.a(iiVar3);
-                            this.I.put(bdUniqueId, iiVar3);
+                            ji jiVar3 = new ji(ciVar.mContext, bdUniqueId, ciVar.mPageId);
+                            jiVar3.x(ciVar);
+                            this.G.a(jiVar3);
+                            this.I.put(bdUniqueId, jiVar3);
                         }
                     }
-                    if (biVar.getBottomId() != null) {
-                        bdUniqueId = biVar.getBottomId();
+                    if (ciVar.getBottomId() != null) {
+                        bdUniqueId = ciVar.getBottomId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            ii iiVar4 = new ii(biVar.mContext, bdUniqueId, biVar.mPageId);
-                            iiVar4.x(biVar);
-                            this.G.a(iiVar4);
-                            this.I.put(bdUniqueId, iiVar4);
+                            ji jiVar4 = new ji(ciVar.mContext, bdUniqueId, ciVar.mPageId);
+                            jiVar4.x(ciVar);
+                            this.G.a(jiVar4);
+                            this.I.put(bdUniqueId, jiVar4);
                         }
                     }
                     if (bdUniqueId == null) {
-                        this.G.a(biVar);
+                        this.G.a(ciVar);
                     } else {
-                        this.H.put(biVar.mType, biVar);
+                        this.H.put(ciVar.mType, ciVar);
                     }
                 }
             }
@@ -306,57 +306,57 @@ public class BdTypeListView extends BdListView implements ui<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.ui
-    public void setData(List<? extends oi> list) {
+    @Override // com.baidu.tieba.vi
+    public void setData(List<? extends pi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            for (oi oiVar : list) {
-                if (oiVar != null) {
-                    if (this.H.containsKey(oiVar.getType())) {
-                        bi biVar = this.H.get(oiVar.getType());
-                        if (biVar.getHeaderId() != null) {
-                            hi hiVar = new hi();
-                            hiVar.e(biVar.getHeaderId());
-                            if (oiVar instanceof BaseCardInfo) {
-                                hiVar.position = ((BaseCardInfo) oiVar).position;
-                                hiVar.setSupportType(BaseCardInfo.SupportType.TOP);
+            for (pi piVar : list) {
+                if (piVar != null) {
+                    if (this.H.containsKey(piVar.getType())) {
+                        ci ciVar = this.H.get(piVar.getType());
+                        if (ciVar.getHeaderId() != null) {
+                            ii iiVar = new ii();
+                            iiVar.e(ciVar.getHeaderId());
+                            if (piVar instanceof BaseCardInfo) {
+                                iiVar.position = ((BaseCardInfo) piVar).position;
+                                iiVar.setSupportType(BaseCardInfo.SupportType.TOP);
                             }
-                            hiVar.d(oiVar);
-                            arrayList.add(hiVar);
+                            iiVar.d(piVar);
+                            arrayList.add(iiVar);
                         }
-                        if (biVar.getContentId() != null) {
-                            hi hiVar2 = new hi();
-                            hiVar2.e(biVar.getContentId());
-                            if (oiVar instanceof BaseCardInfo) {
-                                hiVar2.position = ((BaseCardInfo) oiVar).position;
-                                hiVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        if (ciVar.getContentId() != null) {
+                            ii iiVar2 = new ii();
+                            iiVar2.e(ciVar.getContentId());
+                            if (piVar instanceof BaseCardInfo) {
+                                iiVar2.position = ((BaseCardInfo) piVar).position;
+                                iiVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                             }
-                            hiVar2.d(oiVar);
-                            arrayList.add(hiVar2);
+                            iiVar2.d(piVar);
+                            arrayList.add(iiVar2);
                         }
-                        if (biVar.getExtendId() != null) {
-                            hi hiVar3 = new hi();
-                            hiVar3.e(biVar.getExtendId());
-                            if (oiVar instanceof BaseCardInfo) {
-                                hiVar3.position = ((BaseCardInfo) oiVar).position;
-                                hiVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        if (ciVar.getExtendId() != null) {
+                            ii iiVar3 = new ii();
+                            iiVar3.e(ciVar.getExtendId());
+                            if (piVar instanceof BaseCardInfo) {
+                                iiVar3.position = ((BaseCardInfo) piVar).position;
+                                iiVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             }
-                            hiVar3.d(oiVar);
-                            arrayList.add(hiVar3);
+                            iiVar3.d(piVar);
+                            arrayList.add(iiVar3);
                         }
-                        if (biVar.getBottomId() != null) {
-                            hi hiVar4 = new hi();
-                            hiVar4.e(biVar.getBottomId());
-                            if (oiVar instanceof BaseCardInfo) {
-                                hiVar4.position = ((BaseCardInfo) oiVar).position;
-                                hiVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        if (ciVar.getBottomId() != null) {
+                            ii iiVar4 = new ii();
+                            iiVar4.e(ciVar.getBottomId());
+                            if (piVar instanceof BaseCardInfo) {
+                                iiVar4.position = ((BaseCardInfo) piVar).position;
+                                iiVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                             }
-                            hiVar4.d(oiVar);
-                            arrayList.add(hiVar4);
+                            iiVar4.d(piVar);
+                            arrayList.add(iiVar4);
                         }
                     } else {
-                        arrayList.add(oiVar);
+                        arrayList.add(piVar);
                     }
                 }
             }

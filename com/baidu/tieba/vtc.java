@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsBottomActivityTime;
+import tbclient.ActivitySponsor;
 /* loaded from: classes8.dex */
-public class vtc extends qoc {
+public class vtc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottomActivityTime frsBottomActivityTime) {
+    public static JSONObject b(@NonNull ActivitySponsor activitySponsor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivityTime)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activitySponsor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "start_time", frsBottomActivityTime.start_time);
-            qoc.a(jSONObject, "end_time", frsBottomActivityTime.end_time);
+            ltc.a(jSONObject, "is_sponsor", activitySponsor.is_sponsor);
+            ltc.a(jSONObject, "sponsor_url", activitySponsor.sponsor_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

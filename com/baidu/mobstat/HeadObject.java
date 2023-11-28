@@ -44,8 +44,8 @@ public class HeadObject {
         if (this.a) {
             return;
         }
-        bn.e(context, com.kuaishou.weapon.p0.h.c);
-        bn.e(context, com.kuaishou.weapon.p0.h.a);
+        bn.e(context, com.kuaishou.weapon.p0.g.c);
+        bn.e(context, com.kuaishou.weapon.p0.g.a);
         bn.e(context, "android.permission.ACCESS_NETWORK_STATE");
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         this.b = CooperService.instance().getOSVersion();

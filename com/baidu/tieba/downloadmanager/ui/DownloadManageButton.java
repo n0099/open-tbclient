@@ -153,10 +153,10 @@ public final class DownloadManageButton extends AppCompatTextView {
                 }
             }
             NONE_INIT = new DownloadManageType("NONE_INIT", 0, "", 0);
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c70);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7e);
             Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.manage)");
             NONE_TASK = new DownloadManageType("NONE_TASK", 1, string, R.color.CAM_X0110);
-            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c70);
+            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7e);
             Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.manage)");
             NORMAL = new DownloadManageType("NORMAL", 2, string2, R.color.CAM_X0107);
             String string3 = TbadkCoreApplication.getInst().getString(R.string.exit_manage);
@@ -228,8 +228,8 @@ public final class DownloadManageButton extends AppCompatTextView {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = DownloadManageType.NONE_INIT;
-        f(DownloadManageType.NONE_TASK);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iv6
+        g(DownloadManageType.NONE_TASK);
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sv6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -254,12 +254,12 @@ public final class DownloadManageButton extends AppCompatTextView {
             int i = b.$EnumSwitchMapping$0[this$0.a.ordinal()];
             if (i != 2) {
                 if (i == 3) {
-                    this$0.f(DownloadManageType.NORMAL);
+                    this$0.g(DownloadManageType.NORMAL);
                     return;
                 }
                 return;
             }
-            this$0.f(DownloadManageType.MANAGE);
+            this$0.g(DownloadManageType.MANAGE);
         }
     }
 
@@ -288,7 +288,7 @@ public final class DownloadManageButton extends AppCompatTextView {
         return (a) invokeV.objValue;
     }
 
-    public final void f(DownloadManageType changeManageType) {
+    public final void g(DownloadManageType changeManageType) {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, changeManageType) == null) {

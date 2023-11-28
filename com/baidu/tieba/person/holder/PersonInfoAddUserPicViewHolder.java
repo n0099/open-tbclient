@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.s2a;
+import com.baidu.tieba.o7a;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
     public TextView c;
     public int d;
-    public oi e;
+    public pi e;
     public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,31 +47,31 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f09014e);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090147);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ef);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092674);
     }
 
-    public void a(oi oiVar) {
+    public void a(pi piVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, oiVar) != null) || !(oiVar instanceof s2a)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, piVar) != null) || !(piVar instanceof o7a)) {
             return;
         }
-        this.e = oiVar;
-        s2a s2aVar = (s2a) oiVar;
+        this.e = piVar;
+        o7a o7aVar = (o7a) piVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (s2aVar.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cd), Integer.valueOf(s2aVar.a())));
+        if (o7aVar.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d9), Integer.valueOf(o7aVar.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public oi b() {
+    public pi b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
-        return (oi) invokeV.objValue;
+        return (pi) invokeV.objValue;
     }
 
     public void c(int i) {

@@ -20,6 +20,13 @@ public final class IoUtils {
         return copyStream(inputStream, outputStream, copyListener, 32768);
     }
 
+    public static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {
+        if (copyListener != null && !copyListener.onBytesCopied(i, i2) && (i * 100) / i2 < 75) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener, int i) {
         int available = inputStream.available();
         if (available <= 0) {
@@ -32,12 +39,13 @@ public final class IoUtils {
         int i2 = 0;
         do {
             int read = inputStream.read(bArr, 0, i);
-            if (read == -1) {
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+                i2 += read;
+            } else {
                 outputStream.flush();
                 return true;
             }
-            outputStream.write(bArr, 0, read);
-            i2 += read;
         } while (!shouldStopLoading(copyListener, i2, available));
         return false;
     }
@@ -52,11 +60,12 @@ public final class IoUtils {
             while (true) {
                 try {
                     int read = inputStreamReader.read(cArr, 0, 1024);
-                    if (read < 0) {
+                    if (read >= 0) {
+                        sb.append(cArr, 0, read);
+                    } else {
                         b.closeQuietly(inputStreamReader);
                         return sb.toString();
                     }
-                    sb.append(cArr, 0, read);
                 } catch (Exception unused) {
                     b.closeQuietly(inputStreamReader);
                     return null;
@@ -83,9 +92,5 @@ public final class IoUtils {
                 b.closeQuietly(inputStream);
             }
         } while (inputStream.read(new byte[32768], 0, 32768) != -1);
-    }
-
-    public static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {
-        return (copyListener == null || copyListener.onBytesCopied(i, i2) || (i * 100) / i2 >= 75) ? false : true;
     }
 }

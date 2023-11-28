@@ -47,10 +47,10 @@ public class TranslationAnimationCreator {
             this.mStartY = i2 - Math.round(this.mMovingView.getTranslationY());
             this.mTerminalX = f;
             this.mTerminalY = f2;
-            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09271e);
+            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927a1);
             this.mTransitionPosition = iArr;
             if (iArr != null) {
-                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09271e, null);
+                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927a1, null);
             }
         }
 
@@ -61,7 +61,7 @@ public class TranslationAnimationCreator {
             }
             this.mTransitionPosition[0] = Math.round(this.mStartX + this.mMovingView.getTranslationX());
             this.mTransitionPosition[1] = Math.round(this.mStartY + this.mMovingView.getTranslationY());
-            this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09271e, this.mTransitionPosition);
+            this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927a1, this.mTransitionPosition);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorPauseListener
@@ -92,7 +92,7 @@ public class TranslationAnimationCreator {
         float f6;
         float translationX = view2.getTranslationX();
         float translationY = view2.getTranslationY();
-        int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09271e);
+        int[] iArr = (int[]) transitionValues.f1024view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927a1);
         if (iArr != null) {
             f5 = (iArr[0] - i) + translationX;
             f6 = (iArr[1] - i2) + translationY;
@@ -108,7 +108,7 @@ public class TranslationAnimationCreator {
             return null;
         }
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f5, f3), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f6, f4));
-        TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view2, transitionValues.f1028view, round, round2, translationX, translationY);
+        TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view2, transitionValues.f1024view, round, round2, translationX, translationY);
         transition.addListener(transitionPositionListener);
         ofPropertyValuesHolder.addListener(transitionPositionListener);
         AnimatorUtils.addPauseListener(ofPropertyValuesHolder, transitionPositionListener);

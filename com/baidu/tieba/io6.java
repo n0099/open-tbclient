@@ -1,22 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.u27;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.compact.CardPeiWanViewImpl;
+import com.baidu.tieba.compact.SocialBarImpl;
+import com.baidu.tieba.f37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class io6 implements u27.m {
+public class io6 extends cg1<f37.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements f37.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(io6 io6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {io6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        @NonNull
+        public f37.o a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new SocialBarImpl();
+            }
+            return (f37.o) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.j b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new oo6();
+            }
+            return (f37.j) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.q c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new fp6();
+            }
+            return (f37.q) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.h d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new lo6();
+            }
+            return (f37.h) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.e e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return new eo6();
+            }
+            return (f37.e) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.p f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return new dp6();
+            }
+            return (f37.p) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.k g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new po6();
+            }
+            return (f37.k) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.l h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return new qo6();
+            }
+            return (f37.l) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.n i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new bp6();
+            }
+            return (f37.n) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        @NonNull
+        public f37.m j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return new so6();
+            }
+            return (f37.m) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.f k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return new CardPeiWanViewImpl();
+            }
+            return (f37.f) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.i l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return new no6();
+            }
+            return (f37.i) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f37.b
+        public f37.g m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return new go6();
+            }
+            return (f37.g) invokeV.objValue;
+        }
+    }
 
     public io6() {
         Interceptable interceptable = $ic;
@@ -32,72 +185,15 @@ public final class io6 implements u27.m {
         }
     }
 
-    public static final void l(m47 state, View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public f37.b createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, state, view2) == null) {
-            Intrinsics.checkNotNullParameter(state, "$state");
-            for (n77 n77Var : state.m()) {
-                jb7.a.f(n77Var, state.k() + 1);
-                state.j().invoke(n77Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.tieba.u27.m
-    public void a(ViewGroup view2, final m47 state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, state) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(state, "state");
-            if (view2 instanceof PlayVoiceBntNew) {
-                w77 l = state.l();
-                VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-                voiceModel.from = l.b();
-                voiceModel.setVoiceId(l.c());
-                voiceModel.setDuration(l.a());
-                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
-                playVoiceBntNew.setVoiceModel(voiceModel);
-                playVoiceBntNew.setTag(voiceModel);
-                playVoiceBntNew.b();
-                Integer num = voiceModel.voice_status;
-                Intrinsics.checkNotNullExpressionValue(num, "voiceModel.voice_status");
-                playVoiceBntNew.k(num.intValue());
-                playVoiceBntNew.m();
-                playVoiceBntNew.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tn6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                            io6.l(m47.this, view3);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u27.s
-    public void b(ViewGroup view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof PlayVoiceBntNew) {
-                ((PlayVoiceBntNew) view2).b();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u27.m
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-        }
-        return (ViewGroup) invokeL.objValue;
+        return (f37.b) invokeV.objValue;
     }
 }

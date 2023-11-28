@@ -1,132 +1,93 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
-import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
-import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class d59 {
+public class d59 implements e59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947655681, "Lcom/baidu/tieba/d59;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947655681, "Lcom/baidu/tieba/d59;");
-        }
-    }
+    public final HashMap<String, Integer> a;
 
     public d59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap<String, Integer> hashMap = new HashMap<>(6);
+        this.a = hashMap;
+        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
     }
 
-    public final HashMap<String, Serializable> a(List<y39> list) {
+    @Override // com.baidu.tieba.e59
+    public boolean a(ChatMessage... chatMessageArr) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            TbLog iMLog = IMLog.getInstance();
-            StringBuilder sb = new StringBuilder();
-            sb.append("NavigationData Size = ");
-            if (list != null) {
-                i = list.size();
-            } else {
-                i = 0;
-            }
-            sb.append(i);
-            iMLog.i("im", sb.toString());
-            List<MsgTabForumData> b = b(list);
-            TbLog iMLog2 = IMLog.getInstance();
-            iMLog2.i("im", "ForumListData Size = " + b.size());
-            HashMap<String, Serializable> hashMap = new HashMap<>();
-            ArrayList arrayList = new ArrayList();
-            for (MsgTabForumData msgTabForumData : b) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("forum_id", String.valueOf(msgTabForumData.getForumId()));
-                linkedHashMap.put("forum_name", msgTabForumData.getForumName());
-                linkedHashMap.put("avatar", msgTabForumData.getIcon());
-                String hotNumsText = msgTabForumData.getHotNumsText();
-                if (hotNumsText == null) {
-                    hotNumsText = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length >= 2) {
+                ChatMessage chatMessage = chatMessageArr[0];
+                ChatMessage chatMessage2 = chatMessageArr[1];
+                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
+                    return false;
                 }
-                linkedHashMap.put("hot_num_value", hotNumsText);
-                arrayList.add(linkedHashMap);
+                return this.a.containsKey(c(chatMessageArr));
             }
-            JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
-            jSONLikeSerializable.parseJsonArray(new JSONArray((Collection) arrayList));
-            hashMap.put("often_forum_list", jSONLikeSerializable);
-            hashMap.put("checkLength", Integer.valueOf(b.size()));
-            TbLog iMLog3 = IMLog.getInstance();
-            iMLog3.i("im", "OftenForumListString = " + jSONLikeSerializable.getJsonString());
-            return hashMap;
+            return false;
         }
-        return (HashMap) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final List<MsgTabForumData> b(List<y39> list) {
+    @Override // com.baidu.tieba.e59
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
+            return;
+        }
+        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+        View childAt = listView.getChildAt(lastVisiblePosition);
+        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
+        if (childAt != null && childAt2 != null) {
+            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
+            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.tex_msgitem_text);
+            if (chatMessageArr != null && chatMessageArr.length > 1) {
+                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
+            }
+        }
+    }
+
+    public final String c(ChatMessage... chatMessageArr) {
         InterceptResult invokeL;
-        MsgTabForumData d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null) {
-                for (y39 y39Var : list) {
-                    if (y39Var.b() == 3 && (d = ForumChannelDataObs.b.a().d(y39Var.a())) != null) {
-                        arrayList.add(d);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
+                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
             }
-            return arrayList;
+            return null;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            if (m.getNotificationCount() + m.getMsgCount() > 0) {
-                return -1L;
-            }
-            return j;
-        }
-        return invokeJ.longValue;
+        return (String) invokeL.objValue;
     }
 }

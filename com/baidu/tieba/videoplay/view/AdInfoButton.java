@@ -264,9 +264,9 @@ public class AdInfoButton extends RelativeLayout {
             EMManager.from(this.a).setCorner(R.string.J_X05).setCardType(0).setBackGroundColor(R.color.CAM_X0302);
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0808b1, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0808b4, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080994, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080997, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
             EMManager.from(this.c).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0101);
         }

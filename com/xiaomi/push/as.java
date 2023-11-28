@@ -7,10 +7,10 @@ public class as implements Runnable {
     public final /* synthetic */ IBinder a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ aq.a f115a;
+    public final /* synthetic */ aq.a f111a;
 
     public as(aq.a aVar, IBinder iBinder) {
-        this.f115a = aVar;
+        this.f111a = aVar;
         this.a = iBinder;
     }
 
@@ -24,36 +24,36 @@ public class as implements Runnable {
         Object obj5;
         Object obj6;
         try {
-            aq.this.f113a = aq.b.a(this.a);
-            aq.this.f114b = aq.b.m273a(this.a);
+            aq.this.f109a = aq.b.a(this.a);
+            aq.this.f110b = aq.b.m277a(this.a);
             aq.this.b();
-            aq.this.f109a = 2;
-            obj5 = aq.this.f112a;
+            aq.this.f105a = 2;
+            obj5 = aq.this.f108a;
             synchronized (obj5) {
                 try {
-                    obj6 = aq.this.f112a;
+                    obj6 = aq.this.f108a;
                     obj6.notifyAll();
                 } catch (Exception unused) {
                 }
             }
         } catch (Exception unused2) {
             aq.this.b();
-            aq.this.f109a = 2;
-            obj3 = aq.this.f112a;
+            aq.this.f105a = 2;
+            obj3 = aq.this.f108a;
             synchronized (obj3) {
                 try {
-                    obj4 = aq.this.f112a;
+                    obj4 = aq.this.f108a;
                     obj4.notifyAll();
                 } catch (Exception unused3) {
                 }
             }
         } catch (Throwable th) {
             aq.this.b();
-            aq.this.f109a = 2;
-            obj = aq.this.f112a;
+            aq.this.f105a = 2;
+            obj = aq.this.f108a;
             synchronized (obj) {
                 try {
-                    obj2 = aq.this.f112a;
+                    obj2 = aq.this.f108a;
                     obj2.notifyAll();
                 } catch (Exception unused4) {
                 }

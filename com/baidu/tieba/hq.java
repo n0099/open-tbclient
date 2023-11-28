@@ -1,42 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.iq;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public interface hq {
-    @CallSuper
-    void a(SubTaskState subTaskState);
+public final class hq implements iq {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final jq a;
+    public final com.baidu.bdtask.strategy.e b;
 
-    boolean b(TaskInfo taskInfo, int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306628, "Lcom/baidu/tieba/hq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448306628, "Lcom/baidu/tieba/hq;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
 
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static boolean b(hq hqVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
+        public a() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, hqVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
-        }
-
-        public static void a(hq hqVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, hqVar, subTaskState) == null) && !hqVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
-                hqVar.a(subTaskState);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
-        @CallSuper
-        public static void c(hq hqVar, SubTaskState subTaskState) {
+        public final hq a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, hqVar, subTaskState) == null) {
-                kq.c.b(subTaskState);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new hq(null);
+            }
+            return (hq) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public hq() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new jq();
+        this.b = new com.baidu.bdtask.strategy.e();
+    }
+
+    public /* synthetic */ hq(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.iq
+    public void a(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
+            iq.a.c(this, subTaskState);
+            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
+                this.a.a(subTaskState);
+            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
+                this.b.a(subTaskState);
+            }
+        }
+    }
+
+    public void c(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
+            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
+                this.a.c(subTaskState);
+            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
+                this.b.c(subTaskState);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iq
+    public boolean b(TaskInfo taskInfo, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
+            if (taskInfo.isInitiActiveTask()) {
+                return this.a.b(taskInfo, i);
+            }
+            if (taskInfo.isPassiveTask()) {
+                return this.b.b(taskInfo, i);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

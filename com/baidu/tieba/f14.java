@@ -1,46 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class f14 {
+public abstract class f14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(n04 n04Var, JsObject jsObject) {
+    @NonNull
+    public abstract File a();
+
+    public abstract void b(@NonNull String str, long j);
+
+    public f14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, n04Var, jsObject) == null) {
-            g14 g14Var = new g14();
-            oy1 G = oy1.G(jsObject);
-            if (G == null) {
-                G = new oy1();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            boolean z = false;
-            if (n04Var == null) {
-                g14Var.errMsg = "openCustomerServiceConversation:fail";
-                s84.a(G, false, g14Var);
-                return;
-            }
-            if (q24.c()) {
-                g63 M = g63.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.P() + "\"}";
-                    if (SchemeRouter.invoke(np2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        g14Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        g14Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    g14Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                g14Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
-            }
-            s84.a(G, z, g14Var);
         }
     }
 }

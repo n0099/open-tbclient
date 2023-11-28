@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ql0 implements ef0 {
+public final class ql0 implements ff0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
+    public final NestedEvent a;
 
-    public ql0(NestedEvent type, boolean z) {
+    public ql0(NestedEvent type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, Boolean.valueOf(z)};
+            Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,27 +30,27 @@ public final class ql0 implements ef0 {
             }
         }
         Intrinsics.checkNotNullParameter(type, "type");
-        this.a = z;
+        this.a = type;
     }
 
-    @Override // com.baidu.tieba.ef0
+    @Override // com.baidu.tieba.ff0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String simpleName = ql0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollUpEvent::class.java.simpleName");
+            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollEvent::class.java.simpleName");
             return simpleName;
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean b() {
+    public final NestedEvent b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
+        return (NestedEvent) invokeV.objValue;
     }
 }

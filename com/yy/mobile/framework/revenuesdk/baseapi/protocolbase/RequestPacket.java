@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class RequestPacket extends Marshallable {
     public abstract int getPacketSize();
 

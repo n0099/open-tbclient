@@ -21,13 +21,18 @@ public class FuzzyKeyMemoryCache implements MemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public Collection<String> keys() {
+        return this.cache.keys();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult get(String str) {
         return this.cache.get(str);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection<String> keys() {
-        return this.cache.keys();
+    public DecodedResult remove(String str) {
+        return this.cache.remove(str);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -50,10 +55,5 @@ public class FuzzyKeyMemoryCache implements MemoryCache {
             }
         }
         return this.cache.put(str, decodedResult);
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public DecodedResult remove(String str) {
-        return this.cache.remove(str);
     }
 }

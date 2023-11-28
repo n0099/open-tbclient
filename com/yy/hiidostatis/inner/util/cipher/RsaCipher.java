@@ -20,7 +20,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RsaCipher {
     public static final String RSA_PADDING = "RSA/ECB/PKCS1Padding";
     public PrivateKey privateKey;

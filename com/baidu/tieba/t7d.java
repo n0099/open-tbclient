@@ -1,34 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.RewardMaterial;
 /* loaded from: classes8.dex */
-public interface t7d {
+public class t7d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(CancelType cancelType);
+    @NonNull
+    public static JSONObject b(@NonNull RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rewardMaterial)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "icon", rewardMaterial.icon);
+            ltc.a(jSONObject, "unlock_level", rewardMaterial.unlock_level);
+            ltc.a(jSONObject, "is_matched", rewardMaterial.is_matched);
+            ltc.a(jSONObject, "is_newest_matched_level", rewardMaterial.is_newest_matched_level);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(CancelType cancelType);
-
-        void b();
-    }
-
-    GiftBagsInfo a();
-
-    boolean b(Activity activity, b bVar, v7d v7dVar, AbsViewEventHandler absViewEventHandler);
-
-    void c(ViewGroup viewGroup, Activity activity);
-
-    void d(GiftBagsInfo giftBagsInfo);
-
-    boolean e(Activity activity, a aVar, v7d v7dVar, AbsViewEventHandler absViewEventHandler);
-
-    void f(GiftBagsInfo giftBagsInfo);
 }

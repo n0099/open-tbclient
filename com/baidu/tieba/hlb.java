@@ -1,24 +1,35 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+@Service
 /* loaded from: classes6.dex */
-public abstract class hlb {
+public final class hlb extends yfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a();
+    @Override // com.baidu.tieba.yfa
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    public abstract String b() throws IOException;
-
-    public abstract int c();
-
-    public abstract String d();
-
-    public abstract boolean e();
+    @Override // com.baidu.tieba.yfa
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post_success" : (String) invokeV.objValue;
+    }
 
     public hlb() {
         Interceptable interceptable = $ic;
@@ -32,5 +43,115 @@ public abstract class hlb {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof WriteData)) {
+                d = null;
+            }
+            WriteData writeData = (WriteData) d;
+            if (writeData != null) {
+                str = writeData.getForumId();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof WriteData)) {
+                d = null;
+            }
+            WriteData writeData = (WriteData) d;
+            if (writeData != null) {
+                str = writeData.getForumName();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadAbstract() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof WriteData)) {
+                d = null;
+            }
+            WriteData writeData = (WriteData) d;
+            if (writeData != null) {
+                str = writeData.getContent();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof WriteData)) {
+                d = null;
+            }
+            WriteData writeData = (WriteData) d;
+            if (writeData != null) {
+                str = writeData.getThreadId();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof WriteData)) {
+                d = null;
+            }
+            WriteData writeData = (WriteData) d;
+            if (writeData != null) {
+                str = writeData.getTitle();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

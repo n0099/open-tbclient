@@ -1,103 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vc5 implements oi {
+public final class vc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
-    public List<uc5> h;
-    public String i;
-    public boolean j;
-    public int k;
+    public final long a;
+    public final boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236001, "Lcom/baidu/tieba/vc5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948236001, "Lcom/baidu/tieba/vc5;");
-                return;
+            if (obj instanceof vc5) {
+                vc5 vc5Var = (vc5) obj;
+                return this.a == vc5Var.a && this.b == vc5Var.b;
             }
+            return false;
         }
-        l = BdUniqueId.gen();
+        return invokeL.booleanValue;
     }
 
-    public vc5() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int a = c.a(this.a) * 31;
+            boolean z = this.b;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return a + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "GroupChatFinishData(roomId=" + this.a + ", needShowGroupList=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public vc5(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("name_show");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optInt("user_gender");
-        this.e = jSONObject.optInt("user_age", 0);
-        this.f = jSONObject.optString("user_constellation");
-        this.g = jSONObject.optString("distance");
-        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.h = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                uc5 uc5Var = new uc5();
-                uc5Var.a(optJSONArray.optJSONObject(i));
-                this.h.add(uc5Var);
-            }
-        }
-        this.i = jSONObject.optString("user_slogan");
-        boolean z = true;
-        if (jSONObject.optInt("is_friend", 0) != 1) {
-            z = false;
-        }
-        this.j = z;
-        this.k = jSONObject.optInt("active_status", 0);
+        return invokeV.longValue;
     }
 }

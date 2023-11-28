@@ -1,100 +1,148 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class le9 extends je9<Boolean> {
+public class le9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public TextView e;
+    public ImageView f;
+    public TextView g;
+    public int h;
+    public int i;
+    public int j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947940137, "Lcom/baidu/tieba/le9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947940137, "Lcom/baidu/tieba/le9;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le9(String key) {
-        super(key);
+    public le9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {key};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_tips_disappear");
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0534, (ViewGroup) null);
+        this.a = viewGroup;
+        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09073e);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f62);
+        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09178b);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09178c);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b5f);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b60);
+        this.d.setOnClickListener(this);
+        this.f.setOnClickListener(this);
+        c();
     }
 
-    public final boolean f() {
+    public ViewGroup a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a(Boolean.FALSE).booleanValue();
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public final boolean h() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Boolean bool = Boolean.FALSE;
-            d(bool);
-            return bool.booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean booleanValue = a(Boolean.FALSE).booleanValue();
-            if (!booleanValue) {
-                Boolean bool = Boolean.TRUE;
-                d(bool);
-                return bool.booleanValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public void d(List<ie9> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
+            this.h = list.get(0).a;
+            this.i = list.get(1).a;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            boolean z = false;
+            if (view2 == this.d) {
+                z = true;
+            } else {
+                ImageView imageView = this.f;
             }
-            return booleanValue;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             if (z) {
-                return h();
+                i = this.h;
+            } else {
+                i = this.i;
             }
-            return f();
+            this.j = i;
+            ImageView imageView2 = this.d;
+            if (z) {
+                i2 = R.drawable.img_lable_boy_s;
+            } else {
+                i2 = R.drawable.img_lable_boy_n;
+            }
+            SkinManager.setImageResource(imageView2, i2);
+            TextView textView = this.e;
+            int i5 = R.color.CAM_X0109;
+            if (z) {
+                i3 = R.color.CAM_X0302;
+            } else {
+                i3 = R.color.CAM_X0109;
+            }
+            SkinManager.setViewTextColor(textView, i3);
+            ImageView imageView3 = this.f;
+            if (z) {
+                i4 = R.drawable.img_lable_girl_n;
+            } else {
+                i4 = R.drawable.img_lable_girl_s;
+            }
+            SkinManager.setImageResource(imageView3, i4);
+            TextView textView2 = this.g;
+            if (!z) {
+                i5 = R.color.CAM_X0301;
+            }
+            SkinManager.setViewTextColor(textView2, i5);
         }
-        return invokeZ.booleanValue;
     }
 }

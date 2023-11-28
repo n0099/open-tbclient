@@ -1,154 +1,258 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.AddBawuPopInfo;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.BusinessPromot;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.FrsPage.FrsBannerHeader;
+import tbclient.FrsPage.FrsBottom;
+import tbclient.FrsPage.FrsSpriteBubble;
+import tbclient.FrsPage.LiveFuseForumData;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.FrsPage.RecreationRankInfo;
+import tbclient.HotUserRankEntry;
+import tbclient.PopInfo;
+import tbclient.PrivatePopInfo;
+import tbclient.ServiceArea;
+import tbclient.SignActivityInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class ki7 {
+public final class ki7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DataRes a;
+    public ForumInfo b;
+    public BusinessPromot c;
+    public FrsBottom d;
+    public PrivateForumTotalInfo e;
+    public PrivatePopInfo f;
+    public User g;
+    public PopInfo h;
+    public AddBawuPopInfo i;
+    public FrsSpriteBubble j;
 
-    public static void a(String str, gqa gqaVar, ForumData forumData, int i, String str2) {
-        StatisticItem d;
+    public final void k(ActivityHead activityHead) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, gqaVar, forumData, Integer.valueOf(i), str2}) != null) || (d = d(str, gqaVar, forumData, i, str2)) == null) {
-            return;
-        }
-        if (gqaVar != null && YYLiveUtil.isYYLiveLink(gqaVar.q())) {
-            d.param(TiebaStatic.YYParams.YYLIVEID, 1);
-        } else {
-            d.param(TiebaStatic.YYParams.YYLIVEID, "");
-        }
-        d.param("obj_locate", 3);
-        TiebaStatic.log(d);
-        if (gqaVar != null) {
-            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(gqaVar.l(), 1));
+        if (interceptable == null || interceptable.invokeL(1048587, this, activityHead) == null) {
         }
     }
 
-    public static void f(String str, gqa gqaVar, ForumData forumData, int i, String str2) {
-        StatisticItem d;
+    public final void q(FrsBannerHeader frsBannerHeader) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, gqaVar, forumData, Integer.valueOf(i), str2}) != null) || (d = d(str, gqaVar, forumData, i, str2)) == null) {
-            return;
-        }
-        if (gqaVar != null && YYLiveUtil.isYYLiveLink(gqaVar.q())) {
-            d.param(TiebaStatic.YYParams.YYLIVEID, 1);
-        } else {
-            d.param(TiebaStatic.YYParams.YYLIVEID, "");
-        }
-        TiebaStatic.log(d);
-        if (gqaVar != null) {
-            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(gqaVar.l(), 0));
+        if (interceptable == null || interceptable.invokeL(1048593, this, frsBannerHeader) == null) {
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+    public final void s(HotUserRankEntry hotUserRankEntry) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) && !UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) && str2 != null) {
-            n0b.a(tbPageContext, str2);
+        if (interceptable == null || interceptable.invokeL(1048595, this, hotUserRankEntry) == null) {
         }
     }
 
-    public static void c(String str, gqa gqaVar, ForumData forumData) {
+    public final void t(List<LiveFuseForumData> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, str, gqaVar, forumData) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (gqaVar != null) {
-            int i = 11;
-            if (gqaVar.p() != 1) {
-                if (gqaVar.p() == 2) {
-                    i = 12;
-                } else if (gqaVar.p() == 3) {
-                    i = 13;
-                } else if (gqaVar.p() == 4) {
-                    i = 22;
-                }
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i);
-            statisticItem.param("obj_id", gqaVar.c());
-        }
-        if (forumData != null) {
-            statisticItem.param("fid", forumData.getId()).param("fname", forumData.getName());
-        }
-        TiebaStatic.log(statisticItem);
     }
 
-    public static StatisticItem d(String str, gqa gqaVar, ForumData forumData, int i, String str2) {
-        InterceptResult invokeCommon;
+    public final void w(RecreationRankInfo recreationRankInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, gqaVar, forumData, Integer.valueOf(i), str2})) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("page_type", "a006");
-            statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
-            if (gqaVar != null) {
-                int i2 = 11;
-                if (gqaVar.p() != 1) {
-                    if (gqaVar.p() == 2) {
-                        i2 = 12;
-                    } else if (gqaVar.p() == 3) {
-                        i2 = 13;
-                    } else if (gqaVar.p() == 4) {
-                        i2 = 22;
-                    }
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-                statisticItem.param("obj_id", gqaVar.c());
-                if (gqaVar.p() == 1) {
-                    statisticItem.param("tid", gqaVar.m());
-                    statisticItem.param("thread_type", gqaVar.n());
-                }
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
-            if (forumData != null) {
-                statisticItem.param("fid", forumData.getId());
-                statisticItem.param("fname", forumData.getName());
-                statisticItem.param(TiebaStatic.Params.FIRST_DIR, forumData.getFirst_class());
-                statisticItem.param(TiebaStatic.Params.SECOND_DIR, forumData.getSecond_class());
-            }
-            statisticItem.param("obj_type", i);
-            if (i == 2 && !StringUtils.isNull(str2)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            }
-            return statisticItem;
+        if (interceptable == null || interceptable.invokeL(1048599, this, recreationRankInfo) == null) {
         }
-        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public static boolean e(gqa gqaVar, String str) {
-        InterceptResult invokeLL;
+    public final void x(List<ServiceArea> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, gqaVar, str)) == null) {
-            if (gqaVar != null && !StringUtils.isNull(gqaVar.r())) {
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                long j = sharedPrefHelper.getLong("key_frs_video_ad_last_show_time" + str, 0L);
-                if (j < 0) {
-                    return true;
-                }
-                return !TimeHelper.isSameDay(new Date(j), new Date(System.currentTimeMillis()));
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void y(SignActivityInfo signActivityInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, signActivityInfo) == null) {
+        }
+    }
+
+    public ki7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final AddBawuPopInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (AddBawuPopInfo) invokeV.objValue;
+    }
+
+    public final BusinessPromot b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (BusinessPromot) invokeV.objValue;
+    }
+
+    public final DataRes c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
+    public final ForumInfo d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ForumInfo) invokeV.objValue;
+    }
+
+    public final FrsBottom e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (FrsBottom) invokeV.objValue;
+    }
+
+    public final PopInfo f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (PopInfo) invokeV.objValue;
+    }
+
+    public final PrivateForumTotalInfo g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (PrivateForumTotalInfo) invokeV.objValue;
+    }
+
+    public final PrivatePopInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (PrivatePopInfo) invokeV.objValue;
+    }
+
+    public final FrsSpriteBubble i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (FrsSpriteBubble) invokeV.objValue;
+    }
+
+    public final User j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return (User) invokeV.objValue;
+    }
+
+    public final void A(User user) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, user) == null) {
+            this.g = user;
+        }
+    }
+
+    public final void l(AddBawuPopInfo addBawuPopInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, addBawuPopInfo) == null) {
+            this.i = addBawuPopInfo;
+        }
+    }
+
+    public final void m(BusinessPromot businessPromot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, businessPromot) == null) {
+            this.c = businessPromot;
+        }
+    }
+
+    public final void n(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dataRes) == null) {
+            this.a = dataRes;
+        }
+    }
+
+    public final void o(ForumInfo forumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, forumInfo) == null) {
+            this.b = forumInfo;
+        }
+    }
+
+    public final void p(FrsBottom frsBottom) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, frsBottom) == null) {
+            this.d = frsBottom;
+        }
+    }
+
+    public final void r(PopInfo popInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, popInfo) == null) {
+            this.h = popInfo;
+        }
+    }
+
+    public final void u(PrivateForumTotalInfo privateForumTotalInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, privateForumTotalInfo) == null) {
+            this.e = privateForumTotalInfo;
+        }
+    }
+
+    public final void v(PrivatePopInfo privatePopInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, privatePopInfo) == null) {
+            this.f = privatePopInfo;
+        }
+    }
+
+    public final void z(FrsSpriteBubble frsSpriteBubble) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, frsSpriteBubble) == null) {
+            this.j = frsSpriteBubble;
+        }
     }
 }

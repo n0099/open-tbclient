@@ -12,12 +12,12 @@ public interface TypeConstructor extends TypeConstructorMarker {
     KotlinBuiltIns getBuiltIns();
 
     /* renamed from: getDeclarationDescriptor */
-    ClassifierDescriptor mo2110getDeclarationDescriptor();
+    ClassifierDescriptor mo2114getDeclarationDescriptor();
 
     List<TypeParameterDescriptor> getParameters();
 
     /* renamed from: getSupertypes */
-    Collection<KotlinType> mo2111getSupertypes();
+    Collection<KotlinType> mo2115getSupertypes();
 
     boolean isDenotable();
 

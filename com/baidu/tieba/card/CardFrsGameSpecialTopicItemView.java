@@ -162,14 +162,14 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905fb);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905fa);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fd);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09093a);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09093b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c5, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090616);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090615);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090617);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090614);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090618);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090958);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090959);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.width = (dimensionPixelSize * 21) / 9;

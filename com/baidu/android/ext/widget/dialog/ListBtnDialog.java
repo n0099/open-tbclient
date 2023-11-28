@@ -220,13 +220,13 @@ public class ListBtnDialog extends BoxAlertDialog {
                 }
                 Resources resources = textView.getContext().getResources();
                 if (this.this$0.mDayOrNight) {
-                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060721));
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020d);
+                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060723));
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080210);
                     if (listBtnData.getTextDayColor() != -1) {
                         textView.setTextColor(resources.getColor(listBtnData.getTextDayColor()));
                     }
                 } else {
-                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060720));
+                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060722));
                     textView.setBackgroundResource(R.drawable.alertdialog_button_night_bg_all_selector);
                     if (listBtnData.getTextNightColor() != -1) {
                         textView.setTextColor(resources.getColor(listBtnData.getTextNightColor()));
@@ -454,8 +454,8 @@ public class ListBtnDialog extends BoxAlertDialog {
                     }
                 }
             });
-            findViewById.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071e));
-            this.mListView.setDivider(new ColorDrawable(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071e)));
+            findViewById.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060720));
+            this.mListView.setDivider(new ColorDrawable(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060720)));
             this.mListView.setDividerHeight(1);
             View createContentView = createContentView();
             if (createContentView != null) {

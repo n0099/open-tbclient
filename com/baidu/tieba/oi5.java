@@ -1,22 +1,47 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import com.baidu.tieba.ui5;
+import com.baidu.tieba.wi5;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface oi5 {
-    InputStream a() throws IOException;
+public abstract class oi5<R extends ui5, W extends wi5> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final R a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public final Rect g;
+    public final Rect h;
 
-    int available() throws IOException;
+    public abstract Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, W w);
 
-    void close() throws IOException;
-
-    byte peek() throws IOException;
-
-    int position();
-
-    int read(byte[] bArr, int i, int i2) throws IOException;
-
-    void reset() throws IOException;
-
-    long skip(long j) throws IOException;
+    public oi5(R r) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = new Rect();
+        this.h = new Rect();
+        this.a = r;
+    }
 }

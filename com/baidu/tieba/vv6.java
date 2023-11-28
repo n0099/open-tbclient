@@ -1,29 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vv6 implements w15 {
+public class vv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public b e;
+    public Handler.Callback f;
+    public Handler g;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(int i, int i2);
+
+        void b(int i, int i2);
+
+        void c(int i, int i2);
+
+        void d(int i, int i2);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vv6 a;
+
+        public a(vv6 vv6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vv6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vv6Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                int i = message.arg1;
+                int i2 = message.arg2;
+                int i3 = message.what;
+                if (i3 != 0) {
+                    if (i3 != 1) {
+                        if (i3 != 2) {
+                            if (i3 != 3) {
+                                return false;
+                            }
+                            this.a.e.c(i, i2);
+                            return true;
+                        }
+                        this.a.e.d(i, i2);
+                        return true;
+                    }
+                    this.a.e.b(i, i2);
+                    return true;
+                }
+                this.a.e.a(i, i2);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     public vv6() {
         Interceptable interceptable = $ic;
@@ -35,101 +96,131 @@ public final class vv6 implements w15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.g = new Handler(this.f);
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.g.removeMessages(2);
+            if (!this.g.hasMessages(2)) {
+                Message message = new Message();
+                message.what = 2;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
             }
         }
     }
 
-    @Override // com.baidu.tieba.w15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public final void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "easterEgg");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.g.removeMessages(0);
+            if (!this.g.hasMessages(1)) {
+                Message message = new Message();
+                message.what = 1;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.w15
-    public boolean b(Map<String, Object> map) {
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.g.removeMessages(3);
+            if (!this.g.hasMessages(3)) {
+                Message message = new Message();
+                message.what = 3;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.g.removeMessages(1);
+            if (!this.g.hasMessages(0)) {
+                Message message = new Message();
+                message.what = 0;
+                message.arg1 = i;
+                message.arg2 = i2;
+                this.g.sendMessageDelayed(message, 60L);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
+        if (r0 != 3) goto L11;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean c(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        int i;
-        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告触发云弹窗判断逻辑");
-            if (k35.a().b() != 3) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("easterEgg", "彩蛋广告不展示，非用户启动，启动类型：" + k35.a().b());
-                return false;
-            }
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = StringUtil.NULL_STRING;
-            }
-            Integer num = hxa.i.a().c().get(currentAccount);
-            if (num != null) {
-                i = num.intValue();
-            } else {
-                i = 0;
-            }
-            if (i >= 1) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.e("easterEgg", "彩蛋广告不展示，当前用户：" + currentAccount + "已经展示过彩蛋广告");
-                return false;
-            }
-            try {
-                if (EasterEggAdDataHolder.b.a().b() == null) {
-                    sv6 sv6Var = new sv6();
-                    JSONObject syncJson = TbSingleton.getInstance().getSyncJson();
-                    Intrinsics.checkNotNullExpressionValue(syncJson, "getInstance().syncJson");
-                    sv6Var.parseJson(syncJson);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        float rawX = motionEvent.getRawX();
+                        float rawY = motionEvent.getRawY();
+                        if (this.c == 0.0f || this.d == 0.0f) {
+                            this.c = motionEvent.getRawX();
+                            float rawY2 = motionEvent.getRawY();
+                            this.d = rawY2;
+                            this.a = this.c;
+                            this.b = rawY2;
+                        }
+                        int i = (int) (rawY - this.b);
+                        int i2 = (int) (rawY - this.d);
+                        if (this.e != null) {
+                            if (i > 0) {
+                                e(i2, i);
+                            } else {
+                                g(i2, i);
+                            }
+                        }
+                        this.a = rawX;
+                        this.b = rawY;
+                    }
                 }
-            } catch (Exception unused) {
-                DefaultLog.getInstance().i("easterEgg", "获取彩蛋广告数据失败");
-            }
-            EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-            if (b == null) {
-                return false;
-            }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告数据不为空");
-            if (!b.isValidData()) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，数据不合法");
-                return false;
-            }
-            String url = b.getUrl();
-            if (url != null) {
-                if (c(url)) {
-                    DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，已经被手动关闭");
-                    return false;
+                if (this.e != null) {
+                    int i3 = (int) (this.a - this.c);
+                    int i4 = (int) (this.b - this.d);
+                    if (Math.abs(i3) >= Math.abs(i4)) {
+                        f(i3, (int) this.c);
+                    } else {
+                        b(i3, i4);
+                    }
                 }
-                unit = Unit.INSTANCE;
+                this.c = 0.0f;
+                this.d = 0.0f;
             } else {
-                unit = null;
+                this.c = motionEvent.getRawX();
+                float rawY3 = motionEvent.getRawY();
+                this.d = rawY3;
+                this.a = this.c;
+                this.b = rawY3;
             }
-            if (unit == null) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，广告url为空");
-                return false;
-            }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告可以展示");
             return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getBoolean(EasterEggAdData.KEY_EASTER_EGG_AD + TbadkCoreApplication.getCurrentAccount() + str, false);
         }
         return invokeL.booleanValue;
     }

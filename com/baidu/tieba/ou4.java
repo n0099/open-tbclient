@@ -1,130 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ou4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile TbDownloadManager a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a(WebView webView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948044731, "Lcom/baidu/tieba/ou4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948044731, "Lcom/baidu/tieba/ou4;");
+        }
+    }
+
+    public static TbDownloadManager a(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
-            if (webView == null) {
-                return BdActivityStack.getInst().currentActivity();
-            }
-            Activity a = si6.a(webView.getContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, downloadData)) == null) {
             if (a == null) {
-                a = TbadkCoreApplication.getInst().getCurrentActivity();
+                synchronized (CommonTbJsBridge.class) {
+                    if (a == null) {
+                        a = new TbDownloadManager();
+                    }
+                }
             }
-            if (a == null) {
-                a = BdActivityStack.getInst().currentActivity();
-            }
-            if (a == null) {
-                return webView.getContext();
+            a.w(2);
+            if (a.p(downloadData) <= 0) {
+                a.w(1);
+                if (a.p(downloadData) <= 0) {
+                    a.w(ie7.a());
+                }
             }
             return a;
         }
-        return (Context) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str) && str.startsWith(yr4.a)) {
-                    Uri parse = Uri.parse(str);
-                    if (parse == null) {
-                        return str;
-                    }
-                    String queryParameter = parse.getQueryParameter("url");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        return queryParameter;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Bitmap b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
-            if (bitmap == null) {
-                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                new JSONObject(str);
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public static HashMap<String, Boolean> e(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("blockList");
-            HashMap<String, Boolean> hashMap = new HashMap<>();
-            if (optJSONObject != null) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (next != null) {
-                        Object opt = optJSONObject.opt(next);
-                        if (opt instanceof String) {
-                            hashMap.put(next, Boolean.valueOf("1".equals(opt)));
-                        } else {
-                            hashMap.put(next, Boolean.FALSE);
-                        }
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    @NonNull
-    public static String f(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
-            return jSONObject.optString(str);
-        }
-        return (String) invokeLL.objValue;
+        return (TbDownloadManager) invokeL.objValue;
     }
 }

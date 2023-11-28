@@ -32,16 +32,16 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.eh5;
-import com.baidu.tieba.l07;
-import com.baidu.tieba.m07;
-import com.baidu.tieba.m85;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.gh5;
+import com.baidu.tieba.kh5;
+import com.baidu.tieba.s85;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.v07;
+import com.baidu.tieba.w07;
 import com.baidu.tieba.write.WriteVideoUtil;
-import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000\u0090\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 ?2\u00020\u00012\u00020\u00022\u00020\u0003:\u0001?B%\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ$\u0010\u001d\u001a\u00020\u001e2\u001a\u0010\u001f\u001a\u0016\u0012\u0004\u0012\u00020!\u0018\u00010 j\n\u0012\u0004\u0012\u00020!\u0018\u0001`\"H\u0002J\u0010\u0010#\u001a\u00020\u001e2\u0006\u0010$\u001a\u00020%H\u0002J\b\u0010&\u001a\u00020\u001eH\u0002J\b\u0010'\u001a\u00020\u001eH\u0016J\b\u0010(\u001a\u00020\tH\u0016J\b\u0010)\u001a\u00020\u001eH\u0016J\b\u0010*\u001a\u00020\u001eH\u0016J\u0010\u0010+\u001a\u00020\u001e2\u0006\u0010\u0004\u001a\u00020\u0005H\u0002J\u0010\u0010,\u001a\u00020\u001e2\u0006\u0010\u0004\u001a\u00020\u0005H\u0002J\u0012\u0010-\u001a\u00020\u001e2\b\u0010.\u001a\u0004\u0018\u00010/H\u0016J\u0010\u00100\u001a\u00020\u001e2\u0006\u00101\u001a\u000202H\u0002J\u0012\u00103\u001a\u00020\u001e2\b\u00101\u001a\u0004\u0018\u000102H\u0002J\u0010\u00104\u001a\u00020\u001e2\u0006\u00105\u001a\u00020\tH\u0016J\u0010\u00106\u001a\u00020\u001e2\u0006\u0010.\u001a\u00020/H\u0016J0\u00107\u001a\u00020\u001e2&\u00101\u001a\"\u0012\u0004\u0012\u00020%\u0012\u0004\u0012\u000209\u0018\u000108j\u0010\u0012\u0004\u0012\u00020%\u0012\u0004\u0012\u000209\u0018\u0001`:H\u0016J\u0010\u0010;\u001a\u00020\u001e2\u0006\u0010<\u001a\u00020\u0012H\u0016J\u0010\u0010=\u001a\u00020\u001e2\u0006\u0010>\u001a\u00020\tH\u0016R\u0011\u0010\u000b\u001a\u00020\f8F¢\u0006\u0006\u001a\u0004\b\r\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082D¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0010X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006@"}, d2 = {"Lcom/baidu/tbadk/browser/editor/tools/topview/InputContainer;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tbadk/editortools/ToolViewInterface;", "Lcom/baidu/tbadk/editortools/topview/IToolData;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "inputView", "Landroid/widget/EditText;", "getInputView", "()Landroid/widget/EditText;", "isOnlyLocalEmotion", "", "mET", "Lcom/baidu/tbadk/editortools/EditorTools;", "mInputView", "Lcom/baidu/tbadk/core/view/spanGroup/SpanGroupEditText;", "mNeedMax", "mSendView", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "mSkinType", "mTextChangeRunnable", "Ljava/lang/Runnable;", "pasteFlag", "selection", "addAtName", "", "atSelectDataList", "Ljava/util/ArrayList;", "Lcom/baidu/tbadk/data/AtSelectData;", "Lkotlin/collections/ArrayList;", "addHotTopic", "hotTopic", "", "changeSendViewColor", CriusAttrConstants.DISPLAY, "getToolId", "hide", "init", "initInputView", "initSendView", "onAction", "action", "Lcom/baidu/tbadk/editortools/Action;", "onAddLocalEmotion", "data", "Lcom/baidu/tbadk/coreExtra/data/EmotionItemData;", "onAddNetEmotion", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "sendAction", "setData", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "setEditorTools", "et", "setToolId", "id", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class InputContainer extends LinearLayout implements me5, eh5 {
+public final class InputContainer extends LinearLayout implements se5, kh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -134,31 +134,31 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -333,7 +333,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         m(context);
         o(context);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.i = new Runnable() { // from class: com.baidu.tieba.lt4
+        this.i = new Runnable() { // from class: com.baidu.tieba.nt4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -365,10 +365,10 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    @Override // com.baidu.tieba.me5
-    public void g0(yd5 action) {
+    @Override // com.baidu.tieba.se5
+    public void j0(ee5 action) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, action) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, action) == null) {
             Intrinsics.checkNotNullParameter(action, "action");
             EditorTools editorTools = this.a;
             if (editorTools != null) {
@@ -377,7 +377,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    @Override // com.baidu.tieba.eh5
+    @Override // com.baidu.tieba.kh5
     public void setData(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048590, this, hashMap) != null) || hashMap == null) {
@@ -396,7 +396,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         spanGroupEditText.setHint(str);
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void setEditorTools(EditorTools et) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, et) == null) {
@@ -412,7 +412,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (motionEvent.getAction() == 1) {
                 SpanGroupEditText spanGroupEditText = null;
-                this$0.g0(new yd5(5, -1, null));
+                this$0.j0(new ee5(5, -1, null));
                 SpanGroupEditText spanGroupEditText2 = this$0.c;
                 if (spanGroupEditText2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mInputView");
@@ -466,14 +466,14 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             }
             if (Intrinsics.areEqual(valueOf.subSequence(i2, length + 1).toString(), "")) {
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String H = r25.H(R.string.reply_not_empty);
+                String H = u25.H(R.string.reply_not_empty);
                 Intrinsics.checkNotNullExpressionValue(H, "getString(R.string.reply_not_empty)");
                 String format = String.format(H, Arrays.copyOf(new Object[0], 0));
                 Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
                 BdUtilHelper.showToast(this$0.getContext(), format);
                 return;
             }
-            this$0.g0(new yd5(8, -1, null));
+            this$0.j0(new ee5(8, -1, null));
         }
     }
 
@@ -481,28 +481,28 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ah5 ah5Var = new ah5();
+            gh5 gh5Var = new gh5();
             SpanGroupEditText spanGroupEditText = this$0.c;
             SpanGroupEditText spanGroupEditText2 = null;
             if (spanGroupEditText == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mInputView");
                 spanGroupEditText = null;
             }
-            ah5Var.a = String.valueOf(spanGroupEditText.getText());
+            gh5Var.a = String.valueOf(spanGroupEditText.getText());
             SpanGroupEditText spanGroupEditText3 = this$0.c;
             if (spanGroupEditText3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mInputView");
             } else {
                 spanGroupEditText2 = spanGroupEditText3;
             }
-            ah5Var.c = spanGroupEditText2.getSpanGroupManager();
-            this$0.g0(new yd5(4, -1, ah5Var));
+            gh5Var.c = spanGroupEditText2.getSpanGroupManager();
+            this$0.j0(new ee5(4, -1, gh5Var));
         }
     }
 
     public final void j(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
         String str2 = HotSelectActivityConfig.HOT_TOPIC_SING + str;
@@ -526,10 +526,10 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    public final void s(m85 m85Var) {
+    public final void s(s85 s85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, m85Var) == null) {
-            if (this.g && m85Var.g() != EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, s85Var) == null) {
+            if (this.g && s85Var.g() != EmotionGroupType.LOCAL) {
                 return;
             }
             SpanGroupEditText spanGroupEditText = this.c;
@@ -539,7 +539,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 spanGroupEditText = null;
             }
             String valueOf = String.valueOf(spanGroupEditText.getText());
-            if (this.h && l07.a(valueOf) >= 10 && getContext() != null) {
+            if (this.h && v07.a(valueOf) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
@@ -550,7 +550,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             } else {
                 spanGroupEditText2 = spanGroupEditText3;
             }
-            m07.c(context, m85Var, spanGroupEditText2);
+            w07.c(context, s85Var, spanGroupEditText2);
         }
     }
 
@@ -582,39 +582,39 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 i = 0;
             }
             spanGroupEditText2.setSelection(i);
-            this$0.g0(new yd5(5, -1, null));
+            this$0.j0(new ee5(5, -1, null));
             this$0.requestFocus();
         }
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r7v33, types: [com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn] */
-    @Override // com.baidu.tieba.zd5
-    public void S(yd5 yd5Var) {
+    @Override // com.baidu.tieba.fe5
+    public void U(ee5 ee5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, yd5Var) != null) || yd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ee5Var) != null) || ee5Var == null) {
             return;
         }
-        int i = yd5Var.a;
+        int i = ee5Var.a;
         SpanGroupEditText spanGroupEditText = null;
         if (i != 3) {
             if (i != 6) {
                 if (i != 9) {
                     if (i != 17) {
                         if (i != 24) {
-                            if (i == 44 && (obj = yd5Var.c) != null) {
+                            if (i == 44 && (obj = ee5Var.c) != null) {
                                 if (obj instanceof String) {
                                     if (obj != null) {
                                         j((String) obj);
                                         return;
                                     }
                                     throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
-                                } else if (obj instanceof ah5) {
+                                } else if (obj instanceof gh5) {
                                     if (obj != null) {
-                                        if (((ah5) obj).a != null) {
+                                        if (((gh5) obj).a != null) {
                                             if (obj != null) {
-                                                String hotTopic = ((ah5) obj).a;
+                                                String hotTopic = ((gh5) obj).a;
                                                 Intrinsics.checkNotNullExpressionValue(hotTopic, "hotTopic");
                                                 j(hotTopic);
                                                 return;
@@ -630,15 +630,15 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                             }
                             return;
                         }
-                        Object obj2 = yd5Var.c;
-                        if (obj2 instanceof m85) {
+                        Object obj2 = ee5Var.c;
+                        if (obj2 instanceof s85) {
                             if (obj2 != null) {
-                                m85 m85Var = (m85) obj2;
-                                if (m85Var.g() == EmotionGroupType.NET_SUG) {
-                                    t(m85Var);
+                                s85 s85Var = (s85) obj2;
+                                if (s85Var.g() == EmotionGroupType.NET_SUG) {
+                                    t(s85Var);
                                     return;
                                 } else {
-                                    s(m85Var);
+                                    s(s85Var);
                                     return;
                                 }
                             }
@@ -646,7 +646,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                         }
                         return;
                     }
-                    Object obj3 = yd5Var.c;
+                    Object obj3 = ee5Var.c;
                     if (obj3 instanceof ArrayList) {
                         if (obj3 != null) {
                             i((ArrayList) obj3);
@@ -656,7 +656,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                     }
                     return;
                 }
-                Object obj4 = yd5Var.c;
+                Object obj4 = ee5Var.c;
                 if (obj4 != null) {
                     if (((Boolean) obj4).booleanValue()) {
                         SpanGroupEditText spanGroupEditText2 = this.c;
@@ -678,7 +678,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Boolean");
             }
-            Object obj5 = yd5Var.c;
+            Object obj5 = ee5Var.c;
             if (obj5 == null) {
                 SpanGroupEditText spanGroupEditText3 = this.c;
                 if (spanGroupEditText3 == null) {
@@ -699,13 +699,13 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                         return;
                     }
                     Context context = getContext();
-                    Object obj6 = yd5Var.c;
+                    Object obj6 = ee5Var.c;
                     if (obj6 != null) {
-                        m07.h(context, (String) obj6, new m07.i() { // from class: com.baidu.tieba.ot4
+                        w07.h(context, (String) obj6, new w07.i() { // from class: com.baidu.tieba.qt4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.m07.i
+                            @Override // com.baidu.tieba.w07.i
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -741,7 +741,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             }
             String substring = valueOf.substring(0, spanGroupEditText7.getSelectionStart());
             Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-            Matcher matcher = l07.b.matcher(substring);
+            Matcher matcher = v07.b.matcher(substring);
             if (matcher.find()) {
                 int length = substring.length() - matcher.replaceFirst("").length();
                 SpanGroupEditText spanGroupEditText8 = this.c;
@@ -792,7 +792,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void display() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getVisibility() == 0) {
@@ -816,7 +816,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 spanGroupEditText2 = spanGroupEditText4;
             }
             spanGroupEditText2.requestFocus();
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.nt4
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.pt4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -834,7 +834,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
     public final EditText getInputView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             SpanGroupEditText spanGroupEditText = this.c;
             if (spanGroupEditText == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mInputView");
@@ -847,7 +847,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
 
     public final void i(ArrayList<AtSelectData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             SpanGroupEditText spanGroupEditText = this.c;
             SpanGroupEditText spanGroupEditText2 = null;
             if (spanGroupEditText == null) {
@@ -909,9 +909,9 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    public final void t(m85 m85Var) {
+    public final void t(s85 s85Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, m85Var) == null) && m85Var != null && !TextUtils.isEmpty(m85Var.d()) && !TextUtils.isEmpty(m85Var.h())) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, s85Var) == null) && s85Var != null && !TextUtils.isEmpty(s85Var.d()) && !TextUtils.isEmpty(s85Var.h())) {
             SpanGroupEditText spanGroupEditText = this.c;
             SpanGroupEditText spanGroupEditText2 = null;
             if (spanGroupEditText == null) {
@@ -919,7 +919,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 spanGroupEditText = null;
             }
             String valueOf = String.valueOf(spanGroupEditText.getText());
-            if (this.h && l07.a(valueOf) >= 10 && getContext() != null) {
+            if (this.h && v07.a(valueOf) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
@@ -930,7 +930,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             } else {
                 spanGroupEditText2 = spanGroupEditText3;
             }
-            m07.d(context, m85Var, spanGroupEditText2);
+            w07.d(context, s85Var, spanGroupEditText2);
         }
     }
 
@@ -1052,7 +1052,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 Intrinsics.throwUninitializedPropertyAccessException("mInputView");
                 spanGroupEditText14 = null;
             }
-            spanGroupEditText14.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.jt4
+            spanGroupEditText14.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.lt4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1083,8 +1083,8 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
             linearLayout.setOrientation(1);
             linearLayout.setGravity(80);
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            v55 v55Var = new v55();
-            v55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            b65 b65Var = new b65();
+            b65Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.d = tBSpecificationBtn;
             TBSpecificationBtn tBSpecificationBtn2 = null;
@@ -1092,7 +1092,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 Intrinsics.throwUninitializedPropertyAccessException("mSendView");
                 tBSpecificationBtn = null;
             }
-            tBSpecificationBtn.setConfig(v55Var);
+            tBSpecificationBtn.setConfig(b65Var);
             TBSpecificationBtn tBSpecificationBtn3 = this.d;
             if (tBSpecificationBtn3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mSendView");
@@ -1116,7 +1116,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
                 Intrinsics.throwUninitializedPropertyAccessException("mSendView");
                 tBSpecificationBtn6 = null;
             }
-            tBSpecificationBtn6.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mt4
+            tBSpecificationBtn6.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ot4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1142,7 +1142,7 @@ public final class InputContainer extends LinearLayout implements me5, eh5 {
         }
     }
 
-    @Override // com.baidu.tieba.me5
+    @Override // com.baidu.tieba.se5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {

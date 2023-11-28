@@ -12,13 +12,20 @@ public final class a extends TextureView {
         super(context);
     }
 
-    public final void adaptVideoSize(int i, int i2) {
-        if (this.videoWidth == i || this.videoHeight == i2) {
-            return;
+    @Override // android.view.View
+    public final void setRotation(float f) {
+        if (f != getRotation()) {
+            super.setRotation(f);
+            requestLayout();
         }
-        this.videoWidth = i;
-        this.videoHeight = i2;
-        requestLayout();
+    }
+
+    public final void adaptVideoSize(int i, int i2) {
+        if (this.videoWidth != i && this.videoHeight != i2) {
+            this.videoWidth = i;
+            this.videoHeight = i2;
+            requestLayout();
+        }
     }
 
     @Override // android.view.View
@@ -53,32 +60,32 @@ public final class a extends TextureView {
                 int i7 = this.videoHeight;
                 int i8 = this.videoWidth;
                 int i9 = (size * i7) / i8;
-                if (mode2 != Integer.MIN_VALUE || i9 <= size2) {
-                    defaultSize = size;
-                    defaultSize2 = i9;
-                } else {
+                if (mode2 == Integer.MIN_VALUE && i9 > size2) {
                     defaultSize = (i8 * size2) / i7;
                     defaultSize2 = size2;
+                } else {
+                    defaultSize = size;
+                    defaultSize2 = i9;
                 }
             } else if (mode2 == 1073741824) {
                 int i10 = this.videoWidth;
                 int i11 = this.videoHeight;
                 i3 = (size2 * i10) / i11;
-                if (mode != Integer.MIN_VALUE || i3 <= size) {
-                    defaultSize2 = size2;
-                    defaultSize = i3;
-                } else {
+                if (mode == Integer.MIN_VALUE && i3 > size) {
                     defaultSize2 = (i11 * size) / i10;
                     defaultSize = size;
+                } else {
+                    defaultSize2 = size2;
+                    defaultSize = i3;
                 }
             } else {
                 i3 = this.videoWidth;
                 int i12 = this.videoHeight;
-                if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
-                    defaultSize2 = i12;
-                } else {
+                if (mode2 == Integer.MIN_VALUE && i12 > size2) {
                     i3 = (i3 * size2) / i12;
                     defaultSize2 = size2;
+                } else {
+                    defaultSize2 = i12;
                 }
                 if (mode == Integer.MIN_VALUE && i3 > size) {
                     defaultSize2 = (this.videoHeight * size) / this.videoWidth;
@@ -88,13 +95,5 @@ public final class a extends TextureView {
             }
         }
         setMeasuredDimension(defaultSize, defaultSize2);
-    }
-
-    @Override // android.view.View
-    public final void setRotation(float f) {
-        if (f != getRotation()) {
-            super.setRotation(f);
-            requestLayout();
-        }
     }
 }

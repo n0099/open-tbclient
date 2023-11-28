@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i5a extends bi<t6a, CardViewHolder<w7a>> {
+public class i5a extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext<?> F;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i5a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t6a.g);
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,39 +26,37 @@ public class i5a extends bi<t6a, CardViewHolder<w7a>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.F = tbPageContext;
+        x(false);
+        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416));
+        D();
+        C();
+        z();
+        L(R.dimen.tbfontsize33);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: t */
-    public CardViewHolder<w7a> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void V() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new w7a(this.a));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.g();
+            H(this.F.getResources().getString(R.string.load_more));
+            c().setVisibility(0);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t6a t6aVar, CardViewHolder<w7a> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t6aVar, cardViewHolder})) == null) {
-            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().k(t6aVar);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.g();
+            H(this.F.getResources().getString(R.string.sub_pb_list_no_more));
+            c().setVisibility(0);
         }
-        return (View) invokeCommon.objValue;
     }
 }

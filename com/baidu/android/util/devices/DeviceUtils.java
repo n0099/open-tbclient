@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -324,7 +324,7 @@ public class DeviceUtils implements IDevices {
                 }
                 CPUInfo cPUInfo2 = new CPUInfo();
                 try {
-                    FileReader fileReader = new FileReader(k1.a);
+                    FileReader fileReader = new FileReader(bk.a);
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());

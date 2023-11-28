@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tieba.feed.log.FeedStat;
-import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import android.view.animation.Interpolator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pk7 implements FeedStat.a {
+public final class pk7 implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bundle a;
-    public final ForumStatConstant$TabType b;
-    public final long c;
+    public final float a;
 
-    public pk7(Bundle bundle) {
+    public pk7(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,22 +27,18 @@ public final class pk7 implements FeedStat.a {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = bundle;
-        this.b = ok7.a(bundle);
-        this.c = this.a.getLong("forum_id");
+        this.a = f;
     }
 
-    @Override // com.baidu.tieba.feed.log.FeedStat.a
-    public void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
+    @Override // android.animation.TimeInterpolator
+    public float getInterpolation(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-            Intrinsics.checkNotNullParameter(id, "id");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-            Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-            rk7.a.b(id, businessInfo, this.b, String.valueOf(this.c), JavaTypesHelper.toInt(runInfo.get("get_position"), 0) - 1);
-            qk7.a.a(id, businessInfo, logInfo, runInfo);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            double pow = Math.pow(2.0d, (-10) * f);
+            float f2 = this.a;
+            return (float) ((pow * Math.sin(((f - (f2 / 4)) * 6.283185307179586d) / f2)) + 1);
         }
+        return invokeF.floatValue;
     }
 }

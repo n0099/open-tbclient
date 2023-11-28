@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ic9;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class SingleLineCard extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final ic9 buttonInfo;
+    public final yf9 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -102,7 +102,7 @@ public class SingleLineCard extends BaseCardInfo {
         this.titleColorNight = ColorUtils.parseColor(jSONObject.optString("tColorNight", ""));
         this.bgColor = ColorUtils.parseColor(jSONObject.optString("bgColor", ""));
         this.bgColorNight = ColorUtils.parseColor(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = ic9.a(jSONObject.optJSONObject("moreButton"));
+        this.buttonInfo = yf9.a(jSONObject.optJSONObject("moreButton"));
         if (jSONObject.optInt("showLeftLine") == 1) {
             z = true;
         } else {
@@ -139,13 +139,13 @@ public class SingleLineCard extends BaseCardInfo {
         return invokeV.intValue;
     }
 
-    public ic9 getButtonInfo() {
+    public yf9 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.buttonInfo;
         }
-        return (ic9) invokeV.objValue;
+        return (yf9) invokeV.objValue;
     }
 
     public int getGravity() {

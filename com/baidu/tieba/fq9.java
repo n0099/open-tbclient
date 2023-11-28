@@ -1,34 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
 /* loaded from: classes6.dex */
-public abstract class fq9<T> extends ob<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fq9 {
+    void a(boolean z);
 
-    public abstract T h(Object obj);
+    void b(int i);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fq9(pb pbVar, int i, int i2) {
-        super(pbVar, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((pb) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void c(sl8 sl8Var);
+
+    void d();
+
+    void destroy();
+
+    void e(boolean z);
+
+    void f(long j, long j2);
+
+    sl8 g();
+
+    View getRootView();
+
+    void h();
+
+    void i(boolean z, int i);
+
+    void j(int i);
+
+    int k();
+
+    void l();
+
+    void m(sl8 sl8Var);
+
+    void n(long j, long j2, int i);
+
+    rl8 o(int i);
+
+    void onChangeSkinType();
+
+    void p();
+
+    void pause();
+
+    void q();
+
+    void r(int i);
+
+    void resetView();
+
+    void resume();
+
+    void s(rl8 rl8Var, boolean z, int i);
 }

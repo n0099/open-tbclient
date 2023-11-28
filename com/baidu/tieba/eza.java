@@ -1,81 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tracker.core.data.IEventNode;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class eza {
+public class eza {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public IEventNode a;
 
-    public eza() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947753021, "Lcom/baidu/tieba/eza;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947753021, "Lcom/baidu/tieba/eza;");
         }
     }
 
-    public final void a() {
+    public static void a(MainTabActivity mainTabActivity, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, mainTabActivity, intent) != null) || a || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
+            return;
         }
-    }
-
-    public final IEventNode b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        String action = intent.getAction();
+        Set<String> categories = intent.getCategories();
+        if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+            a = true;
         }
-        return (IEventNode) invokeV.objValue;
-    }
-
-    public final eza c(IEventNode node) {
-        InterceptResult invokeL;
-        IEventNode iEventNode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, node)) == null) {
-            Intrinsics.checkNotNullParameter(node, "node");
-            IEventNode iEventNode2 = this.a;
-            if (iEventNode2 == null) {
-                this.a = node;
-            } else {
-                while (true) {
-                    if (iEventNode2 != null) {
-                        iEventNode = iEventNode2.getNext();
-                    } else {
-                        iEventNode = null;
-                    }
-                    if (iEventNode == null) {
-                        break;
-                    }
-                    IEventNode iEventNode3 = this.a;
-                    if (iEventNode3 != null) {
-                        iEventNode2 = iEventNode3.getNext();
-                    } else {
-                        iEventNode2 = null;
-                    }
-                }
-                if (iEventNode2 != null) {
-                    iEventNode2.setNext(node);
-                }
-            }
-            return this;
-        }
-        return (eza) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqP
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IAppPayService {
     void addPayListener(IAppPayServiceListener iAppPayServiceListener);
 

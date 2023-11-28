@@ -15,11 +15,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.ey4;
+import com.baidu.tieba.gy4;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newdetail.view.HotTopicDetailFeedView;
-import com.baidu.tieba.sy4;
-import com.baidu.tieba.ui8;
+import com.baidu.tieba.rl8;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +37,8 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicDetailActivity> a;
     public List<HotTopicDetailFeedView> b;
-    public List<ui8> c;
-    public sy4 d;
+    public List<rl8> c;
+    public uy4 d;
     public boolean e;
     public int f;
 
@@ -122,7 +122,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void k() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.e = true;
@@ -173,19 +173,19 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         hotTopicDetailFeedView2.m(0);
         this.b.add(hotTopicDetailFeedView);
         this.b.add(hotTopicDetailFeedView2);
-        ui8 ui8Var = new ui8(1);
-        ui8 ui8Var2 = new ui8(0);
-        this.c.add(ui8Var);
-        this.c.add(ui8Var2);
+        rl8 rl8Var = new rl8(1);
+        rl8 rl8Var2 = new rl8(0);
+        this.c.add(rl8Var);
+        this.c.add(rl8Var2);
     }
 
-    public ui8 b(int i) {
+    public rl8 b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (ui8) ListUtils.getItem(this.c, f(i) % h);
+            return (rl8) ListUtils.getItem(this.c, f(i) % h);
         }
-        return (ui8) invokeI.objValue;
+        return (rl8) invokeI.objValue;
     }
 
     public void g(int i) {
@@ -222,7 +222,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void m(int i) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
@@ -234,10 +234,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void q(sy4 sy4Var) {
+    public void q(uy4 uy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, sy4Var) == null) {
-            this.d = sy4Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, uy4Var) == null) {
+            this.d = uy4Var;
         }
     }
 
@@ -278,7 +278,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
-    /* renamed from: l */
+    /* renamed from: k */
     public HotTopicDetailFeedView instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -297,12 +297,12 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.c.clear();
-            this.c.add(new ui8(1));
-            this.c.add(new ui8(0));
+            this.c.add(new rl8(1));
+            this.c.add(new rl8(0));
             for (HotTopicDetailFeedView hotTopicDetailFeedView : this.b) {
                 hotTopicDetailFeedView.setData(new ArrayList());
             }
-            m(TbadkCoreApplication.getInst().getSkinType());
+            l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -330,10 +330,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
                 hotTopicDetailFeedView.k();
             }
             HotTopicDetailFeedView hotTopicDetailFeedView2 = (HotTopicDetailFeedView) ListUtils.getItem(this.b, this.f % h);
-            ui8 ui8Var = (ui8) ListUtils.getItem(this.c, this.f);
-            if (hotTopicDetailFeedView2 != null && ui8Var != null) {
-                if (ListUtils.isEmpty(ui8Var.e)) {
-                    this.a.getOrignalPage().U0(c());
+            rl8 rl8Var = (rl8) ListUtils.getItem(this.c, this.f);
+            if (hotTopicDetailFeedView2 != null && rl8Var != null) {
+                if (ListUtils.isEmpty(rl8Var.e)) {
+                    this.a.getOrignalPage().S0(c());
                 } else {
                     hotTopicDetailFeedView2.l();
                 }
@@ -341,25 +341,25 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void u(@NonNull ui8 ui8Var, boolean z, int i) {
-        ui8 ui8Var2;
+    public void u(@NonNull rl8 rl8Var, boolean z, int i) {
+        rl8 rl8Var2;
         boolean z2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048600, this, new Object[]{ui8Var, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || (ui8Var2 = (ui8) ListUtils.getItem(this.c, f(i) % h)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048600, this, new Object[]{rl8Var, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || (rl8Var2 = (rl8) ListUtils.getItem(this.c, f(i) % h)) == null) {
             return;
         }
         if (z) {
-            ui8Var2.e = ui8Var.e;
-        } else if (!ListUtils.isEmpty(ui8Var.e)) {
-            if (ui8Var2.e == null) {
-                ui8Var2.e = new ArrayList();
+            rl8Var2.e = rl8Var.e;
+        } else if (!ListUtils.isEmpty(rl8Var.e)) {
+            if (rl8Var2.e == null) {
+                rl8Var2.e = new ArrayList();
             }
-            ui8Var2.e.addAll(ui8Var.e);
+            rl8Var2.e.addAll(rl8Var.e);
         }
-        ey4 ey4Var = ui8Var.b;
-        ui8Var2.b = ey4Var;
-        ui8Var2.c = ui8Var.c;
-        if (ey4Var != null && ey4Var.b() != 0) {
+        gy4 gy4Var = rl8Var.b;
+        rl8Var2.b = gy4Var;
+        rl8Var2.c = rl8Var.c;
+        if (gy4Var != null && gy4Var.b() != 0) {
             z2 = true;
         } else {
             z2 = false;
@@ -370,6 +370,6 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             i(i);
             y(i);
         }
-        ((HotTopicDetailFeedView) ListUtils.getItem(this.b, f(i) % h)).setData(ui8Var2.d(this.d));
+        ((HotTopicDetailFeedView) ListUtils.getItem(this.b, f(i) % h)).setData(rl8Var2.d(this.d));
     }
 }

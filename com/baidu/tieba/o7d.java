@@ -1,29 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.RecommendInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes7.dex */
-public class o7d {
+public class o7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986637, "Lcom/baidu/tieba/o7d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @NonNull
+    public static JSONObject b(@NonNull RecommendInfo recommendInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "title", recommendInfo.title);
+            if (recommendInfo.user_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+                    jSONArray.put(y7d.b(schoolRecomUserInfo));
+                }
+                ltc.a(jSONObject, "user_list", jSONArray);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986637, "Lcom/baidu/tieba/o7d;");
-                return;
-            }
+            return jSONObject;
         }
-        a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
+        return (JSONObject) invokeL.objValue;
     }
 }

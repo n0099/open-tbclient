@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 /* loaded from: classes3.dex */
 public class DeviceInfoProxy {
     public static final int DEFAULT_PHONE_TYPE = 0;
@@ -22,7 +22,7 @@ public class DeviceInfoProxy {
     public static boolean checkPermisson(Context context) {
         int i = Build.VERSION.SDK_INT;
         if (i >= 23 && i < 29) {
-            if (context.checkSelfPermission(h.c) != 0) {
+            if (context.checkSelfPermission(g.c) != 0) {
                 return false;
             }
             return true;

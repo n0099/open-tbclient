@@ -10,10 +10,10 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q53;
-import com.baidu.tieba.rm1;
+import com.baidu.tieba.r53;
+import com.baidu.tieba.sm1;
 /* loaded from: classes4.dex */
-public class BdContextMenuView extends FrameLayout implements q53.g {
+public class BdContextMenuView extends FrameLayout implements r53.g {
     public b a;
     public Context b;
     public ListView c;
@@ -38,7 +38,7 @@ public class BdContextMenuView extends FrameLayout implements q53.g {
     }
 
     static {
-        boolean z = rm1.a;
+        boolean z = sm1.a;
     }
 
     public BdContextMenuView(Context context) {
@@ -62,11 +62,11 @@ public class BdContextMenuView extends FrameLayout implements q53.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080155));
+        setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080157));
         ListView listView = new ListView(this.b);
         this.c = listView;
         listView.setCacheColorHint(0);
-        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06040f));
+        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060411));
         this.c.setDividerHeight(1);
         this.c.setSelector(new ColorDrawable(0));
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));

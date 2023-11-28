@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.gi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ji6 extends BdAsyncTask<Void, Void, String> {
+public class ji6 implements ii6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ji6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ii6 a;
 
     public ji6() {
         Interceptable interceptable = $ic;
@@ -41,137 +30,40 @@ public class ji6 extends BdAsyncTask<Void, Void, String> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        String str;
-        String a;
+    public static ji6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String modName = TbSingleton.getInstance().getModName();
-            if (TextUtils.isEmpty(modName)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ji6.class) {
+                    if (b == null) {
+                        b = new ji6();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ji6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ii6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            ii6 ii6Var = this.a;
+            if (ii6Var == null) {
                 return null;
             }
-            hi6 d = d(modName);
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-            netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-            netWork.addPostData("mod_name", modName);
-            if (d.b()) {
-                str = "1";
-            } else {
-                str = "2";
-            }
-            netWork.addPostData("status", str);
-            if (d.b()) {
-                a = "";
-            } else {
-                a = d.a();
-            }
-            netWork.addPostData("fail_reason", a);
-            netWork.postNetData();
-            return null;
+            return ii6Var.a(str, webResourceRequest);
         }
-        return (String) invokeL.objValue;
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public final void c(String str, hi6 hi6Var) {
-        boolean z;
+    public void c(gi6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hi6Var) == null) {
-            if (StringUtils.isNull(str)) {
-                hi6Var.c("serve return is null");
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("error_code") == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                hi6Var.d(z);
-                hi6Var.c(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
-            } catch (JSONException e) {
-                hi6Var.c("parse json exception");
-                BdLog.e(e);
-            }
-        }
-    }
-
-    public final hi6 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            hi6 hi6Var = new hi6();
-            if (TextUtils.isEmpty(str)) {
-                hi6Var.c("module not exit");
-                return hi6Var;
-            }
-            File file = new File(ci6.n().m(), str);
-            String p = ci6.n().p(str);
-            if (TbSingleton.getInstance().isUploadOffPack()) {
-                hi6Var.d(false);
-                if (!file.exists()) {
-                    hi6Var.c("bundle not exist");
-                    return hi6Var;
-                } else if (TextUtils.isEmpty(p)) {
-                    hi6Var.c("the local has no valid version name");
-                    return hi6Var;
-                } else {
-                    String str2 = file.getAbsolutePath() + "/" + p + "/";
-                    if (!new File(str2).exists()) {
-                        hi6Var.c("bundle not exist");
-                        return hi6Var;
-                    }
-                    String str3 = file.getAbsolutePath() + "/" + p + ".zip";
-                    File file2 = new File(str3);
-                    if (file2.exists()) {
-                        FileHelper.deleteFileOrDir(file2);
-                    }
-                    if (z35.e(str2, str3)) {
-                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
-                        netWork.addPostData("offline_pack_version", p);
-                        netWork.addPostData("mod_name", str);
-                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                        c(netWork.uploadFile("offline_pack_file_stream", str3), hi6Var);
-                        if (!hi6Var.b()) {
-                            return hi6Var;
-                        }
-                    } else {
-                        hi6Var.c("zip bundle error");
-                        return hi6Var;
-                    }
-                }
-            } else {
-                hi6Var.d(true);
-            }
-            if (TbSingleton.getInstance().isClearOffPack()) {
-                ci6.n().h(str);
-                if (!TextUtils.isEmpty(p)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", p));
-                }
-                if (file.exists() && !StringUtils.isNull(p)) {
-                    if (!new File(file.getAbsolutePath(), p).exists()) {
-                        return hi6Var;
-                    }
-                    hi6Var.c("delete fail");
-                    hi6Var.d(false);
-                }
-            }
-            return hi6Var;
-        }
-        return (hi6) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            mi6.c();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
+            this.a = aVar.b();
         }
     }
 }

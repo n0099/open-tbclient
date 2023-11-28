@@ -1,30 +1,40 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.graphics.drawable.IconCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.Zhibo;
+import tbclient.Agree;
+import tbclient.FeedSocialComponent;
+import tbclient.LayoutManageInfo;
 /* loaded from: classes5.dex */
-public class dyc extends qoc {
+public class dyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Zhibo zhibo) {
+    public static JSONObject b(@NonNull FeedSocialComponent feedSocialComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zhibo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedSocialComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "forum", zhibo.forum);
-            qoc.a(jSONObject, "tid", zhibo.tid);
-            qoc.a(jSONObject, "status", zhibo.status);
-            qoc.a(jSONObject, "type", zhibo.type);
-            qoc.a(jSONObject, IconCompat.EXTRA_INT1, zhibo.int1);
-            qoc.a(jSONObject, "has_lpost", zhibo.has_lpost);
-            qoc.a(jSONObject, "lpost_type", zhibo.lpost_type);
+            Agree agree = feedSocialComponent.agree;
+            if (agree != null) {
+                ltc.a(jSONObject, "agree", cuc.b(agree));
+            }
+            ltc.a(jSONObject, "comment_num", feedSocialComponent.comment_num);
+            ltc.a(jSONObject, "share_num", feedSocialComponent.share_num);
+            ltc.a(jSONObject, "tid", feedSocialComponent.tid);
+            ltc.a(jSONObject, "fid", feedSocialComponent.fid);
+            if (feedSocialComponent.manage_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (LayoutManageInfo layoutManageInfo : feedSocialComponent.manage_list) {
+                    jSONArray.put(o4d.b(layoutManageInfo));
+                }
+                ltc.a(jSONObject, "manage_list", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

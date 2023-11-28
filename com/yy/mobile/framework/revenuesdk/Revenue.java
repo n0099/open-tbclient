@@ -17,7 +17,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.AppPayServiceImpl;
 import com.yy.mobile.framework.revenuesdk.statistics.PayEventStatisticsApiImpl;
 import com.yy.mobile.framework.revenuesdk.statistics.PayMetricsStatisticsApiImpl;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSender {
     public static final String TAG = "Revenue";
     public int mAppId;

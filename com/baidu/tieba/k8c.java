@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,31 +8,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
 /* loaded from: classes7.dex */
 public class k8c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SecureX509SingleInstance";
-    public static volatile l8c b;
+    public static /* synthetic */ Interceptable $ic;
+    public static final k8c e;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868403, "Lcom/baidu/tieba/k8c;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868403, "Lcom/baidu/tieba/k8c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868403, "Lcom/baidu/tieba/k8c;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947868403, "Lcom/baidu/tieba/k8c;");
-        }
+        e = new k8c();
     }
 
     public k8c() {
@@ -47,39 +44,68 @@ public class k8c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = 0.0f;
+        this.d = 1.0f;
+        b(0.0f, 0.0f, 0.0f, 1.0f);
+    }
+
+    public final float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void b(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = f4;
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static l8c a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (context != null) {
-                r8c.b(context);
-                if (b == null) {
-                    synchronized (k8c.class) {
-                        if (b == null) {
-                            InputStream n = p8c.n(context);
-                            if (n == null) {
-                                u8c.e(a, "get assets bks");
-                                n = context.getAssets().open("hmsrootcas.bks");
-                            } else {
-                                u8c.e(a, "get files bks");
-                            }
-                            b = new l8c(n, "");
-                            new s8c().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
-                        }
-                    }
-                }
-                String str = a;
-                u8c.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return b;
-            }
-            throw new NullPointerException("context is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.b), Float.valueOf(this.c), Float.valueOf(this.d));
         }
-        return (l8c) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

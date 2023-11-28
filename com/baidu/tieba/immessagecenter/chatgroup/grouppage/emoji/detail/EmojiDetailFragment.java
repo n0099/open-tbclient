@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b19;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.f49;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiDetailRecyclerAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import com.baidu.tieba.wj5;
-import com.baidu.tieba.x09;
+import com.baidu.tieba.j49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EmojiDetailFragment extends BaseFragment implements x09 {
+public class EmojiDetailFragment extends BaseFragment implements f49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmojiDetailRecyclerAdapter a;
     public final TbPageContext<BaseFragmentActivity> b;
     @NonNull
-    public final b19 c;
+    public final j49 c;
     public final BdUniqueId d;
     public boolean e;
     public View f;
@@ -112,7 +112,7 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 b bVar = new b();
                 bVar.a = view2;
-                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0909cf);
+                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0909eb);
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -120,17 +120,17 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements x09 {
+    public static class c implements f49 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<x09> a;
+        public final WeakReference<f49> a;
 
-        public c(x09 x09Var) {
+        public c(f49 f49Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x09Var};
+                Object[] objArr = {f49Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,24 +140,24 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(x09Var);
+            this.a = new WeakReference<>(f49Var);
         }
 
-        @Override // com.baidu.tieba.x09
+        @Override // com.baidu.tieba.f49
         public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-            x09 x09Var;
+            f49 f49Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (x09Var = this.a.get()) != null) {
-                x09Var.a(z, list);
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (f49Var = this.a.get()) != null) {
+                f49Var.a(z, list);
             }
         }
 
-        @Override // com.baidu.tieba.x09
+        @Override // com.baidu.tieba.f49
         public void onFailure(int i, String str) {
-            x09 x09Var;
+            f49 f49Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (x09Var = this.a.get()) != null) {
-                x09Var.onFailure(i, str);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (f49Var = this.a.get()) != null) {
+                f49Var.onFailure(i, str);
             }
         }
     }
@@ -181,14 +181,14 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
         this.e = false;
         this.k = new a(this);
         this.b = tbPageContext;
-        this.c = new b19(tbPageContext, emojiData, j, this.d);
+        this.c = new j49(tbPageContext, emojiData, j, this.d);
         this.j = new c(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
             TextView textView = this.h;
             if (textView != null) {
@@ -197,107 +197,10 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
         }
     }
 
-    public final void A2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hideLoading();
-            showNetRefreshView(this.g.a, null, false);
-            wj5 wj5Var = this.mRefreshView;
-            if (wj5Var != null) {
-                wj5Var.getAttachedView().setClickable(false);
-                this.mRefreshView.e(R.color.transparent);
-            }
-        }
-    }
-
-    public final void hideLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hideLoadingView(getView());
-            this.loadingView = null;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onNetRefreshButtonClicked();
-            z2();
-            this.c.g(this.j);
-        }
-    }
-
-    public void y2() {
-        b bVar;
-        BdRecyclerView bdRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (bVar = this.g) != null && (bdRecyclerView = bVar.b) != null) {
-            bdRecyclerView.smoothScrollToPosition(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.x09
-    public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, list) == null) {
-            if (isLoadingViewAttached()) {
-                hideLoading();
-            }
-            this.i = z;
-            this.a.l(list);
-            TextView x2 = x2(z);
-            if (this.g.b.getFooterViewsCount() == 0 && x2.getParent() == null) {
-                this.g.b.addFooterView(x2);
-            } else {
-                x2(z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f == null) {
-                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0296, viewGroup, false);
-            }
-            return this.f;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x09
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && isLoadingViewAttached()) {
-            A2();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
-            super.onViewCreated(view2, bundle);
-            if (!this.e) {
-                this.e = true;
-                this.g = b.a(view2);
-                this.a = new EmojiDetailRecyclerAdapter();
-                this.g.b.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
-                this.g.b.setOnSrollToBottomListener(this.k);
-                this.g.b.setAdapter(this.a);
-                z2();
-                this.c.g(this.j);
-            }
-        }
-    }
-
-    public final TextView x2(boolean z) {
+    public final TextView J2(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (this.h == null) {
                 this.h = new TextView(this.b.getPageActivity());
                 this.h.setLayoutParams(new RecyclerView.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds100)));
@@ -314,9 +217,49 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
         return (TextView) invokeZ.objValue;
     }
 
-    public final void z2() {
+    public void K2() {
+        b bVar;
+        BdRecyclerView bdRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.g) != null && (bdRecyclerView = bVar.b) != null) {
+            bdRecyclerView.smoothScrollToPosition(0);
+        }
+    }
+
+    public final void M2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hideLoading();
+            showNetRefreshView(this.g.a, null, false);
+            ck5 ck5Var = this.mRefreshView;
+            if (ck5Var != null) {
+                ck5Var.getAttachedView().setClickable(false);
+                this.mRefreshView.e(R.color.transparent);
+            }
+        }
+    }
+
+    public final void hideLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            hideLoadingView(getView());
+            this.loadingView = null;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onNetRefreshButtonClicked();
+            L2();
+            this.c.g(this.j);
+        }
+    }
+
+    public final void L2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             hideNetRefreshView(getView());
             this.mRefreshView = null;
             showLoadingView(getView());
@@ -325,6 +268,63 @@ public class EmojiDetailFragment extends BaseFragment implements x09 {
                 loadingView.getAttachedView().setClickable(false);
                 this.loadingView.cancelCenterVertical();
                 this.loadingView.setLayoutMarginWithHeaderHeightAndPercent(0, 0.2f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.f49
+    public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, list) == null) {
+            if (isLoadingViewAttached()) {
+                hideLoading();
+            }
+            this.i = z;
+            this.a.l(list);
+            TextView J2 = J2(z);
+            if (this.g.b.getFooterViewsCount() == 0 && J2.getParent() == null) {
+                this.g.b.addFooterView(J2);
+            } else {
+                J2(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.f == null) {
+                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d029d, viewGroup, false);
+            }
+            return this.f;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f49
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) && isLoadingViewAttached()) {
+            M2();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
+            if (!this.e) {
+                this.e = true;
+                this.g = b.a(view2);
+                this.a = new EmojiDetailRecyclerAdapter();
+                this.g.b.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
+                this.g.b.setOnSrollToBottomListener(this.k);
+                this.g.b.setAdapter(this.a);
+                L2();
+                this.c.g(this.j);
             }
         }
     }

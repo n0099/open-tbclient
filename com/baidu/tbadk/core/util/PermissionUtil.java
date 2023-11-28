@@ -26,15 +26,15 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.dm5;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.fu5;
-import com.baidu.tieba.gt5;
+import com.baidu.tieba.ct5;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.lm5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.s0b;
-import com.baidu.tieba.us5;
-import com.baidu.tieba.w0b;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.nu5;
+import com.baidu.tieba.o5b;
+import com.baidu.tieba.ot5;
+import com.baidu.tieba.s5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes4.dex */
 public class PermissionUtil {
@@ -53,7 +53,7 @@ public class PermissionUtil {
     public static boolean isBrowseMode;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static dm5 mAgreePrivacyPolicyEventListener;
+    public static lm5 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +69,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new dm5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new lm5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.dm5
+            @Override // com.baidu.tieba.lm5
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -137,7 +137,7 @@ public class PermissionUtil {
     public static void doBrowseModeAgreePrivacy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            fu5.b(new bu5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+            nu5.b(new ju5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,17 +155,17 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.bu5
+                @Override // com.baidu.tieba.ju5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        w0b.b();
+                        s5b.b();
                         return null;
                     }
                     return invokeV.objValue;
                 }
-            }, new gt5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
+            }, new ot5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,12 +183,12 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.gt5
+                @Override // com.baidu.tieba.ot5
                 public void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
-                        s0b.b(true);
+                        o5b.b(true);
                     }
                 }
             });
@@ -276,7 +276,7 @@ public class PermissionUtil {
                 return false;
             }
             try {
-                return ContextCompat.checkPermissionGranted(context, h.c);
+                return ContextCompat.checkPermissionGranted(context, g.c);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -296,7 +296,7 @@ public class PermissionUtil {
                 return false;
             }
             try {
-                return ContextCompat.checkPermissionGranted(context, h.d);
+                return ContextCompat.checkPermissionGranted(context, g.d);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -353,7 +353,7 @@ public class PermissionUtil {
                 return "";
             }
             if (localMacAddress == null) {
-                localMacAddress = us5.c().d(context);
+                localMacAddress = ct5.c().d(context);
             }
             return localMacAddress;
         }
@@ -400,7 +400,7 @@ public class PermissionUtil {
                 return false;
             }
             try {
-                z = ContextCompat.checkPermissionGranted(context, h.c);
+                z = ContextCompat.checkPermissionGranted(context, g.c);
             } catch (Exception e) {
                 e = e;
                 z = false;
@@ -434,10 +434,10 @@ public class PermissionUtil {
                 return false;
             }
             try {
-                if (ContextCompat.checkPermissionGranted(context, h.g)) {
+                if (ContextCompat.checkPermissionGranted(context, g.g)) {
                     return true;
                 }
-                if (ContextCompat.checkPermissionGranted(context, h.h)) {
+                if (ContextCompat.checkPermissionGranted(context, g.h)) {
                     return true;
                 }
                 return false;
@@ -460,8 +460,8 @@ public class PermissionUtil {
                 return false;
             }
             try {
-                if (ContextCompat.checkPermissionGranted(context, h.g)) {
-                    if (ContextCompat.checkPermissionGranted(context, h.h)) {
+                if (ContextCompat.checkPermissionGranted(context, g.g)) {
+                    if (ContextCompat.checkPermissionGranted(context, g.h)) {
                         return true;
                     }
                 }
@@ -545,9 +545,9 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65568, null, activity, i) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermission(activity, h.c);
-            permissionJudgePolicy.appendRequestPermission(activity, h.h);
-            permissionJudgePolicy.appendRequestPermission(activity, h.g);
+            permissionJudgePolicy.appendRequestPermission(activity, g.c);
+            permissionJudgePolicy.appendRequestPermission(activity, g.h);
+            permissionJudgePolicy.appendRequestPermission(activity, g.g);
             permissionJudgePolicy.startRequestPermission(activity, i);
         }
     }
@@ -557,8 +557,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, activity, i)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermission(activity, h.h);
-            permissionJudgePolicy.appendRequestPermission(activity, h.g);
+            permissionJudgePolicy.appendRequestPermission(activity, g.h);
+            permissionJudgePolicy.appendRequestPermission(activity, g.g);
             return permissionJudgePolicy.startRequestPermission(activity, i);
         }
         return invokeLI.booleanValue;
@@ -578,7 +578,7 @@ public class PermissionUtil {
             GrowthStatsUtil.statisticActivity();
             MutiProcessManager.getInstance().init(TbadkCoreApplication.getInst());
             MutiProcessManager.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(isAgreePrivacyPolicy())));
-            dt5.i().u();
+            lt5.i().u();
         }
     }
 
@@ -587,8 +587,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, activity, i, onPermissionsGrantedListener)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, h.h);
-            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, h.g);
+            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, g.h);
+            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, g.g);
             permissionJudgePolicy.setOnPermissionsGrantedListener(onPermissionsGrantedListener);
             return permissionJudgePolicy.startRequestPermission(activity, i);
         }

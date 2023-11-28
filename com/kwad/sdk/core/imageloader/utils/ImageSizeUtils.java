@@ -42,25 +42,26 @@ public final class ImageSizeUtils {
         int width2 = imageSize2.getWidth();
         int height2 = imageSize2.getHeight();
         int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType[viewScaleType.ordinal()];
+        int i2 = 1;
         if (i != 1) {
             if (i != 2) {
                 max = 1;
             } else if (z) {
-                int i2 = width / 2;
-                int i3 = height / 2;
+                int i3 = width / 2;
+                int i4 = height / 2;
                 max = 1;
-                while (i2 / max > width2 && i3 / max > height2) {
+                while (i3 / max > width2 && i4 / max > height2) {
                     max *= 2;
                 }
             } else {
                 max = Math.min(width / width2, height / height2);
             }
         } else if (z) {
-            int i4 = width / 2;
-            int i5 = height / 2;
+            int i5 = width / 2;
+            int i6 = height / 2;
             max = 1;
             while (true) {
-                if (i4 / max <= width2 && i5 / max <= height2) {
+                if (i5 / max <= width2 && i6 / max <= height2) {
                     break;
                 }
                 max *= 2;
@@ -68,7 +69,10 @@ public final class ImageSizeUtils {
         } else {
             max = Math.max(width / width2, height / height2);
         }
-        return considerMaxTextureSize(width, height, max > 0 ? max : 1, z);
+        if (max > 0) {
+            i2 = max;
+        }
+        return considerMaxTextureSize(width, height, i2, z);
     }
 
     public static float computeImageScale(ImageSize imageSize, ImageSize imageSize2, ViewScaleType viewScaleType, boolean z) {
@@ -80,10 +84,10 @@ public final class ImageSizeUtils {
         float f2 = f / width2;
         float f3 = height;
         float f4 = f3 / height2;
-        if ((viewScaleType != ViewScaleType.FIT_INSIDE || f2 < f4) && (viewScaleType != ViewScaleType.CROP || f2 >= f4)) {
-            width2 = (int) (f / f4);
-        } else {
+        if ((viewScaleType == ViewScaleType.FIT_INSIDE && f2 >= f4) || (viewScaleType == ViewScaleType.CROP && f2 < f4)) {
             height2 = (int) (f3 / f2);
+        } else {
+            width2 = (int) (f / f4);
         }
         if ((z || width2 >= width || height2 >= height) && (!z || width2 == width || height2 == height)) {
             return 1.0f;
@@ -104,7 +108,11 @@ public final class ImageSizeUtils {
             if (i / i3 <= width && i2 / i3 <= height) {
                 return i3;
             }
-            i3 = z ? i3 * 2 : i3 + 1;
+            if (z) {
+                i3 *= 2;
+            } else {
+                i3++;
+            }
         }
     }
 

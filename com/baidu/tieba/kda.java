@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface kda {
-    void a(int i);
+    void a();
 
-    boolean b();
+    void c();
+
+    void e();
 }

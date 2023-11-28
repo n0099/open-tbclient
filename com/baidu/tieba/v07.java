@@ -1,235 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
-import com.baidu.tieba.faceshop.DiyEmotionData;
-import com.baidu.tieba.pe5;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public class v07 extends pe5 {
+public class v07 {
     public static /* synthetic */ Interceptable $ic;
-    public static v07 c;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<se5> a;
-    public final CustomMessageListener b;
 
-    @Override // com.baidu.tieba.pe5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v07 a;
-
-        /* renamed from: com.baidu.tieba.v07$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0499a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0499a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(v07 v07Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187052, "Lcom/baidu/tieba/v07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v07Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = v07Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                br6.a(new RunnableC0499a(this), "FaceShop", 1);
-            }
-        }
-    }
-
-    public v07() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187052, "Lcom/baidu/tieba/v07;");
                 return;
             }
         }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
+        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     }
 
-    public synchronized void g() {
+    public static int a(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
+                    }
                 }
-                Iterator<se5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    se5 next = it.next();
-                    if (next instanceof u07) {
-                        ((u07) next).y();
+                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
+                while (matcher2.find()) {
+                    String[] split = matcher2.group().split(",");
+                    if (split != null && split.length == 5) {
+                        i++;
+                    }
+                }
+                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
+                while (matcher3.find()) {
+                    String[] split2 = matcher3.group().split(",");
+                    if (split2 != null && split2.length == 6) {
+                        i++;
                     }
                 }
             }
+            return i;
         }
+        return invokeL.intValue;
     }
 
-    public static v07 e() {
-        InterceptResult invokeV;
+    public static int b(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (v07.class) {
-                    if (c == null) {
-                        c = new v07();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
                     }
                 }
             }
-            return c;
+            return i;
         }
-        return (v07) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.pe5
-    public void b(pe5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
-            LinkedList<se5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<se5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    se5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
-                }
-                return;
-            }
-            this.a = new LinkedList<>();
-            u07 u07Var = new u07();
-            this.a.add(u07Var);
-            if (aVar != null) {
-                aVar.a(u07Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pe5
-    public void d() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        List<DiyEmotionData> r = y07.o().r(TbadkCoreApplication.getCurrentAccount());
-        if (r != null && r.size() != 0) {
-            if (r != null && r.size() != 0) {
-                i = r.size() - 1;
-            } else {
-                i = 0;
-            }
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
-        }
-        DiyEmotionData diyEmotionData = new DiyEmotionData();
-        diyEmotionData.setPid("setting_icon");
-        diyEmotionData.setOrderId(301);
-        diyEmotionData.setSharpText("#(meme,diysetting)");
-        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
-        y07.o().c(diyEmotionData);
-    }
-
-    public boolean f(String str) {
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<se5> linkedList = this.a;
-            if (linkedList == null) {
-                return false;
-            }
-            Iterator<se5> it = linkedList.iterator();
-            while (it.hasNext()) {
-                se5 next = it.next();
-                if (next instanceof u07) {
-                    return ((u07) next).w(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String replaceAll = str.replaceAll(ej5.h, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT).replaceAll("meme,diy_", EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
+            StringBuilder sb = new StringBuilder(replaceAll);
+            int i = 0;
+            while (matcher.find()) {
+                String[] split = matcher.group().split(",");
+                if (split != null && split.length == 6) {
+                    StringBuilder sb2 = new StringBuilder();
+                    int start = matcher.start() - i;
+                    int end = matcher.end() - i;
+                    for (int i2 = 0; i2 < split.length; i2++) {
+                        if (i2 != 1) {
+                            sb2.append(split[i2]);
+                            if (i2 < split.length - 1) {
+                                sb2.append(",");
+                            }
+                        }
+                    }
+                    i += (end - start) - sb2.toString().length();
+                    if (start >= 0 && end <= sb.length()) {
+                        sb.replace(start, end, sb2.toString());
+                    }
                 }
             }
-            return false;
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

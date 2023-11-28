@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.BVideoView;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.model.YYOption;
@@ -19,10 +19,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class su0 extends ju0 {
+public class su0 extends ku0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BVideoView g;
+    public CyberPlayer g;
+
+    @Override // com.baidu.tieba.ju0
+    public void M(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
+    @Nullable
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
     public su0() {
         Interceptable interceptable = $ic;
@@ -34,24 +52,23 @@ public class su0 extends ju0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new BVideoView(op0.b());
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.setVideoURI(Uri.parse(this.b), this.d);
+            this.g.setDataSource(pp0.b(), Uri.parse(this.b), this.d);
+            this.g.prepareAsync();
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.O();
             this.g.start();
             if (l(PlayerStatus.COMPLETE)) {
@@ -60,79 +77,100 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void P() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.P();
             Q();
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void Q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.Q();
-            this.g.stopPlayback();
+            this.g.stop();
         }
     }
 
-    @Override // com.baidu.tieba.iu0
-    @NonNull
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.g;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.g.getDuration() / 1000;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.g.getDuration();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.tw0
-    public void onRelease() {
+    @Override // com.baidu.tieba.ju0, com.baidu.tieba.uw0
+    public void onInit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            super.onRelease();
-            this.d.clear();
-            Q();
-            this.g.setVisibility(0);
-            this.g.setAlpha(1.0f);
-            D(null);
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.onInit();
+            this.g = new CyberPlayer();
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0, com.baidu.tieba.uw0
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onRelease();
+            this.d.clear();
+            Q();
+            this.g.release();
+            this.g = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            u("prepare");
+            if (!PlayerStatus.isActiveStatus(i())) {
+                n(PlayerStatus.PREPARING);
+                this.g.prepareAsync();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.w();
+            if (l(PlayerStatus.PAUSE, PlayerStatus.COMPLETE)) {
+                n(PlayerStatus.PLAYING);
+                this.g.start();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
     public void B(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
@@ -140,7 +178,7 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void F(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
@@ -148,7 +186,7 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void y(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048604, this, i, i2) == null) {
@@ -156,7 +194,7 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -164,7 +202,7 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void G(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -172,64 +210,53 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
-    public void I(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.g.setRemote(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void J(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
             this.g.setSpeed(f);
         }
     }
 
-    @Override // com.baidu.tieba.iu0
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g.setVideoScalingMode(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void S(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.g.changeProxyDynamic(str);
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            if (str != null) {
+                this.g.changeProxyDynamic(str, true);
+            } else {
+                this.g.changeProxyDynamic(null, false);
+            }
         }
     }
 
-    public void U(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.g.setZOrderMediaOverlay(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.g.muteOrUnmuteAudio(z);
         }
     }
 
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.tw0
+    @Override // com.baidu.tieba.ju0, com.baidu.tieba.uw0
     public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            return "CyberSysPlayer".equals(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            return "InlineVideoKernel".equals(str);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.g.seekTo(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
     public void z(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
@@ -237,7 +264,7 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void H(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -251,37 +278,36 @@ public class su0 extends ju0 {
         }
     }
 
-    @Override // com.baidu.tieba.ju0
-    public void T(lu0 lu0Var) {
+    @Override // com.baidu.tieba.ku0
+    public void T(mu0 mu0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, lu0Var) == null) {
-            this.g.setOnCompletionListener(lu0Var);
-            this.g.setOnErrorListener(lu0Var);
-            this.g.setOnInfoListener(lu0Var);
-            this.g.setOnSeekCompleteListener(lu0Var);
-            this.g.setOnPreparedListener(lu0Var);
-            this.g.setOnBufferingUpdateListener(lu0Var);
-            this.g.setOnVideoSizeChangedListener(lu0Var);
-            this.g.setOnMediaSourceChangedListener(lu0Var);
-            U(true);
+        if (interceptable == null || interceptable.invokeL(1048589, this, mu0Var) == null) {
+            this.g.setOnCompletionListener(mu0Var);
+            this.g.setOnErrorListener(mu0Var);
+            this.g.setOnInfoListener(mu0Var);
+            this.g.setOnSeekCompleteListener(mu0Var);
+            this.g.setOnPreparedListener(mu0Var);
+            this.g.setOnBufferingUpdateListener(mu0Var);
+            this.g.setOnVideoSizeChangedListener(mu0Var);
+            this.g.setOnMediaSourceChangedListener(mu0Var);
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void L(String str, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 this.g.setOption(entry.getKey(), entry.getValue());
             }
         }
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if (l(PlayerStatus.IDLE)) {
                 int e = e() / 1000;
                 if (e - (this.g.getCurrentPosition() / 1000) <= 2) {
@@ -293,11 +319,11 @@ public class su0 extends ju0 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (l(PlayerStatus.IDLE) && e() - this.g.getCurrentPosition() <= 2) {
                 return f();
             }
@@ -306,41 +332,14 @@ public class su0 extends ju0 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.tw0
-    public void onInit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.onInit();
-            this.g.reset();
-            this.g.setVideoScalingMode(2);
-            this.g.setSpeed(1.0f);
-            this.g.setVideoRotation(0);
-            this.g.setVisibility(0);
-            this.g.setAlpha(1.0f);
-            I(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0
+    @Override // com.baidu.tieba.ju0
     public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.s();
             if (l(PlayerStatus.PLAYING, PlayerStatus.PREPARED, PlayerStatus.PREPARING)) {
                 n(PlayerStatus.PAUSE);
                 this.g.pause();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            super.w();
-            if (l(PlayerStatus.PREPARED, PlayerStatus.PREPARING, PlayerStatus.PAUSE, PlayerStatus.COMPLETE)) {
-                n(PlayerStatus.PLAYING);
-                this.g.start();
             }
         }
     }

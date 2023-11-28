@@ -2,7 +2,7 @@ package com.yy.gslbsdk.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RuntimeTools {
     public static final String TAG = "RuntimeTools";
 

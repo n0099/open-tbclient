@@ -1,11 +1,11 @@
 package rx.schedulers;
 
-import com.baidu.tieba.mjc;
+import com.baidu.tieba.hoc;
 @Deprecated
 /* loaded from: classes2.dex */
-public final class ImmediateScheduler extends mjc {
-    @Override // com.baidu.tieba.mjc
-    public mjc.a createWorker() {
+public final class ImmediateScheduler extends hoc {
+    @Override // com.baidu.tieba.hoc
+    public hoc.a createWorker() {
         return null;
     }
 

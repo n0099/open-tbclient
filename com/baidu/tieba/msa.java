@@ -1,133 +1,149 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class msa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public final class msa extends tz0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final lz0 l;
+    public static final lz0 m;
+    public static final lz0 n;
+    public static final lz0 o;
+    public static final lz0 p;
+    public static final lz0 q;
+    public static final lz0 r;
+    public static final lz0 s;
+    public static final lz0 t;
+    public static final lz0 u;
+    public static final lz0[] v;
+    public static final lz0[][] w;
+    public static final lz0[] x;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<nsa>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
+    public final LongColumn a;
+    public final LongColumn b;
+    public final LongColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final StringColumn g;
+    public final IntegerColumn h;
+    public final StringColumn i;
+    public final StringColumn j;
+    public final Column[] k;
 
-    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, qsaVar, osaVar)) == null) {
-            return null;
-        }
-        return (osa) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public dj6 getJsBridge() {
+    @Override // com.baidu.tieba.tz0
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (dj6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TiebaMainDatabaseHelper.TABLE_DOWNLOAD_MULTI_INFO : (String) invokeV.objValue;
     }
 
-    public abstract List<osa> processNotification(WebView webView, String str, HashMap hashMap);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984622, "Lcom/baidu/tieba/msa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984622, "Lcom/baidu/tieba/msa;");
+                return;
+            }
+        }
+        l = tz0.b(3, "id", "                    id", 0, 3);
+        m = tz0.a(3, "start_download_time", "   start_download_time", 1);
+        n = tz0.a(3, "finished_download_time", "finished_download_time", 2);
+        o = tz0.a(4, "download_url", "          download_url", 3);
+        p = tz0.a(4, "package_name", "          package_name", 4);
+        q = tz0.a(4, "title", "                 title", 5);
+        r = tz0.a(4, "detail_info", "           detail_info", 6);
+        s = tz0.a(2, "source", "                source", 7);
+        t = tz0.a(4, "extra", "                 extra", 8);
+        lz0 a = tz0.a(4, NetDiskFileMsg.NetDiskFile.JSON_KEY_FILE_TYPE, "             file_type", 9);
+        u = a;
+        lz0 lz0Var = l;
+        v = new lz0[]{lz0Var, m, n, o, p, q, r, s, t, a};
+        w = new lz0[0];
+        x = new lz0[]{lz0Var};
+    }
 
     public msa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new LongColumn(l);
+        this.b = new LongColumn(m);
+        this.c = new LongColumn(n);
+        this.d = new StringColumn(o);
+        this.e = new StringColumn(p);
+        this.f = new StringColumn(q);
+        this.g = new StringColumn(r);
+        this.h = new IntegerColumn(s);
+        this.i = new StringColumn(t);
+        StringColumn stringColumn = new StringColumn(u);
+        this.j = stringColumn;
+        this.k = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, stringColumn};
     }
 
-    public final void onDestroy() {
-        dj6 jsBridge;
+    @Override // com.baidu.tieba.tz0
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
-            jsBridge.onDestroy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (Column[]) invokeV.objValue;
     }
 
-    public osa addObserver(WebView webView, String str, osa osaVar, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.tz0
+    public lz0[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, osaVar, Boolean.valueOf(z)})) == null) {
-            if (osaVar == null) {
-                osaVar = new osa();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                osaVar.n(false);
-                osaVar.t(true);
-                List<nsa> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
-                }
-                nsa nsaVar = new nsa();
-                nsaVar.e(osaVar.c());
-                nsaVar.d(z);
-                nsaVar.f(osaVar.e());
-                list.add(nsaVar);
-                this.mAsyncCallBackMethodList.put(str, list);
-                if (webView instanceof aj6) {
-                    ((aj6) webView).a(str, nsaVar.a());
-                }
-            }
-            return osaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return v;
         }
-        return (osa) invokeCommon.objValue;
+        return (lz0[]) invokeV.objValue;
     }
 
-    public osa addObserver(String str, osa osaVar, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.tz0
+    public lz0[][] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, osaVar, z)) == null) {
-            return addObserver(null, str, osaVar, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return w;
         }
-        return (osa) invokeLLZ.objValue;
+        return (lz0[][]) invokeV.objValue;
     }
 
-    public osa dispatch(qsa qsaVar, osa osaVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.tz0
+    public lz0[] f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, qsaVar, osaVar)) == null) {
-            return dispatch(null, qsaVar, osaVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return x;
         }
-        return (osa) invokeLL.objValue;
-    }
-
-    public void removeObserverBridge(List<Pair<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
-            for (Pair<String, String> pair : list) {
-                List<nsa> list2 = this.mAsyncCallBackMethodList.get(pair.first);
-                if (list2 != null && !list2.isEmpty()) {
-                    Iterator<nsa> it = list2.iterator();
-                    while (it.hasNext()) {
-                        if (TextUtils.equals(it.next().a(), pair.second)) {
-                            it.remove();
-                        }
-                    }
-                }
-            }
-        }
+        return (lz0[]) invokeV.objValue;
     }
 }

@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BindTestPhoneController {
     public static void bind(String str, Context context) {
         int indexOf = str.indexOf(":");

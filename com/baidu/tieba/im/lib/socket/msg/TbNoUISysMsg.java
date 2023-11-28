@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.ls8;
+import com.baidu.tieba.sv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class TbNoUISysMsg extends TbSysMsg {
     public TbSysMsg.ChatRoomInfo chatroomInfo;
     @Nullable
     @SerializedName("mask_info")
-    public ls8 maskInfo;
+    public sv8 maskInfo;
     @Nullable
     @SerializedName("user_to")
     public TbSysMsg.User userTo;
@@ -56,7 +56,7 @@ public class TbNoUISysMsg extends TbSysMsg {
             }
         }
         ADAPTER_TYPE = BdUniqueId.gen();
-        MSG_TYPE_LIST = Arrays.asList(-7010, Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_START_EGG_RAIN));
+        MSG_TYPE_LIST = Arrays.asList(-7010, Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_START_EGG_RAIN), 7024);
     }
 
     public TbNoUISysMsg() {
@@ -84,13 +84,13 @@ public class TbNoUISysMsg extends TbSysMsg {
     }
 
     @Nullable
-    public ls8 getMaskInfo() {
+    public sv8 getMaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.maskInfo;
         }
-        return (ls8) invokeV.objValue;
+        return (sv8) invokeV.objValue;
     }
 
     @Nullable

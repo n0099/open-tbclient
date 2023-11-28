@@ -34,6 +34,15 @@ public final class SubBusinessType {
         $VALUES = new SubBusinessType[]{subBusinessType};
     }
 
+    public static SubBusinessType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SubBusinessType[]) $VALUES.clone();
+        }
+        return (SubBusinessType[]) invokeV.objValue;
+    }
+
     public SubBusinessType(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,12 +67,9 @@ public final class SubBusinessType {
     public static SubBusinessType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SubBusinessType) Enum.valueOf(SubBusinessType.class, str) : (SubBusinessType) invokeL.objValue;
-    }
-
-    public static SubBusinessType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SubBusinessType[]) $VALUES.clone() : (SubBusinessType[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SubBusinessType) Enum.valueOf(SubBusinessType.class, str);
+        }
+        return (SubBusinessType) invokeL.objValue;
     }
 }

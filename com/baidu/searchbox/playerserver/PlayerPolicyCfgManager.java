@@ -443,11 +443,11 @@ public class PlayerPolicyCfgManager implements IPlayerConfig {
                     }
                 }
                 return playerPolicyBandwidthConfig;
-            } catch (Error e3) {
+            } catch (Exception e3) {
                 Log.e(TAG, "update config fail : ", e3);
                 return null;
             }
-        } catch (Exception e4) {
+        } catch (Error e4) {
             Log.e(TAG, "update config fail : ", e4);
             return null;
         }

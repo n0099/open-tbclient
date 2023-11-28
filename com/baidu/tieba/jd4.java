@@ -1,131 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.tieba.pd4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 /* loaded from: classes6.dex */
-public class jd4 {
+public class jd4 extends pd4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public Map<String, String> c;
-    public RequestBody d;
-    public ResponseCallback e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public Object i;
-    public int j;
-    public int k;
-    public a l;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-    }
-
-    public jd4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jd4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
     }
 
-    public a b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pd4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public pd4 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zc4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-        return (a) invokeV.objValue;
-    }
-
-    public jd4(String str, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, responseCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
-        this.a = str;
-        this.e = responseCallback;
-    }
-
-    public jd4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, requestBody, responseCallback};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
-        this.a = str;
-        this.d = requestBody;
-        this.e = responseCallback;
-    }
-
-    public jd4 a(MediaType mediaType, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
-            if (mediaType != null && str != null) {
-                this.d = RequestBody.create(mediaType, str);
-            }
-            return this;
-        }
-        return (jd4) invokeLL.objValue;
+        return (pd4) invokeV.objValue;
     }
 }

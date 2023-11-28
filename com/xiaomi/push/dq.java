@@ -9,10 +9,10 @@ public class dq {
     public static volatile dq a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f233a;
+    public Context f229a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f234a;
+    public a f230a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -20,7 +20,7 @@ public class dq {
     }
 
     public dq(Context context) {
-        this.f233a = context;
+        this.f229a = context;
     }
 
     public static int a(int i) {
@@ -40,18 +40,18 @@ public class dq {
 
     private void a(com.xiaomi.push.service.ba baVar, aj ajVar, boolean z) {
         if (baVar.a(hm.UploadSwitch.a(), true)) {
-            du duVar = new du(this.f233a);
+            du duVar = new du(this.f229a);
             if (z) {
                 ajVar.a((aj.a) duVar, a(baVar.a(hm.UploadFrequency.a(), 86400)));
             } else {
-                ajVar.m265a((aj.a) duVar);
+                ajVar.m269a((aj.a) duVar);
             }
         }
     }
 
     private boolean a() {
         try {
-            ((Application) (this.f233a instanceof Application ? this.f233a : this.f233a.getApplicationContext())).registerActivityLifecycleCallbacks(new dk(this.f233a, String.valueOf(System.currentTimeMillis() / 1000)));
+            ((Application) (this.f229a instanceof Application ? this.f229a : this.f229a.getApplicationContext())).registerActivityLifecycleCallbacks(new dk(this.f229a, String.valueOf(System.currentTimeMillis() / 1000)));
             return true;
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -62,9 +62,9 @@ public class dq {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         a aVar;
-        aj a2 = aj.a(this.f233a);
-        com.xiaomi.push.service.ba a3 = com.xiaomi.push.service.ba.a(this.f233a);
-        SharedPreferences sharedPreferences = this.f233a.getSharedPreferences("mipush_extra", 0);
+        aj a2 = aj.a(this.f229a);
+        com.xiaomi.push.service.ba a3 = com.xiaomi.push.service.ba.a(this.f229a);
+        SharedPreferences sharedPreferences = this.f229a.getSharedPreferences("mipush_extra", 0);
         long currentTimeMillis = System.currentTimeMillis();
         long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
         if (j == currentTimeMillis) {
@@ -76,9 +76,9 @@ public class dq {
         a(a3, a2, false);
         if (a3.a(hm.StorageCollectionSwitch.a(), true)) {
             int a4 = a(a3.a(hm.StorageCollectionFrequency.a(), 86400));
-            a2.a(new dt(this.f233a, a4), a4, 0);
+            a2.a(new dt(this.f229a, a4), a4, 0);
         }
-        if (j.m717a(this.f233a) && (aVar = this.f234a) != null) {
+        if (j.m721a(this.f229a) && (aVar = this.f230a) != null) {
             aVar.a();
         }
         if (a3.a(hm.ActivityTSSwitch.a(), false)) {
@@ -88,7 +88,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m370a() {
-        aj.a(this.f233a).a(new dr(this));
+    public void m374a() {
+        aj.a(this.f229a).a(new dr(this));
     }
 }

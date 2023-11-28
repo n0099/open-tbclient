@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.cache;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ServerIPInfo {
     public String ip;
     public long score;

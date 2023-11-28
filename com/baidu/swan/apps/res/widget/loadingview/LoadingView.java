@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h03;
-import com.baidu.tieba.np2;
-import com.baidu.tieba.p53;
-import com.baidu.tieba.q03;
-import com.baidu.tieba.ub3;
+import com.baidu.tieba.i03;
+import com.baidu.tieba.op2;
+import com.baidu.tieba.q53;
+import com.baidu.tieba.r03;
+import com.baidu.tieba.vb3;
 /* loaded from: classes4.dex */
-public class LoadingView extends FrameLayout implements p53<LoadingView> {
+public class LoadingView extends FrameLayout implements q53<LoadingView> {
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p53
+    @Override // com.baidu.tieba.q53
     public LoadingView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ub3 {
+    public class a implements vb3 {
         public a() {
         }
     }
@@ -54,32 +54,32 @@ public class LoadingView extends FrameLayout implements p53<LoadingView> {
 
     public void a() {
         View view2;
-        if (h03.e()) {
-            view2 = q03.a().d(R.layout.obfuscated_res_0x7f0d00c1);
+        if (i03.e()) {
+            view2 = r03.a().d(R.layout.obfuscated_res_0x7f0d00c2);
         } else {
             view2 = null;
         }
         if (view2 != null) {
-            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070818)));
+            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07082b)));
         } else {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c1, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
         }
-        this.a = findViewById(R.id.obfuscated_res_0x7f091ffb);
-        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091694);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a9);
+        this.a = findViewById(R.id.obfuscated_res_0x7f092072);
+        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091705);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09181a);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        np2.M().f(this, new a());
+        op2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        np2.M().g(this);
+        op2.M().g(this);
     }
 
     public void setMsg(String str) {
@@ -89,15 +89,15 @@ public class LoadingView extends FrameLayout implements p53<LoadingView> {
     public void setPageResources() {
         View view2 = this.a;
         if (view2 != null) {
-            view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801a5));
+            view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801a7));
         }
         SmoothProgressBar smoothProgressBar = this.b;
         if (smoothProgressBar != null) {
-            smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801a9));
+            smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ab));
         }
         TextView textView = this.c;
         if (textView != null) {
-            textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060445));
+            textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060447));
         }
     }
 }

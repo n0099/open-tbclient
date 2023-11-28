@@ -1,200 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import java.math.BigInteger;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes5.dex */
 public final class d00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public f00 c;
-    public byte[] d;
-    public int e;
-    public k00 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947650597, "Lcom/baidu/tieba/d00;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947650597, "Lcom/baidu/tieba/d00;");
-        }
+    public static int a(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bigInteger)) == null) ? (bigInteger.bitLength() + 7) >> 3 : invokeL.intValue;
     }
 
-    public d00() {
+    public static BigInteger b(byte[] bArr, BigInteger bigInteger) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bigInteger)) == null) {
+            BigInteger bigInteger2 = new BigInteger(1, bArr);
+            if (bigInteger2.compareTo(bigInteger) < 0) {
+                return bigInteger2;
             }
+            throw new BadPaddingException("Message is larger than modulus");
         }
-        this.b = 2;
+        return (BigInteger) invokeLL.objValue;
     }
 
-    public void a(int i) {
+    public static byte[] c(BigInteger bigInteger, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 1;
-            if (i != 1) {
-                i2 = 2;
-                if (i != 2) {
-                    throw new NoSuchPaddingException("Padding " + i + " not supported");
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bigInteger, i)) == null) {
+            byte[] byteArray = bigInteger.toByteArray();
+            int length = byteArray.length;
+            if (length == i) {
+                return byteArray;
             }
-            this.b = i2;
-        }
-    }
-
-    public void b(int i, k00 k00Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, k00Var) == null) {
-            try {
-                c(i, k00Var, null);
-            } catch (InvalidAlgorithmParameterException e) {
-                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
-                invalidKeyException.initCause(e);
-                throw invalidKeyException;
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void c(int i, k00 k00Var, AlgorithmParameterSpec algorithmParameterSpec) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, k00Var, algorithmParameterSpec) != null) {
-            return;
-        }
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        throw new InvalidKeyException("Unknown mode: " + i);
-                    }
-                }
-            }
-            z = false;
-            if (k00Var instanceof k00) {
-                throw new InvalidKeyException("only support helios key");
-            }
-            this.a = z ? 1 : 4;
-            this.f = k00Var;
-            int a = c00.a(k00Var.b());
-            this.e = 0;
-            int i2 = this.b;
-            if (i2 == 1) {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                this.c = f00.b(3, a);
-                this.d = new byte[a];
-                return;
-            } else if (i2 != 2) {
-                throw new InvalidKeyException("PEAO not supported");
+            if (length == i + 1 && byteArray[0] == 0) {
+                byte[] bArr = new byte[i];
+                System.arraycopy(byteArray, 1, bArr, 0, i);
+                return bArr;
+            } else if (length >= i) {
+                return null;
             } else {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                f00 b = f00.b(this.a > 2 ? 1 : 2, a);
-                this.c = b;
-                if (z) {
-                    this.d = new byte[b.a()];
-                    return;
-                } else {
-                    this.d = new byte[a];
-                    return;
-                }
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(byteArray, 0, bArr2, i - length, length);
+                return bArr2;
             }
         }
-        z = true;
-        if (k00Var instanceof k00) {
-        }
+        return (byte[]) invokeLI.objValue;
     }
 
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.e;
-            byte[] bArr = this.d;
-            if (i > bArr.length) {
-                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
-            }
-            try {
-                int i2 = this.a;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 == 4) {
-                                return this.c.c(c00.e(c00.d(bArr, 0, i), this.f));
-                            }
-                            throw new AssertionError("Internal error");
-                        }
-                        throw new UnsupportedOperationException("only verify supported");
-                    }
-                    throw new UnsupportedOperationException("only verify supported");
-                }
-                throw new UnsupportedOperationException("only verify supported");
-            } finally {
-                this.e = 0;
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public byte[] e(byte[] bArr, int i, int i2) {
+    public static byte[] d(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            f(bArr, i, i2);
-            return d();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            if (i == 0 && i2 == bArr.length) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
+            return bArr2;
         }
         return (byte[]) invokeLII.objValue;
     }
 
-    public final void f(byte[] bArr, int i, int i2) {
-        int i3;
+    public static byte[] e(byte[] bArr, l00 l00Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
-            return;
-        }
-        int i4 = this.e;
-        int i5 = i4 + i2;
-        byte[] bArr2 = this.d;
-        if (i5 > bArr2.length) {
-            i3 = bArr2.length + 1;
-        } else {
-            System.arraycopy(bArr, i, bArr2, i4, i2);
-            i3 = this.e + i2;
-        }
-        this.e = i3;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, l00Var)) == null) ? f(bArr, l00Var.b(), l00Var.a()) : (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] f(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bigInteger, bigInteger2)) == null) ? c(b(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger)) : (byte[]) invokeLLL.objValue;
     }
 }

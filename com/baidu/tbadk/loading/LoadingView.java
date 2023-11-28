@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LoadingView extends qj5 {
+public class LoadingView extends wj5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DELAY_TIME = 200;
     public static final int FIRST_STAGE_FRAME = 6;
@@ -247,7 +247,7 @@ public class LoadingView extends qj5 {
         this.arrayLength = stringArray.length;
     }
 
-    @Override // com.baidu.tieba.qj5
+    @Override // com.baidu.tieba.wj5
     public void dettachView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -362,7 +362,7 @@ public class LoadingView extends qj5 {
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qj5
+    @Override // com.baidu.tieba.wj5
     public void onViewDettached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -431,7 +431,7 @@ public class LoadingView extends qj5 {
         }
     }
 
-    @Override // com.baidu.tieba.qj5
+    @Override // com.baidu.tieba.wj5
     public void onViewAttached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

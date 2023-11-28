@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import android.widget.MediaController;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes7.dex */
-public interface nda extends IAdBaseAsyncController {
+public interface nda extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(int i);
-    }
+    int getCurrentPositionSync();
 
-    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+    int getPcdnState();
 
-    void c(AdvertAppInfo advertAppInfo, boolean z);
+    void setLooping(boolean z);
 
-    @Nullable
-    nca i(AdvertAppInfo advertAppInfo);
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
 
-    void loadAd();
+    void setOperableVideoContainer(hea heaVar);
 
-    void m(AdvertAppInfo advertAppInfo);
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoStatData(cea ceaVar);
+
+    void setVolume(float f, float f2);
+
+    void stopPlayback();
 }

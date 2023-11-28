@@ -31,17 +31,17 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a = a(eVar);
         String string = sharedPreferences.getString(a, "");
-        String m238c = b.m230a(context).m238c();
+        String m242c = b.m234a(context).m242c();
         String string2 = sharedPreferences.getString("last_check_token", "");
         if (TextUtils.isEmpty(a)) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return 0;
         } else if (TextUtils.isEmpty(string)) {
             return 1;
         } else {
             if (string.equals(str)) {
-                if (TextUtils.equals(m238c, string2)) {
-                    if (m255a(eVar)) {
+                if (TextUtils.equals(m242c, string2)) {
+                    if (m259a(eVar)) {
                         if (a() != sharedPreferences.getInt(b(eVar), 0)) {
                             return 4;
                         }
@@ -181,14 +181,14 @@ public class i {
         return "hms_push_token";
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x004b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x004c, code lost:
         if (r12 != 0) goto L11;
      */
     /* renamed from: a  reason: collision with other method in class */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HashMap<String, String> m249a(Context context, e eVar) {
+    public static HashMap<String, String> m253a(Context context, e eVar) {
         t.a a;
         int a2;
         HashMap<String, String> hashMap = new HashMap<>();
@@ -227,7 +227,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m250a(Context context) {
+    public static void m254a(Context context) {
         boolean z = false;
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a = a(e.ASSEMBLE_PUSH_HUAWEI);
@@ -241,7 +241,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m251a(Context context, e eVar) {
+    public static void m255a(Context context, e eVar) {
         String a = a(eVar);
         if (TextUtils.isEmpty(a)) {
             return;
@@ -250,16 +250,16 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m252a(Context context, e eVar, String str) {
+    public static void m256a(Context context, e eVar, String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         int a = a(context, eVar, str);
         if (a == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : send token upload, check:" + a);
+        com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : send token upload, check:" + a);
         a(context, str);
         au a2 = l.a(eVar);
         if (a2 == null) {
@@ -289,7 +289,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m253a(Context context) {
+    public static boolean m257a(Context context) {
         if (context == null) {
             return false;
         }
@@ -297,28 +297,28 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m254a(Context context, e eVar) {
-        if (l.m257a(eVar) != null) {
-            return ba.a(context).a(l.m257a(eVar).a(), true);
+    public static boolean m258a(Context context, e eVar) {
+        if (l.m261a(eVar) != null) {
+            return ba.a(context).a(l.m261a(eVar).a(), true);
         }
         return false;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m255a(e eVar) {
+    public static boolean m259a(e eVar) {
         return eVar == e.ASSEMBLE_PUSH_FTOS || eVar == e.ASSEMBLE_PUSH_FCM;
     }
 
     public static boolean a(id idVar, e eVar) {
-        if (idVar == null || idVar.m630a() == null || idVar.m630a().m591a() == null) {
+        if (idVar == null || idVar.m634a() == null || idVar.m634a().m595a() == null) {
             return false;
         }
-        return (eVar == e.ASSEMBLE_PUSH_FCM ? "FCM" : "").equalsIgnoreCase(idVar.m630a().m591a().get("assemble_push_type"));
+        return (eVar == e.ASSEMBLE_PUSH_FCM ? "FCM" : "").equalsIgnoreCase(idVar.m634a().m595a().get("assemble_push_type"));
     }
 
     public static byte[] a(Context context, id idVar, e eVar) {
         if (a(idVar, eVar)) {
-            return bn.m303a(a(context, eVar));
+            return bn.m307a(a(context, eVar));
         }
         return null;
     }
@@ -360,17 +360,17 @@ public class i {
         synchronized (i.class) {
             String a = a(eVar);
             if (TextUtils.isEmpty(a)) {
-                com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 return;
             }
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
-            edit.putString(a, str).putString("last_check_token", b.m230a(context).m238c());
-            if (m255a(eVar)) {
+            edit.putString(a, str).putString("last_check_token", b.m234a(context).m242c());
+            if (m259a(eVar)) {
                 edit.putInt(b(eVar), a());
             }
             edit.putString("syncingToken", "");
             com.xiaomi.push.q.a(edit);
-            com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : update sp file success!  " + str);
+            com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : update sp file success!  " + str);
         }
     }
 }

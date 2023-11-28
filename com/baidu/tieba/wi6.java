@@ -1,21 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.URLUtil;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes8.dex */
 public class wi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<yi6> a;
+    public Set<String> b;
+    public String c;
+    public String d;
+    public String e;
+    public Set<String> f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    public static void a(Activity activity, String str, boolean z, boolean z2) {
-        hk6 hk6Var;
+    public wi6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{activity, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if ((URLUtil.isNetworkUrl(str) || URLUtil.isFileUrl(str) || URLUtil.isAssetUrl(str)) && (hk6Var = (hk6) ServiceManager.getService(hk6.a)) != null) {
-                hk6Var.a(activity, str, z, z2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

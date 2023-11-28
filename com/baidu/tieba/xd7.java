@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.download.DownloadData;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.View;
 /* loaded from: classes9.dex */
-public interface xd7 {
-    void a(DownloadData downloadData);
+public interface xd7 extends zd7 {
+    void i(int i, int i2);
 
-    void b(DownloadData downloadData);
+    void k(Canvas canvas);
 
-    void c(DownloadData downloadData);
+    void q(Canvas canvas);
 
-    void d(DownloadData downloadData);
+    void r(Context context, AttributeSet attributeSet, View view2);
 
-    void e(DownloadData downloadData);
+    void setRadiusPx(int i);
 
-    void f(DownloadData downloadData, int i);
+    void setRadiusPx(int i, int i2, int i3, int i4);
 }

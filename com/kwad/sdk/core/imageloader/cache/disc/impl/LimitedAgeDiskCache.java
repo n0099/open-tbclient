@@ -18,8 +18,22 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
         this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j);
     }
 
+    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
+    public boolean save(String str, Bitmap bitmap) {
+        boolean save = super.save(str, bitmap);
+        rememberUsage(str);
+        return save;
+    }
+
     public LimitedAgeDiskCache(File file, File file2, long j) {
         this(file, file2, DefaultConfigurationFactory.createFileNameGenerator(), j);
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
+    public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
+        boolean save = super.save(str, inputStream, copyListener);
+        rememberUsage(str);
+        return save;
     }
 
     public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j) {
@@ -33,6 +47,12 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
         long currentTimeMillis = System.currentTimeMillis();
         file.setLastModified(currentTimeMillis);
         this.loadingDates.put(file, Long.valueOf(currentTimeMillis));
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
+    public boolean remove(String str) {
+        this.loadingDates.remove(getFile(str));
+        return super.remove(str);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
@@ -61,25 +81,5 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
             }
         }
         return file;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    public boolean remove(String str) {
-        this.loadingDates.remove(getFile(str));
-        return super.remove(str);
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    public boolean save(String str, Bitmap bitmap) {
-        boolean save = super.save(str, bitmap);
-        rememberUsage(str);
-        return save;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.disc.impl.BaseDiskCache, com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
-        boolean save = super.save(str, inputStream, copyListener);
-        rememberUsage(str);
-        return save;
     }
 }

@@ -30,6 +30,11 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
         public float strokeRadius;
         public final float strokeWidth;
 
+        @Override // android.graphics.drawable.Drawable
+        public int getOpacity() {
+            return -3;
+        }
+
         public CircleDrawable(Bitmap bitmap, Integer num, float f) {
             this.radius = Math.min(bitmap.getWidth(), bitmap.getHeight()) / 2;
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
@@ -67,8 +72,13 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public int getOpacity() {
-            return -3;
+        public void setAlpha(int i) {
+            this.paint.setAlpha(i);
+        }
+
+        @Override // android.graphics.drawable.Drawable
+        public void setColorFilter(ColorFilter colorFilter) {
+            this.paint.setColorFilter(colorFilter);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -81,16 +91,6 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
             Matrix matrix = new Matrix();
             matrix.setRectToRect(this.mBitmapRect, this.mRect, Matrix.ScaleToFit.FILL);
             this.bitmapShader.setLocalMatrix(matrix);
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i) {
-            this.paint.setAlpha(i);
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public void setColorFilter(ColorFilter colorFilter) {
-            this.paint.setColorFilter(colorFilter);
         }
     }
 
@@ -109,9 +109,10 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
 
     @Override // com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer
     public void display(DecodedResult decodedResult, ImageAware imageAware, LoadedFrom loadedFrom) {
-        if (!(imageAware instanceof ImageViewAware)) {
-            throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
+        if (imageAware instanceof ImageViewAware) {
+            imageAware.setImageDrawable(new CircleDrawable(decodedResult.mBitmap, this.strokeColor, this.strokeWidth));
+            return;
         }
-        imageAware.setImageDrawable(new CircleDrawable(decodedResult.mBitmap, this.strokeColor, this.strokeWidth));
+        throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
     }
 }

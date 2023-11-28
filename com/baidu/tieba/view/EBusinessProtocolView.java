@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w55;
+import com.baidu.tieba.c65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    w55 w55Var = new w55();
-                    w55Var.r(R.color.CAM_X0107);
-                    this.e.setConfig(w55Var);
+                    c65 c65Var = new c65();
+                    c65Var.r(R.color.CAM_X0107);
+                    this.e.setConfig(c65Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    w55 w55Var2 = new w55();
-                    w55Var2.r(R.color.CAM_X0302);
-                    this.f.setConfig(w55Var2);
+                    c65 c65Var2 = new c65();
+                    c65Var2.r(R.color.CAM_X0302);
+                    this.f.setConfig(c65Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            w55 w55Var3 = new w55();
-            w55Var3.r(R.color.CAM_X0302);
+            c65 c65Var3 = new c65();
+            c65Var3.r(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(w55Var3);
+            this.h.setConfig(c65Var3);
         }
     }
 

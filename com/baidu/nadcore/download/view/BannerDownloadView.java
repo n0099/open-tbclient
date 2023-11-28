@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h11;
+import com.baidu.tieba.i11;
 /* loaded from: classes3.dex */
 public class BannerDownloadView extends AppCompatTextView {
     public float a;
@@ -76,7 +76,7 @@ public class BannerDownloadView extends AppCompatTextView {
         canvas.drawRoundRect(rectF2, i, i, this.k);
     }
 
-    public final void f(Canvas canvas) {
+    public final void g(Canvas canvas) {
         Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
         float f = fontMetrics.descent;
         float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f)) / 2.0f;
@@ -104,7 +104,7 @@ public class BannerDownloadView extends AppCompatTextView {
     }
 
     public final void h(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h11.nad_progress);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i11.nad_progress);
         int color = getResources().getColor(R.color.nad_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_download_button_fg_start);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.nad_progress_button_radian);
@@ -118,10 +118,10 @@ public class BannerDownloadView extends AppCompatTextView {
         this.c = obtainStyledAttributes.getDimension(9, (int) getResources().getDimension(R.dimen.nad_progress_button_font_size));
         this.h = obtainStyledAttributes.getDimensionPixelSize(5, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        i();
+        j();
     }
 
-    public final void i() {
+    public final void j() {
         this.l.setAntiAlias(true);
         this.l.setTextSize(this.c);
         this.l.setColor(this.b);
@@ -140,7 +140,7 @@ public class BannerDownloadView extends AppCompatTextView {
         }
         d(canvas);
         if (!TextUtils.isEmpty(this.f)) {
-            f(canvas);
+            g(canvas);
         }
     }
 
@@ -166,7 +166,7 @@ public class BannerDownloadView extends AppCompatTextView {
             return;
         }
         this.b = i;
-        i();
+        j();
         postInvalidate();
     }
 }

@@ -1,51 +1,35 @@
 package com.kwad.sdk;
-
-import com.kwad.sdk.components.DevelopMangerComponents;
 /* loaded from: classes10.dex */
-public final class b {
-    public static String qJ() {
-        String str = "https://" + com.kwad.sdk.core.network.idc.a.tH().F("api", "open.e.kuaishou.com");
-        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
-        return str;
+public abstract class b extends a {
+    @Override // com.kwad.sdk.a
+    public void a(DownloadTask downloadTask) {
     }
 
-    public static String qK() {
-        return qJ() + "/rest/e/v3/open/univ";
+    @Override // com.kwad.sdk.a
+    public void a(DownloadTask downloadTask, int i, int i2) {
     }
 
-    public static String qL() {
-        return qJ() + "/rest/e/v4/open/univ";
+    @Override // com.kwad.sdk.a
+    public void a(DownloadTask downloadTask, Throwable th) {
     }
 
-    public static String qM() {
-        return qJ() + "/rest/e/v4/open/univ/bidding";
+    @Override // com.kwad.sdk.a
+    public void b(DownloadTask downloadTask) {
     }
 
-    public static String qN() {
-        return qJ() + "/rest/e/v4/open/univ/getMaterial";
+    @Override // com.kwad.sdk.a
+    public void c(DownloadTask downloadTask) {
     }
 
-    public static String qO() {
-        return qJ() + "/rest/e/v3/open/logBatch";
+    @Override // com.kwad.sdk.a
+    public void d(DownloadTask downloadTask) {
     }
 
-    public static String qP() {
-        return qJ() + "/rest/e/v3/open/config";
+    @Override // com.kwad.sdk.a
+    public void e(DownloadTask downloadTask) {
     }
 
-    public static String qQ() {
-        return qJ() + "/rest/e/v3/open/callback";
-    }
-
-    public static String qR() {
-        return qJ() + "/rest/e/v3/open/crashLog";
-    }
-
-    public static String qS() {
-        return qJ() + "/rest/e/v3/open/appCheck";
-    }
-
-    public static String qT() {
-        return qJ() + "/rest/e/v3/open/collect";
+    @Override // com.kwad.sdk.a
+    public void f(DownloadTask downloadTask) {
     }
 }

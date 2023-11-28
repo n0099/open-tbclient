@@ -1,76 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class u15 {
+public final class u15 extends j15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends g15>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158160, "Lcom/baidu/tieba/u15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948158160, "Lcom/baidu/tieba/u15;");
-                return;
-            }
-        }
-        a = new ArrayMap();
-        if (l25.a.a()) {
-            a.put("WebViewYunDialog", t15.class);
-        } else {
-            a.put("WebViewYunDialog", s15.class);
-        }
-        a.put("userIcon", r15.class);
-        a.put("userGrowth", q15.class);
-        a.put("newGod", m15.class);
-        a.put("operateNew", n15.class);
-        a.put("homeLiveRemind", l15.class);
-        a.put("topNotify", o15.class);
-        a.put("updateDialog", p15.class);
-        a.put("lcUpdateDialog", k15.class);
-        h15 h15Var = new h15();
-        pf1<i15> pf1Var = h15Var.a;
-        if (pf1Var != null && !ListUtils.isEmpty(pf1Var.getList())) {
-            for (i15 i15Var : h15Var.a.getList()) {
-                a.put(i15Var.name(), i15Var.a());
+    public u15() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static final void b(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
-            u05 b = u05.b(str, str2);
-            try {
-                String a2 = b.a("yun_dialogClass");
-                if (TextUtils.isEmpty(a2)) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
+            YunDialogManager.unMarkShowingDialogName("userIcon");
+        }
+    }
+
+    @Override // com.baidu.tieba.j15
+    public void a(Context context, x05 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!PollingModel.checkIconPopHadShow()) {
+                YunDialogManager.unMarkShowingDialogName("userIcon");
+                return;
+            }
+            SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
+            signPopStampDialogUtil.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.a15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.content.DialogInterface.OnDismissListener
+                public final void onDismiss(DialogInterface dialogInterface) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                        u15.b(dialogInterface);
+                    }
                 }
-                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
-            } catch (Exception e) {
-                TbLog yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.e(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 渲染失败：" + e.getMessage());
-                YunDialogManager.unMarkShowingDialogName(str);
-                e.printStackTrace();
+            });
+            if (signPopStampDialogUtil.preShowPollingStampDialog(TbSingleton.getInstance().getIconPopData()) != null) {
+                YunDialogManager.markShowingDialogName("userIcon");
+            } else {
+                YunDialogManager.unMarkShowingDialogName("userIcon");
             }
         }
     }

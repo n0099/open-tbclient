@@ -11,6 +11,7 @@ public class UsbAbTestConst {
     public static final String KEY_AD_NOT_INSTALL_REMIND_B = "12_46_ad_not_install_remind_b";
     public static final String KEY_AGREE_NUMBER_CAN_CLICK = "12_27_agree_number_can_a";
     public static final String KEY_BIG_IMAGE_PRE_PAGE = "12.39_big_image_pre_page";
+    public static final String KEY_BUSINESS_MIX_INTERACTIVE_A = "12.51_business_mix_interactive_a";
     public static final String KEY_CONCERN_FEED_TEST = "12.38_concern_feed_test";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_EXTRA_DURATION = "12.41_extra_duration";

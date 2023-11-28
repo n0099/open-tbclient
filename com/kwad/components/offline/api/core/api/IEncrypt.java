@@ -7,5 +7,11 @@ public interface IEncrypt {
 
     byte[] getFileMD5Digest(File file);
 
+    String getFileSha256(File file);
+
+    String getMD5(String str);
+
     String getResponseData(String str);
+
+    String getSha256(String str);
 }

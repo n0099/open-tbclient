@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h16;
+import com.baidu.tieba.o16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,22 +76,22 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h16.ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o16.ad_progress);
             int parseColor = Color.parseColor("#666666");
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070784);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070797);
             int parseColor2 = Color.parseColor("#2BBCFF");
             int parseColor3 = Color.parseColor("#2B87FF");
-            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070783);
+            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070796);
             this.d = obtainStyledAttributes.getColor(1, parseColor2);
             this.e = obtainStyledAttributes.getColor(0, parseColor3);
             this.b = obtainStyledAttributes.getColor(7, parseColor);
             this.g = obtainStyledAttributes.getInteger(2, this.g);
             this.a = obtainStyledAttributes.getInteger(3, 0);
             this.f = obtainStyledAttributes.getString(5);
-            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070782));
+            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070795));
             this.h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
-            i();
+            j();
         }
     }
 
@@ -151,7 +151,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.a = i;
-        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f00c9) + this.a + "%";
+        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f00ca) + this.a + "%";
         if (this.a == this.g) {
             this.f = "";
         }
@@ -184,7 +184,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public final void f(Canvas canvas) {
+    public final void g(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
@@ -203,7 +203,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         return invokeV.intValue;
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l.setAntiAlias(true);
@@ -229,7 +229,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             if (TextUtils.isEmpty(this.f)) {
                 return;
             }
-            f(canvas);
+            g(canvas);
         }
     }
 
@@ -250,7 +250,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.b = i;
-        i();
+        j();
         postInvalidate();
     }
 
@@ -274,7 +274,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             }
             this.d = i;
             this.e = i2;
-            i();
+            j();
             postInvalidate();
         }
     }

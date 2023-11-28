@@ -1,37 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.ebd;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.WindowParams;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.ShortUserInfo;
 /* loaded from: classes5.dex */
-public interface d8d extends s7d {
-    void a(Activity activity);
+public class d8d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
-
-    void c(PayFlowType payFlowType, boolean z);
-
-    void d(String str, PayFlowType payFlowType);
-
-    boolean e();
-
-    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void h(Activity activity, ebd.b bVar, m9d m9dVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    boolean k(PayFlowType payFlowType);
-
-    void l(String str, PayFlowType payFlowType);
-
-    void m(Activity activity);
-
-    void refreshWindow(WindowParams windowParams);
+    @NonNull
+    public static JSONObject b(@NonNull ShortUserInfo shortUserInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, shortUserInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "user_id", shortUserInfo.user_id);
+            ltc.a(jSONObject, "portrait", shortUserInfo.portrait);
+            ltc.a(jSONObject, "user_name", shortUserInfo.user_name);
+            ltc.a(jSONObject, "gender", shortUserInfo.gender);
+            ltc.a(jSONObject, "intro", shortUserInfo.intro);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

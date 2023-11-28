@@ -125,7 +125,7 @@ public class ShareForumAdapter extends BaseStyleNormalAdapter<ShareForumSysItem,
             chatShareCard.V = 1;
             chatShareCard.setChatRoomId(this.m);
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090f01);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090f21);
             chatShareCard.setCurrentCardType((short) 33);
             return new ViewHolder(chatShareCard);
         }

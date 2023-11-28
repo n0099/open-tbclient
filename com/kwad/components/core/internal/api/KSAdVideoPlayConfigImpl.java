@@ -1,17 +1,22 @@
 package com.kwad.components.core.internal.api;
 
+import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
-import com.kwad.sdk.core.config.d;
 import java.io.Serializable;
 /* loaded from: classes10.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
     public static final long serialVersionUID = -154151744722615768L;
+    public boolean dataFlowAutoStart;
     public boolean hasNoCache;
     public int videoAutoPlayType;
     public boolean videoSoundEnable;
     public int videoSoundValue = 0;
     public int dataFlowAutoStartValue = 0;
-    public boolean dataFlowAutoStart = d.sd();
+
+    @InvokeBy(invokerClass = com.kwad.sdk.service.b.class, methodId = "initModeImplForInvoker")
+    public static void register() {
+        com.kwad.sdk.service.b.b(KsAdVideoPlayConfig.class, KSAdVideoPlayConfigImpl.class);
+    }
 
     public int getDataFlowAutoStartValue() {
         return this.dataFlowAutoStartValue;
@@ -42,15 +47,15 @@ public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializabl
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
+    public void setNoCache() {
+        this.hasNoCache = true;
+    }
+
+    @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
     public void setDataFlowAutoStart(boolean z) {
         this.dataFlowAutoStart = z;
         this.dataFlowAutoStartValue = 1;
         this.videoAutoPlayType = 0;
-    }
-
-    @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
-    public void setNoCache() {
-        this.hasNoCache = true;
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig

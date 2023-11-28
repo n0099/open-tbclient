@@ -1,41 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.lb3;
-import com.baidu.tieba.p52;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import okhttp3.HttpUrl;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bt1 extends d83 {
+public class bt1 extends rx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements zk3<jb3<lb3.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ h63 a;
         public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ p52 d;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ String d;
         public final /* synthetic */ bt1 e;
 
-        public a(bt1 bt1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, p52 p52Var) {
+        public a(bt1 bt1Var, h63 h63Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bt1Var, callbackHandler, unitedSchemeEntity, str, p52Var};
+                Object[] objArr = {bt1Var, h63Var, unitedSchemeEntity, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,41 +47,35 @@ public class bt1 extends d83 {
                 }
             }
             this.e = bt1Var;
-            this.a = callbackHandler;
+            this.a = h63Var;
             this.b = unitedSchemeEntity;
-            this.c = str;
-            this.d = p52Var;
+            this.c = callbackHandler;
+            this.d = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zk3
-        /* renamed from: b */
-        public void a(jb3<lb3.e> jb3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb3Var) == null) {
-                if (!eb3.h(jb3Var)) {
-                    eb3.p(jb3Var, this.a, this.b);
-                } else {
-                    this.e.k(this.c, this.d, this.a, this.b);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.C(this.a, this.b, this.c, this.d);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bt1(d73 d73Var) {
-        super(d73Var, "/swanAPI/openAdLandingPage");
+    public bt1(e73 e73Var) {
+        super(e73Var, "/swanAPI/adRequest");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
+            Object[] objArr = {e73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((e73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -88,51 +83,77 @@ public class bt1 extends d83 {
         }
     }
 
-    @Override // com.baidu.tieba.d83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
+    @Override // com.baidu.tieba.rx2
+    public boolean A(@NonNull h63 h63Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
-            if (d83.b) {
-                Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String o = p93.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                g32.i("AdLanding", "adLanding: url is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            p52 W = tr2.V().W();
-            if (W == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals(p93.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
-                k(o, W, callbackHandler, unitedSchemeEntity);
-                return true;
-            } else {
-                g63Var.f0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, W));
-                return true;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, h63Var, unitedSchemeEntity, callbackHandler, str)) == null) {
+            bj3.j(new a(this, h63Var, unitedSchemeEntity, callbackHandler, str), "execRequest");
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void j(gw2 gw2Var, p52 p52Var) {
+    public final void C(@NonNull h63 h63Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gw2Var, p52Var) == null) {
-            g32.i("AdLanding", "openAdLanding: page url=" + gw2Var.c);
-            p52.b i = p52Var.i("adLanding");
-            i.n(p52.g, p52.i);
-            i.k("adLanding", gw2Var).b();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h63Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONObject a2 = e83.a(unitedSchemeEntity, "params");
+            String optString = a2.optString("cb");
+            try {
+                String optString2 = a2.optString("url");
+                D(a2, optString2, zj3.q(optString2));
+                unitedSchemeEntity.putParams("params", a2.toString());
+                if (!super.A(h63Var, unitedSchemeEntity, callbackHandler, str)) {
+                    h32.c("AdRequest", "request fail");
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
+            } catch (JSONException unused) {
+                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
         }
     }
 
-    public void k(String str, p52 p52Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+    public final void D(JSONObject jSONObject, String str, boolean z) throws JSONException {
+        HttpUrl parse;
+        JSONObject optJSONObject;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, p52Var, callbackHandler, unitedSchemeEntity) == null) {
-            j(gw2.d(str, str), p52Var);
-            g32.i("AdLanding", "open adLanding page success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, z) != null) || jSONObject == null || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null || (optJSONObject = jSONObject.optJSONObject("extParams")) == null) {
+            return;
         }
+        if (!z) {
+            str2 = "";
+        } else {
+            str2 = o();
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("header");
+            if (optJSONObject2 == null) {
+                optJSONObject2 = new JSONObject();
+            }
+            j(optJSONObject2, str2);
+            jSONObject.put("header", optJSONObject2);
+        }
+        if (e83.b) {
+            Log.d("AdRequestAction", "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2);
+        }
+        HttpUrl.Builder newBuilder = parse.newBuilder();
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            String optString = optJSONObject.optString(next);
+            if (TextUtils.equals(optString, "cuid")) {
+                str3 = op2.h0().i(op2.c());
+            } else if (!TextUtils.equals(optString, "baiduid") || !z) {
+                str3 = "";
+            } else {
+                str3 = zj3.l(str2, "BAIDUID");
+            }
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "";
+            }
+            h32.i("AdRequest", "key=" + next + ", value=" + str3);
+            newBuilder.addQueryParameter(next, str3);
+        }
+        jSONObject.put("url", newBuilder.build().toString());
     }
 }

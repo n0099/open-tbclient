@@ -1,161 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg;
+import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbActivitySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbEffectGuidanceSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbEmojiReplySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbExcellentSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbNoUISysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareChatRoomSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareCommonCardSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareForumSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbShareThreadSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSubscribeSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageUpdateSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTipsSysMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ur8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class vr8 extends sr8<TbSysMsg, UnSupportedMsg> {
+public final class vr8 extends PopupWindow implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public int b;
+    public boolean c;
+    public xr8 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250509, "Lcom/baidu/tieba/vr8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948250509, "Lcom/baidu/tieba/vr8;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    public /* synthetic */ vr8(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final Triple<Class<TbSysMsg>, Class<UnSupportedMsg>, vr8> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbSysMsg.class, UnSupportedMsg.class, new vr8(null));
-            }
-            return (Triple) invokeV.objValue;
-        }
-    }
-
-    public vr8() {
+    public vr8(Context context, final View anchorView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, anchorView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j(7019, TbEffectGuidanceSysMsg.class);
-        j(7018, TbExcellentSysMsg.class);
-        List<Integer> MSG_TYPE_LIST = TbNoUISysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST, TbNoUISysMsg.class);
-        j(7001, TbNoticeModifySysMsg.class);
-        List<Integer> MSG_TYPE_LIST2 = TbRecallSysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST2, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST2, TbRecallSysMsg.class);
-        j(-7015, TbSubscribeSysMsg.class);
-        j(7014, TbTextGenImageUpdateSysMsg.class);
-        List<Integer> MSG_TYPE_LIST3 = TbTipsSysMsg.MSG_TYPE_LIST;
-        Intrinsics.checkNotNullExpressionValue(MSG_TYPE_LIST3, "MSG_TYPE_LIST");
-        k(MSG_TYPE_LIST3, TbTipsSysMsg.class);
-        j(7020, TbShareChatRoomSysMsg.class);
-        j(7021, TbShareCommonCardSysMsg.class);
-        j(7009, TbShareForumSysMsg.class);
-        j(7010, TbShareThreadSysMsg.class);
-        j(20000, TbEmojiReplySysMsg.class);
-        j(7022, TbActivitySysMsg.class);
-    }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(anchorView, "anchorView");
+        this.a = context;
+        View view2 = new View(this.a);
+        setContentView(view2);
+        setWidth(0);
+        setHeight(-1);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setSoftInputMode(16);
+        setInputMethodMode(1);
+        view2.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        anchorView.post(new Runnable() { // from class: com.baidu.tieba.pr8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sr8
-    /* renamed from: n */
-    public UnSupportedMsg g(TbSysMsg tbMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            return new UnSupportedMsg();
-        }
-        return (UnSupportedMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sr8
-    /* renamed from: o */
-    public TbSysMsg h(int i, UnSupportedMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            Class<Object> i2 = i(i);
-            if (i2 == null) {
-                i = TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS;
-                i2 = l(TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS);
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    vr8.a(vr8.this, anchorView);
+                }
             }
-            TbSysMsg tbSysMsg = (TbSysMsg) DataExt.toEntity(sdkMsgMap, i2);
-            tbSysMsg.setType(i);
-            return tbSysMsg;
+        });
+    }
+
+    public static final void a(vr8 this$0, View anchorView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, anchorView) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(anchorView, "$anchorView");
+            this$0.showAtLocation(anchorView, 0, 0, 0);
         }
-        return (TbSysMsg) invokeILL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = 0;
+        }
+    }
+
+    public final void c(xr8 xr8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xr8Var) == null) {
+            this.d = xr8Var;
+        }
+    }
+
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Rect rect = new Rect();
+            getContentView().getWindowVisibleDisplayFrame(rect);
+            int i = rect.bottom;
+            if (i > this.b) {
+                this.b = i;
+            }
+            int b = sr8.b(this.a);
+            int i2 = this.b - rect.bottom;
+            if (i2 > b / 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!this.c && z) {
+                this.c = true;
+                xr8 xr8Var = this.d;
+                if (xr8Var != null) {
+                    xr8Var.b(i2);
+                }
+                ur8.a aVar = ur8.l;
+                ur8.m = i2;
+            } else if (this.c && !z) {
+                this.c = false;
+                xr8 xr8Var2 = this.d;
+                if (xr8Var2 != null) {
+                    xr8Var2.a();
+                }
+            }
+        }
     }
 }

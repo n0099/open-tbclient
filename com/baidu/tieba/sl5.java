@@ -1,60 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public interface sl5 {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
     /* loaded from: classes8.dex */
     public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        boolean B1();
+    sl5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
 
-        void V1(boolean z);
+    void b(int i, gy4 gy4Var, long j);
 
-        void Y(ChatRoomEntranceData chatRoomEntranceData);
-
-        void b2();
-
-        void destroy();
-
-        void e1(boolean z);
-
-        boolean f2(String str);
-
-        void g();
-
-        int getState();
-
-        Fragment k();
-
-        boolean m0();
-
-        void onActivityResult(int i, int i2, Intent intent);
-
-        boolean p();
-
-        void p2(long j, String str, boolean z, boolean z2);
-
-        void u1();
-
-        void w1(MotionEvent motionEvent);
-    }
-
-    void a(@Nullable a aVar);
-
-    @NonNull
-    b b(String str, vl5 vl5Var);
-
-    void onChangeSkinType(int i);
+    void c(@Nullable a aVar);
 }

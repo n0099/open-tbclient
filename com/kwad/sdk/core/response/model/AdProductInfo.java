@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsJson
 /* loaded from: classes10.dex */
-public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class AdProductInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static final long serialVersionUID = -7038691521398433079L;
     public List<CouponInfo> couponList;
     public String icon;
@@ -20,7 +20,7 @@ public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements 
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class SpikeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class SpikeInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = -4379476990559885495L;
         public long endTime;
         public int originalStock;
@@ -64,20 +64,32 @@ public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements 
     }
 
     public boolean hasCoupon() {
-        return !isCouponListEmpty();
+        if (!isCouponListEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     public boolean hasOriginalPrice() {
-        return !TextUtils.isEmpty(this.originPrice);
+        if (!TextUtils.isEmpty(this.originPrice)) {
+            return true;
+        }
+        return false;
     }
 
     public boolean hasSpike() {
         SpikeInfo spikeInfo = this.seckillInfo;
-        return spikeInfo != null && spikeInfo.endTime > 0;
+        if (spikeInfo != null && spikeInfo.endTime > 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isCouponListEmpty() {
         List<CouponInfo> list = this.couponList;
-        return list == null || list.size() == 0;
+        if (list != null && list.size() != 0) {
+            return false;
+        }
+        return true;
     }
 }

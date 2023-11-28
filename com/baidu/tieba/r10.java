@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.helios.trusts.zone.TrustSubject;
+import com.baidu.tieba.t00;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,24 +16,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.cert.X509Certificate;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class r10 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] g;
+    public static final String[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public Set<String> c;
-    public String d;
-    public Context e;
-    public int f;
+    public String a;
+    public Context b;
+    public t00.a c;
+    public ZipFile d;
+    public PackageManager e;
+
+    /* loaded from: classes8.dex */
+    public class a implements FilenameFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(r10 r10Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r10Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.io.FilenameFilter
+        public boolean accept(File file, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.endsWith(".cfgtmp") : invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b a(r10 r10Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, r10Var)) == null) {
+                try {
+                    String b = r10Var.b("info");
+                    if (TextUtils.isEmpty(b)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(b);
+                    b bVar = new b();
+                    bVar.a = jSONObject.getLong("version");
+                    return bVar;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (b) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +123,7 @@ public class r10 {
                 return;
             }
         }
-        g = new byte[]{77, 73, 78, 71};
+        f = new String[]{"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
     }
 
     public r10() {
@@ -68,204 +140,300 @@ public class r10 {
         }
     }
 
-    public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, context, jSONObject, set)) == null) {
-            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-            int length = jSONArray.length();
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = jSONArray.getString(i);
-            }
-            String[] h = h(context.getPackageManager().getPackageInfo(str, 64).signatures);
-            if (h != null && h.length > 0) {
-                Collections.addAll(set, h);
-            }
-            return g(strArr, h);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean g(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String[] h(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = q00.c(signatureArr[i].toByteArray());
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public final void a(Bundle bundle, k00 k00Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, k00Var) == null) {
-            try {
-                if (k00Var == null) {
-                    this.f |= 16;
-                    return;
-                }
-                String string = bundle.getString("helios_data");
-                if (TextUtils.isEmpty(string)) {
-                    this.f |= 1;
-                    return;
-                }
-                String string2 = bundle.getString("helios_sf");
-                if (TextUtils.isEmpty(string2)) {
-                    this.f |= 2;
-                    return;
-                }
-                byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
-                for (int i = 0; i < decode.length; i++) {
-                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
-                }
-                JSONObject jSONObject = new JSONObject(new String(decode));
-                if (f(jSONObject)) {
-                    HashSet hashSet = new HashSet();
-                    this.c = hashSet;
-                    if (!e(this.d, this.e, jSONObject, hashSet)) {
-                        this.f |= 4;
-                    } else if (!Arrays.equals(r00.a(Base64.decode(string2, 0), k00Var), q00.b(decode))) {
-                        this.f |= 8;
-                    } else {
-                        this.a = jSONObject.getLong("priority");
-                        this.b = true;
-                    }
-                }
-            } catch (Exception e) {
-                this.f |= 256;
-                Log.getStackTraceString(e);
-            }
-        }
-    }
-
-    public void b(k00 k00Var, boolean z) {
-        PackageInfo packageInfo;
-        ActivityInfo[] activityInfoArr;
-        ActivityInfo activityInfo;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k00Var, z) == null) {
-            PackageManager packageManager = this.e.getPackageManager();
-            try {
-                packageInfo = packageManager.getPackageInfo(this.d, 2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
-            }
-            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
-                return;
-            }
-            for (ActivityInfo activityInfo2 : activityInfoArr) {
-                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
-                    try {
-                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
-                    } catch (PackageManager.NameNotFoundException unused2) {
-                        activityInfo = null;
-                    }
-                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
-                        a(bundle, k00Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public void c(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, context) == null) {
-            this.d = str;
-            this.e = context;
-        }
-    }
-
-    public boolean d() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                Bundle bundle = this.e.getPackageInfo(this.a, 128).applicationInfo.metaData;
+                if (bundle != null) {
+                    String string = bundle.getString("com.baidu.helios.tc.qver");
+                    if (TextUtils.isEmpty(string) || !string.startsWith("v")) {
+                        return -1L;
+                    }
+                    return Long.valueOf(string.substring(1)).longValue();
+                }
+                return -1L;
+            } catch (Throwable unused) {
+                return -1L;
+            }
+        }
+        return invokeV.longValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
-        if (r10.equals(r9.d) == false) goto L15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
-        if (r0.startsWith(r10) != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean f(JSONObject jSONObject) {
+    public String b(String str) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            p00 p00Var = new p00();
-            p00Var.b(jSONObject.optLong("flags"));
-            String optString = jSONObject.optString("package", "");
-            long a = p00Var.a(7L);
-            if (!optString.equals("") || a == 4) {
-                if (a != 0) {
-                    if (a == 1) {
-                        String str = this.d;
-                        if (str != null) {
-                        }
-                        i = this.f | 32;
-                        this.f = i;
-                        return false;
-                    } else if (a == 2) {
-                        try {
-                            if (!Pattern.compile(optString).matcher(this.d).matches()) {
-                                this.f |= 32;
-                                return false;
-                            }
-                        } catch (Exception unused) {
-                            i = this.f | 128;
-                        }
-                    } else if (a == 4) {
-                        return true;
-                    }
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            InputStream inputStream = null;
+            try {
+                try {
+                    inputStream = e(str);
+                    return p00.b(inputStream, "UTF-8");
+                } catch (IOException e) {
+                    throw new TrustSubject.ConfigNotFoundException(e);
                 }
+            } finally {
+                o00.b(inputStream);
             }
-            i = this.f | 64;
-            this.f = i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void c(String str, Context context, t00.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, aVar) == null) {
+            this.a = str;
+            this.b = context;
+            this.c = aVar;
+            this.e = context.getPackageManager();
+        }
+    }
+
+    public int d() {
+        File file;
+        FileOutputStream fileOutputStream;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+            return invokeV.intValue;
+        }
+        try {
+            AssetManager assets = this.b.createPackageContext(this.a, 0).getAssets();
+            this.c.a();
+            File k = k();
+            InputStream inputStream = null;
+            try {
+                k.delete();
+                file = File.createTempFile("cfg", ".cfgtmp", k.getParentFile());
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    try {
+                        try {
+                            inputStream = assets.open("com.baidu.helios/c.dat");
+                            p00.a(inputStream, fileOutputStream, 16384);
+                            try {
+                                X509Certificate[][] s = com.baidu.helios.trusts.zone.verifier.b.s(file);
+                                if (s.length == 0) {
+                                    o00.b(inputStream);
+                                    o00.b(fileOutputStream);
+                                    if (file != null) {
+                                        try {
+                                            file.delete();
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    return 3;
+                                }
+                                HashSet hashSet = new HashSet();
+                                for (X509Certificate[] x509CertificateArr : s) {
+                                    if (x509CertificateArr != null) {
+                                        for (X509Certificate x509Certificate : x509CertificateArr) {
+                                            if (x509Certificate != null) {
+                                                hashSet.add(r00.c(x509Certificate.getSignature()));
+                                            }
+                                        }
+                                    }
+                                }
+                                HashSet hashSet2 = new HashSet();
+                                Collections.addAll(hashSet2, f);
+                                if (!hashSet2.equals(hashSet)) {
+                                    o00.b(inputStream);
+                                    o00.b(fileOutputStream);
+                                    if (file != null) {
+                                        try {
+                                            file.delete();
+                                        } catch (Exception unused2) {
+                                        }
+                                    }
+                                    return 3;
+                                }
+                                file.renameTo(k);
+                                o00.b(inputStream);
+                                o00.b(fileOutputStream);
+                                if (file != null) {
+                                    try {
+                                        file.delete();
+                                    } catch (Exception unused3) {
+                                    }
+                                }
+                                return 0;
+                            } catch (Exception unused4) {
+                                o00.b(inputStream);
+                                o00.b(fileOutputStream);
+                                if (file != null) {
+                                    try {
+                                        file.delete();
+                                    } catch (Exception unused5) {
+                                    }
+                                }
+                                return 3;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            o00.b(inputStream);
+                            o00.b(fileOutputStream);
+                            if (file != null) {
+                                try {
+                                    file.delete();
+                                } catch (Exception unused6) {
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (FileNotFoundException unused7) {
+                        o00.b(inputStream);
+                        o00.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused8) {
+                            }
+                        }
+                        return 5;
+                    } catch (IOException unused9) {
+                        o00.b(inputStream);
+                        o00.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused10) {
+                            }
+                        }
+                        return 2;
+                    } catch (Exception unused11) {
+                        o00.b(inputStream);
+                        o00.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused12) {
+                            }
+                        }
+                        return 4;
+                    }
+                } catch (FileNotFoundException unused13) {
+                    fileOutputStream = null;
+                } catch (IOException unused14) {
+                    fileOutputStream = null;
+                } catch (Exception unused15) {
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                }
+            } catch (FileNotFoundException unused16) {
+                file = null;
+                fileOutputStream = null;
+            } catch (IOException unused17) {
+                file = null;
+                fileOutputStream = null;
+            } catch (Exception unused18) {
+                file = null;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                file = null;
+                fileOutputStream = null;
+            }
+        } catch (Exception unused19) {
+            return 1;
+        }
+    }
+
+    public final InputStream e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return this.d.getInputStream(new ZipEntry(str));
+            } catch (Exception e) {
+                throw new TrustSubject.ConfigNotFoundException(e);
+            }
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k().delete() : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            File[] listFiles = this.c.b().listFiles(new a(this));
+            int i = 0;
+            if (listFiles != null) {
+                int length = listFiles.length;
+                boolean z = false;
+                while (i < length) {
+                    listFiles[i].delete();
+                    i++;
+                    z = true;
+                }
+                return z;
+            }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public long i() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.d != null) {
+                return true;
+            }
+            File k = k();
+            if (k.exists()) {
+                try {
+                    this.d = new ZipFile(k);
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public Set<String> j() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ZipFile zipFile = this.d;
+            if (zipFile != null) {
+                o00.d(zipFile);
+                this.d = null;
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            b a2 = b.a(this);
+            if (a2 != null) {
+                return a2.a;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c.d("c.dat") : (File) invokeV.objValue;
     }
 }

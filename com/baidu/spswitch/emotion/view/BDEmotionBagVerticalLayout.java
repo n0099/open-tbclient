@@ -1125,9 +1125,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         } else if (view2 instanceof TextView) {
             TextView textView = (TextView) view2;
             if (view2.isEnabled()) {
-                color = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060223);
+                color = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060225);
             } else {
-                color = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060218);
+                color = ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06021a);
             }
             textView.setTextColor(color);
         }
@@ -1433,18 +1433,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (emotionPanelConfig != null && (drawable2 = emotionPanelConfig.backgroundDrawable) != null) {
                 setBackground(drawable2);
             } else {
-                setBackgroundColor(ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f06026b));
+                setBackgroundColor(ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f06026d));
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_page1_root, this);
             this.mDelBtn = (ImageView) findViewById(R.id.delete_btn);
-            ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f060238);
+            ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f06023a);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(AppRuntime.getAppContext().getResources().getDimension(R.dimen.emotion_panel_del_btn_radius));
-            gradientDrawable.setStroke(AppRuntime.getAppContext().getResources().getDimensionPixelOffset(R.dimen.emotion_panel_del_btn_stroke), ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f060213));
+            gradientDrawable.setStroke(AppRuntime.getAppContext().getResources().getDimensionPixelOffset(R.dimen.emotion_panel_del_btn_stroke), ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f060215));
             if (emotionPanelConfig != null) {
                 gradientDrawable.setColor(emotionPanelConfig.delBtnColor);
             } else {
-                gradientDrawable.setColor(ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f06026b));
+                gradientDrawable.setColor(ContextCompat.getColor(this.mCtx, R.color.obfuscated_res_0x7f06026d));
             }
             if (emotionPanelConfig != null && (drawable = emotionPanelConfig.delBtnDrawable) != null) {
                 this.mDelBtn.setImageDrawable(drawable);
@@ -1623,7 +1623,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             TextView textView = (TextView) findViewById(R.id.send_btn);
             this.mSendBtn = textView;
             textView.setBackground(ResourcesCompat.getDrawable(AppRuntime.getAppContext().getResources(), R.drawable.emotion_panel_send_bg, null));
-            this.mSendBtn.setTextColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060223));
+            this.mSendBtn.setTextColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060225));
             this.mSendBtn.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

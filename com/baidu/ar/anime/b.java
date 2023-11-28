@@ -31,7 +31,7 @@ public class b {
     public boolean ct;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f1031cn = null;
+    public FramePixels f1027cn = null;
     public byte[] co = null;
     public boolean cs = true;
     public AlgoHandleController cb = null;
@@ -90,7 +90,7 @@ public class b {
     }
 
     private long a(ArrayList<byte[]> arrayList) {
-        if (this.f1031cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
+        if (this.f1027cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
             return 0L;
         }
         if (arrayList.size() < 2) {
@@ -98,17 +98,17 @@ public class b {
             return 0L;
         }
         long createHandle = this.cb.createHandle();
-        this.cb.setHandleInput(createHandle, 21, this.f1031cn.getTimestamp(), 4, this.f1031cn.getWidth(), this.f1031cn.getHeight(), this.f1031cn.isFrontCamera(), this.f1031cn.getSegOrientation().getValue(), false, this.f1031cn.getPixelsAddress());
+        this.cb.setHandleInput(createHandle, 21, this.f1027cn.getTimestamp(), 4, this.f1027cn.getWidth(), this.f1027cn.getHeight(), this.f1027cn.isFrontCamera(), this.f1027cn.getSegOrientation().getValue(), false, this.f1027cn.getPixelsAddress());
         ReserveHandleData reserveHandleData = new ReserveHandleData();
         reserveHandleData.setByteDataSize(arrayList.size());
-        int width = this.f1031cn.getWidth();
-        int height = this.f1031cn.getHeight();
+        int width = this.f1027cn.getWidth();
+        int height = this.f1027cn.getHeight();
         if (this.cv) {
-            height = this.f1031cn.getHeight() / 2;
+            height = this.f1027cn.getHeight() / 2;
         }
         if (this.ct) {
-            width = this.f1031cn.getHeight();
-            height = this.f1031cn.getWidth() / 2;
+            width = this.f1027cn.getHeight();
+            height = this.f1027cn.getWidth() / 2;
         }
         reserveHandleData.setByteWidths(new int[]{width, width});
         reserveHandleData.setByteHeights(new int[]{height, height});
@@ -252,7 +252,7 @@ public class b {
         this.cr.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f1031cn = framePixels;
+                b.this.f1027cn = framePixels;
                 FramePixels framePixels2 = framePixels;
                 if (framePixels2 == null || framePixels2.getPixelsAddress() == null) {
                     com.baidu.ar.h.b.aS("framePixels data error!");
@@ -336,7 +336,7 @@ public class b {
 
     public void w(final String str) {
         a aVar;
-        if (this.co == null || this.f1031cn == null) {
+        if (this.co == null || this.f1027cn == null) {
             com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
             InterfaceC0050b interfaceC0050b = this.cp;
             if (interfaceC0050b != null) {
@@ -345,7 +345,7 @@ public class b {
             }
             return;
         }
-        final String str2 = String.valueOf(this.f1031cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
+        final String str2 = String.valueOf(this.f1027cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
         ArrayList<String> arrayList = this.cu;
         if (arrayList == null) {
             return;

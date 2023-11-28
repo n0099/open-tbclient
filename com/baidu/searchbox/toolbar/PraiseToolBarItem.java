@@ -70,14 +70,14 @@ public class PraiseToolBarItem extends BaseToolBarItem {
         int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$toolbar$PraiseToolBarItem$PraiseIconType[this.mType.ordinal()];
         if (i != 1) {
             if (i != 2) {
-                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053e, R.drawable.obfuscated_res_0x7f080540);
+                coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080541, R.drawable.obfuscated_res_0x7f080543);
                 return;
             } else {
                 updateCustomPraiseIcon(coolPraiseView);
                 return;
             }
         }
-        coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080515, R.drawable.obfuscated_res_0x7f080514);
+        coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080518, R.drawable.obfuscated_res_0x7f080517);
     }
 
     public PraiseToolBarItem(int i, boolean z, boolean z2) {
@@ -103,10 +103,10 @@ public class PraiseToolBarItem extends BaseToolBarItem {
     public void updateCustomPraiseIcon(CoolPraiseView coolPraiseView) {
         if (this.mType == PraiseIconType.CUSTOM && coolPraiseView != null) {
             if (!TextUtils.isEmpty(this.mIconName) && !TextUtils.isEmpty(this.mDisableAnim)) {
-                coolPraiseView.setPraiseIconResByName(this.mIconName, TextUtils.equals(this.mDisableAnim, "1"), R.drawable.obfuscated_res_0x7f08053e, R.drawable.obfuscated_res_0x7f080540);
+                coolPraiseView.setPraiseIconResByName(this.mIconName, TextUtils.equals(this.mDisableAnim, "1"), R.drawable.obfuscated_res_0x7f080541, R.drawable.obfuscated_res_0x7f080543);
                 return;
             }
-            coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f08053e, R.drawable.obfuscated_res_0x7f080540);
+            coolPraiseView.setPraiseStateIconRes(R.drawable.obfuscated_res_0x7f080541, R.drawable.obfuscated_res_0x7f080543);
             this.mType = PraiseIconType.DEFAULT;
         }
     }

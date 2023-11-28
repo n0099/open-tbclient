@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.mya;
-import com.baidu.tieba.pya;
-import com.baidu.tieba.qya;
+import com.baidu.tieba.f3b;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.j3b;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pya> a;
-    public qya b;
-    public List<mya> c;
+    public List<i3b> a;
+    public j3b b;
+    public List<f3b> c;
     public b d;
     public boolean e;
     public NetMessageListener f;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, List<mya> list, qya qyaVar, List<pya> list2);
+        void a(int i, String str, List<f3b> list, j3b j3bVar, List<i3b> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dra.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            dra.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            wva.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            wva.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

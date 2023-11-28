@@ -28,16 +28,16 @@ public class v {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f88a;
+        public boolean f84a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f89b;
+        public boolean f85b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             this.a = str;
-            this.f88a = z;
-            this.f89b = z2;
+            this.f84a = z;
+            this.f85b = z2;
             this.b = str2;
         }
     }
@@ -170,7 +170,7 @@ public class v {
         boolean z;
         HashSet hashSet = new HashSet();
         String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
-        hashSet.addAll(Arrays.asList(com.kuaishou.weapon.p0.h.a, "android.permission.ACCESS_NETWORK_STATE", str, com.kuaishou.weapon.p0.h.d, "android.permission.VIBRATE"));
+        hashSet.addAll(Arrays.asList(com.kuaishou.weapon.p0.g.a, "android.permission.ACCESS_NETWORK_STATE", str, com.kuaishou.weapon.p0.g.d, "android.permission.VIBRATE"));
         PermissionInfo[] permissionInfoArr = packageInfo.permissions;
         if (permissionInfoArr != null) {
             for (PermissionInfo permissionInfo : permissionInfoArr) {
@@ -221,8 +221,8 @@ public class v {
             for (ServiceInfo serviceInfo : serviceInfoArr) {
                 if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
-                    boolean z = bVar.f88a;
-                    boolean z2 = bVar.f89b;
+                    boolean z = bVar.f84a;
+                    boolean z2 = bVar.f85b;
                     String str = bVar.b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));

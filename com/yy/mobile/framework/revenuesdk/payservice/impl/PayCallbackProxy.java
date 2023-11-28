@@ -14,7 +14,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public final String TAG = "PayCallbackProxy";
     public IAppPayService appPayService;

@@ -1,46 +1,52 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public dw4 b;
-    public String c;
 
-    public q26() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static q26 a(JSONObject jSONObject) {
+    public static List<AdvertAppInfo> a(@NonNull String str) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null) {
+                    return null;
+                }
+                JSONArray optJSONArray = optJSONObject2.optJSONArray("ad");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray == null) {
+                    return null;
+                }
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
+                        AdvertAppInfo n = AdvertAppInfo.n(optJSONObject);
+                        hw4 hw4Var = new hw4();
+                        n.i = hw4Var;
+                        hw4Var.h = false;
+                        arrayList.add(n);
+                    }
+                }
+                return arrayList;
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
-            q26 q26Var = new q26();
-            q26Var.a = jSONObject.optInt("download_state");
-            q26Var.b = dw4.b(jSONObject.optJSONObject("app_info"));
-            q26Var.c = jSONObject.optString("download_hint");
-            return q26Var;
         }
-        return (q26) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

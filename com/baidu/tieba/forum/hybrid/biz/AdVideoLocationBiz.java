@@ -6,15 +6,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ai7;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.vi7;
+import com.baidu.tieba.nk7;
+import com.baidu.tieba.oj7;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.zq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0015\u0010\t\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\nH\u0016¢\u0006\u0002\u0010\fJ\b\u0010\r\u001a\u00020\u000eH\u0016J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0002¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/AdVideoLocationBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", "onFrsAdVideoLocation", "data", "", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class AdVideoLocationBiz extends BizBase implements vi7 {
+public final class AdVideoLocationBiz extends BizBase implements nk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vi7
+    @Override // com.baidu.tieba.nk7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -61,14 +61,14 @@ public final class AdVideoLocationBiz extends BizBase implements vi7 {
         Intrinsics.checkNotNullParameter(webView, "webView");
     }
 
-    @Override // com.baidu.tieba.ui7
+    @Override // com.baidu.tieba.mk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{e().invoke("frsPageNa.adLocation", new AdVideoLocationBiz$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    public final void n(String str) {
+    public final void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             TbLog defaultLog = DefaultLog.getInstance();
@@ -125,9 +125,9 @@ public final class AdVideoLocationBiz extends BizBase implements vi7 {
                         double optDouble3 = it.optDouble("width", 0.0d) * d;
                         double optDouble4 = it.optDouble("height", 0.0d) * d;
                         String headData = it.optString("activityHead");
-                        pq6 b = nq6.b();
+                        zq6 b = xq6.b();
                         Intrinsics.checkNotNullExpressionValue(headData, "headData");
-                        b.c(new ai7(new ai7.a(optDouble, optDouble2, optDouble3, optDouble4, headData)));
+                        b.c(new oj7(new oj7.a(optDouble, optDouble2, optDouble3, optDouble4, headData)));
                     }
                 }
             });

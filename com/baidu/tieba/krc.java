@@ -1,53 +1,149 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.DealAuthInfo;
-import tbclient.DealInfo;
-import tbclient.DealMedia;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class krc extends qoc {
+public abstract class krc<E> extends lrc<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
+    public static final long d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final E[] b;
 
-    @NonNull
-    public static JSONObject b(@NonNull DealInfo dealInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "title", dealInfo.title);
-            qoc.a(jSONObject, "des", dealInfo.des);
-            qoc.a(jSONObject, "stock", dealInfo.stock);
-            qoc.a(jSONObject, "sales", dealInfo.sales);
-            qoc.a(jSONObject, "expire_time", dealInfo.expire_time);
-            qoc.a(jSONObject, "unit_price", dealInfo.unit_price);
-            qoc.a(jSONObject, "product_id", dealInfo.product_id);
-            qoc.a(jSONObject, "seller_address", dealInfo.seller_address);
-            qoc.a(jSONObject, "recommendations", dealInfo.recommendations);
-            qoc.a(jSONObject, "has_recommend", dealInfo.has_recommend);
-            qoc.a(jSONObject, "status", dealInfo.status);
-            if (dealInfo.media != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (DealMedia dealMedia : dealInfo.media) {
-                    jSONArray.put(lrc.b(dealMedia));
-                }
-                qoc.a(jSONObject, "media", jSONArray);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924141, "Lcom/baidu/tieba/krc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (dealInfo.auth_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (DealAuthInfo dealAuthInfo : dealInfo.auth_info) {
-                    jSONArray2.put(jrc.b(dealAuthInfo));
-                }
-                qoc.a(jSONObject, "auth_info", jSONArray2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947924141, "Lcom/baidu/tieba/krc;");
+                return;
             }
-            qoc.a(jSONObject, "ship_fee", dealInfo.ship_fee);
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        c = Integer.getInteger("sparse.shift", 0).intValue();
+        int b = ksc.a.b(Object[].class);
+        if (4 == b) {
+            e = c + 2;
+        } else if (8 == b) {
+            e = c + 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
+        }
+        d = ksc.a.a(Object[].class) + (32 << (e - c));
+    }
+
+    public krc(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        int b = nrc.b(i);
+        this.a = b - 1;
+        this.b = (E[]) new Object[(b << c) + 64];
+    }
+
+    public final long a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return b(j, this.a);
+        }
+        return invokeJ.longValue;
+    }
+
+    public final E d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return e(this.b, j);
+        }
+        return (E) invokeJ.objValue;
+    }
+
+    public final long b(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return d + ((j & j2) << e);
+        }
+        return invokeCommon.longValue;
+    }
+
+    public final E c(E[] eArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
+            return (E) ksc.a.e(eArr, j);
+        }
+        return (E) invokeLJ.objValue;
+    }
+
+    public final E e(E[] eArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
+            return (E) ksc.a.f(eArr, j);
+        }
+        return (E) invokeLJ.objValue;
+    }
+
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public final void f(E[] eArr, long j, E e2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            ksc.a.j(eArr, j, e2);
+        }
+    }
+
+    public final void g(E[] eArr, long j, E e2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            ksc.a.h(eArr, j, e2);
+        }
     }
 }

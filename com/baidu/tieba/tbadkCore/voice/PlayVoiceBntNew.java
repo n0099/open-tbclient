@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.dua;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.tieba.view.AudioAnimationView;
+import com.baidu.tieba.wya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -150,10 +150,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).J1(this.a);
+                return ((VoiceManager.j) context).V1(this.a);
             }
             if ((a5.a(getContext()) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).J1(this.a);
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).V1(this.a);
             }
             return this;
         }
@@ -167,10 +167,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).X0();
+                return ((VoiceManager.j) context).d1();
             }
             if ((a5.a(getContext()) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).X0();
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).d1();
             }
             return this.k;
         }
@@ -197,7 +197,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dua.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         e(context);
@@ -299,16 +299,16 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         return (RelativeLayout) invokeV.objValue;
     }
 
-    public void l() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.a = null;
             setTag(null);
-            k(1);
+            j(1);
         }
     }
 
-    public void m() {
+    public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
@@ -394,7 +394,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         return invokeL.intValue;
     }
 
-    public void k(int i) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             if (i == 3) {
@@ -438,7 +438,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
                 i(this.a.elapse);
                 return;
             }
-            k(this.a.voice_status.intValue());
+            j(this.a.voice_status.intValue());
             String formatVoiceTime = VoiceManager.formatVoiceTime(voiceModel.getDuration());
             int measureText = (int) this.d.getPaint().measureText(formatVoiceTime);
             this.h = measureText;
@@ -471,7 +471,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (!g()) {
-                k(1);
+                j(1);
                 return;
             }
             i(i);
@@ -489,9 +489,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             return;
         }
         if (this.a != voiceModel) {
-            k(1);
+            j(1);
         } else {
-            k(voiceModel.voice_status.intValue());
+            j(voiceModel.voice_status.intValue());
         }
     }
 
@@ -524,10 +524,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.voice_image_content);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d2a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d17);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8d);
             this.f = (AudioAnimationView) findViewById(R.id.audioAnimationView);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091de4);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5a);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -548,7 +548,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.a.getDuration());
             }
-            String charSequence2String = qd.charSequence2String(this.d.getText(), null);
+            String charSequence2String = rd.charSequence2String(this.d.getText(), null);
             if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
                 this.d.setText(formatVoiceTime);
             }

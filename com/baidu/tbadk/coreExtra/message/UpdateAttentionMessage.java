@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.q95;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (!qd.isEmpty(optString) && !qd.isEmpty(this.blockUrl) && !qd.isEmpty(optString2) && !qd.isEmpty(optString3)) {
+            if (!rd.isEmpty(optString) && !rd.isEmpty(this.blockUrl) && !rd.isEmpty(optString2) && !rd.isEmpty(optString3)) {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 this.blockData = blockPopInfoData;
                 blockPopInfoData.block_info = optString;
@@ -147,7 +147,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
             UpdateAttentionData data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                nq6.b().c(new m95(data));
+                xq6.b().c(new q95(data));
             }
         }
     }

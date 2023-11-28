@@ -23,12 +23,12 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.swan.apps.media.image.HugePhotoDraweeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej3;
-import com.baidu.tieba.fu2;
-import com.baidu.tieba.ju2;
-import com.baidu.tieba.vt2;
-import com.baidu.tieba.xj3;
-import com.baidu.tieba.zt2;
+import com.baidu.tieba.au2;
+import com.baidu.tieba.fj3;
+import com.baidu.tieba.gu2;
+import com.baidu.tieba.ku2;
+import com.baidu.tieba.wt2;
+import com.baidu.tieba.yj3;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     public ArrayList<MediaModel> a;
     public Activity c;
-    public zt2 d;
+    public au2 d;
     public h f;
-    public fu2 g;
+    public gu2 g;
     public int[] e = new int[1];
     public SparseArray<View> b = new SparseArray<>();
 
@@ -263,8 +263,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 this.a.setIsDynamicBitmap(false);
                 this.a.setZoomEnabled(true);
                 Bitmap underlyingBitmap = ((CloseableStaticBitmap) obj).getUnderlyingBitmap();
-                SwanAppAlbumPreviewAdapter.this.e = ej3.j();
-                ju2 b = ju2.b(underlyingBitmap);
+                SwanAppAlbumPreviewAdapter.this.e = fj3.j();
+                ku2 b = ku2.b(underlyingBitmap);
                 if (b == null) {
                     return;
                 }
@@ -293,10 +293,10 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
         public h(SwanAppAlbumPreviewAdapter swanAppAlbumPreviewAdapter, View view2) {
             this.a = view2;
-            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090283);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091da9);
-            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091dac);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092970);
+            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090297);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091e1f);
+            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091e22);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0929f5);
         }
     }
 
@@ -307,13 +307,13 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void q(h hVar, ImageModel imageModel) {
         if (this.g == null) {
-            this.g = new fu2(this.c);
+            this.g = new gu2(this.c);
         }
         this.g.i(hVar.a, imageModel.getPath());
     }
 
     public final void t(h hVar, boolean z) {
-        zt2 zt2Var;
+        au2 au2Var;
         if (hVar == null) {
             return;
         }
@@ -321,18 +321,18 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.c, R.anim.obfuscated_res_0x7f010176);
         loadAnimation.setAnimationListener(new f(this, hVar));
         hVar.b.startAnimation(loadAnimation);
-        if (z && (zt2Var = this.d) != null) {
-            zt2Var.d();
+        if (z && (au2Var = this.d) != null) {
+            au2Var.d();
         }
     }
 
     public void x(int i, @ColorInt int i2) {
         if (i < this.b.size() && this.b.get(i) != null) {
-            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f090284).setBackgroundColor(i2);
+            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f090298).setBackgroundColor(i2);
         }
     }
 
-    public final ControllerListener m(HugePhotoDraweeView hugePhotoDraweeView) {
+    public final ControllerListener l(HugePhotoDraweeView hugePhotoDraweeView) {
         return new g(hugePhotoDraweeView);
     }
 
@@ -346,8 +346,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         hVar.b.startAnimation(loadAnimation);
     }
 
-    public void y(zt2 zt2Var) {
-        this.d = zt2Var;
+    public void y(au2 au2Var) {
+        this.d = au2Var;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -360,7 +360,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         return this.a.size();
     }
 
-    public void l() {
+    public void k() {
         h hVar = this.f;
         if (hVar != null) {
             VideoView videoView = hVar.d;
@@ -386,7 +386,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         MediaModel mediaModel = this.a.get(i);
         View view2 = this.b.get(i);
         if (view2 == null) {
-            view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0947, viewGroup, false);
+            view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0961, viewGroup, false);
             hVar = new h(this, view2);
             view2.setTag(hVar);
             this.b.put(i, view2);
@@ -401,8 +401,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void p(HugePhotoDraweeView hugePhotoDraweeView, Bitmap bitmap) {
         float width;
-        int o = xj3.o(this.c);
-        int n = xj3.n(this.c);
+        int o = yj3.o(this.c);
+        int n = yj3.n(this.c);
         if (bitmap != null && bitmap.getHeight() > n * 1.6f) {
             if (bitmap.getWidth() == 0) {
                 width = 1.0f;
@@ -417,7 +417,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     public final void n(h hVar, MediaModel mediaModel) {
         Uri fromFile;
         if (hVar != null && mediaModel != null && !TextUtils.isEmpty(mediaModel.getPath())) {
-            ControllerListener m = m(hVar.b);
+            ControllerListener l = l(hVar.b);
             String path = mediaModel.getPath();
             if (path.startsWith("http")) {
                 fromFile = Uri.parse(path);
@@ -425,9 +425,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 fromFile = Uri.fromFile(new File(mediaModel.getPath()));
             }
             ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(fromFile);
-            newBuilderWithSource.setResizeOptions(new ResizeOptions(xj3.o(this.c), xj3.n(this.c), 10240.0f));
+            newBuilderWithSource.setResizeOptions(new ResizeOptions(yj3.o(this.c), yj3.n(this.c), 10240.0f));
             newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(vt2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(m).setOldController(hVar.b.getController()).build();
+            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(wt2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(l).setOldController(hVar.b.getController()).build();
             hVar.b.setVisibility(0);
             hVar.b.setController(build);
             if (mediaModel instanceof ImageModel) {

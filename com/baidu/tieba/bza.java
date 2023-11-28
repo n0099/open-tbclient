@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tracker.Tracker;
-import com.baidu.tieba.tracker.core.data.EventParams;
-import com.baidu.tieba.tracker.core.data.IEventNode;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +10,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.PriorityQueue;
 /* loaded from: classes5.dex */
-public final class bza {
+public class bza {
     public static /* synthetic */ Interceptable $ic;
-    public static final bza a;
-    public static int b;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<hza> d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bza.d();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bza.d();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hza a;
+
+        public c(hza hzaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hzaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hzaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,53 +122,102 @@ public final class bza {
                 return;
             }
         }
-        a = new bza();
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
     }
 
-    public bza() {
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            zya.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
             }
         }
     }
 
-    public final boolean a(IEventNode events) {
-        InterceptResult invokeL;
-        IEventNode endNode;
-        EventParams trackParams;
+    public static void c(hza hzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, events)) == null) {
-            Intrinsics.checkNotNullParameter(events, "events");
-            int i = b;
-            if (i == 1) {
-                return true;
-            }
-            if (i != 2 || (endNode = events.getEndNode()) == null || (trackParams = endNode.getTrackParams()) == null) {
-                return false;
-            }
-            String valueOf = String.valueOf(trackParams.get("page"));
-            if (Tracker.i.a().j().contains(valueOf)) {
-                return true;
-            }
-            if (!Tracker.i.a().i().contains(valueOf) && Tracker.i.a().h()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65539, null, hzaVar) == null) {
+            zya.a("MainTabScheduler execStep onStep:" + hzaVar.a);
+            System.nanoTime();
+            hzaVar.b();
+            SafeHandler.getInst().postAtFrontOfQueue(new c(hzaVar));
         }
-        return invokeL.booleanValue;
     }
 
-    public final void b(int i) {
+    public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            b = i;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            SafeHandler.getInst().postAtFrontOfQueue(new a());
+        } else {
+            SafeHandler.getInst().post(new b());
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= d.peek().a) {
+                hza poll = d.poll();
+                if (poll == null) {
+                    return;
+                }
+                c(poll);
+            }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                hza poll = d.poll();
+                if (poll != null) {
+                    zya.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
+
+    public static void f(hza hzaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, hzaVar) != null) || hzaVar == null) {
+            return;
+        }
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(hzaVar instanceof iza)) {
+                zya.a("MainTabScheduler registerNextStep onStep:" + hzaVar.a);
+                hzaVar.d();
+                hzaVar.b();
+            }
+            hzaVar.c();
+            return;
+        }
+        hzaVar.d();
+        zya.a("MainTabScheduler registerNextStep:" + hzaVar.a);
+        d.add(hzaVar);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
         }
     }
 }

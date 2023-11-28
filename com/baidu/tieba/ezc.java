@@ -5,24 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ItemService;
+import tbclient.FrsPage.AnchorPower;
 /* loaded from: classes5.dex */
-public class ezc extends qoc {
+public class ezc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemService itemService) {
+    public static JSONObject b(@NonNull AnchorPower anchorPower) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemService)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, anchorPower)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon", itemService.icon);
-            qoc.a(jSONObject, "client_type", itemService.client_type);
-            qoc.a(jSONObject, "type", itemService.type);
-            qoc.a(jSONObject, "name", itemService.name);
-            qoc.a(jSONObject, "url", itemService.url);
-            qoc.a(jSONObject, "app_id", itemService.app_id);
+            ltc.a(jSONObject, "have_power", anchorPower.have_power);
+            ltc.a(jSONObject, "anchor_message", anchorPower.anchor_message);
+            ltc.a(jSONObject, "can_add_live_post", anchorPower.can_add_live_post);
+            ltc.a(jSONObject, "can_del_live_post", anchorPower.can_del_live_post);
+            ltc.a(jSONObject, "can_add_live_post_msg", anchorPower.can_add_live_post_msg);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

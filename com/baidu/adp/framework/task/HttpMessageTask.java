@@ -6,7 +6,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b7;
+import com.baidu.tieba.c7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HttpMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7 mConnectTimeOut;
+    public c7 mConnectTimeOut;
     public boolean mIsImm;
     public HTTP_METHOD mMethod;
     public boolean mNeedGzip;
@@ -140,13 +140,13 @@ public class HttpMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public b7 getConnectTimeOut() {
+    public c7 getConnectTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mConnectTimeOut;
         }
-        return (b7) invokeV.objValue;
+        return (c7) invokeV.objValue;
     }
 
     public boolean getIsImm() {
@@ -194,10 +194,10 @@ public class HttpMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public void setConnectTimeOut(b7 b7Var) {
+    public void setConnectTimeOut(c7 c7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, b7Var) == null) {
-            this.mConnectTimeOut = b7Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, c7Var) == null) {
+            this.mConnectTimeOut = c7Var;
         }
     }
 

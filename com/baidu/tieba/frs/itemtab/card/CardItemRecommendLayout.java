@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.c65;
-import com.baidu.tieba.it;
-import com.baidu.tieba.xy7;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.i18;
+import com.baidu.tieba.i65;
+import com.baidu.tieba.jt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 /* loaded from: classes6.dex */
-public class CardItemRecommendLayout extends LinearLayout implements it {
+public class CardItemRecommendLayout extends LinearLayout implements jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -119,7 +119,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d39);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d59);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -127,9 +127,9 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(a5.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090d3a);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d3c);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d3b);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5a);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5c);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5b);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(3, i + 1, 2)));
             }
         }
     }
@@ -296,19 +296,19 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(3, i + 1, 1)));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @NonNull
-        /* renamed from: m */
+        /* renamed from: n */
         public d onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0398, (ViewGroup) null));
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) null));
                 dVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
         b();
     }
 
-    public void setData(bw4 bw4Var) {
+    public void setData(cw4 cw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof xy7)) {
-            xy7 xy7Var = (xy7) bw4Var;
-            if (xy7Var.c() != null) {
-                this.d = xy7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) && (cw4Var instanceof i18)) {
+            i18 i18Var = (i18) cw4Var;
+            if (i18Var.c() != null) {
+                this.d = i18Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -402,7 +402,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0853);
+            this.a.setText(R.string.obfuscated_res_0x7f0f085b);
             EMManager.from(this.a).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X07);
             this.a.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X008));
             addView(this.a, new LinearLayout.LayoutParams(-1, -2));
@@ -419,7 +419,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
         }
     }
 
-    @Override // com.baidu.tieba.it
+    @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

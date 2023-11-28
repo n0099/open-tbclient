@@ -8,11 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n50;
-import com.baidu.tieba.s40;
+import com.baidu.tieba.ms;
+import com.baidu.tieba.o50;
 import com.baidu.tieba.t40;
 import com.baidu.tieba.u40;
-import com.baidu.tieba.y40;
+import com.baidu.tieba.v40;
+import com.baidu.tieba.z40;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,12 +37,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes3.dex */
-public class QuicMessageHandler extends t40 {
+public class QuicMessageHandler extends u40 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile QuicMessageHandler q;
     public transient /* synthetic */ FieldHolder $fh;
     public DatagramSocket b;
-    public y40 c;
+    public z40 c;
     public e d;
     public LinkedBlockingQueue<byte[]> e;
     public HashMap<Long, byte[]> f;
@@ -86,7 +87,7 @@ public class QuicMessageHandler extends t40 {
 
     public native int closeQuicheConnect();
 
-    @Override // com.baidu.tieba.t40
+    @Override // com.baidu.tieba.u40
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -180,7 +181,7 @@ public class QuicMessageHandler extends t40 {
                 if (i == 1) {
                     DatagramSocket datagramSocket = (DatagramSocket) message.obj;
                     if (datagramSocket != null && datagramSocket.isConnected()) {
-                        n50.b("QuicMessageHandler", "Establish :: UdpSocket receive data Timeout, send again");
+                        o50.b("QuicMessageHandler", "Establish :: UdpSocket receive data Timeout, send again");
                         if (!this.a.k.get()) {
                             synchronized (this.a.n) {
                                 this.a.quicheConnOnTimeout();
@@ -188,11 +189,11 @@ public class QuicMessageHandler extends t40 {
                             this.a.H(datagramSocket);
                         }
                     } else {
-                        n50.b("QuicMessageHandler", "Establish :: UdpSocket receive data Timeout, but socket unavailable");
+                        o50.b("QuicMessageHandler", "Establish :: UdpSocket receive data Timeout, but socket unavailable");
                     }
                 } else if (i == 2) {
                     if (this.a.N()) {
-                        n50.b("QuicMessageHandler", "UDPSocketThread :: UdpSocket receive data Timeout, send again");
+                        o50.b("QuicMessageHandler", "UDPSocketThread :: UdpSocket receive data Timeout, send again");
                         if (!this.a.j.get()) {
                             synchronized (this.a.n) {
                                 this.a.quicheConnOnTimeout();
@@ -200,11 +201,11 @@ public class QuicMessageHandler extends t40 {
                             this.a.J(false);
                         }
                     } else {
-                        n50.b("QuicMessageHandler", "UDPSocketThread :: UdpSocket receive data Timeout, but socket closed");
+                        o50.b("QuicMessageHandler", "UDPSocketThread :: UdpSocket receive data Timeout, but socket closed");
                     }
                 }
                 if (this.a.E()) {
-                    n50.b("QuicMessageHandler", "TimeOut :: quiche connection closed");
+                    o50.b("QuicMessageHandler", "TimeOut :: quiche connection closed");
                     if (this.a.d != null) {
                         this.a.d.a();
                     }
@@ -323,17 +324,17 @@ public class QuicMessageHandler extends t40 {
                         try {
                             bArr = new byte[1500];
                             datagramPacket = new DatagramPacket(bArr, 1500);
-                            n50.f("QuicMessageHandler", "UDPSocketThread :: loop UDP Socket receive() blocked method again");
+                            o50.f("QuicMessageHandler", "UDPSocketThread :: loop UDP Socket receive() blocked method again");
                             this.a.b.receive(datagramPacket);
                             this.a.i.removeMessages(2);
-                            n50.f("QuicMessageHandler", " ");
-                            n50.a("QuicMessageHandler", "quic Timeout handler remove ");
-                            n50.f("QuicMessageHandler", "UDPSocketThread :: notify UDP Socket receive() method");
+                            o50.f("QuicMessageHandler", " ");
+                            o50.a("QuicMessageHandler", "quic Timeout handler remove ");
+                            o50.f("QuicMessageHandler", "UDPSocketThread :: notify UDP Socket receive() method");
                         } catch (Exception e) {
-                            n50.b("QuicMessageHandler", "UDPSocketThread read io exception = " + e.getMessage());
+                            o50.b("QuicMessageHandler", "UDPSocketThread read io exception = " + e.getMessage());
                             if (!this.a.j.get()) {
                                 if (this.a.d != null) {
-                                    n50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
+                                    o50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
                                     this.a.d.a();
                                     return;
                                 }
@@ -349,7 +350,7 @@ public class QuicMessageHandler extends t40 {
                             synchronized (this.a.n) {
                                 if (!this.a.j.get() && copyOf != null && copyOf.length > 0 && length > 0) {
                                     this.a.transFormReceiveData(copyOf, length);
-                                    n50.d("QuicMessageHandler", "Receive data size = " + length);
+                                    o50.d("QuicMessageHandler", "Receive data size = " + length);
                                 }
                             }
                             synchronized (this.a.n) {
@@ -360,22 +361,22 @@ public class QuicMessageHandler extends t40 {
                                 }
                             }
                             if (!this.a.j.get() && i != -1001) {
-                                n50.b("QuicMessageHandler", "quiche occur connection perr error");
+                                o50.b("QuicMessageHandler", "quiche occur connection perr error");
                                 if (this.a.d != null) {
                                     if (i == 0) {
-                                        n50.a("QuicMessageHandler", "connection should close， connClosedByPerrError");
+                                        o50.a("QuicMessageHandler", "connection should close， connClosedByPerrError");
                                         this.a.d.b();
                                         return;
                                     }
-                                    n50.a("QuicMessageHandler", "connection should close for perr occur error, handle it now");
+                                    o50.a("QuicMessageHandler", "connection should close for perr occur error, handle it now");
                                     this.a.d.a();
                                     return;
                                 }
                                 return;
                             } else if (!this.a.j.get() && this.a.E()) {
-                                n50.b("QuicMessageHandler", "quiche connection has closed, we did`t catch it, handle it now");
+                                o50.b("QuicMessageHandler", "quiche connection has closed, we did`t catch it, handle it now");
                                 if (this.a.d != null) {
-                                    n50.a("QuicMessageHandler", "quiche connection has closed, handle it now");
+                                    o50.a("QuicMessageHandler", "quiche connection has closed, handle it now");
                                     this.a.d.a();
                                     return;
                                 }
@@ -397,10 +398,10 @@ public class QuicMessageHandler extends t40 {
                                     }
                                     synchronized (this.a.m) {
                                         this.a.m.notifyAll();
-                                        n50.a("QuicMessageHandler", "quiche get handle  writeable streams done, notify");
+                                        o50.a("QuicMessageHandler", "quiche get handle  writeable streams done, notify");
                                     }
                                 } else {
-                                    n50.b("QuicMessageHandler", "quiche get writeable [streams].len is 0 ");
+                                    o50.b("QuicMessageHandler", "quiche get writeable [streams].len is 0 ");
                                 }
                                 synchronized (this.a.n) {
                                     if (!this.a.j.get()) {
@@ -416,13 +417,13 @@ public class QuicMessageHandler extends t40 {
                                         }
                                     }
                                 } else {
-                                    n50.b("QuicMessageHandler", "quiche get gquic_readable [streams].len is 0 ");
+                                    o50.b("QuicMessageHandler", "quiche get gquic_readable [streams].len is 0 ");
                                 }
                                 if (!this.a.j.get()) {
                                     this.a.J(false);
                                 }
                             } else if (!this.a.j.get() && this.a.d != null) {
-                                n50.a("QuicMessageHandler", "quiche connection has closed for unEstablished");
+                                o50.a("QuicMessageHandler", "quiche connection has closed for unEstablished");
                                 this.a.d.a();
                                 return;
                             } else {
@@ -434,9 +435,9 @@ public class QuicMessageHandler extends t40 {
                         }
                     }
                 } catch (Throwable th) {
-                    n50.b("QuicMessageHandler", "UDPSocketThread occur exception: " + th.getMessage());
+                    o50.b("QuicMessageHandler", "UDPSocketThread occur exception: " + th.getMessage());
                     if (!this.a.j.get() && this.a.d != null) {
-                        n50.a("QuicMessageHandler", "connIsClosed UDPSocketThread occur exception");
+                        o50.a("QuicMessageHandler", "connIsClosed UDPSocketThread occur exception");
                         this.a.d.a();
                         return;
                     }
@@ -496,22 +497,22 @@ public class QuicMessageHandler extends t40 {
         }
     }
 
-    @Override // com.baidu.tieba.t40
-    public void f(u40 u40Var) {
+    @Override // com.baidu.tieba.u40
+    public void f(v40 v40Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, u40Var) == null) && (u40Var instanceof y40)) {
-            this.c = (y40) u40Var;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, v40Var) == null) && (v40Var instanceof z40)) {
+            this.c = (z40) v40Var;
         }
     }
 
-    @Override // com.baidu.tieba.t40
-    public u40 h(String str, int i) throws SocketException, UnknownHostException {
+    @Override // com.baidu.tieba.u40
+    public v40 h(String str, int i) throws SocketException, UnknownHostException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
             return M(str, i);
         }
-        return (u40) invokeLI.objValue;
+        return (v40) invokeLI.objValue;
     }
 
     public static QuicMessageHandler z() {
@@ -565,24 +566,24 @@ public class QuicMessageHandler extends t40 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t40
-    public u40 b() {
+    @Override // com.baidu.tieba.u40
+    public v40 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.c;
         }
-        return (u40) invokeV.objValue;
+        return (v40) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t40
+    @Override // com.baidu.tieba.u40
     public boolean c() {
         InterceptResult invokeV;
         DatagramSocket datagramSocket;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            y40 y40Var = this.c;
-            if (y40Var != null && (datagramSocket = y40Var.c) != null && datagramSocket.isConnected() && C()) {
+            z40 z40Var = this.c;
+            if (z40Var != null && (datagramSocket = z40Var.c) != null && datagramSocket.isConnected() && C()) {
                 return true;
             }
             return false;
@@ -590,7 +591,7 @@ public class QuicMessageHandler extends t40 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t40
+    @Override // com.baidu.tieba.u40
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -609,20 +610,20 @@ public class QuicMessageHandler extends t40 {
             int length = (int) (bArr.length - j);
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, (int) j, bArr2, 0, length);
-            n50.a("QuicMessageHandler", "getWriteableStreamData  newByte.len " + length);
+            o50.a("QuicMessageHandler", "getWriteableStreamData  newByte.len " + length);
             return bArr2;
         }
         return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t40
-    public void a(u40 u40Var) {
+    @Override // com.baidu.tieba.u40
+    public void a(v40 v40Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, u40Var) == null) {
-            if (u40Var != null) {
-                if (u40Var instanceof y40) {
-                    if (((y40) u40Var).c.hashCode() == this.c.c.hashCode()) {
-                        n50.e("QuicMessageHandler", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
+        if (interceptable == null || interceptable.invokeL(1048590, this, v40Var) == null) {
+            if (v40Var != null) {
+                if (v40Var instanceof z40) {
+                    if (((z40) v40Var).c.hashCode() == this.c.c.hashCode()) {
+                        o50.e("QuicMessageHandler", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
                         return;
                     } else {
                         g();
@@ -641,7 +642,7 @@ public class QuicMessageHandler extends t40 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             if (!this.o.containsKey(Long.valueOf(j))) {
-                n50.a("QuicMessageHandler", "handleWriteableStream  partialResponseHashMap not contain streadId " + j);
+                o50.a("QuicMessageHandler", "handleWriteableStream  partialResponseHashMap not contain streadId " + j);
                 return false;
             }
             d dVar = this.o.get(Long.valueOf(j));
@@ -653,15 +654,15 @@ public class QuicMessageHandler extends t40 {
             synchronized (this.n) {
                 quicheSendMessageByStreamId = quicheSendMessageByStreamId(j, A, length);
             }
-            n50.a("QuicMessageHandler", "handleWriteableStream, streamId: " + j + "length: " + length + " sendDataLen " + quicheSendMessageByStreamId);
+            o50.a("QuicMessageHandler", "handleWriteableStream, streamId: " + j + "length: " + length + " sendDataLen " + quicheSendMessageByStreamId);
             if (quicheSendMessageByStreamId > 0) {
                 if (quicheSendMessageByStreamId < length) {
                     dVar.b += quicheSendMessageByStreamId;
-                    n50.a("QuicMessageHandler", "handleWriteableStream, sendDataLen < length, streamId is " + j + " new wirtten flag is " + dVar.b);
+                    o50.a("QuicMessageHandler", "handleWriteableStream, sendDataLen < length, streamId is " + j + " new wirtten flag is " + dVar.b);
                 } else {
                     long j2 = dVar.b + quicheSendMessageByStreamId;
                     int length2 = dVar.a.length;
-                    n50.a("QuicMessageHandler", "handleWriteableStream, streamId:" + j + " totalLen is " + j2 + " partialResponse.body.length is " + length2);
+                    o50.a("QuicMessageHandler", "handleWriteableStream, streamId:" + j + " totalLen is " + j2 + " partialResponse.body.length is " + length2);
                     if (j2 == length2) {
                         dVar.a = null;
                         this.o.remove(Long.valueOf(j));
@@ -692,35 +693,35 @@ public class QuicMessageHandler extends t40 {
                 if (this.k.get()) {
                     break;
                 }
-                n50.a("QuicMessageHandler", "Establish :: send init byteCmd start : find package we should send");
+                o50.a("QuicMessageHandler", "Establish :: send init byteCmd start : find package we should send");
                 synchronized (this.n) {
                     transFormSendData = transFormSendData();
                 }
                 if (transFormSendData != null) {
-                    n50.d("QuicMessageHandler", "Establish :: Send data size = " + transFormSendData.length);
+                    o50.d("QuicMessageHandler", "Establish :: Send data size = " + transFormSendData.length);
                     try {
                         DatagramPacket datagramPacket = new DatagramPacket(transFormSendData, transFormSendData.length);
                         if (datagramSocket != null && datagramSocket.isConnected()) {
                             datagramSocket.send(datagramPacket);
-                            n50.b("QuicMessageHandler", "UDP Socket send init data success");
+                            o50.b("QuicMessageHandler", "UDP Socket send init data success");
                         }
                     } catch (Exception e2) {
-                        n50.b("QuicMessageHandler", "UDP Socket send occur error, " + e2.getMessage());
+                        o50.b("QuicMessageHandler", "UDP Socket send occur error, " + e2.getMessage());
                         return false;
                     }
                 } else {
-                    n50.f("QuicMessageHandler", "sendByteCmd end: quic have no send data and break loop native method transFormSendData()");
-                    n50.f("QuicMessageHandler", " ");
+                    o50.f("QuicMessageHandler", "sendByteCmd end: quic have no send data and break loop native method transFormSendData()");
+                    o50.f("QuicMessageHandler", " ");
                     synchronized (this.n) {
                         quicheMaxIdleTimeOut = quicheMaxIdleTimeOut();
                     }
-                    n50.b("QuicMessageHandler", "UDP Socket sendInitPacket timeOut = " + quicheMaxIdleTimeOut);
+                    o50.b("QuicMessageHandler", "UDP Socket sendInitPacket timeOut = " + quicheMaxIdleTimeOut);
                     quicheMaxIdleTimeOut = (quicheMaxIdleTimeOut <= 0 || quicheMaxIdleTimeOut > 10000) ? 10L : 10L;
                     Message obtain = Message.obtain();
                     obtain.what = 1;
                     obtain.obj = datagramSocket;
                     this.i.sendMessageDelayed(obtain, quicheMaxIdleTimeOut);
-                    n50.b("QuicMessageHandler", "UDP Socket sendInitPacket loop end, " + quicheMaxIdleTimeOut);
+                    o50.b("QuicMessageHandler", "UDP Socket sendInitPacket loop end, " + quicheMaxIdleTimeOut);
                 }
             }
             return true;
@@ -733,24 +734,24 @@ public class QuicMessageHandler extends t40 {
         long quicheMaxIdleTimeOut;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            n50.a("QuicMessageHandler", "sendByteCmd start");
+            o50.a("QuicMessageHandler", "sendByteCmd start");
             while (!this.j.get()) {
-                n50.a("QuicMessageHandler", "sendByteCmd start : find package we should send");
+                o50.a("QuicMessageHandler", "sendByteCmd start : find package we should send");
                 synchronized (this.n) {
                     transFormSendData = transFormSendData();
                 }
                 if (transFormSendData != null) {
-                    n50.d("QuicMessageHandler", "Send data size = " + transFormSendData.length);
+                    o50.d("QuicMessageHandler", "Send data size = " + transFormSendData.length);
                     try {
                         DatagramPacket datagramPacket = new DatagramPacket(transFormSendData, transFormSendData.length);
                         if (this.b != null && this.b.isConnected()) {
                             this.b.send(datagramPacket);
-                            n50.b("QuicMessageHandler", "UDP Socket send stream data success");
+                            o50.b("QuicMessageHandler", "UDP Socket send stream data success");
                         } else {
-                            n50.b("QuicMessageHandler", "UDP Socket send occur error, mSocket is null or mSocket is closed");
+                            o50.b("QuicMessageHandler", "UDP Socket send occur error, mSocket is null or mSocket is closed");
                             if (!this.j.get() || !z) {
                                 if (this.d != null) {
-                                    n50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
+                                    o50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
                                     this.d.a();
                                     return;
                                 }
@@ -758,10 +759,10 @@ public class QuicMessageHandler extends t40 {
                             }
                         }
                     } catch (Exception e2) {
-                        n50.b("QuicMessageHandler", "UDP Socket send occur error, " + e2.getMessage());
+                        o50.b("QuicMessageHandler", "UDP Socket send occur error, " + e2.getMessage());
                         if (!this.j.get() || !z) {
                             if (this.d != null) {
-                                n50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
+                                o50.a("QuicMessageHandler", "connection close for UDPSocketThread read io exception");
                                 this.d.a();
                                 return;
                             }
@@ -769,17 +770,17 @@ public class QuicMessageHandler extends t40 {
                         }
                     }
                 } else {
-                    n50.f("QuicMessageHandler", "sendByteCmd end: quic have no send data and break loop native method transFormSendData()");
-                    n50.f("QuicMessageHandler", " ");
+                    o50.f("QuicMessageHandler", "sendByteCmd end: quic have no send data and break loop native method transFormSendData()");
+                    o50.f("QuicMessageHandler", " ");
                     synchronized (this.n) {
                         quicheMaxIdleTimeOut = quicheMaxIdleTimeOut();
                     }
-                    n50.b("QuicMessageHandler", "UDP Socket sendPacketCmd timeOut = " + quicheMaxIdleTimeOut);
+                    o50.b("QuicMessageHandler", "UDP Socket sendPacketCmd timeOut = " + quicheMaxIdleTimeOut);
                     if (quicheMaxIdleTimeOut <= 0) {
                         quicheMaxIdleTimeOut = 10;
                     }
                     this.i.sendEmptyMessageDelayed(2, quicheMaxIdleTimeOut);
-                    n50.b("QuicMessageHandler", "UDP Socket sendPacketCmd loop end, " + quicheMaxIdleTimeOut);
+                    o50.b("QuicMessageHandler", "UDP Socket sendPacketCmd loop end, " + quicheMaxIdleTimeOut);
                     return;
                 }
             }
@@ -791,12 +792,12 @@ public class QuicMessageHandler extends t40 {
         int initConnect;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            n50.a("QuicMessageHandler", "quicheInit");
+            o50.a("QuicMessageHandler", "quicheInit");
             synchronized (this.n) {
                 initConnect = initConnect(str, str2, 150000, 4096, 4096, 20971520, 1310720, 1310720, 1310720, 4096, 4096, null, false);
             }
             if (initConnect < 0) {
-                n50.a("QuicMessageHandler", "connIsClosed quicheInit fail");
+                o50.a("QuicMessageHandler", "connIsClosed quicheInit fail");
                 return false;
             }
             return true;
@@ -814,7 +815,7 @@ public class QuicMessageHandler extends t40 {
             }
             synchronized (this.m) {
                 this.m.notifyAll();
-                n50.a("QuicMessageHandler", "removeTimeOutCallback, lock.notifyAll();");
+                o50.a("QuicMessageHandler", "removeTimeOutCallback, lock.notifyAll();");
             }
             this.e.clear();
             this.f.clear();
@@ -822,14 +823,14 @@ public class QuicMessageHandler extends t40 {
         }
     }
 
-    @Override // com.baidu.tieba.t40
+    @Override // com.baidu.tieba.u40
     public DataInputStream e() throws EOFException, IOException, InterruptedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             byte[] take = this.e.take();
             int length = take.length;
-            n50.a("QuicMessageHandler", "SocketRead, requestBody size is " + length);
+            o50.a("QuicMessageHandler", "SocketRead, requestBody size is " + length);
             return new DataInputStream(new ByteArrayInputStream(take));
         }
         return (DataInputStream) invokeV.objValue;
@@ -844,9 +845,9 @@ public class QuicMessageHandler extends t40 {
                 synchronized (this.n) {
                     if (!this.j.get()) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        n50.b("QuicMessageHandler", "quicheSendMessageByStream start ");
+                        o50.b("QuicMessageHandler", "quicheSendMessageByStream start ");
                         long[] quicheSendMessageByStream = quicheSendMessageByStream(bArr, bArr.length);
-                        n50.b("QuicMessageHandler", "quicheSendMessageByStream end,  spend " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+                        o50.b("QuicMessageHandler", "quicheSendMessageByStream end,  spend " + (System.currentTimeMillis() - currentTimeMillis) + ms.c);
                         jArr = quicheSendMessageByStream;
                     }
                 }
@@ -859,14 +860,14 @@ public class QuicMessageHandler extends t40 {
         return (long[]) invokeL.objValue;
     }
 
-    public final boolean L(y40 y40Var) {
+    public final boolean L(z40 z40Var) {
         InterceptResult invokeL;
         int closeQuicheConnect;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, y40Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, z40Var)) == null) {
             boolean z = false;
             try {
-                n50.a("QuicMessageHandler", "quic socket close start");
+                o50.a("QuicMessageHandler", "quic socket close start");
                 if (this.i != null) {
                     this.i.removeMessages(1);
                     this.i.removeMessages(2);
@@ -878,14 +879,14 @@ public class QuicMessageHandler extends t40 {
                     closeQuicheConnect = closeQuicheConnect();
                     w();
                 }
-                n50.a("QuicMessageHandler", "quiche connection close result is " + closeQuicheConnect);
+                o50.a("QuicMessageHandler", "quiche connection close result is " + closeQuicheConnect);
                 synchronized (this.m) {
                     this.m.notifyAll();
-                    n50.a("QuicMessageHandler", "socketClose, lock.notifyAll();");
+                    o50.a("QuicMessageHandler", "socketClose, lock.notifyAll();");
                 }
                 z = true;
             } catch (Exception e2) {
-                n50.c("QuicMessageHandler", "quic socket close occur exception:", e2);
+                o50.c("QuicMessageHandler", "quic socket close occur exception:", e2);
             }
             this.e.clear();
             this.f.clear();
@@ -895,42 +896,42 @@ public class QuicMessageHandler extends t40 {
         return invokeL.booleanValue;
     }
 
-    public final u40 M(String str, int i) throws SocketException, UnknownHostException {
+    public final v40 M(String str, int i) throws SocketException, UnknownHostException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
             this.b = y(str, i);
-            y40 y40Var = new y40();
+            z40 z40Var = new z40();
             if (this.b == null) {
-                return y40Var;
+                return z40Var;
             }
             this.j.set(false);
             f fVar = new f(this);
             this.g = fVar;
             fVar.start();
-            y40Var.c = this.b;
+            z40Var.c = this.b;
             Boolean bool = Boolean.TRUE;
-            y40Var.a = bool;
-            y40Var.b = bool;
-            return y40Var;
+            z40Var.a = bool;
+            z40Var.b = bool;
+            return z40Var;
         }
-        return (u40) invokeLI.objValue;
+        return (v40) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.t40
-    public void i(s40 s40Var) throws IOException {
+    @Override // com.baidu.tieba.u40
+    public void i(t40 t40Var) throws IOException {
         boolean z;
         DatagramSocket datagramSocket;
         String str;
         e eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, s40Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, t40Var) == null) {
             boolean z2 = true;
-            if (s40Var != null && s40Var.a != null && (datagramSocket = this.b) != null && datagramSocket.isConnected() && !E() && C() && !this.j.get()) {
-                int length = s40Var.a.length;
-                n50.a("QuicMessageHandler", " ");
-                n50.a("QuicMessageHandler", "SocketWrite, requestBody size is " + length);
-                long[] I = I(s40Var.a);
+            if (t40Var != null && t40Var.a != null && (datagramSocket = this.b) != null && datagramSocket.isConnected() && !E() && C() && !this.j.get()) {
+                int length = t40Var.a.length;
+                o50.a("QuicMessageHandler", " ");
+                o50.a("QuicMessageHandler", "SocketWrite, requestBody size is " + length);
+                long[] I = I(t40Var.a);
                 StringBuilder sb = new StringBuilder();
                 sb.append("SocketWrite, sendMessageByStream ");
                 if (I != null) {
@@ -939,18 +940,18 @@ public class QuicMessageHandler extends t40 {
                     str = StringUtil.NULL_STRING;
                 }
                 sb.append(str);
-                n50.a("QuicMessageHandler", sb.toString());
+                o50.a("QuicMessageHandler", sb.toString());
                 if (I != null && I.length >= 2) {
                     long j = I[0];
                     long j2 = I[1];
                     if (j2 >= 0) {
                         if (j2 < length) {
-                            this.o.put(Long.valueOf(j), new d(this, s40Var.a, j2));
-                            n50.a("QuicMessageHandler", "SocketWrite, sendDataLen < length, streamId is " + j + " sendDataLen is " + j2 + " sendLen is  " + length);
+                            this.o.put(Long.valueOf(j), new d(this, t40Var.a, j2));
+                            o50.a("QuicMessageHandler", "SocketWrite, sendDataLen < length, streamId is " + j + " sendDataLen is " + j2 + " sendLen is  " + length);
                             synchronized (this.m) {
                                 try {
                                     try {
-                                        n50.a("QuicMessageHandler", "SocketWrite, lock.wait");
+                                        o50.a("QuicMessageHandler", "SocketWrite, lock.wait");
                                         this.m.wait();
                                     } catch (InterruptedException unused) {
                                         throw new IOException("udp socket write lock wait interrupted");
@@ -981,7 +982,7 @@ public class QuicMessageHandler extends t40 {
             sb2.append("mSocket.isConnected() is ");
             DatagramSocket datagramSocket2 = this.b;
             sb2.append((datagramSocket2 == null || !datagramSocket2.isConnected()) ? false : false);
-            n50.a("QuicMessageHandler", sb2.toString());
+            o50.a("QuicMessageHandler", sb2.toString());
         }
     }
 
@@ -991,7 +992,7 @@ public class QuicMessageHandler extends t40 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, datagramSocket)) == null) {
-            n50.a("QuicMessageHandler", "connect establish");
+            o50.a("QuicMessageHandler", "connect establish");
             if (!this.k.get()) {
                 z = H(datagramSocket);
             } else {
@@ -1004,19 +1005,19 @@ public class QuicMessageHandler extends t40 {
                 try {
                     byte[] bArr = new byte[1500];
                     DatagramPacket datagramPacket = new DatagramPacket(bArr, 1500);
-                    n50.f("QuicMessageHandler", "Establish :: loop UDP Socket receive() blocked method again");
+                    o50.f("QuicMessageHandler", "Establish :: loop UDP Socket receive() blocked method again");
                     datagramSocket.receive(datagramPacket);
                     this.i.removeMessages(1);
-                    n50.f("QuicMessageHandler", " ");
-                    n50.a("QuicMessageHandler", "Establish :: quic Timeout handler remove ");
-                    n50.f("QuicMessageHandler", "Establish :: notify UDP Socket receive() method");
+                    o50.f("QuicMessageHandler", " ");
+                    o50.a("QuicMessageHandler", "Establish :: quic Timeout handler remove ");
+                    o50.f("QuicMessageHandler", "Establish :: notify UDP Socket receive() method");
                     if (datagramPacket.getData() != null && datagramPacket.getData().length != 0) {
                         int length = datagramPacket.getLength();
                         byte[] copyOf = Arrays.copyOf(bArr, length);
                         synchronized (this.n) {
                             if (!this.k.get() && copyOf != null && copyOf.length > 0 && length > 0) {
                                 transFormReceiveData(copyOf, length);
-                                n50.d("QuicMessageHandler", "Receive data size = " + length);
+                                o50.d("QuicMessageHandler", "Receive data size = " + length);
                             }
                         }
                         synchronized (this.n) {
@@ -1027,13 +1028,13 @@ public class QuicMessageHandler extends t40 {
                             }
                         }
                         if (i != -1001) {
-                            n50.b("QuicMessageHandler", "Establish :: quiche occur connection perr error");
+                            o50.b("QuicMessageHandler", "Establish :: quiche occur connection perr error");
                             return false;
                         } else if (!this.k.get() && E()) {
-                            n50.b("QuicMessageHandler", "Establish :: quiche connection has closed, we did`t catch it, handle it now");
+                            o50.b("QuicMessageHandler", "Establish :: quiche connection has closed, we did`t catch it, handle it now");
                             return false;
                         } else if (!this.k.get() && D(this.l) && !this.l) {
-                            n50.f("QuicMessageHandler", "=========== quiche connection Established, happy for success ===========");
+                            o50.f("QuicMessageHandler", "=========== quiche connection Established, happy for success ===========");
                             this.l = true;
                             this.k.getAndSet(true);
                             return true;
@@ -1045,7 +1046,7 @@ public class QuicMessageHandler extends t40 {
                         H(datagramSocket);
                     }
                 } catch (Exception e2) {
-                    n50.b("QuicMessageHandler", "Establish :: read io exception = " + e2.getMessage());
+                    o50.b("QuicMessageHandler", "Establish :: read io exception = " + e2.getMessage());
                 }
             }
             return false;
@@ -1057,26 +1058,26 @@ public class QuicMessageHandler extends t40 {
         DatagramSocket datagramSocket;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            n50.a("QuicMessageHandler", "closeSocket");
+            o50.a("QuicMessageHandler", "closeSocket");
             f fVar = this.g;
             if (fVar != null && fVar.isAlive()) {
                 this.g.interrupt();
                 this.g = null;
-                n50.a("QuicMessageHandler", "mUDPSocketThread.interrupt();");
+                o50.a("QuicMessageHandler", "mUDPSocketThread.interrupt();");
             }
-            y40 y40Var = this.c;
-            if (y40Var != null && (datagramSocket = y40Var.c) != null) {
+            z40 z40Var = this.c;
+            if (z40Var != null && (datagramSocket = z40Var.c) != null) {
                 datagramSocket.close();
                 this.c.c.disconnect();
                 this.c.c = null;
-                n50.a("QuicMessageHandler", "currentSocketState.socket.close() ");
+                o50.a("QuicMessageHandler", "currentSocketState.socket.close() ");
             }
             DatagramSocket datagramSocket2 = this.b;
             if (datagramSocket2 != null) {
                 datagramSocket2.close();
                 this.b.disconnect();
                 this.b = null;
-                n50.a("QuicMessageHandler", "mSocket  close()");
+                o50.a("QuicMessageHandler", "mSocket  close()");
             }
         }
     }
@@ -1112,7 +1113,7 @@ public class QuicMessageHandler extends t40 {
                         }
                     }
                 } catch (Exception e2) {
-                    n50.c("QuicMessageHandler", "resolve host for ip by local dns is fail, ", e2);
+                    o50.c("QuicMessageHandler", "resolve host for ip by local dns is fail, ", e2);
                 }
             }
             if (!F(str, String.valueOf(i))) {
@@ -1122,12 +1123,12 @@ public class QuicMessageHandler extends t40 {
             DatagramSocket datagramSocket = new DatagramSocket();
             datagramSocket.connect(byName, i);
             if (!datagramSocket.isConnected()) {
-                n50.a("QuicMessageHandler", "createSocket not connected");
+                o50.a("QuicMessageHandler", "createSocket not connected");
                 return null;
             }
             this.k.set(false);
             if (!x(datagramSocket)) {
-                n50.a("QuicMessageHandler", "handShark occur error");
+                o50.a("QuicMessageHandler", "handShark occur error");
                 return null;
             }
             return datagramSocket;

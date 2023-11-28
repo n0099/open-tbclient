@@ -14,8 +14,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xx7;
-import com.baidu.tieba.yx7;
+import com.baidu.tieba.i08;
+import com.baidu.tieba.j08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes6.dex */
-public class HeaderComponentMultiView extends FrameLayout implements yx7 {
+public class HeaderComponentMultiView extends FrameLayout implements j08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,11 +33,11 @@ public class HeaderComponentMultiView extends FrameLayout implements yx7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.yx7
+    @Override // com.baidu.tieba.j08
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,13 +108,13 @@ public class HeaderComponentMultiView extends FrameLayout implements yx7 {
         b();
     }
 
-    @Override // com.baidu.tieba.yx7
-    public void a(List<LiveFuseForumData> list, xx7 xx7Var) {
+    @Override // com.baidu.tieba.j08
+    public void a(List<LiveFuseForumData> list, i08 i08Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, xx7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, i08Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.n(xx7Var);
+        this.d.o(i08Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -124,10 +124,10 @@ public class HeaderComponentMultiView extends FrameLayout implements yx7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038a, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0907ba);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0907d6);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = equipmentWidth;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
@@ -137,12 +137,12 @@ public class HeaderComponentMultiView extends FrameLayout implements yx7 {
         }
     }
 
-    @Override // com.baidu.tieba.yx7
-    public void r() {
+    @Override // com.baidu.tieba.j08
+    public void f() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
-            headerComponentMultiAdapter.r();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
+            headerComponentMultiAdapter.f();
         }
     }
 }

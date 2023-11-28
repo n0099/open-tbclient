@@ -1,145 +1,273 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
-import com.baidu.tbadk.core.util.NetWork;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.PeiwanLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class el9 {
+public class el9 implements RouterService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String[] a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
-                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, uri, str, liveShowSchemeCallBack)) == null) {
+            return false;
         }
-        return (String[]) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ el9 c;
+
+        public a(el9 el9Var, String str, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {el9Var, str, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return UtilHelper.getGprsIpAddress();
+            this.c = el9Var;
+            this.a = str;
+            this.b = context;
         }
-        return (String) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Activity currentActivity = BdActivityStack.getInst().currentActivity();
+                if (currentActivity != null && (a5.a(currentActivity) instanceof TbPageContext)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(currentActivity), new String[]{this.a}, true);
+                } else if (!this.a.startsWith(BdUniDispatchSchemeController.SCHEME)) {
+                    this.c.c(this.b, this.a);
+                } else {
+                    UtilHelper.dealOneScheme(this.b, this.a);
+                }
+            }
+        }
     }
 
-    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
+    public el9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, uri, str, liveShowSchemeCallBack)) == null) {
+            openScheme(uri.toString());
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            HashMap hashMap = new HashMap();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                arrayList2.add(arrayList.get(i).getName());
-                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (StringUtils.isNull(str) || !str.contains("from=tieba")) {
+                return false;
             }
-            Collections.sort(arrayList2);
-            StringBuffer stringBuffer = new StringBuffer();
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                stringBuffer.append(str2);
-                stringBuffer.append("=");
-                try {
-                    String str3 = (String) hashMap.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e.getMessage());
+            if (str.contains("com.baidu.tieba.unidispatch://pwStatisticalLog?")) {
+                f(Uri.parse(str));
+                return true;
+            } else if (str.contains("com.baidu.tieba.unidispatch://pwYalogger?")) {
+                e(str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
+                UrlSchemaJumpHelper.jumpMessageCenterPage(context, str);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
+                UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
+                UrlSchemaJumpHelper.jumpDispatchOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidListPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
+                UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
+                UrlSchemaJumpHelper.jumpNativeH5Page(context, str);
+                return true;
+            } else {
+                if (str.startsWith(UrlSchemaHelper.SCHEME_POST_DETAIL_PAGE)) {
+                    UrlSchemaJumpHelper.jumpPostDetailPage(context, str);
                 }
-                stringBuffer.append("&");
+                return false;
             }
-            stringBuffer.append("sign_key=" + str);
-            return wd.c(stringBuffer.toString());
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static AccountLoginCoreHelper.a d(AccountLoginCoreHelper.a aVar) {
-        InterceptResult invokeL;
+    public final boolean c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if (context != null) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (UtilHelper.isIntentAvailable(context, intent)) {
+                    try {
+                        context.startActivity(intent);
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+                return false;
             }
-            try {
-                String[] a = a();
-                if (a == null) {
-                    return null;
-                }
-                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-                arrayList.add(new BasicNameValuePair("crypttype", "1"));
-                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
-                arrayList.add(new BasicNameValuePair("appid", "1"));
-                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
-                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", aVar.a);
-                jSONObject.put("ptoken", aVar.b);
-                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
-                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new qv4().a(a[1], jSONObject.toString())));
-                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
-                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                netWork.setPostData(arrayList);
-                netWork.getNetContext().getRequest().mRequestGzip = true;
-                netWork.getNetContext().getRequest().mIsBaiduServer = false;
-                String postNetData = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || qd.isEmpty(postNetData)) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject(postNetData);
-                if (!"0".equals(jSONObject2.optString("errno"))) {
-                    return null;
-                }
-                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
-                aVar2.a = jSONObject2.optString("bduss");
-                aVar2.b = jSONObject2.optString("ptoken");
-                jSONObject2.optString("uname");
-                return aVar2;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) != null) || StringUtils.isNull(str) || b(context, str)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        SafeHandler.getInst().post(new a(this, sb.toString(), context));
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return;
+            }
+            PeiwanLog.getInstance().i(parse.getQueryParameter("tag"), parse.getQueryParameter("msg"));
+        } catch (Exception e) {
+            if (TbadkApplication.getInst().isDebugMode()) {
+                e.printStackTrace();
             }
         }
-        return (AccountLoginCoreHelper.a) invokeL.objValue;
+    }
+
+    public final void f(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, uri) != null) || uri == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("key");
+        if (TextUtils.isEmpty(queryParameter)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(queryParameter);
+        for (String str : uri.getQueryParameterNames()) {
+            if (!TextUtils.equals(str, "key")) {
+                statisticItem.addParam(str, uri.getQueryParameter(str));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void openScheme(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !StringUtils.isNull(str)) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+            sb.append("=1");
+            sb.append("&page_from=live");
+            Activity currentActivity = BdActivityStack.getInst().currentActivity();
+            if (currentActivity != null) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(currentActivity), new String[]{sb.toString()}, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invoke(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            d(context, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invokeScheme(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
+            d(context, str);
+        }
     }
 }

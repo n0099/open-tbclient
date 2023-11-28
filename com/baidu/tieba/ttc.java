@@ -4,28 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.FrsBottomActivity;
-import tbclient.FrsBottomActivityBase;
+import tbclient.ActionControl;
 /* loaded from: classes8.dex */
-public class ttc extends qoc {
+public class ttc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottomActivityBase frsBottomActivityBase) {
+    public static JSONObject b(@NonNull ActionControl actionControl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivityBase)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, actionControl)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (frsBottomActivityBase.activity_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FrsBottomActivity frsBottomActivity : frsBottomActivityBase.activity_list) {
-                    jSONArray.put(utc.b(frsBottomActivity));
-                }
-                qoc.a(jSONObject, "activity_list", jSONArray);
-            }
+            ltc.a(jSONObject, "url", actionControl.url);
+            ltc.a(jSONObject, "name", actionControl.name);
+            ltc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, actionControl.text_color);
+            ltc.a(jSONObject, "text_color_pressed", actionControl.text_color_pressed);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -7,10 +7,12 @@ import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.forum.ForumLog;
 import com.baidu.tieba.forum.controller.MainController;
 import com.baidu.tieba.forum.controller.MainController$netRefreshView$2;
-import com.baidu.tieba.ug7;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.xh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +24,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tbadk/loading/NetRefreshView;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MainController$netRefreshView$2 extends Lambda implements Function0<wj5> {
+public final class MainController$netRefreshView$2 extends Lambda implements Function0<ck5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ MainController this$0;
@@ -54,27 +56,30 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ug7.c(this$0.E()).C();
-            this$0.C();
-            bundle = this$0.e;
+            TbLog b = ForumLog.b.b();
+            String str = this$0.c;
+            b.i(str, "forum " + this$0.g + " network refresh view retry clicked");
+            xh7.c(this$0.G()).B();
+            this$0.E();
+            bundle = this$0.f;
             if (bundle == null) {
                 Intrinsics.throwUninitializedPropertyAccessException(StateManager.KEY_STATE);
                 bundle = null;
             }
-            this$0.I(bundle);
+            this$0.K(bundle);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final wj5 invoke() {
+    public final ck5 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentActivity E = this.this$0.E();
+            FragmentActivity G = this.this$0.G();
             final MainController mainController = this.this$0;
-            wj5 wj5Var = new wj5(E, new View.OnClickListener() { // from class: com.baidu.tieba.hf7
+            ck5 ck5Var = new ck5(G, new View.OnClickListener() { // from class: com.baidu.tieba.ig7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,10 +91,10 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
                     }
                 }
             });
-            wj5Var.onChangeSkinType();
-            SkinManager.setBackgroundColor(wj5Var.getView(), R.color.CAM_X0201);
-            return wj5Var;
+            ck5Var.onChangeSkinType();
+            SkinManager.setBackgroundColor(ck5Var.getView(), R.color.CAM_X0201);
+            return ck5Var;
         }
-        return (wj5) invokeV.objValue;
+        return (ck5) invokeV.objValue;
     }
 }

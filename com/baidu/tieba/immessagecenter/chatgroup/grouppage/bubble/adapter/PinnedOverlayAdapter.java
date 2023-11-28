@@ -97,7 +97,7 @@ public class PinnedOverlayAdapter extends RecyclerView.Adapter<PinnedOverlayHold
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: m */
+    /* renamed from: n */
     public PinnedOverlayHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class PinnedOverlayAdapter extends RecyclerView.Adapter<PinnedOverlayHold
         return (PinnedOverlayHolder) invokeLI.objValue;
     }
 
-    public void n(@NonNull TopBubbleView.b bVar) {
+    public void o(@NonNull TopBubbleView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;

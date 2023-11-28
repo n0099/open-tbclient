@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JsonDataParerUtil {
     public static final String TAG = "AppPayServiceImpl";
 

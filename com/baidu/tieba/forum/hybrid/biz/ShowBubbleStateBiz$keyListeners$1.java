@@ -50,7 +50,7 @@ public /* synthetic */ class ShowBubbleStateBiz$keyListeners$1 extends FunctionR
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
             Intrinsics.checkNotNullParameter(p0, "p0");
-            ((ShowBubbleStateBiz) this.receiver).n(p0);
+            ((ShowBubbleStateBiz) this.receiver).l(p0);
         }
     }
 }

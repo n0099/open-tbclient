@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum AppInfo {
     INSTANCE;
     

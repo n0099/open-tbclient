@@ -9,24 +9,24 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.ij4;
-import com.baidu.tieba.xe4;
+import com.baidu.tieba.jj4;
+import com.baidu.tieba.ye4;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    public static final ij4 b = ij4.c();
-    public volatile xe4 a;
+    public static final jj4 b = jj4.c();
+    public volatile ye4 a;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         return true;
     }
 
-    public xe4 a() {
+    public ye4 a() {
         if (this.a == null) {
-            synchronized (xe4.class) {
+            synchronized (ye4.class) {
                 if (this.a == null) {
-                    this.a = new xe4(getContext());
+                    this.a = new ye4(getContext());
                 }
             }
         }

@@ -1,164 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.util.Log;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class l3c {
+public abstract class l3c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947893389, "Lcom/baidu/tieba/l3c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l3c(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947893389, "Lcom/baidu/tieba/l3c;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract JSONObject c(Object obj);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                return Pattern.matches("cpu[0-9]", file.getName());
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public static long a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public final RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) d3c.d().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem / 1024;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 0) {
-                try {
-                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-                } catch (Exception e) {
-                    Log.e("PerformanceUtils", "getNumCores exception", e);
-                    a = 1;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            JSONObject c = c(obj);
+            if (c == null) {
+                return null;
             }
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static long c() {
-        InterceptResult invokeV;
-        FileReader fileReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == 0) {
-                long j = -1;
-                FileReader fileReader2 = null;
-                try {
-                    try {
-                        try {
-                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                        } catch (IOException e) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+            try {
+                JSONArray optJSONArray = c.optJSONArray("ad");
+                if (optJSONArray == null) {
+                    return null;
                 }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-                    String readLine = bufferedReader.readLine();
-                    String str = readLine;
-                    if (readLine != null) {
-                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
-                        j = valueOf.intValue();
-                        str = valueOf;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                    fileReader2 = str;
-                } catch (IOException e3) {
-                    e = e3;
-                    fileReader2 = fileReader;
-                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
-                    if (fileReader2 != null) {
-                        fileReader2.close();
-                        fileReader2 = fileReader2;
-                    }
-                    b = j;
-                    return b;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    if (fileReader2 != null) {
-                        try {
-                            fileReader2.close();
-                        } catch (IOException e4) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
-                        }
-                    }
-                    throw th;
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(0);
+                String optString = optJSONObject2.optString("deepLinkUrl");
+                if (TextUtils.isEmpty(optString) && (optJSONObject = optJSONObject2.optJSONObject("apo")) != null) {
+                    optString = optJSONObject.optString("page");
                 }
-                b = j;
+                RippedAd.Builder builder = new RippedAd.Builder();
+                builder.setCorporation(optJSONObject2.optString("publisher")).setTitle(optJSONObject2.optString("tit")).setDescription(optJSONObject2.optString("desc")).setIconUrl(optJSONObject2.optString("icon")).setAppName(optJSONObject2.optString("appname")).setAppPkg(optJSONObject2.optString(PushConstants.URI_PACKAGE_NAME)).setAppUrl(optJSONObject2.optString("apk_name")).setImageUrl(optJSONObject2.optString("w_picurl")).setVideoImageUrl(optJSONObject2.optString("w_picurl")).setVideoUrl(optJSONObject2.optString("vurl")).setClickUrl(optJSONObject2.optString("curl")).setDeepLinkUrl(optString);
+                return builder.build();
+            } catch (Exception unused) {
+                LogPrinter.d();
+                return null;
             }
-            return b;
         }
-        return invokeV.longValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

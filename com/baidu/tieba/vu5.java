@@ -1,159 +1,238 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.gson.Holder;
+import android.text.TextPaint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.level.TbLevelView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmClassMappingKt;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KClass;
-import kotlin.reflect.KClassifier;
-import kotlin.reflect.KParameter;
-import kotlin.reflect.full.KClasses;
-import kotlin.reflect.jvm.ReflectJvmMapping;
 /* loaded from: classes8.dex */
 public final class vu5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final vu5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ Object a(KParameter kParameter) {
-        return e(kParameter);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ KClass d(TypeToken typeToken) {
-        return h(typeToken);
-    }
-
-    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            if (rawType != null) {
-                return JvmClassMappingKt.getKotlinClass(rawType);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253299, "Lcom/baidu/tieba/vu5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948253299, "Lcom/baidu/tieba/vu5;");
+                return;
+            }
         }
-        return (KClass) invokeL.objValue;
+        a = new vu5();
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
-        return f(kParameter, cls);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
-        return g(typeToken, kParameter);
-    }
-
-    public static final Object e(KParameter kParameter) {
-        InterceptResult invokeL;
-        KClass kClass;
+    public vu5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
-            if (kParameter.getType().isMarkedNullable()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            KClassifier classifier = kParameter.getType().getClassifier();
-            if (classifier instanceof KClass) {
-                kClass = (KClass) classifier;
+        }
+    }
+
+    @JvmStatic
+    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
+            Intrinsics.checkNotNullParameter(nickName, "nickName");
+            Intrinsics.checkNotNullParameter(levelView, "levelView");
+            Intrinsics.checkNotNullParameter(orderList, "orderList");
+            if (str == null) {
+                str2 = "";
             } else {
-                kClass = null;
+                str2 = str;
             }
-            if (kClass == null) {
-                return null;
+            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
+            if (levelView.getVisibility() != 8) {
+                levelView.setMode(true);
+                measureText += levelView.b() + a.a(levelView);
             }
-            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
-                    return "";
+            Iterator<T> it = orderList.iterator();
+            while (true) {
+                boolean z = false;
+                if (!it.hasNext()) {
+                    break;
                 }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
-                    return Boolean.FALSE;
+                View view2 = (View) it.next();
+                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
+                    if (view2 instanceof TextView) {
+                        TextView textView = (TextView) view2;
+                        String obj = textView.getText().toString();
+                        if (!((obj == null || obj.length() == 0) ? true : true)) {
+                            float measureText2 = textView.getPaint().measureText(obj) + view2.getPaddingLeft();
+                            view2.getPaddingRight();
+                            a.a(view2);
+                            measureText += measureText2;
+                        }
+                    } else {
+                        measureText += a.b(view2);
+                    }
                 }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
-                    return (byte) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
-                    return (char) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
-                    return Double.valueOf(0.0d);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
-                    return Float.valueOf(0.0f);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
-                    return 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
-                    return 0L;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
-                    return (short) 0;
-                }
-                return Holder.OBJECT;
             }
-            return Holder.ARRAY;
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                int childCount = userIconBox.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = userIconBox.getChildAt(i2);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(0);
+                        measureText += a.b(childAt);
+                    }
+                }
+            }
+            float f = i;
+            if (measureText <= f) {
+                nickName.setText(str);
+                return;
+            }
+            float e = a.e(i, measureText, str2, nickName);
+            if (e <= f) {
+                return;
+            }
+            float d = a.d(e, levelView);
+            if (d <= f) {
+                return;
+            }
+            a.f(i, d, orderList, userIconBox);
         }
-        return invokeL.objValue;
     }
 
-    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
-        InterceptResult invokeLL;
-        Field field;
+    public final int a(View view2) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
-            String name = kParameter.getName();
-            if (name == null) {
-                return CollectionsKt__CollectionsKt.emptyList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = null;
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                layoutParams = null;
             }
-            SerializedName serializedName = null;
-            try {
-                field = cls.getDeclaredField(name);
-            } catch (NoSuchFieldException unused) {
-                field = null;
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
+            int i2 = 0;
+            if (marginLayoutParams2 != null) {
+                i = marginLayoutParams2.leftMargin;
+            } else {
+                i = 0;
             }
-            if (field != null) {
-                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                marginLayoutParams = layoutParams2;
             }
-            if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                if (serializedName != null) {
-                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
-                }
-                return CollectionsKt__CollectionsJVMKt.listOf(name);
+            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
+            if (marginLayoutParams3 != null) {
+                i2 = marginLayoutParams3.rightMargin;
             }
-            return CollectionsKt__CollectionsKt.emptyList();
+            return i + i2;
         }
-        return (List) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
-        InterceptResult invokeLL;
+    public final int b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
-            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
-            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
-            return resolveParameterType;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            return view2.getMeasuredWidth() + a(view2);
         }
-        return (TypeToken) invokeLL.objValue;
+        return invokeL.intValue;
+    }
+
+    public final float d(float f, TbLevelView tbLevelView) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
+            float b = tbLevelView.b();
+            tbLevelView.setMode(false);
+            return f - (b - tbLevelView.b());
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float e(int i, float f, String str, TextView textView) {
+        InterceptResult invokeCommon;
+        float measureText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
+            if (qu5.e(str) <= 12) {
+                textView.setText(str);
+                return f;
+            }
+            float measureText2 = textView.getPaint().measureText(str);
+            float f2 = f - i;
+            int e = qu5.e(str);
+            do {
+                str = qu5.m(str, e - 1);
+                e = qu5.e(str);
+                TextPaint paint = textView.getPaint();
+                measureText = paint.measureText(str + "...");
+                if (f2 <= measureText2 - measureText) {
+                    break;
+                }
+            } while (e > 10);
+            textView.setText(str + "...");
+            return (f - measureText2) + measureText;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
+        InterceptResult invokeCommon;
+        float b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
+                    View childAt = userIconBox.getChildAt(childCount);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(8);
+                        f -= a.b(childAt);
+                        if (f <= i) {
+                            return f;
+                        }
+                    }
+                }
+            }
+            for (int size = list.size() - 1; -1 < size; size--) {
+                if (list.get(size).getVisibility() != 8) {
+                    list.get(size).setVisibility(8);
+                    if (list.get(size) instanceof TbLevelView) {
+                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
+                    } else {
+                        b = b(list.get(size));
+                    }
+                    f -= b;
+                    if (f <= i) {
+                        return f;
+                    }
+                }
+            }
+            return f;
+        }
+        return invokeCommon.floatValue;
     }
 }

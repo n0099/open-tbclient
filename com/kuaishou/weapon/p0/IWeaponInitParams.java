@@ -1,6 +1,8 @@
 package com.kuaishou.weapon.p0;
 /* loaded from: classes10.dex */
 public interface IWeaponInitParams {
+    boolean getAPPLISTSwitch();
+
     String getAppKey();
 
     String getChannel();
@@ -14,4 +16,6 @@ public interface IWeaponInitParams {
     String getSecKey();
 
     String getUserId();
+
+    boolean isLoadSo();
 }

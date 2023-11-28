@@ -1,107 +1,154 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ib7;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cga implements ib7 {
+public class cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PushDialogActivity a;
+    public String b;
+    public long c;
 
-    public cga() {
+    /* loaded from: classes5.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cga a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cga cgaVar, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cgaVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cgaVar;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof PushDialogHttpResMsg) {
+                    this.a.f((PushDialogHttpResMsg) responsedMessage);
+                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
+                    this.a.g((PushDialogSocketResMsg) responsedMessage);
+                }
+            }
+        }
+    }
+
+    public cga(PushDialogActivity pushDialogActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pushDialogActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = pushDialogActivity;
+        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.a.getIntent();
+        if (intent != null) {
+            this.b = intent.getStringExtra("thread_id");
+            this.c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.b)) {
+                this.a.finish();
             }
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ib7.a.b(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 e57Var) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
-            return ib7.a.a(this, e57Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long j = JavaTypesHelper.toLong(this.b, 0L);
+            if (j == 0) {
+                PushDialogActivity pushDialogActivity = this.a;
+                if (pushDialogActivity != null) {
+                    pushDialogActivity.L0(false, null);
+                    return;
+                }
+                return;
+            }
+            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
+            pushDialogReqNetMsg.setTask_id(this.c);
+            pushDialogReqNetMsg.setTid(j);
+            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }
-        return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x005b A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x006e A[ORIG_RETURN, RETURN] */
-    @Override // com.baidu.tieba.ib7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(e57 businessInfo) {
-        InterceptResult invokeL;
+    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
+        PushDialogActivity pushDialogActivity;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            if (pushDialogHttpResMsg.getError() == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    if (!str.equals("common_user")) {
-                        return "";
-                    }
-                    return "live_mix_card_person_head_click";
-                case -1617812209:
-                    if (!str.equals("video_user")) {
-                        return "";
-                    }
-                    break;
-                case 448970189:
-                    if (!str.equals("common_forum")) {
-                        return "";
-                    }
-                    return "live_mix_card_forum_head_click";
-                case 1009035070:
-                    if (!str.equals("live_user")) {
-                        return "";
-                    }
-                    break;
-                case 1201356814:
-                    if (!str.equals("live_forum")) {
-                        return "";
-                    }
-                    break;
-                case 1373469789:
-                    if (!str.equals("video_forum")) {
-                        return "";
-                    }
-                    break;
-                default:
-                    return "";
-            }
-        } else {
-            return (String) invokeL.objValue;
+            pushDialogActivity.L0(z, pushDialogHttpResMsg.getData());
+        }
+    }
+
+    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
+        PushDialogActivity pushDialogActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            pushDialogActivity.L0(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 }

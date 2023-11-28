@@ -1,50 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.PopupWindow;
+import android.text.TextUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class w41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, PopupWindow popupWindow) {
+    public static void a(ClogBuilder.LogType logType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(ClogBuilder.Page.NAD_POP_WEB_PANEL);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
+            }
+            bz0.e(clogBuilder);
         }
-        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
     }
 
-    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeLLZ;
+    public static void b(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
-            if (!(context instanceof Activity)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, page, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(page);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
             }
-            if (viewGroup == null) {
-                viewGroup = new FrameLayout(context);
-                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
-                colorDrawable.setAlpha(86);
-                viewGroup.setBackground(colorDrawable);
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
             }
-            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
-            if (viewGroup.getParent() != null) {
-                viewGroup2.removeView(viewGroup);
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
             }
-            if (z) {
-                viewGroup2.addView(viewGroup);
-            }
-            return viewGroup;
+            bz0.e(clogBuilder);
         }
-        return (ViewGroup) invokeLLZ.objValue;
     }
 }

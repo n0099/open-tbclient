@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h70;
-import com.baidu.tieba.k96;
+import com.baidu.tieba.i70;
+import com.baidu.tieba.s96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,7 +75,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
                 if (!this.a.isResumed || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.o1(memberBroadcastData);
+                this.a.n1(memberBroadcastData);
             }
         }
     }
@@ -159,7 +159,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void o1(MemberBroadcastData memberBroadcastData) {
+    public final void n1(MemberBroadcastData memberBroadcastData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, memberBroadcastData) != null) || memberBroadcastData == null) {
             return;
@@ -208,19 +208,19 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0108);
+            setContentView(R.layout.obfuscated_res_0x7f0d010a);
             if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
                 this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
             }
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ffb);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092072);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            k96.a().c(TbadkCoreApplication.getInst());
-            h70 h70Var = new h70();
-            this.b = h70Var;
-            View onCreateView = h70Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            s96.a().c(TbadkCoreApplication.getInst());
+            i70 i70Var = new i70();
+            this.b = i70Var;
+            View onCreateView = i70Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }

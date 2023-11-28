@@ -2,7 +2,7 @@ package com.kwad.sdk.contentalliance.coupon.model;
 
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.response.kwai.a;
+import com.kwad.sdk.core.response.a.a;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes10.dex */

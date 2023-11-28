@@ -75,22 +75,22 @@ public class BoxOneKeyLoginResult extends LoginResult {
                 if (c != 2) {
                     this.agreeText = "";
                 } else {
-                    this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a2);
+                    this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a3);
                 }
             } else {
-                this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a0);
+                this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a1);
             }
         } else {
-            this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009e);
+            this.agreeText = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009f);
         }
         return this.agreeText;
     }
 
     public String getOperatorServiceText() {
         if (TextUtils.isEmpty(this.operatorType)) {
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a4);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a5);
         }
-        String string = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a4);
+        String string = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a5);
         String str = this.operatorType;
         char c = 65535;
         int hashCode = str.hashCode();
@@ -108,13 +108,13 @@ public class BoxOneKeyLoginResult extends LoginResult {
         if (c != 0) {
             if (c != 1) {
                 if (c == 2) {
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a3);
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a4);
                 }
                 return string;
             }
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a1);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a2);
         }
-        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009f);
+        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a0);
     }
 
     public String getAgreeUrl() {

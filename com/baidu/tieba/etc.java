@@ -1,44 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.eoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedRoomComponent;
-import tbclient.ThreadRecommendTag;
-import tbclient.Voice;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class etc extends qoc {
+public class etc<T, R> extends ftc<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final psc<T> b;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedRoomComponent feedRoomComponent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedRoomComponent)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "top_label", feedRoomComponent.top_label);
-            qoc.a(jSONObject, "status", feedRoomComponent.status);
-            Voice voice = feedRoomComponent.voice;
-            if (voice != null) {
-                qoc.a(jSONObject, "voice", f6d.b(voice));
-            }
-            if (feedRoomComponent.bottom_labels != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadRecommendTag threadRecommendTag : feedRoomComponent.bottom_labels) {
-                    jSONArray.put(y4d.b(threadRecommendTag));
+    /* loaded from: classes5.dex */
+    public class a implements eoc.a<R> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ftc a;
+
+        public a(ftc ftcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ftcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                qoc.a(jSONObject, "bottom_labels", jSONArray);
             }
-            qoc.a(jSONObject, "scheme", feedRoomComponent.scheme);
-            qoc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedRoomComponent.cover_url);
-            qoc.a(jSONObject, "room_id", feedRoomComponent.room_id);
-            return jSONObject;
+            this.a = ftcVar;
         }
-        return (JSONObject) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.soc
+        /* renamed from: a */
+        public void call(koc<? super R> kocVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+                this.a.O(kocVar);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public etc(ftc<T, R> ftcVar) {
+        super(new a(ftcVar));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ftcVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((eoc.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new psc<>(ftcVar);
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.onCompleted();
+        }
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.onError(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.b.onNext(t);
+        }
     }
 }

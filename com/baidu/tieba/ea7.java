@@ -1,115 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ClickableSpan;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedKV;
 /* loaded from: classes5.dex */
-public final class ea7 {
+public final class ea7 implements w97 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947727694, "Lcom/baidu/tieba/ea7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947727694, "Lcom/baidu/tieba/ea7;");
-                return;
+    public ea7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    @Override // com.baidu.tieba.w97
+    public SpannableString b(Context context, x77 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            String c = richTextData.g().c();
+            SpannableString spannableString = new SpannableString(c);
+            int dimens = BdUtilHelper.getDimens(r27.a, R.dimen.L_X01);
+            int dimens2 = BdUtilHelper.getDimens(r27.a, R.dimen.tbds10);
+            int dimens3 = BdUtilHelper.getDimens(r27.a, R.dimen.T_X10);
+            int dimens4 = BdUtilHelper.getDimens(r27.a, R.dimen.M_W_X002);
+            int dimens5 = BdUtilHelper.getDimens(r27.a, R.dimen.M_W_X002);
+            int dimens6 = BdUtilHelper.getDimens(r27.a, R.dimen.tbds42);
+            a67 a = richTextData.g().a();
+            if (a != null) {
+                i = ed7.a.b(a);
+            } else {
+                i = R.color.CAM_X0302;
             }
-        }
-
-        public final HashMap<String, String> a(List<FeedKV> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                HashMap<String, String> hashMap = new HashMap<>();
-                if (list != null && !list.isEmpty()) {
-                    for (FeedKV feedKV : list) {
-                        String str = feedKV.key;
-                        Intrinsics.checkNotNullExpressionValue(str, "feedKV.key");
-                        String str2 = feedKV.value;
-                        Intrinsics.checkNotNullExpressionValue(str2, "feedKV.value");
-                        hashMap.put(str, str2);
-                    }
-                }
-                return hashMap;
+            a67 b = richTextData.g().b();
+            if (b != null) {
+                i2 = ed7.a.b(b);
+            } else {
+                i2 = R.color.CAM_X0101;
             }
-            return (HashMap) invokeL.objValue;
-        }
-
-        public final Map<String, String> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                if (jSONArray != null && jSONArray.length() != 0) {
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String key = optJSONObject.optString("key");
-                            if (key != null && key.length() != 0) {
-                                z = false;
-                            } else {
-                                z = true;
-                            }
-                            if (!z) {
-                                String value = optJSONObject.optString("value");
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                Intrinsics.checkNotNullExpressionValue(value, "value");
-                                linkedHashMap.put(key, value);
-                            }
-                        }
-                    }
-                }
-                return linkedHashMap;
+            g55 g55Var = new g55(dimens, -1, i, dimens3, i2, dimens4, dimens6);
+            g55Var.b(dimens2);
+            g55Var.i(dimens5);
+            g55Var.f(true);
+            g55Var.g(true);
+            g55Var.d(BdUtilHelper.getDimens(r27.a, R.dimen.tbds7));
+            spannableString.setSpan(g55Var, 0, c.length(), 17);
+            if (!TextUtils.isEmpty(richTextData.e())) {
+                spannableString.setSpan(clickableSpan, 0, c.length(), 33);
             }
-            return (Map) invokeL.objValue;
+            return spannableString;
         }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

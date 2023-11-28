@@ -11,13 +11,13 @@ import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.sdk.internal.cl;
-import com.baidu.tieba.gbc;
+import com.baidu.tieba.bgc;
 import com.yy.render.IRemoteRender;
 import com.yy.render.RenderEngine;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b¢\u0006\u0004\b8\u0010\u000bB\u001b\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b\u0012\b\u0010:\u001a\u0004\u0018\u000109¢\u0006\u0004\b8\u0010;B#\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b\u0012\b\u0010:\u001a\u0004\u0018\u000109\u0012\u0006\u0010<\u001a\u00020\u001c¢\u0006\u0004\b8\u0010=J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\n\u001a\u00020\u00022\b\u0010\t\u001a\u0004\u0018\u00010\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0015\u0010\u000e\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0010\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u0010\u0010\u000fJ\u0015\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u0011\u001a\u00020\u0005¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0016\u001a\u00020\u00022\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u0019\u001a\u00020\u00022\u0006\u0010\u0018\u001a\u00020\u0005¢\u0006\u0004\b\u0019\u0010\u0013J'\u0010\u001f\u001a\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\u001e\u001a\u00020\u001cH\u0003¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010!\u001a\u00020\u00022\u0006\u0010\u001b\u001a\u00020\u001aH\u0003¢\u0006\u0004\b!\u0010\"R\u0016\u0010#\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010$R\u0016\u0010&\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010$R\u0016\u0010'\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010$R\u0016\u0010(\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b(\u0010$R\u0016\u0010)\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010$R\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b+\u0010,R\u0018\u0010-\u001a\u0004\u0018\u00010\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R\u0018\u00100\u001a\u0004\u0018\u00010/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00103R\u0016\u00105\u001a\u00020\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00103R\u0018\u00106\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107¨\u0006>"}, d2 = {"Lcom/yy/render/view/RenderTextureView;", "Landroid/view/TextureView;", "", "clearRemote", "()V", "", "getChannelId", "()Ljava/lang/String;", "Landroid/content/Context;", "context", "init", "(Landroid/content/Context;)V", "", "flag", "isConsumeKeyEvent", "(Z)V", "isConsumeTouchEvent", "data", "sendDataToView", "(Ljava/lang/String;)V", "Lcom/yy/render/IRemoteRender;", "remoteTmp", "setRemote", "(Lcom/yy/render/IRemoteRender;)V", "name", "setRenderViewFullName", "Landroid/graphics/SurfaceTexture;", "surface", "", "width", "height", "surfaceChanged", "(Landroid/graphics/SurfaceTexture;II)V", "surfaceCreated", "(Landroid/graphics/SurfaceTexture;)V", "isKeyEvent", "Z", "isSendAddContentView", "isSendSurfaceChange", "isSendSurfaceCreate", "isSetRemoteSend", "isTouch", "Landroid/os/Handler;", "mHandler", "Landroid/os/Handler;", "mRenderViewFullName", "Ljava/lang/String;", "Landroid/view/Surface;", "mSurface", "Landroid/view/Surface;", "mSurfaceFormat", "I", "mSurfaceHeight", "mSurfaceWidth", cl.b, "Lcom/yy/render/IRemoteRender;", "<init>", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "render_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RenderTextureView extends TextureView {
     public Surface a;
     public int b;
@@ -37,7 +37,7 @@ public final class RenderTextureView extends TextureView {
     public final void q(boolean z) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements TextureView.SurfaceTextureListener {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
@@ -49,7 +49,7 @@ public final class RenderTextureView extends TextureView {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            gbc.a aVar = gbc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("[RenderTextureView](onSurfaceTextureAvailable) channelId: " + RenderTextureView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i + ", height = " + i2);
             RenderTextureView.this.t(surfaceTexture);
             RenderTextureView.this.s(surfaceTexture, i, i2);
@@ -57,7 +57,7 @@ public final class RenderTextureView extends TextureView {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            gbc.a aVar = gbc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("[RenderTextureView](onSurfaceTextureSizeChanged) channelId: " + RenderTextureView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i + ", height = " + i2);
             RenderTextureView.this.s(surfaceTexture, i, i2);
         }
@@ -69,7 +69,7 @@ public final class RenderTextureView extends TextureView {
             IRemoteRender iRemoteRender2;
             IBinder asBinder;
             IBinder asBinder2;
-            gbc.a aVar = gbc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("[RenderTextureView](surfaceDestroyed) channelId: " + RenderTextureView.this.getChannelId());
             RenderTextureView.this.k = false;
             if (RenderTextureView.this.j != null && (((iRemoteRender = RenderTextureView.this.j) == null || (asBinder2 = iRemoteRender.asBinder()) == null || asBinder2.isBinderAlive()) && ((iRemoteRender2 = RenderTextureView.this.j) == null || (asBinder = iRemoteRender2.asBinder()) == null || asBinder.pingBinder()))) {
@@ -97,7 +97,7 @@ public final class RenderTextureView extends TextureView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class b implements Runnable {
         public final /* synthetic */ SurfaceTexture b;
         public final /* synthetic */ int c;
@@ -125,7 +125,7 @@ public final class RenderTextureView extends TextureView {
                     return;
                 }
                 RenderTextureView.this.h = true;
-                gbc.a aVar = gbc.b;
+                bgc.a aVar = bgc.b;
                 aVar.f("[RenderTextureView](surfaceChanged) " + RenderTextureView.this.getChannelId());
                 IRemoteRender iRemoteRender = RenderTextureView.this.j;
                 if (iRemoteRender != null) {
@@ -137,7 +137,7 @@ public final class RenderTextureView extends TextureView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class c implements Runnable {
         public final /* synthetic */ SurfaceTexture b;
 
@@ -190,7 +190,7 @@ public final class RenderTextureView extends TextureView {
 
     @SuppressLint({"Recycle"})
     public final void t(SurfaceTexture surfaceTexture) {
-        gbc.a aVar = gbc.b;
+        bgc.a aVar = bgc.b;
         aVar.f("[RenderTextureView](surfaceCreated) channelId: " + getChannelId());
         Handler handler = this.e;
         if (handler == null) {
@@ -231,7 +231,7 @@ public final class RenderTextureView extends TextureView {
 
     public final void setRemote(IRemoteRender iRemoteRender) {
         this.j = iRemoteRender;
-        gbc.a aVar = gbc.b;
+        bgc.a aVar = bgc.b;
         aVar.f("[RenderTextureView](setRemote) isSetRemoteSend: " + this.k + StringUtil.ARRAY_ELEMENT_SEPARATOR + "isSendSurfaceCreate: " + this.g + ", surface: " + this.a + ", channelId: " + getChannelId() + "remote: " + this.j + ", isSendSurfaceChange: " + this.h);
         if (this.a != null) {
             if (!this.g) {
@@ -241,7 +241,7 @@ public final class RenderTextureView extends TextureView {
                         iRemoteRender2.surfaceCreated(getChannelId(), this.a, this.f);
                     }
                 } catch (Exception e) {
-                    gbc.a aVar2 = gbc.b;
+                    bgc.a aVar2 = bgc.b;
                     aVar2.c("[RenderTextureView](setRemote) surfaceCreated ex: " + e.getMessage());
                 }
             }
@@ -252,7 +252,7 @@ public final class RenderTextureView extends TextureView {
                         iRemoteRender3.surfaceChanged(getChannelId(), this.a, this.f, this.d, this.c, this.b);
                     }
                 } catch (Exception e2) {
-                    gbc.a aVar3 = gbc.b;
+                    bgc.a aVar3 = bgc.b;
                     aVar3.c("[RenderTextureView](setRemote) surfaceChanged ex: " + e2.getMessage());
                 }
             }

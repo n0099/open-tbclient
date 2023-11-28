@@ -3,11 +3,12 @@ package com.kwad.sdk.core.response.model;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.core.e.c;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 @KsJson
 /* loaded from: classes10.dex */
-public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+public class CouponInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
     public static final float COUPON_DISCOUNT_THRESHOLD = 20.0f;
     public static final String JINNIIU_DISCOUNT = "2";
     public static final String JINNIIU_PRICE_BREAK_DISCOUNT = "1";
@@ -19,67 +20,6 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
     public String displayTitle;
     public String displayType;
     public String displayValue;
-
-    @Nullable
-    public static String jinniuFormatCoupon(CouponInfo couponInfo) {
-        StringBuilder sb;
-        String str = null;
-        if (couponInfo == null) {
-            return null;
-        }
-        String displayType = couponInfo.getDisplayType();
-        String rinToYuan = rinToYuan(couponInfo.getDisplayValue());
-        char c = 65535;
-        int hashCode = displayType.hashCode();
-        if (hashCode != 49) {
-            if (hashCode == 50 && displayType.equals("2")) {
-                c = 1;
-            }
-        } else if (displayType.equals("1")) {
-            c = 0;
-        }
-        if (c == 0) {
-            String rinToYuan2 = rinToYuan(couponInfo.getDisplayBase());
-            if (TextUtils.isEmpty(rinToYuan2) || TextUtils.isEmpty(rinToYuan)) {
-                return null;
-            }
-            if (couponInfo.isNoPreRequirement()) {
-                sb = new StringBuilder("¥");
-            } else {
-                sb = new StringBuilder();
-                sb.append(rinToYuan2);
-                sb.append("减");
-            }
-            sb.append(rinToYuan);
-            return sb.toString();
-        } else if (c == 1 && !TextUtils.isEmpty(rinToYuan)) {
-            try {
-                if (Float.parseFloat(rinToYuan) >= 20.0f) {
-                    str = "¥" + rinToYuan;
-                } else {
-                    str = couponInfo.getFormattedDisplayDiscount() + "折";
-                }
-                return str;
-            } catch (Exception unused) {
-                return str;
-            }
-        } else {
-            return null;
-        }
-    }
-
-    @Nullable
-    public static String rinToYuan(String str) {
-        if (str == null) {
-            return null;
-        }
-        try {
-            return new DecimalFormat("#.#").format(Float.parseFloat(str) / 1000.0f);
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-            return null;
-        }
-    }
 
     public String getDisplayActionWords() {
         return this.displayActionWords;
@@ -110,7 +50,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
         try {
             return new DecimalFormat("#.#").format(Float.valueOf(this.displayDiscount).floatValue() / 10.0f);
         } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            c.printStackTraceOnly(e);
             return null;
         }
     }
@@ -135,9 +75,67 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
             return false;
         }
         try {
-            return Float.parseFloat(str) <= 0.0f;
+            if (Float.parseFloat(str) > 0.0f) {
+                return false;
+            }
+            return true;
         } catch (Exception unused) {
             return false;
+        }
+    }
+
+    @Nullable
+    public static String jinniuFormatCoupon(CouponInfo couponInfo) {
+        String str = null;
+        if (couponInfo == null) {
+            return null;
+        }
+        String displayType = couponInfo.getDisplayType();
+        String rinToYuan = rinToYuan(couponInfo.getDisplayValue());
+        char c = 65535;
+        int hashCode = displayType.hashCode();
+        if (hashCode != 49) {
+            if (hashCode == 50 && displayType.equals("2")) {
+                c = 1;
+            }
+        } else if (displayType.equals("1")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1 || TextUtils.isEmpty(rinToYuan)) {
+                return null;
+            }
+            try {
+                if (Float.parseFloat(rinToYuan) >= 20.0f) {
+                    str = "¥" + rinToYuan;
+                } else {
+                    str = couponInfo.getFormattedDisplayDiscount() + "折";
+                }
+                return str;
+            } catch (Exception unused) {
+                return str;
+            }
+        }
+        String rinToYuan2 = rinToYuan(couponInfo.getDisplayBase());
+        if (TextUtils.isEmpty(rinToYuan2) || TextUtils.isEmpty(rinToYuan)) {
+            return null;
+        }
+        if (couponInfo.isNoPreRequirement()) {
+            return "¥" + rinToYuan;
+        }
+        return rinToYuan2 + "减" + rinToYuan;
+    }
+
+    @Nullable
+    public static String rinToYuan(String str) {
+        if (str == null) {
+            return null;
+        }
+        try {
+            return new DecimalFormat("#.#").format(Float.parseFloat(str) / 1000.0f);
+        } catch (Exception e) {
+            c.printStackTraceOnly(e);
+            return null;
         }
     }
 

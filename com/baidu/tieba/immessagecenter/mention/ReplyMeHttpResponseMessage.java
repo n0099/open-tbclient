@@ -1,7 +1,7 @@
 package com.baidu.tieba.immessagecenter.mention;
 
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.v29;
+import com.baidu.tieba.d69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes6.dex */
-public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<v29, ReplyMeResIdl> {
+public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<d69, ReplyMeResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,5 +1,5 @@
 package com.yy.transvod.player.common;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AudioSendStamp {
     public long a;
     public long b;

@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.fu5;
-import com.baidu.tieba.gt5;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.rha;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.kma;
+import com.baidu.tieba.nu5;
+import com.baidu.tieba.ot5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SelectPrivateMsgPageDispatcher implements rha {
+public class SelectPrivateMsgPageDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends bu5<ImMessageCenterPojo> {
+    public class a extends ju5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -58,20 +58,20 @@ public class SelectPrivateMsgPageDispatcher implements rha {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bu5
+        @Override // com.baidu.tieba.ju5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return wq8.f().i(this.a);
+                return du8.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements gt5<ImMessageCenterPojo> {
+    public class b implements ot5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -97,7 +97,7 @@ public class SelectPrivateMsgPageDispatcher implements rha {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gt5
+        @Override // com.baidu.tieba.ot5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class SelectPrivateMsgPageDispatcher implements rha {
                     }
                 }
             }
-            fu5.c(new a(this, optString), new b(this, optString, arrayList));
+            nu5.c(new a(this, optString), new b(this, optString, arrayList));
         }
     }
 }

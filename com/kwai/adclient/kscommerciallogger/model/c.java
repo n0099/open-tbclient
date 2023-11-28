@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d ase;
+    public final d anC;
     public final BusinessType biz;
     public final String category;
     public final String eventId;
@@ -29,12 +29,12 @@ public final class c {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String asf;
-        public BusinessType asg;
-        public SubBusinessType ash;
-        public d asi;
-        public JSONObject asj;
-        public String ask;
+        public final String aSB;
+        public BusinessType aSC;
+        public SubBusinessType aSD;
+        public d aSE;
+        public JSONObject aSF;
+        public String aSG;
         public String mTag;
         public JSONObject msg;
 
@@ -53,78 +53,10 @@ public final class c {
                     return;
                 }
             }
-            this.asf = str;
+            this.aSB = str;
         }
 
-        public static a BO() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a(ILoggerReporter.Category.ERROR_LOG) : (a) invokeV.objValue;
-        }
-
-        public static a BP() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a(ILoggerReporter.Category.APM_LOG) : (a) invokeV.objValue;
-        }
-
-        public final c BQ() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (com.kwai.adclient.kscommerciallogger.a.BE().isDebug()) {
-                    if (TextUtils.isEmpty(this.asf) || TextUtils.isEmpty(this.mTag) || TextUtils.isEmpty(this.ask)) {
-                        throw new IllegalArgumentException("param is error, please check it");
-                    }
-                    if (com.kwai.adclient.kscommerciallogger.a.BE().BG() && !com.kwai.adclient.kscommerciallogger.b.ek(this.ask)) {
-                        throw new IllegalArgumentException("event_id format error, please check it");
-                    }
-                } else if (TextUtils.isEmpty(this.asf) || TextUtils.isEmpty(this.mTag) || TextUtils.isEmpty(this.ask)) {
-                    return null;
-                } else {
-                    if (com.kwai.adclient.kscommerciallogger.a.BE().BG() && !com.kwai.adclient.kscommerciallogger.b.ek(this.ask)) {
-                        return null;
-                    }
-                }
-                if (com.kwai.adclient.kscommerciallogger.a.BE().BF() != null) {
-                    this.asj = com.kwai.adclient.kscommerciallogger.a.BE().BF();
-                }
-                return new c(this, (byte) 0);
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public final a a(BusinessType businessType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessType)) == null) {
-                this.asg = businessType;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a a(SubBusinessType subBusinessType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subBusinessType)) == null) {
-                this.ash = subBusinessType;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a a(d dVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dVar)) == null) {
-                this.asi = dVar;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a el(@NonNull String str) {
+        public final a gD(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -134,17 +66,17 @@ public final class c {
             return (a) invokeL.objValue;
         }
 
-        public final a em(@NonNull String str) {
+        public final a gE(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.ask = str;
+                this.aSG = str;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a l(JSONObject jSONObject) {
+        public final a y(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
@@ -153,9 +85,85 @@ public final class c {
             }
             return (a) invokeL.objValue;
         }
+
+        public static a ML() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a(ILoggerReporter.Category.ERROR_LOG);
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static a MM() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return new a(ILoggerReporter.Category.APM_LOG);
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public final c MN() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (com.kwai.adclient.kscommerciallogger.a.MB().isDebug()) {
+                    if (!TextUtils.isEmpty(this.aSB) && !TextUtils.isEmpty(this.mTag) && !TextUtils.isEmpty(this.aSG)) {
+                        if (com.kwai.adclient.kscommerciallogger.a.MB().MD() && !com.kwai.adclient.kscommerciallogger.b.gC(this.aSG)) {
+                            throw new IllegalArgumentException("event_id format error, please check it");
+                        }
+                    } else {
+                        throw new IllegalArgumentException("param is error, please check it");
+                    }
+                } else if (TextUtils.isEmpty(this.aSB) || TextUtils.isEmpty(this.mTag) || TextUtils.isEmpty(this.aSG)) {
+                    return null;
+                } else {
+                    if (com.kwai.adclient.kscommerciallogger.a.MB().MD() && !com.kwai.adclient.kscommerciallogger.b.gC(this.aSG)) {
+                        return null;
+                    }
+                }
+                if (com.kwai.adclient.kscommerciallogger.a.MB().MC() != null) {
+                    this.aSF = com.kwai.adclient.kscommerciallogger.a.MB().MC();
+                }
+                return new c(this, (byte) 0);
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public final a b(BusinessType businessType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessType)) == null) {
+                this.aSC = businessType;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(SubBusinessType subBusinessType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subBusinessType)) == null) {
+                this.aSD = subBusinessType;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(d dVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dVar)) == null) {
+                this.aSE = dVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
     public c(a aVar) {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,66 +178,95 @@ public final class c {
                 return;
             }
         }
-        this.category = aVar.asf;
-        this.biz = aVar.asg;
-        this.subBiz = aVar.ash;
+        this.category = aVar.aSB;
+        this.biz = aVar.aSC;
+        this.subBiz = aVar.aSD;
         this.tag = aVar.mTag;
-        this.ase = aVar.asi;
-        this.msg = aVar.msg;
-        this.extraParam = aVar.asj;
-        this.eventId = aVar.ask;
+        this.anC = aVar.aSE;
+        this.extraParam = aVar.aSF;
+        this.eventId = aVar.aSG;
+        if (aVar.msg != null) {
+            jSONObject = aVar.msg;
+        } else {
+            jSONObject = new JSONObject();
+        }
+        this.msg = jSONObject;
     }
 
     public /* synthetic */ c(a aVar, byte b) {
         this(aVar);
     }
 
-    public final String BH() {
+    public final String ME() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.category : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.category;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final BusinessType BI() {
+    public final BusinessType MF() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.biz : (BusinessType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.biz;
+        }
+        return (BusinessType) invokeV.objValue;
     }
 
-    public final SubBusinessType BJ() {
+    public final SubBusinessType MG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subBiz : (SubBusinessType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.subBiz;
+        }
+        return (SubBusinessType) invokeV.objValue;
     }
 
-    public final d BK() {
+    public final d MH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ase : (d) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.anC;
+        }
+        return (d) invokeV.objValue;
     }
 
-    public final JSONObject BL() {
+    public final JSONObject MI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.msg : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.msg;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final JSONObject BM() {
+    public final JSONObject MJ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extraParam : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.extraParam;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final String BN() {
+    public final String MK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.eventId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.eventId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String toString() {
@@ -245,8 +282,8 @@ public final class c {
                     jSONObject.put("sub_biz", this.subBiz.value);
                 }
                 jSONObject.put("tag", this.tag);
-                if (this.ase != null) {
-                    jSONObject.put("type", this.ase.getValue());
+                if (this.anC != null) {
+                    jSONObject.put("type", this.anC.getValue());
                 }
                 if (this.msg != null) {
                     jSONObject.put("msg", this.msg);

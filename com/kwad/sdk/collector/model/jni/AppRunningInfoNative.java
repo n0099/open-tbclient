@@ -5,20 +5,65 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.b;
 import com.kwad.sdk.collector.model.c;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
-    public static SimpleDateFormat SR = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+    public static SimpleDateFormat anb = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+
+    @Override // com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    @NonNull
+    /* renamed from: zI */
+    public AppRunningInfoNative clone() {
+        AppRunningInfoNative appRunningInfoNative = new AppRunningInfoNative(AppStatusNative.appRunningInfoGetGranularity(this), AppStatusNative.appRunningInfoGetName(this), AppStatusNative.appRunningInfoGetPackageName(this));
+        c.a(appRunningInfoNative, AppStatusNative.appRunningInfoGetLastRunningTime(this));
+        return appRunningInfoNative;
+    }
+
+    @Override // com.kwad.sdk.collector.model.jni.NativeObject
+    public void destroy() {
+        long j = this.mPtr;
+        if (j != 0) {
+            AppStatusNative.nativeDeleteAppRunningInfo(j);
+            this.mPtr = 0L;
+        }
+    }
+
+    public int hashCode() {
+        long appRunningInfoGetGranularity = AppStatusNative.appRunningInfoGetGranularity(this);
+        if (appRunningInfoGetGranularity == 0) {
+            appRunningInfoGetGranularity = 1;
+        }
+        long appRunningInfoGetLastRunningTime = AppStatusNative.appRunningInfoGetLastRunningTime(this) / appRunningInfoGetGranularity;
+        return (((AppStatusNative.appRunningInfoGetName(this).hashCode() * 31) + AppStatusNative.appRunningInfoGetPackageName(this).hashCode()) * 31) + ((int) (appRunningInfoGetLastRunningTime ^ (appRunningInfoGetLastRunningTime >>> 32)));
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        t.putValue(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
+        t.putValue(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
+        t.putValue(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
+        return jSONObject;
+    }
+
+    public String toString() {
+        return "AppRunningInfo{packageName='" + c.b(this) + "', lastRunningTime=" + X(c.c(this)) + '}';
+    }
 
     public AppRunningInfoNative(long j) {
         this.mPtr = j;
     }
 
-    public AppRunningInfoNative(long j, String str, String str2) {
-        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j, str, str2);
+    public static String X(long j) {
+        return anb.format(new Date(j));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,30 +78,14 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
         if (i == 0) {
             return 0;
         }
-        return i > 0 ? 1 : -1;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    /* renamed from: rw */
-    public AppRunningInfoNative clone() {
-        AppRunningInfoNative appRunningInfoNative = new AppRunningInfoNative(AppStatusNative.appRunningInfoGetGranularity(this), AppStatusNative.appRunningInfoGetName(this), AppStatusNative.appRunningInfoGetPackageName(this));
-        c.a(appRunningInfoNative, AppStatusNative.appRunningInfoGetLastRunningTime(this));
-        return appRunningInfoNative;
-    }
-
-    public static String v(long j) {
-        return SR.format(new Date(j));
-    }
-
-    @Override // com.kwad.sdk.collector.model.jni.NativeObject
-    public void destroy() {
-        long j = this.mPtr;
-        if (j != 0) {
-            AppStatusNative.nativeDeleteAppRunningInfo(j);
-            this.mPtr = 0L;
+        if (i > 0) {
+            return 1;
         }
+        return -1;
+    }
+
+    public AppRunningInfoNative(long j, String str, String str2) {
+        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j, str, str2);
     }
 
     public boolean equals(Object obj) {
@@ -77,35 +106,9 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
         if (appRunningInfoGetGranularity == 0) {
             appRunningInfoGetGranularity = 1;
         }
-        if (appRunningInfoGetLastRunningTime / appRunningInfoGetGranularity == AppStatusNative.appRunningInfoGetLastRunningTime(appRunningInfoNative) / appRunningInfoGetGranularity && appRunningInfoGetName.equals(AppStatusNative.appRunningInfoGetName(appRunningInfoNative))) {
-            return appRunningInfoGetPackageName.equals(AppStatusNative.appRunningInfoGetPackageName(appRunningInfoNative));
+        if (appRunningInfoGetLastRunningTime / appRunningInfoGetGranularity != AppStatusNative.appRunningInfoGetLastRunningTime(appRunningInfoNative) / appRunningInfoGetGranularity || !appRunningInfoGetName.equals(AppStatusNative.appRunningInfoGetName(appRunningInfoNative))) {
+            return false;
         }
-        return false;
-    }
-
-    public int hashCode() {
-        long appRunningInfoGetGranularity = AppStatusNative.appRunningInfoGetGranularity(this);
-        if (appRunningInfoGetGranularity == 0) {
-            appRunningInfoGetGranularity = 1;
-        }
-        long appRunningInfoGetLastRunningTime = AppStatusNative.appRunningInfoGetLastRunningTime(this) / appRunningInfoGetGranularity;
-        return (((AppStatusNative.appRunningInfoGetName(this).hashCode() * 31) + AppStatusNative.appRunningInfoGetPackageName(this).hashCode()) * 31) + ((int) (appRunningInfoGetLastRunningTime ^ (appRunningInfoGetLastRunningTime >>> 32)));
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
-        r.putValue(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
-        r.putValue(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
-        return jSONObject;
-    }
-
-    public String toString() {
-        return "AppRunningInfo{packageName='" + c.b(this) + "', lastRunningTime=" + v(c.c(this)) + '}';
+        return appRunningInfoGetPackageName.equals(AppStatusNative.appRunningInfoGetPackageName(appRunningInfoNative));
     }
 }

@@ -1,65 +1,82 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.channel.model.baidu.CustomProgressButton;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public abstract class o2c {
+public final class o2c implements NativeResponse.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Reporter a;
-    public final String b;
-    public final int c;
-    public final String d;
+    public final /* synthetic */ q2c a;
+    public final /* synthetic */ CustomProgressButton b;
+    public final /* synthetic */ NativeResponse c;
 
-    /* loaded from: classes7.dex */
-    public static class a extends o2c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Ssp.Pid pid) {
-            super(str, twb.a(str, pid), "n");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, pid};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public o2c(String str, int i, String str2) {
+    public o2c(q2c q2cVar, CustomProgressButton customProgressButton, NativeResponse nativeResponse) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
+            Object[] objArr = {q2cVar, customProgressButton, nativeResponse};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = fxb.a();
-        this.b = str;
-        this.d = str2;
-        this.c = i;
+        this.a = q2cVar;
+        this.b = customProgressButton;
+        this.c = nativeResponse;
+    }
+
+    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+    public void onADExposed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADExposed();
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+    public void onADExposureFailed(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.onADExposureFailed(i);
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+    public void onADStatusChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            CustomProgressButton customProgressButton = this.b;
+            if (customProgressButton != null) {
+                customProgressButton.a(this.c);
+            }
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+    public void onAdClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.onAdClick();
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+    public void onAdUnionClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+        }
     }
 }

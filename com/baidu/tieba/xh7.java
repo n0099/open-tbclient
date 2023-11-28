@@ -1,192 +1,220 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.forum.controller.AdVideoController;
+import com.baidu.tieba.forum.controller.ForumBackFloatTipController;
+import com.baidu.tieba.forum.controller.LinkageController;
+import com.baidu.tieba.forum.controller.MainController;
+import com.baidu.tieba.forum.controller.NavigationBarController;
+import com.baidu.tieba.forum.controller.PushPermissionController;
+import com.baidu.tieba.forum.controller.TimeoutController;
+import com.baidu.tieba.forum.controller.TopController;
+import com.baidu.tieba.forum.controller.VoicePlayController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AdMixFloor;
-import tbclient.Anti;
-import tbclient.BannerList;
-import tbclient.BlockPopInfo;
-import tbclient.Error;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsPageResIdl;
-import tbclient.FrsPage.PageData;
-import tbclient.LayoutFactory;
+import kotlin.jvm.internal.Reflection;
 /* loaded from: classes9.dex */
-public final class xh7 extends sh7<kh7> {
+public final class xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xh7() {
+    public static final BdUniqueId a(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if (fragmentActivity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) fragmentActivity).getUniqueId();
             }
+            return null;
         }
+        return (BdUniqueId) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nh7
-    public boolean a(Object originData) {
+    public static final AdVideoController b(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
-        PageData pageData;
-        List<LayoutFactory> list;
+        AdVideoController adVideoController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            if (!(originData instanceof DataRes) || (pageData = ((DataRes) originData).page_data) == null || (list = pageData.feed_list) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (adVideoController = (AdVideoController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(AdVideoController.class))) != null) {
+                return adVideoController;
             }
-            return !list.isEmpty();
+            throw new IllegalStateException("AdVideoController must not be null!!!");
         }
-        return invokeL.booleanValue;
+        return (AdVideoController) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sh7
-    public List<LayoutFactory> f(Object originData) {
+    public static final th7 c(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
-        List<LayoutFactory> list;
+        th7 th7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            if (originData instanceof DataRes) {
-                PageData pageData = ((DataRes) originData).page_data;
-                if (pageData != null) {
-                    list = pageData.feed_list;
-                } else {
-                    list = null;
-                }
-                if (list == null) {
-                    return CollectionsKt__CollectionsKt.emptyList();
-                }
-                return list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (th7Var = (th7) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(th7.class))) != null) {
+                return th7Var;
             }
-            return CollectionsKt__CollectionsKt.emptyList();
+            throw new IllegalStateException("BottomController must not be null!!!");
         }
-        return (List) invokeL.objValue;
+        return (th7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sh7
-    public rh7 e(Object originData) {
+    public static final yh7 d(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
-        BannerList bannerList;
+        yh7 yh7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            rh7 rh7Var = new rh7();
-            if (originData instanceof DataRes) {
-                DataRes dataRes = (DataRes) originData;
-                ForumInfo forumInfo = dataRes.forum;
-                if (forumInfo != null) {
-                    bannerList = forumInfo.banner_list;
-                } else {
-                    bannerList = null;
-                }
-                int i = 0;
-                if (bannerList == null) {
-                    bannerList = new BannerList.Builder().build(false);
-                    Intrinsics.checkNotNullExpressionValue(bannerList, "Builder().build(false)");
-                }
-                rh7Var.f(bannerList);
-                Integer num = dataRes.ad_show_select;
-                if (num != null) {
-                    i = num.intValue();
-                }
-                rh7Var.e(i);
-                List<AdMixFloor> list = dataRes.ad_mix_list;
-                if (list == null) {
-                    list = CollectionsKt__CollectionsKt.emptyList();
-                }
-                rh7Var.d(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (yh7Var = (yh7) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(yh7.class))) != null) {
+                return yh7Var;
             }
-            return rh7Var;
+            throw new IllegalStateException("FrsBottomTipController must not be null!!!");
         }
-        return (rh7) invokeL.objValue;
+        return (yh7) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nh7
-    /* renamed from: k */
-    public kh7 b(byte[] bArr) {
+    public static final ForumBackFloatTipController e(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
-        Integer num;
-        int intValue;
-        String str;
-        Anti anti;
-        BlockPopInfo blockPopInfo;
+        ForumBackFloatTipController forumBackFloatTipController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            kh7 kh7Var = new kh7();
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FrsPageResIdl.class);
-            if (frsPageResIdl == null) {
-                frsPageResIdl = new FrsPageResIdl.Builder().build(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (forumBackFloatTipController = (ForumBackFloatTipController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(ForumBackFloatTipController.class))) != null) {
+                return forumBackFloatTipController;
             }
-            Error error = frsPageResIdl.error;
-            List<Long> list = null;
-            if (error != null) {
-                num = error.errorno;
-            } else {
-                num = null;
-            }
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            kh7Var.c(intValue);
-            Error error2 = frsPageResIdl.error;
-            if (error2 != null) {
-                str = error2.usermsg;
-            } else {
-                str = null;
-            }
-            if (str == null) {
-                str = "";
-            }
-            kh7Var.d(str);
-            DataRes dataRes = frsPageResIdl.data;
-            if (dataRes == null) {
-                dataRes = new DataRes.Builder().build(false);
-                Intrinsics.checkNotNullExpressionValue(dataRes, "Builder().build(false)");
-            }
-            kh7Var.e(dataRes);
-            DataRes dataRes2 = frsPageResIdl.data;
-            Intrinsics.checkNotNullExpressionValue(dataRes2, "result.data");
-            kh7Var.l(wh7.b(dataRes2));
-            DataRes dataRes3 = frsPageResIdl.data;
-            Intrinsics.checkNotNullExpressionValue(dataRes3, "result.data");
-            kh7Var.k(wh7.a(dataRes3));
-            DataRes dataRes4 = frsPageResIdl.data;
-            Intrinsics.checkNotNullExpressionValue(dataRes4, "result.data");
-            kh7Var.n(wh7.h(dataRes4));
-            kh7Var.f(this);
-            DataRes dataRes5 = frsPageResIdl.data;
-            if (dataRes5 != null) {
-                list = dataRes5.thread_id_list;
-            }
-            if (list == null) {
-                list = CollectionsKt__CollectionsKt.emptyList();
-            }
-            kh7Var.m(list);
-            DataRes dataRes6 = frsPageResIdl.data;
-            if (dataRes6 != null && (anti = dataRes6.anti) != null && (blockPopInfo = anti.block_pop_info) != null) {
-                zza.g(blockPopInfo);
-            }
-            return kh7Var;
+            throw new IllegalStateException("ForumBackFloatTipController must not be null!!!");
         }
-        return (kh7) invokeL.objValue;
+        return (ForumBackFloatTipController) invokeL.objValue;
+    }
+
+    public static final uh7 f(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        uh7 uh7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (uh7Var = (uh7) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(uh7.class))) != null) {
+                return uh7Var;
+            }
+            throw new IllegalStateException("ForumDIalogController must not be null!!!");
+        }
+        return (uh7) invokeL.objValue;
+    }
+
+    public static final LinkageController g(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        LinkageController linkageController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (linkageController = (LinkageController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(LinkageController.class))) != null) {
+                return linkageController;
+            }
+            throw new IllegalStateException("LinkageController must not be null!!!");
+        }
+        return (LinkageController) invokeL.objValue;
+    }
+
+    public static final bi7 h(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        bi7 bi7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (bi7Var = (bi7) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(bi7.class))) != null) {
+                return bi7Var;
+            }
+            throw new IllegalStateException("LinkageStatisticController must not be null!!!");
+        }
+        return (bi7) invokeL.objValue;
+    }
+
+    public static final MainController i(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        MainController mainController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (mainController = (MainController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(MainController.class))) != null) {
+                return mainController;
+            }
+            throw new IllegalStateException("MainController must not be null!!!");
+        }
+        return (MainController) invokeL.objValue;
+    }
+
+    public static final NavigationBarController j(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        NavigationBarController navigationBarController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (navigationBarController = (NavigationBarController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(NavigationBarController.class))) != null) {
+                return navigationBarController;
+            }
+            throw new IllegalStateException("NavigationBarController must not be null!!!");
+        }
+        return (NavigationBarController) invokeL.objValue;
+    }
+
+    public static final PushPermissionController k(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        PushPermissionController pushPermissionController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (pushPermissionController = (PushPermissionController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(PushPermissionController.class))) != null) {
+                return pushPermissionController;
+            }
+            throw new IllegalStateException("PushPermissionController must not be null!!!");
+        }
+        return (PushPermissionController) invokeL.objValue;
+    }
+
+    public static final TimeoutController l(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        TimeoutController timeoutController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (timeoutController = (TimeoutController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(TimeoutController.class))) != null) {
+                return timeoutController;
+            }
+            throw new IllegalStateException("TimeoutController must not be null!!!");
+        }
+        return (TimeoutController) invokeL.objValue;
+    }
+
+    public static final TopController m(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        TopController topController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (topController = (TopController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(TopController.class))) != null) {
+                return topController;
+            }
+            throw new IllegalStateException("TopController must not be null!!!");
+        }
+        return (TopController) invokeL.objValue;
+    }
+
+    public static final VoicePlayController n(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        VoicePlayController voicePlayController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof ai7) && (voicePlayController = (VoicePlayController) ((ai7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(VoicePlayController.class))) != null) {
+                return voicePlayController;
+            }
+            throw new IllegalStateException("VoicePlayController must not be null!!!");
+        }
+        return (VoicePlayController) invokeL.objValue;
     }
 }

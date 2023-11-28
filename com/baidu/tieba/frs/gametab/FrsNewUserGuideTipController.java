@@ -19,16 +19,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck5;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.eq6;
+import com.baidu.tieba.fr6;
 import com.baidu.tieba.frs.gametab.FrsNewUserGuideTipController;
-import com.baidu.tieba.jx7;
-import com.baidu.tieba.lqa;
-import com.baidu.tieba.sha;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.lma;
+import com.baidu.tieba.oq6;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
-import com.baidu.tieba.vq6;
+import com.baidu.tieba.uz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u0000a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\r*\u0001'\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!H\u0002J\u0010\u0010\"\u001a\u00020\u001f2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\b\u0010#\u001a\u00020$H\u0002J\u0018\u0010%\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010 \u001a\u00020!H\u0002J\u0015\u0010&\u001a\u00020'2\u0006\u0010 \u001a\u00020!H\u0002¢\u0006\u0002\u0010(J\u0010\u0010)\u001a\u00020\n2\u0006\u0010*\u001a\u00020+H\u0002J\u0010\u0010,\u001a\u00020\n2\u0006\u0010*\u001a\u00020+H\u0002J\u0012\u0010-\u001a\u00020\u001f2\b\u0010*\u001a\u0004\u0018\u00010+H\u0002J\u0006\u0010.\u001a\u00020\u001fJ\u0006\u0010/\u001a\u00020\u001fJ\u0012\u00100\u001a\u00020\u001f2\b\u0010*\u001a\u0004\u0018\u00010+H\u0002J\u0012\u00101\u001a\u00020\u001f2\b\u0010*\u001a\u0004\u0018\u00010+H\u0002J\u0012\u00102\u001a\u00020\u001f2\b\u0010*\u001a\u0004\u0018\u00010+H\u0002J\b\u00103\u001a\u00020\u001fH\u0002J\u000e\u00104\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!J\u0010\u00105\u001a\u00020\u001f2\u0006\u00106\u001a\u00020\bH\u0002J\b\u00107\u001a\u00020\u001fH\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001a\u0010\u000f\u001a\u00020\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\u001c\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00068"}, d2 = {"Lcom/baidu/tieba/frs/gametab/FrsNewUserGuideTipController;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "getActivity", "()Landroid/app/Activity;", "defaultDismissMills", "", "forumId", "", "getForumId", "()Ljava/lang/String;", "setForumId", "(Ljava/lang/String;)V", "isTipShowing", "", "()Z", "setTipShowing", "(Z)V", "onTipDismissCallback", "Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "getOnTipDismissCallback", "()Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "setOnTipDismissCallback", "(Lcom/baidu/tieba/controller/TipController$OnDismissListener;)V", "spriteAnimationTipManager", "Lcom/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager;", "tipView", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "applyFrsSpriteData", "", "frsData", "Lcom/baidu/tieba/tbadkCore/FrsResponseData;", "applyTipViewParams", "createAnimationTipViewLayoutParams", "Landroid/widget/FrameLayout$LayoutParams;", "createViewByData", "getClickCallback", "com/baidu/tieba/frs/gametab/FrsNewUserGuideTipController$getClickCallback$1", "(Lcom/baidu/tieba/tbadkCore/FrsResponseData;)Lcom/baidu/tieba/frs/gametab/FrsNewUserGuideTipController$getClickCallback$1;", "getReadySendMsg", FileHelper.FILE_CACHE_BUBBLE, "Lcom/baidu/tbadk/core/data/FrsSpriteNewUserGuide$BubbleText;", "getSpriteSchema", "gotoChatPage", "hideTip", "onChangeSkin", "onClickSpriteBody", "onClickSpriteBubble", "onClickSpriteButton", "onClickSpriteClose", "showTip", "staticFrsNewUserGuideClick", "location", "staticFrsNewUserGuideShow", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\r*\u0001(\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!H\u0002J\u0010\u0010\"\u001a\u00020\u001f2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\b\u0010#\u001a\u00020$H\u0002J\u0018\u0010%\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010&\u001a\u00020!H\u0002J\u0015\u0010'\u001a\u00020(2\u0006\u0010&\u001a\u00020!H\u0002¢\u0006\u0002\u0010)J\u0010\u0010*\u001a\u00020\n2\u0006\u0010+\u001a\u00020,H\u0002J\u0010\u0010-\u001a\u00020\n2\u0006\u0010+\u001a\u00020,H\u0002J\u0012\u0010.\u001a\u00020\u001f2\b\u0010+\u001a\u0004\u0018\u00010,H\u0002J\u0006\u0010/\u001a\u00020\u001fJ\u0006\u00100\u001a\u00020\u001fJ\u0012\u00101\u001a\u00020\u001f2\b\u0010+\u001a\u0004\u0018\u00010,H\u0002J\u0012\u00102\u001a\u00020\u001f2\b\u0010+\u001a\u0004\u0018\u00010,H\u0002J\u0012\u00103\u001a\u00020\u001f2\b\u0010+\u001a\u0004\u0018\u00010,H\u0002J\b\u00104\u001a\u00020\u001fH\u0002J\u000e\u00105\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!J\u0010\u00106\u001a\u00020\u001f2\u0006\u00107\u001a\u00020\bH\u0002J\b\u00108\u001a\u00020\u001fH\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001a\u0010\u000f\u001a\u00020\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\u001c\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00069"}, d2 = {"Lcom/baidu/tieba/frs/gametab/FrsNewUserGuideTipController;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "getActivity", "()Landroid/app/Activity;", "defaultDismissMills", "", "forumId", "", "getForumId", "()Ljava/lang/String;", "setForumId", "(Ljava/lang/String;)V", "isTipShowing", "", "()Z", "setTipShowing", "(Z)V", "onTipDismissCallback", "Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "getOnTipDismissCallback", "()Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "setOnTipDismissCallback", "(Lcom/baidu/tieba/controller/TipController$OnDismissListener;)V", "spriteAnimationTipManager", "Lcom/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager;", "tipView", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "applyFrsSpriteData", "", "spriteNewUserGuide", "Lcom/baidu/tbadk/core/data/FrsSpriteNewUserGuide;", "applyTipViewParams", "createAnimationTipViewLayoutParams", "Landroid/widget/FrameLayout$LayoutParams;", "createViewByData", "frsSpriteNewUserGuide", "getClickCallback", "com/baidu/tieba/frs/gametab/FrsNewUserGuideTipController$getClickCallback$1", "(Lcom/baidu/tbadk/core/data/FrsSpriteNewUserGuide;)Lcom/baidu/tieba/frs/gametab/FrsNewUserGuideTipController$getClickCallback$1;", "getReadySendMsg", FileHelper.FILE_CACHE_BUBBLE, "Lcom/baidu/tbadk/core/data/FrsSpriteNewUserGuide$BubbleText;", "getSpriteSchema", "gotoChatPage", "hideTip", "onChangeSkin", "onClickSpriteBody", "onClickSpriteBubble", "onClickSpriteButton", "onClickSpriteClose", "showTip", "staticFrsNewUserGuideClick", "location", "staticFrsNewUserGuideShow", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class FrsNewUserGuideTipController {
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +48,7 @@ public final class FrsNewUserGuideTipController {
     public final int b;
     public final SpriteAnimationTipManager c;
     public SpriteBottomTipView d;
-    public eq6.e e;
+    public oq6.e e;
     public boolean f;
     public String g;
 
@@ -58,14 +57,14 @@ public final class FrsNewUserGuideTipController {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsNewUserGuideTipController a;
-        public final /* synthetic */ lqa b;
+        public final /* synthetic */ FrsSpriteNewUserGuide b;
 
-        public a(FrsNewUserGuideTipController frsNewUserGuideTipController, lqa lqaVar) {
+        public a(FrsNewUserGuideTipController frsNewUserGuideTipController, FrsSpriteNewUserGuide frsSpriteNewUserGuide) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsNewUserGuideTipController, lqaVar};
+                Object[] objArr = {frsNewUserGuideTipController, frsSpriteNewUserGuide};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,7 +75,7 @@ public final class FrsNewUserGuideTipController {
                 }
             }
             this.a = frsNewUserGuideTipController;
-            this.b = lqaVar;
+            this.b = frsSpriteNewUserGuide;
         }
 
         @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
@@ -90,33 +89,17 @@ public final class FrsNewUserGuideTipController {
 
         @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
         public void onBtnClick() {
-            FrsSpriteNewUserGuide.BubbleText bubbleText;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                FrsNewUserGuideTipController frsNewUserGuideTipController = this.a;
-                FrsSpriteNewUserGuide frsSpriteNewUserGuide = this.b.frsSpriteNewUserGuide;
-                if (frsSpriteNewUserGuide != null) {
-                    bubbleText = frsSpriteNewUserGuide.bubbleText;
-                } else {
-                    bubbleText = null;
-                }
-                frsNewUserGuideTipController.r(bubbleText);
+                this.a.r(this.b.bubbleText);
             }
         }
 
         @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
         public void onClick() {
-            FrsSpriteNewUserGuide.BubbleText bubbleText;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                FrsNewUserGuideTipController frsNewUserGuideTipController = this.a;
-                FrsSpriteNewUserGuide frsSpriteNewUserGuide = this.b.frsSpriteNewUserGuide;
-                if (frsSpriteNewUserGuide != null) {
-                    bubbleText = frsSpriteNewUserGuide.bubbleText;
-                } else {
-                    bubbleText = null;
-                }
-                frsNewUserGuideTipController.q(bubbleText);
+                this.a.q(this.b.bubbleText);
             }
         }
     }
@@ -154,19 +137,19 @@ public final class FrsNewUserGuideTipController {
         } else {
             str = "funny_sprite_appear_dark";
         }
-        vq6 a2 = ck5.a(FunnySpriteResDownloadUtil.i(str, "new_user_guide_res", true), false, 2);
+        fr6 a2 = ik5.a(FunnySpriteResDownloadUtil.i(str, "new_user_guide_res", true), false, 2);
         if (z) {
             str2 = "funny_sprite_show_day";
         } else {
             str2 = "funny_sprite_show_dark";
         }
-        vq6 a3 = ck5.a(FunnySpriteResDownloadUtil.i(str2, "new_user_guide_res", true), true, 2);
+        fr6 a3 = ik5.a(FunnySpriteResDownloadUtil.i(str2, "new_user_guide_res", true), true, 2);
         if (z) {
             str3 = "funny_sprite_exit_day";
         } else {
             str3 = "funny_sprite_exit_dark";
         }
-        this.c.v(a2, a3, ck5.a(FunnySpriteResDownloadUtil.i(str3, "new_user_guide_res", true), false, 2));
+        this.c.v(a2, a3, ik5.a(FunnySpriteResDownloadUtil.i(str3, "new_user_guide_res", true), false, 2));
         this.c.t(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
         this.c.u(f());
         this.c.s(new Function0<Unit>(this) { // from class: com.baidu.tieba.frs.gametab.FrsNewUserGuideTipController.1
@@ -209,7 +192,7 @@ public final class FrsNewUserGuideTipController {
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     DefaultLog.getInstance().i("FrsGuide", "精灵动画提示控件：隐藏新用户引导动画结束");
                     this.this$0.v(false);
-                    eq6.e i3 = this.this$0.i();
+                    oq6.e i3 = this.this$0.i();
                     if (i3 != null) {
                         i3.onDismiss();
                     }
@@ -218,20 +201,20 @@ public final class FrsNewUserGuideTipController {
         });
     }
 
-    public final void d(lqa lqaVar) {
+    public final void d(FrsSpriteNewUserGuide frsSpriteNewUserGuide) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lqaVar) == null) {
-            SpriteBottomTipView g = g(this.a, lqaVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsSpriteNewUserGuide) == null) {
+            SpriteBottomTipView g = g(this.a, frsSpriteNewUserGuide);
             this.d = g;
             this.c.z(g);
         }
     }
 
-    public final a h(lqa lqaVar) {
+    public final a h(FrsSpriteNewUserGuide frsSpriteNewUserGuide) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lqaVar)) == null) {
-            return new a(this, lqaVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, frsSpriteNewUserGuide)) == null) {
+            return new a(this, frsSpriteNewUserGuide);
         }
         return (a) invokeL.objValue;
     }
@@ -241,8 +224,8 @@ public final class FrsNewUserGuideTipController {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bubbleText) != null) || bubbleText == null) {
             return;
         }
-        ck5.j(j(bubbleText));
-        sha.a(this.a, new String[]{k(bubbleText)});
+        ik5.j(j(bubbleText));
+        lma.a(this.a, new String[]{k(bubbleText)});
     }
 
     public final void q(FrsSpriteNewUserGuide.BubbleText bubbleText) {
@@ -280,7 +263,7 @@ public final class FrsNewUserGuideTipController {
         }
     }
 
-    public final void u(eq6.e eVar) {
+    public final void u(oq6.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, eVar) == null) {
             this.e = eVar;
@@ -294,19 +277,12 @@ public final class FrsNewUserGuideTipController {
         }
     }
 
-    public static final void x(FrsNewUserGuideTipController this$0, lqa frsData, View view2) {
-        FrsSpriteNewUserGuide.BubbleText bubbleText;
+    public static final void x(FrsNewUserGuideTipController this$0, FrsSpriteNewUserGuide spriteNewUserGuide, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, frsData, view2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, spriteNewUserGuide, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(frsData, "$frsData");
-            FrsSpriteNewUserGuide frsSpriteNewUserGuide = frsData.frsSpriteNewUserGuide;
-            if (frsSpriteNewUserGuide != null) {
-                bubbleText = frsSpriteNewUserGuide.bubbleText;
-            } else {
-                bubbleText = null;
-            }
-            this$0.p(bubbleText);
+            Intrinsics.checkNotNullParameter(spriteNewUserGuide, "$spriteNewUserGuide");
+            this$0.p(spriteNewUserGuide.bubbleText);
         }
     }
 
@@ -357,13 +333,13 @@ public final class FrsNewUserGuideTipController {
                 if (str2 != null) {
                     str = str2;
                 }
-                return ck5.c(str, 1, this.g);
+                return ik5.c(str, 1, this.g);
             }
             String str3 = bubbleText.text;
             if (str3 != null) {
                 str = str3;
             }
-            return ck5.c(str, 2, this.g);
+            return ik5.c(str, 2, this.g);
         }
         return (String) invokeL.objValue;
     }
@@ -400,13 +376,13 @@ public final class FrsNewUserGuideTipController {
         return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    public final eq6.e i() {
+    public final oq6.e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.e;
         }
-        return (eq6.e) invokeV.objValue;
+        return (oq6.e) invokeV.objValue;
     }
 
     public final void m() {
@@ -415,7 +391,7 @@ public final class FrsNewUserGuideTipController {
             DefaultLog.getInstance().i("FrsGuide", "精灵动画提示控件：隐藏新用户引导");
             this.c.q();
             this.f = false;
-            eq6.e eVar = this.e;
+            oq6.e eVar = this.e;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -450,27 +426,20 @@ public final class FrsNewUserGuideTipController {
         }
     }
 
-    public final SpriteBottomTipView g(Activity activity, lqa lqaVar) {
+    public final SpriteBottomTipView g(Activity activity, FrsSpriteNewUserGuide frsSpriteNewUserGuide) {
         InterceptResult invokeLL;
-        FrsSpriteNewUserGuide.BubbleText bubbleText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, activity, lqaVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, activity, frsSpriteNewUserGuide)) == null) {
             SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
-            aVar.n(R.layout.funny_sprite_frs_user_guide_layout);
-            aVar.r(true);
+            aVar.o(R.layout.funny_sprite_frs_user_guide_layout);
+            aVar.s(true);
             Integer valueOf = Integer.valueOf((int) R.drawable.funny_sprite_tip_bg_right);
+            aVar.q(valueOf);
             aVar.p(valueOf);
-            aVar.o(valueOf);
-            aVar.q(h(lqaVar));
-            jx7.c(aVar);
-            jx7.d(aVar);
-            FrsSpriteNewUserGuide frsSpriteNewUserGuide = lqaVar.frsSpriteNewUserGuide;
-            if (frsSpriteNewUserGuide != null) {
-                bubbleText = frsSpriteNewUserGuide.bubbleText;
-            } else {
-                bubbleText = null;
-            }
-            jx7.a(aVar, bubbleText);
+            aVar.r(h(frsSpriteNewUserGuide));
+            uz7.c(aVar);
+            uz7.d(aVar);
+            uz7.a(aVar, frsSpriteNewUserGuide.bubbleText);
             SpriteBottomTipView a2 = aVar.a();
             e(a2);
             return a2;
@@ -481,10 +450,10 @@ public final class FrsNewUserGuideTipController {
     public final void p(FrsSpriteNewUserGuide.BubbleText bubbleText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bubbleText) == null) {
-            String c = ck5.c("", 0, this.g);
+            String c = ik5.c("", 0, this.g);
             if (StringsKt__StringsJVMKt.startsWith$default(c, "tiebaapp://router/portal", false, 2, null)) {
                 if (bubbleText != null) {
-                    ck5.j(j(bubbleText));
+                    ik5.j(j(bubbleText));
                 }
                 UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{c});
                 y(2);
@@ -492,18 +461,17 @@ public final class FrsNewUserGuideTipController {
         }
     }
 
-    public final void w(final lqa frsData) {
+    public final void w(final FrsSpriteNewUserGuide spriteNewUserGuide) {
         int i;
         Number valueOf;
-        FrsSpriteNewUserGuide.BubbleText bubbleText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, frsData) == null) {
-            Intrinsics.checkNotNullParameter(frsData, "frsData");
+        if (interceptable == null || interceptable.invokeL(1048595, this, spriteNewUserGuide) == null) {
+            Intrinsics.checkNotNullParameter(spriteNewUserGuide, "spriteNewUserGuide");
             DefaultLog.getInstance().i("FrsGuide", "精灵动画提示控件：显示新用户引导");
-            d(frsData);
+            d(spriteNewUserGuide);
             this.c.y(80);
-            FrsSpriteNewUserGuide frsSpriteNewUserGuide = frsData.frsSpriteNewUserGuide;
-            if (frsSpriteNewUserGuide != null && (bubbleText = frsSpriteNewUserGuide.bubbleText) != null) {
+            FrsSpriteNewUserGuide.BubbleText bubbleText = spriteNewUserGuide.bubbleText;
+            if (bubbleText != null) {
                 i = bubbleText.disappearSeconds;
             } else {
                 i = 0;
@@ -513,7 +481,7 @@ public final class FrsNewUserGuideTipController {
             } else {
                 valueOf = Integer.valueOf(this.b);
             }
-            this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.bx7
+            this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.pz7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -521,7 +489,7 @@ public final class FrsNewUserGuideTipController {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FrsNewUserGuideTipController.x(FrsNewUserGuideTipController.this, frsData, view2);
+                        FrsNewUserGuideTipController.x(FrsNewUserGuideTipController.this, spriteNewUserGuide, view2);
                     }
                 }
             });

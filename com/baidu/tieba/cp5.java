@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.pay.IyyPayResultCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cp5 extends bp5 {
+public abstract class cp5 implements IyyPayResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
+
+    public abstract void a(byte b);
 
     public cp5() {
         Interceptable interceptable = $ic;

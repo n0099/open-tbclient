@@ -2,7 +2,7 @@ package com.yy.gslbsdk.device;
 
 import com.yy.gslbsdk.control.NetworkStatus;
 import com.yy.gslbsdk.util.GlobalTools;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetStatusInfo {
     public int netType = 1;
     public int isp = 0;
@@ -51,7 +51,7 @@ public class NetStatusInfo {
         this.netType = netStatusInfo.netType;
         this.isp = netStatusInfo.isp;
         this.ssid = netStatusInfo.ssid;
-        this.networkStatus = netStatusInfo.networkStatus.m850clone();
+        this.networkStatus = netStatusInfo.networkStatus.m854clone();
     }
 
     public void setIsp(int i) {

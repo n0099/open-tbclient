@@ -1,288 +1,91 @@
 package com.kwad.components.ad.splashscreen;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.SystemClock;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.R;
-import com.kwad.components.ad.splashscreen.b.i;
-import com.kwad.components.ad.splashscreen.b.j;
-import com.kwad.components.ad.splashscreen.b.k;
-import com.kwad.components.ad.splashscreen.b.l;
-import com.kwad.components.ad.splashscreen.b.m;
-import com.kwad.components.ad.splashscreen.b.n;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.components.core.video.DetailVideoView;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.api.KsSplashScreenAd;
-import com.kwad.sdk.api.KsVideoPlayConfig;
+import android.text.TextUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes10.dex */
-public final class d extends com.kwad.components.core.g.c<h> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
-    public KsScene fn;
-    public AdInfo mAdInfo;
-    public AdTemplate mAdTemplate;
-    public com.kwad.components.core.c.a.c mApkDownloadHelper;
-    public DetailVideoView mDetailVideoView;
-    public boolean mPageDismissCalled;
-    public AdBaseFrameLayout mRootContainer;
-    public KsVideoPlayConfig mVideoPlayConfig;
-    public KsSplashScreenAd.SplashScreenAdInteractionListener xT;
-    public com.kwad.components.ad.splashscreen.d.d xU;
-    public int xV;
+public final class d {
+    public static int Ch;
+    public String Ci;
+    public int Cj = 2;
 
-    @SuppressLint({"WrongConstant"})
-    public d(Context context, int i) {
-        super(context);
-        V(i);
+    public final String ks() {
+        return this.Ci;
+    }
+
+    public final int kt() {
+        return this.Cj;
+    }
+
+    private void S(String str) {
+        this.Ci = str;
     }
 
     private void V(int i) {
-        this.xV = i;
-        ViewGroup jt = jt();
-        this.iB = jt;
-        this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f091466);
-        DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f09146f);
-        this.mDetailVideoView = detailVideoView;
-        detailVideoView.setAd(true);
-        this.mDetailVideoView.setVisibility(8);
-        this.mRootContainer.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.d.1
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                if (com.kwad.sdk.b.kwai.a.ro() || !d.n(d.this.mAdInfo) || d.this.EH == null) {
-                    return;
-                }
-                ((h) d.this.EH).c(view2.getContext(), 53, 2);
-            }
-        });
+        this.Cj = i;
     }
 
-    public static d a(Context context, @NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
-        AdTemplate adTemplate = new AdTemplate();
-        if (!adResultData.getAdTemplateList().isEmpty()) {
-            adTemplate = adResultData.getAdTemplateList().get(0);
+    public static d a(AdTemplate adTemplate, AdInfo adInfo, com.kwad.components.core.e.d.c cVar, int i) {
+        d dVar = new d();
+        Ch = i;
+        if (adInfo != null && cVar != null) {
+            if (i != 1 && i != 4) {
+                if (com.kwad.sdk.core.response.b.a.aF(adInfo)) {
+                    int nM = cVar.nM();
+                    dVar.S("或点击" + a(adTemplate, adInfo, nM, 0));
+                } else {
+                    String a = com.kwad.sdk.core.config.d.a(com.kwad.components.ad.splashscreen.b.a.CN);
+                    if (TextUtils.isEmpty(a)) {
+                        a = "点击跳转详情页或第三方应用";
+                    }
+                    dVar.S("或" + a);
+                }
+            } else {
+                dVar.S(a(adTemplate, adInfo, cVar));
+            }
         }
-        adTemplate.showStartTime = SystemClock.elapsedRealtime();
-        com.kwad.components.splash.monitor.a.qG();
-        com.kwad.components.splash.monitor.a.W(adTemplate);
-        d dVar = new d(context, com.kwad.sdk.core.response.a.d.bQ(adTemplate).adSplashInfo.skipButtonPosition);
-        dVar.a(ksScene, adTemplate);
+        dVar.V(com.kwad.sdk.core.response.b.b.dp(adInfo));
         return dVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x007e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Presenter a(Context context, AdInfo adInfo, KsScene ksScene) {
-        Presenter gVar;
-        Presenter mVar;
-        Presenter presenter = new Presenter();
-        presenter.a(new com.kwad.components.ad.splashscreen.b.b());
-        presenter.a(new com.kwad.components.ad.splashscreen.b.c());
-        presenter.a(new l());
-        if (com.kwad.sdk.core.response.a.a.aB(adInfo)) {
-            presenter.a(new com.kwad.components.ad.splashscreen.b.d());
-            gVar = new n();
+    public static String a(AdInfo adInfo, int i) {
+        if (i == 1) {
+            if (com.kwad.sdk.core.response.b.b.dj(adInfo) == null) {
+                return "";
+            }
+            return com.kwad.sdk.core.response.b.b.dj(adInfo);
+        } else if (i != 4 || com.kwad.sdk.core.response.b.b.dk(adInfo) == null) {
+            return "";
         } else {
-            gVar = new com.kwad.components.ad.splashscreen.b.g();
-        }
-        presenter.a(gVar);
-        SceneImpl sceneImpl = new SceneImpl();
-        if (ksScene instanceof SceneImpl) {
-            sceneImpl = (SceneImpl) ksScene;
-        }
-        boolean b = com.kwad.components.ad.splashscreen.local.d.b(context, adInfo, sceneImpl);
-        boolean c = com.kwad.components.ad.splashscreen.local.d.c(context, adInfo, sceneImpl);
-        boolean o = com.kwad.components.ad.splashscreen.local.d.o(adInfo);
-        if (com.kwad.components.ad.splashscreen.local.d.d(context, adInfo, sceneImpl)) {
-            mVar = new k();
-        } else if (b) {
-            mVar = new j();
-        } else if (!c) {
-            if (o) {
-                mVar = new m();
-            }
-            if (com.kwad.sdk.core.response.a.a.ao(adInfo)) {
-                presenter.a(new com.kwad.components.ad.splashscreen.b.f());
-            }
-            presenter.a(new com.kwad.components.ad.splashscreen.b.a());
-            return presenter;
-        } else {
-            mVar = new i();
-        }
-        presenter.a(mVar);
-        if (com.kwad.sdk.core.response.a.a.ao(adInfo)) {
-        }
-        presenter.a(new com.kwad.components.ad.splashscreen.b.a());
-        return presenter;
-    }
-
-    private void a(KsScene ksScene, AdTemplate adTemplate) {
-        this.fn = ksScene;
-        this.mAdTemplate = adTemplate;
-        dT();
-    }
-
-    private void dT() {
-        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
-        KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.mAdInfo.adSplashInfo.mute != 1).build();
-        this.mVideoPlayConfig = build;
-        this.mAdTemplate.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
-        com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
-        this.mApkDownloadHelper = cVar;
-        cVar.setOnDismissListener(this);
-        this.mApkDownloadHelper.setOnShowListener(this);
-    }
-
-    private int getSplashLayoutId() {
-        int i = this.xV;
-        return i == 1 ? R.layout.obfuscated_res_0x7f0d0504 : i == 0 ? R.layout.obfuscated_res_0x7f0d0505 : i == 2 ? R.layout.obfuscated_res_0x7f0d0502 : i == 3 ? R.layout.obfuscated_res_0x7f0d0503 : R.layout.obfuscated_res_0x7f0d0505;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // com.kwad.components.core.g.c
-    /* renamed from: js */
-    public h jv() {
-        com.kwad.components.ad.splashscreen.d.d dVar = new com.kwad.components.ad.splashscreen.d.d(this.iB, 70);
-        this.xU = dVar;
-        dVar.qi();
-        if (this.mVideoPlayConfig == null) {
-            this.mVideoPlayConfig = new KsVideoPlayConfig.Builder().videoSoundEnable(this.mAdInfo.adSplashInfo.mute != 1).build();
-        }
-        h hVar = new h();
-        hVar.setSplashScreenAdListener(this.xT);
-        hVar.mRootContainer = this.mRootContainer;
-        AdTemplate adTemplate = this.mAdTemplate;
-        hVar.mAdTemplate = adTemplate;
-        hVar.fn = this.fn;
-        hVar.mVideoPlayConfig = this.mVideoPlayConfig;
-        adTemplate.mMiniWindowId = hVar.jB();
-        hVar.yd = this.xU;
-        hVar.mApkDownloadHelper = this.mApkDownloadHelper;
-        hVar.xV = this.xV;
-        if (com.kwad.sdk.core.response.a.a.aB(this.mAdInfo)) {
-            com.kwad.components.ad.splashscreen.c.a aVar = new com.kwad.components.ad.splashscreen.c.a(this.mAdTemplate, this.mDetailVideoView, this.mVideoPlayConfig);
-            hVar.yc = aVar;
-            hVar.yd.a(aVar);
-        }
-        return hVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ju() {
-        if (com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
-            if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091464), -1, 16, 16, -1);
-            } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091464), -1, 16, -1, 16);
-            }
+            return com.kwad.sdk.core.response.b.b.dk(adInfo);
         }
     }
 
-    public static boolean n(@NonNull AdInfo adInfo) {
-        AdInfo.AdSplashInfo adSplashInfo = adInfo.adSplashInfo;
-        return adSplashInfo != null && adSplashInfo.fullScreenClickSwitch == 1;
-    }
-
-    private void notifyPageDismiss() {
-        com.kwad.sdk.kwai.kwai.c.rd().rg();
-        if (this.mPageDismissCalled) {
-            return;
-        }
-        this.mPageDismissCalled = true;
-    }
-
-    @Override // com.kwad.components.core.g.c
-    public final int getLayoutId() {
-        return getSplashLayoutId();
-    }
-
-    @Override // com.kwad.components.core.g.c
-    public final ViewGroup jt() {
-        return (ViewGroup) FrameLayout.inflate(getContext(), getSplashLayoutId(), this);
-    }
-
-    @Override // com.kwad.components.core.g.c, android.view.ViewGroup, android.view.View
-    public final void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        post(new Runnable() { // from class: com.kwad.components.ad.splashscreen.d.2
-            @Override // java.lang.Runnable
-            public final void run() {
-                d.this.ju();
-            }
-        });
-        T t = this.EH;
-        if (((h) t).yc != null) {
-            ((h) t).yc.kA();
-        }
-    }
-
-    @Override // com.kwad.components.core.g.c
-    @NonNull
-    public final Presenter onCreatePresenter() {
-        return a(getContext(), this.mAdInfo, this.fn);
-    }
-
-    @Override // com.kwad.components.core.g.c, android.view.ViewGroup, android.view.View
-    public final void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.xU.qj();
-        ((h) this.EH).release();
-        notifyPageDismiss();
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public final void onDismiss(DialogInterface dialogInterface) {
-        boolean mr = dialogInterface instanceof com.kwad.components.core.c.kwai.b ? ((com.kwad.components.core.c.kwai.b) dialogInterface).mr() : false;
-        try {
-            if (this.xT != null) {
-                if (mr) {
-                    this.xT.onDownloadTipsDialogDismiss();
-                } else {
-                    this.xT.onDownloadTipsDialogCancel();
+    public static String a(AdTemplate adTemplate, AdInfo adInfo, int i, int i2) {
+        String aE = com.kwad.sdk.core.response.b.a.aE(adInfo);
+        if (i != 2) {
+            if (i != 4) {
+                if (i != 8) {
+                    if (i == 12) {
+                        return com.kwad.sdk.core.response.b.a.ac(adInfo);
+                    }
+                    return aE;
                 }
+                return com.kwad.sdk.core.response.b.a.bX(adTemplate);
             }
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+            return "继续下载";
         }
+        return i2 + "%";
     }
 
-    @Override // android.content.DialogInterface.OnShowListener
-    public final void onShow(DialogInterface dialogInterface) {
-        try {
-            if (this.xT != null) {
-                this.xT.onDownloadTipsDialogShow();
-            }
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+    public static String a(AdTemplate adTemplate, AdInfo adInfo, com.kwad.components.core.e.d.c cVar) {
+        if (com.kwad.sdk.core.response.b.a.aF(adInfo)) {
+            return a(adTemplate, adInfo, cVar.nM(), 0);
         }
-    }
-
-    @Override // android.view.View
-    public final void onVisibilityChanged(@NonNull View view2, int i) {
-        super.onVisibilityChanged(view2, i);
-    }
-
-    @Override // android.view.View
-    public final void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-    }
-
-    public final void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        this.xT = splashScreenAdInteractionListener;
-        T t = this.EH;
-        if (t != 0) {
-            ((h) t).setSplashScreenAdListener(splashScreenAdInteractionListener);
+        String a = a(adInfo, Ch);
+        if (TextUtils.isEmpty(a)) {
+            return "点击跳转详情页或第三方应用";
         }
+        return a;
     }
 }

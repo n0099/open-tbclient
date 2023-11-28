@@ -307,7 +307,7 @@ public class NetworkUtil {
             }
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
             if (Build.VERSION.SDK_INT >= 23) {
-                if (context.checkSelfPermission(com.kuaishou.weapon.p0.h.d) == 0) {
+                if (context.checkSelfPermission(com.kuaishou.weapon.p0.g.d) == 0) {
                     i = wifiManager.getWifiState();
                 }
                 i = 1;

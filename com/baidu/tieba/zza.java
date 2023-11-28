@@ -1,32 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import androidx.annotation.WorkerThread;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.zz4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BlockPopInfo;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes9.dex */
 public class zza {
     public static /* synthetic */ Interceptable $ic;
-    public static BlockPopInfo d;
-    public static BlockPopInfo e;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public zz4 b;
-    public CustomMessageListener c;
+    public MainTabActivity a;
+    public PollingModel b;
+    public List<Map<String, Long>> c;
+    public final Runnable d;
 
     /* loaded from: classes9.dex */
-    public class a implements zz4.e {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zza a;
+
+        /* renamed from: com.baidu.tieba.zza$a$a  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class C0554a extends ju5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0554a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ju5
+            public String doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.a.a.c();
+                }
+                return (String) invokeV.objValue;
+            }
+        }
+
+        /* loaded from: classes9.dex */
+        public class b implements ot5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ot5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null) {
+                    this.a.a.b.getGroupUnReadCountData(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), str);
+                    SafeHandler.getInst().postDelayed(this.a.a.d, j45.a().c());
+                }
+            }
+        }
 
         public a(zza zzaVar) {
             Interceptable interceptable = $ic;
@@ -40,97 +119,28 @@ public class zza {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                zz4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfo a;
-        public final /* synthetic */ zza b;
-
-        public b(zza zzaVar, BlockPopInfo blockPopInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zzaVar, blockPopInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = zzaVar;
-            this.a = blockPopInfo;
+            this.a = zzaVar;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                this.b.e(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(zza zzaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zzaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b == null) {
                 return;
             }
-            zza.h(null);
-            zza.g(null);
+            nu5.c(new C0554a(this), new b(this));
         }
     }
 
-    public zza(TbPageContext tbPageContext) {
+    public zza(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,101 +150,53 @@ public class zza {
                 return;
             }
         }
-        c cVar = new c(this, 2005016);
-        this.c = cVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(cVar);
+        this.c = null;
+        this.d = new a(this);
+        this.a = mainTabActivity;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    public static void g(BlockPopInfo blockPopInfo) {
+    @WorkerThread
+    public final synchronized String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
-            e = blockPopInfo;
-        }
-    }
-
-    public static void h(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
-            d = blockPopInfo;
-        }
-    }
-
-    public final void e(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, blockPopInfo) != null) || blockPopInfo == null) {
-            return;
-        }
-        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
-    }
-
-    public final boolean b(BlockPopInfo blockPopInfo) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
-            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
-                BdToast.makeText(this.a.getPageActivity(), blockPopInfo.appeal_msg).setIcon(BdToast.ToastIcon.FAILURE).setDuration(3000).show();
-                return true;
-            } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0) {
-                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
-                    if (blockPopInfo.ahead_type.intValue() == 1) {
-                        String str = blockPopInfo.block_info;
-                        String str2 = blockPopInfo.ok_info;
-                        if (!qd.isEmpty(str) && !qd.isEmpty(str2)) {
-                            i(blockPopInfo);
-                        } else {
-                            BdToast.makeText(this.a.getPageActivity(), this.a.getString(R.string.hanpen_error)).setIcon(BdToast.ToastIcon.FAILURE).setDuration(3000).show();
-                        }
-                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                        e(blockPopInfo);
-                    }
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c == null) {
+                    this.c = new ArrayList();
                 }
-                return false;
-            } else {
-                return false;
+                this.c.clear();
+                List<GroupChatRoomPojo> l = wt8.j().l(TbadkCoreApplication.getCurrentAccount());
+                if (ListUtils.isEmpty(l)) {
+                    return "";
+                }
+                for (GroupChatRoomPojo groupChatRoomPojo : l) {
+                    if (groupChatRoomPojo.P() == 0) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                        hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                        hashMap.put("time", Long.valueOf(groupChatRoomPojo.getLastExitChatRoomTime()));
+                        this.c.add(hashMap);
+                    }
+                }
+                if (ListUtils.isEmpty(this.c)) {
+                    return "";
+                }
+                String json = DataExt.toJson(this.c);
+                if (TextUtils.isEmpty(json)) {
+                    return "";
+                }
+                return json;
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b(e);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.d);
+            this.a = null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b(d);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        zz4 zz4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null && (zz4Var = this.b) != null && zz4Var.isShowing()) {
-            this.b.autoChangeSkinType(this.a);
-        }
-    }
-
-    public final void i(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfo) != null) || blockPopInfo == null) {
-            return;
-        }
-        zz4 zz4Var = new zz4(this.a.getPageActivity());
-        this.b = zz4Var;
-        zz4Var.setMessage(blockPopInfo.block_info);
-        this.b.setNegativeButton(blockPopInfo.ok_info, new a(this));
-        this.b.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
-        this.b.create(this.a).show();
     }
 }

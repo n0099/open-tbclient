@@ -9,23 +9,29 @@ public abstract class p extends PngChunk {
         if (this == obj) {
             return true;
         }
-        if (obj != null && getClass() == obj.getClass()) {
-            String str = this.alB;
-            String str2 = ((p) obj).alB;
-            if (str == null) {
-                if (str2 != null) {
-                    return false;
-                }
-            } else if (!str.equals(str2)) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        p pVar = (p) obj;
+        String str = this.agT;
+        if (str == null) {
+            if (pVar.agT != null) {
                 return false;
             }
-            return true;
+        } else if (!str.equals(pVar.agT)) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     public int hashCode() {
-        String str = this.alB;
-        return (str == null ? 0 : str.hashCode()) + 31;
+        int hashCode;
+        String str = this.agT;
+        if (str == null) {
+            hashCode = 0;
+        } else {
+            hashCode = str.hashCode();
+        }
+        return hashCode + 31;
     }
 }

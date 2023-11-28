@@ -7,7 +7,7 @@ public interface z4 {
 
     boolean isScroll();
 
-    void onPreLoad(si siVar);
+    void onPreLoad(ti tiVar);
 
     void setIsScroll(boolean z);
 }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public final class zg2 {
+public class zg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -12,7 +12,7 @@ public final class zg2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ue3.a().getBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", false);
+            return ve3.a().getBoolean("SP-DebugPerformanceTest", false);
         }
         return invokeV.booleanValue;
     }
@@ -20,7 +20,7 @@ public final class zg2 {
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            ue3.a().putBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", z);
+            ve3.a().putBoolean("SP-DebugPerformanceTest", z);
         }
     }
 }

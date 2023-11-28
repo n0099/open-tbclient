@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
-import com.kwad.sdk.b.kwai.a;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.imageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptions;
@@ -16,37 +15,46 @@ import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
 import com.kwad.sdk.core.imageloader.core.ImageLoaderConfiguration;
 import com.kwad.sdk.core.imageloader.core.assist.QueueProcessingType;
-import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.display.CircleBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-import com.kwad.sdk.core.network.o;
-import com.kwad.sdk.core.network.q;
+import com.kwad.sdk.core.network.p;
+import com.kwad.sdk.core.network.r;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.core.threads.b;
+import com.kwad.sdk.core.threads.GlobalThreadPools;
+import com.kwad.sdk.d.a.a;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.service.kwai.d;
-import com.kwad.sdk.utils.as;
+import com.kwad.sdk.service.a.f;
+import com.kwad.sdk.utils.aw;
+import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes10.dex */
 public class ImageLoadImpl implements IImageLoader {
+    @Override // com.kwad.sdk.core.imageloader.IImageLoader
+    public void pause() {
+        checkInit();
+        ImageLoader.getInstance().pause();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.IImageLoader
+    public void resume() {
+        checkInit();
+        ImageLoader.getInstance().resume();
+    }
+
     private DisplayImageOptions adapter(DisplayImageOptionsCompat displayImageOptionsCompat) {
-        BitmapDisplayer roundedBitmapDisplayer;
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
         Resources resources = context.getResources();
         DisplayImageOptions.Builder bitmapConfig = new DisplayImageOptions.Builder().showImageOnLoading(displayImageOptionsCompat.getImageOnLoading(resources)).showImageForEmptyUri(displayImageOptionsCompat.getImageForEmptyUri(resources)).showImageOnFail(displayImageOptionsCompat.getImageOnFail(resources)).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565);
-        if (displayImageOptionsCompat.getStrokeWidth() <= 0.0f) {
-            if (displayImageOptionsCompat.isCircle()) {
-                bitmapConfig.displayer(new CircleBitmapDisplayer());
-            } else if (displayImageOptionsCompat.getCornerRound() > 0) {
-                roundedBitmapDisplayer = new RoundedBitmapDisplayer(a.a(context, displayImageOptionsCompat.getCornerRound()));
-            }
-            return bitmapConfig.build();
+        if (displayImageOptionsCompat.getStrokeWidth() > 0.0f) {
+            bitmapConfig.displayer(new CircleBitmapDisplayer(Integer.valueOf(displayImageOptionsCompat.getStrokeColor()), a.a(context, displayImageOptionsCompat.getStrokeWidth())));
+        } else if (displayImageOptionsCompat.isCircle()) {
+            bitmapConfig.displayer(new CircleBitmapDisplayer());
+        } else if (displayImageOptionsCompat.getCornerRound() > 0) {
+            bitmapConfig.displayer(new RoundedBitmapDisplayer(a.a(context, displayImageOptionsCompat.getCornerRound())));
         }
-        roundedBitmapDisplayer = new CircleBitmapDisplayer(Integer.valueOf(displayImageOptionsCompat.getStrokeColor()), a.a(context, displayImageOptionsCompat.getStrokeWidth()));
-        bitmapConfig.displayer(roundedBitmapDisplayer);
         return bitmapConfig.build();
     }
 
@@ -59,28 +67,42 @@ public class ImageLoadImpl implements IImageLoader {
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void clearMemory(Context context) {
+        checkInit();
         ImageLoader.getInstance().clearMemoryCache();
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void init(Context context) {
+    public File isImageExistOnDisk(String str) {
+        checkInit();
+        return ImageLoader.getInstance().getDiskCache().get(str);
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.IImageLoader
+    public Bitmap loadImageSync(String str) {
+        checkInit();
+        return ImageLoader.getInstance().loadImageSync(str, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build());
+    }
+
+    public void checkInit() {
+        if (ImageLoader.getInstance().isInited()) {
+            return;
+        }
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
         ImageLoaderConfiguration.Builder builder = new ImageLoaderConfiguration.Builder(context.getApplicationContext());
-        builder.taskExecutor(b.vi());
-        builder.taskExecutorForCachedImages(b.vj());
-        builder.setTaskDistributor(b.vk());
+        builder.taskExecutor(GlobalThreadPools.Et());
+        builder.taskExecutorForCachedImages(GlobalThreadPools.Eu());
+        builder.setTaskDistributor(GlobalThreadPools.Ev());
         builder.denyCacheImageMultipleSizesInMemory();
         builder.diskCacheFileNameGenerator(new Md5FileNameGenerator());
         builder.diskCacheSize(20971520);
         builder.tasksProcessingOrder(QueueProcessingType.LIFO);
-        builder.cacheParentDir(as.cY(context).getPath());
+        builder.cacheParentDir(aw.cK(context).getPath());
         builder.imageDownloader(new BaseImageDownloader(context) { // from class: com.kwad.sdk.core.imageloader.ImageLoadImpl.1
             @Override // com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader
             public HttpURLConnection createConnection(String str, Object obj) {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(Uri.encode(str, BaseImageDownloader.ALLOWED_URI_CHARS)).openConnection();
-                q.wrapHttpURLConnection(httpURLConnection);
-                httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
-                httpURLConnection.setRequestProperty("BrowserUa", o.tD());
-                httpURLConnection.setRequestProperty("SystemUa", o.tC());
+                r.wrapHttpURLConnection(httpURLConnection);
+                p.b(httpURLConnection);
                 httpURLConnection.setConnectTimeout(this.connectTimeout);
                 httpURLConnection.setReadTimeout(this.readTimeout);
                 return httpURLConnection;
@@ -89,63 +111,57 @@ public class ImageLoadImpl implements IImageLoader {
         ImageLoader.getInstance().init(builder.build());
     }
 
-    @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public boolean isInited() {
-        return ImageLoader.getInstance().isInited();
-    }
-
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public void load(@NonNull Context context, ImageView imageView, Object obj, int i, int i2) {
+        checkInit();
         ImageLoader.getInstance().displayImage(parseModel(obj), imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(i2).showImageForEmptyUri(i).showImageOnFail(i).build());
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void load(@NonNull Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
+        checkInit();
         ImageLoader.getInstance().displayImage(str, imageView, adapter(displayImageOptionsCompat), imageLoadingListener);
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void load(Context context, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
+        checkInit();
         ImageLoader.getInstance().loadImage(str, adapter(displayImageOptionsCompat), imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public void load(ImageView imageView, Object obj) {
+        checkInit();
         ImageLoader.getInstance().displayImage(parseModel(obj), imageView);
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void load(ImageView imageView, Object obj, ImageLoadingListener imageLoadingListener) {
+        checkInit();
         ImageLoader.getInstance().displayImage(parseModel(obj), imageView, imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public void load(ImageView imageView, Object obj, AdTemplate adTemplate) {
+        checkInit();
         ImageLoader.getInstance().displayImage(parseModel(obj), imageView, new KSImageLoader.InnerImageLoadingListener(adTemplate, null));
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void load(KsFragment ksFragment, @NonNull Context context, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
+        checkInit();
         ImageLoader.getInstance().loadImage(str, adapter(displayImageOptionsCompat), imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2) {
+        checkInit();
         ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).build());
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f) {
+        checkInit();
         ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).displayer(new RoundedBitmapDisplayer(a.a(imageView.getContext(), f))).build());
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void pause() {
-        ImageLoader.getInstance().pause();
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void resume() {
-        ImageLoader.getInstance().resume();
     }
 }

@@ -1,70 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class o77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final m77 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements m77 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.m77
-        public void a(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                Intrinsics.checkNotNullParameter(map, "map");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985242, "Lcom/baidu/tieba/o77;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985242, "Lcom/baidu/tieba/o77;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public static final m77 a() {
-        InterceptResult invokeV;
+    public static final l77 a(List<n77> tabList, Map<String, String> businessInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tabList, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tabList, "tabList");
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            try {
+                String str = businessInfo.get("forum_id");
+                jd7.b(str, null, 1, null);
+                String str2 = businessInfo.get("thread_id");
+                jd7.b(str2, null, 1, null);
+                String str3 = businessInfo.get("from_tab_id");
+                jd7.b(str3, null, 1, null);
+                int parseInt = Integer.parseInt(str3);
+                String str4 = businessInfo.get("from_tab_name");
+                jd7.b(str4, null, 1, null);
+                return new l77(str, str2, parseInt, str4, tabList);
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return (m77) invokeV.objValue;
+        return (l77) invokeLL.objValue;
     }
 }

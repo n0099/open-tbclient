@@ -8,10 +8,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import com.baidu.tieba.fdc;
+import com.baidu.tieba.aic;
 import com.yy.transvod.player.log.TLog;
 import java.util.HashSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProcessLifecycleOwnerInitializer extends ContentProvider implements Application.ActivityLifecycleCallbacks {
     public HashSet<Integer> a = new HashSet<>();
 
@@ -78,7 +78,7 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider implements
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         TLog.g(this, "onActivityStarted " + activity);
-        fdc.a(true);
+        aic.a(true);
         this.a.add(Integer.valueOf(activity.hashCode()));
     }
 
@@ -86,7 +86,7 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider implements
     public void onActivityStopped(Activity activity) {
         TLog.g(this, "onActivityStopped " + activity);
         if (this.a.contains(Integer.valueOf(activity.hashCode()))) {
-            fdc.a(false);
+            aic.a(false);
             this.a.remove(Integer.valueOf(activity.hashCode()));
         }
     }

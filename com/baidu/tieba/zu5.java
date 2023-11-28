@@ -1,185 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zu5 {
+public class zu5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<yu5> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948372463, "Lcom/baidu/tieba/zu5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948372463, "Lcom/baidu/tieba/zu5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948372463, "Lcom/baidu/tieba/zu5;")) == null) {
+            return;
         }
-        b = new a(null);
-    }
-
-    public /* synthetic */ zu5(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final zu5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (zu5) invokeV.objValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final zu5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (zu5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final zu5 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-219823119, "Lcom/baidu/tieba/zu5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-219823119, "Lcom/baidu/tieba/zu5$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new zu5(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final zu5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (zu5) invokeV.objValue;
-        }
-    }
-
-    public zu5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new ArrayList<>();
-    }
-
-    public final void a(yu5 provider) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, provider) == null) {
-            Intrinsics.checkNotNullParameter(provider, "provider");
-            if (this.a.contains(provider)) {
-                return;
-            }
-            this.a.add(provider);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948372463, "Lcom/baidu/tieba/zu5;");
         }
     }
 
-    public final void d(yu5 provider) {
+    public static void a(int i, int i2) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, provider) == null) {
-            Intrinsics.checkNotNullParameter(provider, "provider");
-            this.a.remove(provider);
+        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
+            int i3 = 1;
+            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            StatisticItem statisticItem = new StatisticItem("c10605");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!z) {
+                i3 = 2;
+            }
+            statisticItem.param("obj_id", i3);
+            if (z) {
+                statisticItem.param("obj_locate", i);
+            } else {
+                statisticItem.param("obj_param1", i2);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final String c(String viewId, String str) {
-        InterceptResult invokeLL;
-        String c;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewId, str)) == null) {
-            Intrinsics.checkNotNullParameter(viewId, "viewId");
-            for (yu5 yu5Var : this.a) {
-                if (yu5Var.a().contains(viewId)) {
-                    av5 b2 = yu5Var.b(viewId, str);
-                    if (b2 == null || (c = b2.c()) == null) {
-                        return av5.f.a().c();
-                    }
-                    return c;
-                }
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
+            int i = 1;
+            a = true;
+            StatisticItem statisticItem = new StatisticItem("c14994");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual() || (TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getVirtualImageUrl()) && TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getDynamicVirtualImageUrl()))) {
+                i = 2;
             }
-            return av5.f.a().c();
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14998");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_source", 2);
+            statisticItem.param("obj_locate", 2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14998");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_source", 1);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14998");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_source", 2);
+            statisticItem.param("obj_locate", 1);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

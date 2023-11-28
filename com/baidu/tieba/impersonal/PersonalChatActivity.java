@@ -17,10 +17,11 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bsb;
-import com.baidu.tieba.et5;
+import com.baidu.tieba.ee9;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.m79;
+import com.baidu.tieba.mt5;
+import com.baidu.tieba.xwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0006\u0018\u0000 52\u00020\u00012\u00020\u0002:\u00015B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0010\u001a\u00020\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u000fH\u0016J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u0014\u0010\u0014\u001a\u0004\u0018\u00010\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0016J\b\u0010\u0018\u001a\u00020\u0005H\u0016J\"\u0010\u0019\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\r2\u0006\u0010\u001b\u001a\u00020\r2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0014J\u0010\u0010\u001e\u001a\u00020\u000f2\u0006\u0010\u001f\u001a\u00020\rH\u0014J\u0012\u0010 \u001a\u00020\u000f2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0014J\b\u0010#\u001a\u00020\u000fH\u0014J\u0018\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\r2\u0006\u0010'\u001a\u00020(H\u0016J\u0010\u0010)\u001a\u00020\u000f2\u0006\u0010*\u001a\u00020%H\u0014J\b\u0010+\u001a\u00020\u000fH\u0014J-\u0010,\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\r2\u000e\u0010-\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00130.2\u0006\u0010/\u001a\u000200H\u0016¢\u0006\u0002\u00101J\b\u00102\u001a\u00020\u000fH\u0014J\u0010\u00103\u001a\u00020\u000f2\u0006\u00104\u001a\u00020\"H\u0014R\u001b\u0010\u0004\u001a\u00020\u00058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\u0006\u0010\u0007R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00066"}, d2 = {"Lcom/baidu/tieba/impersonal/PersonalChatActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "Lcom/baidu/tbadk/core/voice/VoiceManager$IVoiceActivity;", "()V", "_voiceManager", "Lcom/baidu/tbadk/core/voice/VoiceManager;", "get_voiceManager", "()Lcom/baidu/tbadk/core/voice/VoiceManager;", "_voiceManager$delegate", "Lkotlin/Lazy;", "binding", "Lcom/baidu/tieba/impersonal/databinding/ActivityPersonalChatBinding;", "lastSkinType", "", "closeAnimation", "", "enterExitAnimation", "finish", "getCurrentPageKey", "", "getRealView", "", "m", "Lcom/baidu/tbadk/core/data/VoiceData$VoiceModel;", "getVoiceManager", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onKeyDown", "", "keyCode", "event", "Landroid/view/KeyEvent;", "onKeyboardVisibilityChanged", "isVisible", MissionEvent.MESSAGE_PAUSE, "onRequestPermissionsResult", "permissions", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onSaveInstanceState", "outState", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0006\u0018\u0000 52\u00020\u00012\u00020\u0002:\u00015B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0010\u001a\u00020\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u000fH\u0016J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u0014\u0010\u0014\u001a\u0004\u0018\u00010\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0016J\b\u0010\u0018\u001a\u00020\u0005H\u0016J\"\u0010\u0019\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\r2\u0006\u0010\u001b\u001a\u00020\r2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0014J\u0010\u0010\u001e\u001a\u00020\u000f2\u0006\u0010\u001f\u001a\u00020\rH\u0014J\u0012\u0010 \u001a\u00020\u000f2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0014J\b\u0010#\u001a\u00020\u000fH\u0014J\u0018\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\r2\u0006\u0010'\u001a\u00020(H\u0016J\u0010\u0010)\u001a\u00020\u000f2\u0006\u0010*\u001a\u00020%H\u0014J\b\u0010+\u001a\u00020\u000fH\u0014J-\u0010,\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\r2\u000e\u0010-\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00130.2\u0006\u0010/\u001a\u000200H\u0016¢\u0006\u0002\u00101J\b\u00102\u001a\u00020\u000fH\u0014J\u0010\u00103\u001a\u00020\u000f2\u0006\u00104\u001a\u00020\"H\u0014R\u001b\u0010\u0004\u001a\u00020\u00058BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\u0006\u0010\u0007R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00066"}, d2 = {"Lcom/baidu/tieba/impersonal/PersonalChatActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "Lcom/baidu/tbadk/core/voice/VoiceManager$IVoiceActivity;", "()V", "_voiceManager", "Lcom/baidu/tbadk/core/voice/VoiceManager;", "get_voiceManager", "()Lcom/baidu/tbadk/core/voice/VoiceManager;", "_voiceManager$delegate", "Lkotlin/Lazy;", "binding", "Lcom/baidu/tieba/impersonal/databinding/ActivityPersonalChatBinding;", "lastSkinType", "", "closeAnimation", "", "enterExitAnimation", "finish", "getCurrentPageKey", "", "getRealView", "", "m", "Lcom/baidu/tbadk/core/data/VoiceData$VoiceModel;", "getVoiceManager", "onActivityResult", AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onKeyDown", "", "keyCode", "event", "Landroid/view/KeyEvent;", "onKeyboardVisibilityChanged", "isVisible", MissionEvent.MESSAGE_PAUSE, "onRequestPermissionsResult", "permissions", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onSaveInstanceState", "outState", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class PersonalChatActivity extends BaseFragmentActivity implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +68,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a096" : (String) invokeV.objValue;
     }
 
-    public Void m1(VoiceData.VoiceModel voiceModel) {
+    public Void l1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, voiceModel)) == null) {
@@ -99,14 +100,16 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             }
         }
 
-        public final void a(Context context, String str, String str2, String str3) {
+        public final void a(Context context, String str, String str2, String str3, String str4, String str5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, str3) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5}) == null) {
                 Intrinsics.checkNotNullParameter(context, "context");
                 Intent intent = new Intent(context, PersonalChatActivity.class);
                 intent.putExtra("key_sprite_talk_type", str);
                 intent.putExtra("key_sprite_talk_prologue", str2);
                 intent.putExtra("key_sprite_params_forumId", str3);
+                intent.putExtra("key_sprite_params_from", str4);
+                intent.putExtra("key_sprite_params_query", str5);
                 context.startActivity(intent);
             }
         }
@@ -172,22 +175,22 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         });
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager X0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return n1();
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager d1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return m1();
+        }
+        return (VoiceManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -198,7 +201,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         }
     }
 
-    public final VoiceManager n1() {
+    public final VoiceManager m1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -212,9 +215,9 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            n1().setIsUseMediaPlayer(false);
+            m1().setIsUseMediaPlayer(false);
             VoiceManager.setIsNeedBlackScreen(true);
-            X0().onDestory(getPageContext());
+            d1().onDestory(getPageContext());
         }
     }
 
@@ -223,7 +226,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            X0().onPause();
+            d1().onPause();
         }
     }
 
@@ -232,14 +235,14 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            X0().onResume(getPageContext());
-            X0().setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+            d1().onResume(getPageContext());
+            d1().setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public /* bridge */ /* synthetic */ VoiceManager.IPlayView J1(VoiceData.VoiceModel voiceModel) {
-        return (VoiceManager.IPlayView) m1(voiceModel);
+    public /* bridge */ /* synthetic */ VoiceManager.IPlayView V1(VoiceData.VoiceModel voiceModel) {
+        return (VoiceManager.IPlayView) l1(voiceModel);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -248,7 +251,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         if (interceptable == null || interceptable.invokeL(1048593, this, outState) == null) {
             Intrinsics.checkNotNullParameter(outState, "outState");
             super.onSaveInstanceState(outState);
-            X0().onSaveInstanceState(this);
+            d1().onSaveInstanceState(this);
         }
     }
 
@@ -371,7 +374,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                et5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f0906e6, personalChatFragment);
+                mt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090702, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
@@ -385,8 +388,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = bsb.b(str, 0);
-            m79.b((b == 1 || b == 2) ? true : true);
+            int b = xwb.b(str, 0);
+            ee9.c((b == 1 || b == 2) ? true : true);
         }
     }
 

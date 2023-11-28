@@ -1,0 +1,45 @@
+package com.kwad.sdk.core.f.b;
+
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.samsung.android.deviceidservice.IDeviceIdService;
+/* loaded from: classes10.dex */
+public interface e extends IInterface {
+
+    /* loaded from: classes10.dex */
+    public static class a implements e {
+        public IBinder avc;
+
+        public a(IBinder iBinder) {
+            this.avc = iBinder;
+        }
+
+        @Override // android.os.IInterface
+        public final IBinder asBinder() {
+            return this.avc;
+        }
+
+        public final String getID() {
+            Parcel obtain = Parcel.obtain();
+            Parcel obtain2 = Parcel.obtain();
+            try {
+                obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
+                this.avc.transact(1, obtain, obtain2, 0);
+                obtain2.readException();
+                String readString = obtain2.readString();
+                obtain2.recycle();
+                obtain.recycle();
+                return readString;
+            } catch (Exception unused) {
+                obtain2.recycle();
+                obtain.recycle();
+                return null;
+            } catch (Throwable th) {
+                obtain2.recycle();
+                obtain.recycle();
+                throw th;
+            }
+        }
+    }
+}

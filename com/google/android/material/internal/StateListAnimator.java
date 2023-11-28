@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StateListAnimator {
     public final ArrayList<Tuple> tuples = new ArrayList<>();
     @Nullable
@@ -26,7 +26,7 @@ public final class StateListAnimator {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Tuple {
         public final ValueAnimator animator;
         public final int[] specs;

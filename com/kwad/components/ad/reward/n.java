@@ -1,20 +1,39 @@
 package com.kwad.components.ad.reward;
-
-import android.content.Context;
-import com.kwad.components.core.page.DownloadLandPageActivity;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes10.dex */
 public final class n {
-    public static void g(k kVar) {
-        com.kwad.components.core.playable.a aVar;
-        AdTemplate adTemplate = kVar.mAdTemplate;
-        Context context = kVar.mContext;
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-        if ((com.kwad.sdk.core.response.a.a.aY(bQ) && (aVar = kVar.mk) != null && aVar.od()) || com.kwad.sdk.core.response.a.b.bg(adTemplate) || com.kwad.components.ad.reward.kwai.b.j(bQ) || adTemplate.mXiaomiAppStoreDetailViewOpen || !com.kwad.sdk.core.response.a.a.am(bQ) || !com.kwad.sdk.core.response.a.a.aa(bQ) || adTemplate.hasEnterAdWebViewLandPageActivity) {
-            return;
+    public static void a(int i, int i2, g gVar, com.kwad.components.ad.reward.model.c cVar) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    if (i2 == 0) {
+                        if (gVar.pp.jz()) {
+                            com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 1);
+                            return;
+                        }
+                        return;
+                    } else if (gVar.pp.jz()) {
+                        com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 3);
+                        return;
+                    } else {
+                        com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 2);
+                        return;
+                    }
+                }
+                return;
+            } else if (i2 == 0) {
+                if (gVar.pq.jz()) {
+                    com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 1);
+                    return;
+                }
+                return;
+            } else if (gVar.pq.jz()) {
+                com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 5);
+                return;
+            } else {
+                com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 4);
+                return;
+            }
         }
-        kVar.mAdTemplate.hasEnterAdWebViewLandPageActivity = true;
-        DownloadLandPageActivity.launch(context, adTemplate, true);
+        com.kwad.sdk.core.report.a.o(cVar.getAdTemplate(), 1);
     }
 }

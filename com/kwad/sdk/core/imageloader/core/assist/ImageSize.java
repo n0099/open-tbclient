@@ -29,19 +29,19 @@ public class ImageSize {
         return this.width;
     }
 
-    public ImageSize scale(float f) {
-        return new ImageSize((int) (this.width * f), (int) (this.height * f));
-    }
-
-    public ImageSize scaleDown(int i) {
-        return new ImageSize(this.width / i, this.height / i);
-    }
-
     public String toString() {
         StringBuilder sb = new StringBuilder(9);
         sb.append(this.width);
         sb.append("x");
         sb.append(this.height);
         return sb.toString();
+    }
+
+    public ImageSize scale(float f) {
+        return new ImageSize((int) (this.width * f), (int) (this.height * f));
+    }
+
+    public ImageSize scaleDown(int i) {
+        return new ImageSize(this.width / i, this.height / i);
     }
 }

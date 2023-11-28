@@ -1,24 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.mjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes8.dex */
-public class ulc implements wjc {
+public final class ulc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wjc a;
-    public final mjc.a b;
-    public final long c;
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
 
-    public ulc(wjc wjcVar, mjc.a aVar, long j) {
+    /* renamed from: T  reason: collision with root package name */
+    public int f1158T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final llc c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final rlc k;
+    public final rlc l;
+    public final rlc m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
+
+    public ulc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wjcVar, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,30 +80,80 @@ public class ulc implements wjc {
                 return;
             }
         }
-        this.a = wjcVar;
-        this.b = aVar;
-        this.c = j;
+        this.a = 0;
+        this.c = new llc();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new rlc();
+        this.l = new rlc();
+        this.m = new rlc();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.f1158T = 0;
     }
 
-    @Override // com.baidu.tieba.wjc
-    public void call() {
+    public static void a(ulc ulcVar) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-            return;
-        }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                vjc.c(e);
-                throw null;
+        if (interceptable == null || interceptable.invokeL(65537, null, ulcVar) == null) {
+            int i = ulcVar.a;
+            if (i != 0) {
+                if (i == 11) {
+                    return;
+                }
+                ulcVar.a = 11;
+                llc.b(ulcVar.c);
+                return;
             }
+            throw new IllegalStateException("State MUST be initialized");
         }
-        if (this.b.isUnsubscribed()) {
-            return;
+    }
+
+    public static int b(llc llcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, llcVar)) == null) {
+            if (llc.i(llcVar, 1) == 0) {
+                return 16;
+            }
+            int i = llc.i(llcVar, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = llc.i(llcVar, 3);
+            if (i2 == 0) {
+                return 17;
+            }
+            return i2 + 8;
         }
-        this.a.call();
+        return invokeL.intValue;
+    }
+
+    public static void c(ulc ulcVar, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, ulcVar, inputStream) == null) {
+            if (ulcVar.a == 0) {
+                llc.e(ulcVar.c, inputStream);
+                int b = b(ulcVar.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    ulcVar.P = i;
+                    ulcVar.O = i - 16;
+                    ulcVar.a = 1;
+                    return;
+                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+            }
+            throw new IllegalStateException("State MUST be uninitialized");
+        }
     }
 }

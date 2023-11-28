@@ -1,46 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes7.dex */
-public class m97 {
+public final class m97 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927582, "Lcom/baidu/tieba/m97;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final x57 a(r57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = "";
+            if (Intrinsics.areEqual(businessInfo.a().get("update_read_status"), "1")) {
+                String str2 = businessInfo.a().get("thread_id");
+                if (str2 != null) {
+                    str = str2;
+                }
+                if (tl6.k(str)) {
+                    return new x57(2, str);
+                }
+                return new x57(1, str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927582, "Lcom/baidu/tieba/m97;");
-                return;
-            }
+            return new x57(0, "");
         }
-        HashMap<String, Class> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("common_icon", n97.class);
-        a.put("emoji", p97.class);
-        a.put("tie_plus", t97.class);
-        a.put("text_with_hollow_bg", s97.class);
-        a.put("text_with_bg", r97.class);
-        a.put("common_text", o97.class);
+        return (x57) invokeL.objValue;
     }
 
-    public static HashMap<String, Class> a() {
-        InterceptResult invokeV;
+    public static final void b(TitleComponent titleComponent, List<nb7<?>> dataList, SpannableStringBuilder titleBuilder, n67 feedExtraData, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            u47 u47Var = new u47(titleBuilder, z, a(feedExtraData.a()));
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                l97.a(list, titleBuilder, feedExtraData, u47Var);
+            }
+            if (titleBuilder.length() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                dataList.add(new ob7(u47Var, "title"));
+            }
         }
-        return (HashMap) invokeV.objValue;
     }
 }

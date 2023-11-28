@@ -59,20 +59,20 @@ public final class LayoutChatMessageBubbleBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0902e6;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902e6);
+            int i = R.id.obfuscated_res_0x7f0902fa;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902fa);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f0902eb;
-                Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f0902eb);
+                i = R.id.obfuscated_res_0x7f0902ff;
+                Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f0902ff);
                 if (space != null) {
-                    i = R.id.obfuscated_res_0x7f090806;
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090806);
+                    i = R.id.obfuscated_res_0x7f090822;
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090822);
                     if (eMTextView != null) {
-                        i = R.id.obfuscated_res_0x7f09174b;
-                        TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09174b);
+                        i = R.id.obfuscated_res_0x7f0917bc;
+                        TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917bc);
                         if (tbImageView2 != null) {
-                            i = R.id.obfuscated_res_0x7f091ff6;
-                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091ff6);
+                            i = R.id.obfuscated_res_0x7f09206d;
+                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09206d);
                             if (findViewById != null) {
                                 return new LayoutChatMessageBubbleBinding(view2, tbImageView, space, eMTextView, tbImageView2, findViewById);
                             }
@@ -91,7 +91,7 @@ public final class LayoutChatMessageBubbleBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d052b, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0543, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

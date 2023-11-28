@@ -9,11 +9,11 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.tieba.adnotify.receiver.NotInstallNotificationReceiver;
-import com.baidu.tieba.bx3;
 import com.baidu.tieba.cx3;
-import com.baidu.tieba.gj3;
-import com.baidu.tieba.sw3;
-import com.baidu.tieba.yw3;
+import com.baidu.tieba.dx3;
+import com.baidu.tieba.hj3;
+import com.baidu.tieba.tw3;
+import com.baidu.tieba.zw3;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -56,7 +56,7 @@ public class InstallActivity extends Activity {
     }
 
     public static boolean b(WeakReference<Activity> weakReference, String str, String str2, String str3) {
-        return sw3.t().u(weakReference.get(), str, str2, str3);
+        return tw3.t().u(weakReference.get(), str, str2, str3);
     }
 
     @Override // android.app.Activity
@@ -64,13 +64,13 @@ public class InstallActivity extends Activity {
         super.onActivityResult(i, i2, intent);
         if (i == 1345431) {
             if (i2 == -1 && !TextUtils.isEmpty(this.d)) {
-                if (yw3.g(AppRuntime.getAppContext(), this.d) && yw3.k(AppRuntime.getAppContext(), this.d)) {
-                    cx3.n().h("openAtOnce", new bx3(this.e), this.d, this.f, this.c);
+                if (zw3.g(AppRuntime.getAppContext(), this.d) && zw3.k(AppRuntime.getAppContext(), this.d)) {
+                    dx3.n().h("openAtOnce", new cx3(this.e), this.d, this.f, this.c);
                 }
             } else if (i2 == 0) {
-                cx3.n().h("installCancel", new bx3(this.e), this.d, this.f, this.c);
+                dx3.n().h("installCancel", new cx3(this.e), this.d, this.f, this.c);
             } else if (i2 == 1 && intent != null) {
-                cx3.n().g("installFailed", new bx3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
+                dx3.n().g("installFailed", new cx3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
             }
         }
         finish();
@@ -83,7 +83,7 @@ public class InstallActivity extends Activity {
         if (extras != null) {
             this.c = extras.getString(NotInstallNotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_URL);
             this.d = extras.getString("key_download_package_name");
-            this.e = gj3.d(extras.getString("ubc_params", ""));
+            this.e = hj3.d(extras.getString("ubc_params", ""));
             this.f = extras.getString(DownloadConstants.DOWNLOAD_PARAMS);
         }
         g.execute(new b(this, this.c, this.d, this.f));
@@ -96,8 +96,8 @@ public class InstallActivity extends Activity {
             int i = this.a + 1;
             this.a = i;
             if (i > 1) {
-                if (!yw3.g(AppRuntime.getAppContext(), this.d)) {
-                    cx3.n().h("installCancel", new bx3(this.e), this.d, this.f, this.c);
+                if (!zw3.g(AppRuntime.getAppContext(), this.d)) {
+                    dx3.n().h("installCancel", new cx3(this.e), this.d, this.f, this.c);
                 }
                 finish();
             }

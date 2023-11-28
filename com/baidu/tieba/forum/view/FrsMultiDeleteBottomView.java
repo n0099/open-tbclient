@@ -108,8 +108,8 @@ public final class FrsMultiDeleteBottomView extends LinearLayout implements View
         FrsMultiDeleteBottomLayoutBinding b = FrsMultiDeleteBottomLayoutBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b, "inflate(LayoutInflater.from(context), this)");
         this.b = b;
-        b.d.setText(R.string.obfuscated_res_0x7f0f03d3);
-        this.b.c.setText(R.string.obfuscated_res_0x7f0f0553);
+        b.d.setText(R.string.obfuscated_res_0x7f0f03db);
+        this.b.c.setText(R.string.obfuscated_res_0x7f0f055b);
         this.b.f.setText(R.string.delete_and_forbidden_one_day);
         this.b.d.setOnClickListener(this);
         this.b.c.setOnClickListener(this);
@@ -184,11 +184,11 @@ public final class FrsMultiDeleteBottomView extends LinearLayout implements View
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.a = z;
             if (z) {
-                this.b.c.setText(R.string.obfuscated_res_0x7f0f1418);
+                this.b.c.setText(R.string.obfuscated_res_0x7f0f1428);
                 this.b.f.setText(R.string.shield_and_forbidden_one_day);
                 return;
             }
-            this.b.c.setText(R.string.obfuscated_res_0x7f0f0553);
+            this.b.c.setText(R.string.obfuscated_res_0x7f0f055b);
             this.b.f.setText(R.string.delete_and_forbidden_one_day);
         }
     }
@@ -217,10 +217,10 @@ public final class FrsMultiDeleteBottomView extends LinearLayout implements View
     public final void setSelectNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0553);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f055b);
             Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.delete)");
             if (this.a) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1418);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1428);
                 Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.shield)");
             }
             if (i > 0) {

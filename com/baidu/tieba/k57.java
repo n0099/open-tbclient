@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,77 +12,45 @@ import kotlin.jvm.internal.Intrinsics;
 public final class k57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final String b;
+    public final SpannableStringBuilder a;
+    public SpannableStringBuilder b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof k57) {
-                k57 k57Var = (k57) obj;
-                return this.a == k57Var.a && Intrinsics.areEqual(this.b, k57Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CardReadStatus(readStatus=" + this.a + ", tid=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public k57(int i, String tid) {
+    public k57(SpannableStringBuilder titleBuilder, SpannableStringBuilder abstractBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tid};
+            Object[] objArr = {titleBuilder, abstractBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = i;
-        this.b = tid;
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        Intrinsics.checkNotNullParameter(abstractBuilder, "abstractBuilder");
+        this.a = titleBuilder;
+        this.b = abstractBuilder;
     }
 
-    public final boolean a() {
+    public final SpannableStringBuilder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 2) {
-                return true;
-            }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public final void b(boolean z) {
+    public final SpannableStringBuilder b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a != 0 && z) {
-            this.a = 2;
-            jl6.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 }

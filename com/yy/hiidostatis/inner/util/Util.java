@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Util {
     public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
     public static volatile Locale locale;

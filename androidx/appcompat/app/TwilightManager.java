@@ -10,7 +10,7 @@ import androidx.annotation.RequiresPermission;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.PermissionChecker;
 import com.heytap.mcssdk.constant.a;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class TwilightManager {
@@ -46,7 +46,7 @@ public class TwilightManager {
         return sInstance;
     }
 
-    @RequiresPermission(anyOf = {h.h, h.g})
+    @RequiresPermission(anyOf = {g.h, g.g})
     private Location getLastKnownLocationForProvider(String str) {
         try {
             if (this.mLocationManager.isProviderEnabled(str)) {
@@ -68,12 +68,12 @@ public class TwilightManager {
     private Location getLastKnownLocation() {
         Location location;
         Location location2 = null;
-        if (PermissionChecker.checkSelfPermission(this.mContext, h.h) == 0) {
+        if (PermissionChecker.checkSelfPermission(this.mContext, g.h) == 0) {
             location = getLastKnownLocationForProvider("network");
         } else {
             location = null;
         }
-        if (PermissionChecker.checkSelfPermission(this.mContext, h.g) == 0) {
+        if (PermissionChecker.checkSelfPermission(this.mContext, g.g) == 0) {
             location2 = getLastKnownLocationForProvider("gps");
         }
         if (location2 != null && location != null) {

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.OpReorderer;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -74,7 +74,7 @@ public class AdapterHelper implements OpReorderer.Callback {
                     }
                     return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
                 }
-                return u.B;
+                return t.w;
             }
             return "add";
         }

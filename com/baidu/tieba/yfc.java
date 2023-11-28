@@ -1,11 +1,51 @@
 package com.baidu.tieba;
+
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public interface yfc {
-    void a(String str, String str2);
+public abstract class yfc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    void b(String str, String str2);
+    public abstract void f(Bundle bundle);
 
-    void c(String str, String str2);
+    public abstract boolean g(Bundle bundle);
 
-    void d(String str, String str2);
+    public abstract String h(Bundle bundle);
+
+    public abstract void i(String str);
+
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public final zfc<String> m(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return xfc.f.a().j(this.a, str);
+                }
+            }
+            return new zfc<>(false, "sendData2MainProcessForStr null");
+        }
+        return (zfc) invokeL.objValue;
+    }
 }

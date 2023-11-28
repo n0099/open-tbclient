@@ -74,8 +74,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     /* loaded from: classes.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690913;
-        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690917;
+        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690921;
+        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690925;
         public static HashMap<String, Builder> sBuilderMap;
         public static ArrayList sDialogList;
         public transient /* synthetic */ FieldHolder $fh;
@@ -830,22 +830,22 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092620);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f3);
-            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e8);
-            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908e9);
-            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091d6e);
-            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091989);
-            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09199e);
-            this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f090928);
-            this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f090929);
-            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908de);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908e2);
-            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921a7);
-            this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f090927);
-            this.mScrollView = (BoxScrollView) findViewById(R.id.obfuscated_res_0x7f0917bd);
-            this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904fe);
-            this.mDialogCustomPanel = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908dd);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926a5);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09090f);
+            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f090904);
+            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090905);
+            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fc);
+            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091a11);
+            this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f090946);
+            this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f090947);
+            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908fa);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908fe);
+            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f090945);
+            this.mScrollView = (BoxScrollView) findViewById(R.id.obfuscated_res_0x7f09182e);
+            this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090519);
+            this.mDialogCustomPanel = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f9);
             this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d7);
             if (this.mBuilder.mScrollViewHeight > 0) {
                 this.mScrollView.getLayoutParams().height = this.mBuilder.mScrollViewHeight;
@@ -864,7 +864,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             int d = z.d(this);
             super.onCreate(bundle);
             z.a(this, d);
-            setContentView(R.layout.obfuscated_res_0x7f0d08ac);
+            setContentView(R.layout.obfuscated_res_0x7f0d08c6);
             getWindow().setLayout(-1, -1);
             Intent intent = getIntent();
             if (intent != null) {
@@ -957,7 +957,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
             linearLayout.setVisibility(i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908e9);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090905);
             this.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
     }
@@ -971,7 +971,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.mDialogContent.addView(view2);
                 this.mMessageContent.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908dd);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908f9);
                 this.mBtnPanelLayout.setLayoutParams(layoutParams);
             }
         }
@@ -1120,24 +1120,24 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             Resources resources = getResources();
             if (isValidView() && resources != null) {
-                int color = resources.getColor(R.color.obfuscated_res_0x7f060721);
-                int color2 = resources.getColor(R.color.obfuscated_res_0x7f0604c8);
-                int color3 = resources.getColor(R.color.obfuscated_res_0x7f06071e);
-                this.mDialogLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080599));
+                int color = resources.getColor(R.color.obfuscated_res_0x7f060723);
+                int color2 = resources.getColor(R.color.obfuscated_res_0x7f0604ca);
+                int color3 = resources.getColor(R.color.obfuscated_res_0x7f060720);
+                this.mDialogLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08059c));
                 this.mTitle.setTextColor(color);
                 this.mMessage.setTextColor(color2);
                 this.mPositiveButton.setTextColor(color);
-                this.mPositiveButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08020f));
+                this.mPositiveButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080212));
                 this.mNegativeButton.setTextColor(color);
-                this.mNegativeButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08020e));
+                this.mNegativeButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080211));
                 this.mNeutralButton.setTextColor(color);
-                this.mNeutralButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080210));
+                this.mNeutralButton.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080213));
                 this.mDivider2.setBackgroundColor(color3);
                 this.mDivider3.setBackgroundColor(color3);
                 this.mDivider4.setBackgroundColor(color3);
                 TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
                 if (ifOnlyOneBtnGetIt != null) {
-                    ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08020d));
+                    ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080210));
                     return;
                 }
                 return;

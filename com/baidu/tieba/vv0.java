@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public vv0() {
         Interceptable interceptable = $ic;
@@ -27,43 +23,5 @@ public class vv0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static vv0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                vv0 vv0Var = new vv0();
-                jSONObject.optString("type_text");
-                jSONObject.optString("text");
-                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
-                jSONObject.optString("cmd");
-                return vv0Var;
-            }
-            return null;
-        }
-        return (vv0) invokeL.objValue;
-    }
-
-    public static List<vv0> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        vv0 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (a = a(optJSONObject)) != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
     }
 }

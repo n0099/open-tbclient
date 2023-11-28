@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.rx4;
+import com.baidu.tieba.tx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -317,7 +317,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<rx4> f;
+        public ArrayList<tx4> f;
         public String g;
         public int h;
         public String i;
@@ -390,9 +390,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                                rx4 rx4Var = new rx4();
-                                rx4Var.c(optJSONArray.optJSONObject(i4));
-                                this.f.add(rx4Var);
+                                tx4 tx4Var = new tx4();
+                                tx4Var.c(optJSONArray.optJSONObject(i4));
+                                this.f.add(tx4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -446,14 +446,15 @@ public class ForumManageModel extends BdBaseModel {
                 gVar.d = this.b;
                 gVar.e = this.c;
                 gVar.f = this.d;
+                gVar.g = this.g;
                 gVar.a = bool.booleanValue();
                 if (bool.booleanValue()) {
                     int i = this.e;
                     if (i == 6) {
                         gVar.c = this.f;
                     } else if (i == 4) {
-                        gVar.g = this.h;
-                        gVar.h = this.i;
+                        gVar.h = this.h;
+                        gVar.i = this.i;
                     }
                 } else {
                     gVar.b = this.a.getErrorString();
@@ -469,12 +470,13 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<rx4> c;
+        public ArrayList<tx4> c;
         public String d;
         public String e;
         public String f;
-        public int g;
-        public String h;
+        public String g;
+        public int h;
+        public String i;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;

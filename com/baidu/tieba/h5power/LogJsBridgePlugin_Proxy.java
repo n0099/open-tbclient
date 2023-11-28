@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.msa;
-import com.baidu.tieba.nsa;
-import com.baidu.tieba.osa;
-import com.baidu.tieba.qsa;
-import com.baidu.tieba.rs4;
+import com.baidu.tieba.exa;
+import com.baidu.tieba.fxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.mj6;
+import com.baidu.tieba.ss4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class LogJsBridgePlugin_Proxy extends msa {
+public class LogJsBridgePlugin_Proxy extends exa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rs4 mJsBridge;
+    public ss4 mJsBridge;
 
-    public LogJsBridgePlugin_Proxy(rs4 rs4Var) {
+    public LogJsBridgePlugin_Proxy(ss4 ss4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rs4Var};
+            Object[] objArr = {ss4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,90 +42,90 @@ public class LogJsBridgePlugin_Proxy extends msa {
                 return;
             }
         }
-        this.mJsBridge = rs4Var;
+        this.mJsBridge = ss4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("getPageLeaveTime");
     }
 
-    @Override // com.baidu.tieba.msa
-    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
+    @Override // com.baidu.tieba.exa
+    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, qsaVar, osaVar)) == null) {
-            if (osaVar == null) {
-                osaVar = new osa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ixaVar, gxaVar)) == null) {
+            if (gxaVar == null) {
+                gxaVar = new gxa();
             }
-            String b = qsaVar.b();
-            JSONObject e = qsaVar.e();
+            String b = ixaVar.b();
+            JSONObject e = ixaVar.e();
             if (b.equals("log/LocalYaLog")) {
-                osaVar.s(true);
-                osa c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
+                gxaVar.s(true);
+                gxa c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
                 if (c != null) {
-                    osaVar.y(c.f());
-                    osaVar.u(c.b());
-                    osaVar.o(c.a());
-                    osaVar.x(c.e());
+                    gxaVar.y(c.f());
+                    gxaVar.u(c.b());
+                    gxaVar.o(c.a());
+                    gxaVar.x(c.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("log/statisticLog")) {
-                osaVar.s(true);
-                osa e2 = this.mJsBridge.e(webView, e.optString("logKey"), e.optJSONObject("logParams"));
+                gxaVar.s(true);
+                gxa e2 = this.mJsBridge.e(webView, e.optString("logKey"), e.optJSONObject("logParams"));
                 if (e2 != null) {
-                    osaVar.y(e2.f());
-                    osaVar.u(e2.b());
-                    osaVar.o(e2.a());
-                    osaVar.x(e2.e());
+                    gxaVar.y(e2.f());
+                    gxaVar.u(e2.b());
+                    gxaVar.o(e2.a());
+                    gxaVar.x(e2.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             }
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.msa
-    public dj6 getJsBridge() {
+    @Override // com.baidu.tieba.exa
+    public mj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (dj6) invokeV.objValue;
+        return (mj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.msa
-    public List<osa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.exa
+    public List<gxa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            osa osaVar = null;
+            gxa gxaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("getPageLeaveTime")) {
-                osaVar = this.mJsBridge.d(webView, hashMap);
+                gxaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (osaVar != null) {
-                osaVar.z(0);
+            if (gxaVar != null) {
+                gxaVar.z(0);
             }
-            List<nsa> list = this.mAsyncCallBackMethodList.get(str);
-            if (osaVar != null && list != null) {
-                Iterator<nsa> it = list.iterator();
-                if (!TextUtils.isEmpty(osaVar.e())) {
+            List<fxa> list = this.mAsyncCallBackMethodList.get(str);
+            if (gxaVar != null && list != null) {
+                Iterator<fxa> it = list.iterator();
+                if (!TextUtils.isEmpty(gxaVar.e())) {
                     while (it.hasNext()) {
-                        nsa next = it.next();
-                        if (next.b().equals(osaVar.e())) {
-                            osa osaVar2 = new osa();
-                            osaVar2.w(next.a());
-                            osaVar2.y(osaVar.f());
-                            osaVar2.u(osaVar.b());
-                            osaVar2.o(osaVar.a());
-                            osaVar2.j = osaVar.j;
-                            osaVar2.A(osaVar.l());
-                            arrayList.add(osaVar2);
+                        fxa next = it.next();
+                        if (next.b().equals(gxaVar.e())) {
+                            gxa gxaVar2 = new gxa();
+                            gxaVar2.w(next.a());
+                            gxaVar2.y(gxaVar.f());
+                            gxaVar2.u(gxaVar.b());
+                            gxaVar2.o(gxaVar.a());
+                            gxaVar2.j = gxaVar.j;
+                            gxaVar2.A(gxaVar.l());
+                            arrayList.add(gxaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -133,15 +133,15 @@ public class LogJsBridgePlugin_Proxy extends msa {
                     }
                 } else {
                     while (it.hasNext()) {
-                        nsa next2 = it.next();
-                        osa osaVar3 = new osa();
-                        osaVar3.w(next2.a());
-                        osaVar3.y(osaVar.f());
-                        osaVar3.u(osaVar.b());
-                        osaVar3.o(osaVar.a());
-                        osaVar3.j = osaVar.j;
-                        osaVar3.A(osaVar.l());
-                        arrayList.add(osaVar3);
+                        fxa next2 = it.next();
+                        gxa gxaVar3 = new gxa();
+                        gxaVar3.w(next2.a());
+                        gxaVar3.y(gxaVar.f());
+                        gxaVar3.u(gxaVar.b());
+                        gxaVar3.o(gxaVar.a());
+                        gxaVar3.j = gxaVar.j;
+                        gxaVar3.A(gxaVar.l());
+                        arrayList.add(gxaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

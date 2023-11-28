@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class na4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ma4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static synchronized ma4 a() {
+        InterceptResult invokeV;
+        ma4 ma4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995720, "Lcom/baidu/tieba/na4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (na4.class) {
+                if (a == null) {
+                    a = new ma4();
+                }
+                ma4Var = a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947995720, "Lcom/baidu/tieba/na4;");
-                return;
-            }
+            return ma4Var;
         }
-        SDKInitializer.initialize(AppRuntime.getAppContext());
-        SDKInitializer.setCoordType(CoordType.GCJ02);
-        SDKInitializer.setHttpsEnable(true);
+        return (ma4) invokeV.objValue;
     }
 }

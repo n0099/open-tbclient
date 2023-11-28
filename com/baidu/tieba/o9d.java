@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.TbreadDispatch;
 /* loaded from: classes7.dex */
-public class o9d {
+public class o9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public o9d() {
+    @NonNull
+    public static JSONObject b(@NonNull TbreadDispatch tbreadDispatch) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbreadDispatch)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "floor_num", tbreadDispatch.floor_num);
+            ltc.a(jSONObject, "product_type", tbreadDispatch.product_type);
+            ltc.a(jSONObject, "product_id", tbreadDispatch.product_id);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

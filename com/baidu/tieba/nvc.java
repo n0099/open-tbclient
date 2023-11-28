@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Good;
+import tbclient.BusinessAccountInfo;
 /* loaded from: classes7.dex */
-public class nvc extends qoc {
+public class nvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Good good) {
+    public static JSONObject b(@NonNull BusinessAccountInfo businessAccountInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, good)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessAccountInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "num", good.num);
+            ltc.a(jSONObject, IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT, businessAccountInfo.is_business_account);
+            ltc.a(jSONObject, "is_forum_business_account", businessAccountInfo.is_forum_business_account);
+            ltc.a(jSONObject, "business_name", businessAccountInfo.business_name);
+            ltc.a(jSONObject, "identifi_explain", businessAccountInfo.identifi_explain);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

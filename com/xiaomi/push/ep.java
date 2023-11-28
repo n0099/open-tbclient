@@ -58,7 +58,7 @@ public class ep extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ep mo463a(String str) {
+    public ep mo467a(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 bj.a((Object) this, "setColor", Integer.valueOf(Color.parseColor(str)));
@@ -74,12 +74,12 @@ public class ep extends Notification.Builder {
     }
 
     /* renamed from: a */
-    public void mo461a() {
+    public void mo465a() {
     }
 
     @Override // android.app.Notification.Builder
     public Notification build() {
-        mo461a();
+        mo465a();
         return super.build();
     }
 }

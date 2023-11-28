@@ -1,123 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.FrsPage.Size;
 /* loaded from: classes5.dex */
-public class cx4 {
+public class cx4 implements Comparable<cx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fx4> a;
-    public String b;
-    public ew4 c;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    public cx4() {
+    public cx4(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = i;
+        this.b = i2;
     }
 
-    public ew4 a() {
-        InterceptResult invokeV;
+    public static cx4 b(TbLinkSpanGroup tbLinkSpanGroup, y98 y98Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, y98Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            cx4 cx4Var = new cx4(tbLinkSpanGroup.e(), 2);
+            if (y98Var == null) {
+                return cx4Var;
+            }
+            if (TextUtils.isEmpty(y98Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+            } else {
+                str = y98Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+            }
+            cx4Var.d = str;
+            cx4Var.c = y98Var.c();
+            cx4Var.m = y98Var.a();
+            if (!ListUtils.isEmpty(y98Var.b()) && y98Var.b().get(0) != null) {
+                cx4Var.e = y98Var.b().get(0).a();
+            }
+            cx4Var.l = y98Var.f();
+            cx4Var.f = y98Var.d();
+            if (y98Var.e() != null) {
+                cx4Var.j = y98Var.e().a();
+                cx4Var.k = y98Var.e().b();
+            }
+            tbLinkSpanGroup.B(cx4Var);
+            return cx4Var;
         }
-        return (ew4) invokeV.objValue;
+        return (cx4) invokeLL.objValue;
     }
 
-    public ArrayList<fx4> b() {
-        InterceptResult invokeV;
+    public static cx4 c(TbLinkSpanGroup tbLinkSpanGroup, a75 a75Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, a75Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            boolean z = true;
+            cx4 cx4Var = new cx4(tbLinkSpanGroup.e(), 1);
+            if (a75Var == null) {
+                return cx4Var;
+            }
+            int i = a75Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = a75Var.j;
+                if (cardLinkInfoData != null) {
+                    cx4Var.p = cardLinkInfoData;
+                    cx4Var.c = cardLinkInfoData.title;
+                    cx4Var.e = cardLinkInfoData.imageUrl;
+                    cx4Var.l = cardLinkInfoData.tagText;
+                    cx4Var.g = cardLinkInfoData.url;
+                    cx4Var.i = false;
+                    cx4Var.o = i;
+                }
+            } else {
+                cx4Var.p = a75Var.j;
+                cx4Var.c = a75Var.e;
+                cx4Var.e = a75Var.d;
+                cx4Var.l = a75Var.f;
+                cx4Var.f = a75Var.g;
+                cx4Var.g = a75Var.c;
+                cx4Var.n = a75Var.h;
+                String str = a75Var.i;
+                if (i != 1 && i != 5) {
+                    z = false;
+                }
+                cx4Var.i = z;
+                cx4Var.o = a75Var.b;
+            }
+            tbLinkSpanGroup.B(cx4Var);
+            return cx4Var;
         }
-        return (ArrayList) invokeV.objValue;
+        return (cx4) invokeLL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull cx4 cx4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cx4Var)) == null) {
+            return this.q - cx4Var.q;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(ActivityHead activityHead, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
-            return;
-        }
-        activityHead.activity_type.intValue();
-        String str = activityHead.activity_title;
-        Size size = activityHead.top_size;
-        if (size != null) {
-            size.width.intValue();
-        }
-        Size size2 = activityHead.top_size;
-        if (size2 != null) {
-            size2.height.intValue();
-        }
-        this.b = activityHead.obj_id;
-        f(activityHead.head_imgs);
-        ew4 ew4Var = new ew4();
-        ew4Var.a = activityHead.pull_down_pic_android;
-        ew4Var.b = activityHead.pull_down_url;
-        ew4Var.c = activityHead.pull_down_interval.intValue();
-        ew4Var.d = activityHead.pull_down_exposure_url;
-        ew4Var.e = activityHead.pull_down_click_url;
-        ew4Var.f = activityHead.pull_down_schema;
-        ew4Var.g = activityHead.pull_down_package_name;
-        ew4Var.h = activityHead.is_ad.booleanValue();
-        ew4Var.i = activityHead.obj_id;
-        ew4Var.j = j;
-        this.c = ew4Var;
-    }
-
-    public void e(HeadImgs headImgs) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
-            return;
-        }
-        fx4 fx4Var = new fx4();
-        fx4Var.o(headImgs);
-        this.a.add(fx4Var);
-    }
-
-    public void f(List<HeadImgs> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (HeadImgs headImgs : list) {
-            e(headImgs);
-        }
-    }
-
-    public void g(ArrayList<fx4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.a = arrayList;
-        }
+        return invokeL.intValue;
     }
 }

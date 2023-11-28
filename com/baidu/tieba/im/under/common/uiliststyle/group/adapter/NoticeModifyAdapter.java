@@ -12,11 +12,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.NoticeModifySysItem;
-import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a24);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091092);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f11);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a27);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a26);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a99);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b4);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b9);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f31);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a9c);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9b);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -106,7 +106,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0203, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0209, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -141,13 +141,13 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                 holder.c.setText(tbMsg.getUserFrom().getUsername());
                 int role = tbMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0978);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0982);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f097b);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0985);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0970);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f1846);
-                vv8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f097a);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1856);
+                cz8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

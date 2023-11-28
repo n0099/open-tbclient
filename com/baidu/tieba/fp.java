@@ -1,71 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskEnvTag;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.ctrl.model.TaskStatusRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.TypeCastException;
+import java.util.HashSet;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class fp {
+public final class fp extends ep<TaskStatus> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, dp<? extends ITaskModelData>> a;
 
-    public fp() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskStatus.key : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fp(gp gpVar) {
+        super(gpVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((gp) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        mp mpVar = new mp(this);
-        this.a.put(mpVar.b(), mpVar);
-        ip ipVar = new ip(this);
-        this.a.put(ipVar.b(), ipVar);
-        np npVar = new np(this);
-        this.a.put(npVar.c(), npVar);
-        kp kpVar = new kp(this);
-        this.a.put(kpVar.b(), kpVar);
-        jp jpVar = new jp(this);
-        this.a.put(jpVar.c(), jpVar);
-        lp lpVar = new lp(this);
-        this.a.put(lpVar.b(), lpVar);
-        ep epVar = new ep(this);
-        this.a.put(epVar.b(), epVar);
-        cp cpVar = new cp(this);
-        this.a.put(cpVar.c(), cpVar);
     }
 
-    public final <T extends ITaskModelData> dp<? extends T> a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ep
+    /* renamed from: c */
+    public TaskStatus a(String str) {
         InterceptResult invokeL;
-        boolean z;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a.get(str) != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                dp<? extends ITaskModelData> dpVar = this.a.get(str);
-                if (dpVar != null) {
-                    return (dp<? extends T>) dpVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int i = jSONObject.getInt(TaskStatus.keyCurStatus);
+                int i2 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
+                String curStatusCodeMsg = jSONObject.getString(TaskStatus.keyCurStatusCodeMsg);
+                int i3 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
+                long j2 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("process");
+                int i4 = jSONObject2.getInt(TaskProcess.keyClickNumber);
+                long j3 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
+                long j4 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
+                int i5 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
+                int i6 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
+                int i7 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
+                JSONArray optJSONArray = jSONObject2.optJSONArray(TaskProcess.keyDuplicateIds);
+                HashSet hashSet = new HashSet();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    j = j2;
+                    for (int i8 = 0; i8 < length; i8++) {
+                        hashSet.add(optJSONArray.optString(i8));
+                    }
+                } else {
+                    j = j2;
                 }
-                throw new TypeCastException("null cannot be cast to non-null type com.baidu.bdtask.model.ITaskModelCreator<out T>");
+                JSONArray optJSONArray2 = jSONObject2.optJSONArray("tags");
+                HashSet hashSet2 = new HashSet();
+                if (optJSONArray2 != null) {
+                    int length2 = optJSONArray2.length();
+                    int i9 = 0;
+                    while (i9 < length2) {
+                        int i10 = length2;
+                        TaskEnvTag b = TaskEnvTag.Companion.b(optJSONArray2.optString(i9));
+                        if (b != null) {
+                            hashSet2.add(b);
+                        }
+                        i9++;
+                        length2 = i10;
+                    }
+                }
+                Intrinsics.checkExpressionValueIsNotNull(curStatusCodeMsg, "curStatusCodeMsg");
+                return new TaskStatus(i, i2, curStatusCodeMsg, i3, j, TaskStatusRuntime.Companion.a(), new TaskProcess(i4, j3, i7, j4, i5, i6, hashSet2, hashSet));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            throw new IllegalArgumentException(("can not find " + str + " model creator!").toString());
         }
-        return (dp) invokeL.objValue;
+        return (TaskStatus) invokeL.objValue;
     }
 }

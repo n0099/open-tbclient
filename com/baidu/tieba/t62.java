@@ -1,55 +1,90 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t62 extends q62 {
+public final class t62 extends HandlerThread implements s62<r62> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
+    public Handler a;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133081, "Lcom/baidu/tieba/t62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133081, "Lcom/baidu/tieba/t62;");
+                return;
+            }
+        }
+        boolean z = sm1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t62() {
+        super("EventDispatcherImpl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    public static t62 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            t62 t62Var = new t62();
-            t62Var.a = 1;
-            t62Var.b = str;
-            t62Var.c = 0L;
-            t62Var.d = bitmap;
-            return t62Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            start();
         }
-        return (t62) invokeLL.objValue;
     }
 
-    public static t62 b(String str, long j) {
-        InterceptResult invokeLJ;
+    @Override // android.os.HandlerThread, com.baidu.tieba.s62
+    public Looper getLooper() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            t62 t62Var = new t62();
-            t62Var.a = 1;
-            t62Var.b = str;
-            t62Var.c = j;
-            return t62Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.getLooper();
         }
-        return (t62) invokeLJ.objValue;
+        return (Looper) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s62
+    public void a(@NonNull Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            this.a = handler;
+        }
+    }
+
+    @Override // com.baidu.tieba.s62
+    public void b(r62 r62Var) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r62Var) == null) && r62Var != null && (handler = this.a) != null) {
+            this.a.sendMessageDelayed(Message.obtain(handler, r62Var.a, r62Var), r62Var.c);
+        }
     }
 }

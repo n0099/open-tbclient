@@ -1,65 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vp5 extends j6 {
+public class vp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vp5(int i) {
-        super(i);
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13395");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param("obj_type", DeviceInfoHelper.getModel());
+            statisticItem.param("resource_id", DeviceInfoHelper.getOsVersion());
+            statisticItem.param("aid", TbSingleton.getInstance().getCpuFlopsDuration());
+            statisticItem.param("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m6
-    /* renamed from: i */
-    public HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
-                return httpResponsedMessage;
-            }
-            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
-                    }
-                    return null;
-                }
-            }
-            return httpResponsedMessage;
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

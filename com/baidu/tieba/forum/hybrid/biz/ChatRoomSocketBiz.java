@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.by8;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.cy8;
 import com.baidu.tieba.forum.hybrid.biz.ChatRoomSocketBiz;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.l19;
+import com.baidu.tieba.j19;
+import com.baidu.tieba.k19;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rk5;
-import com.baidu.tieba.vi7;
+import com.baidu.tieba.nk7;
+import com.baidu.tieba.t49;
+import com.baidu.tieba.yk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,10 +39,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u0000 \u001e2\u00020\u00012\u00020\u00022\u00020\u0003:\u0001\u001eB\u001b\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0013\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u0013H\u0016¢\u0006\u0002\u0010\u0015J\b\u0010\u0016\u001a\u00020\u0017H\u0016J\b\u0010\u0018\u001a\u00020\u0017H\u0016J\b\u0010\u0019\u001a\u00020\u0017H\u0016J\u0006\u0010\u001a\u001a\u00020\u0017J\u0010\u0010\u001b\u001a\u00020\u00172\u0006\u0010\u001c\u001a\u00020\u001dH\u0002R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000f0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/ChatRoomSocketBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "Lcom/baidu/tieba/forum/hybrid/manager/ResumeListener;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "entranceService", "Lcom/baidu/tieba/immessagecenter/chatgroup/ChatMessageDispatchService;", "mCache", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/tieba/immessagecenter/chatgroup/data/ChatRoomInfo;", "mUpdateLatestMsgListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", MissionEvent.MESSAGE_PAUSE, "onResume", "reenterChatRoom", "requestChatListData", "data", "", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatRoomSocketBiz extends BizBase implements vi7 {
+public final class ChatRoomSocketBiz extends BizBase implements nk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cy8 f;
+    public final k19 f;
     public final ConcurrentHashMap<Long, ChatRoomInfo> g;
     public final CustomMessageListener h;
 
@@ -62,7 +62,7 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements rk5 {
+    public static final class a implements yk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
             }
         }
 
-        @Override // com.baidu.tieba.rk5
+        @Override // com.baidu.tieba.yk5
         public void a(int i, long j, List<Long> roomIdList, int i2, String errMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), roomIdList, Integer.valueOf(i2), errMsg}) == null) {
@@ -123,16 +123,16 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof l19)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof t49)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    l19 l19Var = (l19) data;
-                    ChatRoomInfo chatRoomInfo = (ChatRoomInfo) this.a.g.get(Long.valueOf(l19Var.b));
+                    t49 t49Var = (t49) data;
+                    ChatRoomInfo chatRoomInfo = (ChatRoomInfo) this.a.g.get(Long.valueOf(t49Var.b));
                     if (chatRoomInfo != null) {
                         ChatRoomSocketBiz chatRoomSocketBiz = this.a;
                         chatRoomInfo.setUnreadNum(0);
                         JSONObject jSONObject = new JSONObject();
-                        JSONKt.c(jSONObject, String.valueOf(l19Var.b), chatRoomInfo.toJSONObject());
+                        JSONKt.c(jSONObject, String.valueOf(t49Var.b), chatRoomInfo.toJSONObject());
                         chatRoomSocketBiz.d().invoke("frsPageNa.chatListData", jSONObject);
                         return;
                     }
@@ -164,36 +164,36 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
         }
         Intrinsics.checkNotNullParameter(pageContext, "pageContext");
         Intrinsics.checkNotNullParameter(webView, "webView");
-        this.f = by8.a();
+        this.f = j19.a();
         this.g = new ConcurrentHashMap<>();
         this.h = new b(this);
-        cy8 cy8Var = this.f;
-        if (cy8Var != null) {
-            cy8Var.b(pageContext.getPageActivity(), 1);
+        k19 k19Var = this.f;
+        if (k19Var != null) {
+            k19Var.b(pageContext.getPageActivity(), 1);
         }
-        cy8 cy8Var2 = this.f;
-        if (cy8Var2 != null) {
-            cy8Var2.d(new cy8.a() { // from class: com.baidu.tieba.ri7
+        k19 k19Var2 = this.f;
+        if (k19Var2 != null) {
+            k19Var2.d(new k19.a() { // from class: com.baidu.tieba.jk7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.cy8.a
+                @Override // com.baidu.tieba.k19.a
                 public final void a(Map map) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) {
-                        ChatRoomSocketBiz.m(ChatRoomSocketBiz.this, map);
+                        ChatRoomSocketBiz.k(ChatRoomSocketBiz.this, map);
                     }
                 }
             });
         }
-        cy8 cy8Var3 = this.f;
-        if (cy8Var3 != null) {
-            cy8Var3.a(new a());
+        k19 k19Var3 = this.f;
+        if (k19Var3 != null) {
+            k19Var3.a(new a());
         }
         pageContext.registerListener(this.h);
     }
 
-    public static final void m(ChatRoomSocketBiz this$0, Map it) {
+    public static final void k(ChatRoomSocketBiz this$0, Map it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -208,9 +208,9 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
         }
     }
 
-    public final void q(String str) {
+    public final void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONKt.a(str, new Function1<JSONObject, Unit>(this) { // from class: com.baidu.tieba.forum.hybrid.biz.ChatRoomSocketBiz$requestChatListData$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -252,7 +252,7 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
                 public final void invoke2(JSONObject it) {
-                    cy8 cy8Var;
+                    k19 k19Var;
                     long j;
                     int optInt;
                     Interceptable interceptable2 = $ic;
@@ -294,9 +294,9 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
                         }
                         if (!arrayList.isEmpty()) {
                             HybridLog.getInstance().i("ChatRoom", "新frs群聊开始建联：" + optLong + WebvttCueParser.CHAR_SPACE + arrayList);
-                            cy8Var = this.this$0.f;
-                            if (cy8Var != null) {
-                                cy8Var.c(optLong, arrayList);
+                            k19Var = this.this$0.f;
+                            if (k19Var != null) {
+                                k19Var.c(optLong, arrayList);
                             }
                         }
                     }
@@ -305,19 +305,19 @@ public final class ChatRoomSocketBiz extends BizBase implements vi7 {
         }
     }
 
-    @Override // com.baidu.tieba.ui7
+    @Override // com.baidu.tieba.mk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{e().invoke("frsPage.startGetChatListData", new ChatRoomSocketBiz$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vi7
+    @Override // com.baidu.tieba.nk7
     public void onDestroy() {
-        cy8 cy8Var;
+        k19 k19Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cy8Var = this.f) != null) {
-            cy8Var.onDestroy();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (k19Var = this.f) != null) {
+            k19Var.onDestroy();
         }
     }
 }

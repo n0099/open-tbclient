@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PbListView extends ci {
+public class PbListView extends di {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int E = 2131235078;
+    public static final int E = 2131235110;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
@@ -377,7 +377,7 @@ public class PbListView extends ci {
         }
     }
 
-    @Override // com.baidu.tieba.ci
+    @Override // com.baidu.tieba.di
     public void d() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -548,7 +548,7 @@ public class PbListView extends ci {
             this.g.setVisibility(0);
             this.f.setVisibility(8);
             this.e.setVisibility(8);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0c22));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0c30));
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -580,11 +580,11 @@ public class PbListView extends ci {
                 return;
             }
             this.d.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0c22));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0c30));
         }
     }
 
-    @Override // com.baidu.tieba.ci
+    @Override // com.baidu.tieba.di
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -604,7 +604,7 @@ public class PbListView extends ci {
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091e5a);
             this.v = (ImageView) this.i.findViewById(R.id.pb_more_view_top_line);
             this.j = this.i.findViewById(R.id.empty_view);
             this.x = (LinearLayout) this.i.findViewById(R.id.pb_more_top_extra_view);
@@ -630,7 +630,7 @@ public class PbListView extends ci {
             boolean z = false;
             if (charSequence.equals(this.c.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0c22))) {
+            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0c30))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (!charSequence.equals(this.c.getText(R.string.list_no_more)) && !charSequence.equals(this.c.getText(R.string.list_has_all_comments)) && !charSequence.equals(this.c.getText(R.string.sub_pb_list_no_more)) && !this.w) {
                 if (charSequence.equals(this.c.getText(R.string.list_no_more_new))) {

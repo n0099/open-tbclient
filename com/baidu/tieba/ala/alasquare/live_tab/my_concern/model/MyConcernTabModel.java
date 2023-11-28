@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
+import com.baidu.tieba.c96;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.u86;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public u86 d;
+    public c96 d;
     public HttpMessageListener e;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(List<oi> list, boolean z, boolean z2);
+        void a(List<pi> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -102,16 +102,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     z = false;
                 }
                 if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
-                    u86 u86Var = this.a.d;
+                    c96 c96Var = this.a.d;
                     if (this.a.a == 1) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    u86Var.e(alaLiveTabMyConcernResponse, z2);
+                    c96Var.e(alaLiveTabMyConcernResponse, z2);
                     if (this.a.c != null) {
                         b bVar = this.a.c;
-                        List<oi> h = this.a.d.h();
+                        List<pi> h = this.a.d.h();
                         boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                         if (this.a.a == 1) {
                             z3 = true;
@@ -148,7 +148,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new u86(this.b);
+        this.d = new c96(this.b);
         V();
         MessageManager.getInstance().registerListener(this.e);
     }

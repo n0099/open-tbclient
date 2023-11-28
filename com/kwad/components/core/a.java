@@ -1,17 +1,19 @@
 package com.kwad.components.core;
 /* loaded from: classes10.dex */
 public final class a {
-    public static final Boolean CK = Boolean.TRUE;
-    public static final Boolean CL;
-    public static final Boolean CM;
-    public static final Boolean CN;
-    public static final Boolean aw;
+    public static final Boolean Is = Boolean.TRUE;
+    public static final Boolean It;
+    public static final Boolean Iu;
+    public static final Boolean Iv;
+    public static final Boolean Iw;
+    public static final Boolean mc;
 
     static {
         Boolean bool = Boolean.FALSE;
-        CL = bool;
-        aw = bool;
-        CM = bool;
-        CN = bool;
+        It = bool;
+        mc = bool;
+        Iu = bool;
+        Iv = bool;
+        Iw = bool;
     }
 }

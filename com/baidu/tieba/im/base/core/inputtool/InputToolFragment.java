@@ -35,16 +35,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.dl8;
-import com.baidu.tieba.dn8;
-import com.baidu.tieba.ei8;
-import com.baidu.tieba.el8;
-import com.baidu.tieba.fl8;
-import com.baidu.tieba.hk8;
-import com.baidu.tieba.hl8;
-import com.baidu.tieba.il8;
+import com.baidu.tieba.bl8;
+import com.baidu.tieba.co8;
+import com.baidu.tieba.cu5;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.go8;
+import com.baidu.tieba.gq8;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.ho8;
 import com.baidu.tieba.im.base.core.databinding.FragmentInputToolBinding;
 import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
 import com.baidu.tieba.im.base.core.inputtool.keyboardtool.PanelType;
@@ -55,21 +53,23 @@ import com.baidu.tieba.im.base.core.inputtool.utility.GroupChatKeyboardLayout;
 import com.baidu.tieba.im.base.core.inputtool.utility.NoSlidingLinearLayout;
 import com.baidu.tieba.im.base.core.slice.SliceFragment;
 import com.baidu.tieba.im.chat.ISendVoiceView;
-import com.baidu.tieba.jl8;
-import com.baidu.tieba.le5;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.nl8;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.qe5;
-import com.baidu.tieba.sk8;
-import com.baidu.tieba.tk8;
-import com.baidu.tieba.ut5;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.kn8;
+import com.baidu.tieba.ko8;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.mo8;
+import com.baidu.tieba.qo8;
+import com.baidu.tieba.re5;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.uoc;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wk8;
+import com.baidu.tieba.vn8;
+import com.baidu.tieba.we5;
+import com.baidu.tieba.wn8;
 import com.baidu.tieba.write.WriteVideoUtil;
-import com.baidu.tieba.xe5;
-import com.baidu.tieba.zjc;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.zn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,38 +77,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class InputToolFragment extends SliceFragment implements sk8, el8 {
+public class InputToolFragment extends SliceFragment implements vn8, ho8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public wk8 A;
+    public zn8 A;
     public View B;
     public ViewGroup C;
-    public fl8 D;
+    public io8 D;
     public boolean E;
     public int F;
     public int G;
     @Nullable
-    public jl8 H;
+    public mo8 H;
     @Nullable
     public h I;
     public ViewTreeObserver.OnGlobalLayoutListener J;
     public FragmentInputToolBinding e;
     public GroupInputTool f;
-    public xe5 g;
+    public df5 g;
     public EditorTools h;
     public LinearLayout.LayoutParams i;
-    public qe5 j;
-    public bh5 k;
-    public le5 l;
+    public we5 j;
+    public hh5 k;
+    public re5 l;
     public int m;
     @Nullable
     public ISendVoiceView n;
     @Nullable
     public GroupChatRobotTopHeadView o;
-    public nl8 p;
+    public qo8 p;
     @Nullable
-    public hk8 q;
+    public kn8 q;
     public int r;
     public int s;
     public boolean t;
@@ -116,32 +116,32 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
     public long v;
     public long w;
     @Nullable
-    public dn8 x;
+    public gq8 x;
     @Nullable
     public InputDelegate y;
     @Nullable
-    public zk8 z;
+    public co8 z;
 
     /* loaded from: classes6.dex */
     public interface h {
         int A();
     }
 
-    @Override // com.baidu.tieba.el8
-    public void d2(@Nullable hl8 hl8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, hl8Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.el8
-    public View o2() {
+    @Override // com.baidu.tieba.ho8
+    public View A2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
         return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ho8
+    public void p2(@Nullable ko8 ko8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, ko8Var) == null) {
+        }
     }
 
     /* loaded from: classes6.dex */
@@ -178,7 +178,7 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.getContext() != null) {
-                    new BdTopToast(this.a.a.getContext()).setContent(this.a.a.getContext().getString(R.string.obfuscated_res_0x7f0f0f23)).setIcon(false).show((ViewGroup) this.a.a.getView());
+                    new BdTopToast(this.a.a.getContext()).setContent(this.a.a.getContext().getString(R.string.obfuscated_res_0x7f0f0f31)).setIcon(false).show((ViewGroup) this.a.a.getView());
                 }
             }
         }
@@ -206,11 +206,11 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (this.a.l3()) {
+                if (this.a.x3()) {
                     if (TextUtils.isEmpty(charSequence)) {
                         return charSequence;
                     }
-                    boolean matches = tk8.a.matcher(charSequence.toString()).matches();
+                    boolean matches = wn8.a.matcher(charSequence.toString()).matches();
                     if (!matches) {
                         long currentTimeMillis = System.currentTimeMillis();
                         if (this.a.u == 0 || currentTimeMillis - this.a.u > 5000) {
@@ -231,15 +231,15 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements jl8 {
+    public class a implements mo8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
         public final /* synthetic */ InputToolFragment b;
 
-        @Override // com.baidu.tieba.jl8
+        @Override // com.baidu.tieba.mo8
         public /* synthetic */ void d() {
-            il8.a(this);
+            lo8.a(this);
         }
 
         public a(InputToolFragment inputToolFragment, Context context) {
@@ -261,26 +261,26 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.jl8
+        @Override // com.baidu.tieba.mo8
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                jl8 jl8Var = this.b.H;
-                if (jl8Var != null) {
-                    jl8Var.b(i);
+                mo8 mo8Var = this.b.H;
+                if (mo8Var != null) {
+                    mo8Var.b(i);
                 }
-                if (i < dl8.b(this.a) / 2) {
+                if (i < go8.b(this.a) / 2) {
                     TbSingleton.getInstance().setKeyboardHeight(i);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.jl8
-        public void g() {
-            jl8 jl8Var;
+        @Override // com.baidu.tieba.mo8
+        public void f() {
+            mo8 mo8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jl8Var = this.b.H) != null) {
-                jl8Var.g();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mo8Var = this.b.H) != null) {
+                mo8Var.f();
             }
         }
     }
@@ -359,7 +359,7 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && this.b.l3() && this.a != null && editable != null && editable.length() > 1 && this.a.length() > 1 && this.a.charAt(0) == '0') {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && this.b.x3() && this.a != null && editable != null && editable.length() > 1 && this.a.length() > 1 && this.a.charAt(0) == '0') {
                 editable.delete(0, 1);
             }
         }
@@ -531,8 +531,8 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.E) {
-                    i = fl8.l;
-                } else if (this.a.k3() && TbSingleton.getInstance().getEmotionBoardHeight() != 0) {
+                    i = io8.l;
+                } else if (this.a.w3() && TbSingleton.getInstance().getEmotionBoardHeight() != 0) {
                     i = TbSingleton.getInstance().getEmotionBoardHeight();
                 } else {
                     i = 0;
@@ -577,13 +577,13 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         this.J = new g(this);
     }
 
-    @Override // com.baidu.tieba.cl8
-    public int h() {
+    @Override // com.baidu.tieba.fo8
+    public int k() {
         InterceptResult invokeV;
-        xe5 xe5Var;
+        df5 df5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (this.y != null && (xe5Var = this.g) != null && xe5Var.i() != null && this.y.o() != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (this.y != null && (df5Var = this.g) != null && df5Var.i() != null && this.y.o() != 0) {
                 return Math.abs(this.y.o() - this.g.i().getHeight());
             }
             return 0;
@@ -591,22 +591,51 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         return invokeV.intValue;
     }
 
-    public void i3() {
+    public void u3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             this.e.e.setPageContext(getPageContext());
             this.e.e.A(TbadkCoreApplication.getInst().getSkinType());
-            nl8 nl8Var = new nl8(this);
-            this.p = nl8Var;
-            nl8Var.x(this.e.e);
+            qo8 qo8Var = new qo8(this);
+            this.p = qo8Var;
+            qo8Var.x(this.e.e);
         }
     }
 
-    @Override // com.baidu.tieba.sk8
-    public void C0(boolean z) {
+    public void A3(@Nullable h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
+            this.I = hVar;
+        }
+    }
+
+    public void B3(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.t = z;
+        }
+    }
+
+    public void C3(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.s = i;
+            D3();
+        }
+    }
+
+    public void E3(mo8 mo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, mo8Var) == null) {
+            this.H = mo8Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.vn8
+    public void G0(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             RelativeLayout relativeLayout = this.e.c;
             if (z) {
                 i = 0;
@@ -617,24 +646,43 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    public final void d3(@NonNull SpanGroupEditText spanGroupEditText) {
+    public void G3(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, spanGroupEditText) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, bundle) == null) {
+            super.onCreate(bundle);
+            Bundle arguments = getArguments();
+            cu5.b(arguments);
+            this.v = arguments.getLong("roomId");
+            this.w = arguments.getLong("forumId");
+        }
+    }
+
+    public final void p3(@NonNull SpanGroupEditText spanGroupEditText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, spanGroupEditText) == null) {
             spanGroupEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000), new c(this)});
         }
     }
 
-    public final void j3(@NonNull SpanGroupEditText spanGroupEditText) {
+    public final void v3(@NonNull SpanGroupEditText spanGroupEditText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, spanGroupEditText) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, spanGroupEditText) == null) {
             spanGroupEditText.addTextChangedListener(new d(this));
         }
     }
 
-    @Override // com.baidu.tieba.el8
-    public void k2(@NonNull PanelType panelType) {
+    @Override // com.baidu.tieba.ho8
+    public void w2(@NonNull PanelType panelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, panelType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, panelType) == null) {
             if (panelType == PanelType.INPUT_KEYBOARD) {
                 this.f.f0(true);
             } else {
@@ -643,102 +691,54 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    public void m3(@NonNull hk8 hk8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, hk8Var) == null) {
-            this.q = hk8Var;
-        }
-    }
-
-    public void n3(@NonNull dn8 dn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, dn8Var) == null) {
-            this.x = dn8Var;
-        }
-    }
-
-    public void o3(@Nullable h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, hVar) == null) {
-            this.I = hVar;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, bundle) == null) {
-            super.onCreate(bundle);
-            Bundle arguments = getArguments();
-            ut5.b(arguments);
-            this.v = arguments.getLong("roomId");
-            this.w = arguments.getLong("forumId");
-        }
-    }
-
-    public void p3(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void q3(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
-            this.s = i;
-            r3();
-        }
-    }
-
-    public void s3(jl8 jl8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, jl8Var) == null) {
-            this.H = jl8Var;
-        }
-    }
-
-    public void u3(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.el8
-    public void y(@NonNull zjc<PanelType, PanelType, Float, Float> zjcVar) {
+    @Override // com.baidu.tieba.ho8
+    public void y(@NonNull uoc<PanelType, PanelType, Float, Float> uocVar) {
         InputDelegate inputDelegate;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048633, this, zjcVar) == null) && (inputDelegate = this.y) != null) {
-            inputDelegate.X(zjcVar);
+        if ((interceptable == null || interceptable.invokeL(1048631, this, uocVar) == null) && (inputDelegate = this.y) != null) {
+            inputDelegate.X(uocVar);
+        }
+    }
+
+    public void y3(@NonNull kn8 kn8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, kn8Var) == null) {
+            this.q = kn8Var;
+        }
+    }
+
+    public void z3(@NonNull gq8 gq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, gq8Var) == null) {
+            this.x = gq8Var;
+        }
+    }
+
+    public void F3(View view2, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, viewGroup) == null) && view2 != null && viewGroup != null) {
+            this.B = view2;
+            this.C = viewGroup;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048623, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048618, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            c3();
-            e3();
-            h3();
-            g3();
-            hk8 hk8Var = this.q;
-            if (hk8Var != null) {
-                hk8Var.n1();
+            o3();
+            q3();
+            t3();
+            s3();
+            kn8 kn8Var = this.q;
+            if (kn8Var != null) {
+                kn8Var.w1();
             }
         }
     }
 
-    public void t3(View view2, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048629, this, view2, viewGroup) == null) && view2 != null && viewGroup != null) {
-            this.B = view2;
-            this.C = viewGroup;
-        }
-    }
-
-    @Override // com.baidu.tieba.cl8
+    @Override // com.baidu.tieba.fo8
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -752,20 +752,33 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.el8
+    @Override // com.baidu.tieba.ho8
     public View C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e.c;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void J2() {
+    public int N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            kn8 kn8Var = this.q;
+            if (kn8Var != null) {
+                return kn8Var.N();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void V2() {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (i = this.m) > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (i = this.m) > 0) {
             String str = null;
             if (i == 1) {
                 long j = this.w;
@@ -773,234 +786,92 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
                     str = String.valueOf(j);
                 }
             }
-            nq6.b().c(new ei8(str));
+            xq6.b().c(new bl8(str));
         }
     }
 
-    public GroupChatKeyboardLayout K2() {
+    public GroupChatKeyboardLayout W2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.e.b;
         }
         return (GroupChatKeyboardLayout) invokeV.objValue;
     }
 
-    public qe5 L2() {
+    public we5 X2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.j;
         }
-        return (qe5) invokeV.objValue;
-    }
-
-    public int M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            hk8 hk8Var = this.q;
-            if (hk8Var != null) {
-                return hk8Var.M();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
+        return (we5) invokeV.objValue;
     }
 
     @Nullable
-    public GroupInputTool M2() {
+    public GroupInputTool Y2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.f;
         }
         return (GroupInputTool) invokeV.objValue;
     }
 
     @NonNull
-    public GroupChatUserReplyView N2() {
+    public GroupChatUserReplyView Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.e.g;
         }
         return (GroupChatUserReplyView) invokeV.objValue;
     }
 
     @Nullable
-    public RelativeLayout O2() {
+    public RelativeLayout a3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.e.c;
         }
         return (RelativeLayout) invokeV.objValue;
     }
 
     @Nullable
-    public InputDelegate P2() {
+    public InputDelegate b3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.y;
         }
         return (InputDelegate) invokeV.objValue;
     }
 
     @NonNull
-    public xe5 Q2() {
+    public df5 c3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.g;
         }
-        return (xe5) invokeV.objValue;
+        return (df5) invokeV.objValue;
     }
 
     @NonNull
-    public RelativeLayout R2() {
+    public RelativeLayout d3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.e.d;
         }
         return (RelativeLayout) invokeV.objValue;
     }
 
-    @Nullable
-    public NoSlidingLinearLayout S2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ho8
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e.f;
-        }
-        return (NoSlidingLinearLayout) invokeV.objValue;
-    }
-
-    @NonNull
-    public GroupChatUserReplyView T2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.e.h;
-        }
-        return (GroupChatUserReplyView) invokeV.objValue;
-    }
-
-    public nl8 U2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.p;
-        }
-        return (nl8) invokeV.objValue;
-    }
-
-    @NonNull
-    public GroupChatRobotFloorView V2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.e.e;
-        }
-        return (GroupChatRobotFloorView) invokeV.objValue;
-    }
-
-    public boolean W2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.f.R();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public bh5 X2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.k;
-        }
-        return (bh5) invokeV.objValue;
-    }
-
-    @Nullable
-    public ISendVoiceView Y2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.n;
-        }
-        return (ISendVoiceView) invokeV.objValue;
-    }
-
-    @Nullable
-    public GroupChatRobotTopHeadView Z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.o;
-        }
-        return (GroupChatRobotTopHeadView) invokeV.objValue;
-    }
-
-    public EditorTools a3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.h;
-        }
-        return (EditorTools) invokeV.objValue;
-    }
-
-    public final void c3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.o = (GroupChatRobotTopHeadView) this.e.d.findViewById(R.id.obfuscated_res_0x7f091192);
-        }
-    }
-
-    public final void e3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            i3();
-            b3();
-            f3();
-        }
-    }
-
-    public final void h3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            GroupInputTool groupInputTool = new GroupInputTool(this);
-            this.f = groupInputTool;
-            this.y = new InputDelegate(InputDelegate.SOURCE.ROOM, this, groupInputTool, this.x, this.v, this.w);
-        }
-    }
-
-    public boolean k3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.f.c0();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.t;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.el8
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.E = true;
             InputDelegate inputDelegate = this.y;
             if (inputDelegate != null) {
@@ -1009,29 +880,39 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            super.onDestroy();
-            J2();
-        }
-    }
-
-    @Override // com.baidu.tieba.cl8
-    public int q() {
+    @Nullable
+    public NoSlidingLinearLayout e3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return fl8.m;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.e.f;
         }
-        return invokeV.intValue;
+        return (NoSlidingLinearLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.el8
-    public void x() {
+    @NonNull
+    public GroupChatUserReplyView f3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.e.h;
+        }
+        return (GroupChatUserReplyView) invokeV.objValue;
+    }
+
+    public qo8 g3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.p;
+        }
+        return (qo8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ho8
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.E = false;
             InputDelegate inputDelegate = this.y;
             if (inputDelegate != null && !inputDelegate.F()) {
@@ -1040,9 +921,186 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    public void I2(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter) {
+    @NonNull
+    public GroupChatRobotFloorView h3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.e.e;
+        }
+        return (GroupChatRobotFloorView) invokeV.objValue;
+    }
+
+    public boolean i3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.f.R();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public hh5 j3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.k;
+        }
+        return (hh5) invokeV.objValue;
+    }
+
+    @Nullable
+    public ISendVoiceView k3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.n;
+        }
+        return (ISendVoiceView) invokeV.objValue;
+    }
+
+    @Nullable
+    public GroupChatRobotTopHeadView l3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.o;
+        }
+        return (GroupChatRobotTopHeadView) invokeV.objValue;
+    }
+
+    public EditorTools m3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.h;
+        }
+        return (EditorTools) invokeV.objValue;
+    }
+
+    public final void o3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            this.o = (GroupChatRobotTopHeadView) this.e.d.findViewById(R.id.obfuscated_res_0x7f0911bb);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            super.onDestroy();
+            V2();
+        }
+    }
+
+    public final void q3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            u3();
+            n3();
+            r3();
+        }
+    }
+
+    @Override // com.baidu.tieba.fo8
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            return io8.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void t3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            GroupInputTool groupInputTool = new GroupInputTool(this);
+            this.f = groupInputTool;
+            this.y = new InputDelegate(InputDelegate.SOURCE.ROOM, this, groupInputTool, this.x, this.v, this.w);
+        }
+    }
+
+    public boolean w3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            return this.f.c0();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return this.t;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void D3() {
+        se5 se5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.s;
+            if (i == 0) {
+                this.r = SkinManager.getColor(R.color.CAM_X0212);
+            } else if (i == 1) {
+                this.r = uua.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+            } else {
+                this.r = SkinManager.getColor(R.color.CAM_X0212);
+            }
+            df5 df5Var = this.g;
+            if (df5Var != null && (se5Var = df5Var.m) != null && (se5Var instanceof EditText)) {
+                EMManager.from((EditText) se5Var).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setBackGroundRealColor(this.r);
+            }
+        }
+    }
+
+    public final void s3() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048624, this) == null) && (context = getContext()) != null && this.B != null) {
+            this.D = new io8();
+            if (TbSingleton.getInstance().getKeyboardHeight() == 0 && TbadkCoreApplication.getInst().getKeyboardHeight() != 0) {
+                TbSingleton.getInstance().setKeyboardHeight(TbadkCoreApplication.getInst().getKeyboardHeight());
+            }
+            io8 io8Var = this.D;
+            io8Var.l(context);
+            io8Var.j(this.B);
+            io8Var.g(this.C);
+            io8Var.h(this);
+            io8Var.m(TbSingleton.getInstance().getKeyboardHeight());
+            io8Var.o(true);
+            io8Var.n(new a(this, context));
+        }
+    }
+
+    public void H3(@NonNull co8 co8Var, @NonNull zn8 zn8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, co8Var, zn8Var) == null) {
+            this.z = co8Var;
+            this.A = zn8Var;
+            if (co8Var != null && zn8Var != null) {
+                this.f.r0(co8Var.d(), this.A.a());
+                this.w = this.A.a();
+            }
+            qo8 qo8Var = this.p;
+            if (qo8Var != null) {
+                qo8Var.A(this.z, this.A);
+            }
+            InputDelegate inputDelegate = this.y;
+            if (inputDelegate != null) {
+                inputDelegate.e0(this.z, this.A);
+            }
+        }
+    }
+
+    public void U2(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter}) == null) {
             int max = Math.max(i2, i);
             int i3 = max - ((i2 + i) - max);
             if (this.e.d.getLayoutParams() instanceof LinearLayout.LayoutParams) {
@@ -1058,12 +1116,12 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public void b3() {
+    public void n3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            xe5 xe5Var = new xe5(getContext(), true, false);
-            this.g = xe5Var;
-            xe5Var.l(true);
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            df5 df5Var = new df5(getContext(), true, false);
+            this.g = df5Var;
+            df5Var.l(true);
             if (this.g.i() != null && this.g.i().getViewTreeObserver() != null) {
                 this.g.i().getViewTreeObserver().addOnGlobalLayoutListener(this.J);
             }
@@ -1078,39 +1136,39 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
             this.h.setDeskBackgroundColorId(R.color.CAM_X0206);
             this.h.setMoreDeskBgColorId(R.color.CAM_X0206);
             this.h.setViewDisplayTime(15L, 20L);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, le5.class, getContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, re5.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                le5 le5Var = (le5) runTask.getData();
-                this.l = le5Var;
-                me5 me5Var = le5Var.m;
-                if (me5Var != null && (me5Var instanceof ISendVoiceView)) {
-                    this.n = (ISendVoiceView) me5Var;
+                re5 re5Var = (re5) runTask.getData();
+                this.l = re5Var;
+                se5 se5Var = re5Var.m;
+                if (se5Var != null && (se5Var instanceof ISendVoiceView)) {
+                    this.n = (ISendVoiceView) se5Var;
                 }
-                le5 le5Var2 = this.l;
-                le5Var2.l = 1;
-                this.h.f(le5Var2);
+                re5 re5Var2 = this.l;
+                re5Var2.l = 1;
+                this.h.f(re5Var2);
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             this.h.k(arrayList);
-            le5 u = this.h.u(5);
+            re5 u = this.h.u(5);
             if (u != null) {
                 u.g(true);
                 u.f(true);
                 u.d = 0;
             }
             this.h.f(this.g);
-            qe5 qe5Var = new qe5(getContext());
-            this.j = qe5Var;
-            this.h.f(qe5Var);
-            bh5 bh5Var = new bh5(getContext(), true);
-            this.k = bh5Var;
-            this.h.f(bh5Var);
+            we5 we5Var = new we5(getContext());
+            this.j = we5Var;
+            this.h.f(we5Var);
+            hh5 hh5Var = new hh5(getContext(), true);
+            this.k = hh5Var;
+            this.h.f(hh5Var);
             this.h.h();
             this.e.c.addView(this.h, new ViewGroup.LayoutParams(-1, -2));
-            me5 me5Var2 = this.g.m;
-            if (me5Var2 instanceof EditText) {
-                EMManager.from((EditText) me5Var2).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setRealBorderColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), this.r));
+            se5 se5Var2 = this.g.m;
+            if (se5Var2 instanceof EditText) {
+                EMManager.from((EditText) se5Var2).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setRealBorderColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), this.r));
             }
             this.h.F(TbadkCoreApplication.getInst().getSkinType());
             this.e.b.setBlank(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5, BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0));
@@ -1118,70 +1176,10 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    public void f3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && this.g.i() != null && getContext() != null) {
-            SpanGroupEditText i = this.g.i();
-            i.setId(R.id.obfuscated_res_0x7f090ee3);
-            i.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT);
-            i.setMinHeight(getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X003));
-            i.setMaxLines(5);
-            i.setMinLines(1);
-            i.setGravity(48);
-            i.setIncludeFontPadding(false);
-            i.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.T_X06));
-            i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            WriteVideoUtil.setCursorColor(i, R.drawable.edittext_cursor);
-            i.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
-            i.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004));
-            d3(i);
-            j3(i);
-        }
-    }
-
-    public final void g3() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && (context = getContext()) != null && this.B != null) {
-            this.D = new fl8();
-            if (TbSingleton.getInstance().getKeyboardHeight() == 0 && TbadkCoreApplication.getInst().getKeyboardHeight() != 0) {
-                TbSingleton.getInstance().setKeyboardHeight(TbadkCoreApplication.getInst().getKeyboardHeight());
-            }
-            fl8 fl8Var = this.D;
-            fl8Var.l(context);
-            fl8Var.j(this.B);
-            fl8Var.g(this.C);
-            fl8Var.h(this);
-            fl8Var.m(TbSingleton.getInstance().getKeyboardHeight());
-            fl8Var.o(true);
-            fl8Var.n(new a(this, context));
-        }
-    }
-
-    public void r3() {
-        me5 me5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            int i = this.s;
-            if (i == 0) {
-                this.r = SkinManager.getColor(R.color.CAM_X0212);
-            } else if (i == 1) {
-                this.r = bqa.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
-            } else {
-                this.r = SkinManager.getColor(R.color.CAM_X0212);
-            }
-            xe5 xe5Var = this.g;
-            if (xe5Var != null && (me5Var = xe5Var.m) != null && (me5Var instanceof EditText)) {
-                EMManager.from((EditText) me5Var).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setBackGroundRealColor(this.r);
-            }
-        }
-    }
-
     @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048618, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048613, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             InputDelegate inputDelegate = this.y;
             if (inputDelegate != null) {
@@ -1195,7 +1193,7 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048621, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048616, this, layoutInflater, viewGroup, bundle)) == null) {
             FragmentInputToolBinding c2 = FragmentInputToolBinding.c(layoutInflater, viewGroup, false);
             this.e = c2;
             return c2.getRoot();
@@ -1206,10 +1204,10 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
     @Override // com.baidu.tieba.im.base.core.slice.SliceFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             super.onChangeSkinType(i);
             this.h.F(i);
-            r3();
+            D3();
             this.e.f.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0608));
             this.e.e.A(i);
             this.e.h.d(i);
@@ -1225,23 +1223,25 @@ public class InputToolFragment extends SliceFragment implements sk8, el8 {
         }
     }
 
-    public void v3(@NonNull zk8 zk8Var, @NonNull wk8 wk8Var) {
+    public void r3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048631, this, zk8Var, wk8Var) == null) {
-            this.z = zk8Var;
-            this.A = wk8Var;
-            if (zk8Var != null && wk8Var != null) {
-                this.f.r0(zk8Var.d(), this.A.a());
-                this.w = this.A.a();
-            }
-            nl8 nl8Var = this.p;
-            if (nl8Var != null) {
-                nl8Var.A(this.z, this.A);
-            }
-            InputDelegate inputDelegate = this.y;
-            if (inputDelegate != null) {
-                inputDelegate.e0(this.z, this.A);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048622, this) == null) && this.g.i() != null && getContext() != null) {
+            SpanGroupEditText i = this.g.i();
+            i.setId(R.id.obfuscated_res_0x7f090f03);
+            i.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT);
+            i.setMinHeight(getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X003));
+            i.setMaxLines(5);
+            i.setMinLines(1);
+            i.setGravity(48);
+            i.setIncludeFontPadding(false);
+            i.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.T_X06));
+            i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            WriteVideoUtil.setCursorColor(i, R.drawable.edittext_cursor);
+            i.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
+            i.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004));
+            p3(i);
+            v3(i);
         }
     }
 }

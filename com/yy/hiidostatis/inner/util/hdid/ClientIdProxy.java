@@ -3,7 +3,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 import android.app.Application;
 import android.content.Context;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClientIdProxy {
     public static volatile boolean isInit;
 

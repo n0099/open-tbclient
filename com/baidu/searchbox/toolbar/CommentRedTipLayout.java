@@ -31,13 +31,13 @@ public class CommentRedTipLayout extends LinearLayout implements IFontSizeViewLi
     }
 
     private void initLayout(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d021b, (ViewGroup) this, true);
-        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f090797);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) this, true);
+        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f0907b3);
         this.mCommentTips = badgeView;
         badgeView.setType(BadgeView.Type.SMALL_TEXT);
-        RedTipImageView redTipImageView = (RedTipImageView) findViewById(R.id.obfuscated_res_0x7f0907af);
+        RedTipImageView redTipImageView = (RedTipImageView) findViewById(R.id.obfuscated_res_0x7f0907cb);
         this.mCommentsView = redTipImageView;
-        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f080537);
+        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f08053a);
     }
 
     public void setCommentViewIcon(int i) {
@@ -121,7 +121,7 @@ public class CommentRedTipLayout extends LinearLayout implements IFontSizeViewLi
             if (!commonToolBar.isCloseComment() && this.mCommentTips != null && !TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("0", str)) {
                     if (commonToolBar.isEnableSoFa()) {
-                        this.mCommentTips.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0492));
+                        this.mCommentTips.setText(getResources().getString(R.string.obfuscated_res_0x7f0f049a));
                         this.mCommentTips.setVisibility(0);
                         commonToolBar.setSoFa(true);
                     } else {

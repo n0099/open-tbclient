@@ -1,39 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import androidx.core.graphics.drawable.IconCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Avatar;
-import tbclient.Equipment;
-import tbclient.SignatureInfo;
+import tbclient.FrsPage.Zhibo;
 /* loaded from: classes6.dex */
-public class g3d extends qoc {
+public class g3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SignatureInfo signatureInfo) {
+    public static JSONObject b(@NonNull Zhibo zhibo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zhibo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            Equipment equipment = signatureInfo.equipment;
-            if (equipment != null) {
-                qoc.a(jSONObject, "equipment", vrc.b(equipment));
-            }
-            qoc.a(jSONObject, "game_id", signatureInfo.game_id);
-            qoc.a(jSONObject, "game_name", signatureInfo.game_name);
-            qoc.a(jSONObject, DI.LIVE_PLAYER, signatureInfo.player);
-            Avatar avatar = signatureInfo.avatar;
-            if (avatar != null) {
-                qoc.a(jSONObject, "avatar", ypc.b(avatar));
-            }
-            qoc.a(jSONObject, "power", signatureInfo.power);
-            qoc.a(jSONObject, CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER, signatureInfo.server);
+            ltc.a(jSONObject, "forum", zhibo.forum);
+            ltc.a(jSONObject, "tid", zhibo.tid);
+            ltc.a(jSONObject, "status", zhibo.status);
+            ltc.a(jSONObject, "type", zhibo.type);
+            ltc.a(jSONObject, IconCompat.EXTRA_INT1, zhibo.int1);
+            ltc.a(jSONObject, "has_lpost", zhibo.has_lpost);
+            ltc.a(jSONObject, "lpost_type", zhibo.lpost_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

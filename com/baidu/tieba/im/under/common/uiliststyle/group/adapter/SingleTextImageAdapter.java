@@ -16,7 +16,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cp8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
@@ -25,8 +24,9 @@ import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.SingleTextImageItem;
 import com.baidu.tieba.im.under.common.uiliststyle.group.view.TextGenImageView;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.ov8;
+import com.baidu.tieba.js8;
+import com.baidu.tieba.uy8;
+import com.baidu.tieba.vy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,14 +139,14 @@ public class SingleTextImageAdapter extends BaseStyleNormalAdapter<SingleTextIma
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090ee2) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f02) {
                 SingleTextImageAdapter.j0(view2.getContext(), (TbBaseImageMsg) this.a.getTbMsg(), this.b);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ov8 {
+    public class b implements vy8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -175,21 +175,21 @@ public class SingleTextImageAdapter extends BaseStyleNormalAdapter<SingleTextIma
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.ov8
+        @Override // com.baidu.tieba.vy8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
                 this.a.setBackground(drawable);
-                nv8.o(false, this.b.getTextView(), this.c, this.d);
+                uy8.o(false, this.b.getTextView(), this.c, this.d);
             }
         }
 
-        @Override // com.baidu.tieba.ov8
+        @Override // com.baidu.tieba.vy8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 SingleTextImageAdapter.n0(this.a, (TbSingleTextImageMsg) this.c.getTbMsg());
-                nv8.o(true, this.b.getTextView(), this.c, this.d);
+                uy8.o(true, this.b.getTextView(), this.c, this.d);
             }
         }
     }
@@ -234,7 +234,7 @@ public class SingleTextImageAdapter extends BaseStyleNormalAdapter<SingleTextIma
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             TextGenImageView textGenImageView = new TextGenImageView(context);
-            textGenImageView.setId(R.id.obfuscated_res_0x7f090f06);
+            textGenImageView.setId(R.id.obfuscated_res_0x7f090f26);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -251,7 +251,7 @@ public class SingleTextImageAdapter extends BaseStyleNormalAdapter<SingleTextIma
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), viewGroup, baseItem, holder, list, Integer.valueOf(i2), bdUniqueId}) == null) {
             TextGenImageView textGenImageView = holder.b;
             textGenImageView.b(holder, baseItem.getTbMsg(), i2);
-            nv8.t(bdUniqueId, baseItem, viewGroup, new b(viewGroup, textGenImageView, baseItem, i2));
+            uy8.t(bdUniqueId, baseItem, viewGroup, new b(viewGroup, textGenImageView, baseItem, i2));
         }
     }
 
@@ -270,7 +270,7 @@ public class SingleTextImageAdapter extends BaseStyleNormalAdapter<SingleTextIma
             if (StringUtils.isNull(str2)) {
                 return;
             }
-            new cp8(context, str2, a2, str, sessionId, false).execute(new String[0]);
+            new js8(context, str2, a2, str, sessionId, false).execute(new String[0]);
         }
     }
 

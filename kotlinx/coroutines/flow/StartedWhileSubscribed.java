@@ -1,6 +1,7 @@
 package kotlinx.coroutines.flow;
 
 import com.baidu.tieba.c;
+import com.baidu.tieba.ms;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsJVMKt;
@@ -53,10 +54,10 @@ public final class StartedWhileSubscribed implements SharingStarted {
     public String toString() {
         List createListBuilder = CollectionsKt__CollectionsJVMKt.createListBuilder(2);
         if (this.stopTimeout > 0) {
-            createListBuilder.add("stopTimeout=" + this.stopTimeout + "ms");
+            createListBuilder.add("stopTimeout=" + this.stopTimeout + ms.c);
         }
         if (this.replayExpiration < Long.MAX_VALUE) {
-            createListBuilder.add("replayExpiration=" + this.replayExpiration + "ms");
+            createListBuilder.add("replayExpiration=" + this.replayExpiration + ms.c);
         }
         List build = CollectionsKt__CollectionsJVMKt.build(createListBuilder);
         return "SharingStarted.WhileSubscribed(" + CollectionsKt___CollectionsKt.joinToString$default(build, null, null, null, 0, null, null, 63, null) + ')';

@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.IEvent;
-/* loaded from: classes5.dex */
-public interface fm5 {
-    void a();
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+/* loaded from: classes6.dex */
+public interface fm5 extends mk5 {
+    public static final String a = "com.baidu.tieba.fm5";
 
-    void b(IEvent iEvent);
-
-    void c(em5 em5Var);
+    @NonNull
+    em5 b(@NonNull TbPageContext tbPageContext);
 }

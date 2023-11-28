@@ -18,19 +18,11 @@ public final class b {
         return a(str.getBytes(UTF_8), bArr, 2);
     }
 
-    public static byte[] a(byte[] bArr, byte[] bArr2, int i) {
-        try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(i, secretKeySpec);
-            return cipher.doFinal(bArr2);
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
-            return new byte[0];
-        }
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        return a(bArr, bArr2, 1);
     }
 
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public static void e(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = null;
         try {
             GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(outputStream);
@@ -38,13 +30,14 @@ public final class b {
                 byte[] bArr = new byte[1024];
                 while (true) {
                     int read = inputStream.read(bArr, 0, 1024);
-                    if (read == -1) {
+                    if (read != -1) {
+                        gZIPOutputStream2.write(bArr, 0, read);
+                    } else {
                         gZIPOutputStream2.finish();
                         gZIPOutputStream2.flush();
                         com.kwad.sdk.crash.utils.b.closeQuietly(gZIPOutputStream2);
                         return;
                     }
-                    gZIPOutputStream2.write(bArr, 0, read);
                 }
             } catch (Throwable th) {
                 th = th;
@@ -57,7 +50,7 @@ public final class b {
         }
     }
 
-    public static void d(InputStream inputStream, OutputStream outputStream) {
+    public static void f(InputStream inputStream, OutputStream outputStream) {
         GZIPInputStream gZIPInputStream = null;
         try {
             GZIPInputStream gZIPInputStream2 = new GZIPInputStream(inputStream);
@@ -65,11 +58,12 @@ public final class b {
                 byte[] bArr = new byte[1024];
                 while (true) {
                     int read = gZIPInputStream2.read(bArr, 0, 1024);
-                    if (read == -1) {
+                    if (read != -1) {
+                        outputStream.write(bArr, 0, read);
+                    } else {
                         com.kwad.sdk.crash.utils.b.closeQuietly(gZIPInputStream2);
                         return;
                     }
-                    outputStream.write(bArr, 0, read);
                 }
             } catch (Throwable th) {
                 th = th;
@@ -82,8 +76,16 @@ public final class b {
         }
     }
 
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        return a(bArr, bArr2, 1);
+    public static byte[] a(byte[] bArr, byte[] bArr2, int i) {
+        try {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(i, secretKeySpec);
+            return cipher.doFinal(bArr2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTrace(e);
+            return new byte[0];
+        }
     }
 
     public static byte[] f(byte[] bArr) {
@@ -95,7 +97,7 @@ public final class b {
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    c(byteArrayInputStream, byteArrayOutputStream);
+                    e(byteArrayInputStream, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     byteArrayOutputStream.flush();
                     com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream);
@@ -127,7 +129,7 @@ public final class b {
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    d(byteArrayInputStream, byteArrayOutputStream);
+                    f(byteArrayInputStream, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     byteArrayOutputStream.flush();
                     com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream);

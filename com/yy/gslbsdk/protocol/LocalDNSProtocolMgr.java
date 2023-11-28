@@ -3,7 +3,7 @@ package com.yy.gslbsdk.protocol;
 import com.yy.gslbsdk.util.LogTools;
 import java.net.InetAddress;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LocalDNSProtocolMgr {
     public static final String TAG = "LocalDNSProtocolMgr";
 

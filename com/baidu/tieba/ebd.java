@@ -1,77 +1,36 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.google.gson.internal.bind.TypeAdapters;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.VideoTags;
 /* loaded from: classes5.dex */
-public interface ebd extends yad, xad {
+public class ebd extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(r9d r9dVar, n9d n9dVar, AppCustomExpand appCustomExpand);
-
-        void b(r9d r9dVar, n9d n9dVar, AppCustomExpand appCustomExpand);
-
-        void c(q9d q9dVar);
-
-        void onRefreshViewFail(int i, String str);
-
-        void toHelpCenterPage();
-    }
-
-    void a();
-
-    boolean d();
-
-    void setCallback(a aVar);
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<PayWayInfo> a;
-        public String b;
-        public n9d c;
-        public AppCustomExpand d;
-        public Map<String, String> e;
-        public AbsViewEventHandler f;
-        public PayFlowType g;
-        public WindowParams h;
-        public boolean i;
-        public String j;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @NonNull
+    public static JSONObject b(@NonNull VideoTags videoTags) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoTags)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, Config.TRACE_VISIT_FIRST, videoTags.first);
+            ltc.a(jSONObject, TypeAdapters.AnonymousClass27.SECOND, videoTags.second);
+            if (videoTags.tags != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : videoTags.tags) {
+                    jSONArray.put(str);
                 }
+                ltc.a(jSONObject, "tags", jSONArray);
             }
-            this.i = false;
+            return jSONObject;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.g + ", showFaqPage=" + this.i + ", appCustomExpand=" + this.d + ", clientInfoExpand='" + this.e + "', windowParams='" + this.h + "', viewEventListener='" + this.f + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.j + "'}";
-            }
-            return (String) invokeV.objValue;
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

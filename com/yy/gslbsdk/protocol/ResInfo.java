@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ResInfo {
     public LinkedHashMap<String, DnsInfo> dns;
     public HttpDnsInfo httpdns;

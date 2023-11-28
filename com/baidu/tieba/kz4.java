@@ -1,78 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Topic;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbContent;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes7.dex */
-public class kz4 {
+public final class kz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
-    public kz4() {
+    public static final boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        TiebaPlusInfo tiebaPlusInfo;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
+            Intrinsics.checkNotNullParameter(threadData, "<this>");
+            String convertBtnType = threadData.getConvertBtnType();
+            if (convertBtnType != null && convertBtnType.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (!z) {
+                List<PbContent> richAbstractList = threadData.getRichAbstractList();
+                if (richAbstractList != null && !richAbstractList.isEmpty()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    for (PbContent pbContent : threadData.getRichAbstractList()) {
+                        if (pbContent != null && (tiebaPlusInfo = pbContent.tiebaplus_info) != null) {
+                            Integer num = pbContent.type;
+                            if (num != null && num.intValue() == 35) {
+                                String str = tiebaPlusInfo.desc;
+                                if (str != null && str.length() != 0) {
+                                    z3 = false;
+                                } else {
+                                    z3 = true;
+                                }
+                                if (!z3) {
+                                    String str2 = tiebaPlusInfo.button_desc;
+                                    if (str2 != null && str2.length() != 0) {
+                                        z4 = false;
+                                    } else {
+                                        z4 = true;
+                                    }
+                                    if (!z4) {
+                                        String str3 = tiebaPlusInfo.jump_url;
+                                        if (str3 != null && str3.length() != 0) {
+                                            z5 = false;
+                                        } else {
+                                            z5 = true;
+                                        }
+                                        if (!z5) {
+                                            String str4 = tiebaPlusInfo.download_url;
+                                            if (str4 != null && str4.length() != 0) {
+                                                z6 = false;
+                                            } else {
+                                                z6 = true;
+                                            }
+                                            if (!z6) {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            Unit unit = Unit.INSTANCE;
+                        }
+                    }
+                }
+            }
+            return false;
         }
-        this.a = 0;
-        this.b = "";
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.b = jSONObject.optString("link", "");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void d(Topic topic) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, topic) != null) || topic == null) {
-            return;
-        }
-        this.a = topic.is_lpost.intValue();
-        topic.topic_type.intValue();
-        this.b = topic.link;
+        return invokeL.booleanValue;
     }
 }

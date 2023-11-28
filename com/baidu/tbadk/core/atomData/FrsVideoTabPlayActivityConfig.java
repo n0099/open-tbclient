@@ -273,23 +273,39 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setIsCheckPreFloor(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("is_check_pre_floor", z);
+        }
+    }
+
     public void setIsFromBjhPb(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             getIntent().putExtra("is_from_bjh_pb", z);
+        }
+    }
+
+    public void setIsOnBackPressShowAnim(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(VideoPlayActivityConfig.KEY_IS_ON_BACK_PRESS_SHOW_ANIM, z);
         }
     }
 
     public void setIsShowPbCommentFloat(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
             getIntent().putExtra("is_show_pb_comment_float", z);
         }
     }
 
     public void setNid(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && getIntent() != null) {
             getIntent().putExtra("key_nid", str);
         }
     }
@@ -297,14 +313,14 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

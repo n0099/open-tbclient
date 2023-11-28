@@ -14,8 +14,8 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.AppExtraUtil;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.qf1;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.rf1;
 /* loaded from: classes4.dex */
 public class Loki {
     public static final String CRASHPAD_DUMPER_PROCESS_NAME = ":dumper";
@@ -24,7 +24,7 @@ public class Loki {
     public static volatile boolean sIsStartTrack;
 
     public static void initService() {
-        if (isLokiService(qf1.b())) {
+        if (isLokiService(rf1.b())) {
             LokiService.mProcessor = new LogSystemProcessor();
         }
     }
@@ -51,7 +51,7 @@ public class Loki {
     }
 
     public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
-        if (isLokiService(qf1.b())) {
+        if (isLokiService(rf1.b())) {
             LokiService.mProcessor = logSystemProcessor;
         }
     }
@@ -74,7 +74,7 @@ public class Loki {
     }
 
     public static void retryUpload(Context context) {
-        if (qf1.f() && LogSystemUploaderStrategy.checkFlag()) {
+        if (rf1.f() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }
@@ -90,7 +90,7 @@ public class Loki {
     @DebugTrace
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
-        if (isLokiService(qf1.b())) {
+        if (isLokiService(rf1.b())) {
             return;
         }
         retryUpload(context);
@@ -101,21 +101,21 @@ public class Loki {
         Thread.setDefaultUncaughtExceptionHandler(baseUncaughtExceptionHandler);
     }
 
-    public static void initNative(@NonNull Context context, @NonNull ix ixVar) {
-        initNative(context, ixVar, true);
+    public static void initNative(@NonNull Context context, @NonNull jx jxVar) {
+        initNative(context, jxVar, true);
     }
 
-    public static void initNative(@NonNull Context context, @NonNull ix ixVar, boolean z) {
-        if (isLokiService(qf1.b())) {
+    public static void initNative(@NonNull Context context, @NonNull jx jxVar, boolean z) {
+        if (isLokiService(rf1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, ixVar, z);
+        NativeCrashCapture.init(context, jxVar, z);
     }
 
     public static void initNative(@NonNull Context context, boolean z) {
-        if (isLokiService(qf1.b())) {
+        if (isLokiService(rf1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, new ix(context), z);
+        NativeCrashCapture.init(context, new jx(context), z);
     }
 }

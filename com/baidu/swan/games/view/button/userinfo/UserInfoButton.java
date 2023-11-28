@@ -4,20 +4,20 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
-import com.baidu.tieba.f94;
-import com.baidu.tieba.h94;
+import com.baidu.tieba.g94;
+import com.baidu.tieba.i94;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class UserInfoButton extends ApiButton {
 
     /* loaded from: classes4.dex */
-    public class a implements h94.b {
+    public class a implements i94.b {
         public a() {
         }
 
-        @Override // com.baidu.tieba.h94.b
+        @Override // com.baidu.tieba.i94.b
         public void a(JSONObject jSONObject) {
-            UserInfoButton.this.A(jSONObject);
+            UserInfoButton.this.B(jSONObject);
         }
     }
 
@@ -25,15 +25,15 @@ public class UserInfoButton extends ApiButton {
         super(context);
     }
 
-    public void A(JSONObject jSONObject) {
-        f94 f94Var = new f94();
-        f94Var.data = jSONObject;
-        n(f94Var);
+    public void B(JSONObject jSONObject) {
+        g94 g94Var = new g94();
+        g94Var.data = jSONObject;
+        n(g94Var);
     }
 
     @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
     public void onClick(View view2) {
-        new h94().a(new a());
+        new i94().a(new a());
     }
 
     public UserInfoButton(Context context, EventTargetImpl eventTargetImpl) {

@@ -1,56 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.KuangFloatingViewController;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.SevenZipUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class k1b {
+public class k1b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
-    public static final String h;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861645, "Lcom/baidu/tieba/k1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements fv4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(k1b k1bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861645, "Lcom/baidu/tieba/k1b;");
+        }
+
+        @Override // com.baidu.tieba.fv4
+        public void onPermissionResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
+                KuangFloatingViewController.getInstance().showFloatingView();
+                TiebaStatic.log(new StatisticItem("c12264").param("obj_type", 3));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k1b(MainTabActivity mainTabActivity, fza fzaVar) {
+        super(2921380);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, fzaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
-        StringBuilder sb = new StringBuilder();
-        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb.append("/");
-        sb.append("tieba");
-        sb.append("/videoCover.jpg");
-        b = sb.toString();
-        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb2.append("/");
-        sb2.append("DCIM/tieba/");
-        g = sb2.toString();
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        this.a = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !rd.isEmpty((String) customResponsedMessage.getData())) {
+            String str = (String) customResponsedMessage.getData();
+            if (KuangFloatingViewController.getInstance().init()) {
+                KuangFloatingViewController.getInstance().setInfo(str);
+                this.a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
+            }
+        }
     }
 }

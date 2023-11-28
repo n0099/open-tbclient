@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class dsb {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+public final class dsb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static long b = 30000;
+    public static long c;
+    public static long d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,38 +31,76 @@ public class dsb {
         }
     }
 
-    public static void a(String str, String str2) {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
-            Log.d(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d;
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            b = j;
         }
     }
 
-    public static void c(String str, String str2) {
+    public static void f(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
-            Log.e(str, str2);
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            c = j;
         }
     }
 
-    public static void e(String str, String str2) {
+    public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
-            Log.w(str, str2);
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            e = z;
         }
     }
 
-    public static void b(String str) {
+    public static void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            c(LogUtils.TAG, str);
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            e(LogUtils.TAG, str);
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            d = j;
         }
     }
 }

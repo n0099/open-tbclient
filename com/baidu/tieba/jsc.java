@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedFeedback;
-import tbclient.FeedbackReason;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
 /* loaded from: classes6.dex */
-public class jsc extends qoc {
+public abstract class jsc<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long producerIndex;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedFeedback feedFeedback) {
-        InterceptResult invokeL;
+    public jsc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedFeedback)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "type", feedFeedback.type);
-            qoc.a(jSONObject, "title", feedFeedback.title);
-            qoc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, feedFeedback.button_text);
-            qoc.a(jSONObject, "common_id", feedFeedback.common_id);
-            if (feedFeedback.dislike != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedbackReason feedbackReason : feedFeedback.dislike) {
-                    jSONArray.put(jtc.b(feedbackReason));
-                }
-                qoc.a(jSONObject, "dislike", jSONArray);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

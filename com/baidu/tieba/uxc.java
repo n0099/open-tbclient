@@ -1,43 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.WorldCup;
-import tbclient.FrsPage.WorldCupGame;
-import tbclient.FrsPage.WorldCupLottery;
-import tbclient.FrsPage.WorldCupNews;
-import tbclient.FrsPage.WorldCupPk;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes8.dex */
-public class uxc extends qoc {
+public class uxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldCup worldCup) {
+    public static JSONObject b(@NonNull FeedLinkComponent feedLinkComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLinkComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            WorldCupNews worldCupNews = worldCup.news;
-            if (worldCupNews != null) {
-                qoc.a(jSONObject, CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER, yxc.b(worldCupNews));
-            }
-            WorldCupPk worldCupPk = worldCup.pk;
-            if (worldCupPk != null) {
-                qoc.a(jSONObject, PushConstants.URI_PACKAGE_NAME, zxc.b(worldCupPk));
-            }
-            WorldCupLottery worldCupLottery = worldCup.lottery;
-            if (worldCupLottery != null) {
-                qoc.a(jSONObject, "lottery", xxc.b(worldCupLottery));
-            }
-            WorldCupGame worldCupGame = worldCup.game;
-            if (worldCupGame != null) {
-                qoc.a(jSONObject, "game", vxc.b(worldCupGame));
+            if (feedLinkComponent.links != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (PbLinkInfo pbLinkInfo : feedLinkComponent.links) {
+                    jSONArray.put(c6d.b(pbLinkInfo));
+                }
+                ltc.a(jSONObject, "links", jSONArray);
             }
             return jSONObject;
         }

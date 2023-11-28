@@ -1,399 +1,260 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class o42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public String x;
-    public String y;
-    public String z;
+    public int a;
+    public InputStream b;
+    public OutputStream c;
+    public a d;
+    public WebSocketFrame.OpCode e;
+    public final List<WebSocketFrame> f;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(WebSocketFrame webSocketFrame);
+
+        void b(IOException iOException);
+
+        void onClose();
+
+        void onOpen();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982204, "Lcom/baidu/tieba/o42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947982204, "Lcom/baidu/tieba/o42;");
+                return;
+            }
+        }
+        g = sm1.a;
+    }
 
     public o42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 1;
+        this.e = null;
+        this.f = new LinkedList();
     }
 
-    public ContentValues g() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 5);
-            contentValues.put("data1", this.y);
-            return contentValues;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == 4) {
+            return;
         }
-        return (ContentValues) invokeV.objValue;
+        km4.d(this.b);
+        km4.d(this.c);
+        this.a = 4;
+        this.d.onClose();
     }
 
-    public ContentValues h() {
-        InterceptResult invokeV;
+    public static boolean f(Map<String, String> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.z);
-            return contentValues;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            String str = map.get("Upgrade".toLowerCase());
+            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
+            if (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ("websocket".equalsIgnoreCase(str) && z) {
+                return true;
+            }
+            return false;
         }
-        return (ContentValues) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public ContentValues i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 10);
-            contentValues.put("data1", this.q);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 2);
-            contentValues.put("data1", this.f);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/nickname");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.a);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/note");
-            contentValues.put("data1", this.e);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/website");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.s);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 4);
-            contentValues.put("data1", this.o);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 3);
-            contentValues.put("data1", this.p);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return !TextUtils.isEmpty(this.d);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static o42 a(JSONObject jSONObject) {
+    public static String g(String str) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            o42 o42Var = new o42();
-            if (jSONObject != null) {
-                jSONObject.optString("photoFilePath");
-                o42Var.a = jSONObject.optString("nickName");
-                o42Var.b = jSONObject.optString("lastName");
-                o42Var.c = jSONObject.optString("middleName");
-                o42Var.d = jSONObject.optString("firstName");
-                o42Var.e = jSONObject.optString("remark");
-                o42Var.f = jSONObject.optString("mobilePhoneNumber");
-                o42Var.g = jSONObject.optString("weChatNumber");
-                o42Var.h = jSONObject.optString("addressCountry");
-                o42Var.i = jSONObject.optString("addressState");
-                o42Var.j = jSONObject.optString("addressCity");
-                o42Var.k = jSONObject.optString("addressStreet");
-                o42Var.l = jSONObject.optString("addressPostalCode");
-                o42Var.m = jSONObject.optString("organization");
-                o42Var.n = jSONObject.optString("title");
-                o42Var.o = jSONObject.optString("workFaxNumber");
-                o42Var.p = jSONObject.optString("workPhoneNumber");
-                o42Var.q = jSONObject.optString("hostNumber");
-                o42Var.r = jSONObject.optString("email");
-                o42Var.s = jSONObject.optString("url");
-                o42Var.t = jSONObject.optString("workAddressCountry");
-                o42Var.u = jSONObject.optString("workAddressState");
-                o42Var.v = jSONObject.optString("workAddressCity");
-                o42Var.w = jSONObject.optString("workAddressStreet");
-                o42Var.x = jSONObject.optString("workAddressPostalCode");
-                o42Var.y = jSONObject.optString("homeFaxNumber");
-                o42Var.z = jSONObject.optString("homePhoneNumber");
-                o42Var.A = jSONObject.optString("homeAddressCountry");
-                o42Var.B = jSONObject.optString("homeAddressState");
-                o42Var.C = jSONObject.optString("homeAddressCity");
-                o42Var.D = jSONObject.optString("homeAddressStreet");
-                o42Var.E = jSONObject.optString("homeAddressPostalCode");
-            }
-            return o42Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
+            return Base64.encodeToString(messageDigest.digest(), 2);
         }
-        return (o42) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public ContentValues b() {
-        InterceptResult invokeV;
+    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 3);
-            contentValues.put("data1", c());
-            contentValues.put("data9", this.l);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
+            int i = this.a;
+            this.a = 3;
+            if (i == 2) {
+                j(new WebSocketFrame.b(closeCode, str));
+            } else {
+                b();
+            }
         }
-        return (ContentValues) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void h(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.b)) {
-                sb.append(this.b);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
+            this.b = inputStream;
+            this.c = outputStream;
+            this.a = 2;
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.onOpen();
             }
-            if (!TextUtils.isEmpty(this.c)) {
-                sb.append(this.c);
-            }
-            if (!TextUtils.isEmpty(this.d)) {
-                sb.append(this.d);
-            }
-            return sb.toString();
+            i();
         }
-        return (String) invokeV.objValue;
     }
 
-    public ContentValues e() {
-        InterceptResult invokeV;
+    public final void c(WebSocketFrame webSocketFrame) throws IOException {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", f());
-            contentValues.put("data9", this.E);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
+            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
+            if (webSocketFrame instanceof WebSocketFrame.b) {
+                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
+                closeCode = bVar.v();
+                str = bVar.w();
+            } else {
+                str = "";
+            }
+            if (this.a == 3) {
+                b();
+            } else {
+                a(closeCode, str);
+            }
         }
-        return (ContentValues) invokeV.objValue;
     }
 
-    public ContentValues l() {
-        InterceptResult invokeV;
+    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/organization");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.m);
-            contentValues.put("data4", this.n);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
+            synchronized (this) {
+                webSocketFrame.t(this.c);
+            }
         }
-        return (ContentValues) invokeV.objValue;
     }
 
-    public ContentValues o() {
-        InterceptResult invokeV;
+    public void k(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/im");
-            contentValues.put("data5", (Integer) (-1));
-            contentValues.put("data6", AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0144));
-            contentValues.put("data1", this.g);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.d = aVar;
         }
-        return (ContentValues) invokeV.objValue;
     }
 
-    public ContentValues p() {
-        InterceptResult invokeV;
+    public final void d(WebSocketFrame webSocketFrame) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 2);
-            contentValues.put("data1", q());
-            contentValues.put("data9", this.x);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e != null && g) {
+                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
+                }
+                this.e = webSocketFrame.f();
+                this.f.clear();
+                this.f.add(webSocketFrame);
+            } else if (webSocketFrame.h()) {
+                if (this.e != null) {
+                    this.f.add(webSocketFrame);
+                    this.d.a(new WebSocketFrame(this.e, this.f));
+                    this.e = null;
+                    this.f.clear();
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            } else if (this.e != null) {
+                this.f.add(webSocketFrame);
+            } else {
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            }
         }
-        return (ContentValues) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void e(WebSocketFrame webSocketFrame) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.h)) {
-                sb.append(this.h);
+        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
+                c(webSocketFrame);
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
+                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
+                if (g) {
+                    Log.i("V8WebSocket", "A pong request has received.");
+                }
+            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e == null) {
+                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
+                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
+                    }
+                    this.d.a(webSocketFrame);
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
+            } else {
+                d(webSocketFrame);
             }
-            if (!TextUtils.isEmpty(this.i)) {
-                sb.append(this.i);
-            }
-            if (!TextUtils.isEmpty(this.j)) {
-                sb.append(this.j);
-            }
-            if (!TextUtils.isEmpty(this.k)) {
-                sb.append(this.k);
-            }
-            if (!TextUtils.isEmpty(this.l)) {
-                sb.append(" ");
-                sb.append(this.l);
-            }
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.A)) {
-                sb.append(this.A);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            while (this.a == 2) {
+                try {
+                    try {
+                        e(WebSocketFrame.k(this.b));
+                    } catch (IOException e) {
+                        if (this.d != null) {
+                            this.d.b(e);
+                        }
+                        h32.d("V8WebSocket", "parse web socket frame fail", e);
+                    }
+                } finally {
+                    b();
+                }
             }
-            if (!TextUtils.isEmpty(this.B)) {
-                sb.append(this.B);
-            }
-            if (!TextUtils.isEmpty(this.C)) {
-                sb.append(this.C);
-            }
-            if (!TextUtils.isEmpty(this.D)) {
-                sb.append(this.D);
-            }
-            if (!TextUtils.isEmpty(this.E)) {
-                sb.append(" ");
-                sb.append(this.E);
-            }
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.t)) {
-                sb.append(this.t);
-            }
-            if (!TextUtils.isEmpty(this.u)) {
-                sb.append(this.u);
-            }
-            if (!TextUtils.isEmpty(this.v)) {
-                sb.append(this.v);
-            }
-            if (!TextUtils.isEmpty(this.w)) {
-                sb.append(this.w);
-            }
-            if (!TextUtils.isEmpty(this.x)) {
-                sb.append(" ");
-                sb.append(this.x);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

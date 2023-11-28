@@ -1,15 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes8.dex */
-public class u40 {
+public abstract class u40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
+    public Context a;
+
+    public abstract void a(v40 v40Var);
+
+    public abstract v40 b();
+
+    public abstract boolean c();
+
+    public abstract String d();
+
+    public abstract DataInputStream e() throws Exception;
+
+    public abstract void f(v40 v40Var);
+
+    public abstract boolean g() throws IOException;
+
+    public abstract v40 h(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError, SocketException, UnknownHostException;
+
+    public abstract void i(t40 t40Var) throws IOException;
 
     public u40() {
         Interceptable interceptable = $ic;
@@ -24,8 +53,6 @@ public class u40 {
                 return;
             }
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
+        this.a = m40.h().g();
     }
 }

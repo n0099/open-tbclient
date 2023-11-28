@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface k43 {
-    void onFail(String str);
+    int getHeight();
 
-    void onSuccess(JSONObject jSONObject);
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

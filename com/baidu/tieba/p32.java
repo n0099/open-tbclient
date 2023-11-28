@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,200 +13,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class p32 {
+public class p32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile p32 b;
-    public static mc3 c;
-    public static Timer d;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void f(String str);
-
-    /* loaded from: classes7.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p32 a;
-
-        public a(p32 p32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p32Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (p32.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
-                }
-                this.a.c();
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends p32 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.p32
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (p32.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
-                }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (p32.c != null) {
-                            nc3.d(p32.c, str, d());
-                            return;
-                        }
-                        return;
-                    }
-                    if (p32.c != null) {
-                        nc3.d(p32.c, "downloadfail", d());
-                    }
-                    c();
-                    h();
-                    return;
-                }
-                if (p32.c != null) {
-                    nc3.d(p32.c, "downloadsuccess", d());
-                }
-                c();
-                h();
-                return;
-            }
-            i();
-            nc3.d(p32.c, str, d());
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends p32 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.p32
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !r32.k().m()) {
-                if (p32.a) {
-                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 900970612) {
-                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                        c = 0;
-                    }
-                } else if (str.equals("pageready")) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (p32.c != null) {
-                            nc3.d(p32.c, str, d());
-                            return;
-                        }
-                        return;
-                    } else if (p32.c != null) {
-                        nc3.d(p32.c, str, d());
-                        c();
-                        h();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                i();
-                nc3.d(p32.c, str, d());
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -218,7 +43,7 @@ public abstract class p32 {
                 return;
             }
         }
-        a = rm1.a;
+        i = sm1.a;
     }
 
     public p32() {
@@ -226,129 +51,62 @@ public abstract class p32 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void h() {
+    @NonNull
+    public static p32 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
-        }
-    }
-
-    public /* synthetic */ p32(a aVar) {
-        this();
-    }
-
-    public static p32 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b == null) {
-                synchronized (tr2.class) {
-                    if (b == null) {
-                        if (qf1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
-                }
-            }
-            return b;
-        }
-        return (p32) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            p32 p32Var = new p32();
             try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
+                p32Var.c = jSONObject.getJSONArray("host");
+                p32Var.b = jSONObject.getString("appKey");
+                p32Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                p32Var.d = jSONObject.getString("serverPort");
+                p32Var.f = jSONObject.getString("wsServerPort");
+                Uri.decode(jSONObject.optString("url"));
+                p32Var.g = jSONObject.optString("notInHistory", "1");
+                p32Var.h = jSONObject.optLong("coreVersion");
+            } catch (JSONException unused) {
+                if (i) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
                 }
             }
-            return jSONObject.toString();
+            return p32Var;
         }
-        return (String) invokeV.objValue;
+        return (p32) invokeL.objValue;
     }
 
-    public void i() {
+    public String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
-            return;
-        }
-        c = zc3.c("1153");
-        a aVar = new a(this);
-        Timer timer = new Timer();
-        d = timer;
-        try {
-            timer.schedule(aVar, 40000L);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            JSONArray jSONArray = this.c;
+            if (jSONArray == null) {
+                return "";
             }
+            return jSONArray.optString(i2);
         }
+        return (String) invokeI.objValue;
     }
 
-    public static void g(JSONArray jSONArray) {
-        String str;
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.f(str);
-            }
+            return "http://" + str + ":" + this.d + "/app.zip";
         }
-    }
-
-    public void c() {
-        String appId;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            g63 c0 = g63.c0();
-            if (c0 == null) {
-                appId = "";
-            } else {
-                appId = c0.getAppId();
-            }
-            jSONObject2.putOpt("appid", appId);
-            jSONObject2.putOpt("from", "local-debug");
-            yc3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        nc3.f(c, jSONObject.toString());
-        nc3.c(c);
+        return (String) invokeL.objValue;
     }
 }

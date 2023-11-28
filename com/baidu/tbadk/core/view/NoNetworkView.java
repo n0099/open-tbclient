@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dua;
+import com.baidu.tieba.wya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     /* loaded from: classes4.dex */
     public interface b {
-        void m(boolean z);
+        void p(boolean z);
     }
 
     public int getLayout() {
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.mCheckDetail = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dua.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.noNetworkView);
                 this.isSupportOffline = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -343,7 +343,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.networkChangeListeners.size(); i++) {
-                    this.networkChangeListeners.get(i).m(false);
+                    this.networkChangeListeners.get(i).p(false);
                 }
             } else if (this.isSupportOffline && !BdSocketLinkService.isAvailable()) {
                 if (2 == this.currentState) {
@@ -357,7 +357,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.networkChangeListeners.size(); i2++) {
-                    this.networkChangeListeners.get(i2).m(false);
+                    this.networkChangeListeners.get(i2).p(false);
                 }
             } else if (this.currentState != 0) {
                 this.currentState = 0;
@@ -368,7 +368,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     alphaAnimation3.setAnimationListener(new a(this));
                     startAnimation(alphaAnimation3);
                     for (int i3 = 0; i3 < this.networkChangeListeners.size(); i3++) {
-                        this.networkChangeListeners.get(i3).m(true);
+                        this.networkChangeListeners.get(i3).p(true);
                     }
                 }
             }

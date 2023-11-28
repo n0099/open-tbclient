@@ -118,8 +118,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0927cb);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092730);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09284e);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927b3);
             }
         }
 
@@ -148,7 +148,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @NonNull
-        /* renamed from: m */
+        /* renamed from: n */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -385,7 +385,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d0485;
+        this.k = R.layout.obfuscated_res_0x7f0d048f;
         this.l = new a(this);
         init();
     }

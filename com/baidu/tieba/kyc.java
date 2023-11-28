@@ -5,25 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.GameAttr;
-import tbclient.SignatureInfo;
+import tbclient.ForumFriendWatchingInfo;
 /* loaded from: classes7.dex */
-public class kyc extends qoc {
+public class kyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GameAttr gameAttr) {
+    public static JSONObject b(@NonNull ForumFriendWatchingInfo forumFriendWatchingInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gameAttr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumFriendWatchingInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "user_id", gameAttr.user_id);
-            SignatureInfo signatureInfo = gameAttr.signature_info;
-            if (signatureInfo != null) {
-                qoc.a(jSONObject, "signature_info", g3d.b(signatureInfo));
-            }
-            qoc.a(jSONObject, "is_open", gameAttr.is_open);
+            ltc.a(jSONObject, "forum_avatar", forumFriendWatchingInfo.forum_avatar);
+            ltc.a(jSONObject, "forum_name", forumFriendWatchingInfo.forum_name);
+            ltc.a(jSONObject, "show_num", forumFriendWatchingInfo.show_num);
+            ltc.a(jSONObject, "show_type", forumFriendWatchingInfo.show_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

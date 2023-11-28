@@ -1,72 +1,48 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class ka9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ka9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947906502, "Lcom/baidu/tieba/ka9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947906502, "Lcom/baidu/tieba/ka9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947906502, "Lcom/baidu/tieba/ka9;")) == null) {
+            return;
         }
-        a = new ka9();
-    }
-
-    public ka9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947906502, "Lcom/baidu/tieba/ka9;");
         }
     }
 
-    public final List<String> a(String content) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final void a(View targetView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, content)) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            ArrayList arrayList = new ArrayList();
-            int codePointCount = content.codePointCount(0, content.length());
-            int i = 1;
-            if (1 <= codePointCount) {
-                while (true) {
-                    String substring = content.substring(content.offsetByCodePoints(0, i - 1), content.offsetByCodePoints(0, i));
-                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                    arrayList.add(substring);
-                    if (i == codePointCount) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(65537, null, targetView) == null) {
+            Intrinsics.checkNotNullParameter(targetView, "targetView");
+            ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.8f, 1, 0.5f, 1, 0.5f);
+            scaleAnimation.setDuration(150L);
+            scaleAnimation.setFillAfter(true);
+            scaleAnimation.setRepeatMode(2);
+            scaleAnimation.setRepeatCount(1);
+            AnimationSet animationSet = new AnimationSet(true);
+            animationSet.addAnimation(scaleAnimation);
+            targetView.startAnimation(animationSet);
         }
-        return (List) invokeL.objValue;
     }
 }

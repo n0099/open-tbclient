@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.MessageManager;
@@ -27,7 +28,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,33 +61,33 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public BasePersonInfoAdapter o;
     public HttpMessageListener p;
 
-    public abstract String B1();
+    public abstract String D1();
+
+    public abstract String E1();
 
     public abstract String G1();
 
-    public abstract String K1();
+    public abstract String H1();
 
-    public abstract String L1();
-
-    public abstract String N1();
-
-    public abstract int O1();
+    public abstract int I1();
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
         }
     }
 
-    public abstract BasePersonInfoAdapter x1(BasePersonInfoActivity basePersonInfoActivity, boolean z);
+    public abstract BasePersonInfoAdapter v1(BasePersonInfoActivity basePersonInfoActivity, boolean z);
+
+    public abstract String w1();
 
     public abstract String y1();
 
@@ -158,12 +159,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
-                basePersonInfoActivity.c = UserPrivateHelper.getMyPrivateStat(basePersonInfoActivity.O1()) % 3;
-                int O1 = this.a.O1();
-                if (O1 != 2) {
-                    if (O1 != 3) {
-                        if (O1 != 4) {
-                            if (O1 != 5) {
+                basePersonInfoActivity.c = UserPrivateHelper.getMyPrivateStat(basePersonInfoActivity.I1()) % 3;
+                int I1 = this.a.I1();
+                if (I1 != 2) {
+                    if (I1 != 3) {
+                        if (I1 != 4) {
+                            if (I1 != 5) {
                                 str = "";
                             } else {
                                 str = "friend";
@@ -219,7 +220,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        UserPrivateHelper.setMyPrivateStat(this.a.O1(), BasePersonInfoActivity.t[this.a.c]);
+                        UserPrivateHelper.setMyPrivateStat(this.a.I1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
                         basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.icon_toast_info);
@@ -229,7 +230,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e61));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e6f));
             }
         }
     }
@@ -278,7 +279,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public final void initTabSpec() {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.o != null) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.o != null) {
             if (this.g) {
                 i = 1;
             } else {
@@ -287,85 +288,76 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.o.getItem(i2);
                 int c2 = this.o.c(i2);
-                String L1 = L1();
+                String G1 = G1();
                 if (c2 == 1) {
-                    L1 = K1();
+                    G1 = E1();
                 }
                 if (item != null) {
-                    w1(item, c2, L1);
+                    u1(item, c2, G1);
                 }
             }
             this.n.j(3);
         }
     }
 
-    public boolean D1() {
+    public int A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int E1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.h;
         }
         return invokeV.intValue;
     }
 
-    public NavigationBar F1() {
+    public NavigationBar B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.k;
         }
         return (NavigationBar) invokeV.objValue;
     }
 
-    public String P1() {
+    public String J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.j;
         }
         return (String) invokeV.objValue;
     }
 
-    public int Q1() {
+    public int K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.f;
         }
         return invokeV.intValue;
     }
 
-    public String S1() {
+    public String M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean U1() {
+    public boolean P1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.i;
         }
         return invokeV.booleanValue;
     }
 
-    public int z1() {
+    public int x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (this.a == 0) {
                 return 0;
             }
@@ -374,31 +366,40 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return invokeV.intValue;
     }
 
-    public final void T1(Bundle bundle) {
+    public boolean z1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09037f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void O1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090393);
             this.k = navigationBar;
             if (this.i) {
                 if (this.m == 23011) {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0bd1));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0bdf));
                 } else {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f13cd));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f13dd));
                 }
             } else {
-                navigationBar.setCenterTextTitle(String.format(G1(), this.e));
+                navigationBar.setCenterTextTitle(String.format(D1(), this.e));
             }
             this.k.showBottomLine();
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (this.g && this.m != 23003 && !this.i) {
                 ImageView imageView = (ImageView) this.k.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
                 this.l = imageView;
-                SkinManager.setNavbarIconSrc(imageView, r[UserPrivateHelper.getMyPrivateStat(O1()) - 1], q[UserPrivateHelper.getMyPrivateStat(O1()) - 1]);
+                SkinManager.setNavbarIconSrc(imageView, r[UserPrivateHelper.getMyPrivateStat(I1()) - 1], q[UserPrivateHelper.getMyPrivateStat(I1()) - 1]);
                 this.l.setOnClickListener(new b(this));
             }
             this.b = new int[]{0, 1};
-            this.o = x1(this, this.g);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090380);
+            this.o = v1(this, this.g);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090394);
             this.n = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.n.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
@@ -415,7 +416,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002d);
             if (bundle != null) {
@@ -443,44 +444,44 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
             this.d = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c94);
+                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca2);
                 this.g = true;
             } else {
                 this.g = false;
                 int i = this.f;
                 if (i != 1) {
                     if (i != 2) {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f15ff);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f160f);
                     } else {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1416);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1426);
                     }
                 } else {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f09d4);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f09de);
                 }
             }
-            if (qd.isEmpty(this.d)) {
+            if (rd.isEmpty(this.d)) {
                 finish();
                 return;
             }
-            T1(bundle);
+            O1(bundle);
             registerListener(this.p);
         }
     }
 
-    public void V1(int i, int i2) {
+    public void Q1(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) && !this.g && this.o != null) {
+        if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && !this.g && this.o != null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.n.h(0).b;
             if (i <= 0) {
-                fragmentTabIndicator.setText(L1());
+                fragmentTabIndicator.setText(G1());
             } else {
-                fragmentTabIndicator.setText(String.format(N1(), Integer.valueOf(i)));
+                fragmentTabIndicator.setText(String.format(H1(), Integer.valueOf(i)));
             }
             FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.n.h(1).b;
             if (i2 <= 0) {
-                fragmentTabIndicator2.setText(K1());
+                fragmentTabIndicator2.setText(E1());
             } else {
-                fragmentTabIndicator2.setText(String.format(y1(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(w1(), Integer.valueOf(i2)));
             }
         }
     }
@@ -488,7 +489,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.k.onChangeSkinType(getPageContext(), i);
             this.n.r(i);
             if (this.o != null) {
@@ -505,10 +506,10 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && i >= 0 && i < 2 && i != this.a) {
+        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i >= 0 && i < 2 && i != this.a) {
             this.a = i;
             if (!this.g && this.b[i] == 1) {
-                TiebaStatic.eventStat(getPageContext().getContext(), B1(), "click", 1, new Object[0]);
+                TiebaStatic.eventStat(getPageContext().getContext(), y1(), "click", 1, new Object[0]);
             }
         }
     }
@@ -516,7 +517,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
             bundle.putInt("CurrTabIndex", this.a);
             bundle.putInt(PersonBarActivityConfig.LIKE_BARS_COUNT, this.h);
             if (this.i && this.m != 23011) {
@@ -531,7 +532,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, keyEvent)) == null) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.i && this.m != 23011) {
                     MainEntrance.goToMainTabRefresh(getPageContext().getPageActivity(), 200, false);
@@ -544,9 +545,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return invokeIL.booleanValue;
     }
 
-    public final void w1(Fragment fragment, int i, String str) {
+    public final void u1(Fragment fragment, int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048599, this, fragment, i, str) != null) || fragment == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048597, this, fragment, i, str) != null) || fragment == null) {
             return;
         }
         FragmentTabHost.c cVar = new FragmentTabHost.c();

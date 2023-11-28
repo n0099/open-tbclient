@@ -11,7 +11,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ConfigAPI implements IConfigAPI {
     public GeneralConfigTool mGeneralConfigTool;
 

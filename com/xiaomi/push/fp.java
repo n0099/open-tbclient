@@ -32,13 +32,13 @@ public class fp {
                 return gu.a(this.a, fvVar);
             }
             if (name.equals("presence")) {
-                return gu.m544a(this.a);
+                return gu.m548a(this.a);
             }
             if (this.a.getName().equals("stream")) {
                 return null;
             }
             if (this.a.getName().equals("error")) {
-                throw new gg(gu.m545a(this.a));
+                throw new gg(gu.m549a(this.a));
             }
             if (!this.a.getName().equals("warning")) {
                 this.a.getName().equals(UbcRemoteStat.BIND_SERVICE);

@@ -174,7 +174,7 @@ public final class FrsMultiMoveBottomView extends LinearLayout implements View.O
     public final void setSelectNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0867);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f086f);
             Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.frs_move_area_text)");
             if (i > 0) {
                 StringBuilder sb = new StringBuilder();

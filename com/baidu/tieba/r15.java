@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.stamp.SignPopStampDialogUtil;
+import com.baidu.tbadk.data.TopNotifyData;
+import com.baidu.tieba.oq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class r15 extends g15 {
+public final class r15 extends j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,41 +31,40 @@ public final class r15 extends g15 {
         }
     }
 
-    public static final void b(DialogInterface dialogInterface) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
-            YunDialogManager.unMarkShowingDialogName("userIcon");
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("topNotify");
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(Context context, u05 data) {
+    @Override // com.baidu.tieba.j15
+    public void a(Context context, x05 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(data, "data");
-            if (!PollingModel.checkIconPopHadShow()) {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                TopNotifyData a = TopNotifyData.Companion.a();
+                if (a != null) {
+                    xb5.a.i(a, new oq6.e() { // from class: com.baidu.tieba.y05
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // com.baidu.tieba.oq6.e
+                        public final void onDismiss() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                r15.b();
+                            }
+                        }
+                    });
+                }
+                YunDialogManager.markShowingDialogName("topNotify");
                 return;
             }
-            SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
-            signPopStampDialogUtil.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.x05
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnDismissListener
-                public final void onDismiss(DialogInterface dialogInterface) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                        r15.b(dialogInterface);
-                    }
-                }
-            });
-            if (signPopStampDialogUtil.preShowPollingStampDialog(TbSingleton.getInstance().getIconPopData()) != null) {
-                YunDialogManager.markShowingDialogName("userIcon");
-            } else {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-            }
+            YunDialogManager.unMarkShowingDialogName("topNotify");
         }
     }
 }

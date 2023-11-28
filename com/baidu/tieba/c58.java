@@ -1,155 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
-import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public class c58 extends al6<eq7> {
+public class c58 implements b25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HListView t;
-    public li8 u;
-    public FrsSchoolRecommendItemView v;
-    public List<mi8> w;
-    public View.OnClickListener x;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c58 a;
-
-        public a(c58 c58Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c58Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f() != null) {
-                this.a.f().a(view2, null);
-            }
-        }
+    @Override // com.baidu.tieba.b25
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_UPGRADE_STRATEGY" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c58(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext);
+    public c58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.x = new a(this);
-        HListView hListView = new HListView(c());
-        this.t = hListView;
-        hListView.setHeaderDividersEnabled(false);
-        this.t.setFooterDividersEnabled(false);
-        this.t.setSelector(R.drawable.list_selector_transparent);
-        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03b5, (ViewGroup) null), tbPageContext, bdUniqueId);
-        li8 li8Var = new li8(c(), R.layout.obfuscated_res_0x7f0d03b5, this.v);
-        this.u = li8Var;
-        li8Var.d(this.x);
-        this.t.setAdapter((ListAdapter) this.u);
-        this.q.addView(this.t);
-        this.p.setVisibility(8);
-        this.j.setTextSize(0, BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
-    }
-
-    @Override // com.baidu.tieba.al6, com.baidu.tieba.zk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            super.l(tbPageContext, i);
-            if (this.t != null && this.u != null) {
-                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-                this.u.b(i);
             }
         }
     }
 
-    public final boolean y(List<mi8> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b25
+    public z15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
-                return true;
-            }
-            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
-                mi8 mi8Var = (mi8) ListUtils.getItem(this.w, i);
-                mi8 mi8Var2 = (mi8) ListUtils.getItem(list, i);
-                if ((mi8Var instanceof mr7) && (mi8Var2 instanceof mr7) && !((mr7) mi8Var).a.getUserId().equals(((mr7) mi8Var2).a.getUserId())) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b58();
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk6
-    /* renamed from: z */
-    public void k(eq7 eq7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eq7Var) == null) {
-            super.x(eq7Var);
-            if (eq7Var != null && !ListUtils.isEmpty(eq7Var.getDataList())) {
-                if (StringUtils.isNull(eq7Var.mGroupTitle)) {
-                    this.j.setText(c().getResources().getString(R.string.school_recommend));
-                } else {
-                    this.j.setText(eq7Var.mGroupTitle);
-                }
-                if (y(eq7Var.getDataList())) {
-                    List<mi8> dataList = eq7Var.getDataList();
-                    this.w = dataList;
-                    this.u.c(dataList);
-                    this.u.notifyDataSetChanged();
-                }
-            }
-        }
+        return (z15) invokeV.objValue;
     }
 }

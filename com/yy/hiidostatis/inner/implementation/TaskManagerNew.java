@@ -15,7 +15,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TaskManagerNew implements ITaskManager {
     public TaskDataSqLiteCacheManager cacheManager;
     public volatile AbstractConfig mConfig;
@@ -43,7 +43,7 @@ public class TaskManagerNew implements ITaskManager {
     }, "Statis_SDK_Save_Worker");
     public final TaskExecutor mExecutor = new TaskExecutor(null, "Statis_SDK_Send_Worker");
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class FailSendControler {
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
         public final long sleepTime;

@@ -156,7 +156,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.a = viewGroup;
         NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 0);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907db);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
         NoDataView a2 = NoDataViewFactory.a(view2.getContext(), this.c, b2, null, null);
         this.d = a2;
         a2.setVisibility(0);

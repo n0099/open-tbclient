@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.baidu.ar.auth.FeatureCodes;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CalendarConstraints implements Parcelable {
     public static final Parcelable.Creator<CalendarConstraints> CREATOR = new Parcelable.Creator<CalendarConstraints>() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public final class CalendarConstraints implements Parcelable {
     public final DateValidator validator;
     public final int yearSpan;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface DateValidator extends Parcelable {
         boolean isValid(long j);
     }
@@ -45,7 +45,7 @@ public final class CalendarConstraints implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static final String DEEP_COPY_VALIDATOR_KEY = "DEEP_COPY_VALIDATOR_KEY";
         public long end;

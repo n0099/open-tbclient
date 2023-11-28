@@ -6,11 +6,31 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.protect.sdk.Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public abstract class a extends Binder implements IInterface {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         attachInterface(this, "com.huawei.android.powerkit.adapter.IPowerKitApi");
     }
 
@@ -34,7 +54,9 @@ public abstract class a extends Binder implements IInterface {
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return (IBinder) Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6.l(-15943, this, null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (IBinder) Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6.l(-15943, this, null) : (IBinder) invokeV.objValue;
     }
 
     public abstract int b(String str);
@@ -55,6 +77,8 @@ public abstract class a extends Binder implements IInterface {
 
     @Override // android.os.Binder
     public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        return Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6.z(-15938, this, Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) ? Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6.z(-15938, this, Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)) : invokeCommon.booleanValue;
     }
 }

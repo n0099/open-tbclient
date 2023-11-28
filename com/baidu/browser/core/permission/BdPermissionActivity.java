@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.tieba.vr;
 import com.baidu.tieba.wr;
+import com.baidu.tieba.xr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public class BdPermissionActivity extends Activity {
             }
             if (z) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
-            } else if (wr.c(this, this.a)) {
+            } else if (xr.c(this, this.a)) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
             } else {
                 onRequestPermissionsResult(this.a, this.b, new int[0]);
@@ -85,7 +85,7 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = vr.b().c(this.a);
+            ActivityCompat.OnRequestPermissionsResultCallback c = wr.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

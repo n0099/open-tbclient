@@ -1,108 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.util.PhotoType;
+import android.graphics.SurfaceTexture;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tvb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.BufferUnderflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fab {
+public abstract class fab implements tvb.b {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean o;
+    public static boolean p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public SurfaceTexture l;
+    public volatile boolean m;
+    public volatile boolean n;
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PhotoType a(String str) {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            PhotoType photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            RandomAccessFile randomAccessFile3 = null;
-            try {
-                try {
-                    try {
-                        randomAccessFile = new RandomAccessFile(str, "r");
-                        try {
-                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
-                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
-                                photoType = PhotoType.APNG;
-                            }
-                            randomAccessFile.close();
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (BufferUnderflowException e3) {
-                            e = e3;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        randomAccessFile3 = randomAccessFile2;
-                        if (randomAccessFile3 != null) {
-                            try {
-                                randomAccessFile3.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    randomAccessFile = null;
-                } catch (IOException e6) {
-                    e = e6;
-                    randomAccessFile = null;
-                } catch (BufferUnderflowException e7) {
-                    e = e7;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (randomAccessFile3 != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException e8) {
-                e8.printStackTrace();
-            }
-            return photoType;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947758818, "Lcom/baidu/tieba/fab;")) == null) {
+            return;
         }
-        return (PhotoType) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947758818, "Lcom/baidu/tieba/fab;");
+        }
+    }
+
+    public fab() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = -1;
+        this.m = false;
+        this.n = false;
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.tvb.b
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.m = z;
+        }
     }
 }

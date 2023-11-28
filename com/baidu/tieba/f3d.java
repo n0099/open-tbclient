@@ -4,31 +4,25 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SignatureContent;
-import tbclient.SignatureData;
+import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes5.dex */
-public class f3d extends qoc {
+public class f3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SignatureData signatureData) {
+    public static JSONObject b(@NonNull Yule yule) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yule)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "signature_id", signatureData.signature_id);
-            qoc.a(jSONObject, "fontKeyName", signatureData.fontKeyName);
-            qoc.a(jSONObject, "fontColor", signatureData.fontColor);
-            if (signatureData.content != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SignatureContent signatureContent : signatureData.content) {
-                    jSONArray.put(e3d.b(signatureContent));
-                }
-                qoc.a(jSONObject, "content", jSONArray);
+            YuleActivity yuleActivity = yule.yule_activity;
+            if (yuleActivity != null) {
+                ltc.a(jSONObject, "yule_activity", e3d.b(yuleActivity));
             }
+            ltc.a(jSONObject, "activity_show", yule.activity_show);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

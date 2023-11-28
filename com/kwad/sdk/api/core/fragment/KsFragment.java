@@ -46,50 +46,18 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         this.mBase = new ResFragment(this);
     }
 
-    @Keep
-    public KsFragment(Fragment fragment) {
-        this.mBase = fragment;
-    }
-
-    public static KsFragment instantiate(Context context, String str, @Nullable Bundle bundle) {
-        try {
-            Class<?> cls = sClassMap.get(str);
-            if (cls == null) {
-                cls = context.getClassLoader().loadClass(str);
-                sClassMap.put(str, cls);
-            }
-            KsFragment ksFragment = (KsFragment) cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-            if (bundle != null) {
-                bundle.setClassLoader(ksFragment.getClass().getClassLoader());
-                ksFragment.setArguments(bundle);
-            }
-            return ksFragment;
-        } catch (Exception e) {
-            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
-        }
-    }
-
-    private boolean isAllFragmentIsHidden(Fragment fragment) {
-        Fragment parentFragment = fragment.getParentFragment();
-        boolean isHidden = fragment.isHidden();
-        return parentFragment == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment);
-    }
-
     private boolean isKsAdParentFragment() {
         Fragment parentFragment = this.mBase.getParentFragment();
-        return parentFragment != null && (parentFragment instanceof IDelegateFragment);
+        if (parentFragment != null && (parentFragment instanceof IDelegateFragment)) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.mBase.dump(str, fileDescriptor, printWriter, strArr);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @KsAdSdkDynamicApi
-    @Keep
+    @Deprecated
     public final Activity getActivity() {
         Fragment fragment = this.mBase;
         if (fragment instanceof IDelegateFragment) {
@@ -139,9 +107,10 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @Nullable
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
+    @Nullable
     public final Context getContext() {
         return this.mBase.getContext();
     }
@@ -187,15 +156,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @NonNull
-    @KsAdSdkDynamicApi
-    @Keep
-    @SuppressLint({"RestrictedApi"})
-    public final LayoutInflater getLayoutInflater(@Nullable Bundle bundle) {
-        return this.mBase.getLayoutInflater(bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public KsLifecycle getLifecycle() {
@@ -232,10 +192,10 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        if (a.RG.booleanValue()) {
-            throw new RuntimeException("please use getContext().getResources()");
+        if (!a.mc.booleanValue()) {
+            return this.mBase.getContext().getResources();
         }
-        return this.mBase.getContext().getResources();
+        throw new RuntimeException("please use getContext().getResources()");
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -270,24 +230,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @NonNull
-    @KsAdSdkDynamicApi
-    @Keep
-    @Deprecated
-    public final String getString(@StringRes int i) {
-        return getResources().getString(i);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @NonNull
-    @KsAdSdkDynamicApi
-    @Keep
-    @Deprecated
-    public final String getString(@StringRes int i, Object... objArr) {
-        return getResources().getString(i, objArr);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
     @Nullable
     @KsAdSdkDynamicApi
     @Keep
@@ -300,15 +242,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     public final int getTargetRequestCode() {
         return this.mBase.getTargetRequestCode();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @NonNull
-    @KsAdSdkDynamicApi
-    @Keep
-    @Deprecated
-    public final CharSequence getText(@StringRes int i) {
-        return getResources().getText(i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -339,17 +272,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     public final boolean isAdded() {
         return this.mBase.isAdded();
-    }
-
-    public boolean isAllFragmentIsHidden() {
-        if (isKsAdParentFragment()) {
-            KsFragment parentFragment = getParentFragment();
-            return parentFragment == null ? isHidden() : isHidden() || parentFragment.isAllFragmentIsHidden();
-        }
-        Fragment fragment = this.mBase;
-        Fragment parentFragment2 = fragment.getParentFragment();
-        boolean isHidden = fragment.isHidden();
-        return parentFragment2 == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -408,24 +330,116 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onDestroyOptionsMenu() {
+        super.onDestroyOptionsMenu();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onDetach() {
+        super.onDetach();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onLowMemory() {
+        super.onLowMemory();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onPause() {
+        super.onPause();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onResume() {
+        super.onResume();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onStart() {
+        super.onStart();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onStop() {
+        super.onStop();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @KsAdSdkDynamicApi
+    @Keep
+    public final void postponeEnterTransition() {
+        this.mBase.postponeEnterTransition();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @KsAdSdkDynamicApi
+    @Keep
+    public final void startPostponedEnterTransition() {
+        this.mBase.startPostponedEnterTransition();
+    }
+
+    @Keep
+    public KsFragment(Fragment fragment) {
+        this.mBase = fragment;
+    }
+
+    private boolean isAllFragmentIsHidden(Fragment fragment) {
+        Fragment parentFragment = fragment.getParentFragment();
+        if (parentFragment == null) {
+            return fragment.isHidden();
+        }
+        if (!fragment.isHidden() && !isAllFragmentIsHidden(parentFragment)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @NonNull
+    @KsAdSdkDynamicApi
+    @Keep
+    @SuppressLint({"RestrictedApi"})
+    public final LayoutInflater getLayoutInflater(@Nullable Bundle bundle) {
+        return this.mBase.getLayoutInflater(bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @NonNull
+    @KsAdSdkDynamicApi
+    @Keep
+    @Deprecated
+    public final String getString(@StringRes int i) {
+        return getResources().getString(i);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @NonNull
+    @KsAdSdkDynamicApi
+    @Keep
+    @Deprecated
+    public final CharSequence getText(@StringRes int i) {
+        return getResources().getText(i);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Deprecated
     public /* bridge */ /* synthetic */ void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public /* bridge */ /* synthetic */ void onAttach(Activity activity) {
         super.onAttach(activity);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onAttach(Context context) {
-        super.onAttach(context);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -448,52 +462,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         super.onCreate(bundle);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
-        return super.onCreateAnimation(i, z, i2);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
-        return super.onCreateAnimator(i, z, i2);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    @Nullable
-    public /* bridge */ /* synthetic */ View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        return super.onCreateView(layoutInflater, viewGroup, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onDestroyOptionsMenu() {
-        super.onDestroyOptionsMenu();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onDetach() {
-        super.onDetach();
-    }
-
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
@@ -504,21 +472,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public /* bridge */ /* synthetic */ void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
-        super.onInflate(activity, attributeSet, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
-        super.onInflate(context, attributeSet, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onLowMemory() {
-        super.onLowMemory();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -537,11 +490,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onPause() {
-        super.onPause();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public /* bridge */ /* synthetic */ void onPictureInPictureModeChanged(boolean z) {
         super.onPictureInPictureModeChanged(z);
     }
@@ -552,33 +500,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onResume() {
-        super.onResume();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public /* bridge */ /* synthetic */ void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onStart() {
-        super.onStart();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onStop() {
-        super.onStop();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
-        super.onViewCreated(view2, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -589,22 +512,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void postponeEnterTransition() {
-        this.mBase.postponeEnterTransition();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @KsAdSdkDynamicApi
-    @Keep
     public final void registerForContextMenu(View view2) {
         this.mBase.registerForContextMenu(view2);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @KsAdSdkDynamicApi
-    @Keep
-    public final void requestPermissions(@NonNull String[] strArr, int i) {
-        this.mBase.requestPermissions(strArr, i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -725,6 +634,64 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
+    public final void unregisterForContextMenu(View view2) {
+        this.mBase.unregisterForContextMenu(view2);
+    }
+
+    public static KsFragment instantiate(Context context, String str, @Nullable Bundle bundle) {
+        try {
+            Class<?> cls = sClassMap.get(str);
+            if (cls == null) {
+                cls = context.getClassLoader().loadClass(str);
+                sClassMap.put(str, cls);
+            }
+            KsFragment ksFragment = (KsFragment) cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            if (bundle != null) {
+                bundle.setClassLoader(ksFragment.getClass().getClassLoader());
+                ksFragment.setArguments(bundle);
+            }
+            return ksFragment;
+        } catch (Exception e) {
+            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @KsAdSdkDynamicApi
+    @Keep
+    public final void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        this.mBase.dump(str, fileDescriptor, printWriter, strArr);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @NonNull
+    @KsAdSdkDynamicApi
+    @Keep
+    @Deprecated
+    public final String getString(@StringRes int i, Object... objArr) {
+        return getResources().getString(i, objArr);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+        super.onViewCreated(view2, bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @KsAdSdkDynamicApi
+    @Keep
+    public final void requestPermissions(@NonNull String[] strArr, int i) {
+        this.mBase.requestPermissions(strArr, i);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.IFragment
+    @KsAdSdkDynamicApi
+    @Keep
     public final void startActivity(Intent intent, @Nullable Bundle bundle) {
         this.mBase.startActivity(intent, bundle);
     }
@@ -736,6 +703,64 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         this.mBase.startActivityForResult(intent, i);
     }
 
+    public boolean isAllFragmentIsHidden() {
+        if (isKsAdParentFragment()) {
+            KsFragment parentFragment = getParentFragment();
+            if (parentFragment == null) {
+                return isHidden();
+            }
+            if (!isHidden() && !parentFragment.isAllFragmentIsHidden()) {
+                return false;
+            }
+            return true;
+        }
+        Fragment fragment = this.mBase;
+        Fragment parentFragment2 = fragment.getParentFragment();
+        if (parentFragment2 == null) {
+            return fragment.isHidden();
+        }
+        if (!fragment.isHidden() && !isAllFragmentIsHidden(parentFragment2)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
+        return super.onCreateAnimation(i, z, i2);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
+        return super.onCreateAnimator(i, z, i2);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Nullable
+    public /* bridge */ /* synthetic */ View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        return super.onCreateView(layoutInflater, viewGroup, bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        super.onInflate(activity, attributeSet, bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i, strArr, iArr);
+    }
+
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
@@ -743,24 +768,20 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         this.mBase.startActivityForResult(intent, i, bundle);
     }
 
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public /* bridge */ /* synthetic */ void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
+        super.onInflate(context, attributeSet, bundle);
+    }
+
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) {
         this.mBase.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @KsAdSdkDynamicApi
-    @Keep
-    public final void startPostponedEnterTransition() {
-        this.mBase.startPostponedEnterTransition();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.IFragment
-    @KsAdSdkDynamicApi
-    @Keep
-    public final void unregisterForContextMenu(View view2) {
-        this.mBase.unregisterForContextMenu(view2);
     }
 }

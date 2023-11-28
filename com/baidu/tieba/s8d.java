@@ -1,58 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.spswitch.utils.EmotionUbcHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONObject;
+import tbclient.SpriteMemeInfo;
 /* loaded from: classes8.dex */
-public class s8d implements obd {
+public class s8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    @Override // com.baidu.tieba.obd
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static JSONObject b(@NonNull SpriteMemeInfo spriteMemeInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spriteMemeInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, EmotionUbcHelper.MEME_ID, spriteMemeInfo.meme_id);
+            ltc.a(jSONObject, "query", spriteMemeInfo.query);
+            ltc.a(jSONObject, "icon", spriteMemeInfo.icon);
+            ltc.a(jSONObject, "use_same_guide", spriteMemeInfo.use_same_guide);
+            ltc.a(jSONObject, "use_same_text", spriteMemeInfo.use_same_text);
+            return jSONObject;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public s8d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // com.baidu.tieba.obd
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                x9d.b(this.a, this.b, "64", "", "", "");
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

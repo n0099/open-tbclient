@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RequiresPermission;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public class TelephonyManagerCompat {
     public static class Api23Impl {
         @SuppressLint({"MissingPermission"})
         @Nullable
-        @RequiresPermission(h.c)
+        @RequiresPermission(g.c)
         @DoNotInline
         public static String getDeviceId(TelephonyManager telephonyManager, int i) {
             return telephonyManager.getDeviceId(i);
@@ -34,7 +34,7 @@ public class TelephonyManagerCompat {
     public static class Api26Impl {
         @SuppressLint({"MissingPermission"})
         @Nullable
-        @RequiresPermission(h.c)
+        @RequiresPermission(g.c)
         @DoNotInline
         public static String getImei(TelephonyManager telephonyManager) {
             return ApiReplaceUtil.getImei(telephonyManager);
@@ -51,7 +51,7 @@ public class TelephonyManagerCompat {
     }
 
     @Nullable
-    @RequiresPermission(h.c)
+    @RequiresPermission(g.c)
     @SuppressLint({"MissingPermission"})
     public static String getImei(@NonNull TelephonyManager telephonyManager) {
         int subscriptionId;

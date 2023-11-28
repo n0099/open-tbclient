@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.es9;
 import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.vv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public es9 pbData;
+    public vv9 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public es9 getPbData() {
+    public vv9 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (es9) invokeV.objValue;
+        return (vv9) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,14 +73,14 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            es9 es9Var = new es9();
-            this.pbData = es9Var;
-            es9Var.F0(1);
+            vv9 vv9Var = new vv9();
+            this.pbData = vv9Var;
+            vv9Var.G0(1);
             try {
-                this.pbData.E0(pbPageResIdl.data);
-                if (!this.pbData.w0()) {
+                this.pbData.F0(pbPageResIdl.data);
+                if (!this.pbData.x0()) {
                     this.pbData = null;
-                } else if (isMarkCache() && this.pbData.u() != null && !this.pbData.u().equals(this.postId)) {
+                } else if (isMarkCache() && this.pbData.x() != null && !this.pbData.x().equals(this.postId)) {
                     this.pbData = null;
                 }
             } catch (Exception unused) {

@@ -1,52 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.splash.SplashAD;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class c4c implements ServiceConnection {
+public class c4c extends e5c<SplashAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a4c a;
 
-    public c4c(a4c a4cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c4c(SplashAD splashAD) {
+        super(splashAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a4cVar};
+            Object[] objArr = {splashAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a4cVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceDisconnected(ComponentName componentName) {
+    @Override // com.baidu.tieba.e5c
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
-            return;
-        }
-        this.a.q();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((SplashAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @Override // com.baidu.tieba.e5c
+    public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((SplashAD) this.a).sendLossNotification(map);
         }
-        this.a.f(iBinder);
+    }
+
+    @Override // com.baidu.tieba.e5c
+    public void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((SplashAD) this.a).sendWinNotification(map);
+        }
+    }
+
+    @Override // com.baidu.tieba.e5c
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((SplashAD) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

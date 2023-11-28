@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.refresh.IRefreshable$State;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface ij {
-    void a(IRefreshable$State iRefreshable$State);
-
-    void b();
-
-    void c();
-
-    void d();
+    View getTarget();
 }

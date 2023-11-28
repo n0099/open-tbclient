@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca4;
-import com.baidu.tieba.p94;
-import com.baidu.tieba.r94;
+import com.baidu.tieba.da4;
+import com.baidu.tieba.q94;
+import com.baidu.tieba.s94;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
     public Context a;
     public List<RecommendItemModel> b;
-    public p94 c = new p94();
+    public q94 c = new q94();
 
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -31,7 +31,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
 
         public a(GameGuideAdapter gameGuideAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09099f);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0909bb);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -44,11 +44,11 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @SuppressLint({"InflateParams"})
-    /* renamed from: m */
+    /* renamed from: n */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d095d, (ViewGroup) null));
+        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0977, (ViewGroup) null));
         aVar.itemView.setOnClickListener(this);
-        ca4.a(aVar.itemView);
+        da4.a(aVar.itemView);
         return aVar;
     }
 
@@ -79,7 +79,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         RecommendItemModel recommendItemModel = this.b.get(intValue);
         if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
             SchemeRouter.invokeSchemeForInner(this.a, Uri.parse(recommendItemModel.getScheme()));
-            r94.d(4, recommendItemModel.getAppKey());
+            s94.d(4, recommendItemModel.getAppKey());
             this.c.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
         }
     }

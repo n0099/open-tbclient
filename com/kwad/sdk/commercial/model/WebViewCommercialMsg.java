@@ -3,8 +3,8 @@ package com.kwad.sdk.commercial.model;
 import androidx.annotation.Nullable;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.response.kwai.a;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.core.response.a.a;
+import com.kwad.sdk.utils.t;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
 import java.io.Serializable;
@@ -18,20 +18,22 @@ public class WebViewCommercialMsg extends a implements b, Serializable {
     public String eventId;
     public JSONObject extraParam;
     public JSONObject msg;
+    public String primaryKey;
     public double rate;
     public SubBusinessType subBiz;
+    public String suffixRatio;
     public String tag;
     public com.kwai.adclient.kscommerciallogger.model.b type;
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null) {
             return;
         }
-        if (jSONObject.has("subBiz")) {
+        if (jSONObject.has("sub_biz")) {
             try {
-                this.subBiz = SubBusinessType.valueOf(jSONObject.optString("subBiz"));
+                this.subBiz = SubBusinessType.valueOf(jSONObject.optString("sub_biz"));
             } catch (Exception unused) {
                 this.subBiz = SubBusinessType.OTHER;
             }
@@ -52,11 +54,11 @@ public class WebViewCommercialMsg extends a implements b, Serializable {
         }
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        r.putValue(jSONObject, "biz", this.biz.value);
-        r.putValue(jSONObject, "subBiz", this.subBiz.value);
-        r.putValue(jSONObject, "type", this.type.getValue());
+        t.putValue(jSONObject, "biz", this.biz.value);
+        t.putValue(jSONObject, "subBiz", this.subBiz.value);
+        t.putValue(jSONObject, "type", this.type.getValue());
     }
 }

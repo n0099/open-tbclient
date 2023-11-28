@@ -1,49 +1,40 @@
 package com.kwad.components.ad.reward.k;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.R;
-import com.kwad.components.core.widget.KsStyledTextButton;
+import com.kwad.components.core.webview.jshandler.aq;
+import com.kwad.components.core.webview.tachikoma.a.w;
 /* loaded from: classes10.dex */
-public final class o extends d implements View.OnClickListener {
-    public KsStyledTextButton vU;
-    public View vV;
+public final class o extends w implements aq.b {
     @Nullable
-    public com.kwad.components.ad.reward.g.b vW;
-    public ViewGroup vl;
+    public com.kwad.components.core.playable.a oK;
 
-    public o(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04da, viewGroup, false);
-        initView();
+    @Override // com.kwad.sdk.core.webview.c.a
+    @NonNull
+    public final String getKey() {
+        return "registerPlayableStatusListener";
     }
 
-    private void initView() {
-        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09137a);
-        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.vU.setOnClickListener(this);
-        this.vV.setOnClickListener(this);
-    }
-
-    public final void b(@Nullable com.kwad.components.ad.reward.g.b bVar) {
-        this.vW = bVar;
-    }
-
-    @Override // com.kwad.components.ad.reward.k.d
-    public final ViewGroup fR() {
-        return this.vl;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
-        if (this.vW == null) {
-            return;
+    public o(com.kwad.components.ad.reward.g gVar) {
+        com.kwad.components.core.playable.a aVar = gVar.oK;
+        this.oK = aVar;
+        if (aVar != null) {
+            aVar.a(this);
         }
-        if (view2.equals(this.vU)) {
-            this.vW.onPlayAgainClick();
-        } else if (view2.equals(this.vV)) {
-            this.vW.bK();
+    }
+
+    @Override // com.kwad.components.core.webview.jshandler.aq.b
+    public final void a(aq.a aVar) {
+        b(aVar);
+    }
+
+    @Override // com.kwad.components.core.webview.tachikoma.a.w, com.kwad.sdk.core.webview.c.a
+    public final void onDestroy() {
+        super.onDestroy();
+        com.kwad.components.core.playable.a aVar = this.oK;
+        if (aVar != null) {
+            aVar.b(this);
+            this.oK = null;
         }
     }
 }

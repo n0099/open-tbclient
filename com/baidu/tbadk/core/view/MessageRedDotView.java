@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -201,7 +201,7 @@ public class MessageRedDotView extends View {
 
     private void drawNormalStr(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && !qd.isEmpty(this.mRedNum) && this.mBackgroundDrawable != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && !rd.isEmpty(this.mRedNum) && this.mBackgroundDrawable != null) {
             Paint paint = this.mTextPaint;
             String str = this.mRedNum;
             paint.getTextBounds(str, 0, str.length(), this.mTextRect);
@@ -368,7 +368,7 @@ public class MessageRedDotView extends View {
                         canvas.drawOval(this.mShadowRect, this.mShadowPaint);
                     }
                 }
-                if (!qd.isEmpty(this.mRedNum)) {
+                if (!rd.isEmpty(this.mRedNum)) {
                     if (this.mRedNum.equals("...")) {
                         drawThreeDot(canvas);
                     } else {
@@ -422,7 +422,7 @@ public class MessageRedDotView extends View {
             if (z) {
                 this.mRedNum = "...";
                 i = R.drawable.icon_news_red_dot_three_dot_number;
-            } else if (qd.isEmpty(str)) {
+            } else if (rd.isEmpty(str)) {
                 i = R.drawable.icon_news_red_dot;
                 this.mRedNum = null;
             } else {

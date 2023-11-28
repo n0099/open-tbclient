@@ -139,7 +139,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         TooltipDrawable createTooltipDrawable();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class AccessibilityEventSender implements Runnable {
         public int virtualViewId;
 
@@ -157,7 +157,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AccessibilityHelper extends ExploreByTouchHelper {
         public final BaseSlider<?, ?, ?> slider;
         public Rect virtualViewBounds;
@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c8d);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c9b);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c8e);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c9c);
             }
             return "";
         }
@@ -666,10 +666,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     private void loadResources(@NonNull Resources resources) {
-        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062a);
-        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070628);
-        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070629);
-        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070622);
+        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07063f);
+        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063d);
+        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063e);
+        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070637);
     }
 
     private boolean moveFocus(int i) {
@@ -936,7 +936,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406a3);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406a9);
     }
 
     private float getClampedValue(int i, float f) {
@@ -1077,18 +1077,18 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
         ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, i2);
         if (colorStateList == null) {
-            colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607ec);
+            colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607f3);
         }
         setTrackInactiveTintList(colorStateList);
         ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i4);
         if (colorStateList2 == null) {
-            colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e9);
+            colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607f0);
         }
         setTrackActiveTintList(colorStateList2);
         this.thumbDrawable.setFillColor(MaterialResources.getColorStateList(context, obtainStyledAttributes, 9));
         ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
         if (colorStateList3 == null) {
-            colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607ea);
+            colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607f1);
         }
         setHaloTintList(colorStateList3);
         int i5 = 12;
@@ -1103,12 +1103,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
         ColorStateList colorStateList4 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i3);
         if (colorStateList4 == null) {
-            colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607eb);
+            colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607f2);
         }
         setTickInactiveTintList(colorStateList4);
         ColorStateList colorStateList5 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i5);
         if (colorStateList5 == null) {
-            colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e8);
+            colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607ef);
         }
         setTickActiveTintList(colorStateList5);
         setThumbRadius(obtainStyledAttributes.getDimensionPixelSize(11, 0));

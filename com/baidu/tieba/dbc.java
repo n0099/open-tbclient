@@ -1,51 +1,94 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public abstract class dbc {
+public final class dbc {
     public static /* synthetic */ Interceptable $ic;
+    public static final dbc b;
+    public static final dbc c;
+    public static final dbc d;
+    public static final dbc e;
+    public static final dbc f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final int a;
 
-    public abstract void f(Bundle bundle);
-
-    public abstract boolean g(Bundle bundle);
-
-    public abstract String h(Bundle bundle);
-
-    public abstract void i(String str);
-
-    public abstract boolean j(String str);
-
-    public abstract String k(String str);
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700228, "Lcom/baidu/tieba/dbc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947700228, "Lcom/baidu/tieba/dbc;");
+                return;
+            }
         }
+        b = new dbc(0);
+        c = new dbc(1);
+        d = new dbc(2);
+        e = new dbc(3);
+        f = new dbc(4);
     }
 
-    public final ebc<String> m(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public dbc(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                if (str.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return cbc.f.a().j(this.a, str);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new ebc<>(false, "sendData2MainProcessForStr null");
         }
-        return (ebc) invokeL.objValue;
+        this.a = i;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.a;
+            return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "UNKNOWN" : "SG" : "RU" : "DE" : "CN";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return obj != null && dbc.class == obj.getClass() && this.a == ((dbc) obj).a;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(Integer.valueOf(this.a)) : invokeV.intValue;
     }
 }

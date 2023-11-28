@@ -1,56 +1,124 @@
 package com.kwad.components.ad.reward;
 
+import android.annotation.SuppressLint;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.bd;
-import java.util.HashSet;
-import java.util.Set;
+import com.kwad.components.core.webview.jshandler.aw;
+import com.kwad.components.core.webview.jshandler.w;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.core.view.AdBaseFrameLayout;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class d {
-    public final Set<com.kwad.components.ad.reward.d.i> lB;
+public final class d extends com.kwad.components.ad.k.b {
+    public boolean oA;
+    public List<com.kwad.components.core.e.d.c> oB;
+    public w.b oC;
+    public List<AdTemplate> oz;
 
-    /* loaded from: classes10.dex */
-    public static class a {
-        public static final d lE = new d((byte) 0);
+    @Override // com.kwad.components.ad.k.b
+    public final boolean fj() {
+        return false;
     }
 
-    public d() {
-        this.lB = new HashSet();
+    @Override // com.kwad.components.ad.k.b
+    public final String getName() {
+        return "MiddlePlayEndCard";
     }
 
-    public /* synthetic */ d(byte b) {
-        this();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(@Nullable com.kwad.components.core.webview.b.a.n nVar) {
-        if (this.lB.size() == 0) {
-            return;
-        }
-        for (com.kwad.components.ad.reward.d.i iVar : this.lB) {
-            iVar.a(nVar);
-        }
-    }
-
-    public static d fc() {
-        return a.lE;
-    }
-
-    public final void a(com.kwad.components.ad.reward.d.i iVar) {
-        if (iVar != null) {
-            this.lB.add(iVar);
+    public d(List<AdTemplate> list, @Nullable JSONObject jSONObject, w.b bVar) {
+        super(jSONObject, null);
+        this.oA = false;
+        this.oB = new ArrayList();
+        this.oz = list;
+        this.oC = bVar;
+        if (list != null && list.size() > 0) {
+            for (AdTemplate adTemplate : this.oz) {
+                this.oB.add(new com.kwad.components.core.e.d.c(adTemplate));
+            }
         }
     }
 
-    public final void b(com.kwad.components.ad.reward.d.i iVar) {
-        this.lB.remove(iVar);
+    @Override // com.kwad.components.ad.k.b
+    public final String B(AdTemplate adTemplate) {
+        List<AdTemplate> list = this.oz;
+        if (list != null && list.size() >= 2) {
+            String cn2 = com.kwad.sdk.core.response.b.b.cn(this.oz.get(1));
+            new StringBuilder("getUrl: ").append(cn2);
+            return cn2;
+        }
+        return super.B(adTemplate);
     }
 
-    public final void c(@Nullable final com.kwad.components.core.webview.b.a.n nVar) {
-        bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.reward.d.1
-            @Override // java.lang.Runnable
-            public final void run() {
-                d.this.b(nVar);
+    @Override // com.kwad.components.ad.k.b
+    public final void a(com.kwad.components.core.webview.a aVar) {
+        super.a(aVar);
+        List<AdTemplate> list = this.oz;
+        w wVar = new w(new ArrayList(list.subList(1, list.size() - 1)));
+        wVar.a(this.oC);
+        aVar.a(wVar);
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final void b(com.kwad.sdk.core.webview.b bVar) {
+        bVar.setAdTemplateList(this.oz);
+    }
+
+    public final void setShowLandingPage(boolean z) {
+        this.oA = z;
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.components.core.e.d.c cVar, int i) {
+        super.a(frameLayout, adBaseFrameLayout, this.oz, this.oB);
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final boolean bx() {
+        if (this.oA) {
+            return this.HK;
+        }
+        return super.bx();
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void fi() {
+        super.fi();
+        this.cL.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.components.ad.reward.d.1
+            @Override // android.view.View.OnTouchListener
+            public final boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == 2) {
+                    return true;
+                }
+                return false;
             }
         });
+    }
+
+    public final void fk() {
+        aw awVar = this.cQ;
+        if (awVar != null) {
+            awVar.sh();
+        }
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final void fl() {
+        com.kwad.components.ad.reward.monitor.c.a(true, "middle_play_end_card");
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final void fm() {
+        AdTemplate adTemplate = this.mAdTemplate;
+        com.kwad.components.ad.reward.monitor.c.a(adTemplate, true, "middle_play_end_card", B(adTemplate));
+    }
+
+    @Override // com.kwad.components.ad.k.b
+    public final void fn() {
+        com.kwad.components.ad.reward.monitor.c.a(true, "middle_play_end_card", B(this.mAdTemplate), System.currentTimeMillis() - getLoadTime());
     }
 }

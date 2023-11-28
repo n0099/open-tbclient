@@ -25,7 +25,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.yn9;
+import com.baidu.tieba.or9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -80,24 +80,24 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Intent intent = new Intent();
                 ArrayList arrayList = new ArrayList();
-                if (this.a.f != null && this.a.f.J2() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry : this.a.f.J2().entrySet()) {
+                if (this.a.f != null && this.a.f.V2() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry : this.a.f.V2().entrySet()) {
                         FaceData faceData = new FaceData();
                         faceData.type = 2;
                         faceData.emotionImageData = entry.getValue();
                         arrayList.add(faceData);
                     }
                 }
-                if (this.a.h != null && this.a.h.y2() != null) {
-                    for (Map.Entry<String, ImageFileInfo> entry2 : this.a.h.y2().entrySet()) {
+                if (this.a.h != null && this.a.h.K2() != null) {
+                    for (Map.Entry<String, ImageFileInfo> entry2 : this.a.h.K2().entrySet()) {
                         FaceData faceData2 = new FaceData();
                         faceData2.type = 3;
                         faceData2.imageFileInfo = entry2.getValue();
                         arrayList.add(faceData2);
                     }
                 }
-                if (this.a.g != null && this.a.g.u2() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry3 : this.a.g.u2().entrySet()) {
+                if (this.a.g != null && this.a.g.G2() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry3 : this.a.g.G2().entrySet()) {
                         FaceData faceData3 = new FaceData();
                         faceData3.type = 1;
                         faceData3.emotionImageData = entry3.getValue();
@@ -155,7 +155,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
             if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
                 return;
             }
-            this.a.u1(i);
+            this.a.t1(i);
         }
     }
 
@@ -176,19 +176,19 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.yn9
-    public void l() {
+    @Override // com.baidu.tieba.or9
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i = this.i;
             if (i > 0) {
                 this.i = i - 1;
             }
-            w1();
+            u1();
         }
     }
 
-    @Override // com.baidu.tieba.yn9
+    @Override // com.baidu.tieba.or9
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,12 +201,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yn9
+    @Override // com.baidu.tieba.or9
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.i++;
-            w1();
+            u1();
         }
     }
 
@@ -240,19 +240,19 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d081f);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0923e7);
+            setContentView(R.layout.obfuscated_res_0x7f0d0839);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092469);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
             this.e.setShouldDrawIndicatorLine(false);
             this.e.q(true);
-            t1();
+            s1();
             r1();
         }
     }
 
-    public final void u1(int i) {
+    public final void t1(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.b != null) {
             if (i != 0) {
@@ -266,7 +266,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0711).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0719).toString());
         }
     }
 
@@ -292,13 +292,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             FaceSearchFragment faceSearchFragment = new FaceSearchFragment();
             this.f = faceSearchFragment;
-            faceSearchFragment.P2(this);
+            faceSearchFragment.b3(this);
             FaceAlbumFragment faceAlbumFragment = new FaceAlbumFragment();
             this.h = faceAlbumFragment;
-            faceAlbumFragment.B2(this);
+            faceAlbumFragment.N2(this);
             FaceCollectFragment faceCollectFragment = new FaceCollectFragment();
             this.g = faceCollectFragment;
-            faceCollectFragment.w2(this);
+            faceCollectFragment.I2(this);
             Intent intent = getIntent();
             if (intent != null) {
                 Serializable serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST);
@@ -314,11 +314,11 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
                     this.g.setArguments(bundle);
                     this.h.setArguments(bundle);
                     this.i = arrayList.size();
-                    w1();
+                    u1();
                 }
             }
-            q1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f070d).toString());
-            q1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0709).toString());
+            q1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0715).toString());
+            q1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0711).toString());
             q1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.j(1);
             this.e.setCurrentTab(0);
@@ -327,7 +327,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
         }
     }
 
-    public final void t1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a = (LinearLayout) findViewById(R.id.layout_root);
@@ -338,15 +338,15 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements yn9 {
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            u1(0);
-            w1();
+            t1(0);
+            u1();
         }
     }
 
-    public final void w1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            String string = this.j.getString(R.string.obfuscated_res_0x7f0f00e7);
+            String string = this.j.getString(R.string.obfuscated_res_0x7f0f00e8);
             if (this.i > 0) {
                 FaceGroupMakeTitleBar faceGroupMakeTitleBar = this.c;
                 faceGroupMakeTitleBar.setRightText(string + "(" + this.i + SmallTailInfo.EMOTION_SUFFIX);

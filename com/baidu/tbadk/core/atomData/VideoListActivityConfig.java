@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class VideoListActivityConfig extends IntentConfig {
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
             Intent intent = getIntent();
             intent.putExtra("user_id", j);
-            if (!qd.isEmpty(str)) {
+            if (!rd.isEmpty(str)) {
                 intent.putExtra(KEY_SOURCE, str);
             }
             if (!(this.mContext instanceof Activity)) {
@@ -69,7 +69,7 @@ public class VideoListActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra("KEY_FORUM_ID", str);
             intent.putExtra(KEY_THREAD_ID, str2);
-            if (!qd.isEmpty(str3)) {
+            if (!rd.isEmpty(str3)) {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {

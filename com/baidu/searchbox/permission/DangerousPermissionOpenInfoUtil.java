@@ -2,15 +2,15 @@ package com.baidu.searchbox.permission;
 
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.klb;
+import com.baidu.tieba.gqb;
 import com.baidu.ubc.UBCManager;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class DangerousPermissionOpenInfoUtil {
     public static void statisticPermissionForStorage() {
-        statisticPermission(new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"}, "storage");
+        statisticPermission(new String[]{g.i, "android.permission.WRITE_EXTERNAL_STORAGE"}, "storage");
     }
 
     public static void statisticPermission(String[] strArr, String str) {
@@ -29,6 +29,6 @@ public class DangerousPermissionOpenInfoUtil {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ((klb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject.toString());
+        ((gqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject.toString());
     }
 }

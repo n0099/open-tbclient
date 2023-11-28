@@ -1,10 +1,10 @@
 package com.yy.transvod.player.mediacodec;
 
-import com.baidu.tieba.hec;
+import com.baidu.tieba.cjc;
 import com.yy.transvod.player.log.TLog;
 import java.nio.ByteBuffer;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MediaInfo {
     public static final String l = "MediaInfo";
     public int a = 0;
@@ -146,8 +146,8 @@ public final class MediaInfo {
 
     public final String toString() {
         if (h(this)) {
-            return String.format(Locale.CHINA, "type:%s, frameSize:%dx%d, planeSize:%dx%d", hec.a[this.a], Integer.valueOf(this.b), Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.e));
+            return String.format(Locale.CHINA, "type:%s, frameSize:%dx%d, planeSize:%dx%d", cjc.a[this.a], Integer.valueOf(this.b), Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.e));
         }
-        return String.format(Locale.CHINA, "type:%s, sampleRate:%d, samples:%d, channels:%d", hec.a[this.a], Integer.valueOf(this.j), Integer.valueOf(this.g), Integer.valueOf(this.h));
+        return String.format(Locale.CHINA, "type:%s, sampleRate:%d, samples:%d, channels:%d", cjc.a[this.a], Integer.valueOf(this.j), Integer.valueOf(this.g), Integer.valueOf(this.h));
     }
 }

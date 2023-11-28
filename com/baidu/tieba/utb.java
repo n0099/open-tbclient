@@ -1,55 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class utb {
+public class utb implements bub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public htb a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public utb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            sb.append("&");
-            sb.append("clientfrom=native");
-            sb.append("&");
-            sb.append("client=android");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        this.d = true;
     }
 
-    public static String b(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.bub
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
-            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            htb htbVar = this.a;
+            if (htbVar == null || bArr == null) {
+                return 0;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append("&");
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            return sb.toString();
+            this.b += bArr.length;
+            htbVar.putBytes(bArr, i);
+            return this.b;
         }
-        return (String) invokeLL.objValue;
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (htb) jxb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            htb htbVar = this.a;
+            if (htbVar != null) {
+                htbVar.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            htb htbVar = this.a;
+            if (htbVar == null || htbVar.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(int[] iArr) {
+        htb htbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (htbVar = this.a) == null) {
+            return;
+        }
+        htbVar.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.baidu.tieba.bub
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public void c() {
+        htb htbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (htbVar = this.a) == null) {
+            return;
+        }
+        htbVar.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        htb htbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (htbVar = this.a) == null) {
+            return;
+        }
+        htbVar.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.bub
+    public void d() {
+        htb htbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (htbVar = this.a) == null) {
+            return;
+        }
+        htbVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.bub
+    public void e() {
+        htb htbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (htbVar = this.a) == null) {
+            return;
+        }
+        htbVar.clearQueues();
     }
 }

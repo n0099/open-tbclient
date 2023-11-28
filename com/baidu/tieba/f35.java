@@ -1,156 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public class f35 {
+public final class f35 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a extends q6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713217, "Lcom/baidu/tieba/f35;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713217, "Lcom/baidu/tieba/f35;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.controller.MessageRule
-        public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !ac5.g().i(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(ac5.g().h());
-                    return null;
-                }
-                return socketMessage;
-            }
-            return (SocketMessage) invokeLL.objValue;
-        }
+        a = new a(null);
     }
 
     /* loaded from: classes5.dex */
-    public class b extends p6 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // com.baidu.tieba.m6
-        public /* bridge */ /* synthetic */ SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
-            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-            i(socketResponsedMessage2);
-            return socketResponsedMessage2;
-        }
-
-        public SocketResponsedMessage i(SocketResponsedMessage socketResponsedMessage) {
+        public final ApkDownloadInfoData a(wg0 wg0Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage != null) {
-                    ac5.g().m(socketResponsedMessage.getCmd());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wg0Var)) == null) {
+                if (wg0Var != null && wg0Var.p != null) {
+                    ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
+                    apkDownloadInfoData.setApkIcon(wg0Var.p.g);
+                    apkDownloadInfoData.setApkFile(wg0Var.h);
+                    apkDownloadInfoData.setApkName(wg0Var.p.h);
+                    apkDownloadInfoData.setStatus(wg0Var.c);
+                    apkDownloadInfoData.setApkPackageName(wg0Var.d);
+                    apkDownloadInfoData.setFinishDownloadTime(wg0Var.m);
+                    apkDownloadInfoData.setAdDownloadBean(wg0Var);
+                    apkDownloadInfoData.setNotificationShowCount(wg0Var.q.k);
+                    if (apkDownloadInfoData.getApkFile() != null) {
+                        apkDownloadInfoData.setApkPath(apkDownloadInfoData.getApkFile().getAbsolutePath());
+                    }
+                    apkDownloadInfoData.setItemSource(5);
+                    apkDownloadInfoData.setDownloadUrl(wg0Var.g);
+                    return apkDownloadInfoData;
                 }
-                return socketResponsedMessage;
+                return null;
             }
-            return (SocketResponsedMessage) invokeL.objValue;
+            return (ApkDownloadInfoData) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i) {
-            super(i);
+        public final ApkDownloadInfoData b(ksa ksaVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksaVar)) == null) {
+                if (ksaVar == null) {
+                    return null;
                 }
+                TbDownloadManager tbDownloadManager = new TbDownloadManager();
+                ItemData itemData = new ItemData();
+                itemData.parseJson(ksaVar.c());
+                tbDownloadManager.w(itemData.mTbFileDownloaderType);
+                DownloadData downloadData = new DownloadData(ksaVar.t(), ksaVar.d());
+                ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
+                apkDownloadInfoData.setApkIcon(itemData.mIconUrl);
+                apkDownloadInfoData.setApkName(itemData.mTitle);
+                apkDownloadInfoData.setApkPackageName(itemData.pkgName);
+                apkDownloadInfoData.setFinishDownloadTime(ksaVar.f());
+                apkDownloadInfoData.setItemId((int) ksaVar.g());
+                apkDownloadInfoData.setTitle(ksaVar.t());
+                apkDownloadInfoData.setApkPath(tbDownloadManager.o(downloadData));
+                apkDownloadInfoData.setApkFile(new File(apkDownloadInfoData.getApkPath()));
+                apkDownloadInfoData.setNotificationShowCount(itemData.notificationShowCount);
+                apkDownloadInfoData.setItemSource(ksaVar.r());
+                apkDownloadInfoData.setDownloadUrl(ksaVar.d());
+                return apkDownloadInfoData;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                ac5.g().l(((Integer) customResponsedMessage.getData()).intValue());
-            }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            a aVar = new a(0);
-            aVar.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().addMessageRule(aVar);
-            MessageManager.getInstance().addResponsedMessageRule(new b(0));
-            c cVar = new c(2000999);
-            cVar.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().registerListener(cVar);
+            return (ApkDownloadInfoData) invokeL.objValue;
         }
     }
 }

@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public interface yz3 {
-    void p(String str, JSONObject jSONObject);
+    void destroy();
+
+    int getCurrentTime();
+
+    int getDuration();
+
+    void pause();
+
+    void play();
+
+    void seek(float f);
+
+    void stop();
 }

@@ -1,77 +1,72 @@
 package com.kwad.sdk.crash.a;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.crash.d;
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.Nullable;
+import java.io.File;
 /* loaded from: classes10.dex */
 public final class a {
-    public static boolean a(StackTraceElement[] stackTraceElementArr) {
-        if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
+    public static String aEM;
+    public static Context awX;
+
+    public static boolean A(File file) {
+        if (file == null) {
             return false;
         }
-        String[] wA = d.wz().wA();
-        if (wA == null || wA.length == 0) {
-            return true;
+        if (!file.exists() && !file.mkdirs()) {
+            return false;
         }
-        boolean z = false;
-        for (String str : wA) {
-            z = a(stackTraceElementArr, str);
-            if (z) {
-                break;
-            }
-        }
-        if (z) {
-            for (String str2 : d.wz().wB()) {
-                if (b(stackTraceElementArr, str2)) {
-                    return false;
-                }
-            }
-        }
-        return z;
+        return true;
     }
 
-    public static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
-        for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-            String className = stackTraceElement.getClassName();
-            if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                com.kwad.sdk.core.e.b.d("ExceptionCollector", "CrashFilter filterTags element className=" + className + " filter tag=" + str);
-                return true;
-            }
+    public static File Gv() {
+        File file;
+        if (!TextUtils.isEmpty(aEM)) {
+            file = new File(aEM);
+        } else {
+            file = new File(getDataDir(awX), "kwad_ex");
         }
-        return false;
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        return file;
     }
 
-    public static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
-        for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-            String className = stackTraceElement.getClassName();
-            if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                com.kwad.sdk.core.e.b.d("ExceptionCollector", "CrashFilter excludeTags element className=" + className + " exclude tag=" + str);
-                return true;
-            }
-        }
-        return false;
+    public static File Gw() {
+        return new File(Gv(), "java_crash/dump");
     }
 
-    public static boolean i(@NonNull Throwable th) {
-        ArrayList arrayList = new ArrayList(5);
-        for (int i = 0; i < 5; i++) {
-            arrayList.add(th.getStackTrace());
-            th = th.getCause();
-            if (th == null) {
-                break;
-            }
-        }
-        return u(arrayList);
+    public static File Gx() {
+        return new File(Gv(), "anr_log/dump");
     }
 
-    public static boolean u(@NonNull List<StackTraceElement[]> list) {
-        for (StackTraceElement[] stackTraceElementArr : list) {
-            if (a(stackTraceElementArr)) {
-                return true;
+    public static File Gy() {
+        return new File(Gv(), "native_crash_log/dump");
+    }
+
+    public static File getDataDir(Context context) {
+        int i = Build.VERSION.SDK_INT;
+        File file = null;
+        if (i >= 29) {
+            return new File(context.getExternalFilesDir(null).getAbsolutePath());
+        }
+        if (i >= 24) {
+            file = context.getDataDir();
+        }
+        if (file == null) {
+            file = new File(Environment.getDataDirectory().getPath() + "/data/" + context.getPackageName());
+            if (!file.exists()) {
+                return new File("/data/data/" + context.getPackageName());
             }
         }
-        return false;
+        return file;
+    }
+
+    public static void init(@NonNull Context context, @Nullable String str) {
+        awX = context;
+        aEM = str;
     }
 }

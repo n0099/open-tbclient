@@ -27,11 +27,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.fu5;
-import com.baidu.tieba.gt5;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.nu5;
+import com.baidu.tieba.ot5;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class AddLinkActivity extends BaseActivity {
         public final /* synthetic */ AddLinkActivity a;
 
         /* loaded from: classes8.dex */
-        public class a extends bu5<String> {
+        public class a extends ju5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.bu5
+            @Override // com.baidu.tieba.ju5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -98,12 +98,12 @@ public class AddLinkActivity extends BaseActivity {
 
         /* renamed from: com.baidu.tieba.write.write.AddLinkActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0520b implements gt5<String> {
+        public class C0523b implements ot5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0520b(b bVar) {
+            public C0523b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,14 +122,14 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.gt5
+            @Override // com.baidu.tieba.ot5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
                     return;
                 }
-                this.a.a.b1(str);
+                this.a.a.Z0(str);
             }
         }
 
@@ -160,10 +160,10 @@ public class AddLinkActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                    fu5.b(new a(this), new C0520b(this));
+                    nu5.b(new a(this), new C0523b(this));
                     return;
                 }
-                this.a.b1(UtilHelper.getClipBoardContent());
+                this.a.Z0(UtilHelper.getClipBoardContent());
             }
         }
     }
@@ -175,7 +175,7 @@ public class AddLinkActivity extends BaseActivity {
         public final /* synthetic */ AddLinkActivity a;
 
         /* loaded from: classes8.dex */
-        public class a extends bu5<String> {
+        public class a extends ju5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,7 +196,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.bu5
+            @Override // com.baidu.tieba.ju5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class AddLinkActivity extends BaseActivity {
         }
 
         /* loaded from: classes8.dex */
-        public class b implements gt5<String> {
+        public class b implements ot5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -232,14 +232,14 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.gt5
+            @Override // com.baidu.tieba.ot5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
                     return;
                 }
-                this.a.a.b1(str);
+                this.a.a.Z0(str);
             }
         }
 
@@ -265,16 +265,16 @@ public class AddLinkActivity extends BaseActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (qd.isEmpty(this.a.l)) {
+                if (rd.isEmpty(this.a.l)) {
                     if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                        fu5.b(new a(this), new b(this));
+                        nu5.b(new a(this), new b(this));
                         return;
                     }
-                    this.a.b1(UtilHelper.getClipBoardContent());
+                    this.a.Z0(UtilHelper.getClipBoardContent());
                     return;
                 }
                 AddLinkActivity addLinkActivity = this.a;
-                addLinkActivity.b1(addLinkActivity.l);
+                addLinkActivity.Z0(addLinkActivity.l);
             }
         }
     }
@@ -346,7 +346,7 @@ public class AddLinkActivity extends BaseActivity {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.Z0();
+            this.a.W0();
         }
     }
 
@@ -380,7 +380,7 @@ public class AddLinkActivity extends BaseActivity {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.Z0();
+            this.a.W0();
         }
     }
 
@@ -413,10 +413,10 @@ public class AddLinkActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null && this.a.g.getText() != null) {
                 String obj = this.a.g.getText().toString();
-                if (qd.isEmpty(obj) || !UrlManager.getInstance().isUrlValid(obj)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0bc6);
+                if (rd.isEmpty(obj) || !UrlManager.getInstance().isUrlValid(obj)) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0bd4);
                 } else {
-                    this.a.W0(obj);
+                    this.a.U0(obj);
                 }
             }
         }
@@ -582,7 +582,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    public final void W0(String str) {
+    public final void U0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             Intent intent = new Intent();
@@ -592,9 +592,9 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    public final void b1(String str) {
+    public final void Z0(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.g != null && !qd.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.g != null && !rd.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
             this.g.post(new i(this, str));
         }
     }
@@ -610,7 +610,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    public final void Z0() {
+    public final void W0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setResult(0);
@@ -634,11 +634,11 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    public final void a1() {
+    public final void Y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{bqa.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), bqa.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{uua.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), uua.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
@@ -650,12 +650,12 @@ public class AddLinkActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014a);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09275a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09280e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092767);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0927dd);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092891);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ea);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014c);
-            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f090aa0);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091267);
+            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f090abf);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091290);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09014d);
             this.a.setOnClickListener(new c(this));
             this.b.setClickable(true);
@@ -687,7 +687,7 @@ public class AddLinkActivity extends BaseActivity {
             SkinManager.setBackgroundResource(this.b, R.drawable.bg_add_link_content);
             this.c.setTextColor(SkinManager.getColorStateListWithClickState(R.color.CAM_X0105));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            a1();
+            Y0();
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             this.g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
             EMManager.from(this.f).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);

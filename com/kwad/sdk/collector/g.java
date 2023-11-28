@@ -1,5 +1,6 @@
 package com.kwad.sdk.collector;
 
+import android.text.TextUtils;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,17 +9,17 @@ import org.json.JSONObject;
 public final class g {
     public static int PERMISSION_DENIED = 2;
     public static int PERMISSION_GRANTED = 1;
-    public static int SP;
-    public String SO;
+    public static int amZ;
+    public String amY;
     public int state;
 
     public g(String str, int i) {
-        this.state = SP;
-        this.SO = str;
+        this.state = amZ;
+        this.amY = str;
         this.state = i;
     }
 
-    public static JSONArray l(List<g> list) {
+    public static JSONArray r(List<g> list) {
         JSONArray jSONArray = new JSONArray();
         if (list == null) {
             return jSONArray;
@@ -29,20 +30,26 @@ public final class g {
         return jSONArray;
     }
 
-    private String rs() {
-        int lastIndexOf;
-        String str = this.SO;
-        return ((str.startsWith("com.android.") || this.SO.startsWith("android.permission")) && (lastIndexOf = this.SO.lastIndexOf(".")) < this.SO.length() + (-1)) ? this.SO.substring(lastIndexOf + 1) : str;
-    }
-
     private JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", rs());
+            jSONObject.put("name", zE());
             jSONObject.put("state", this.state);
         } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
+            com.kwad.sdk.core.e.c.printStackTrace(e);
         }
         return jSONObject;
+    }
+
+    private String zE() {
+        int lastIndexOf;
+        String str = this.amY;
+        if (!TextUtils.isEmpty(str)) {
+            if ((str.startsWith("com.android.") || str.startsWith("android.permission")) && (lastIndexOf = str.lastIndexOf(".")) < str.length() - 1) {
+                return str.substring(lastIndexOf + 1);
+            }
+            return str;
+        }
+        return str;
     }
 }

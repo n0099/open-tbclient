@@ -8,11 +8,11 @@ public final class aq implements Runnable {
     public final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f908a;
+    public final /* synthetic */ boolean f904a;
 
     public aq(List list, boolean z) {
         this.a = list;
-        this.f908a = z;
+        this.f904a = z;
     }
 
     @Override // java.lang.Runnable
@@ -30,7 +30,7 @@ public final class aq implements Runnable {
                 b2 = ap.b(str);
                 if (!b2) {
                     b = false;
-                    if (!b && !this.f908a) {
+                    if (!b && !this.f904a) {
                         break;
                     }
                 }

@@ -1,58 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qh6 extends ph6 {
+public final class qh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ph6
-    public void a(boolean z, String str) {
+    public static void a(WebView webView, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-        }
-    }
-
-    public qh6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
+            try {
+                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(webView, list, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ph6
-    public void b(boolean z, String str, Attributes attributes) {
+    @SuppressLint({"WebViewApiAvailability"})
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
-            String value = attributes.getValue("", NativeConstants.HREF);
-            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
-                String str2 = "http";
-                if (!value.startsWith("http")) {
-                    StringBuilder sb = new StringBuilder();
-                    if (z) {
-                        str2 = "https";
-                    }
-                    sb.append(str2);
-                    sb.append(":");
-                    sb.append(value);
-                    value = sb.toString();
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 26) {
+                webView.setImportantForAutofill(2);
+                webView.getSettings().setSafeBrowsingEnabled(false);
+            } else if (i >= 27) {
+                List<String> a = qg6.a();
+                try {
+                    WebView.setSafeBrowsingWhitelist(a, null);
+                } catch (Throwable unused) {
+                    a(webView, a);
                 }
-                th6.g().b(value, value, new HashMap());
             }
         }
     }

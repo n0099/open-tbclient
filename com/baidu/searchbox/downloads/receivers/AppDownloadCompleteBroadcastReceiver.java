@@ -25,7 +25,7 @@ import com.baidu.searchbox.download.util.DownloadStatisticUtil;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.downloads.manage.SearchBoxDownloadManager;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.ox;
+import com.baidu.tieba.px;
 import com.heytap.mcssdk.PushService;
 import java.io.File;
 import kotlin.Unit;
@@ -110,7 +110,7 @@ public class AppDownloadCompleteBroadcastReceiver extends BroadcastReceiver {
                             jSONObject3.put("pkg", str5);
                         } catch (JSONException unused) {
                         }
-                        ox.x("file", DownloadStatisticConstants.UBC_TYPE_OPEN_FILE, "other", "auto", "app", jSONObject3);
+                        px.x("file", DownloadStatisticConstants.UBC_TYPE_OPEN_FILE, "other", "auto", "app", jSONObject3);
                         ApkCheckerKt.checkApk(BdBoxActivityManager.getTopActivity(), categoryInfoData, false, new Function1<Boolean, Unit>() { // from class: com.baidu.searchbox.downloads.receivers.AppDownloadCompleteBroadcastReceiver.2.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // kotlin.jvm.functions.Function1
@@ -121,7 +121,7 @@ public class AppDownloadCompleteBroadcastReceiver extends BroadcastReceiver {
                                         jSONObject4.put("pkg", str5);
                                     } catch (JSONException unused2) {
                                     }
-                                    ox.x("file", DownloadStatisticConstants.UBC_TYPE_START_INSTALL, "other", "auto", "app", jSONObject4);
+                                    px.x("file", DownloadStatisticConstants.UBC_TYPE_START_INSTALL, "other", "auto", "app", jSONObject4);
                                     Context appContext = AppRuntime.getAppContext();
                                     File file = new File(str2);
                                     AnonymousClass2 anonymousClass2 = AnonymousClass2.this;

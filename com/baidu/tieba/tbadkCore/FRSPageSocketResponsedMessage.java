@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.cqa;
-import com.baidu.tieba.lqa;
+import com.baidu.tieba.eva;
+import com.baidu.tieba.vua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes8.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<eva, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public lqa responseData;
+    public eva responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,16 +51,16 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        lqa lqaVar;
+        eva evaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (lqaVar = this.responseData) != null && this.needCache && lqaVar.getForum() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (evaVar = this.responseData) != null && this.needCache && evaVar.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            cqa i2 = cqa.i();
+            vua i2 = vua.i();
             String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                cqa.i().m(g, bArr);
+                vua.i().m(g, bArr);
             } else {
-                cqa.i().a(g, bArr, true);
+                vua.i().a(g, bArr, true);
             }
         }
     }
@@ -86,9 +86,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, bArr)) == null) {
-            lqa lqaVar = new lqa();
-            this.responseData = lqaVar;
-            FrsPageResIdl parserProtobuf = lqaVar.parserProtobuf(bArr, true);
+            eva evaVar = new eva();
+            this.responseData = evaVar;
+            FrsPageResIdl parserProtobuf = evaVar.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -97,9 +97,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            lqa lqaVar2 = this.responseData;
-            lqaVar2.isFromCache = false;
-            setData(lqaVar2);
+            eva evaVar2 = this.responseData;
+            evaVar2.isFromCache = false;
+            setData(evaVar2);
             return parserProtobuf;
         }
         return invokeIL.objValue;
@@ -115,13 +115,13 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa
         return (Class) invokeV.objValue;
     }
 
-    public lqa getResponseData() {
+    public eva getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.responseData;
         }
-        return (lqa) invokeV.objValue;
+        return (eva) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -156,10 +156,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<lqa
         }
     }
 
-    public void setResponseData(lqa lqaVar) {
+    public void setResponseData(eva evaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, lqaVar) == null) {
-            this.responseData = lqaVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, evaVar) == null) {
+            this.responseData = evaVar;
         }
     }
 

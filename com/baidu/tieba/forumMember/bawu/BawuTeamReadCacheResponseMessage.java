@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ln7;
+import com.baidu.tieba.xp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BawuTeam mBawuTeamInfo;
-    public ln7 mComplaintBarlordData;
+    public xp7 mComplaintBarlordData;
     public int mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
 
@@ -49,13 +49,13 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
         return (BawuTeam) invokeV.objValue;
     }
 
-    public ln7 getComplaintBarlordData() {
+    public xp7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mComplaintBarlordData;
         }
-        return (ln7) invokeV.objValue;
+        return (xp7) invokeV.objValue;
     }
 
     public ManagerApplyInfo getManagerApplyInfo() {
@@ -91,9 +91,9 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
             DataRes dataRes2 = getBawuInfoResIdl.data;
             this.mManagerApplyInfo = dataRes2.manager_apply_info;
             if (dataRes2.manager_complain_info != null) {
-                ln7 ln7Var = new ln7();
-                this.mComplaintBarlordData = ln7Var;
-                ln7Var.c(getBawuInfoResIdl.data.manager_complain_info);
+                xp7 xp7Var = new xp7();
+                this.mComplaintBarlordData = xp7Var;
+                xp7Var.c(getBawuInfoResIdl.data.manager_complain_info);
                 return;
             }
             this.mComplaintBarlordData = null;

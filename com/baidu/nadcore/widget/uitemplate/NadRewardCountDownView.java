@@ -9,20 +9,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l11;
-import com.baidu.tieba.q11;
-import com.baidu.tieba.u81;
+import com.baidu.tieba.m11;
+import com.baidu.tieba.r11;
+import com.baidu.tieba.v81;
 /* loaded from: classes3.dex */
 public class NadRewardCountDownView extends RelativeLayout {
     public TextView a;
     public TextView b;
     public TextView c;
-    public q11 d;
+    public r11 d;
     public String e;
     public String f;
     public int g;
     public c h;
-    public u81 i;
+    public v81 i;
 
     /* loaded from: classes3.dex */
     public interface c {
@@ -50,7 +50,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             if (NadRewardCountDownView.this.g == 2) {
                 NadRewardCountDownView.this.e();
                 if (NadRewardCountDownView.this.i != null) {
-                    l11.b(NadRewardCountDownView.this.i);
+                    m11.b(NadRewardCountDownView.this.i);
                     if (NadRewardCountDownView.this.h != null) {
                         NadRewardCountDownView.this.h.a();
                     }
@@ -127,9 +127,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void e() {
-        q11 q11Var = this.d;
-        if (q11Var != null) {
-            q11Var.d();
+        r11 r11Var = this.d;
+        if (r11Var != null) {
+            r11Var.d();
             c cVar = this.h;
             if (cVar != null) {
                 cVar.c();
@@ -138,9 +138,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void f() {
-        q11 q11Var = this.d;
-        if (q11Var != null) {
-            q11Var.e();
+        r11 r11Var = this.d;
+        if (r11Var != null) {
+            r11Var.e();
             c cVar = this.h;
             if (cVar != null) {
                 cVar.b();

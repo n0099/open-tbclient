@@ -3,7 +3,7 @@ package com.yy.gslbsdk.thread;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import java.util.Timer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TimerMgr {
     public static final String TAG = "TimerMgr";
     public static TimerMgr mTimerMgr;

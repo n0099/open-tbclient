@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import tv.athena.revenue.RevenueManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class H5PayManager {
     public static final int QUERY_RESULT_FAIL = 2;
     public static final int QUERY_RESULT_SUCCESS = 1;

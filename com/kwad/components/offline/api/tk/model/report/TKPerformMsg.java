@@ -29,6 +29,7 @@ public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implem
     /* loaded from: classes10.dex */
     public @interface ERROR_REASON {
         public static final String KSAD_TK_JS_EMPTY = "js_empty";
+        public static final String KSAD_TK_MD5_NOT_MATCH = "md5_not_match";
         public static final String KSAD_TK_NO_FILE = "no_file";
         public static final String KSAD_TK_NO_TEMPLATE = "no_template";
         public static final String KSAD_TK_OFFLINE_FAILED = "offline_failed";
@@ -37,31 +38,6 @@ public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implem
 
     public TKPerformMsg(int i) {
         setSource(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse
-    public void parseJson(TKPerformMsg tKPerformMsg, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        tKPerformMsg.source = jSONObject.optInt("source");
-        tKPerformMsg.renderState = jSONObject.optInt("render_state");
-        tKPerformMsg.errorReason = jSONObject.optString(LoadErrorCode.Statistics.KEY_ERROR_REASON);
-        if (jSONObject.opt(LoadErrorCode.Statistics.KEY_ERROR_REASON) == JSONObject.NULL) {
-            tKPerformMsg.errorReason = "";
-        }
-        tKPerformMsg.renderTime = jSONObject.optLong("render_time");
-        tKPerformMsg.templateId = jSONObject.optString("template_id");
-        if (jSONObject.opt("template_id") == JSONObject.NULL) {
-            tKPerformMsg.templateId = "";
-        }
-        tKPerformMsg.versionCode = jSONObject.optString("version_code");
-        if (jSONObject.opt("version_code") == JSONObject.NULL) {
-            tKPerformMsg.versionCode = "";
-        }
-        tKPerformMsg.loadTime = jSONObject.optLong("load_time");
-        tKPerformMsg.initTime = jSONObject.optLong("init_time");
     }
 
     public TKPerformMsg setErrorReason(String str) {
@@ -102,6 +78,31 @@ public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implem
     public TKPerformMsg setVersionCode(String str) {
         this.versionCode = str;
         return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse
+    public void parseJson(TKPerformMsg tKPerformMsg, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        tKPerformMsg.source = jSONObject.optInt("source");
+        tKPerformMsg.renderState = jSONObject.optInt("render_state");
+        tKPerformMsg.errorReason = jSONObject.optString(LoadErrorCode.Statistics.KEY_ERROR_REASON);
+        if (jSONObject.opt(LoadErrorCode.Statistics.KEY_ERROR_REASON) == JSONObject.NULL) {
+            tKPerformMsg.errorReason = "";
+        }
+        tKPerformMsg.renderTime = jSONObject.optLong("render_time");
+        tKPerformMsg.templateId = jSONObject.optString("template_id");
+        if (jSONObject.opt("template_id") == JSONObject.NULL) {
+            tKPerformMsg.templateId = "";
+        }
+        tKPerformMsg.versionCode = jSONObject.optString("version_code");
+        if (jSONObject.opt("version_code") == JSONObject.NULL) {
+            tKPerformMsg.versionCode = "";
+        }
+        tKPerformMsg.loadTime = jSONObject.optLong("load_time");
+        tKPerformMsg.initTime = jSONObject.optLong("init_time");
     }
 
     /* JADX DEBUG: Method merged with bridge method */

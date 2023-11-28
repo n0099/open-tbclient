@@ -1,6 +1,7 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
@@ -10,8 +11,8 @@ import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-import com.kwad.sdk.api.loader.c;
 import com.kwad.sdk.api.loader.t;
+import com.kwad.sdk.api.loader.u;
 import com.kwad.sdk.api.proxy.app.AdSdkFileProvider;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -22,7 +23,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class KsAdSDK {
     public static Context mOriginalAppContext;
     public static String sAppTag;
-    public static final AtomicBoolean sInited = new AtomicBoolean(false);
+    public static final AtomicBoolean sHasInit = new AtomicBoolean(false);
+    public static final AtomicBoolean sHasRest = new AtomicBoolean(false);
     @Keep
     public static IKsAdSDK sSdk;
 
@@ -43,6 +45,24 @@ public class KsAdSDK {
         public static final int CT = 2;
         public static final int CT_PURE = 4;
         public static final int EC = 3;
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static int getSDKType() {
+        return 1;
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static String getSDKVersion() {
+        return BuildConfig.VERSION_NAME;
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static String getSDKVersion(int i) {
+        return i != 1 ? "" : BuildConfig.VERSION_NAME;
     }
 
     @KsAdSdkApi
@@ -74,11 +94,6 @@ public class KsAdSDK {
         return null;
     }
 
-    public static Context getApplicationContext(Context context) {
-        Context applicationContext;
-        return (context == null || (applicationContext = context.getApplicationContext()) == null) ? context : applicationContext;
-    }
-
     @Nullable
     @KsAdSdkApi
     @Keep
@@ -96,81 +111,16 @@ public class KsAdSDK {
         return null;
     }
 
-    @Nullable
     @KsAdSdkApi
     @Keep
     public static synchronized KsLoadManager getLoadManager() {
         synchronized (KsAdSDK.class) {
-            if (sSdk != null) {
+            if (sSdk != null && sHasInit.get()) {
                 return sSdk.getAdManager();
             }
-            return null;
+            Log.e("KsAdSDK", "please init sdk before getLoadManager");
+            return new b();
         }
-    }
-
-    @KsAdSdkApi
-    @Keep
-    public static int getSDKType() {
-        return 1;
-    }
-
-    @KsAdSdkApi
-    @Keep
-    public static String getSDKVersion() {
-        return BuildConfig.VERSION_NAME;
-    }
-
-    @KsAdSdkApi
-    @Keep
-    public static String getSDKVersion(int i) {
-        return i != 1 ? "" : BuildConfig.VERSION_NAME;
-    }
-
-    @KsAdSdkApi
-    @Keep
-    public static synchronized boolean init(Context context, SdkConfig sdkConfig) {
-        boolean z;
-        synchronized (KsAdSDK.class) {
-            boolean z2 = true;
-            try {
-                Context applicationContext = getApplicationContext(context);
-                mOriginalAppContext = applicationContext;
-                if (applicationContext == null) {
-                    applicationContext = null;
-                } else {
-                    Context applicationContext2 = applicationContext.getApplicationContext();
-                    if (applicationContext2 != null) {
-                        applicationContext = !applicationContext2.getClassLoader().equals(applicationContext.getClassLoader()) ? new c.a(applicationContext) : applicationContext.getApplicationContext();
-                    }
-                }
-                Loader.get().init(applicationContext);
-                IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
-                sSdk = ksAdSDKImpl;
-                if (ksAdSDKImpl != null) {
-                    if (Loader.get().isExternalLoaded()) {
-                        Loader.get().checkAutoRevert();
-                    }
-                    sSdk.setApiVersion(BuildConfig.VERSION_NAME);
-                    sSdk.setApiVersionCode(BuildConfig.VERSION_CODE);
-                    sSdk.setAppTag(sAppTag);
-                    sSdk.setLaunchTime(AdSdkFileProvider.sLaunchTime);
-                    sSdk.init(Wrapper.wrapContextIfNeed(applicationContext), sdkConfig);
-                }
-                sInited.set(sSdk != null);
-                if (sdkConfig != null) {
-                    t.c(applicationContext, "sdkconfig", sdkConfig.toJson());
-                }
-                Boolean bool = (Boolean) b.a("enableDynamic", new Object[0]);
-                if (bool == null || !bool.booleanValue()) {
-                    z2 = false;
-                }
-                if (z2) {
-                    Loader.get().checkUpdate(sSdk);
-                }
-                z = sInited.get();
-            }
-        }
-        return z;
     }
 
     @KsAdSdkApi
@@ -192,19 +142,81 @@ public class KsAdSDK {
         }
     }
 
-    public static void re(Object obj) {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.re(obj);
-        }
-    }
-
     @KsAdSdkApi
     @Keep
     public static void resumeCurrentPlayer() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
             iKsAdSDK.resumeCurrentPlayer();
+        }
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static void unInit() {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.unInit();
+        }
+        sSdk = null;
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static synchronized boolean init(Context context, final SdkConfig sdkConfig) {
+        synchronized (KsAdSDK.class) {
+            if (context != null && sdkConfig != null) {
+                mOriginalAppContext = context;
+                try {
+                    final Context aw = com.kwad.sdk.api.loader.c.aw(context);
+                    if (aw == null) {
+                        revertDynamic(new RuntimeException("wrappApp Exception"), context, sdkConfig);
+                        return false;
+                    }
+                    try {
+                        IKsAdSDK init = Loader.get().init(aw, KsAdSDK.class.getClassLoader());
+                        sSdk = init;
+                        init.setApiVersion(BuildConfig.VERSION_NAME);
+                        sSdk.setApiVersionCode(BuildConfig.VERSION_CODE);
+                        sSdk.setLaunchTime(AdSdkFileProvider.sLaunchTime);
+                        Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(aw);
+                        if (wrapContextIfNeed == null) {
+                            revertDynamic(new RuntimeException("wrapContextIfNeed Exception"), aw, sdkConfig);
+                            return false;
+                        }
+                        sSdk.init(wrapContextIfNeed, sdkConfig);
+                        sSdk.setAppTag(sAppTag);
+                        u.a(aw, sSdk);
+                        sHasInit.set(true);
+                        com.kwad.sdk.api.a.a.submit(new Runnable() { // from class: com.kwad.sdk.api.KsAdSDK.1
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                t.b(aw, "sdkconfig", sdkConfig.toJson());
+                            }
+                        });
+                        return sHasInit.get();
+                    } catch (Throwable th) {
+                        th = th;
+                        context = aw;
+                        revertDynamic(th, context, sdkConfig);
+                        return false;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } else {
+                if (sdkConfig != null && sdkConfig.ksInitCallback != null) {
+                    sdkConfig.ksInitCallback.onFail(0, "context or config is null");
+                }
+                return false;
+            }
+        }
+    }
+
+    public static void re(Object obj) {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.re(obj);
         }
     }
 
@@ -225,20 +237,6 @@ public class KsAdSDK {
             iKsAdSDK.setAppTag(str);
         } else {
             sAppTag = str;
-        }
-    }
-
-    public static void setLoadingLottieAnimation(boolean z, @RawRes int i) {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.setLoadingLottieAnimation(z, i);
-        }
-    }
-
-    public static void setLoadingLottieAnimationColor(boolean z, @ColorInt int i) {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.setLoadingLottieAnimationColor(z, i);
         }
     }
 
@@ -267,13 +265,31 @@ public class KsAdSDK {
         }
     }
 
-    @KsAdSdkApi
-    @Keep
-    public static void unInit() {
+    public static void revertDynamic(Throwable th, Context context, SdkConfig sdkConfig) {
+        if (sHasRest.get()) {
+            return;
+        }
+        sHasRest.set(true);
+        u.aE(context);
+        Loader.get().rest();
+        Log.d("KSAdSDK", "init appId after reset:" + sdkConfig.appId);
+        init(context, sdkConfig);
+        if (sSdk != null && sHasInit.get()) {
+            re(th);
+        }
+    }
+
+    public static void setLoadingLottieAnimation(boolean z, @RawRes int i) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
-            iKsAdSDK.unInit();
+            iKsAdSDK.setLoadingLottieAnimation(z, i);
         }
-        sSdk = null;
+    }
+
+    public static void setLoadingLottieAnimationColor(boolean z, @ColorInt int i) {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.setLoadingLottieAnimationColor(z, i);
+        }
     }
 }

@@ -1,57 +1,29 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONObject;
+import tbclient.PsInfo;
 /* loaded from: classes9.dex */
-public class z6d implements Interceptor {
+public class z6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public z6d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.a = i;
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    @NonNull
+    public static JSONObject b(@NonNull PsInfo psInfo) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i = this.b) < this.a) {
-                this.b = i + 1;
-                proceed.close();
-                proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.b));
-            }
-            return proceed;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, psInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "game_id", psInfo.game_id);
+            ltc.a(jSONObject, "score", psInfo.score);
+            ltc.a(jSONObject, "game_type", psInfo.game_type);
+            ltc.a(jSONObject, "game_pic_url", psInfo.game_pic_url);
+            ltc.a(jSONObject, "game_intro", psInfo.game_intro);
+            return jSONObject;
         }
-        return (Response) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

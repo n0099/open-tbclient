@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.ca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.SendCardInfo;
 /* loaded from: classes8.dex */
 public class tv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static tv9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ca<byte[]> a;
-    public ca<byte[]> b;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
 
     public tv9() {
         Interceptable interceptable = $ic;
@@ -26,109 +29,54 @@ public class tv9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
     }
 
-    public static synchronized tv9 b() {
+    public boolean a() {
         InterceptResult invokeV;
-        tv9 tv9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (tv9.class) {
-                if (c == null) {
-                    c = new tv9();
-                }
-                tv9Var = c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == 3) {
+                return true;
             }
-            return tv9Var;
+            return false;
         }
-        return (tv9) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                yz4.l();
-                this.a = yz4.i("tb.pb_mark");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 1) {
+                return true;
             }
-            if (this.b == null) {
-                yz4.l();
-                this.b = yz4.i("tb.pb_normal");
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        ca.b<byte[]> h;
-        byte[] bArr;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (UbsABTestHelper.isNoCachePb()) {
-                return null;
-            }
-            if (z) {
-                ca<byte[]> caVar = this.a;
-                if (caVar != null && str != null) {
-                    h = caVar.h(str);
-                }
-                h = null;
-            } else {
-                ca<byte[]> caVar2 = this.b;
-                if (caVar2 != null && str != null) {
-                    h = caVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                ca<byte[]> caVar = this.a;
-                if (caVar != null && str != null) {
-                    caVar.i(str, new byte[0], 0L);
-                    return;
-                }
-                return;
-            }
-            ca<byte[]> caVar2 = this.b;
-            if (caVar2 != null && str != null) {
-                caVar2.i(str, new byte[0], 0L);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.b = jSONObject.optString("card_logo");
+            this.c = jSONObject.optString("card_name");
+            this.d = jSONObject.optString("card_pro");
+            this.e = jSONObject.optInt("card_get_status");
+            this.a = jSONObject.optLong("packet_id");
+            this.f = jSONObject.optString("card_num");
         }
     }
 
-    public void f(String str, byte[] bArr) {
+    public void d(SendCardInfo sendCardInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
+            this.b = sendCardInfo.card_logo;
+            this.c = sendCardInfo.card_name;
+            this.d = sendCardInfo.card_pro;
+            this.e = sendCardInfo.card_get_status.intValue();
+            this.a = sendCardInfo.packet_id.longValue();
         }
     }
 }

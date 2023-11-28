@@ -17,7 +17,7 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk5;
+import com.baidu.tieba.hk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +84,7 @@ public class RecommendFrsDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements bk5.b {
+    public class b implements hk5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -107,7 +107,7 @@ public class RecommendFrsDelegateStatic extends FragmentDelegate {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.bk5.b
+        @Override // com.baidu.tieba.hk5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -172,13 +172,13 @@ public class RecommendFrsDelegateStatic extends FragmentDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) bk5.e().d(1001, new b(this, context));
+            this.mIndicator = (MaintabBottomIndicator) hk5.e().d(1001, new b(this, context));
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
             fragmentTapTip.indicator = this.mIndicator;
             fragmentTapTip.offsetX = BdUtilHelper.dip2px(context, 12.0f);
             MessageRedDotView messageRedDotView = this.a;
-            fragmentTapTip.f1083view = messageRedDotView;
+            fragmentTapTip.f1079view = messageRedDotView;
             messageRedDotView.setVisibility(8);
             this.mIndicator.addTipWrapContent("godFeed", fragmentTapTip);
             return this.mIndicator;

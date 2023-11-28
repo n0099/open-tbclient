@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IPayMethod {
     boolean isSupported(Activity activity);
 
@@ -17,7 +17,7 @@ public interface IPayMethod {
 
     void requestPay(Activity activity, long j, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum Status {
         OK(0, EventAlias.PayEventAlias.PAY_SUCCESS),
         NOT_SUPPORT(-101, "当前设备不支持该支付方式"),

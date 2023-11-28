@@ -4,7 +4,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StatisHttpUtil extends AbstractStatisHttpUtil {
     public static final String[] ADDRESSES = {"183.61.2.91", "183.61.2.92", "183.61.2.93", "183.61.2.94", "183.61.2.95", "183.61.2.96", "183.61.2.97", "183.61.2.98"};
     public static final String URL_FORMAT = "http://%s/c.gif";

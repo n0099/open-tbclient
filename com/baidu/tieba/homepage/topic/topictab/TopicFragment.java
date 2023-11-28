@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.g55;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
-import com.baidu.tieba.lh8;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.wq7;
+import com.baidu.tieba.ik8;
+import com.baidu.tieba.it7;
+import com.baidu.tieba.m55;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,22 +29,22 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes6.dex */
-public class TopicFragment extends BaseFragment implements wq7, g55.g, lh8 {
+public class TopicFragment extends BaseFragment implements it7, m55.g, ik8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
     public TopicListView b;
     public boolean c;
 
-    @Override // com.baidu.tieba.wq7
-    public void A0() {
+    @Override // com.baidu.tieba.it7
+    public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void c0() {
+    @Override // com.baidu.tieba.it7
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -73,23 +73,23 @@ public class TopicFragment extends BaseFragment implements wq7, g55.g, lh8 {
         this.c = false;
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void G0() {
+    @Override // com.baidu.tieba.it7
+    public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void R() {
+    @Override // com.baidu.tieba.it7
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.j();
         }
     }
 
-    @Override // com.baidu.tieba.lh8
+    @Override // com.baidu.tieba.ik8
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
@@ -132,8 +132,8 @@ public class TopicFragment extends BaseFragment implements wq7, g55.g, lh8 {
         }
     }
 
-    @Override // com.baidu.tieba.lh8
-    public void H0(int i, List<oi> list) {
+    @Override // com.baidu.tieba.ik8
+    public void M0(int i, List<pi> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.b.d();
@@ -149,8 +149,8 @@ public class TopicFragment extends BaseFragment implements wq7, g55.g, lh8 {
         }
     }
 
-    @Override // com.baidu.tieba.g55.g
-    public void e(boolean z) {
+    @Override // com.baidu.tieba.m55.g
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.a.O();

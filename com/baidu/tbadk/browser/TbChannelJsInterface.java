@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.util.UUID;
 import org.json.JSONObject;
 @Keep
@@ -87,7 +87,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.rr4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.sr4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,7 +163,7 @@ public final class TbChannelJsInterface {
                     }
                     boolean optBoolean = jSONObject.optBoolean("isOfflinePackage", false);
                     try {
-                        long optLong = jSONObject.optLong(u.x, -1L);
+                        long optLong = jSONObject.optLong(t.s, -1L);
                         long optLong2 = jSONObject.optLong("wvst", -1L);
                         long optLong3 = jSONObject.optLong("wvft", -1L);
                         long optLong4 = jSONObject.optLong("lst", -1L);
@@ -194,7 +194,7 @@ public final class TbChannelJsInterface {
                             str2 = "1";
                         }
                         try {
-                            TiebaStatic.log(param.param("obj_id", str2).param("obj_type", i).param("obj_locate", 0).param("obj_source", 1).param(TiebaStatic.Params.OBJ_PARAM3, optLong22 - optLong).param(u.x, optLong).param("wvst", optLong2).param("wvft", optLong3).param("lst", optLong4).param("navigationStart", optLong5).param("fetchStart", optLong6).param("domainLookupStart", optLong7).param("domainLookupEnd", optLong8).param("connectStart", optLong9).param("connectEnd", optLong10).param("requestStart", optLong11).param("responseStart", optLong12).param("responseEnd", optLong13).param("ds", optLong14).param("df", optLong15).param("drt", optLong16).param("dt", optLong17).param("autoFMP", optLong18).param("autoFP", optLong19).param("autoFCP", optLong20).param("autoWVLCP", optInt).param("autoWVFCP", optInt2).param("fp", optLong21).param("fmp", optLong22).param("url", this.mUrl));
+                            TiebaStatic.log(param.param("obj_id", str2).param("obj_type", i).param("obj_locate", 0).param("obj_source", 1).param(TiebaStatic.Params.OBJ_PARAM3, optLong22 - optLong).param(t.s, optLong).param("wvst", optLong2).param("wvft", optLong3).param("lst", optLong4).param("navigationStart", optLong5).param("fetchStart", optLong6).param("domainLookupStart", optLong7).param("domainLookupEnd", optLong8).param("connectStart", optLong9).param("connectEnd", optLong10).param("requestStart", optLong11).param("responseStart", optLong12).param("responseEnd", optLong13).param("ds", optLong14).param("df", optLong15).param("drt", optLong16).param("dt", optLong17).param("autoFMP", optLong18).param("autoFP", optLong19).param("autoFCP", optLong20).param("autoWVLCP", optInt).param("autoWVFCP", optInt2).param("fp", optLong21).param("fmp", optLong22).param("url", this.mUrl));
                         } catch (Exception unused) {
                         }
                     } catch (Exception unused2) {
@@ -225,7 +225,7 @@ public final class TbChannelJsInterface {
                         z = false;
                     }
                     jSONObject2.put("isOfflinePackage", z);
-                    jSONObject2.put(u.x, this.operationStartTime);
+                    jSONObject2.put(t.s, this.operationStartTime);
                     jSONObject2.put("wvst", this.webViewInitStartTime);
                     jSONObject2.put("wvft", this.webViewInitFinishTime);
                     jSONObject2.put("lst", this.loadUrlStartTime);

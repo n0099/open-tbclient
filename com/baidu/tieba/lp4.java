@@ -1,109 +1,78 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class lp4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int A = 3;
+    public static int B = 4;
+    public static int C = 1;
+    public static int D = 2;
+    public static int y = 1;
+    public static int z = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public kp4 a;
-    public g05 b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public double n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public long t;
+    public long u;
+    public ArrayList<String> v;
+    public ArrayList<String> w;
+    public int x;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947950553, "Lcom/baidu/tieba/lp4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947950553, "Lcom/baidu/tieba/lp4;");
+        }
+    }
 
     public lp4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a() {
-        g05 g05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (g05Var = this.b) != null) {
-            g05Var.f();
-            this.b = null;
-        }
-    }
-
-    public final void b(String str) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !qd.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !StringUtils.isNull(str)) {
-            BrowserHelper.startWebActivity((Context) currentActivity, "", str, true);
-        }
-    }
-
-    public void c(kp4 kp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) == null) {
-            this.a = kp4Var;
-        }
-    }
-
-    public void d() {
-        kp4 kp4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (kp4Var = this.a) == null) {
-            return;
-        }
-        int i = kp4Var.c;
-        if (i == kp4.y) {
-            g05 h = g05.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
-            h.k();
-            this.b = h;
-        } else if (i == kp4.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            xv4 xv4Var = new xv4(currentActivity);
-            xv4Var.d(currentActivity, this.a);
-            xv4Var.i();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            wv4 b = wv4.b();
-            wv4 b2 = wv4.b();
-            b2.i("business_count_hint" + currentAccount + this.a.a, b.c("business_count_hint" + currentAccount + this.a.a) - 1);
-        } else if (i == kp4.A) {
-            int i2 = kp4Var.d;
-            if (i2 == kp4.C) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) && !qd.isEmpty(this.a.k)) {
-                    b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i2 == kp4.D && !qd.isEmpty(kp4Var.k)) {
-                b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            }
-        } else if (i == kp4.B && !TextUtils.isEmpty(kp4Var.e)) {
-            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            kp4 kp4Var2 = this.a;
-            completeTaskToastData.activityId = kp4Var2.a;
-            completeTaskToastData.missionId = kp4Var2.b;
-            completeTaskToastData.duration = kp4Var2.i;
-            completeTaskToastData.message = kp4Var2.e;
-            completeTaskToastData.url = kp4Var2.k;
-            completeTaskToastData.pageId = lo4.w().v();
-            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
-            competeTaskEvent.taskToastData = completeTaskToastData;
-            MutiProcessManager.publishEvent(competeTaskEvent);
-            kp4 kp4Var3 = this.a;
-            mp4.c(kp4Var3.a, kp4Var3.b);
-        }
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = 0;
     }
 }

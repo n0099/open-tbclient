@@ -82,7 +82,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -2043,7 +2043,7 @@ public class SapiWebView extends WebView {
     public String getLocalPhoneNumber() {
         String line1Number;
         TelephonyManager telephonyManager = (TelephonyManager) getContext().getSystemService("phone");
-        if (SapiUtils.checkRequestPermission(h.c, getContext())) {
+        if (SapiUtils.checkRequestPermission(g.c, getContext())) {
             try {
                 line1Number = telephonyManager.getLine1Number();
             } catch (Exception unused) {

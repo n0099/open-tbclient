@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ServerIPMgr {
     public static final String TAG = "ServerIPMgr";
     public static String curLocalDNSIp = null;

@@ -3,7 +3,7 @@ package com.yy.gslbsdk.protocol;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.dns.cache.DnsCacheHelper;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpDNSProtocolMgr {
     public static final String TAG = "HttpDNSProtocolMgr";
 
@@ -170,7 +170,7 @@ public class HttpDNSProtocolMgr {
                     for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
                         HashMap hashMap = new HashMap();
-                        hashMap.put(u.A, optJSONObject.optString(u.A, ""));
+                        hashMap.put(t.v, optJSONObject.optString(t.v, ""));
                         hashMap.put("ut", optJSONObject.optString("ut", "0"));
                         resInfo.addRefresh(hashMap);
                     }

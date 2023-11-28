@@ -4,138 +4,168 @@ import com.kwad.sdk.pngencrypt.PngjException;
 import java.io.ByteArrayInputStream;
 /* loaded from: classes10.dex */
 public final class i extends p {
-    public int aku;
-    public int akv;
-    public int alQ;
-    public int alR;
-    public int alS;
-    public int alT;
-    public int alU;
+    public int aJk;
+    public int aJl;
+    public int aKF;
+    public int aKG;
+    public int aKH;
+    public int aKI;
+    public int aKJ;
 
     public i(com.kwad.sdk.pngencrypt.k kVar) {
         super("IHDR", kVar);
         if (kVar != null) {
-            yN();
+            IQ();
         }
     }
 
-    private void bs(int i) {
-        this.akv = i;
+    private void dr(int i) {
+        this.aJl = i;
     }
 
-    private void bt(int i) {
-        this.aku = i;
+    private void ds(int i) {
+        this.aJk = i;
     }
 
-    private void bu(int i) {
-        this.alQ = i;
+    private void dt(int i) {
+        this.aKF = i;
     }
 
-    private void bv(int i) {
-        this.alR = i;
+    private void du(int i) {
+        this.aKG = i;
     }
 
-    private void bw(int i) {
-        this.alS = 0;
+    private void dv(int i) {
+        this.aKH = 0;
     }
 
-    private void bx(int i) {
-        this.alT = 0;
+    private void dw(int i) {
+        this.aKI = 0;
     }
 
-    private void by(int i) {
-        this.alU = 0;
+    private void dx(int i) {
+        this.aKJ = 0;
     }
 
-    private int yJ() {
-        return this.alQ;
+    private int IM() {
+        return this.aKF;
     }
 
-    private int yK() {
-        return this.alR;
+    private int IN() {
+        return this.aKG;
     }
 
-    private int yL() {
-        return this.alU;
+    private int IO() {
+        return this.aKJ;
     }
 
-    private void yN() {
-        bs(this.akJ.akv);
-        bt(this.akJ.aku);
-        bu(this.akJ.akN);
-        int i = this.akJ.akP ? 4 : 0;
-        if (this.akJ.akR) {
+    private int Is() {
+        return this.aJk;
+    }
+
+    private int It() {
+        return this.aJl;
+    }
+
+    public final boolean IP() {
+        if (IO() == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    private void IQ() {
+        int i;
+        dr(this.aJz.aJl);
+        ds(this.aJz.aJk);
+        dt(this.aJz.aJD);
+        if (this.aJz.aJF) {
+            i = 4;
+        } else {
+            i = 0;
+        }
+        if (this.aJz.aJH) {
             i++;
         }
-        if (!this.akJ.akQ) {
+        if (!this.aJz.aJG) {
             i += 2;
         }
-        bv(i);
-        bw(0);
-        bx(0);
-        by(0);
+        du(i);
+        dv(0);
+        dw(0);
+        dx(0);
     }
 
-    private void yP() {
-        if (this.akv <= 0 || this.aku <= 0 || this.alS != 0 || this.alT != 0) {
-            throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
+    public final com.kwad.sdk.pngencrypt.k IR() {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        IS();
+        if ((IN() & 4) != 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        int i = this.alQ;
-        if (i != 1 && i != 2 && i != 4 && i != 8 && i != 16) {
-            throw new PngjException("bad IHDR: bitdepth invalid");
+        if ((IN() & 1) != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
         }
-        int i2 = this.alU;
-        if (i2 < 0 || i2 > 1) {
-            throw new PngjException("bad IHDR: interlace invalid");
+        if (IN() != 0 && IN() != 4) {
+            z3 = false;
+        } else {
+            z3 = true;
         }
-        int i3 = this.alR;
-        if (i3 != 0) {
-            if (i3 != 6 && i3 != 2) {
-                if (i3 == 3) {
-                    if (this.alQ == 16) {
+        return new com.kwad.sdk.pngencrypt.k(It(), Is(), IM(), z, z3, z2);
+    }
+
+    private void IS() {
+        if (this.aJl > 0 && this.aJk > 0 && this.aKH == 0 && this.aKI == 0) {
+            int i = this.aKF;
+            if (i != 1 && i != 2 && i != 4 && i != 8 && i != 16) {
+                throw new PngjException("bad IHDR: bitdepth invalid");
+            }
+            int i2 = this.aKJ;
+            if (i2 >= 0 && i2 <= 1) {
+                int i3 = this.aKG;
+                if (i3 != 0) {
+                    if (i3 != 6 && i3 != 2) {
+                        if (i3 != 3) {
+                            if (i3 != 4) {
+                                throw new PngjException("bad IHDR: invalid colormodel");
+                            }
+                        } else if (this.aKF == 16) {
+                            throw new PngjException("bad IHDR: bitdepth invalid");
+                        } else {
+                            return;
+                        }
+                    }
+                    int i4 = this.aKF;
+                    if (i4 != 8 && i4 != 16) {
                         throw new PngjException("bad IHDR: bitdepth invalid");
                     }
                     return;
-                } else if (i3 != 4) {
-                    throw new PngjException("bad IHDR: invalid colormodel");
                 }
+                return;
             }
-            int i4 = this.alQ;
-            if (i4 != 8 && i4 != 16) {
-                throw new PngjException("bad IHDR: bitdepth invalid");
-            }
+            throw new PngjException("bad IHDR: interlace invalid");
         }
-    }
-
-    private int yp() {
-        return this.aku;
-    }
-
-    private int yq() {
-        return this.akv;
+        throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public final void a(d dVar) {
-        if (dVar.len != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.len);
+        if (dVar.len == 13) {
+            ByteArrayInputStream II = dVar.II();
+            this.aJl = com.kwad.sdk.pngencrypt.n.f(II);
+            this.aJk = com.kwad.sdk.pngencrypt.n.f(II);
+            this.aKF = com.kwad.sdk.pngencrypt.n.e(II);
+            this.aKG = com.kwad.sdk.pngencrypt.n.e(II);
+            this.aKH = com.kwad.sdk.pngencrypt.n.e(II);
+            this.aKI = com.kwad.sdk.pngencrypt.n.e(II);
+            this.aKJ = com.kwad.sdk.pngencrypt.n.e(II);
+            return;
         }
-        ByteArrayInputStream yF = dVar.yF();
-        this.akv = com.kwad.sdk.pngencrypt.n.g(yF);
-        this.aku = com.kwad.sdk.pngencrypt.n.g(yF);
-        this.alQ = com.kwad.sdk.pngencrypt.n.f(yF);
-        this.alR = com.kwad.sdk.pngencrypt.n.f(yF);
-        this.alS = com.kwad.sdk.pngencrypt.n.f(yF);
-        this.alT = com.kwad.sdk.pngencrypt.n.f(yF);
-        this.alU = com.kwad.sdk.pngencrypt.n.f(yF);
-    }
-
-    public final boolean yM() {
-        return yL() == 1;
-    }
-
-    public final com.kwad.sdk.pngencrypt.k yO() {
-        yP();
-        return new com.kwad.sdk.pngencrypt.k(yq(), yp(), yJ(), (yK() & 4) != 0, yK() == 0 || yK() == 4, (yK() & 1) != 0);
+        throw new PngjException("Bad IDHR len " + dVar.len);
     }
 }

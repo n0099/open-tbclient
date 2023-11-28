@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.AppCode;
 /* loaded from: classes8.dex */
-public class ruc extends qoc {
+public class ruc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Classify classify) {
+    public static JSONObject b(@NonNull AppCode appCode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, classify)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, appCode)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "name", classify.name);
-            qoc.a(jSONObject, "id", classify.id);
-            qoc.a(jSONObject, "class_id", classify.class_id);
-            qoc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, classify.class_name);
+            ltc.a(jSONObject, "game_icon", appCode.game_icon);
+            ltc.a(jSONObject, "post_url", appCode.post_url);
+            ltc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, appCode.button_text);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

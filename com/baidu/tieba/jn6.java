@@ -1,105 +1,99 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jn6 {
+public class jn6 extends jl6<in6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Bitmap b;
+    public View i;
+    public int j;
+    public int k;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof jn6) {
-                jn6 jn6Var = (jn6) obj;
-                return Intrinsics.areEqual(this.a, jn6Var.a) && Intrinsics.areEqual(this.b, jn6Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    @Override // com.baidu.tieba.jl6
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            Bitmap bitmap = this.b;
-            return hashCode + (bitmap != null ? bitmap.hashCode() : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_divider_line : invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "VideoCoverWrapper(url=" + this.a + ", bitmap=" + this.b + ')';
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public jn6(String str, Bitmap bitmap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jn6(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bitmap};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = bitmap;
+        this.j = R.color.CAM_X0204;
+        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        i().setOnClickListener(this);
+        this.i = i().findViewById(R.id.card_divider);
     }
 
-    public final Bitmap a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jl6
+    /* renamed from: p */
+    public void j(in6 in6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, in6Var) != null) || in6Var == null) {
+            return;
         }
-        return (Bitmap) invokeV.objValue;
+        this.i.setVisibility(0);
+        this.j = in6Var.a;
+        this.k = in6Var.b;
+        r();
+        k(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jl6
+    public void k(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (StringUtils.isNotNull(this.a) && (bitmap = this.b) != null && !bitmap.isRecycled()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundColor(this.i, this.j);
             }
-            return false;
+            this.a = i;
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void r() {
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (layoutParams = this.i.getLayoutParams()) != null) {
+            int i = layoutParams.height;
+            int i2 = this.k;
+            if (i != i2) {
+                layoutParams.height = i2;
+                this.i.setLayoutParams(layoutParams);
+            }
+        }
     }
 }

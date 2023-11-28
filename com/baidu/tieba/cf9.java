@@ -1,233 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestLiveViewHolder;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class cf9 extends bi<hf9, SearchSuggestLiveViewHolder> {
+public class cf9 implements ye9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public final StatisticItem a;
 
     /* loaded from: classes5.dex */
-    public class a implements yi {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ cf9 b;
+    }
 
-        public a(cf9 cf9Var, Context context) {
+    /* loaded from: classes5.dex */
+    public static class b implements ye9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ye9
+        public void a(ICardInfo iCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ye9
+        public ye9 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (ye9) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.tieba.ye9
+        public ye9 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (ye9) invokeLJ.objValue;
+        }
+
+        @Override // com.baidu.tieba.ye9
+        public ye9 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (ye9) invokeLL.objValue;
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cf9Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = cf9Var;
-            this.a = context;
         }
 
-        @Override // com.baidu.tieba.yi
-        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(oiVar instanceof hf9)) {
-                return;
-            }
-            hf9 hf9Var = (hf9) oiVar;
-            this.b.x(hf9Var);
-            TbPageContext tbPageContext = (TbPageContext) a5.a(this.a);
-            String c = hf9Var.c();
-            String d = hf9Var.d();
-            String f = hf9Var.f();
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, c, d, f, "" + hf9Var.b(), "search_sug_live");
-            BdUtilHelper.hideSoftKeyPad(this.a, view2);
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public b(cf9 cf9Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cf9Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cf9(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public cf9(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    public final void u(StatisticItem statisticItem, hf9 hf9Var) {
+    public cf9(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, statisticItem, hf9Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, hf9Var.g());
-            statisticItem.param(TiebaStatic.Params.ZHIBO_TYPE, hf9Var.i());
-            statisticItem.param(TiebaStatic.YYParams.YYSID, hf9Var.c());
-            statisticItem.param(TiebaStatic.YYParams.YYSSID, hf9Var.d());
-            statisticItem.param("yyuid", hf9Var.h());
-            statisticItem.param("template_id", hf9Var.f());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (!TextUtils.isEmpty(str2)) {
+            this.a.param("obj_card", str2);
         }
     }
 
-    public View A(int i, View view2, ViewGroup viewGroup, hf9 hf9Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+    public static ye9 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return new cf9(baseLegoCardInfo);
+            }
+            return new b(null);
+        }
+        return (ye9) invokeL.objValue;
+    }
+
+    public static ye9 f(String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hf9Var, searchSuggestLiveViewHolder})) == null) {
-            if (hf9Var == null) {
-                return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new cf9(str, i, i2, str2);
             }
-            B(searchSuggestLiveViewHolder);
-            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
-            EMManager.from(searchSuggestLiveViewHolder.e).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0308);
-            ye9.a(searchSuggestLiveViewHolder.b, hf9Var.e(), hf9Var.a());
-            y(searchSuggestLiveViewHolder.b);
-            D(searchSuggestLiveViewHolder.d);
-            C(hf9Var);
-            return view2;
+            return new b(null);
         }
-        return (View) invokeCommon.objValue;
+        return (ye9) invokeCommon.objValue;
     }
 
-    public final void B(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+    @Override // com.baidu.tieba.ye9
+    public void a(ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchSuggestLiveViewHolder) == null) {
-            EMManager.from(searchSuggestLiveViewHolder.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
-            EMManager.from(searchSuggestLiveViewHolder.f).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X10);
-            SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
-            EMManager.from(searchSuggestLiveViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
         }
     }
 
-    public final void C(hf9 hf9Var) {
+    @Override // com.baidu.tieba.ye9
+    public ye9 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hf9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_SHOW);
-            u(statisticItem, hf9Var);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
         }
+        return (ye9) invokeLI.objValue;
     }
 
-    public final void D(TBLottieAnimationView tBLottieAnimationView) {
+    @Override // com.baidu.tieba.ye9
+    public ye9 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tBLottieAnimationView) == null) {
-            tBLottieAnimationView.cancelAnimation();
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110056);
-            tBLottieAnimationView.setRepeatCount(-1);
-            tBLottieAnimationView.post(new b(this, tBLottieAnimationView));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
         }
+        return (ye9) invokeLJ.objValue;
     }
 
-    public final void x(hf9 hf9Var) {
+    @Override // com.baidu.tieba.ye9
+    public ye9 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hf9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_CLICK);
-            u(statisticItem, hf9Var);
-            statisticItem.param("source", "search_sug_live");
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
         }
+        return (ye9) invokeLL.objValue;
     }
 
-    public final void y(TextView textView) {
-        Context context;
+    public final void g(ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textView) == null) && (context = this.a) != null && textView != null) {
-            textView.setMaxWidth(BdUtilHelper.getEquipmentWidth(context) - BdUtilHelper.getDimens(this.a, R.dimen.tbds297));
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
+                List<Object> params = this.a.getParams();
+                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                    String[] split = str.split("=");
+                    if (split.length == 2) {
+                        String str2 = split[0];
+                        String str3 = split[1];
+                        boolean z = false;
+                        for (int i = 0; i < params.size() && !z; i += 2) {
+                            if (TextUtils.equals(str2, params.get(i).toString())) {
+                                int i2 = i + 1;
+                                if (i2 < params.size()) {
+                                    params.set(i2, str3);
+                                }
+                                z = true;
+                            }
+                        }
+                        if (!z) {
+                            this.a.param(str2, str3);
+                        }
+                    }
+                }
+                d(TiebaStatic.Params.OBJ_PARAM3, tl6.e());
+            }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: z */
-    public SearchSuggestLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
-            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a8, viewGroup, false));
-        }
-        return (SearchSuggestLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hf9 hf9Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
-        A(i, view2, viewGroup, hf9Var, searchSuggestLiveViewHolder);
-        return view2;
     }
 }

@@ -5,25 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.GiftInfo;
+import tbclient.ForumRuleStatus;
 /* loaded from: classes7.dex */
-public class myc extends qoc {
+public class myc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GiftInfo giftInfo) {
+    public static JSONObject b(@NonNull ForumRuleStatus forumRuleStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, giftInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumRuleStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon", giftInfo.icon);
-            qoc.a(jSONObject, "num", giftInfo.num);
-            qoc.a(jSONObject, "gift_id", giftInfo.gift_id);
-            qoc.a(jSONObject, "gift_name", giftInfo.gift_name);
-            qoc.a(jSONObject, "large_thumbnail_url", giftInfo.large_thumbnail_url);
-            qoc.a(jSONObject, "sender_id", giftInfo.sender_id);
-            qoc.a(jSONObject, "sender_name", giftInfo.sender_name);
+            ltc.a(jSONObject, "title", forumRuleStatus.title);
+            ltc.a(jSONObject, "audit_status", forumRuleStatus.audit_status);
+            ltc.a(jSONObject, "has_forum_rule", forumRuleStatus.has_forum_rule);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

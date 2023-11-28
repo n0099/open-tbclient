@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.nps.interfa.IThreadManager;
+import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,14 +17,14 @@ public class s91 {
     public static s91 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public of1<IWebViewDataDirectoryManager> a;
+    public pf1<IThreadManager> a;
 
-    public void b() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            mf1 b2 = mf1.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nf1 b2 = nf1.b();
             this.a = b2;
-            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
+            b2.a(new IThreadManager_ThreadManager_Provider());
         }
     }
 
@@ -58,7 +57,7 @@ public class s91 {
                 return;
             }
         }
-        b();
+        c();
     }
 
     public static s91 a() {
@@ -70,13 +69,12 @@ public class s91 {
         return (s91) invokeV.objValue;
     }
 
-    public void c() {
+    public IThreadManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (la1.a()) {
-                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
-            }
-            this.a.get().setDataDirectorySuffix();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
+        return (IThreadManager) invokeV.objValue;
     }
 }

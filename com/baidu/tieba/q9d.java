@@ -1,44 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.dbd;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import org.json.JSONObject;
+import tbclient.ThemeBackgroundInUser;
 /* loaded from: classes7.dex */
-public class q9d {
+public class q9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SplitOrderConfigResult a;
-    public dbd.b b;
 
-    public q9d(SplitOrderConfigResult splitOrderConfigResult, dbd.b bVar) {
+    @NonNull
+    public static JSONObject b(@NonNull ThemeBackgroundInUser themeBackgroundInUser) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {splitOrderConfigResult, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeBackgroundInUser)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "props_id", themeBackgroundInUser.props_id);
+            ltc.a(jSONObject, "exclusive_no", themeBackgroundInUser.exclusive_no);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, themeBackgroundInUser.jump_url);
+            ltc.a(jSONObject, PraiseUBCHelper.SOURCE_DYNAMIC, themeBackgroundInUser.dynamic);
+            ltc.a(jSONObject, "package_name", themeBackgroundInUser.package_name);
+            return jSONObject;
         }
-        this.a = splitOrderConfigResult;
-        this.b = bVar;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PaySplitOrderInfo{splitOrderConfigResult=" + this.a + ", splitsplitOrderViewParamsId=" + this.b + '}';
-        }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

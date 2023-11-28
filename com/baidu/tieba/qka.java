@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.vb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qka implements ILooperNeedContext {
+public final class qka implements vb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,19 +29,89 @@ public class qka implements ILooperNeedContext {
         }
     }
 
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void addLooperPrinter(Printer printer) {
+    @Override // com.baidu.tieba.ub7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
-            Looper.getMainLooper().setMessageLogging(printer);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return vb7.a.b(this);
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void removeLooperPrinter(Printer printer) {
+    @Override // com.baidu.tieba.ub7
+    public Map<String, String> a(r57 r57Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
-            Looper.getMainLooper().setMessageLogging(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r57Var)) == null) {
+            return vb7.a.a(this, r57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
+        if (r5.equals("video_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
+        if (r5.equals("live_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
+        if (r5.equals("common_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
+        return "forum_head_click";
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.vb7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(r57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (str.equals("common_user")) {
+                        return "";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+                case -1617812209:
+                    if (str.equals("video_user")) {
+                        return "video_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    if (str.equals("live_user")) {
+                        return "live_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

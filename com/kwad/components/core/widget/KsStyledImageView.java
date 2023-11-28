@@ -6,12 +6,17 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.kwad.components.core.m.j;
+import com.kwad.components.core.s.i;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes10.dex */
-public class KsStyledImageView extends ImageView implements e {
+public class KsStyledImageView extends ImageView implements d {
     public KsStyledImageView(Context context) {
         super(context);
+    }
+
+    @Override // com.kwad.components.core.widget.d
+    public final void a(e eVar) {
+        i.b(eVar, getBackground());
     }
 
     public KsStyledImageView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,10 +30,5 @@ public class KsStyledImageView extends ImageView implements e {
     @RequiresApi(api = 21)
     public KsStyledImageView(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-    }
-
-    @Override // com.kwad.components.core.widget.e
-    public final void a(f fVar) {
-        j.a(fVar, getBackground());
     }
 }

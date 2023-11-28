@@ -17,30 +17,6 @@ public class DelegateFragmentLifecycleCallbacks extends FragmentManager.Fragment
     }
 
     @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentActivityCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
-        super.onFragmentActivityCreated(fragmentManager, fragment, bundle);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentActivityCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
-        super.onFragmentAttached(fragmentManager, fragment, context);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentAttached(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), context);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
-        super.onFragmentCreated(fragmentManager, fragment, bundle);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
     public void onFragmentDestroyed(FragmentManager fragmentManager, Fragment fragment) {
         super.onFragmentDestroyed(fragmentManager, fragment);
         if (fragment instanceof IDelegateFragment) {
@@ -65,34 +41,10 @@ public class DelegateFragmentLifecycleCallbacks extends FragmentManager.Fragment
     }
 
     @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentPreAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
-        super.onFragmentPreAttached(fragmentManager, fragment, context);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentPreAttached(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), context);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentPreCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
-        super.onFragmentPreCreated(fragmentManager, fragment, bundle);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentPreCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
     public void onFragmentResumed(FragmentManager fragmentManager, Fragment fragment) {
         super.onFragmentResumed(fragmentManager, fragment);
         if (fragment instanceof IDelegateFragment) {
             this.mBase.onFragmentResumed(this.mFragmentManager, ((IDelegateFragment) fragment).getBase());
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentSaveInstanceState(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
-        super.onFragmentSaveInstanceState(fragmentManager, fragment, bundle);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentSaveInstanceState(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
         }
     }
 
@@ -113,18 +65,66 @@ public class DelegateFragmentLifecycleCallbacks extends FragmentManager.Fragment
     }
 
     @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment, View view2, Bundle bundle) {
-        super.onFragmentViewCreated(fragmentManager, fragment, view2, bundle);
-        if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentViewCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), view2, bundle);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
     public void onFragmentViewDestroyed(FragmentManager fragmentManager, Fragment fragment) {
         super.onFragmentViewDestroyed(fragmentManager, fragment);
         if (fragment instanceof IDelegateFragment) {
             this.mBase.onFragmentViewDestroyed(this.mFragmentManager, ((IDelegateFragment) fragment).getBase());
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentActivityCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        super.onFragmentActivityCreated(fragmentManager, fragment, bundle);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentActivityCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
+        super.onFragmentAttached(fragmentManager, fragment, context);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentAttached(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), context);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        super.onFragmentCreated(fragmentManager, fragment, bundle);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentPreAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
+        super.onFragmentPreAttached(fragmentManager, fragment, context);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentPreAttached(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), context);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentPreCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        super.onFragmentPreCreated(fragmentManager, fragment, bundle);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentPreCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentSaveInstanceState(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        super.onFragmentSaveInstanceState(fragmentManager, fragment, bundle);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentSaveInstanceState(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+    public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment, View view2, Bundle bundle) {
+        super.onFragmentViewCreated(fragmentManager, fragment, view2, bundle);
+        if (fragment instanceof IDelegateFragment) {
+            this.mBase.onFragmentViewCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), view2, bundle);
         }
     }
 }

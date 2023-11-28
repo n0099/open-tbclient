@@ -25,15 +25,15 @@ import com.airbnb.lottie.LottieListener;
 import com.airbnb.lottie.LottieOnCompositionLoadedListener;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gk0;
-import com.baidu.tieba.hj0;
 import com.baidu.tieba.hk0;
-import com.baidu.tieba.jy0;
-import com.baidu.tieba.my0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.o21;
+import com.baidu.tieba.ij0;
+import com.baidu.tieba.ik0;
+import com.baidu.tieba.ky0;
+import com.baidu.tieba.ny0;
 import com.baidu.tieba.p11;
-import com.baidu.tieba.r21;
+import com.baidu.tieba.p21;
+import com.baidu.tieba.q11;
+import com.baidu.tieba.s21;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -54,8 +54,8 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
     public final Lazy d;
     public boolean e;
     public e f;
-    public o21 g;
-    public o21 h;
+    public p21 g;
+    public p21 h;
     public boolean i;
     public String j;
     public AnimatorSet k;
@@ -162,11 +162,11 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
             if (viewGroup != null) {
                 int width = viewGroup.getWidth();
                 Object tag = NadLottiePopView.this.getContainer().getTag();
-                if (!(tag instanceof jy0)) {
+                if (!(tag instanceof ky0)) {
                     tag = null;
                 }
-                jy0 jy0Var = (jy0) tag;
-                if (jy0Var != null) {
+                ky0 ky0Var = (ky0) tag;
+                if (ky0Var != null) {
                     ViewGroup.LayoutParams layoutParams2 = NadLottiePopView.this.getContainer().getLayoutParams();
                     if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                         layoutParams = layoutParams2;
@@ -174,8 +174,8 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
                     RelativeLayout.LayoutParams layoutParams3 = layoutParams;
                     if (layoutParams3 != null) {
                         float f = width;
-                        layoutParams3.width = MathKt__MathJVMKt.roundToInt(jy0Var.n() * f);
-                        layoutParams3.height = MathKt__MathJVMKt.roundToInt(f * jy0Var.n() * (1 / jy0Var.m()));
+                        layoutParams3.width = MathKt__MathJVMKt.roundToInt(ky0Var.n() * f);
+                        layoutParams3.height = MathKt__MathJVMKt.roundToInt(f * ky0Var.n() * (1 / ky0Var.m()));
                         if (layoutParams3 != null) {
                             NadLottiePopView.this.getContainer().setLayoutParams(layoutParams3);
                         }
@@ -186,19 +186,19 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
     }
 
     /* loaded from: classes3.dex */
-    public static final class f implements hk0 {
-        public final /* synthetic */ jy0 b;
+    public static final class f implements ik0 {
+        public final /* synthetic */ ky0 b;
 
-        public f(jy0 jy0Var) {
-            this.b = jy0Var;
+        public f(ky0 ky0Var) {
+            this.b = ky0Var;
         }
 
-        @Override // com.baidu.tieba.hk0
+        @Override // com.baidu.tieba.ik0
         public void a() {
             NadLottiePopView.this.s(this.b, null);
         }
 
-        @Override // com.baidu.tieba.hk0
+        @Override // com.baidu.tieba.ik0
         public void b(Bitmap bitmap) {
             Intrinsics.checkNotNullParameter(bitmap, "bitmap");
             NadLottiePopView.this.s(this.b, bitmap);
@@ -207,11 +207,11 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
 
     /* loaded from: classes3.dex */
     public static final class g implements LottieOnCompositionLoadedListener {
-        public final /* synthetic */ jy0 b;
+        public final /* synthetic */ ky0 b;
         public final /* synthetic */ Bitmap c;
 
-        public g(jy0 jy0Var, Bitmap bitmap) {
-            this.b = jy0Var;
+        public g(ky0 ky0Var, Bitmap bitmap) {
+            this.b = ky0Var;
             this.c = bitmap;
         }
 
@@ -219,9 +219,9 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         public final void onCompositionLoaded(LottieComposition lottieComposition) {
             Bitmap bitmap;
             Intrinsics.checkNotNullExpressionValue(lottieComposition, "lottieComposition");
-            LottieImageAsset lottieImageAsset = (LottieImageAsset) my0.b(lottieComposition.getImages(), this.b.e());
+            LottieImageAsset lottieImageAsset = (LottieImageAsset) ny0.b(lottieComposition.getImages(), this.b.e());
             if (lottieImageAsset != null && (bitmap = this.c) != null && !bitmap.isRecycled()) {
-                NadLottiePopView.this.getLottieView().updateBitmap(this.b.e(), o11.a(this.c, lottieImageAsset.getWidth(), lottieImageAsset.getHeight(), true));
+                NadLottiePopView.this.getLottieView().updateBitmap(this.b.e(), p11.a(this.c, lottieImageAsset.getWidth(), lottieImageAsset.getHeight(), true));
             }
             NadLottiePopView.this.e = true;
         }
@@ -241,47 +241,47 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
     }
 
     /* loaded from: classes3.dex */
-    public static final class i extends o21.b {
-        public final /* synthetic */ jy0 b;
+    public static final class i extends p21.b {
+        public final /* synthetic */ ky0 b;
 
-        public i(jy0 jy0Var) {
-            this.b = jy0Var;
+        public i(ky0 ky0Var) {
+            this.b = ky0Var;
         }
 
-        @Override // com.baidu.tieba.o21.b
+        @Override // com.baidu.tieba.p21.b
         public void b() {
-            if (!NadLottiePopView.this.l(this.b)) {
+            if (!NadLottiePopView.this.k(this.b)) {
                 return;
             }
             NadLottiePopView.this.y(this.b);
-            o21 o21Var = NadLottiePopView.this.h;
-            if (o21Var != null) {
-                o21Var.e();
+            p21 p21Var = NadLottiePopView.this.h;
+            if (p21Var != null) {
+                p21Var.e();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class j extends o21.b {
+    public static final class j extends p21.b {
         public j() {
         }
 
-        @Override // com.baidu.tieba.o21.b
+        @Override // com.baidu.tieba.p21.b
         public void b() {
             NadLottiePopView.this.o();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class k extends o21 {
-        public k(jy0 jy0Var, long j, long j2) {
+    public static final class k extends p21 {
+        public k(ky0 ky0Var, long j, long j2) {
             super(j, j2);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class l extends o21 {
-        public l(jy0 jy0Var, long j, long j2) {
+    public static final class l extends p21 {
+        public l(ky0 ky0Var, long j, long j2) {
             super(j, j2);
         }
     }
@@ -391,14 +391,14 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
 
-    public final void s(jy0 jy0Var, Bitmap bitmap) {
-        getLottieView().setAnimationFromUrl(jy0Var.g());
-        getLottieView().addLottieOnCompositionLoadedListener(new g(jy0Var, bitmap));
+    public final void s(ky0 ky0Var, Bitmap bitmap) {
+        getLottieView().setAnimationFromUrl(ky0Var.g());
+        getLottieView().addLottieOnCompositionLoadedListener(new g(ky0Var, bitmap));
         getLottieView().setFailureListener(new h());
     }
 
-    private final void setBgColor(jy0 jy0Var) {
-        int a2 = p11.a(jy0Var.a(), R.color.nad_rotation_pop_bg_color);
+    private final void setBgColor(ky0 ky0Var) {
+        int a2 = q11.a(ky0Var.a(), R.color.nad_rotation_pop_bg_color);
         FrameLayout container = getContainer();
         Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.nad_rotation_pop_bg);
         GradientDrawable gradientDrawable = null;
@@ -414,49 +414,49 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         container.setBackground(gradientDrawable);
     }
 
-    private final void setLpParams(jy0 jy0Var) {
+    private final void setLpParams(ky0 ky0Var) {
         ViewGroup.LayoutParams layoutParams = getContainer().getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = null;
         }
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         if (layoutParams2 != null) {
-            r21.e(layoutParams2, jy0Var.f());
-            r21.d(getContext(), layoutParams2, jy0Var.k());
+            s21.e(layoutParams2, ky0Var.f());
+            s21.d(getContext(), layoutParams2, ky0Var.k());
             if (layoutParams2 != null) {
                 getContainer().setLayoutParams(layoutParams2);
             }
         }
     }
 
-    public final boolean l(jy0 jy0Var) {
+    public final boolean k(ky0 ky0Var) {
         e eVar;
-        if (m(jy0Var) && this.e && (eVar = this.f) != null && eVar.c()) {
+        if (l(ky0Var) && this.e && (eVar = this.f) != null && eVar.c()) {
             return true;
         }
         return false;
     }
 
-    public final boolean m(jy0 jy0Var) {
+    public final boolean l(ky0 ky0Var) {
         boolean z;
-        String g2 = jy0Var.g();
+        String g2 = ky0Var.g();
         if (g2 != null && !StringsKt__StringsJVMKt.isBlank(g2)) {
             z = false;
         } else {
             z = true;
         }
-        if (z || jy0Var.l() < 0) {
+        if (z || ky0Var.l() < 0) {
             return false;
         }
         return true;
     }
 
-    public final void r(jy0 jy0Var) {
-        getBgView().r(jy0Var.b());
-        if (StringsKt__StringsJVMKt.isBlank(jy0Var.c())) {
-            s(jy0Var, null);
+    public final void r(ky0 ky0Var) {
+        getBgView().u(ky0Var.b());
+        if (StringsKt__StringsJVMKt.isBlank(ky0Var.c())) {
+            s(ky0Var, null);
         } else {
-            gk0.a().c(jy0Var.c(), new f(jy0Var));
+            hk0.a().c(ky0Var.c(), new f(ky0Var));
         }
     }
 
@@ -471,7 +471,7 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         }
     }
 
-    public final void setParams(jy0 params) {
+    public final void setParams(ky0 params) {
         Intrinsics.checkNotNullParameter(params, "params");
         getContainer().setTag(params);
         this.j = params.h();
@@ -482,11 +482,11 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         setCountDownTimer(params);
     }
 
-    public final void t(jy0 jy0Var) {
+    public final void t(ky0 ky0Var) {
         boolean z;
         TextView lottieText = getLottieText();
         if (lottieText != null) {
-            if (jy0Var.j().length() == 0) {
+            if (ky0Var.j().length() == 0) {
                 z = true;
             } else {
                 z = false;
@@ -495,17 +495,17 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
                 lottieText.setVisibility(8);
                 return;
             }
-            lottieText.setText(jy0Var.j());
+            lottieText.setText(ky0Var.j());
             lottieText.setVisibility(0);
         }
     }
 
-    private final void setCountDownTimer(jy0 jy0Var) {
-        k kVar = new k(jy0Var, jy0Var.l() * 1000, 1000L);
-        kVar.d(new i(jy0Var));
+    private final void setCountDownTimer(ky0 ky0Var) {
+        k kVar = new k(ky0Var, ky0Var.l() * 1000, 1000L);
+        kVar.d(new i(ky0Var));
         Unit unit = Unit.INSTANCE;
         this.g = kVar;
-        l lVar = new l(jy0Var, jy0Var.d() * 1000, 1000L);
+        l lVar = new l(ky0Var, ky0Var.d() * 1000, 1000L);
         lVar.d(new j());
         Unit unit2 = Unit.INSTANCE;
         this.h = lVar;
@@ -534,13 +534,13 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
         }
     }
 
-    public final void y(jy0 jy0Var) {
+    public final void y(ky0 ky0Var) {
         float f2 = 0.0f;
         getContainer().setAlpha(0.0f);
         getContainer().setScaleX(0.5f);
         getContainer().setScaleY(0.5f);
-        if (Intrinsics.areEqual(jy0Var.h(), "follow")) {
-            f2 = jy0Var.i();
+        if (Intrinsics.areEqual(ky0Var.h(), "follow")) {
+            f2 = ky0Var.i();
         }
         getLottieView().setProgress(f2);
         setVisibility(0);
@@ -552,21 +552,21 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
 
     public final void z(int i2) {
         Object tag = getContainer().getTag();
-        if (!(tag instanceof jy0)) {
+        if (!(tag instanceof ky0)) {
             tag = null;
         }
-        jy0 jy0Var = (jy0) tag;
-        if (jy0Var != null && i2 >= jy0Var.l() && l(jy0Var)) {
+        ky0 ky0Var = (ky0) tag;
+        if (ky0Var != null && i2 >= ky0Var.l() && k(ky0Var)) {
             if (!q()) {
                 if (this.i) {
                     return;
                 }
                 this.i = true;
             }
-            y(jy0Var);
-            o21 o21Var = this.h;
-            if (o21Var != null) {
-                o21Var.e();
+            y(ky0Var);
+            p21 p21Var = this.h;
+            if (p21Var != null) {
+                p21Var.e();
             }
         }
     }
@@ -596,7 +596,7 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
     }
 
     public final boolean q() {
-        if (hj0.b().a().a("flow_video_rotation_click_upgrade", 0) != 1) {
+        if (ij0.b().a().a("flow_video_rotation_click_upgrade", 0) != 1) {
             return false;
         }
         return true;
@@ -619,13 +619,13 @@ public final class NadLottiePopView extends RelativeLayout implements View.OnCli
 
     public final void x() {
         this.i = false;
-        o21 o21Var = this.g;
-        if (o21Var != null) {
-            o21Var.a();
+        p21 p21Var = this.g;
+        if (p21Var != null) {
+            p21Var.a();
         }
-        o21 o21Var2 = this.h;
-        if (o21Var2 != null) {
-            o21Var2.a();
+        p21 p21Var2 = this.h;
+        if (p21Var2 != null) {
+            p21Var2.a();
         }
         AnimatorSet animatorSet = this.k;
         if (animatorSet != null) {

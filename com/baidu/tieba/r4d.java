@@ -5,26 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ThemeElement;
+import tbclient.LikeForumInfo;
 /* loaded from: classes8.dex */
-public class r4d extends qoc {
+public class r4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ThemeElement themeElement) {
+    public static JSONObject b(@NonNull LikeForumInfo likeForumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeElement)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, likeForumInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "common_color", themeElement.common_color);
-            qoc.a(jSONObject, "dark_color", themeElement.dark_color);
-            qoc.a(jSONObject, "light_color", themeElement.light_color);
-            qoc.a(jSONObject, "pattern_image", themeElement.pattern_image);
-            qoc.a(jSONObject, "font_color", themeElement.font_color);
-            qoc.a(jSONObject, "pattern_image_height", themeElement.pattern_image_height);
-            qoc.a(jSONObject, "pattern_image_width", themeElement.pattern_image_width);
-            qoc.a(jSONObject, "pattern_text", themeElement.pattern_text);
+            ltc.a(jSONObject, "forum_name", likeForumInfo.forum_name);
+            ltc.a(jSONObject, "forum_id", likeForumInfo.forum_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

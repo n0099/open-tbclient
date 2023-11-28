@@ -1,397 +1,287 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.Unit;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class kl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final kl0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void A(String str, String ext1, String ext2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, ext1, ext2) == null) {
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            Intrinsics.checkNotNullParameter(ext2, "ext2");
-            b(ClogBuilder.Page.WELFARETAIL, ClogBuilder.LogType.FREE_SHOW, str, null, ext1, ext2, null, null, 200, null);
-        }
-    }
-
-    public static final void B(String str, String type, String coin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, type, coin) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(coin, "coin");
-            b(null, ClogBuilder.LogType.REWARD_SHOW_TASK, str, null, type, coin, null, null, 201, null);
-        }
-    }
-
-    public static final void c(String str, String type, String coin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, type, coin) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(coin, "coin");
-            b(null, ClogBuilder.LogType.REWARD_ACTIVATE_TASK, str, null, type, coin, null, null, 201, null);
-        }
-    }
-
-    public static final void e(String str, String ext1, String ext2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, ext1, ext2) == null) {
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            Intrinsics.checkNotNullParameter(ext2, "ext2");
-            b(null, ClogBuilder.LogType.CHECK, str, null, ext1, ext2, null, null, 201, null);
-        }
-    }
-
-    public static final void l(String str, String ext1, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, str, ext1, str2) == null) {
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            ClogBuilder.LogType logType = ClogBuilder.LogType.REWARD_COMPLETE_TASK;
-            if (str2 == null) {
-                str2 = "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916794, "Lcom/baidu/tieba/kl0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            b(null, logType, str, null, ext1, str2, null, null, 201, null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947916794, "Lcom/baidu/tieba/kl0;");
+                return;
+            }
         }
+        a = new kl0();
     }
 
-    public static final void p(String str, String ext1, String ext2) {
+    public kl0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, str, ext1, ext2) == null) {
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            Intrinsics.checkNotNullParameter(ext2, "ext2");
-            b(null, ClogBuilder.LogType.REWARD_COIN_FAIL, str, null, ext1, ext2, null, null, 201, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static final void a(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3, String str4, String str5, String str6) {
+    public final HashMap<String, String> a(HashMap<String, String> hashMap) throws IllegalStateException {
+        InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{page, logType, str, str2, str3, str4, str5, str6}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
+            for (String str : CollectionsKt__CollectionsKt.arrayListOf("reward", "panel", "common_info", MigrateStatisticUtils.EXT_INFO)) {
+                if (hashMap.containsKey(str)) {
+                    String str2 = hashMap.get(str);
+                    if (str2 != null && str2.length() != 0) {
+                        z = false;
+                        continue;
+                    } else {
+                        z = true;
+                        continue;
+                    }
+                    if (z) {
+                    }
+                }
+                throw new IllegalStateException("key: " + str + " 数据不可为 null");
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public final JSONObject b(HashMap<String, String> hashMap) throws JSONException {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        JSONArray jSONArray;
+        String str3;
+        String str4;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String replace$default;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
+            JSONObject jSONObject4 = new JSONObject();
+            JSONObject c = a.c(hashMap.get("reward"));
+            JSONObject c2 = a.c(hashMap.get(WriteActivityConfig.VIDEO_INFO));
+            JSONObject c3 = a.c(hashMap.get("image_info"));
+            JSONObject c4 = a.c(hashMap.get("convert"));
+            JSONObject c5 = a.c(hashMap.get("panel"));
+            JSONObject c6 = a.c(hashMap.get("common_info"));
+            JSONObject c7 = a.c(hashMap.get("app_info"));
+            JSONObject c8 = a.c(hashMap.get("download"));
+            JSONObject c9 = a.c(hashMap.get("cmd_policy"));
+            JSONObject c10 = a.c(hashMap.get("big_card"));
+            JSONObject c11 = a.c(hashMap.get("rotation_component"));
+            JSONObject c12 = a.c(hashMap.get("ad_tag"));
+            JSONObject c13 = a.c(hashMap.get("popover"));
+            String str11 = hashMap.get(MigrateStatisticUtils.EXT_INFO);
+            String str12 = hashMap.get("lp_real_url");
+            String str13 = hashMap.get("type");
+            if (c4 != null) {
+                c4.put("type", str13);
+            }
+            if (c4 != null) {
+                c4.put("download", c8);
+            }
+            if (c4 != null) {
+                c4.put("app_info", c7);
+            }
+            if (c4 != null) {
+                c4.put("button_scheme", c4.optString("button_scheme"));
+            }
+            if (c4 != null) {
+                c4.put("ext", str11);
+            }
+            if (c4 != null) {
+                str = "button_scheme";
+                c4.put(BdVideoAd.AD_VIDEO_DAPAGE, ClogBuilder.Page.WELFAREMAXLP.type);
+            } else {
+                str = "button_scheme";
+            }
+            jSONObject4.put("ad_tag", c12);
+            jSONObject4.put("popover", c13);
+            jSONObject4.put("reward", c);
+            jSONObject4.put("app_info", c7);
+            jSONObject4.put("cmd_policy", c9);
+            jSONObject4.put("big_card", c10);
+            jSONObject4.put("rotation_component", c11);
+            jSONObject4.put(MigrateStatisticUtils.EXT_INFO, str11);
+            jSONObject4.put("lp_real_url", str12);
+            jSONObject4.put(WriteActivityConfig.VIDEO_INFO, c2);
+            jSONObject4.put("image_info", c3);
+            jSONObject4.put("convert", c4);
+            kl0 kl0Var = a;
+            String str14 = hashMap.get("download");
+            String str15 = null;
+            if (str14 != null && (replace$default = StringsKt__StringsJVMKt.replace$default(str14, "pkg_name", "apk_name", false, 4, (Object) null)) != null) {
+                str2 = StringsKt__StringsJVMKt.replace$default(replace$default, "key", "download_key", false, 4, (Object) null);
+            } else {
+                str2 = null;
+            }
+            jSONObject4.put(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, kl0Var.c(str2));
+            if (c6 != null) {
+                jSONArray = c6.optJSONArray("ad_monitor_url");
+            } else {
+                jSONArray = null;
+            }
+            jSONObject4.put("ad_monitor_url", jSONArray);
+            jSONObject4.put("type", str13);
+            if (c5 != null) {
+                str3 = c5.optString("panel_cmd");
+            } else {
+                str3 = null;
+            }
+            jSONObject4.put("panel_cmd", str3);
+            if (c5 != null) {
+                str4 = c5.optString("webpanel_cmd");
+            } else {
+                str4 = null;
+            }
+            jSONObject4.put("webpanel_cmd", str4);
+            if (c5 != null) {
+                jSONObject = c5.optJSONObject("sliding_tag");
+            } else {
+                jSONObject = null;
+            }
+            jSONObject4.put("sliding_tag", jSONObject);
+            if (c6 != null) {
+                jSONObject2 = c6.optJSONObject("sv_title");
+            } else {
+                jSONObject2 = null;
+            }
+            jSONObject4.put("sv_title", jSONObject2);
+            if (c6 != null) {
+                jSONObject3 = c6.optJSONObject("sv_button");
+            } else {
+                jSONObject3 = null;
+            }
+            jSONObject4.put("sv_button", jSONObject3);
+            JSONObject jSONObject5 = new JSONObject();
+            jSONObject5.put(MapBundleKey.MapObjKey.OBJ_AD_STYLE, AdBaseModel.STYLE.REWARD_VIDEO_LP_IMPL.value);
+            if (c5 != null) {
+                str5 = c5.optString("brand_name");
+            } else {
+                str5 = null;
+            }
+            jSONObject5.put("user_name", str5);
+            if (c5 != null) {
+                str6 = c5.optString("title");
+            } else {
+                str6 = null;
+            }
+            jSONObject5.put("title", str6);
+            if (c5 != null) {
+                str7 = c5.optString("avatar");
+            } else {
+                str7 = null;
+            }
+            jSONObject5.put(RecommendDetailActivityConfig.USER_PORTRAIT, str7);
+            if (c4 != null) {
+                str8 = c4.optString(str);
+            } else {
+                str8 = null;
+            }
+            jSONObject5.put("scheme", str8);
+            if (c6 != null) {
+                str9 = c6.optString("refer_url");
+            } else {
+                str9 = null;
+            }
+            jSONObject5.put("refer_url", str9);
+            if (c6 != null) {
+                str10 = c6.optString("prerender_scheme");
+            } else {
+                str10 = null;
+            }
+            if (c6 != null) {
+                str15 = c6.optString("refer_url");
+            }
+            jSONObject5.put("prerender_scheme", j11.n(str10, str15));
+            jSONObject4.put("ad_common", jSONObject5);
+            JSONObject jSONObject6 = new JSONObject();
+            jSONObject6.put("convert", c4);
+            Unit unit = Unit.INSTANCE;
+            jSONObject4.put("enhance", jSONObject6);
+            return jSONObject4;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final JSONObject c(String str) throws JSONException {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (str != null && str.length() != 0) {
                 z = false;
             } else {
                 z = true;
             }
             if (z) {
-                return;
+                return null;
             }
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str2);
-            clogBuilder.u(page);
-            clogBuilder.p(str);
-            clogBuilder.k(str3);
-            clogBuilder.l(str4);
-            clogBuilder.m(str5);
-            clogBuilder.n(str6);
-            az0.e(clogBuilder);
+            return new JSONObject(str);
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static /* synthetic */ void b(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3, String str4, String str5, String str6, int i, Object obj) {
-        ClogBuilder.Page page2;
-        String str7;
-        String str8;
-        String str9;
-        String str10;
-        String str11;
-        if ((i & 1) != 0) {
-            page2 = ClogBuilder.Page.WELFAREMAXLP;
-        } else {
-            page2 = page;
-        }
-        if ((i & 8) != 0) {
-            str7 = "";
-        } else {
-            str7 = str2;
-        }
-        if ((i & 16) != 0) {
-            str8 = "";
-        } else {
-            str8 = str3;
-        }
-        if ((i & 32) != 0) {
-            str9 = "";
-        } else {
-            str9 = str4;
-        }
-        if ((i & 64) != 0) {
-            str10 = "";
-        } else {
-            str10 = str5;
-        }
-        if ((i & 128) != 0) {
-            str11 = "";
-        } else {
-            str11 = str6;
-        }
-        a(page2, logType, str, str7, str8, str9, str10, str11);
-    }
-
-    public static final void d(String str, String coin, String sessionInfo, String upperLimit, String videoDownloadCoin) {
+    public final hn0 d(HashMap<String, String> toLpModel) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, coin, sessionInfo, upperLimit, videoDownloadCoin) == null) {
-            Intrinsics.checkNotNullParameter(coin, "coin");
-            Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
-            Intrinsics.checkNotNullParameter(upperLimit, "upperLimit");
-            Intrinsics.checkNotNullParameter(videoDownloadCoin, "videoDownloadCoin");
-            b(null, ClogBuilder.LogType.FREE_SHOW, str, "popper", coin, sessionInfo, upperLimit, videoDownloadCoin, 1, null);
-        }
-    }
-
-    public static final void f(gn0 model) {
-        ClogBuilder.Page page;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            if (model.q()) {
-                page = ClogBuilder.Page.WELFAREIMAGELP;
-            } else {
-                page = ClogBuilder.Page.WELFAREMAXLP;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, toLpModel)) == null) {
+            Intrinsics.checkNotNullParameter(toLpModel, "$this$toLpModel");
+            a(toLpModel);
+            JSONObject b = b(toLpModel);
+            AdBaseModel d = en0.d("", 0, b, b.optString(MigrateStatisticUtils.EXT_INFO));
+            if (d != null) {
+                return (hn0) d;
             }
-            b(page, ClogBuilder.LogType.CLICK, model.f.d, "arrow", null, null, null, null, 240, null);
-            be0.b(model.e);
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.model.AdRewardVideoLpModel");
         }
-    }
-
-    public static final void m(gn0 gn0Var) {
-        String str;
-        an0 an0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, gn0Var) == null) {
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREROTATION;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            String str2 = ClogBuilder.Area.HOTAREA.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.HOTAREA.type");
-            List<MonitorUrl> list = null;
-            if (gn0Var != null && (an0Var = gn0Var.f) != null) {
-                str = an0Var.d;
-            } else {
-                str = null;
-            }
-            b(page, logType, str, str2, null, null, null, null, 240, null);
-            if (gn0Var != null) {
-                list = gn0Var.e;
-            }
-            be0.b(list);
-        }
-    }
-
-    public static final void w(gn0 gn0Var) {
-        String str;
-        an0 an0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, gn0Var) == null) {
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREROTATION;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            String str2 = ClogBuilder.Area.SHAKE.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.SHAKE.type");
-            List<MonitorUrl> list = null;
-            if (gn0Var != null && (an0Var = gn0Var.f) != null) {
-                str = an0Var.d;
-            } else {
-                str = null;
-            }
-            b(page, logType, str, str2, null, null, null, null, 240, null);
-            if (gn0Var != null) {
-                list = gn0Var.e;
-            }
-            be0.b(list);
-        }
-    }
-
-    public static final void y(gn0 model) {
-        ClogBuilder.Page page;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            if (model.q()) {
-                page = ClogBuilder.Page.WELFAREIMAGELP;
-            } else {
-                page = ClogBuilder.Page.WELFAREMAXLP;
-            }
-            ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            String str = ClogBuilder.Area.SWIPE_UP.type;
-            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.SWIPE_UP.type");
-            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
-            be0.b(model.e);
-        }
-    }
-
-    public static final void g(String str, String type, String coin, String sessionInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, null, str, type, coin, sessionInfo) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(coin, "coin");
-            Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
-            b(null, ClogBuilder.LogType.REWARD_COMPLETE_TASK, str, null, type, coin, sessionInfo, null, Cea708Decoder.COMMAND_DSW, null);
-        }
-    }
-
-    public static final void i(String str, String type, String str2, String str3) {
-        String str4;
-        String str5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65546, null, str, type, str2, str3) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREPANEL;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_SHOW;
-            if (str2 == null) {
-                str4 = "";
-            } else {
-                str4 = str2;
-            }
-            if (str3 == null) {
-                str5 = "";
-            } else {
-                str5 = str3;
-            }
-            b(page, logType, str, null, null, type, str4, str5, 24, null);
-        }
-    }
-
-    public static /* synthetic */ void h(String str, String str2, String str3, String str4, int i, Object obj) {
-        if ((i & 8) != 0) {
-            str4 = "";
-        }
-        g(str, str2, str3, str4);
-    }
-
-    public static final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str2 = ClogBuilder.Area.DOWN_ARROW.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.DOWN_ARROW.type");
-            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-        }
-    }
-
-    public static final void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            b(ClogBuilder.Page.WELFAREROTATION, ClogBuilder.LogType.FREE_SHOW, str, null, null, null, null, null, GDiffPatcher.DATA_INT, null);
-        }
-    }
-
-    public static final void o(gn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREMAXLP;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str = ClogBuilder.Area.REWARD_FORM.type;
-            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_FORM.type");
-            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
-        }
-    }
-
-    public static final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str2 = ClogBuilder.Area.AD_BLANK.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AD_BLANK.type");
-            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-        }
-    }
-
-    public static final void x(gn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            b(null, ClogBuilder.LogType.CLICK, model.f.d, "sv_button", null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-            be0.b(model.e);
-        }
-    }
-
-    public static final void z(gn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREIMAGELP;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str = ClogBuilder.Area.SWIPE_UP.type;
-            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.SWIPE_UP.type");
-            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
-        }
-    }
-
-    public static final void k(String str, String ext1) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, ext1) == null) {
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            b(null, ClogBuilder.LogType.REWARD_COIN_FAIL, str, null, ext1, null, null, null, 233, null);
-        }
-    }
-
-    public static final void r(String str, String type) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, type) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            b(null, ClogBuilder.LogType.REWARD_TOKEN_FAIL, str, null, type, null, null, null, 233, null);
-        }
-    }
-
-    public static final void s(String str, boolean z) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            if (z) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            b(null, logType, str, "close", str2, null, null, null, 225, null);
-        }
-    }
-
-    public static /* synthetic */ void q(String str, String str2, String str3, int i, Object obj) {
-        if ((i & 4) != 0) {
-            str3 = "";
-        }
-        p(str, str2, str3);
-    }
-
-    public static final void u(String daArea, ClogBuilder.LogType logType, String str, String ext, String ext1, String ext2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{daArea, logType, str, ext, ext1, ext2}) == null) {
-            Intrinsics.checkNotNullParameter(daArea, "daArea");
-            Intrinsics.checkNotNullParameter(logType, "logType");
-            Intrinsics.checkNotNullParameter(ext, "ext");
-            Intrinsics.checkNotNullParameter(ext1, "ext1");
-            Intrinsics.checkNotNullParameter(ext2, "ext2");
-            b(null, logType, ext, daArea, ext1, ext2, null, null, 193, null);
-            if (logType == ClogBuilder.LogType.CLICK && !TextUtils.isEmpty(str)) {
-                bz0.b(str);
-            }
-        }
-    }
-
-    public static final void v(gn0 model, String sessionInfo) {
-        ClogBuilder.Page page;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, model, sessionInfo) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
-            if (model.q()) {
-                page = ClogBuilder.Page.WELFAREIMAGELP;
-            } else {
-                page = ClogBuilder.Page.WELFAREMAXLP;
-            }
-            b(page, ClogBuilder.LogType.SHOW, model.f.d, null, null, String.valueOf(model.g().s()), sessionInfo, null, Cea708Decoder.COMMAND_DF0, null);
-            be0.c(model.e);
-        }
+        return (hn0) invokeL.objValue;
     }
 }

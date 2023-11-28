@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.poc;
-import com.baidu.tieba.qjc;
+import com.baidu.tieba.ktc;
+import com.baidu.tieba.loc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class RefCountSubscription implements qjc {
+public final class RefCountSubscription implements loc {
     public static final a c = new a(false, 0);
-    public final qjc a;
+    public final loc a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes2.dex */
-    public static final class InnerSubscription extends AtomicInteger implements qjc {
+    public static final class InnerSubscription extends AtomicInteger implements loc {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements qjc {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.qjc
+        @Override // com.baidu.tieba.loc
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements qjc {
             return false;
         }
 
-        @Override // com.baidu.tieba.qjc
+        @Override // com.baidu.tieba.loc
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements qjc {
         }
     }
 
-    public qjc a() {
+    public loc a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return poc.c();
+                return ktc.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements qjc {
         c(b);
     }
 
-    @Override // com.baidu.tieba.qjc
+    @Override // com.baidu.tieba.loc
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.qjc
+    @Override // com.baidu.tieba.loc
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements qjc {
         c(c2);
     }
 
-    public RefCountSubscription(qjc qjcVar) {
-        if (qjcVar != null) {
-            this.a = qjcVar;
+    public RefCountSubscription(loc locVar) {
+        if (locVar != null) {
+            this.a = locVar;
             return;
         }
         throw new IllegalArgumentException("s");

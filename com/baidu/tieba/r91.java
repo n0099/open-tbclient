@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +17,14 @@ public class r91 {
     public static r91 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public of1<IThreadManager> a;
+    public pf1<IStatisticManager> a;
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mf1 b2 = mf1.b();
+            nf1 b2 = nf1.b();
             this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
+            b2.a(new IStatisticManager_StatisticManager_Provider());
         }
     }
 
@@ -69,12 +69,12 @@ public class r91 {
         return (r91) invokeV.objValue;
     }
 
-    public IThreadManager b() {
+    public IStatisticManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a.get();
         }
-        return (IThreadManager) invokeV.objValue;
+        return (IStatisticManager) invokeV.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import androidx.annotation.WorkerThread;
+import java.util.List;
 /* loaded from: classes9.dex */
 public interface yk5 {
-    void a(String str, ChatMsg chatMsg);
-
-    void b(int i, String str, String str2, ChatMsg chatMsg);
+    @WorkerThread
+    void a(int i, long j, List<Long> list, int i2, String str);
 }

@@ -1,90 +1,73 @@
 package com.kwad.components.ad.fullscreen;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.kwad.components.core.video.f;
+import com.kwad.components.ad.reward.monitor.RewardInteractionCallbackType;
+import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
 import com.kwad.sdk.api.KsFullScreenVideoAd;
-import com.kwad.sdk.api.KsVideoPlayConfig;
-import com.kwad.sdk.api.model.AdExposureFailedReason;
-import com.kwad.sdk.components.DevelopMangerComponents;
-import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes10.dex */
-public final class d implements KsFullScreenVideoAd {
-    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener ei;
-    public AdInfo mAdInfo;
-    @NonNull
+public class d extends com.kwad.components.ad.reward.e.c {
     public AdTemplate mAdTemplate;
+    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener mInteractionListener;
 
-    public d(@NonNull AdTemplate adTemplate) {
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public final void bJ() {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onAdClicked();
+        }
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.AD_CLICK, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
+    }
+
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public final void onVideoPlayEnd() {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onVideoPlayEnd();
+        }
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.VIDEO_PLAY_END, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
+    }
+
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public final void onVideoPlayStart() {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onVideoPlayStart();
+        }
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.VIDEO_PLAY_START, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
+    }
+
+    public final void b(KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
+        this.mInteractionListener = fullScreenVideoAdInteractionListener;
+    }
+
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public void h(boolean z) {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onPageDismiss();
+        }
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.PAGE_DISMISS, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
+    }
+
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public final void onVideoSkipToEnd(long j) {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onSkippedVideo();
+        }
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.VIDEO_SKIP_TO_END, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
+    }
+
+    public final void setAdTemplate(AdTemplate adTemplate) {
         this.mAdTemplate = adTemplate;
-        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
     }
 
-    private void a(Context context, @NonNull KsVideoPlayConfig ksVideoPlayConfig) {
-        if (!isAdEnable()) {
-            com.kwad.sdk.core.e.b.i("KsFullScreenVideoAdControl", "isAdEnable is false");
-            return;
+    @Override // com.kwad.components.ad.reward.e.c, com.kwad.components.ad.reward.e.b
+    public final void onVideoPlayError(int i, int i2) {
+        KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener = this.mInteractionListener;
+        if (fullScreenVideoAdInteractionListener != null) {
+            fullScreenVideoAdInteractionListener.onVideoPlayError(i, i2);
         }
-        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
-        KsFullScreenVideoActivityProxy.launch(context, this.mAdTemplate, ksVideoPlayConfig, this.ei);
-    }
-
-    public final AdTemplate getAdTemplate() {
-        return this.mAdTemplate;
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final int getECPM() {
-        return com.kwad.sdk.core.response.a.a.aq(this.mAdInfo);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.ap(this.mAdInfo);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.aD(this.mAdInfo);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final boolean isAdEnable() {
-        if (com.kwad.sdk.core.config.d.sc() >= 0) {
-            return true;
-        }
-        return f.h(this.mAdTemplate);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason) {
-        com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, adExposureFailedReason);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final void setBidEcpm(int i) {
-        AdTemplate adTemplate = this.mAdTemplate;
-        adTemplate.mBidEcpm = i;
-        com.kwad.sdk.core.report.a.aA(adTemplate);
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final void setFullScreenVideoAdInteractionListener(KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.ei = fullScreenVideoAdInteractionListener;
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public final void showFullScreenVideoAd(Activity activity, KsVideoPlayConfig ksVideoPlayConfig) {
-        if (activity == null) {
-            com.kwad.sdk.core.e.b.e("KsFullScreenVideoAdControl", "showFullScreenVideoAd error, activity is null.");
-            return;
-        }
-        if (ksVideoPlayConfig == null) {
-            ksVideoPlayConfig = new KsVideoPlayConfig.Builder().build();
-        }
-        com.kwad.components.ad.reward.monitor.a.a(false, this.mAdTemplate);
-        a(activity, ksVideoPlayConfig);
+        com.kwad.components.ad.reward.monitor.c.a(false, (com.kwad.components.ad.reward.monitor.a) RewardInteractionCallbackType.VIDEO_PLAY_ERROR, this.mAdTemplate, (com.kwad.sdk.g.a<RewardMonitorInfo>) null);
     }
 }

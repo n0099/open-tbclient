@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.h7;
+import com.baidu.tieba.i7;
+import com.baidu.tieba.m75;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                g75.a();
+                m75.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -162,10 +162,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                h7 h7Var = new h7();
-                String a = h7Var.a("image", true, false, true);
+                i7 i7Var = new i7();
+                String a = i7Var.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a2 = h7Var.a("images", true, false, true);
+                String a2 = i7Var.a("images", true, false, true);
                 String str = cacheDir + "voice";
                 long directorySize = FileHelper.getDirectorySize(a, false);
                 long directorySize2 = FileHelper.getDirectorySize(a2, false);
@@ -186,7 +186,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j3 = directorySize + directorySize3 + fileSize + directorySize2 + j + j2;
                 float f = ((float) j3) + 0.0f;
                 if (j3 >= 10485.76d && this.a.get() != null) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0c95);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0ca3);
                 }
                 return "";
             }

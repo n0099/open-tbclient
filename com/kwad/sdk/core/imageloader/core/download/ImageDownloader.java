@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public interface ImageDownloader {
+    InputStream getStream(String str, Object obj);
 
     /* loaded from: classes10.dex */
     public enum Scheme {
@@ -51,6 +52,4 @@ public interface ImageDownloader {
             return this.uriPrefix + str;
         }
     }
-
-    InputStream getStream(String str, Object obj);
 }

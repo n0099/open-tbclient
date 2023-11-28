@@ -1,69 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.ca;
+import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.MapsKt__MapsKt;
+import tbclient.FeedAuthorSocial;
+import tbclient.FeedHeadImg;
+import tbclient.LayoutManageInfo;
 /* loaded from: classes5.dex */
-public class bo7 {
+public final class bo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ca<byte[]> a;
 
-    public bo7() {
+    public static final wi7 b(FeedAuthorSocial feedAuthorSocial, i87 i87Var) {
+        InterceptResult invokeLL;
+        String str;
+        String str2;
+        long j;
+        List<d87> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            yz4.l();
-            this.a = yz4.i("tb.tbtiel_level_info");
-        }
-    }
-
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        ca.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ca<byte[]> caVar = this.a;
-            if (caVar != null && str != null) {
-                bVar = caVar.h(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedAuthorSocial, i87Var)) == null) {
+            FeedHeadImg feedHeadImg = feedAuthorSocial.image_data;
+            if (feedHeadImg != null) {
+                str = feedHeadImg.img_url;
             } else {
-                bVar = null;
+                str = null;
             }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
+            FeedHeadImg feedHeadImg2 = feedAuthorSocial.image_data;
+            if (feedHeadImg2 != null) {
+                str2 = feedHeadImg2.schema;
+            } else {
+                str2 = null;
             }
-            return bArr;
+            List<h67> p = FeedHeadExtensionKt.p(feedAuthorSocial.main_data, null, MapsKt__MapsKt.emptyMap());
+            Integer num = feedAuthorSocial.comment_num;
+            if (num != null) {
+                j = num.intValue();
+            } else {
+                j = 0;
+            }
+            List<LayoutManageInfo> list2 = feedAuthorSocial.manage_list;
+            if (list2 != null) {
+                list = s97.b(list2);
+            } else {
+                list = null;
+            }
+            return new wi7(str, str2, p, j, i87Var, list);
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
-        }
+        return (wi7) invokeLL.objValue;
     }
 }

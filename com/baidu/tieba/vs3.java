@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class vs3 {
+public class vs3 implements lr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile us3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized us3 a() {
-        InterceptResult invokeV;
-        us3 us3Var;
+    public vs3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (vs3.class) {
-                if (a == null) {
-                    a = new us3();
-                }
-                us3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return us3Var;
         }
-        return (us3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lr1
+    public ul4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new us3();
+        }
+        return (ul4) invokeV.objValue;
     }
 }

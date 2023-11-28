@@ -1,55 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public final class tg5 {
-    public static /* synthetic */ Interceptable $ic;
+public class tg5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static int b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (mh5.b.a().a("show_write_tip")) {
-                oc5 a = lh5.b.a().a();
-                if (a != null && a.b == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return true;
-                }
-            }
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948180263, "Lcom/baidu/tieba/tg5;")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948180263, "Lcom/baidu/tieba/tg5;");
+        }
     }
 
-    public static final int b(boolean z) {
-        InterceptResult invokeZ;
-        ThemeColorInfo themeColorInfo;
+    public static synchronized int a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (!z) {
-                return SkinManager.getColor(R.color.CAM_X0110);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (tg5.class) {
+                if (!a && (identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
+                    b = dimensionPixelSize;
+                    a = true;
+                    Log.d("StatusBarHeightUtil", String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize)));
+                }
+                i = b;
             }
-            oc5 a = lh5.b.a().a();
-            if (a != null) {
-                themeColorInfo = a.f;
-            } else {
-                themeColorInfo = null;
-            }
-            if (a() && themeColorInfo != null) {
-                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
-            }
-            return SkinManager.getColor(R.color.CAM_X0302);
+            return i;
         }
-        return invokeZ.intValue;
+        return invokeL.intValue;
     }
 }

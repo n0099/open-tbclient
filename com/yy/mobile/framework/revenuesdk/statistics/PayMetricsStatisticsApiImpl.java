@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.statistics;
 import com.yy.mobile.framework.revenuesdk.RevenueConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayMetricsStatisticsApi;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayMetricsStatisticsApiImpl implements IPayMetricsStatisticsApi {
     public final String TAG = "MonitorReporter";
 

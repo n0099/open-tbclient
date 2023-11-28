@@ -1,210 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.xt8;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class au8<T> {
+public class au8 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gu8<T> a;
-    public xt8 b;
-    public yt8 c;
-    public T d;
-    public b e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void b();
-
-        void onCancel();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements yt8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ au8 b;
-
-        public a(au8 au8Var, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627781, "Lcom/baidu/tieba/au8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = au8Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.yt8
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.onCancel();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.yt8
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.b();
-                }
-            }
-        }
-    }
-
-    public au8(Context context, gu8<T> gu8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gu8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947627781, "Lcom/baidu/tieba/au8;");
                 return;
             }
         }
-        e(context);
-        f(context, gu8Var);
+        c = new HashMap<>();
     }
 
-    public final void e(Context context) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new a(this, context);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        bu8.e().h();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    bu8.e().i("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends") && !next.startsWith("tb_group_chat_room_") && !next.equals("tb_chat_sys_notify")) {
+                                    bu8.e().b(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                bu8.e().c();
+            }
         }
     }
 
-    public /* synthetic */ void h(Context context) {
-        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
-            BdUtilHelper.hideSoftKeyPad(context, this.a.j());
-            return;
-        }
-        gu8<T> gu8Var = this.a;
-        if (gu8Var != null) {
-            gu8Var.h();
-        }
-        this.b.dismiss();
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final boolean d() {
+    public static LinkedList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
-            this.b.show();
-        }
-    }
-
-    public final void f(final Context context, gu8<T> gu8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, gu8Var) == null) {
-            this.a = gu8Var;
-            gu8Var.n(this.c);
-            xt8 xt8Var = new xt8(context, R.style.obfuscated_res_0x7f10010d);
-            this.b = xt8Var;
-            xt8Var.setContentView(this.a.j());
-            this.b.a(new xt8.a() { // from class: com.baidu.tieba.wt8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.xt8.a
-                public final void onClick() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        au8.this.h(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
                     }
                 }
-            });
-            Window window = this.b.getWindow();
-            window.addFlags(512);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-            window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100421);
-            window.setGravity(80);
-            window.setLayout(-1, -2);
+                return linkedList;
+            } finally {
+                sd.a(cursor);
+            }
         }
+        return (LinkedList) invokeV.objValue;
     }
 
-    public final boolean g(Context context, View view2) {
-        InterceptResult invokeLL;
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (au8.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    sd.b(b);
+                }
+                zt8 zt8Var = new zt8(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = zt8Var.getWritableDatabase();
+                return b;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
-                return false;
-            }
-            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public void j(T t, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
-            this.d = t;
-            this.a.o(t, metaData);
-        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

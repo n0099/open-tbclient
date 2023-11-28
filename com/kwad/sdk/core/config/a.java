@@ -4,28 +4,31 @@ import android.text.TextUtils;
 import java.net.URI;
 /* loaded from: classes10.dex */
 public final class a {
-    public static final String[] Tn = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+    public static final String[] aor = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
 
-    public static boolean ae(String str) {
+    public static boolean bP(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
             String host = new URI(str).getHost();
-            if (bq(host)) {
+            if (!cJ(host)) {
+                if (!cK(host)) {
+                    return false;
+                }
                 return true;
             }
-            return br(host);
+            return true;
         } catch (Exception unused) {
             return false;
         }
     }
 
-    public static boolean bq(String str) {
+    public static boolean cJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : Tn) {
+        for (String str2 : aor) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -33,11 +36,11 @@ public final class a {
         return false;
     }
 
-    public static boolean br(String str) {
+    public static boolean cK(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : d.rI()) {
+        for (String str2 : d.Ax()) {
             if (str.contains(str2)) {
                 return true;
             }

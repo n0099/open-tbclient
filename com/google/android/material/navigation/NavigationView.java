@@ -48,7 +48,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static final int DEF_STYLE_RES = 2131755850;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
@@ -63,7 +63,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public static final int[] CHECKED_STATE_SET = {16842912};
     public static final int[] DISABLED_STATE_SET = {-16842910};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -179,7 +179,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return savedState;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.navigation.NavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -347,7 +347,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040538);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04053e);
     }
 
     @Override // android.widget.FrameLayout, android.view.View

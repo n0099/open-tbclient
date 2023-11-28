@@ -217,7 +217,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     public synchronized void setRequestOptions(@NonNull RequestOptions requestOptions) {
-        this.requestOptions = requestOptions.mo170clone().autoClone();
+        this.requestOptions = requestOptions.mo171clone().autoClone();
     }
 
     public synchronized boolean untrack(@NonNull Target<?> target) {

@@ -3,6 +3,7 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.tieba.pic;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LiveFeedToolInfo implements Parcelable {
@@ -51,7 +52,7 @@ public class LiveFeedToolInfo implements Parcelable {
             return null;
         }
         LiveFeedToolInfo liveFeedToolInfo = new LiveFeedToolInfo();
-        liveFeedToolInfo.icon = jSONObject.optString("pic");
+        liveFeedToolInfo.icon = jSONObject.optString(pic.f);
         liveFeedToolInfo.name = jSONObject.optString("name");
         JSONObject optJSONObject = jSONObject.optJSONObject("cmd");
         if (optJSONObject != null) {

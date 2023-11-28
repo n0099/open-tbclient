@@ -3,8 +3,8 @@ package com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bn8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
-public class RobotSkillItem extends yj8 implements Serializable {
+public class RobotSkillItem extends bn8 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7811153205500425245L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class RobotSkillItem extends yj8 implements Serializable {
     public int skillType;
     public String uk;
 
-    @Override // com.baidu.tieba.yj8
+    @Override // com.baidu.tieba.bn8
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

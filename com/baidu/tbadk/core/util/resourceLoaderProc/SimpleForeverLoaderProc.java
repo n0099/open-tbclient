@@ -8,10 +8,10 @@ import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.j7;
-import com.baidu.tieba.n7;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.k7;
+import com.baidu.tieba.o7;
 import com.baidu.tieba.rb;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,15 +47,15 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sb
-    public BdImage getFromLocal(String str, String str2, int i, int i2, rb rbVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.tb
+    public BdImage getFromLocal(String str, String str2, int i, int i2, sb sbVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), rbVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sbVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             boolean z = false;
             byte[] bArr = new byte[0];
-            n7 createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            o7 createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
             BdImage bdImage = null;
             if (createDiskPicOperate == null) {
                 return null;
@@ -65,13 +65,13 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             createDiskPicOperate.setIsFormatData(false);
             createDiskPicOperate.setLock(bArr);
             createDiskPicOperate.setSdCard(false);
-            if (rbVar != null) {
+            if (sbVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                rbVar.a = diskCancelWorker;
+                sbVar.a = diskCancelWorker;
             }
-            if (!j7.g().a(createDiskPicOperate)) {
-                qb.f(false, 0L);
+            if (!k7.g().a(createDiskPicOperate)) {
+                rb.f(false, 0L);
                 return null;
             }
             int i3 = 2000;
@@ -90,7 +90,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             if (bdImage != null) {
                 z = true;
             }
-            qb.f(z, System.currentTimeMillis() - currentTimeMillis);
+            rb.f(z, System.currentTimeMillis() - currentTimeMillis);
             return bdImage;
         }
         return (BdImage) invokeCommon.objValue;
@@ -143,18 +143,18 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             return;
         }
         boolean booleanValue = ((Boolean) objArr[2]).booleanValue();
-        n7 n7Var = new n7("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        n7Var.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        n7Var.setSubFolder(true);
-        n7Var.setData(bArr);
-        n7Var.setSdCard(false);
-        n7Var.setGif(booleanValue);
-        j7.g().a(n7Var);
-        rb rbVar = (rb) objArr[3];
-        if (rbVar != null) {
+        o7 o7Var = new o7("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+        o7Var.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+        o7Var.setSubFolder(true);
+        o7Var.setData(bArr);
+        o7Var.setSdCard(false);
+        o7Var.setGif(booleanValue);
+        k7.g().a(o7Var);
+        sb sbVar = (sb) objArr[3];
+        if (sbVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(n7Var);
-            rbVar.a = diskCancelWorker;
+            diskCancelWorker.setOperate(o7Var);
+            sbVar.a = diskCancelWorker;
         }
     }
 }

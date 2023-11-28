@@ -1,41 +1,18 @@
 package com.kwad.sdk.c;
+
+import android.content.Context;
+import com.kuaishou.weapon.p0.WeaponHI;
+import com.kwad.sdk.core.e.c;
 /* loaded from: classes10.dex */
-public interface a {
-    String getAppId();
-
-    String getDeviceId();
-
-    String getIccId();
-
-    String getIp();
-
-    String getLocation();
-
-    String getOaid();
-
-    String getSdkVersion();
-
-    String xa();
-
-    String xb();
-
-    String xc();
-
-    String xd();
-
-    String xe();
-
-    String xf();
-
-    String xg();
-
-    String xh();
-
-    String xi();
-
-    String xj();
-
-    String xk();
-
-    String xl();
+public final class a {
+    public static void init(Context context) {
+        if (!com.kwad.framework.a.a.Is.booleanValue()) {
+            return;
+        }
+        try {
+            WeaponHI.init(context, new b());
+        } catch (Throwable th) {
+            c.printStackTraceOnly(th);
+        }
+    }
 }

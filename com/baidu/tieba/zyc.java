@@ -1,49 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ApkDetail;
-import tbclient.Item;
+import tbclient.App;
+import tbclient.FrsPage.AdkillerAd;
 /* loaded from: classes9.dex */
-public class zyc extends qoc {
+public class zyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Item item) {
+    public static JSONObject b(@NonNull AdkillerAd adkillerAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, item)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adkillerAd)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "item_id", item.item_id);
-            qoc.a(jSONObject, "item_name", item.item_name);
-            qoc.a(jSONObject, "icon_size", item.icon_size);
-            qoc.a(jSONObject, "icon_url", item.icon_url);
-            if (item.tags != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : item.tags) {
-                    jSONArray.put(str);
-                }
-                qoc.a(jSONObject, "tags", jSONArray);
+            ltc.a(jSONObject, "tag", adkillerAd.tag);
+            ltc.a(jSONObject, "game_url", adkillerAd.game_url);
+            App app = adkillerAd.app;
+            if (app != null) {
+                ltc.a(jSONObject, "app", suc.b(app));
             }
-            qoc.a(jSONObject, "score", item.score);
-            qoc.a(jSONObject, "star", item.star);
-            qoc.a(jSONObject, "button_name", item.button_name);
-            qoc.a(jSONObject, "button_link", item.button_link);
-            qoc.a(jSONObject, "item_appid", item.item_appid);
-            qoc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_ID, item.category_id);
-            qoc.a(jSONObject, "button_link_type", item.button_link_type);
-            qoc.a(jSONObject, "apk_name", item.apk_name);
-            qoc.a(jSONObject, "forum_name", item.forum_name);
-            ApkDetail apkDetail = item.apk_detail;
-            if (apkDetail != null) {
-                qoc.a(jSONObject, "apk_detail", tpc.b(apkDetail));
-            }
+            ltc.a(jSONObject, "can_close", adkillerAd.can_close);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.rm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class uk2 extends bk2<rm2> {
+public class uk2 extends ck2<rm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rm2.a h;
 
     /* loaded from: classes8.dex */
     public class a implements rm2.a {
@@ -47,66 +47,46 @@ public class uk2 extends bk2<rm2> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dk2) newInitContext.callArgs[0]);
+                super((ek2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        rm2Var.Y(aVar);
+        e();
+        this.a.a(new cl2());
+        this.a.a(new dl2());
+        this.a.a(new el2());
+        this.a.a(new fl2());
+        this.a.a(new gl2());
+        this.a.a(new zk2());
         this.a.a(new hl2());
-        this.a.a(new il2());
-        this.a.a(new jl2());
-        this.a.a(new ll2());
-        this.a.a(new nl2());
-        this.a.a(new ol2());
-        this.a.a(new pl2());
-        this.a.a(new ql2());
-        this.a.a(new rl2());
-        this.a.a(new sl2());
-        this.a.a(new kl2());
-        this.a.a(new ml2());
-        this.a.a(new ul2());
-        this.a.a(new vl2());
-        this.a.a(new wl2());
-        this.a.a(new yl2());
-        this.a.a(new xl2());
-        this.a.a(new zl2());
-        this.a.a(new am2());
-        this.a.a(new bm2());
-        this.a.a(new cm2());
-        this.a.a(new dm2());
-        this.a.a(new em2());
-        this.a.a(new fm2());
-        this.a.a(new gm2());
-        this.a.a(new hm2());
-        this.a.a(new im2());
-        this.a.a(new jm2());
-        this.a.a(new km2());
-        this.a.a(new lm2());
-        this.a.a(new mm2());
-        this.a.a(new om2());
-        this.a.a(new nm2());
-        this.a.a(new tl2());
+        this.a.a(new al2());
+        this.a.a(new bl2());
     }
 
-    @Override // com.baidu.tieba.bk2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ((rm2) this.c).o(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ck2, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
             if (command == null) {
                 str = "";
             } else {
                 str = command.what;
             }
             if (((rm2) this.c).q()) {
-                g32.i("InlineRtcRoomController", "isReleased command：" + str);
+                h32.i("InlineRtcItemController", "isReleased command：" + str);
                 return;
             }
-            g32.i("InlineRtcRoomController", "authorize type：" + ((rm2) this.c).a() + " command：" + str);
+            h32.i("InlineRtcItemController", "authorize type：" + ((rm2) this.c).a() + " command：" + str);
             super.sendCommand(command);
         }
     }

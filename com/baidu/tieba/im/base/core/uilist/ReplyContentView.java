@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
-import com.baidu.tieba.m07;
+import com.baidu.tieba.w07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,7 +93,7 @@ public final class ReplyContentView extends AppCompatTextView {
         int i4 = this.b;
         setPadding(i3, i4, i3, i4);
         setLineSpacing(0.0f, this.d);
-        r();
+        f();
         setVisibility(8);
     }
 
@@ -120,11 +120,11 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void d(TbReMsgInfo tbReMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbReMsgInfo) == null) {
-            m07.e(getContext(), tbReMsgInfo.getContent(), this.c, new m07.i() { // from class: com.baidu.tieba.bn8
+            w07.e(getContext(), tbReMsgInfo.getContent(), this.c, new w07.i() { // from class: com.baidu.tieba.eq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m07.i
+                @Override // com.baidu.tieba.w07.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -132,13 +132,13 @@ public final class ReplyContentView extends AppCompatTextView {
                     }
                 }
             });
-            r();
+            f();
         }
     }
 
-    public final void f(TbReMsgInfo msg) {
+    public final void g(TbReMsgInfo msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
             this.f = R.color.CAM_X0206;
             this.g = R.color.CAM_X0108;
@@ -148,7 +148,7 @@ public final class ReplyContentView extends AppCompatTextView {
 
     public final void h(TbReMsgInfo msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msg) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
             this.f = R.color.CAM_X0617;
             this.g = R.color.CAM_X0606;
@@ -156,9 +156,9 @@ public final class ReplyContentView extends AppCompatTextView {
         }
     }
 
-    public final void r() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EMManager.from(this).setTextColor(this.g).setTextSize(R.dimen.T_X07).setCorner(R.string.J_X05).setBackGroundColor(this.f);
         }
     }

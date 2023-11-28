@@ -9,10 +9,10 @@ import android.os.RemoteException;
 import android.view.Surface;
 import com.yy.render.IRemoteListener;
 import com.yy.render.ITransDataListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IRemoteRender extends IInterface {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Default implements IRemoteRender {
         @Override // com.yy.render.IRemoteRender
         public void addContentView(String str, String str2) throws RemoteException {
@@ -122,7 +122,7 @@ public interface IRemoteRender extends IInterface {
 
     boolean unRegisterDataListener(String str, ITransDataListener iTransDataListener) throws RemoteException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IRemoteRender {
         public static final String DESCRIPTOR = "com.yy.render.IRemoteRender";
         public static final int TRANSACTION_addContentView = 6;
@@ -147,7 +147,7 @@ public interface IRemoteRender extends IInterface {
             return this;
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IRemoteRender {
             public static IRemoteRender sDefaultImpl;
             public IBinder mRemote;

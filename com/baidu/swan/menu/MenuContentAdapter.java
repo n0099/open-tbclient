@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.oc4;
+import com.baidu.tieba.lm4;
+import com.baidu.tieba.pc4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    public List<oc4> a = new ArrayList();
-    public List<oc4> b = new ArrayList();
+    public List<pc4> a = new ArrayList();
+    public List<pc4> b = new ArrayList();
     public int c;
     public Context d;
 
@@ -26,8 +26,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
         public a(View view2) {
             super(view2);
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090b5b);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0921b5);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090b7a);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f09222f);
         }
     }
 
@@ -49,7 +49,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public void onBindViewHolder(a aVar, int i) {
         int i2;
         ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
@@ -92,9 +92,9 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: n */
+    /* renamed from: o */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0935, viewGroup, false);
+        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d094f, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -105,11 +105,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return new a(inflate);
     }
 
-    public void o(List<List<oc4>> list, boolean z, int i) {
+    public void p(List<List<pc4>> list, boolean z, int i) {
         int max;
         float f;
-        List<oc4> list2;
-        List<oc4> list3;
+        List<pc4> list2;
+        List<pc4> list3;
         this.a.clear();
         this.b.clear();
         if (list == null) {
@@ -132,10 +132,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         } else {
             f = 5.0f;
         }
-        if (km4.d()) {
+        if (lm4.d()) {
             Context context = this.d;
-            if ((context instanceof Activity) && km4.e((Activity) context)) {
-                max = km4.a((Activity) this.d);
+            if ((context instanceof Activity) && lm4.e((Activity) context)) {
+                max = lm4.a((Activity) this.d);
             }
         }
         this.c = (int) (max / f);

@@ -1,112 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class m27 implements ra7 {
+public class m27 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public TbPageContext b;
-    public String c;
+    public int a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920855, "Lcom/baidu/tieba/m27;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920855, "Lcom/baidu/tieba/m27;");
-                return;
-            }
-        }
-        ArrayList arrayList = new ArrayList();
-        d = arrayList;
-        arrayList.add(2);
-        d.add(8);
-        d.add(6);
-        d.add(7);
-        d.add(14);
-    }
-
-    public m27(int i) {
+    public m27() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = 0;
+        this.b = false;
     }
 
-    @Override // com.baidu.tieba.ra7
-    @NonNull
-    public List<za7<?, ?>> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < zb9.a.size(); i++) {
-                int keyAt = zb9.a.keyAt(i);
-                if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
-                    o27 o27Var = new o27(keyAt, this.a);
-                    o27Var.f(this.b);
-                    o27Var.e(this.c);
-                    arrayList.add(o27Var);
-                } else {
-                    for (Integer num : d) {
-                        o27 o27Var2 = new o27(keyAt, num.intValue(), this.a);
-                        o27Var2.f(this.b);
-                        o27Var2.e(this.c);
-                        arrayList.add(o27Var2);
-                    }
-                }
-            }
-            arrayList.add(new p27());
-            return arrayList;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public m27 b(String str) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.c = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (m27) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public m27 c(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
-            this.b = tbPageContext;
-            return this;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
-        return (m27) invokeL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
     }
 }

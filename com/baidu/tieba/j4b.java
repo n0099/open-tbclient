@@ -1,153 +1,268 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.MainThread;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.video.LiveConfig;
+import com.baidu.adp.lib.safe.UiUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a4b;
+import com.baidu.tieba.m4b;
+import com.baidu.tieba.tracker.core.data.AbsEventNode;
+import com.baidu.tieba.tracker.core.data.ErrCode;
+import com.baidu.tieba.tracker.core.data.TraceEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class j4b {
+public abstract class j4b<R extends m4b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final R a;
+    public final a4b b;
+    public AbsEventNode c;
+    public final Handler d;
+    public Map<String, String> e;
+    public a f;
+    public final Runnable g;
 
-    public static final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount(str);
-            return sharedPrefKeyWithAccount + str2;
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onError();
     }
 
-    public static final boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(str), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long j = JavaTypesHelper.toLong(e.get(0), 0L);
-                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
-                if (TimeHelper.isSameDay(j, System.currentTimeMillis()) && i2 > i) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
+    @MainThread
+    public abstract AbsEventNode a(R r, a4b a4bVar);
 
-    public static final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str2 != null && str2.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return true;
-            }
-            return !TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(a(str, str2), 0L), System.currentTimeMillis());
-        }
-        return invokeLL.booleanValue;
-    }
+    @MainThread
+    public abstract x3b d(R r);
 
-    public static final void g(String spKey, String str) {
-        boolean z;
+    public j4b(R thisRef, a4b traceType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thisRef, traceType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            SharedPrefHelper.getInstance().putLong(a(spKey, str), System.currentTimeMillis());
         }
-    }
+        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+        Intrinsics.checkNotNullParameter(traceType, "traceType");
+        this.a = thisRef;
+        this.b = traceType;
+        this.d = new Handler(Looper.getMainLooper());
+        this.g = new Runnable() { // from class: com.baidu.tieba.b4b
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean d(LiveConfig config) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final List<String> e(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.length() > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
-    public static final void f(String spKey) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            long currentTimeMillis = System.currentTimeMillis();
-            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(spKey), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            int i = 1;
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long j = JavaTypesHelper.toLong(e.get(0), 0L);
-                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
-                if (TimeHelper.isSameDay(j, System.currentTimeMillis())) {
-                    i = 1 + i2;
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    j4b.e(j4b.this);
                 }
             }
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            StringBuilder sb = new StringBuilder();
-            sb.append(currentTimeMillis);
-            sb.append(',');
-            sb.append(i);
-            sharedPrefHelper.putString(spKey, sb.toString());
+        };
+    }
+
+    public static final void c(j4b this$0, Map params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, params) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(params, "$params");
+            this$0.d.removeCallbacks(this$0.g);
+            R r = this$0.a;
+            if (!w3b.a.a(r.getTraceId())) {
+                r = null;
+            }
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.z2(), r.l2(), a4b.a.a);
+                traceEventNode.getTrackParams().putAll(params);
+                this$0.d(r).c(traceEventNode);
+                a aVar = this$0.f;
+                if (aVar != null) {
+                    aVar.onError();
+                }
+                k4b.a(this$0, r.getTraceId());
+            }
         }
+    }
+
+    public static final void m(j4b this$0, Map params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, params) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(params, "$params");
+            this$0.d.removeCallbacks(this$0.g);
+            R r = this$0.a;
+            if (!w3b.a.a(r.getTraceId())) {
+                r = null;
+            }
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.z2(), r.l2(), a4b.b.a);
+                traceEventNode.getTrackParams().putAll(params);
+                this$0.d(r).c(traceEventNode);
+                k4b.a(this$0, r.getTraceId());
+            }
+        }
+    }
+
+    public static final void e(j4b this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put(PushMessageHelper.ERROR_TYPE, ErrCode.TIME_OUT.getValue());
+            linkedHashMap.put("error_info", "超时未抵达");
+            Map<String, String> map = this$0.e;
+            if (map != null) {
+                if (map != null) {
+                    linkedHashMap.putAll(map);
+                } else {
+                    throw new IllegalArgumentException("Required value was null.".toString());
+                }
+            }
+            this$0.b(linkedHashMap);
+        }
+    }
+
+    public static final void i(j4b this$0, long j, Function1 function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Long.valueOf(j), function1}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            AbsEventNode j2 = this$0.j(j);
+            if (function1 != null) {
+                function1.invoke(j2);
+            }
+        }
+    }
+
+    @MainThread
+    public final void b(final Map<String, String> params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.c4b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        j4b.c(j4b.this, params);
+                    }
+                }
+            });
+        }
+    }
+
+    public final j4b<R> f(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
+            this.e = map;
+            return this;
+        }
+        return (j4b) invokeL.objValue;
+    }
+
+    @MainThread
+    public final void l(final Map<String, String> params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.e4b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        j4b.m(j4b.this, params);
+                    }
+                }
+            });
+        }
+    }
+
+    @MainThread
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            h(20000L, null);
+        }
+    }
+
+    @MainThread
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            l(MapsKt__MapsKt.emptyMap());
+        }
+    }
+
+    @MainThread
+    public final void h(final long j, final Function1<? super AbsEventNode, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j, function1) == null) {
+            if (!BdUtilHelper.isMainThread()) {
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.d4b
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            j4b.i(j4b.this, j, function1);
+                        }
+                    }
+                });
+                return;
+            }
+            AbsEventNode j2 = j(j);
+            if (function1 != null) {
+                function1.invoke(j2);
+            }
+        }
+    }
+
+    @MainThread
+    public final AbsEventNode j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            AbsEventNode absEventNode = this.c;
+            if (absEventNode != null) {
+                return absEventNode;
+            }
+            if (j > 0) {
+                this.d.removeCallbacks(this.g);
+                this.d.postDelayed(this.g, j);
+            }
+            AbsEventNode a2 = a(this.a, this.b);
+            d(this.a).c(a2);
+            this.c = a2;
+            return a2;
+        }
+        return (AbsEventNode) invokeJ.objValue;
     }
 }

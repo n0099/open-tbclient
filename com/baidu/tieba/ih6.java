@@ -1,47 +1,131 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public final class ih6 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final ih6 a;
+    public static String b = "";
+    public static final Map<String, Integer> c;
+    public static final Map<String, Long> d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebView webView, List<String> list) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947853554, "Lcom/baidu/tieba/ih6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947853554, "Lcom/baidu/tieba/ih6;");
+                return;
+            }
+        }
+        a = new ih6();
+        c = new LinkedHashMap();
+        d = new LinkedHashMap();
+    }
+
+    public ih6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
-            try {
-                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(webView, list, null);
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @SuppressLint({"WebViewApiAvailability"})
-    public static void b(WebView webView) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i == 26) {
-                webView.setImportantForAutofill(2);
-                webView.getSettings().setSafeBrowsingEnabled(false);
-            } else if (i >= 27) {
-                List<String> a = ig6.a();
-                try {
-                    WebView.setSafeBrowsingWhitelist(a, null);
-                } catch (Throwable unused) {
-                    a(webView, a);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c.clear();
+            d.clear();
         }
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c.put(str, Integer.valueOf(e(str) + 1));
+            b = str;
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            d.put(str, Long.valueOf(System.currentTimeMillis()));
+        }
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            Integer num = c.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final long f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Long l = d.get(str);
+            if (l != null) {
+                return l.longValue();
+            }
+            return -1L;
+        }
+        return invokeL.longValue;
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            long f = f(str);
+            if (!b.equals(str)) {
+                d(str);
+            }
+            a(str);
+            int e = e(str);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (e < 3 || currentTimeMillis - f >= 1000) {
+                return false;
+            }
+            c();
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

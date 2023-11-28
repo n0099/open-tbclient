@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes8.dex */
 public interface r4b {
-    int O();
+    void a(String str);
 
-    void V0(int i);
+    void b(BdUniqueId bdUniqueId);
 
-    VideoItemModel p1();
+    void c(String str);
 }

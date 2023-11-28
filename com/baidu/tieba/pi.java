@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public interface pi<T> {
-    int getCount();
-
-    T getItem(int i);
-
-    void notifyDataSetChanged();
+public interface pi {
+    BdUniqueId getType();
 }

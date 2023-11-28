@@ -1,60 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPicView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.bb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class yb7 extends ja7<CardPicView, d47> {
+public final class yb7 implements bb7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ub7 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yb7(String str) {
-        super(str);
+    public yb7(ub7 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bb7.c
+    public void a(nb7<?> data, mb7<?, ?> template, int i) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            sc7.j(a);
-            return a;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            xa7 xa7Var = (xa7) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            r57 r57Var = new r57();
+            r57 r57Var2 = xa7Var.b;
+            if (r57Var2 != null) {
+                r57Var = r57Var2;
+            }
+            for (Map.Entry<String, String> entry : this.a.a(r57Var).entrySet()) {
+                statisticItem.param(entry.getKey(), entry.getValue());
+            }
+            j77 j77Var = xa7Var.a;
+            if (j77Var != null && (a = j77Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            am6.b().a(statisticItem);
         }
-        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
-    /* renamed from: e */
-    public void b(@NonNull CardPicView cardPicView, @NonNull d47 d47Var) {
+    @Override // com.baidu.tieba.bb7.c
+    public void b(RecyclerView rv) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPicView, d47Var) == null) {
-            cardPicView.b(d47Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            am6.b().c();
         }
     }
 }

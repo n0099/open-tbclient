@@ -1,89 +1,100 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class mc8 implements zb8 {
+public class mc8 extends os<yy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ac8 a;
-    public yb8 b;
+    public ConcernRecommendLayout f;
+    public int g;
 
-    public mc8(ac8 ac8Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mc8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac8Var};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ac8Var;
-        this.b = new lc8(this);
+        this.g = 3;
+        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
+        this.f = concernRecommendLayout;
+        concernRecommendLayout.setPageContext(tbPageContext);
+        this.f.setPageUniqueId(bdUniqueId);
     }
 
-    @Override // com.baidu.tieba.zb8
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.os
+    public View g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            yb8 yb8Var = this.b;
-            if (yb8Var != null) {
-                return yb8Var.a(bdUniqueId, str, str2, str3);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeLLLL.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zb8
-    public boolean b(int i, kc8 kc8Var) {
-        InterceptResult invokeIL;
-        ac8 ac8Var;
+    @Override // com.baidu.tieba.os
+    public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, kc8Var)) == null) {
-            if (kc8Var != null && (ac8Var = this.a) != null) {
-                ac8Var.setData(kc8Var.getDataList());
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.f.setPageUniqueId(bdUniqueId);
         }
-        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zb8
-    public boolean c(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.it
+    /* renamed from: r */
+    public void onBindDataToView(yy4 yy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ac8 ac8Var = this.a;
-            if (ac8Var != null) {
-                ac8Var.a(i);
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yy4Var) == null) {
+            this.f.setData(yy4Var);
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zb8
-    public void setData(List<oi> list) {
-        ac8 ac8Var;
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (ac8Var = this.a) != null) {
-            ac8Var.setData(list);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f.setHasBorder(z);
+        }
+    }
+
+    public void t(xu4<MetaData> xu4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xu4Var) == null) {
+            this.f.setOnItemCoverListener(xu4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jt
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                p(this.f, 3);
+            }
+            this.g = i;
         }
     }
 }

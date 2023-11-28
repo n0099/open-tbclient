@@ -1,245 +1,169 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
-import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
-import com.baidu.tbadk.core.data.ForumRuleBaseData;
-import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
-import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailSelfVH;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.brand.buttommenu.BottomMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.ForumRule;
-import tbclient.PbContent;
+import tbclient.BottomMenu;
+import tbclient.SubBottomMenu;
 /* loaded from: classes6.dex */
-public class iv7 extends bi<mv7, ForumRuleDetailSelfVH> {
+public class iv7 implements BottomMenuView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumRulesShowActivity a;
-    public String b;
-    public boolean c;
-    public int d;
+    public TbPageContext<?> a;
+    public View b;
+    public ImageView c;
+    public BottomMenuView d;
+    public ForumData e;
+    public int f;
+    public int g;
+    public int h;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mv7 a;
-        public final /* synthetic */ iv7 b;
-
-        public a(iv7 iv7Var, mv7 mv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv7Var, mv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = iv7Var;
-            this.a = mv7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.c) {
-                    this.b.C();
-                } else {
-                    this.b.D(this.a);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iv7(ForumRulesShowActivity forumRulesShowActivity, BdUniqueId bdUniqueId) {
-        super(forumRulesShowActivity, bdUniqueId);
+    public iv7(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumRulesShowActivity, bdUniqueId};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = 0;
-        this.a = forumRulesShowActivity;
+        this.a = tbPageContext;
+        this.b = view2;
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a91);
+        BottomMenuView bottomMenuView = (BottomMenuView) view2.findViewById(R.id.obfuscated_res_0x7f0904ac);
+        this.d = bottomMenuView;
+        bottomMenuView.setOnMenuItemClickListener(this);
+        this.f = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds160);
+        this.g = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.h = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: A */
-    public ForumRuleDetailSelfVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void b(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0322, viewGroup, false));
-            this.viewholder = forumRuleDetailSelfVH;
-            return forumRuleDetailSelfVH;
-        }
-        return (ForumRuleDetailSelfVH) invokeL.objValue;
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public View B(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, ForumRuleDetailSelfVH forumRuleDetailSelfVH) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mv7Var, forumRuleDetailSelfVH})) == null) {
-            if (mv7Var == null) {
-                return view2;
-            }
-            y(forumRuleDetailSelfVH, mv7Var);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void C() {
-        ForumRulesShowActivity forumRulesShowActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (forumRulesShowActivity = this.a) == null) {
-            return;
-        }
-        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f07e2);
-        String format = String.format(string, this.d + "");
-        if (this.a.L0() != null) {
-            new BdTopToast(this.a).setIcon(false).setContent(format).show(this.a.L0().E());
-        }
-    }
-
-    public final void D(mv7 mv7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mv7Var) == null) && this.a != null && mv7Var != null) {
-            ForumRuleBaseData forumRuleBaseData = new ForumRuleBaseData();
-            forumRuleBaseData.setTitle(mv7Var.l());
-            forumRuleBaseData.setPreface(mv7Var.g());
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < mv7Var.i().size(); i++) {
-                ForumRule forumRule = mv7Var.i().get(i);
-                ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData = new ForumRuleBaseData.ForumRuleItemPbData();
-                forumRuleItemPbData.status = forumRule.status + "";
-                forumRuleItemPbData.title = forumRule.title + "";
-                forumRuleItemPbData.mContent = new ArrayList();
-                List<PbContent> list = forumRule.content;
-                if (list != null && list.size() > 0) {
-                    for (int i2 = 0; i2 < forumRule.content.size(); i2++) {
-                        PbContent pbContent = forumRule.content.get(i2);
-                        ForumRuleBaseData.ForumRuleItemPbContentData forumRuleItemPbContentData = new ForumRuleBaseData.ForumRuleItemPbContentData();
-                        forumRuleItemPbContentData.href = pbContent.link;
-                        if (pbContent.type.intValue() == 0) {
-                            forumRuleItemPbContentData.tag = "plainText";
-                        } else if (pbContent.type.intValue() == 1) {
-                            forumRuleItemPbContentData.tag = "a";
-                        } else if (pbContent.type.intValue() == 2) {
-                            forumRuleItemPbContentData.tag = "br";
-                        }
-                        forumRuleItemPbContentData.value = pbContent.text;
-                        forumRuleItemPbData.mContent.add(forumRuleItemPbContentData);
-                    }
-                }
-                arrayList.add(forumRuleItemPbData);
-            }
-            forumRuleBaseData.setPbDataList(arrayList);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(this.a, mv7Var.e().forum_id + "", mv7Var.e().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, mv7Var.e().avatar, mv7Var.c().user_level.intValue(), 25053)));
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, ForumRuleDetailSelfVH forumRuleDetailSelfVH) {
-        B(i, view2, viewGroup, mv7Var, forumRuleDetailSelfVH);
-        return view2;
-    }
-
-    public final void y(ForumRuleDetailSelfVH forumRuleDetailSelfVH, mv7 mv7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, forumRuleDetailSelfVH, mv7Var) == null) {
-            if (mv7Var.c() != null) {
-                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.img_default_100);
-                forumRuleDetailSelfVH.b.startLoad(mv7Var.c().portrait, 12, false);
-                forumRuleDetailSelfVH.c.setText(mv7Var.c().name_show);
-                forumRuleDetailSelfVH.e.setVisibility(0);
-                forumRuleDetailSelfVH.b(mv7Var.c());
-            }
-            forumRuleDetailSelfVH.d.setText(R.string.bawu_member_bazhu_tip);
-            forumRuleDetailSelfVH.d.setVisibility(0);
-            forumRuleDetailSelfVH.g("manager");
-            if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
-                forumRuleDetailSelfVH.f(String.valueOf(System.currentTimeMillis() / 1000));
-            } else {
-                forumRuleDetailSelfVH.g.setText(mv7Var.h());
-            }
-            z(forumRuleDetailSelfVH, mv7Var);
-            forumRuleDetailSelfVH.c(mv7Var.g());
-        }
-    }
-
-    public final void z(ForumRuleDetailSelfVH forumRuleDetailSelfVH, mv7 mv7Var) {
-        String d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, forumRuleDetailSelfVH, mv7Var) == null) && mv7Var.f()) {
-            forumRuleDetailSelfVH.h.setOnClickListener(new a(this, mv7Var));
-            if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
-                forumRuleDetailSelfVH.h.setVisibility(8);
-            } else if (!StringUtils.isNull(mv7Var.h()) && mv7Var.b() == 0) {
-                long a2 = rv7.a(mv7Var.h());
-                if (StringUtils.isNull(mv7Var.d())) {
-                    d = "0";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemView, bottomMenu) == null) {
+            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+            if (bottomMenu != null && ListUtils.getCount(bottomMenu.submenu) == 0) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{bottomMenu.url});
+                ForumData forumData = this.e;
+                String str2 = "";
+                if (forumData == null) {
+                    str = "";
                 } else {
-                    d = mv7Var.d();
+                    str = forumData.getId();
                 }
-                int b = rv7.b(Long.valueOf(d).longValue() - a2);
-                if (b < 0) {
-                    b = rv7.b((System.currentTimeMillis() / 1000) - a2);
+                ForumData forumData2 = this.e;
+                if (forumData2 != null) {
+                    str2 = forumData2.getName();
                 }
-                forumRuleDetailSelfVH.h.setVisibility(0);
-                if (b >= 7) {
-                    this.c = false;
-                    return;
-                }
-                forumRuleDetailSelfVH.h.setUseDisableState(true);
-                this.c = true;
-                this.d = 7 - b;
-            } else {
-                forumRuleDetailSelfVH.e(mv7Var.b());
+                TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", currentAccountId).param("obj_param1", bottomMenu.name));
+                return;
             }
+            TiebaStatic.log(new StatisticItem("c13118").param("uid", currentAccountId));
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, subMenuItemView, subBottomMenu) == null) && subBottomMenu != null) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{subBottomMenu.url});
+            ForumData forumData = this.e;
+            String str2 = "";
+            if (forumData == null) {
+                str = "";
+            } else {
+                str = forumData.getId();
+            }
+            ForumData forumData2 = this.e;
+            if (forumData2 != null) {
+                str2 = forumData2.getName();
+            }
+            TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", subBottomMenu.name));
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            if (z) {
+                layoutParams.addRule(11);
+                layoutParams.addRule(12);
+                layoutParams.addRule(14, 0);
+                layoutParams.bottomMargin = this.f;
+                layoutParams.rightMargin = this.g;
+                return;
+            }
+            layoutParams.addRule(11, 0);
+            layoutParams.addRule(12);
+            layoutParams.addRule(14);
+            layoutParams.bottomMargin = this.h;
+            layoutParams.rightMargin = 0;
+        }
+    }
+
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.d.getVisibility() == 0) {
+            this.d.a(tbPageContext, i);
+        }
+    }
+
+    public void e(List<BottomMenu> list, ForumData forumData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, forumData) == null) {
+            this.e = forumData;
+            if (ListUtils.getCount(list) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            c(z);
+            if (z) {
+                this.d.setVisibility(0);
+                this.d.b(list, this.a);
+                return;
+            }
+            this.d.setVisibility(8);
+        }
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            BottomMenuView bottomMenuView = this.d;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            bottomMenuView.setVisibility(i);
         }
     }
 }

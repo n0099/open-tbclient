@@ -9,18 +9,18 @@ import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rm1;
-import com.baidu.tieba.u43;
-import com.baidu.tieba.xj3;
-import com.baidu.tieba.y43;
-import com.baidu.tieba.y53;
+import com.baidu.tieba.sm1;
+import com.baidu.tieba.v43;
+import com.baidu.tieba.yj3;
+import com.baidu.tieba.z43;
+import com.baidu.tieba.z53;
 import com.google.gson.internal.bind.TypeAdapters;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class BdDatePicker extends LinearLayout {
-    public static final boolean s = rm1.a;
+    public static final boolean s = sm1.a;
     public int a;
     public int b;
     public int c;
@@ -48,11 +48,11 @@ public class BdDatePicker extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements y43 {
+    public class a implements z43 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.y43
+        @Override // com.baidu.tieba.z43
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
             bdDatePicker.a = i + bdDatePicker.i;
@@ -62,11 +62,11 @@ public class BdDatePicker extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements y43 {
+    public class b implements z43 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.y43
+        @Override // com.baidu.tieba.z43
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
             bdDatePicker.b = i + bdDatePicker.k;
@@ -75,11 +75,11 @@ public class BdDatePicker extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements y43 {
+    public class c implements z43 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.y43
+        @Override // com.baidu.tieba.z43
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
             bdDatePicker.c = i + bdDatePicker.n;
@@ -111,7 +111,7 @@ public class BdDatePicker extends LinearLayout {
         if (i < this.i || i > this.j) {
             this.a = this.i;
         }
-        this.d.setAdapter(new u43(this.i, this.j));
+        this.d.setAdapter(new v43(this.i, this.j));
         m(this.d, this.i, this.j);
     }
 
@@ -207,11 +207,11 @@ public class BdDatePicker extends LinearLayout {
 
     public final void g(Context context) {
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a7, this);
-        this.p = xj3.g(this.p);
-        this.q = xj3.g(16.0f);
-        this.r = xj3.g(14.0f);
-        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a8e);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a8, this);
+        this.p = yj3.g(this.p);
+        this.q = yj3.g(16.0f);
+        this.r = yj3.g(14.0f);
+        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092b17);
         this.d = wheelView3d;
         wheelView3d.setCenterTextSize(this.q);
         this.d.setOuterTextSize(this.r);
@@ -221,7 +221,7 @@ public class BdDatePicker extends LinearLayout {
         this.d.setDividerType(WheelView3d.DividerType.FILL);
         this.d.setVisibleItem(7);
         this.d.setOnItemSelectedListener(new a());
-        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a8d);
+        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092b16);
         this.e = wheelView3d2;
         wheelView3d2.setCenterTextSize(this.q);
         this.e.setOuterTextSize(this.r);
@@ -231,7 +231,7 @@ public class BdDatePicker extends LinearLayout {
         this.e.setDividerType(WheelView3d.DividerType.FILL);
         this.e.setVisibleItem(7);
         this.e.setOnItemSelectedListener(new b());
-        WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a8a);
+        WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092b13);
         this.f = wheelView3d3;
         wheelView3d3.setCenterTextSize(this.q);
         this.f.setOuterTextSize(this.r);
@@ -268,7 +268,7 @@ public class BdDatePicker extends LinearLayout {
         if (date2 != null && this.a == this.j && this.b == date2.getMonth() + 1) {
             this.o = this.h.getDate();
         }
-        this.f.setAdapter(new u43(this.n, this.o));
+        this.f.setAdapter(new v43(this.n, this.o));
         m(this.f, this.n, this.o);
         setDay(this.c);
     }
@@ -284,7 +284,7 @@ public class BdDatePicker extends LinearLayout {
         if (date2 != null && this.a == this.j) {
             this.l = date2.getMonth() + 1;
         }
-        this.e.setAdapter(new u43(this.k, this.l));
+        this.e.setAdapter(new v43(this.k, this.l));
         m(this.e, this.k, this.l);
         setMonth(this.b);
     }
@@ -336,7 +336,7 @@ public class BdDatePicker extends LinearLayout {
             if (i > i2) {
                 if (s) {
                     Context appContext = AppRuntime.getAppContext();
-                    y53.g(appContext, "The day must be between " + this.n + " and " + this.o).I();
+                    z53.g(appContext, "The day must be between " + this.n + " and " + this.o).I();
                 }
                 i = i2;
             }
@@ -344,7 +344,7 @@ public class BdDatePicker extends LinearLayout {
             i = this.n;
             if (s) {
                 Context appContext2 = AppRuntime.getAppContext();
-                y53.g(appContext2, "The day must be between " + this.n + " and " + this.o).G();
+                z53.g(appContext2, "The day must be between " + this.n + " and " + this.o).G();
             }
         }
         this.c = i;
@@ -391,14 +391,14 @@ public class BdDatePicker extends LinearLayout {
         if (i < i2) {
             if (s) {
                 Context appContext = AppRuntime.getAppContext();
-                y53.g(appContext, "The month must be between " + this.k + " and " + this.l).I();
+                z53.g(appContext, "The month must be between " + this.k + " and " + this.l).I();
             }
         } else {
             i2 = this.l;
             if (i > i2) {
                 if (s) {
                     Context appContext2 = AppRuntime.getAppContext();
-                    y53.g(appContext2, "The month must be between " + this.k + " and " + this.l).G();
+                    z53.g(appContext2, "The month must be between " + this.k + " and " + this.l).G();
                 }
             }
             this.b = i;
@@ -414,14 +414,14 @@ public class BdDatePicker extends LinearLayout {
         if (i < i2) {
             if (s) {
                 Context appContext = AppRuntime.getAppContext();
-                y53.g(appContext, "The year must be between " + this.i + " and " + this.j).I();
+                z53.g(appContext, "The year must be between " + this.i + " and " + this.j).I();
             }
         } else {
             i2 = this.j;
             if (i > i2) {
                 if (s) {
                     Context appContext2 = AppRuntime.getAppContext();
-                    y53.g(appContext2, "The year must be between " + this.i + " and " + this.j).G();
+                    z53.g(appContext2, "The year must be between " + this.i + " and " + this.j).G();
                 }
             }
             this.a = i;

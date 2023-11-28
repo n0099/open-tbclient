@@ -23,7 +23,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -269,7 +269,7 @@ public class WriteData extends OrmObject implements Serializable {
         List<Object> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
-            if ((!this.isRichTextEditorMode && !qd.isEmpty(this.mContent)) || !qd.isEmpty(this.mTitle)) {
+            if ((!this.isRichTextEditorMode && !rd.isEmpty(this.mContent)) || !rd.isEmpty(this.mTitle)) {
                 return true;
             }
             WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
@@ -354,7 +354,7 @@ public class WriteData extends OrmObject implements Serializable {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (qd.isEmpty(str)) {
+            if (rd.isEmpty(str)) {
                 return null;
             }
             try {
@@ -1667,7 +1667,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i = 0;
                     while (i < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !qd.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !rd.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();

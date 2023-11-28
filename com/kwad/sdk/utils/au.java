@@ -1,42 +1,227 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import androidx.annotation.Nullable;
+import android.location.Location;
+import com.kwad.sdk.api.KsCustomController;
+import com.kwad.sdk.api.SdkConfig;
+import com.kwad.sdk.components.DevelopMangerComponents;
+import com.kwad.sdk.service.ServiceProvider;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes10.dex */
 public final class au {
-    public static String TAG = "plugin.signature";
+    public static boolean KE() {
+        if (!com.kwad.framework.a.a.mc.booleanValue()) {
+            return false;
+        }
+        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+        return false;
+    }
 
-    @Nullable
-    @SuppressLint({"PackageManagerGetSignatures"})
-    public static Signature[] di(Context context) {
+    public static boolean KF() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
         try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            if (packageInfo != null) {
-                return packageInfo.signatures;
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canReadLocation()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static Location KG() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getLocation();
             }
             return null;
-        } catch (PackageManager.NameNotFoundException e) {
-            String str = TAG;
-            com.kwad.sdk.core.e.b.w(str, "Can not get signature, error = " + e.getLocalizedMessage());
-            com.kwad.sdk.core.e.b.w(TAG, e);
+        } catch (Throwable unused) {
             return null;
         }
     }
 
-    public static String dj(Context context) {
+    public static String KH() {
+        KsCustomController ksCustomController;
         try {
-            Signature[] di = di(context);
-            if (di != null && di.length > 0) {
-                return ab.l(di[0].toByteArray());
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getImei();
             }
             return "";
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.w(TAG, e);
+        } catch (Throwable unused) {
             return "";
         }
+    }
+
+    public static String[] KI() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getImeis();
+            }
+        } catch (Throwable unused) {
+        }
+        return new String[]{"", ""};
+    }
+
+    public static String KJ() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getAndroidId();
+            }
+            return "";
+        } catch (Throwable unused) {
+            return "";
+        }
+    }
+
+    public static boolean KK() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canUseMacAddress()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static String KL() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getMacAddress();
+            }
+            return "";
+        } catch (Throwable unused) {
+            return "";
+        }
+    }
+
+    public static boolean KM() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canUseOaid()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static String KN() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getOaid();
+            }
+            return "";
+        } catch (Throwable unused) {
+            return "";
+        }
+    }
+
+    public static boolean KO() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canUseNetworkState()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static boolean KP() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canUseStoragePermission()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static boolean KQ() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canReadInstalledPackages()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
+    }
+
+    public static List<String> KR() {
+        KsCustomController ksCustomController;
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                return ksCustomController.getInstalledPackages();
+            }
+        } catch (Throwable unused) {
+        }
+        return new ArrayList();
+    }
+
+    public static boolean usePhoneStateDisable() {
+        KsCustomController ksCustomController;
+        if (KE()) {
+            return true;
+        }
+        try {
+            SdkConfig Jo = ServiceProvider.Jo();
+            if (Jo != null && (ksCustomController = Jo.ksCustomController) != null) {
+                if (!ksCustomController.canUsePhoneState()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
     }
 }

@@ -112,13 +112,13 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(65537, this, view2, i) == null) {
                 if (getCount() == 1) {
-                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080559));
+                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08055c));
                 } else if (i == 0) {
-                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08055a));
+                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08055d));
                 } else if (i == getCount() - 1) {
-                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080557));
+                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08055a));
                 } else {
-                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080558));
+                    view2.setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08055b));
                 }
             }
         }
@@ -168,12 +168,12 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0635, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d064e, (ViewGroup) null);
                     viewHolder = new ViewHolder(this);
-                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09120b);
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09123b);
+                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091234);
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091264);
                     viewHolder.mListName = textView;
-                    textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06065b));
+                    textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06065d));
                     setBackgroundSelector(view2, i);
                     view2.setTag(viewHolder);
                 } else {
@@ -324,11 +324,11 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080556));
+            setBackground(this.mContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080559));
             ListView listView = new ListView(this.mContext);
             this.mListView = listView;
             listView.setCacheColorHint(0);
-            this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060659));
+            this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06065b));
             this.mListView.setDividerHeight(1);
             this.mListView.setSelector(new ColorDrawable(0));
             addView(this.mListView, new FrameLayout.LayoutParams(-1, -1));

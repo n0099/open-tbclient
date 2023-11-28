@@ -33,8 +33,8 @@ public class AdScrollView extends ScrollView {
         if (2 == getContext().getResources().getConfiguration().orientation) {
             i = getContext().getResources().getDisplayMetrics().widthPixels;
         }
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707e0);
-        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707e2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707de);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707f3);
+        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707f5)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707f1);
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View

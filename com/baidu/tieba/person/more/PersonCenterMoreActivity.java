@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w2a;
-import com.baidu.tieba.x3a;
-import com.baidu.tieba.yl6;
+import com.baidu.tieba.im6;
+import com.baidu.tieba.s7a;
+import com.baidu.tieba.t8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w2a a;
+    public s7a a;
     public Bundle b;
-    public x3a c;
-    public yl6 d;
+    public t8a c;
+    public im6 d;
 
     /* loaded from: classes7.dex */
-    public class a extends yl6<x3a> {
+    public class a extends im6<t8a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -62,19 +62,19 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yl6
+        @Override // com.baidu.tieba.im6
         /* renamed from: d */
-        public void a(View view2, x3a x3aVar) {
+        public void a(View view2, t8a t8aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, x3aVar) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t8aVar) != null) {
                 return;
             }
-            this.b.c = x3aVar;
-            if (this.b.c == null || this.b.S0()) {
+            this.b.c = t8aVar;
+            if (this.b.c == null || this.b.Q0()) {
                 return;
             }
             PersonCenterMoreActivity personCenterMoreActivity = this.b;
-            personCenterMoreActivity.O0(personCenterMoreActivity.c.f);
+            personCenterMoreActivity.M0(personCenterMoreActivity.c.f);
         }
     }
 
@@ -94,7 +94,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         this.d = new a(this);
     }
 
-    public final boolean S0() {
+    public final boolean Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -112,20 +112,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            w2a w2aVar = this.a;
-            if (w2aVar != null) {
-                w2aVar.d();
+            s7a s7aVar = this.a;
+            if (s7aVar != null) {
+                s7aVar.d();
             }
         }
     }
 
-    public final void O0(String str) {
+    public final void M0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
         if (str.startsWith("tieba&")) {
-            Q0(str);
+            O0(str);
         } else if (str.startsWith("nohead:url")) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.replaceFirst("nohead:url=", ""));
@@ -141,7 +141,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
     }
 
-    public final void Q0(String str) {
+    public final void O0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
@@ -168,10 +168,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d07e4);
-            w2a w2aVar = new w2a(getPageContext(), this.b, this.d);
-            this.a = w2aVar;
-            w2aVar.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d07fe);
+            s7a s7aVar = new s7a(getPageContext(), this.b, this.d);
+            this.a = s7aVar;
+            s7aVar.c();
         }
     }
 
@@ -179,7 +179,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
-            O0(this.c.f);
+            M0(this.c.f);
         }
     }
 }

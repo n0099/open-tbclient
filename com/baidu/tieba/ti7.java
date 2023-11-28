@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public interface ti7 {
-    void a(int i, Intent intent);
+public interface ti7<T> {
+    boolean a(Object obj);
 
-    Integer[] b();
+    T b(byte[] bArr);
+
+    List<nb7<?>> c(Object obj, m67 m67Var, Map<String, String> map, boolean z);
 }

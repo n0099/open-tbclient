@@ -1,157 +1,255 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
+import com.baidu.nadcore.download.view.DefaultDownloadViewLP;
+import com.baidu.nadcore.download.view.NadLPDownloadAuditView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class ih0 extends fh0 {
+public class ih0 extends jh0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<oh0<?>> e;
-    @Nullable
-    public DecimalFormat f;
+    public boolean g;
+    public dh0 h;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih0 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-718673445, "Lcom/baidu/tieba/ih0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-718673445, "Lcom/baidu/tieba/ih0$a;");
+        public a(ih0 ih0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.a = ih0Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                WeakReference<ph0<?>> weakReference = this.a.e;
+                if (weakReference != null) {
+                    weakReference.clear();
+                }
+                this.a.e = null;
             }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
+
+        public b(ih0 ih0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
             }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
+
+        public c(ih0 ih0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ih0(@NonNull vg0 vg0Var, @NonNull oh0<?> oh0Var) {
-        super(vg0Var);
+    /* JADX WARN: Type inference failed for: r8v1, types: [android.view.View] */
+    public ih0(@NonNull wg0 wg0Var, @NonNull ph0<?> ph0Var) {
+        super(wg0Var, ph0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vg0Var, oh0Var};
+            Object[] objArr = {wg0Var, ph0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vg0) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((wg0) objArr2[0], (ph0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
-        s(oh0Var);
+        ph0Var.getRealView().setOnClickListener(this);
     }
 
-    @Override // com.baidu.tieba.fh0, com.baidu.tieba.nh0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull vg0 vg0Var) {
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, vg0Var) == null) {
-            super.a(adDownloadAction, vg0Var);
-            t();
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.g = z;
         }
     }
 
-    public void s(oh0<?> oh0Var) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh0Var) == null) {
-            this.e = new WeakReference<>(oh0Var);
-            t();
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            l();
         }
     }
 
-    public void t() {
-        String str;
+    /* JADX WARN: Type inference failed for: r5v1, types: [android.view.View] */
+    @Override // com.baidu.tieba.jh0
+    public void s(ph0<?> ph0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ph0Var) == null) {
+            super.s(ph0Var);
+            ph0Var.getRealView().setOnClickListener(this);
         }
-        Resources resources = gf0.b().getResources();
-        String string = resources.getString(R.string.nad_download_start);
-        switch (a.a[this.a.c.ordinal()]) {
-            case 1:
-                if (TextUtils.isEmpty(this.a.p.d)) {
-                    str = resources.getString(R.string.nad_download_start);
-                } else {
-                    str = this.a.p.d;
+    }
+
+    public void z(dh0 dh0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dh0Var) == null) {
+            this.h = dh0Var;
+        }
+    }
+
+    public void B(ViewGroup viewGroup, dh0 dh0Var, Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, dh0Var, activity) == null) && viewGroup != null && (this.e.get() instanceof DefaultDownloadViewLP)) {
+            ph0<?> ph0Var = this.e.get();
+            if (!(ph0Var instanceof DefaultDownloadViewLP)) {
+                return;
+            }
+            DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) ph0Var;
+            defaultDownloadViewLP.e(false);
+            ki0.c(dh0Var, defaultDownloadViewLP, activity, new a(this), null);
+        }
+    }
+
+    public void C(ViewGroup viewGroup, dh0 dh0Var, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, dh0Var, context) == null) && viewGroup != null && (this.e.get() instanceof DefaultDownloadViewLP)) {
+            ph0<?> ph0Var = this.e.get();
+            if (!(ph0Var instanceof DefaultDownloadViewLP)) {
+                return;
+            }
+            DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) ph0Var;
+            defaultDownloadViewLP.e(false);
+            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(context);
+            adDownloadDlgView.b(dh0Var);
+            adDownloadDlgView.setDownloadView(defaultDownloadViewLP);
+            NadLPDownloadAuditView nadLPDownloadAuditView = new NadLPDownloadAuditView(context);
+            nadLPDownloadAuditView.getDownloadView().addView(adDownloadDlgView);
+            adDownloadDlgView.setOnCloseClickListener(new b(this, viewGroup, nadLPDownloadAuditView));
+            nadLPDownloadAuditView.getDownloadViewOtherArea().setOnClickListener(new c(this, viewGroup, nadLPDownloadAuditView));
+            viewGroup.addView(nadLPDownloadAuditView);
+        }
+    }
+
+    public dh0 u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (dh0) invokeV.objValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            WeakReference<ph0<?>> weakReference = this.e;
+            if (weakReference != null && weakReference.get() != null) {
+                ph0<?> ph0Var = this.e.get();
+                if (ph0Var instanceof View) {
+                    return !((View) ph0Var).isAttachedToWindow();
                 }
-                string = str;
-                break;
-            case 2:
-                DecimalFormat decimalFormat = this.f;
-                if (decimalFormat == null) {
-                    decimalFormat = new DecimalFormat("#.#%");
-                }
-                string = decimalFormat.format(this.a.i);
-                break;
-            case 3:
-                string = resources.getString(R.string.nad_download_continue);
-                break;
-            case 4:
-                string = resources.getString(R.string.nad_download_install);
-                break;
-            case 5:
-                string = resources.getString(R.string.nad_download_open);
-                break;
-            case 6:
-                string = resources.getString(R.string.nad_download_failed_retry);
-                break;
+            }
+            return true;
         }
-        oh0<?> oh0Var = this.e.get();
-        if (oh0Var == null) {
-            return;
-        }
-        oh0Var.b(string, this.a);
+        return invokeV.booleanValue;
     }
 }

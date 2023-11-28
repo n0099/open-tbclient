@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CurrencyInfo {
     public long offers_currency_amount;
     public String offers_currency_name;

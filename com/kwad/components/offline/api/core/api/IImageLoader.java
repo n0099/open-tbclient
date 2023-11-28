@@ -12,6 +12,29 @@ import java.io.InputStream;
 public interface IImageLoader {
 
     /* loaded from: classes10.dex */
+    public interface ImageLoadingListener {
+        boolean onDecode(String str, InputStream inputStream, Bitmap bitmap);
+
+        void onLoadingCancelled(String str, View view2);
+
+        void onLoadingComplete(String str, View view2, Bitmap bitmap);
+
+        void onLoadingFailed(String str, View view2, String str2, Throwable th);
+
+        void onLoadingStarted(String str, View view2);
+    }
+
+    void loadImage(ImageView imageView, @Nullable String str);
+
+    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat);
+
+    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
+
+    void loadImage(ImageView imageView, @Nullable String str, ImageLoadingListener imageLoadingListener);
+
+    void loadImage(@Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
+
+    /* loaded from: classes10.dex */
     public static final class DisplayImageOptionsCompat {
         public final int blurRadius;
         public final boolean cacheInMemory;
@@ -57,14 +80,6 @@ public interface IImageLoader {
             public boolean considerExifParams = false;
             public boolean isSyncLoading = false;
 
-            public Builder bitmapConfig(Bitmap.Config config) {
-                if (config != null) {
-                    this.decodingOptions.inPreferredConfig = config;
-                    return this;
-                }
-                throw new IllegalArgumentException("bitmapConfig can't be null");
-            }
-
             public DisplayImageOptionsCompat build() {
                 return new DisplayImageOptionsCompat(this);
             }
@@ -75,14 +90,22 @@ public interface IImageLoader {
                 return this;
             }
 
-            public Builder cacheInMemory(boolean z) {
-                this.cacheInMemory = z;
-                return this;
-            }
-
             @Deprecated
             public Builder cacheOnDisc() {
                 return cacheOnDisk(true);
+            }
+
+            public Builder bitmapConfig(Bitmap.Config config) {
+                if (config != null) {
+                    this.decodingOptions.inPreferredConfig = config;
+                    return this;
+                }
+                throw new IllegalArgumentException("bitmapConfig can't be null");
+            }
+
+            public Builder cacheInMemory(boolean z) {
+                this.cacheInMemory = z;
+                return this;
             }
 
             @Deprecated
@@ -92,30 +115,6 @@ public interface IImageLoader {
 
             public Builder cacheOnDisk(boolean z) {
                 this.cacheOnDisk = z;
-                return this;
-            }
-
-            public Builder cloneFrom(DisplayImageOptionsCompat displayImageOptionsCompat) {
-                this.imageResOnLoading = displayImageOptionsCompat.imageResOnLoading;
-                this.imageResForEmptyUri = displayImageOptionsCompat.imageResForEmptyUri;
-                this.imageResOnFail = displayImageOptionsCompat.imageResOnFail;
-                this.imageOnLoading = displayImageOptionsCompat.imageOnLoading;
-                this.imageForEmptyUri = displayImageOptionsCompat.imageForEmptyUri;
-                this.imageOnFail = displayImageOptionsCompat.imageOnFail;
-                this.resetViewBeforeLoading = displayImageOptionsCompat.resetViewBeforeLoading;
-                this.cacheInMemory = displayImageOptionsCompat.cacheInMemory;
-                this.cacheOnDisk = displayImageOptionsCompat.cacheOnDisk;
-                this.decodingOptions = displayImageOptionsCompat.decodingOptions;
-                this.delayBeforeLoading = displayImageOptionsCompat.delayBeforeLoading;
-                this.considerExifParams = displayImageOptionsCompat.considerExifParams;
-                this.isSyncLoading = displayImageOptionsCompat.isSyncLoading;
-                this.blurRadius = displayImageOptionsCompat.blurRadius;
-                this.isFrameSequence = displayImageOptionsCompat.isFrameSequence;
-                this.cornerRound = displayImageOptionsCompat.cornerRound;
-                this.isCircle = displayImageOptionsCompat.isCircle;
-                this.strokeColor = displayImageOptionsCompat.strokeColor;
-                this.strokeWidth = displayImageOptionsCompat.strokeWidth;
-                this.resources = displayImageOptionsCompat.resources;
                 return this;
             }
 
@@ -167,18 +166,8 @@ public interface IImageLoader {
                 return this;
             }
 
-            public Builder showImageForEmptyUri(Drawable drawable) {
-                this.imageForEmptyUri = drawable;
-                return this;
-            }
-
             public Builder showImageOnFail(int i) {
                 this.imageResOnFail = i;
-                return this;
-            }
-
-            public Builder showImageOnFail(Drawable drawable) {
-                this.imageOnFail = drawable;
                 return this;
             }
 
@@ -187,14 +176,48 @@ public interface IImageLoader {
                 return this;
             }
 
-            public Builder showImageOnLoading(Drawable drawable) {
-                this.imageOnLoading = drawable;
-                return this;
-            }
-
             @Deprecated
             public Builder showStubImage(int i) {
                 this.imageResOnLoading = i;
+                return this;
+            }
+
+            public Builder cloneFrom(DisplayImageOptionsCompat displayImageOptionsCompat) {
+                this.imageResOnLoading = displayImageOptionsCompat.imageResOnLoading;
+                this.imageResForEmptyUri = displayImageOptionsCompat.imageResForEmptyUri;
+                this.imageResOnFail = displayImageOptionsCompat.imageResOnFail;
+                this.imageOnLoading = displayImageOptionsCompat.imageOnLoading;
+                this.imageForEmptyUri = displayImageOptionsCompat.imageForEmptyUri;
+                this.imageOnFail = displayImageOptionsCompat.imageOnFail;
+                this.resetViewBeforeLoading = displayImageOptionsCompat.resetViewBeforeLoading;
+                this.cacheInMemory = displayImageOptionsCompat.cacheInMemory;
+                this.cacheOnDisk = displayImageOptionsCompat.cacheOnDisk;
+                this.decodingOptions = displayImageOptionsCompat.decodingOptions;
+                this.delayBeforeLoading = displayImageOptionsCompat.delayBeforeLoading;
+                this.considerExifParams = displayImageOptionsCompat.considerExifParams;
+                this.isSyncLoading = displayImageOptionsCompat.isSyncLoading;
+                this.blurRadius = displayImageOptionsCompat.blurRadius;
+                this.isFrameSequence = displayImageOptionsCompat.isFrameSequence;
+                this.cornerRound = displayImageOptionsCompat.cornerRound;
+                this.isCircle = displayImageOptionsCompat.isCircle;
+                this.strokeColor = displayImageOptionsCompat.strokeColor;
+                this.strokeWidth = displayImageOptionsCompat.strokeWidth;
+                this.resources = displayImageOptionsCompat.resources;
+                return this;
+            }
+
+            public Builder showImageForEmptyUri(Drawable drawable) {
+                this.imageForEmptyUri = drawable;
+                return this;
+            }
+
+            public Builder showImageOnFail(Drawable drawable) {
+                this.imageOnFail = drawable;
+                return this;
+            }
+
+            public Builder showImageOnLoading(Drawable drawable) {
+                this.imageOnLoading = drawable;
                 return this;
             }
         }
@@ -244,17 +267,26 @@ public interface IImageLoader {
 
         public final Drawable getImageForEmptyUri() {
             int i = this.imageResForEmptyUri;
-            return i != 0 ? this.resources.getDrawable(i) : this.imageForEmptyUri;
+            if (i != 0) {
+                return this.resources.getDrawable(i);
+            }
+            return this.imageForEmptyUri;
         }
 
         public final Drawable getImageOnFail() {
             int i = this.imageResOnFail;
-            return i != 0 ? this.resources.getDrawable(i) : this.imageOnFail;
+            if (i != 0) {
+                return this.resources.getDrawable(i);
+            }
+            return this.imageOnFail;
         }
 
         public final Drawable getImageOnLoading() {
             int i = this.imageResOnLoading;
-            return i != 0 ? this.resources.getDrawable(i) : this.imageOnLoading;
+            if (i != 0) {
+                return this.resources.getDrawable(i);
+            }
+            return this.imageOnLoading;
         }
 
         public final int getStrokeColor() {
@@ -290,40 +322,31 @@ public interface IImageLoader {
         }
 
         public final boolean shouldDelayBeforeLoading() {
-            return this.delayBeforeLoading > 0;
+            if (this.delayBeforeLoading > 0) {
+                return true;
+            }
+            return false;
         }
 
         public final boolean shouldShowImageForEmptyUri() {
-            return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
+            if (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) {
+                return false;
+            }
+            return true;
         }
 
         public final boolean shouldShowImageOnFail() {
-            return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
+            if (this.imageOnFail == null && this.imageResOnFail == 0) {
+                return false;
+            }
+            return true;
         }
 
         public final boolean shouldShowImageOnLoading() {
-            return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
+            if (this.imageOnLoading == null && this.imageResOnLoading == 0) {
+                return false;
+            }
+            return true;
         }
     }
-
-    /* loaded from: classes10.dex */
-    public interface ImageLoadingListener {
-        boolean onDecode(String str, InputStream inputStream, Bitmap bitmap);
-
-        void onLoadingCancelled(String str, View view2);
-
-        void onLoadingComplete(String str, View view2, Bitmap bitmap);
-
-        void onLoadingFailed(String str, View view2, String str2, Throwable th);
-
-        void onLoadingStarted(String str, View view2);
-    }
-
-    void loadImage(ImageView imageView, @Nullable String str);
-
-    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat);
-
-    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
-
-    void loadImage(ImageView imageView, @Nullable String str, ImageLoadingListener imageLoadingListener);
 }

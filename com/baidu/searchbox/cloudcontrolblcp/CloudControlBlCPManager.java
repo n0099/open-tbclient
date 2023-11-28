@@ -15,9 +15,9 @@ import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.tieba.j40;
-import com.baidu.tieba.o40;
+import com.baidu.tieba.k40;
 import com.baidu.tieba.p40;
+import com.baidu.tieba.q40;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,8 +33,8 @@ public class CloudControlBlCPManager {
     public static final String UBC_CLOUD_CTROL_LCP_ID = "1312";
     public static CloudControlBlCPManager mCloudControlManager;
     public String TAG = "CloudControlBlCPManager";
-    public p40 blcpResponse = new p40() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
-        @Override // com.baidu.tieba.p40
+    public q40 blcpResponse = new q40() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
+        @Override // com.baidu.tieba.q40
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             String str2;
             if (AppConfig.isDebug()) {
@@ -107,11 +107,11 @@ public class CloudControlBlCPManager {
     }
 
     public void registerConnectStateListener(Context context) {
-        this.isSmallFlow = j40.e(context);
+        this.isSmallFlow = k40.e(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(context).registerReceiver(this.iConnectListener, intentFilter);
-        if (j40.b() == 0) {
+        if (k40.b() == 0) {
             invoke();
         }
     }
@@ -153,10 +153,10 @@ public class CloudControlBlCPManager {
         if (bLCPRequest.c.length <= 0) {
             return;
         }
-        j40.d(bLCPRequest, this.blcpResponse);
-        o40 o40Var = new o40();
-        o40Var.a = 4L;
-        o40Var.b = 2L;
-        j40.d(o40Var, this.blcpResponse);
+        k40.d(bLCPRequest, this.blcpResponse);
+        p40 p40Var = new p40();
+        p40Var.a = 4L;
+        p40Var.b = 2L;
+        k40.d(p40Var, this.blcpResponse);
     }
 }

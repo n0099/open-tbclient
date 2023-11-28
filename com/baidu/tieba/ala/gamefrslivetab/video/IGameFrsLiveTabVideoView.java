@@ -14,13 +14,13 @@ public interface IGameFrsLiveTabVideoView extends WebViewLifeCycle {
 
     void hideLoadingView();
 
-    void i();
+    void l();
 
     void loadUrl(String str);
 
     void onChangeSkinType(int i);
 
-    NavigationBar u();
+    NavigationBar x();
 
-    void x(BaseFragment baseFragment);
+    void y(BaseFragment baseFragment);
 }

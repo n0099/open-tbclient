@@ -5,21 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Portrait;
+import tbclient.FrsPage.PrivateForumShareinfo;
 /* loaded from: classes7.dex */
-public class n1d extends qoc {
+public class n1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Portrait portrait) {
+    public static JSONObject b(@NonNull PrivateForumShareinfo privateForumShareinfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, portrait)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privateForumShareinfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "props_id", portrait.props_id);
-            qoc.a(jSONObject, "end_time", portrait.end_time);
-            qoc.a(jSONObject, "url", portrait.url);
+            ltc.a(jSONObject, "create_time", privateForumShareinfo.create_time);
+            ltc.a(jSONObject, "share_url", privateForumShareinfo.share_url);
+            ltc.a(jSONObject, "manager_user_name", privateForumShareinfo.manager_user_name);
+            ltc.a(jSONObject, "manager_portrait", privateForumShareinfo.manager_portrait);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

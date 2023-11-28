@@ -7,7 +7,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsFullScreenVideoAd {
+public interface KsFullScreenVideoAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -60,7 +60,12 @@ public interface KsFullScreenVideoAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 
     @KsAdSdkApi
     @Keep

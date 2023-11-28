@@ -4,14 +4,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardSingleLinkView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.feed.component.BrowseLocationView;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bc7 extends ja7<CardSingleLinkView, g47> {
+public class bc7 extends wa7<BrowseLocationView, BrowseLocationUiState> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +37,27 @@ public class bc7 extends ja7<CardSingleLinkView, g47> {
         }
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            sc7.j(a);
+            fd7.h(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.mb7
     /* renamed from: e */
-    public void b(@NonNull CardSingleLinkView cardSingleLinkView, @NonNull g47 g47Var) {
+    public void b(@NonNull BrowseLocationView browseLocationView, @NonNull BrowseLocationUiState browseLocationUiState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardSingleLinkView, g47Var) == null) {
-            cardSingleLinkView.a(g47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, browseLocationView, browseLocationUiState) == null) {
+            am6.b().a(new StatisticItem("c11272"));
+            browseLocationView.c(browseLocationUiState);
         }
     }
 }

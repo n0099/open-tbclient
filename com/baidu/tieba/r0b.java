@@ -1,42 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class r0b {
+public class r0b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final fza b;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r0b(MainTabActivity mainTabActivity, fza fzaVar) {
+        super(2921348);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, fzaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeI.intValue;
+        this.a = mainTabActivity;
+        this.b = fzaVar;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        fza fzaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                if (declaredField != null) {
-                    declaredField.set(layoutParams, Integer.valueOf(i));
-                    window.setAttributes(layoutParams);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e2) {
-                e2.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (fzaVar = this.b) != null && fzaVar.A() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.A().getTabWrapper().animate().translationY(this.b.A().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.A().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
             }
         }
     }

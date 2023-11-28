@@ -24,31 +24,31 @@ public class di implements LoggerInterface {
     public static volatile di a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f226a;
+    public Context f222a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f227a;
+    public Handler f223a;
     public String b;
     public String c = "";
 
     /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f224a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    public static final SimpleDateFormat f220a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f223a = "/MiPushLog";
+    public static String f219a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f225a = Collections.synchronizedList(new ArrayList());
+    public static List<Pair<String, Throwable>> f221a = Collections.synchronizedList(new ArrayList());
 
     public di(Context context) {
-        this.f226a = context;
+        this.f222a = context;
         if (context.getApplicationContext() != null) {
-            this.f226a = context.getApplicationContext();
+            this.f222a = context.getApplicationContext();
         }
-        this.b = this.f226a.getPackageName() + "-" + Process.myPid();
+        this.b = this.f222a.getPackageName() + "-" + Process.myPid();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f227a = new Handler(handlerThread.getLooper());
+        this.f223a = new Handler(handlerThread.getLooper());
     }
 
     public static di a(Context context) {
@@ -65,7 +65,7 @@ public class di implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:108:0x017f). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m367a() {
+    public void m371a() {
         RandomAccessFile randomAccessFile;
         FileLock fileLock;
         File file;
@@ -74,10 +74,10 @@ public class di implements LoggerInterface {
         try {
             try {
                 try {
-                    if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f226a.getExternalFilesDir(null)) != null) {
+                    if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f222a.getExternalFilesDir(null)) != null) {
                         this.c = externalFilesDir.getAbsolutePath() + "";
                     }
-                    file = new File(this.c + f223a);
+                    file = new File(this.c + f219a);
                 } catch (IOException e) {
                     Log.e(this.b, "", e);
                 }
@@ -103,9 +103,9 @@ public class di implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f225a.isEmpty()) {
+                    while (!f221a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f225a.remove(0);
+                            Pair<String, Throwable> remove = f221a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -207,7 +207,7 @@ public class di implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        this.f227a.post(new dj(this, str, th));
+        this.f223a.post(new dj(this, str, th));
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface

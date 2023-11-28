@@ -162,7 +162,7 @@ public class b {
                         Key key = keyStore.getKey("CMCC_SDK_V1", null);
                         if (key instanceof SecretKey) {
                             c.b("KeystoreUtil", "随机生成aes秘钥");
-                            cipher2 = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                            cipher2 = Cipher.getInstance(com.kuaishou.weapon.p0.b.f);
                             cipher2.init(1, key, new IvParameterSpec(a));
                         } else if (!(key instanceof PrivateKey)) {
                             return null;
@@ -187,7 +187,7 @@ public class b {
                             return null;
                         }
                         if (key2 instanceof SecretKey) {
-                            cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                            cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.f);
                             cipher.init(2, key2, new IvParameterSpec(a));
                             c.b("KeystoreUtil", "使用aes");
                         } else if (!(key2 instanceof PrivateKey)) {

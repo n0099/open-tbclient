@@ -6,6 +6,7 @@ import android.graphics.Matrix;
 import android.media.ExifInterface;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
+import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
@@ -53,16 +54,43 @@ public class BaseImageDecoder implements ImageDecoder {
         this.loggingEnabled = z;
     }
 
+    public InputStream getImageStream(ImageDecodingInfo imageDecodingInfo) {
+        return imageDecodingInfo.getDownloader().getStream(imageDecodingInfo.getImageUri(), imageDecodingInfo.getExtraForDownloader());
+    }
+
     private boolean canDefineExifParams(String str, String str2) {
-        return "image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
+        if ("image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE) {
+            return true;
+        }
+        return false;
+    }
+
+    public InputStream resetStream(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
+        if (inputStream.markSupported()) {
+            try {
+                inputStream.reset();
+                return inputStream;
+            } catch (IOException unused) {
+            }
+        }
+        b.closeQuietly(inputStream);
+        return getImageStream(imageDecodingInfo);
     }
 
     public Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i, boolean z) {
+        boolean z2;
         Matrix matrix = new Matrix();
         ImageScaleType imageScaleType = imageDecodingInfo.getImageScaleType();
         if (imageScaleType == ImageScaleType.EXACTLY || imageScaleType == ImageScaleType.EXACTLY_STRETCHED) {
             ImageSize imageSize = new ImageSize(bitmap.getWidth(), bitmap.getHeight(), i);
-            float computeImageScale = ImageSizeUtils.computeImageScale(imageSize, imageDecodingInfo.getTargetSize(), imageDecodingInfo.getViewScaleType(), imageScaleType == ImageScaleType.EXACTLY_STRETCHED);
+            ImageSize targetSize = imageDecodingInfo.getTargetSize();
+            ViewScaleType viewScaleType = imageDecodingInfo.getViewScaleType();
+            if (imageScaleType == ImageScaleType.EXACTLY_STRETCHED) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            float computeImageScale = ImageSizeUtils.computeImageScale(imageSize, targetSize, viewScaleType, z2);
             if (Float.compare(computeImageScale, 1.0f) != 0) {
                 matrix.setScale(computeImageScale, computeImageScale);
                 if (this.loggingEnabled) {
@@ -98,19 +126,19 @@ public class BaseImageDecoder implements ImageDecoder {
             return null;
         }
         try {
-            if (imageDecodingInfo.getLoadListener() == null || !imageDecodingInfo.getLoadListener().onDecode(imageDecodingInfo.getImageUri(), imageStream, decodedResult)) {
-                ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
-                imageStream = resetStream(imageStream, imageDecodingInfo);
-                decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
-                b.closeQuietly(imageStream);
-                if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
-                    L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
-                } else {
-                    Bitmap bitmap = decodedResult.mBitmap;
-                    ExifInfo exifInfo = defineImageSizeAndRotation.exif;
-                    decodedResult.mBitmap = considerExactScaleAndOrientatiton(bitmap, imageDecodingInfo, exifInfo.rotation, exifInfo.flipHorizontal);
-                }
+            if (imageDecodingInfo.getLoadListener() != null && imageDecodingInfo.getLoadListener().onDecode(imageDecodingInfo.getImageUri(), imageStream, decodedResult)) {
                 return decodedResult;
+            }
+            ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
+            imageStream = resetStream(imageStream, imageDecodingInfo);
+            decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
+            b.closeQuietly(imageStream);
+            if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
+                L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
+            } else {
+                Bitmap bitmap = decodedResult.mBitmap;
+                ExifInfo exifInfo = defineImageSizeAndRotation.exif;
+                decodedResult.mBitmap = considerExactScaleAndOrientatiton(bitmap, imageDecodingInfo, exifInfo.rotation, exifInfo.flipHorizontal);
             }
             return decodedResult;
         } finally {
@@ -174,19 +202,21 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     public ImageFileInfo defineImageSizeAndRotation(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
+        ExifInfo exifInfo;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(inputStream, null, options);
         String imageUri = imageDecodingInfo.getImageUri();
-        ExifInfo defineExifOrientation = (imageDecodingInfo.shouldConsiderExifParams() && canDefineExifParams(imageUri, options.outMimeType)) ? defineExifOrientation(imageUri) : new ExifInfo();
-        return new ImageFileInfo(new ImageSize(options.outWidth, options.outHeight, defineExifOrientation.rotation), defineExifOrientation);
-    }
-
-    public InputStream getImageStream(ImageDecodingInfo imageDecodingInfo) {
-        return imageDecodingInfo.getDownloader().getStream(imageDecodingInfo.getImageUri(), imageDecodingInfo.getExtraForDownloader());
+        if (imageDecodingInfo.shouldConsiderExifParams() && canDefineExifParams(imageUri, options.outMimeType)) {
+            exifInfo = defineExifOrientation(imageUri);
+        } else {
+            exifInfo = new ExifInfo();
+        }
+        return new ImageFileInfo(new ImageSize(options.outWidth, options.outHeight, exifInfo.rotation), exifInfo);
     }
 
     public BitmapFactory.Options prepareDecodingOptions(ImageSize imageSize, ImageDecodingInfo imageDecodingInfo) {
+        boolean z;
         int computeImageSampleSize;
         ImageScaleType imageScaleType = imageDecodingInfo.getImageScaleType();
         if (imageScaleType == ImageScaleType.NONE) {
@@ -194,7 +224,13 @@ public class BaseImageDecoder implements ImageDecoder {
         } else if (imageScaleType == ImageScaleType.NONE_SAFE) {
             computeImageSampleSize = ImageSizeUtils.computeMinImageSampleSize(imageSize);
         } else {
-            computeImageSampleSize = ImageSizeUtils.computeImageSampleSize(imageSize, imageDecodingInfo.getTargetSize(), imageDecodingInfo.getViewScaleType(), imageScaleType == ImageScaleType.IN_SAMPLE_POWER_OF_2);
+            ImageSize targetSize = imageDecodingInfo.getTargetSize();
+            if (imageScaleType == ImageScaleType.IN_SAMPLE_POWER_OF_2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            computeImageSampleSize = ImageSizeUtils.computeImageSampleSize(imageSize, targetSize, imageDecodingInfo.getViewScaleType(), z);
         }
         if (computeImageSampleSize > 1 && this.loggingEnabled) {
             L.d(LOG_SUBSAMPLE_IMAGE, imageSize, imageSize.scaleDown(computeImageSampleSize), Integer.valueOf(computeImageSampleSize), imageDecodingInfo.getImageKey());
@@ -202,17 +238,5 @@ public class BaseImageDecoder implements ImageDecoder {
         BitmapFactory.Options decodingOptions = imageDecodingInfo.getDecodingOptions();
         decodingOptions.inSampleSize = computeImageSampleSize;
         return decodingOptions;
-    }
-
-    public InputStream resetStream(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
-        if (inputStream.markSupported()) {
-            try {
-                inputStream.reset();
-                return inputStream;
-            } catch (IOException unused) {
-            }
-        }
-        b.closeQuietly(inputStream);
-        return getImageStream(imageDecodingInfo);
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.j40;
-import com.baidu.tieba.mub;
-import com.baidu.tieba.qf1;
-import com.baidu.tieba.tw;
-import com.baidu.tieba.uf1;
+import com.baidu.tieba.izb;
+import com.baidu.tieba.k40;
+import com.baidu.tieba.rf1;
+import com.baidu.tieba.uw;
+import com.baidu.tieba.vf1;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            j40.a(this.mApp, str, tw.a().getDeviceId(), 1);
+            k40.a(this.mApp, str, uw.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        mub mubVar;
-        if (z && (mubVar = (mub) ServiceManager.getService(mub.a)) != null) {
-            mubVar.retry();
+        izb izbVar;
+        if (z && (izbVar = (izb) ServiceManager.getService(izb.a)) != null) {
+            izbVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            uf1.b(application);
-            if (qf1.g()) {
+            vf1.b(application);
+            if (rf1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!qf1.g()) {
+        if (!rf1.g()) {
             return;
         }
         if (z) {

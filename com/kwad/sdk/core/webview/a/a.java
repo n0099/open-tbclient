@@ -1,109 +1,45 @@
 package com.kwad.sdk.core.webview.a;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.ksad.json.annotation.KsJson;
-import com.kwad.components.offline.api.BuildConfig;
-import com.kwad.sdk.components.c;
-import com.kwad.sdk.components.f;
-import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.service.kwai.d;
-import com.kwad.sdk.utils.ae;
-import com.kwad.sdk.utils.ar;
-import com.kwad.sdk.utils.az;
-import com.kwad.sdk.utils.j;
-import com.kwad.sdk.utils.w;
+import android.annotation.TargetApi;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import com.kwad.sdk.core.config.d;
 /* loaded from: classes10.dex */
-public final class a implements com.kwad.sdk.core.webview.kwai.a {
+public class a extends WebViewClient {
+    public boolean aCU = true;
+    public String mUniqueId = "";
 
-    @KsJson
-    /* renamed from: com.kwad.sdk.core.webview.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C0668a extends com.kwad.sdk.core.response.kwai.a {
-        public String LF;
-        public int LG;
-        public String LH;
-        public int LI;
-        public int LJ;
-        public String LK;
-        public String LL;
-        public String LM;
-        public int LN;
-        public String LO;
-        public int LP;
-        public String LQ;
-        public String LR;
-        public int LS;
-        public int LT;
-        public int LU;
-        public int LV;
-        public String VB;
-        public String VC;
-        public String abe;
-        public String acA;
-        public String acB;
-        public String acO;
-        public String acv;
-        public String agm;
-        public String agn;
-        public String appId;
-        public String appName;
-        public String appVersion;
-        public String model;
+    public final void setNeedHybridLoad(boolean z) {
+        this.aCU = z;
+    }
 
-        public static C0668a wi() {
-            C0668a c0668a = new C0668a();
-            c0668a.LF = BuildConfig.VERSION_NAME;
-            c0668a.LG = BuildConfig.VERSION_CODE;
-            c0668a.abe = "4.0.2";
-            c0668a.LH = ((d) ServiceProvider.get(d.class)).getApiVersion();
-            c0668a.LI = ((d) ServiceProvider.get(d.class)).getApiVersionCode();
-            c0668a.LJ = 1;
-            Context context = ((d) ServiceProvider.get(d.class)).getContext();
-            c0668a.appVersion = j.cb(context);
-            c0668a.appName = ((d) ServiceProvider.get(d.class)).getAppName();
-            c0668a.appId = ((d) ServiceProvider.get(d.class)).getAppId();
-            c0668a.agm = "";
-            c0668a.acB = w.zE();
-            f fVar = (f) c.f(f.class);
-            if (fVar != null) {
-                c0668a.acA = fVar.nb();
+    @Override // android.webkit.WebViewClient
+    @TargetApi(21)
+    public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
+        if (this.aCU && d.AZ()) {
+            String uri = webResourceRequest.getUrl().toString();
+            com.kwad.sdk.core.e.c.d("HybridWebViewClient", "shouldInterceptRequestAPI 21: " + uri);
+            WebResourceResponse Y = com.kwad.sdk.core.webview.b.a.FM().Y(uri, this.mUniqueId);
+            if (Y == null) {
+                return super.shouldInterceptRequest(webView, webResourceRequest);
             }
-            c0668a.LK = String.valueOf(ae.cw(context));
-            c0668a.LL = az.AN();
-            c0668a.model = az.AE();
-            c0668a.LM = az.AG();
-            c0668a.LN = 1;
-            c0668a.LO = az.getOsVersion();
-            c0668a.LP = az.AQ();
-            c0668a.LQ = az.getLanguage();
-            c0668a.LR = az.getLocale();
-            c0668a.agn = ar.getDeviceId();
-            c0668a.LS = az.getScreenWidth(context);
-            c0668a.LT = az.getScreenHeight(context);
-            c0668a.VB = ar.cI(context);
-            c0668a.VC = ar.getOaid();
-            c0668a.acv = ar.cJ(context);
-            c0668a.acO = ar.cK(context);
-            c0668a.LU = com.kwad.sdk.b.kwai.a.aH(context);
-            c0668a.LV = com.kwad.sdk.b.kwai.a.a(context, 50.0f);
-            return c0668a;
+            return Y;
         }
+        return super.shouldInterceptRequest(webView, webResourceRequest);
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        cVar.a(C0668a.wi());
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String getKey() {
-        return CommonTbJsBridge.GET_DEVICE_INFO;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void onDestroy() {
+    @Override // android.webkit.WebViewClient
+    public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+        if (this.aCU && d.AZ()) {
+            com.kwad.sdk.core.e.c.d("HybridWebViewClient", "shouldInterceptRequest: " + str);
+            WebResourceResponse Y = com.kwad.sdk.core.webview.b.a.FM().Y(str, this.mUniqueId);
+            if (Y == null) {
+                return super.shouldInterceptRequest(webView, str);
+            }
+            return Y;
+        }
+        return super.shouldInterceptRequest(webView, str);
     }
 }

@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dx5 implements ax5 {
+public class dx5 implements qb<yw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public double c;
-    public boolean d;
 
-    @Override // com.baidu.tieba.ax5
-    public int b(int i) {
-        InterceptResult invokeI;
+    public yw5 e(yw5 yw5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return 1;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yw5Var)) == null) ? yw5Var : (yw5) invokeL.objValue;
+    }
+
+    public yw5 i(yw5 yw5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yw5Var)) == null) ? yw5Var : (yw5) invokeL.objValue;
     }
 
     public dx5(int i) {
@@ -45,87 +39,62 @@ public class dx5 implements ax5 {
                 return;
             }
         }
-        this.a = 3;
-        this.b = 3;
-        this.d = true;
-        if (i > 0) {
-            this.b = i;
+        this.a = i;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.qb
+    public /* bridge */ /* synthetic */ yw5 a(yw5 yw5Var) {
+        yw5 yw5Var2 = yw5Var;
+        e(yw5Var2);
+        return yw5Var2;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.qb
+    public /* bridge */ /* synthetic */ yw5 c(yw5 yw5Var) {
+        yw5 yw5Var2 = yw5Var;
+        i(yw5Var2);
+        return yw5Var2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qb
+    /* renamed from: f */
+    public void b(yw5 yw5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, yw5Var) == null) && yw5Var != null && yw5Var.b() != null) {
+            yw5Var.b().recycle();
         }
     }
 
-    @Override // com.baidu.tieba.ax5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return i2;
-            }
-            return e(constrainImageLayout, list, i2);
-        }
-        return invokeLLII.intValue;
-    }
-
-    public final double c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            TbadkCoreApplication.getInst();
-            if (i == 1) {
-                return 0.5625d;
-            }
-            double d = this.c;
-            if (d > 0.0d) {
-                return d;
-            }
-            return 0.6666666666666666d;
-        }
-        return invokeI.doubleValue;
-    }
-
-    public void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.c = d;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        int i2;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                if (count >= 2) {
-                    constrainImageLayout.setImageMaxChildCount(this.a);
-                    constrainImageLayout.setCanCenterStart(false);
-                } else {
-                    constrainImageLayout.setImageMaxChildCount(-1);
-                    constrainImageLayout.setCanCenterStart(true);
-                }
-                int i3 = this.b;
-                int i4 = count - i3;
-                String str = null;
-                if (i4 > 0) {
-                    i2 = i3 + i;
-                    List<MediaData> subList = ListUtils.subList(list, i, i2);
-                    String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i4)});
-                    if (this.d) {
-                        str = string;
-                    }
-                    constrainImageLayout.setExtraCenterText(str);
-                    constrainImageLayout.setUrls(subList, i, true, this.d);
-                } else {
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
-                    constrainImageLayout.setExtraCenterText(null);
-                    i2 = count;
-                }
-                constrainImageLayout.setSingleImageRatio(c(count));
-                return i2;
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
-        return invokeLLI.intValue;
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qb
+    /* renamed from: h */
+    public yw5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new yw5(this.a);
+        }
+        return (yw5) invokeV.objValue;
     }
 }

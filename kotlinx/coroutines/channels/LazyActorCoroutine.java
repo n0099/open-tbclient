@@ -51,9 +51,9 @@ public final class LazyActorCoroutine<E> extends ActorCoroutine<E> implements Se
 
     @Override // kotlinx.coroutines.channels.ChannelCoroutine, kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo2304trySendJP2dKIU(E e) {
+    public Object mo2308trySendJP2dKIU(E e) {
         start();
-        return super.mo2304trySendJP2dKIU(e);
+        return super.mo2308trySendJP2dKIU(e);
     }
 
     @Override // kotlinx.coroutines.JobSupport

@@ -4,43 +4,42 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class k extends b<String> {
-    public boolean VF;
-
-    public k(String str, String str2) {
-        super(str, str2);
-        this.VF = false;
+public final class k extends a<Integer> {
+    public k(String str, Integer num) {
+        super(str, num);
     }
 
-    public k(String str, String str2, boolean z) {
-        this(str, str2);
-        this.VF = false;
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences sharedPreferences) {
-        if (this.VF) {
-            setValue(sharedPreferences.getString(getKey(), sx()));
+    public final boolean BC() {
+        if (getValue().intValue() == 1) {
+            return true;
         }
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void b(@NonNull SharedPreferences.Editor editor) {
-        if (this.VF) {
-            editor.putString(getKey(), getValue());
-        }
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        setValue((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) ? sx() : optJSONObject.toString());
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
     @NonNull
-    public final String getValue() {
-        return (String) super.getValue();
+    /* renamed from: BD */
+    public final Integer getValue() {
+        return (Integer) super.getValue();
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        setValue(Integer.valueOf(sharedPreferences.getInt(getKey(), Bx().intValue())));
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putInt(getKey(), getValue().intValue());
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void j(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            setValue(Integer.valueOf(jSONObject.optInt(getKey(), Bx().intValue())));
+        } else {
+            setValue(Bx());
+        }
     }
 }

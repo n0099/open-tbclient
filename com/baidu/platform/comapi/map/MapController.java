@@ -92,7 +92,7 @@ public class MapController {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1053T;
+    public boolean f1049T;
     public boolean U;
     public boolean V;
     public long X;
@@ -1639,7 +1639,7 @@ public class MapController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
-            return this.f1053T;
+            return this.f1049T;
         }
         return invokeV.booleanValue;
     }
@@ -1787,7 +1787,7 @@ public class MapController {
         this.P = false;
         this.Q = false;
         this.S = true;
-        this.f1053T = true;
+        this.f1049T = true;
         this.U = true;
         this.V = true;
         this.mIsInertialAnimation = true;
@@ -2556,7 +2556,7 @@ public class MapController {
     public void setOverlookGestureEnable(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048721, this, z2) == null) {
-            this.f1053T = z2;
+            this.f1049T = z2;
         }
     }
 

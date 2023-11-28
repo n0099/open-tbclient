@@ -192,8 +192,8 @@ public final class FlowKt {
     }
 
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m2327catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m2334catch(flow, function3);
+    public static final <T> Flow<T> m2331catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m2338catch(flow, function3);
     }
 
     public static final Object collect(Flow<?> flow, Continuation<? super Unit> continuation) {
@@ -226,8 +226,8 @@ public final class FlowKt {
 
     @FlowPreview
     /* renamed from: debounce-HG0u8IE  reason: not valid java name */
-    public static final <T> Flow<T> m2328debounceHG0u8IE(Flow<? extends T> flow, long j) {
-        return FlowKt__DelayKt.m2330debounceHG0u8IE(flow, j);
+    public static final <T> Flow<T> m2332debounceHG0u8IE(Flow<? extends T> flow, long j) {
+        return FlowKt__DelayKt.m2334debounceHG0u8IE(flow, j);
     }
 
     @FlowPreview
@@ -408,8 +408,8 @@ public final class FlowKt {
 
     @FlowPreview
     /* renamed from: sample-HG0u8IE  reason: not valid java name */
-    public static final <T> Flow<T> m2329sampleHG0u8IE(Flow<? extends T> flow, long j) {
-        return FlowKt__DelayKt.m2331sampleHG0u8IE(flow, j);
+    public static final <T> Flow<T> m2333sampleHG0u8IE(Flow<? extends T> flow, long j) {
+        return FlowKt__DelayKt.m2335sampleHG0u8IE(flow, j);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "'scanReduce' was renamed to 'runningReduce' to be consistent with Kotlin standard library", replaceWith = @ReplaceWith(expression = "runningReduce(operation)", imports = {}))

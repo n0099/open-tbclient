@@ -4,38 +4,56 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.VideoImageColor;
+import tbclient.ComponentFactory;
+import tbclient.FeedFeedback;
+import tbclient.FeedKV;
+import tbclient.FeedLayout;
 /* loaded from: classes8.dex */
-public class txc extends qoc {
+public class txc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static VideoImageColor b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull FeedLayout feedLayout) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            VideoImageColor.Builder builder = new VideoImageColor.Builder();
-            if (jSONObject.has("time")) {
-                builder.time = Integer.valueOf(jSONObject.optInt("time"));
-            }
-            if (jSONObject.has("color")) {
-                builder.color = jSONObject.optString("color");
-            }
-            return builder.build(true);
-        }
-        return (VideoImageColor) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull VideoImageColor videoImageColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoImageColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLayout)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "time", videoImageColor.time);
-            qoc.a(jSONObject, "color", videoImageColor.color);
+            if (feedLayout.components != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ComponentFactory componentFactory : feedLayout.components) {
+                    jSONArray.put(cwc.b(componentFactory));
+                }
+                ltc.a(jSONObject, "components", jSONArray);
+            }
+            ltc.a(jSONObject, "schema", feedLayout.schema);
+            if (feedLayout.log_info != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (FeedKV feedKV : feedLayout.log_info) {
+                    jSONArray2.put(sxc.b(feedKV));
+                }
+                ltc.a(jSONObject, "log_info", jSONArray2);
+            }
+            FeedFeedback feedFeedback = feedLayout.feedback;
+            if (feedFeedback != null) {
+                ltc.a(jSONObject, "feedback", hxc.b(feedFeedback));
+            }
+            if (feedLayout.business_info != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (FeedKV feedKV2 : feedLayout.business_info) {
+                    jSONArray3.put(sxc.b(feedKV2));
+                }
+                ltc.a(jSONObject, "business_info", jSONArray3);
+            }
+            if (feedLayout.appendix != null) {
+                JSONArray jSONArray4 = new JSONArray();
+                for (FeedKV feedKV3 : feedLayout.appendix) {
+                    jSONArray4.put(sxc.b(feedKV3));
+                }
+                ltc.a(jSONObject, "appendix", jSONArray4);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

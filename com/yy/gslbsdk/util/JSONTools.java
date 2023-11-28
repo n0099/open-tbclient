@@ -3,7 +3,7 @@ package com.yy.gslbsdk.util;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JSONTools {
     public static void doFill(StringBuilder sb, int i, String str) {
         sb.append("\n");

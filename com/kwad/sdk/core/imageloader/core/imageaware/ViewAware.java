@@ -16,65 +16,12 @@ public abstract class ViewAware implements ImageAware {
     public boolean checkActualViewSize;
     public Reference<View> viewRef;
 
+    public abstract void setImageBitmapInto(Bitmap bitmap, View view2);
+
+    public abstract void setImageDrawableInto(Drawable drawable, View view2);
+
     public ViewAware(View view2) {
         this(view2, true);
-    }
-
-    public ViewAware(View view2, boolean z) {
-        if (view2 == null) {
-            throw new IllegalArgumentException("view must not be null");
-        }
-        this.viewRef = new WeakReference(view2);
-        this.checkActualViewSize = z;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public int getHeight() {
-        View view2 = this.viewRef.get();
-        int i = 0;
-        if (view2 != null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (this.checkActualViewSize && layoutParams != null && layoutParams.height != -2) {
-                i = view2.getHeight();
-            }
-            return (i > 0 || layoutParams == null) ? i : layoutParams.height;
-        }
-        return 0;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public int getId() {
-        View view2 = this.viewRef.get();
-        return view2 == null ? super.hashCode() : view2.hashCode();
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public ViewScaleType getScaleType() {
-        return ViewScaleType.CROP;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public int getWidth() {
-        View view2 = this.viewRef.get();
-        int i = 0;
-        if (view2 != null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (this.checkActualViewSize && layoutParams != null && layoutParams.width != -2) {
-                i = view2.getWidth();
-            }
-            return (i > 0 || layoutParams == null) ? i : layoutParams.width;
-        }
-        return 0;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public View getWrappedView() {
-        return this.viewRef.get();
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
-    public boolean isCollected() {
-        return this.viewRef.get() == null;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
@@ -91,8 +38,6 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    public abstract void setImageBitmapInto(Bitmap bitmap, View view2);
-
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public boolean setImageDrawable(Drawable drawable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -107,5 +52,73 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    public abstract void setImageDrawableInto(Drawable drawable, View view2);
+    public ViewAware(View view2, boolean z) {
+        if (view2 != null) {
+            this.viewRef = new WeakReference(view2);
+            this.checkActualViewSize = z;
+            return;
+        }
+        throw new IllegalArgumentException("view must not be null");
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public int getHeight() {
+        View view2 = this.viewRef.get();
+        int i = 0;
+        if (view2 == null) {
+            return 0;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (this.checkActualViewSize && layoutParams != null && layoutParams.height != -2) {
+            i = view2.getHeight();
+        }
+        if (i <= 0 && layoutParams != null) {
+            return layoutParams.height;
+        }
+        return i;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public int getId() {
+        View view2 = this.viewRef.get();
+        if (view2 == null) {
+            return super.hashCode();
+        }
+        return view2.hashCode();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public ViewScaleType getScaleType() {
+        return ViewScaleType.CROP;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public int getWidth() {
+        View view2 = this.viewRef.get();
+        int i = 0;
+        if (view2 == null) {
+            return 0;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (this.checkActualViewSize && layoutParams != null && layoutParams.width != -2) {
+            i = view2.getWidth();
+        }
+        if (i <= 0 && layoutParams != null) {
+            return layoutParams.width;
+        }
+        return i;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public View getWrappedView() {
+        return this.viewRef.get();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
+    public boolean isCollected() {
+        if (this.viewRef.get() == null) {
+            return true;
+        }
+        return false;
+    }
 }

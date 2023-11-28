@@ -1,13 +1,25 @@
 package com.kwad.sdk;
 /* loaded from: classes10.dex */
-public final class a {
-    public static final a QM = new a(10000, "其他异常");
-    public static final a QN = new a(10001, "初始化参数异常");
-    public String Qd;
-    public int code;
+public abstract class a {
+    public int mTaskId;
 
-    public a(int i, String str) {
-        this.code = i;
-        this.Qd = str;
+    public abstract void a(DownloadTask downloadTask);
+
+    public abstract void a(DownloadTask downloadTask, int i, int i2);
+
+    public abstract void a(DownloadTask downloadTask, Throwable th);
+
+    public abstract void b(DownloadTask downloadTask);
+
+    public abstract void c(DownloadTask downloadTask);
+
+    public abstract void d(DownloadTask downloadTask);
+
+    public abstract void e(DownloadTask downloadTask);
+
+    public abstract void f(DownloadTask downloadTask);
+
+    public final void setId(int i) {
+        this.mTaskId = i;
     }
 }

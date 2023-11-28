@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsJson
 /* loaded from: classes10.dex */
-public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class AdStyleInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static final long serialVersionUID = 8719785586052076737L;
     public String playableExtraData;
     public boolean slideClick;
@@ -18,27 +18,28 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class AdBrowseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class AdBrowseInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = 124904139820344132L;
         public int adBrowseDuration;
         public int enableAdBrowse;
+        public String rewardDescription;
     }
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class ExposeTagInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class ExposeTagInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public String text;
     }
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class ExtraDisplayInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class ExtraDisplayInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public List<ExposeTagInfo> exposeTagInfoList;
     }
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class FeedAdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class FeedAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = -7200581738130214277L;
         public double heightRatio;
         public String templateConfig;
@@ -46,7 +47,40 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static class PlayDetailInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static class PlayEndInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+        public static final long serialVersionUID = 4733855071604625289L;
+        @NonNull
+        public AdWebCardInfo adWebCardInfo = new AdWebCardInfo();
+        @NonNull
+        public EndTopToolBarInfo endTopToolBarInfo = new EndTopToolBarInfo();
+        public int showLandingPage3;
+        public int type;
+
+        @KsJson
+        /* loaded from: classes10.dex */
+        public static class AdWebCardInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+            public static final long serialVersionUID = 5629721137592788675L;
+            public String cardData;
+            public long cardDelayTime;
+            public int cardShowPlayCount;
+            public long cardShowTime;
+            public String cardUrl;
+            public long typeLandscape;
+            public long typePortrait;
+        }
+
+        @KsJson
+        /* loaded from: classes10.dex */
+        public static class EndTopToolBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+            public static final long serialVersionUID = -3850938239125130621L;
+            public String callButtonDescription;
+            public String rewardIconUrl;
+        }
+    }
+
+    @KsJson
+    /* loaded from: classes10.dex */
+    public static class PlayDetailInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = -1341583579732471663L;
         public int type;
         public DetailWebCardInfo detailWebCardInfo = new DetailWebCardInfo();
@@ -58,8 +92,8 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class ActionBarInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-            public static final long serialVersionUID = 8435676971458116236L;
+        public static class ActionBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+            public static final long serialVersionUID = -5427865686247250271L;
             public long cardShowTime;
             public long lightBtnShowTime;
             public long translateBtnShowTime;
@@ -67,7 +101,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class DetailCommonInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class DetailCommonInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = 7929119539282758308L;
             public int middleEndcardShowTime;
             public int rewardFullClickSwitch;
@@ -76,7 +110,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class DetailTopToolBarInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class DetailTopToolBarInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = 7018855616083214769L;
             public String callButtonDescription;
             public long callButtonShowTime;
@@ -88,7 +122,7 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class DetailWebCardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class DetailWebCardInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = -3413444348973947395L;
             public String cardData;
             public long cardShowTime;
@@ -102,14 +136,14 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class DrawAdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class DrawAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = -793446066208523006L;
             public boolean forcedWatch;
         }
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class PatchAdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class PatchAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = 2983090319692390903L;
             public String strongStyleAdMark;
             public long strongStyleAppearTime;
@@ -126,6 +160,19 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
             public String weakStyleIcon;
             public long weakStyleShowTime;
             public String weakStyleTitle;
+        }
+
+        @KsJson
+        /* loaded from: classes10.dex */
+        public static class WidgetAdInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+            public static final long serialVersionUID = -7098364163341152274L;
+            public String downloadOngoingLabel;
+            public String downloadResumeLabel;
+            public String downloadStartLabel;
+            public String installAppLabel;
+            public String openAppLabel;
+            public int type;
+            public String widgetAdIcon;
         }
 
         @KsJson
@@ -181,52 +228,6 @@ public class AdStyleInfo extends com.kwad.sdk.core.response.kwai.a implements Se
             public String getStrongStyleUserCommAmountSharing() {
                 return this.strongStyleUserCommAmountSharing;
             }
-        }
-
-        @KsJson
-        /* loaded from: classes10.dex */
-        public static class WidgetAdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-            public static final long serialVersionUID = -7098364163341152274L;
-            public String downloadOngoingLabel;
-            public String downloadResumeLabel;
-            public String downloadStartLabel;
-            public String installAppLabel;
-            public String openAppLabel;
-            public int type;
-            public String widgetAdIcon;
-        }
-    }
-
-    @KsJson
-    /* loaded from: classes10.dex */
-    public static class PlayEndInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = 4733855071604625289L;
-        @NonNull
-        public AdWebCardInfo adWebCardInfo = new AdWebCardInfo();
-        @NonNull
-        public EndTopToolBarInfo endTopToolBarInfo = new EndTopToolBarInfo();
-        public int showLandingPage3;
-        public int type;
-
-        @KsJson
-        /* loaded from: classes10.dex */
-        public static class AdWebCardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-            public static final long serialVersionUID = 5629721137592788675L;
-            public String cardData;
-            public long cardDelayTime;
-            public int cardShowPlayCount;
-            public long cardShowTime;
-            public String cardUrl;
-            public long typeLandscape;
-            public long typePortrait;
-        }
-
-        @KsJson
-        /* loaded from: classes10.dex */
-        public static class EndTopToolBarInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-            public static final long serialVersionUID = -3850938239125130621L;
-            public String callButtonDescription;
-            public String rewardIconUrl;
         }
     }
 }

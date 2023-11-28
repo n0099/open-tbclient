@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.LayoutInflater;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,99 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tk4 {
+public class tk4<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(LayoutInflater layoutInflater, xk4 xk4Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tk4.a
-        public void a(LayoutInflater layoutInflater, xk4 xk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, xk4Var) == null) {
-                uk4.a(layoutInflater, xk4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tk4.b, com.baidu.tieba.tk4.a
-        public void a(LayoutInflater layoutInflater, xk4 xk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, xk4Var) == null) {
-                vk4.b(layoutInflater, xk4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tk4.c, com.baidu.tieba.tk4.b, com.baidu.tieba.tk4.a
-        public void a(LayoutInflater layoutInflater, xk4 xk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, xk4Var) == null) {
-                wk4.a(layoutInflater, xk4Var);
-            }
-        }
-    }
+    public boolean a;
+    public int[] b;
+    public Object[] c;
+    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -117,20 +32,175 @@ public class tk4 {
                 return;
             }
         }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            a = new d();
-        } else if (i >= 11) {
-            a = new c();
-        } else {
-            a = new b();
+        e = new Object();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tk4() {
+        this(10);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void a(LayoutInflater layoutInflater, xk4 xk4Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, xk4Var) == null) {
-            a.a(layoutInflater, xk4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.d;
+            Object[] objArr = this.c;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
+            }
+            this.d = 0;
+            this.a = false;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: b */
+    public tk4<E> clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            tk4<E> tk4Var = null;
+            try {
+                tk4<E> tk4Var2 = (tk4) super.clone();
+                try {
+                    tk4Var2.b = (int[]) this.b.clone();
+                    tk4Var2.c = (Object[]) this.c.clone();
+                    return tk4Var2;
+                } catch (CloneNotSupportedException unused) {
+                    tk4Var = tk4Var2;
+                    return tk4Var;
+                }
+            } catch (CloneNotSupportedException unused2) {
+            }
+        } else {
+            return (tk4) invokeV.objValue;
+        }
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public tk4(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        if (i == 0) {
+            this.b = ok4.a;
+            this.c = ok4.b;
+        } else {
+            int d = ok4.d(i);
+            this.b = new int[d];
+            this.c = new Object[d];
+        }
+        this.d = 0;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.d;
+            int[] iArr = this.b;
+            Object[] objArr = this.c;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
+                if (obj != e) {
+                    if (i3 != i2) {
+                        iArr[i2] = iArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
+                    }
+                    i2++;
+                }
+            }
+            this.a = false;
+            this.d = i2;
+        }
+    }
+
+    public int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.b[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public E f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return (E) this.c[i];
+        }
+        return (E) invokeI.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (e() <= 0) {
+                return "{}";
+            }
+            StringBuilder sb = new StringBuilder(this.d * 28);
+            sb.append('{');
+            for (int i = 0; i < this.d; i++) {
+                if (i > 0) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(d(i));
+                sb.append('=');
+                E f = f(i);
+                if (f != this) {
+                    sb.append(f);
+                } else {
+                    sb.append("(this Map)");
+                }
+            }
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

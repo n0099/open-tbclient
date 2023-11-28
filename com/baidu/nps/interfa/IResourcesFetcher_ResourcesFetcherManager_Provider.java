@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lf1;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.mf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class IResourcesFetcher_ResourcesFetcherManager_Provider implements lf1 {
+public class IResourcesFetcher_ResourcesFetcherManager_Provider implements mf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IResourcesFetcher_ResourcesFetcherManager_Provider implements lf1 {
         }
     }
 
-    @Override // com.baidu.tieba.lf1
+    @Override // com.baidu.tieba.mf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new kg() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new lg() : invokeV.objValue;
     }
 }

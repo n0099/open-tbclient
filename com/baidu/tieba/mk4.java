@@ -1,203 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes7.dex */
-public class mk4<K, V> extends rk4<K, V> implements Map<K, V> {
+public class mk4<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qk4<K, V> h;
 
     /* loaded from: classes7.dex */
-    public class a extends qk4<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mk4 d;
-
-        public a(mk4 mk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mk4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = mk4Var;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public int e(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                return this.d.e(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public int f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                return this.d.g(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public void h(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.d.i(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.clear();
-            }
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public Map<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Map) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d.c;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public Object b(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-                return this.d.b[(i << 1) + i2];
-            }
-            return invokeII.objValue;
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public void g(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.d.put(k, v);
-            }
-        }
-
-        @Override // com.baidu.tieba.qk4
-        public V i(int i, V v) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
-                return this.d.j(i, v);
-            }
-            return (V) invokeIL.objValue;
-        }
+    public interface a<D> {
     }
 
-    public mk4() {
+    /* loaded from: classes7.dex */
+    public interface b<D> {
+    }
+
+    public abstract String a(D d);
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract void c(int i, b<D> bVar);
+
+    public abstract void d(a<D> aVar);
+
+    public abstract void e();
+
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            throw null;
         }
     }
 
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return l().l();
-        }
-        return (Set) invokeV.objValue;
-    }
+    public abstract void g();
 
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l().m();
-        }
-        return (Set) invokeV.objValue;
-    }
+    public abstract void h(b<D> bVar);
 
-    public final qk4<K, V> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                this.h = new a(this);
-            }
-            return this.h;
-        }
-        return (qk4) invokeV.objValue;
-    }
-
-    @Override // java.util.Map
-    public Collection<V> values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return l().n();
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    public boolean m(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
-            return qk4.p(this, collection);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.c + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
-            }
-        }
-    }
+    public abstract void i(a<D> aVar);
 }

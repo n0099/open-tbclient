@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class st0 {
+public class st0 implements dt0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rt0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized rt0 a() {
-        InterceptResult invokeV;
-        rt0 rt0Var;
+    public st0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (st0.class) {
-                if (a == null) {
-                    a = new rt0();
-                }
-                rt0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return rt0Var;
         }
-        return (rt0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt0
+    @NonNull
+    public ft0 a(Map<String, String> map, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
+            return new zt0(map, obj);
+        }
+        return (ft0) invokeLL.objValue;
     }
 }

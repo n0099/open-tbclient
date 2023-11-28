@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,64 +9,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.HttpsURLConnection;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.TypeIntrinsics;
 /* loaded from: classes8.dex */
-public class ufc {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 1;
-    public static final char[] d;
-    public static ufc e;
+public final class ufc {
+    public static /* synthetic */ Interceptable $ic;
+    public static ufc b;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HandlerThread a;
-    public final Handler b;
+    public final ConcurrentHashMap<String, dgc> a;
 
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String[] a;
-        public final /* synthetic */ ufc b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ufc ufcVar, Looper looper) {
-            super(looper);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ufcVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ufcVar;
-            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public final ufc a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                Log.i("playStats", "handle msg " + message.what);
-                int i = message.what;
-                if (i < this.a.length && i >= 0) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, ufc.c) && i2 < 5; i2++) {
-                    }
-                    ufc.b();
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ufc.b;
             }
+            return (ufc) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
     }
 
@@ -87,32 +67,8 @@ public class ufc {
                 return;
             }
         }
-        d = "0123456789abcdef".toCharArray();
-        e = null;
-    }
-
-    public static /* synthetic */ int b() {
-        int i = c;
-        c = i + 1;
-        return i;
-    }
-
-    public static ufc f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            ufc ufcVar = e;
-            if (ufcVar != null) {
-                return ufcVar;
-            }
-            synchronized (ufc.class) {
-                if (e == null) {
-                    e = new ufc();
-                }
-            }
-            return e;
-        }
-        return (ufc) invokeV.objValue;
+        c = new a(null);
+        b = new ufc();
     }
 
     public ufc() {
@@ -128,128 +84,47 @@ public class ufc {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
-        this.a = handlerThread;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public static String d(byte[] bArr) {
+    public final void b(String str, dgc dgcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, dgcVar) == null) && this.a.get(str) == null) {
+            this.a.put(str, dgcVar);
+        }
+    }
+
+    public final dgc c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                int i2 = bArr[i] & 255;
-                int i3 = i * 2;
-                char[] cArr2 = d;
-                cArr[i3] = cArr2[i2 >>> 4];
-                cArr[i3 + 1] = cArr2[i2 & 15];
-            }
-            return new String(cArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
         }
-        return (String) invokeL.objValue;
+        return (dgc) invokeL.objValue;
     }
 
-    public static String g(String str) {
-        MessageDigest messageDigest;
+    public final boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            try {
-                messageDigest = MessageDigest.getInstance("MD5");
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
-                messageDigest = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.get(str) != null) {
+                return true;
             }
-            if (messageDigest == null) {
-                return "";
-            }
-            messageDigest.update(str.getBytes());
-            return d(messageDigest.digest());
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String e(String str, long j) {
-        InterceptResult invokeLJ;
-        String str2;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeLJ.objValue;
-    }
-
-    public static void i(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
-            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
-            try {
-                f().b.obtainMessage(i2, str).sendToTarget();
-            } catch (NullPointerException e2) {
-                e2.printStackTrace();
-            }
+        ConcurrentHashMap<String, dgc> concurrentHashMap = this.a;
+        if (concurrentHashMap != null) {
+            TypeIntrinsics.asMutableMap(concurrentHashMap).remove(str);
+            return;
         }
-    }
-
-    public final boolean h(String str, String str2, long j, int i) {
-        InterceptResult invokeCommon;
-        URL url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            boolean z = false;
-            if (str2 == null) {
-                return false;
-            }
-            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
-            HttpURLConnection httpURLConnection = null;
-            try {
-                url = new URL(str3);
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-                url = null;
-            }
-            if (url == null) {
-                Log.e("playStats", "report url failed!");
-                return false;
-            }
-            try {
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
-                try {
-                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
-                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new vfc());
-                    }
-                    httpURLConnection2.setConnectTimeout(10000);
-                    httpURLConnection2.setReadTimeout(6000);
-                    httpURLConnection2.connect();
-                    int responseCode = httpURLConnection2.getResponseCode();
-                    Log.i("playStats", "url : " + str3);
-                    Log.i("playStats", "code : " + responseCode);
-                    if (responseCode == 200) {
-                        z = true;
-                    }
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    httpURLConnection = httpURLConnection2;
-                    try {
-                        th.printStackTrace();
-                        Log.e("playStats", "open connection except!");
-                        return z;
-                    } finally {
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return z;
-        }
-        return invokeCommon.booleanValue;
+        throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
     }
 }

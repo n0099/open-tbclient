@@ -9,7 +9,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsDrawAd {
+public interface KsDrawAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -71,5 +71,10 @@ public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 }

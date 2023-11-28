@@ -1,27 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes8.dex */
-public interface upb extends Runnable {
+public interface upb {
+    public static final ServiceReference a = new ServiceReference("ubc", "yalog");
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    void a(String str, String str2);
 
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
-    }
-
-    void cancel();
-
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
+    void b(String str, String str2);
 }

@@ -19,7 +19,7 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Arrays;
@@ -695,7 +695,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (this.mHasWifiPermissionComputed) {
                 return this.mHasWifiPermission;
             }
-            if (this.mContext.getPackageManager().checkPermission(h.d, this.mContext.getPackageName()) == 0) {
+            if (this.mContext.getPackageManager().checkPermission(g.d, this.mContext.getPackageName()) == 0) {
                 z = true;
             } else {
                 z = false;

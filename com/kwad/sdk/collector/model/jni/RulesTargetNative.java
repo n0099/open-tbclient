@@ -4,9 +4,8 @@ import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.d;
-import com.kwad.sdk.core.e.b;
-import com.kwad.sdk.service.a;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.service.c;
+import com.kwad.sdk.utils.t;
 import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,10 +18,6 @@ public class RulesTargetNative extends NativeObject implements d {
         this.mPtr = AppStatusNative.nativeCreateRulesTarget();
     }
 
-    public RulesTargetNative(long j) {
-        this.mPtr = j;
-    }
-
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
         long j = this.mPtr;
@@ -30,6 +25,18 @@ public class RulesTargetNative extends NativeObject implements d {
             AppStatusNative.nativeDeleteRulesTarget(j);
             this.mPtr = 0L;
         }
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        t.putValue(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
+        t.putValue(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
+        return jSONObject;
+    }
+
+    public RulesTargetNative(long j) {
+        this.mPtr = j;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -49,16 +56,8 @@ public class RulesTargetNative extends NativeObject implements d {
                 AppStatusNative.rulesTargetSetPaths(this, strArr);
             }
         } catch (Exception e) {
-            a.gatherException(e);
-            b.printStackTrace(e);
+            c.gatherException(e);
+            com.kwad.sdk.core.e.c.printStackTrace(e);
         }
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
-        r.putValue(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
-        return jSONObject;
     }
 }

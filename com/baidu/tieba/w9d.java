@@ -1,52 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
-import tv.athena.revenue.RevenueManager;
+import org.json.JSONObject;
+import tbclient.ThemeTailInUser;
 /* loaded from: classes8.dex */
-public class w9d {
+public class w9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayEventStatisticsApi a(int i, int i2) {
-        InterceptResult invokeII;
+    @NonNull
+    public static JSONObject b(@NonNull ThemeTailInUser themeTailInUser) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("PayUIEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
-                return null;
-            }
-            return revenue.getPayEventStatisticApi();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeTailInUser)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "url", themeTailInUser.url);
+            ltc.a(jSONObject, PraiseUBCHelper.SOURCE_DYNAMIC, themeTailInUser.dynamic);
+            ltc.a(jSONObject, "props_id", themeTailInUser.props_id);
+            return jSONObject;
         }
-        return (IPayEventStatisticsApi) invokeII.objValue;
-    }
-
-    public static void b(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
-            }
-        }
-    }
-
-    public static void c(int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.forum.hybrid.manager;
 
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ti7;
+import com.baidu.tieba.lk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public /* synthetic */ class InteractLayer$addActivityResultHandler$1$1 extends 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InteractLayer$addActivityResultHandler$1$1(Object obj) {
-        super(2, obj, ti7.class, "onResult", "onResult(ILandroid/content/Intent;)V", 0);
+        super(2, obj, lk7.class, "onResult", "onResult(ILandroid/content/Intent;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public /* synthetic */ class InteractLayer$addActivityResultHandler$1$1 extends 
     public final void invoke(int i, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intent) == null) {
-            ((ti7) this.receiver).a(i, intent);
+            ((lk7) this.receiver).a(i, intent);
         }
     }
 }

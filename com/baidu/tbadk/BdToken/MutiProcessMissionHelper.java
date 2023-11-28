@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.mp4;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.mo4;
+import com.baidu.tieba.np4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class MutiProcessMissionHelper {
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(currentActivityPageContext, new String[]{completeTaskToastData.url});
-                    mp4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                    np4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
         }
@@ -127,7 +127,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                lo4.w().Q(i, j);
+                mo4.w().Q(i, j);
             } else {
                 dispatchMutiProcessMessage(i, i2, j, "onResume");
             }
@@ -166,7 +166,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                lo4.w().E();
+                mo4.w().E();
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_PAUSE);
             }
@@ -177,7 +177,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                lo4.w().F();
+                mo4.w().F();
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_TOUCH);
             }
@@ -188,14 +188,14 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                lo4.w().L(i, j);
+                mo4.w().L(i, j);
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_ACTIVITY);
             }
         }
     }
 
-    public static e05 showCompleteTaskToast(CompleteTaskToastData completeTaskToastData) {
+    public static h05 showCompleteTaskToast(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         TbPageContext currentActivityPageContext;
         Interceptable interceptable = $ic;
@@ -203,13 +203,13 @@ public class MutiProcessMissionHelper {
             if (completeTaskToastData == null || (currentActivityPageContext = getCurrentActivityPageContext()) == null || currentActivityPageContext.getUniqueId() == null || completeTaskToastData.pageId != currentActivityPageContext.getUniqueId().getId()) {
                 return null;
             }
-            e05 f = e05.f(currentActivityPageContext.getPageActivity(), completeTaskToastData.message);
+            h05 f = h05.f(currentActivityPageContext.getPageActivity(), completeTaskToastData.message);
             f.g(completeTaskToastData.duration);
             f.h(mOnClickListener);
             f.i(completeTaskToastData);
-            f.k();
+            f.j();
             return f;
         }
-        return (e05) invokeL.objValue;
+        return (h05) invokeL.objValue;
     }
 }

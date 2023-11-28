@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class no2 extends mo2 {
+public class no2 extends ro2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public final lo2 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public no2(String str) {
-        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,126 +22,42 @@ public class no2 extends mo2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new lo2();
     }
 
-    @Override // com.baidu.tieba.qo2, com.baidu.tieba.po2
-    public void a(String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
-            boolean equals = TextUtils.equals(str2, "auto");
-            boolean equals2 = TextUtils.equals(str2, "api");
-            ko2 ko2Var = this.a;
-            String str4 = "1";
-            if (equals) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            ko2Var.g(com.baidu.mobads.sdk.internal.o.k, str3);
-            ko2 ko2Var2 = this.a;
-            if (!equals2) {
-                str4 = "0";
-            }
-            ko2Var2.g("playMethod", str4);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo2, com.baidu.tieba.qo2, com.baidu.tieba.po2
+    @Override // com.baidu.tieba.ro2, com.baidu.tieba.qo2
     public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
         String str;
-        long j;
-        long j2;
-        long j3;
-        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
-            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
-            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
-            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
-            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
-            long j5 = 0;
-            if (g != null) {
-                ko2 ko2Var = this.a;
-                if (z) {
-                    j4 = g.g();
-                } else {
-                    j4 = 0;
-                }
-                ko2Var.i("fe_slave_dispatch_start", j4);
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
+            if (this.a.f()) {
+                this.a.k();
+                mo2.e();
+                return;
             }
-            if (g2 != null) {
-                ko2 ko2Var2 = this.a;
-                if (z) {
-                    j3 = g2.g();
-                } else {
-                    j3 = 0;
-                }
-                ko2Var2.i("fe_master_page_oninit_start", j3);
-            }
-            if (g3 != null) {
-                ko2 ko2Var3 = this.a;
-                if (z) {
-                    j2 = g3.g();
-                } else {
-                    j2 = 0;
-                }
-                ko2Var3.i("master_page_onload_start", j2);
-            }
-            if (g4 != null) {
-                ko2 ko2Var4 = this.a;
-                if (z) {
-                    j = g4.g();
-                } else {
-                    j = 0;
-                }
-                ko2Var4.i("video_fe_init", j);
-            }
-            if (g5 != null) {
-                ko2 ko2Var5 = this.a;
-                if (z) {
-                    j5 = g5.g();
-                }
-                ko2Var5.i("video_fe_init_end", j5);
-            }
-            ko2 ko2Var6 = this.a;
+            lo2 lo2Var = this.a;
             if (z) {
                 str = "1";
             } else {
                 str = "0";
             }
-            ko2Var6.g("fmpArrived", str);
-            if (this.a.f()) {
+            lo2Var.g("fmpArrived", str);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c();
+            if (this.a.e("fmpArrived")) {
                 this.a.k();
-                lo2.e();
+                mo2.e();
             }
         }
-    }
-
-    @Override // com.baidu.tieba.qo2, com.baidu.tieba.po2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a.d("video_will_play")) {
-                this.a.h("video_play_cancel");
-            }
-            d();
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b, str);
-        }
-        return invokeL.booleanValue;
     }
 }

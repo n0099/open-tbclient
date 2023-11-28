@@ -1,95 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class lea implements mda {
+public class lea extends kea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i26 a;
-    public Map<String, AdvertAppInfo> b;
-    public kea c;
-    public int d;
-    public final Set<String> e;
-    public boolean f;
+    public int U0;
+    public int V0;
 
-    public lea(IAdBaseAsyncController.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lea(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new LinkedHashSet();
-        this.f = false;
-        i26 i26Var = new i26(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
-        this.a = i26Var;
-        i26Var.e(false);
-        this.b = new HashMap();
-        this.d = tz5.a().c();
+        u0(false);
+        this.U0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
     }
 
-    @Override // com.baidu.tieba.mda
-    public View b(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
+    public void H0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            this.f = z;
-            return this.c.b(this.b.get(str), z);
-        }
-        return (View) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
-            this.b.put(str, advertAppInfo);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.Y = str2;
+            V();
+            W();
+            x0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.startLoad(str, 10, false);
+            this.H.setShareData(null);
         }
     }
 
-    @Override // com.baidu.tieba.mda
-    public AdvertAppInfo d(@NonNull String str) {
+    @Override // com.baidu.tieba.kea
+    public void b0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Context context = this.S;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
+            }
+            super.b0(z);
+            if (this.c0) {
+                this.U.getLayoutParams().height = -1;
+                return;
+            }
+            this.U.getLayoutParams().height = this.V0;
+        }
+    }
+
+    @Override // com.baidu.tieba.kea
+    public void j0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.kea
+    public boolean k0(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (AdvertAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mda
-    public boolean f(@NonNull String str) {
-        InterceptResult invokeL;
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || cca.l(advertAppInfo)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.c0 && motionEvent.getX() <= this.U0) {
                 return false;
             }
             return true;
@@ -97,101 +97,38 @@ public class lea implements mda {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mda
-    public void g(@NonNull ns5 ns5Var) {
+    @Override // com.baidu.tieba.kea
+    public void x0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ns5Var) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("forum_id", ns5Var.c);
-            hashMap.put("forum_name", ns5Var.d);
-            this.a.d(this.d, hashMap);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.x0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.mda
-    public void k(@NonNull AdvertAppInfo advertAppInfo) {
+    @Override // com.baidu.tieba.kea, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
-            oea.h(advertAppInfo, 0, 2);
-        }
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.c.f(this.b.get(str));
-        }
-    }
-
-    @Override // com.baidu.tieba.mda
-    public int getAdCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = 0;
-            if (this.b.isEmpty()) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
             }
-            for (AdvertAppInfo advertAppInfo : this.b.values()) {
-                if (!cca.l(advertAppInfo)) {
-                    i++;
-                }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
-            this.c = new kea(tbPageContext, z, hVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void j(@NonNull String str) {
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (advertAppInfo = this.b.get(str)) == null) {
-            return;
-        }
-        oea.o(advertAppInfo);
-        boolean add = this.e.add(str);
-        if (!this.f && add) {
-            this.c.d();
-        } else {
-            this.c.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.mda
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return !this.b.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mda
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c.e();
-            this.a.b();
-            this.e.clear();
+            this.X = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * BdUtilHelper.getEquipmentWidth(this.S));
+            this.V0 = playerHeight;
+            if (playerHeight > BdUtilHelper.getEquipmentHeight(this.S)) {
+                this.V0 = BdUtilHelper.getEquipmentHeight(this.S);
+            }
+            this.U.getLayoutParams().height = this.V0;
+            this.U.requestLayout();
         }
     }
 }

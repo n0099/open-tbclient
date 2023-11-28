@@ -1,19 +1,63 @@
 package com.kwad.components.ad.reward.presenter;
 
-import com.kwad.sdk.core.response.model.AdInfo;
+import androidx.annotation.Nullable;
+import com.kwad.components.core.i.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.internal.api.SceneImpl;
+import java.util.List;
 /* loaded from: classes10.dex */
-public final class g {
-    public static boolean r(com.kwad.components.ad.reward.k kVar) {
-        com.kwad.components.core.playable.a aVar;
-        AdTemplate adTemplate = kVar.mAdTemplate;
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-        if ((com.kwad.sdk.core.response.a.a.aY(bQ) && (aVar = kVar.mk) != null && aVar.od()) || com.kwad.sdk.core.response.a.b.bg(adTemplate) || com.kwad.components.ad.reward.kwai.b.j(bQ) || adTemplate.mXiaomiAppStoreDetailViewOpen) {
-            return false;
+public final class g extends b implements a.InterfaceC0649a {
+    @Override // com.kwad.components.ad.reward.presenter.b, com.kwad.sdk.mvp.Presenter
+    public final void aj() {
+        super.aj();
+        boolean Cw = com.kwad.sdk.core.d.a.Cw();
+        com.kwad.sdk.core.e.c.d("RewardInnerAdLoadPresenter", "onBind localCheckResult: " + Cw);
+        SceneImpl sceneImpl = this.mAdTemplate.mAdScene;
+        if (sceneImpl != null && Cw) {
+            com.kwad.components.core.i.a.a(sceneImpl, this);
         }
-        if (com.kwad.components.ad.reward.kwai.b.gh()) {
-            return true;
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public final void onUnbind() {
+        super.onUnbind();
+    }
+
+    @Override // com.kwad.components.core.i.a.InterfaceC0649a
+    public final void e(@Nullable List<com.kwad.components.core.i.c> list) {
+        if (list != null && list.size() != 0) {
+            com.kwad.sdk.core.e.c.d("RewardInnerAdLoadPresenter", "onInnerAdLoad: " + list.size());
+            AdTemplate adTemplate = list.get(0).getAdTemplate();
+            boolean ct = com.kwad.sdk.core.response.b.b.ct(adTemplate);
+            List<a.InterfaceC0649a> fH = this.qn.fH();
+            if (ct) {
+                com.kwad.sdk.core.d.a.f(com.kwad.sdk.core.response.b.b.cq(adTemplate), com.kwad.sdk.core.response.b.b.cr(adTemplate));
+                if (fH != null) {
+                    for (a.InterfaceC0649a interfaceC0649a : fH) {
+                        interfaceC0649a.e(list);
+                    }
+                }
+            }
         }
-        return com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.response.a.a.aa(bQ);
+    }
+
+    @Override // com.kwad.components.core.i.a.InterfaceC0649a
+    public final void onError(int i, String str) {
+        List<a.InterfaceC0649a> fH = this.qn.fH();
+        if (fH != null) {
+            for (a.InterfaceC0649a interfaceC0649a : fH) {
+                interfaceC0649a.onError(i, str);
+            }
+        }
+    }
+
+    @Override // com.kwad.components.core.i.a.InterfaceC0649a
+    public final void onRequestResult(int i) {
+        List<a.InterfaceC0649a> fH = this.qn.fH();
+        if (fH != null) {
+            for (a.InterfaceC0649a interfaceC0649a : fH) {
+                interfaceC0649a.onRequestResult(i);
+            }
+        }
     }
 }

@@ -1,514 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.ag2;
-import com.baidu.tieba.dr2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tj2 implements vm1 {
+public class tj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements rj2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr2 a;
-
-        public a(dr2 dr2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dr2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dr2Var;
-        }
-
-        @Override // com.baidu.tieba.rj2
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                jd2.u(AppRuntime.getAppContext().getContentResolver(), this.a.I(), 1);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rj2 a;
-
-        public b(rj2 rj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rj2Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            rj2 rj2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, exc) != null) || (rj2Var = this.a) == null) {
-                return;
-            }
-            rj2Var.onResult(false);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            rj2 rj2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (rj2Var = this.a) == null) {
-                return;
-            }
-            if (jSONObject == null) {
-                rj2Var.onResult(false);
-                return;
-            }
-            if (tj2.a) {
-                Log.d("SwanHistoryManager", "上报数据 onSuccess: response=" + jSONObject);
-            }
-            if (jSONObject.optInt("errno", -1) == 0) {
-                this.a.onResult(true);
-            } else {
-                this.a.onResult(false);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return gj3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tj2.h(true);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d implements qj2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.qj2
-        public void a(List<sj2> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-                return;
-            }
-            jd2.f();
-            jd2.l(list);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class e extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qj2 a;
-
-        public e(qj2 qj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qj2Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            qj2 qj2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && (qj2Var = this.a) != null) {
-                qj2Var.a(null);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            qj2 qj2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (qj2Var = this.a) == null) {
-                return;
-            }
-            if (jSONObject == null) {
-                qj2Var.a(null);
-                return;
-            }
-            if (tj2.a) {
-                Log.d("SwanHistoryManager", "下拉数据 onSuccess: response=" + jSONObject);
-            }
-            if (jSONObject.optInt("errno", -1) != 0) {
-                this.a.a(null);
-                return;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                this.a.a(null);
-                return;
-            }
-            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-            if (optJSONArray == null) {
-                this.a.a(null);
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                sj2 b = sj2.b(optJSONArray.optJSONObject(i2));
-                if (b != null) {
-                    arrayList.add(b);
-                }
-            }
-            ue3.a().putString("fetch_history_data_last_id", optJSONObject.optString(ImageViewerConfig.LAST_ID));
-            this.a.a(arrayList);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return gj3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tj2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-401846005, "Lcom/baidu/tieba/tj2$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-401846005, "Lcom/baidu/tieba/tj2$f;");
-                    return;
-                }
-            }
-            a = new tj2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948183053, "Lcom/baidu/tieba/tj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948183053, "Lcom/baidu/tieba/tj2;");
-                return;
-            }
-        }
-        a = rm1.a;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
 
     public tj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        np2.h0().c(this);
     }
 
-    public static void f() {
+    @NonNull
+    public static tj2 a(@NonNull er2 er2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            aj3.k(new c(), "fetchHistoryDataFromServer");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, er2Var)) == null) {
+            tj2 tj2Var = new tj2();
+            tj2Var.a = er2Var.I();
+            tj2Var.c = er2Var.L();
+            tj2Var.d = er2Var.R();
+            tj2Var.f = er2Var.H();
+            tj2Var.i = er2Var.U();
+            tj2Var.h = er2Var.q1();
+            tj2Var.e = System.currentTimeMillis();
+            tj2Var.g = String.valueOf(er2Var.w1());
+            tj2Var.b = er2Var.J();
+            tj2Var.j = er2Var.x1();
+            return tj2Var;
         }
+        return (tj2) invokeL.objValue;
     }
 
-    public static tj2 i() {
-        InterceptResult invokeV;
+    public static tj2 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return f.a;
-        }
-        return (tj2) invokeV.objValue;
-    }
-
-    public /* synthetic */ tj2(a aVar) {
-        this();
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            List<sj2> r = jd2.r();
-            if (!z && (r == null || r.size() <= 0)) {
-                return;
-            }
-            g("ADD", r, new d());
-        }
-    }
-
-    @Override // com.baidu.tieba.vm1
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            f();
-        }
-    }
-
-    @WorkerThread
-    public static void c(g63 g63Var, ag2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, g63Var, bVar) != null) || g63Var == null) {
-            return;
-        }
-        dr2.a X = g63Var.X();
-        if (TextUtils.equals("1", X.d0())) {
-            g32.b("SwanHistoryManager", "add history with 'notinhis=1': " + X.I() + "/" + X.L());
-            return;
-        }
-        g32.b("SwanHistoryManager", "add history: " + X.I() + "/" + X.L());
-        sj2 a2 = sj2.a(X);
-        boolean c2 = jd2.c(AppRuntime.getAppContext().getContentResolver(), a2, bVar);
-        a aVar = new a(X);
-        if (c2) {
-            j("ADD", a2.a, a2.e, a2.b, a2.g, a2.j, aVar);
-        }
-        if (a && !c2) {
-            Log.e("SwanHistoryManager", "addHistoryAsync Failed!");
-        }
-    }
-
-    public static String d(String str, List<sj2> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, list)) == null) {
-            if (list != null && list.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (sj2 sj2Var : list) {
-                        if (sj2Var != null) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("cmd", str);
-                            jSONObject2.put("bundle_id", sj2Var.a);
-                            jSONObject2.put("time", sj2Var.e);
-                            jSONArray.put(jSONObject2);
-                        }
-                    }
-                    jSONObject.put("items", jSONArray);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, String str2, long j, String str3, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5})) == null) {
-            if (TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("cmd", str);
-                if (TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("bundle_id", str2);
-                } else {
-                    jSONObject2.put("appkey", str3);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put("pkg_type", Integer.parseInt(str4));
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    jSONObject2.put("version_code", Integer.parseInt(str5));
-                }
-                jSONObject2.put("time", j);
-                jSONArray.put(jSONObject2);
-                jSONObject.put("items", jSONArray);
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
+            tj2 tj2Var = new tj2();
+            tj2Var.a = jSONObject.optString("bundle_id");
+            tj2Var.e = jSONObject.optLong("time");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                tj2Var.b = optJSONObject.optString("appkey");
+                tj2Var.g = optJSONObject.optString("pkg_type");
+                tj2Var.c = optJSONObject.optString("app_name");
+                tj2Var.d = optJSONObject.optString("app_icon");
+                tj2Var.j = optJSONObject.optString("version_code");
+                tj2Var.f = optJSONObject.optInt("frame_type");
+                tj2Var.h = optJSONObject.optInt("pay_protected");
             }
-            return jSONObject.toString();
+            return tj2Var;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void g(String str, List<sj2> list, qj2 qj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, list, qj2Var) == null) {
-            String p = np2.o().p();
-            HashMap hashMap = new HashMap();
-            hashMap.put(ImageViewerConfig.LAST_ID, ue3.a().getString("fetch_history_data_last_id", ""));
-            String b2 = yj3.b(p, hashMap);
-            String d2 = d(str, list);
-            if (a) {
-                Log.d("SwanHistoryManager", "fetchHistoryDataFromServer: url=" + b2 + "  params=" + d2);
-            }
-            e eVar = new e(qj2Var);
-            jd4 jd4Var = new jd4();
-            jd4Var.b = "POST";
-            jd4Var.a = b2;
-            jd4Var.f = true;
-            jd4Var.g = true;
-            if (!TextUtils.isEmpty(d2)) {
-                jd4Var.d = RequestBody.create(nx2.a, d2);
-            }
-            jd4Var.e = eVar;
-            kd4.g().e(jd4Var);
-        }
-    }
-
-    public static void j(String str, String str2, long j, String str3, String str4, String str5, rj2 rj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5, rj2Var}) == null) {
-            String c2 = np2.o().c();
-            String e2 = e(str, str2, j, str3, str4, str5);
-            if (TextUtils.isEmpty(e2)) {
-                return;
-            }
-            if (a) {
-                Log.d("SwanHistoryManager", "reportHistoryDataToServer: 上行参数" + e2);
-            }
-            b bVar = new b(rj2Var);
-            jd4 jd4Var = new jd4();
-            jd4Var.b = "POST";
-            jd4Var.a = c2;
-            jd4Var.f = true;
-            jd4Var.g = true;
-            jd4Var.d = RequestBody.create(nx2.a, e2);
-            jd4Var.e = bVar;
-            kd4.g().e(jd4Var);
-        }
+        return (tj2) invokeL.objValue;
     }
 }

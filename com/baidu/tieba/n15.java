@@ -1,76 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.BrowserHelper;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 /* loaded from: classes7.dex */
-public final class n15 extends f15 {
+public class n15 extends j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static final class a implements TbImageView.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-        public final /* synthetic */ AlertDialog b;
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a(TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder, alertDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-            this.b = alertDialog;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void a(String key, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, key, z) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (!z) {
-                    return;
-                }
-                this.a.show(this.b);
-            }
-        }
-    }
 
     public n15() {
         Interceptable interceptable = $ic;
@@ -86,83 +33,31 @@ public final class n15 extends f15 {
         }
     }
 
-    @Override // com.baidu.tieba.f15
-    public void d() {
+    @Override // com.baidu.tieba.j15
+    public void a(@NonNull Context context, @NonNull x05 x05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            YunDialogManager.unMarkShowingDialogName("operateNew");
-        }
-    }
-
-    @Override // com.baidu.tieba.f15
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            YunDialogManager.markShowingDialogName("operateNew");
-        }
-    }
-
-    public static final void g(AlertDialog dialog, qc5 qc5Var, View view2) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, dialog, qc5Var, view2) == null) {
-            Intrinsics.checkNotNullParameter(dialog, "$dialog");
-            if (view2 != null && view2.getContext() != null) {
-                dialog.dismiss();
-                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
-                String b = qc5Var.b();
-                Intrinsics.checkNotNullExpressionValue(b, "operateData.getHomeOperateUrl()");
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    str = "skin=dark";
-                } else {
-                    str = "skin=default";
-                }
-                if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?", false, 2, (Object) null)) {
-                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
-                } else {
-                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
-                }
-                loginDialogData.setJumpUrl(str2);
-                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
-                    BrowserHelper.startWebActivity(view2.getContext(), (String) null, str2, true);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.f15
-    public void b(TBAlertBuilder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            final qc5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
-            SharedPrefHelper.getInstance().putBoolean(f25.a.a(), false);
-            int processWidth = TBAlertBuilder.processWidth(TbadkCoreApplication.getInst());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(processWidth, (processWidth * 4) / 3);
-            TbImageView tbImageView = new TbImageView(c());
-            tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            builder.setCustomContentView(tbImageView).setNeedTransparentBg(true).setShowBottomCloseBtn(true).setCancelable(false);
-            final AlertDialog create = builder.create();
-            Intrinsics.checkNotNullExpressionValue(create, "builder.create()");
-            tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w05
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        n15.g(AlertDialog.this, homeOperateData, view2);
-                    }
-                }
-            });
-            tbImageView.setEvent(new a(builder, create));
-            tbImageView.startLoad(homeOperateData.a(), 10, false);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, x05Var) == null) {
+            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
+            clientUpdateInfo.mIsForceUpdate = x05Var.a("is_force_update");
+            clientUpdateInfo.mStatus = x05Var.a("status");
+            clientUpdateInfo.mReverson = x05Var.a("reverson");
+            clientUpdateInfo.mContentUrl = x05Var.a("content_url");
+            clientUpdateInfo.mVercode = x05Var.a("version_code");
+            clientUpdateInfo.mVername = x05Var.a(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            clientUpdateInfo.mDownurl = x05Var.a("download_url");
+            clientUpdateInfo.mChangelog = x05Var.a("change_log");
+            clientUpdateInfo.mSize = x05Var.a("size");
+            clientUpdateInfo.mPackageName = x05Var.a("package_name");
+            clientUpdateInfo.mSign = x05Var.a("sign");
+            clientUpdateInfo.mProdline = x05Var.a("prod_line");
+            clientUpdateInfo.mSignMd5 = x05Var.a(FkApkInfoSearchRequestKt.PARAMS_KEY_SIGN_MD5);
+            clientUpdateInfo.mApkMd5 = x05Var.a("apk_md5");
+            clientUpdateInfo.mPatchDownUrl = x05Var.a("patch_download_url");
+            clientUpdateInfo.mPatchSize = x05Var.a("patch_size");
+            clientUpdateInfo.mIconUrl = x05Var.a("icon_url");
+            clientUpdateInfo.mSname = x05Var.a(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME);
+            clientUpdateInfo.mUpdateTime = x05Var.a("update_time");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, x05Var.a("apk_md5_rsa"))));
         }
     }
 }

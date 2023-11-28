@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.payservice;
 import android.app.Activity;
 import com.yy.mobile.framework.revenuesdk.payapi.IPaySignCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaySignInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface IPayAliSignMethod {
     boolean isSupported(Activity activity);
 

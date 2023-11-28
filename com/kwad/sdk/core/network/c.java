@@ -1,12 +1,15 @@
 package com.kwad.sdk.core.network;
 /* loaded from: classes10.dex */
 public final class c {
-    public int XT = -1;
-    public Exception XU;
-    public String XV;
+    public int atk = -1;
+    public Exception atl;
+    public String atm;
     public int code;
 
-    public final boolean tx() {
-        return this.code == 200;
+    public final boolean CB() {
+        if (this.code == 200) {
+            return true;
+        }
+        return false;
     }
 }

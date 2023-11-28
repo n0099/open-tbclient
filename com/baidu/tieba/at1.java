@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import okhttp3.HttpUrl;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class at1 extends qx2 {
+public class at1 extends e83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +23,16 @@ public class at1 extends qx2 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g63 a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ at1 e;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ hw2 b;
+        public final /* synthetic */ at1 c;
 
-        public a(at1 at1Var, g63 g63Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        public a(at1 at1Var, UnitedSchemeEntity unitedSchemeEntity, hw2 hw2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {at1Var, g63Var, unitedSchemeEntity, callbackHandler, str};
+                Object[] objArr = {at1Var, unitedSchemeEntity, hw2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,36 +42,34 @@ public class at1 extends qx2 {
                     return;
                 }
             }
-            this.e = at1Var;
-            this.a = g63Var;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = str;
+            this.c = at1Var;
+            this.a = unitedSchemeEntity;
+            this.b = hw2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.C(this.a, this.b, this.c, this.d);
+                this.c.k(this.a, this.b);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at1(d73 d73Var) {
-        super(d73Var, "/swanAPI/adRequest");
+    public at1(e73 e73Var) {
+        super(e73Var, "/swanAPI/openAdWebPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
+            Object[] objArr = {e73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((d73) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,77 +77,52 @@ public class at1 extends qx2 {
         }
     }
 
-    @Override // com.baidu.tieba.qx2
-    public boolean A(@NonNull g63 g63Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+    @Override // com.baidu.tieba.e83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, g63Var, unitedSchemeEntity, callbackHandler, str)) == null) {
-            aj3.j(new a(this, g63Var, unitedSchemeEntity, callbackHandler, str), "execRequest");
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
+            if (e83.b) {
+                Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            String o = q93.o(unitedSchemeEntity, "params");
+            String n = q93.n(unitedSchemeEntity, "params", PrefetchEvent.EVENT_DATA_EXTRA_DATA);
+            if (TextUtils.isEmpty(o)) {
+                h32.c("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else if (ur2.V().W() == null) {
+                h32.i("AdLandingAction", "open page failed");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                hw2 d = hw2.d(o, o);
+                d.b = n;
+                if (zw1.e().g()) {
+                    l(unitedSchemeEntity, d);
+                } else {
+                    k(unitedSchemeEntity, d);
+                }
+                h32.i("AdLanding", "open adLanding page finish");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void C(@NonNull g63 g63Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, hw2 hw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g63Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject a2 = d83.a(unitedSchemeEntity, "params");
-            String optString = a2.optString("cb");
-            try {
-                String optString2 = a2.optString("url");
-                D(a2, optString2, yj3.q(optString2));
-                unitedSchemeEntity.putParams("params", a2.toString());
-                if (!super.A(g63Var, unitedSchemeEntity, callbackHandler, str)) {
-                    g32.c("AdRequest", "request fail");
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                }
-            } catch (JSONException unused) {
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, hw2Var) == null) && !v52.k3("adLanding", hw2Var)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         }
     }
 
-    public final void D(JSONObject jSONObject, String str, boolean z) throws JSONException {
-        HttpUrl parse;
-        JSONObject optJSONObject;
-        String str2;
-        String str3;
+    public final void l(UnitedSchemeEntity unitedSchemeEntity, hw2 hw2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, z) != null) || jSONObject == null || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null || (optJSONObject = jSONObject.optJSONObject("extParams")) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, hw2Var) == null) {
+            zw1.e().i();
+            bk3.b0(new a(this, unitedSchemeEntity, hw2Var), 200L);
         }
-        if (!z) {
-            str2 = "";
-        } else {
-            str2 = o();
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("header");
-            if (optJSONObject2 == null) {
-                optJSONObject2 = new JSONObject();
-            }
-            j(optJSONObject2, str2);
-            jSONObject.put("header", optJSONObject2);
-        }
-        if (d83.b) {
-            Log.d("AdRequestAction", "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2);
-        }
-        HttpUrl.Builder newBuilder = parse.newBuilder();
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = optJSONObject.optString(next);
-            if (TextUtils.equals(optString, "cuid")) {
-                str3 = np2.h0().i(np2.c());
-            } else if (!TextUtils.equals(optString, "baiduid") || !z) {
-                str3 = "";
-            } else {
-                str3 = yj3.l(str2, "BAIDUID");
-            }
-            if (TextUtils.isEmpty(str3)) {
-                str3 = "";
-            }
-            g32.i("AdRequest", "key=" + next + ", value=" + str3);
-            newBuilder.addQueryParameter(next, str3);
-        }
-        jSONObject.put("url", newBuilder.build().toString());
     }
 }

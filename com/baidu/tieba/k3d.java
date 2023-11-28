@@ -4,29 +4,47 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SmartApp;
+import tbclient.FeedAuthorSocial;
+import tbclient.FeedContentResource;
+import tbclient.FeedKV;
+import tbclient.FeedPicAbstract;
+import tbclient.FrsTopThreadComponent;
 /* loaded from: classes7.dex */
-public class k3d extends qoc {
+public class k3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SmartApp smartApp) {
+    public static JSONObject b(@NonNull FrsTopThreadComponent frsTopThreadComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, smartApp)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTopThreadComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "avatar", smartApp.avatar);
-            qoc.a(jSONObject, "name", smartApp.name);
-            qoc.a(jSONObject, "abstract", smartApp._abstract);
-            qoc.a(jSONObject, "pic", smartApp.pic);
-            qoc.a(jSONObject, "h5_url", smartApp.h5_url);
-            qoc.a(jSONObject, "id", smartApp.id);
-            qoc.a(jSONObject, "link", smartApp.link);
-            qoc.a(jSONObject, "naws_app_id", smartApp.naws_app_id);
-            qoc.a(jSONObject, "is_recom", smartApp.is_recom);
-            qoc.a(jSONObject, "is_game", smartApp.is_game);
+            if (frsTopThreadComponent.title != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedContentResource feedContentResource : frsTopThreadComponent.title) {
+                    jSONArray.put(exc.b(feedContentResource));
+                }
+                ltc.a(jSONObject, "title", jSONArray);
+            }
+            FeedPicAbstract feedPicAbstract = frsTopThreadComponent.pic_abstract;
+            if (feedPicAbstract != null) {
+                ltc.a(jSONObject, "pic_abstract", zxc.b(feedPicAbstract));
+            }
+            FeedAuthorSocial feedAuthorSocial = frsTopThreadComponent.author_social;
+            if (feedAuthorSocial != null) {
+                ltc.a(jSONObject, "author_social", zwc.b(feedAuthorSocial));
+            }
+            if (frsTopThreadComponent.business_info != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (FeedKV feedKV : frsTopThreadComponent.business_info) {
+                    jSONArray2.put(sxc.b(feedKV));
+                }
+                ltc.a(jSONObject, "business_info", jSONArray2);
+            }
+            ltc.a(jSONObject, "scheme", frsTopThreadComponent.scheme);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.hianalytics.HianalyticsBaseData;
 import org.json.JSONObject;
-import tbclient.FrsPage.HeadSdk;
+import tbclient.CartoonThread;
 /* loaded from: classes8.dex */
-public class svc extends qoc {
+public class svc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HeadSdk headSdk) {
+    public static JSONObject b(@NonNull CartoonThread cartoonThread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headSdk)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cartoonThread)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "head_pic", headSdk.head_pic);
-            qoc.a(jSONObject, "head_text", headSdk.head_text);
-            qoc.a(jSONObject, HianalyticsBaseData.SDK_NAME, headSdk.sdk_name);
-            qoc.a(jSONObject, "sdk_params", headSdk.sdk_params);
-            qoc.a(jSONObject, "head_type", headSdk.head_type);
+            ltc.a(jSONObject, MangaBrowserActivityConfig.CARTOON_ID, cartoonThread.cartoon_id);
+            ltc.a(jSONObject, MangaBrowserActivityConfig.CHAPTER_ID, cartoonThread.chapter_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

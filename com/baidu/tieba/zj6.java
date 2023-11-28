@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SafeVarargs
-    public static String a(Pair<String, String>... pairArr) {
-        InterceptResult invokeL;
-        String str;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pairArr)) == null) {
-            if (!wj6.e(pairArr)) {
-                JSONObject jSONObject = new JSONObject();
-                for (Pair<String, String> pair : pairArr) {
-                    if (pair != null && (str = pair.first) != null) {
-                        try {
-                            jSONObject.put(str, pair.second);
-                        } catch (Exception e) {
-                            qj6.b("newHybrid", "toJsonStr err:" + e);
-                        }
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "{}";
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            HybridLog.getInstance().d(str, str2);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HybridLog.getInstance().e(str, str2);
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            HybridLog.getInstance().i(str, str2);
+        }
     }
 }

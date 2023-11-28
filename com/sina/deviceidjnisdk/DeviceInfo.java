@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 /* loaded from: classes10.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, h.c)) {
+            if (isPermissionGranted(context, g.c)) {
                 try {
                     telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 } catch (Exception unused) {
@@ -73,7 +73,7 @@ public class DeviceInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!isPermissionGranted(context, h.c)) {
+            if (!isPermissionGranted(context, g.c)) {
                 str = "";
             } else {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
@@ -96,7 +96,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, h.d)) {
+            if (isPermissionGranted(context, g.d)) {
                 try {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {

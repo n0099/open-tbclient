@@ -3,6 +3,7 @@ package com.kwad.sdk.components;
 import java.io.Serializable;
 /* loaded from: classes10.dex */
 public interface DevelopMangerComponents extends a {
+    String Ae();
 
     /* loaded from: classes10.dex */
     public static class DevelopValue implements Serializable {

@@ -1,35 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.tieba.eoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.AigcFeedbackInfo;
-import tbclient.Toast;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ipc extends qoc {
+public final class ipc<T, R> implements eoc.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final eoc.a<T> a;
+    public final eoc.b<? extends R, ? super T> b;
 
-    @NonNull
-    public static JSONObject b(@NonNull AigcFeedbackInfo aigcFeedbackInfo) {
-        InterceptResult invokeL;
+    public ipc(eoc.a<T> aVar, eoc.b<? extends R, ? super T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aigcFeedbackInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "aigc_chat_id", aigcFeedbackInfo.aigc_chat_id);
-            qoc.a(jSONObject, "feedback_fold", aigcFeedbackInfo.feedback_fold);
-            qoc.a(jSONObject, "feedback_fold_tip", aigcFeedbackInfo.feedback_fold_tip);
-            qoc.a(jSONObject, "positive_text", aigcFeedbackInfo.positive_text);
-            qoc.a(jSONObject, "negative_text", aigcFeedbackInfo.negative_text);
-            qoc.a(jSONObject, "feedback_url", aigcFeedbackInfo.feedback_url);
-            Toast toast = aigcFeedbackInfo.feedback_toast;
-            if (toast != null) {
-                qoc.a(jSONObject, "feedback_toast", f5d.b(toast));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        this.a = aVar;
+        this.b = bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.soc
+    /* renamed from: a */
+    public void call(koc<? super R> kocVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+            try {
+                koc<? super T> call = usc.n(this.b).call(kocVar);
+                call.d();
+                this.a.call(call);
+            } catch (Throwable th) {
+                qoc.e(th);
+                kocVar.onError(th);
+            }
+        }
     }
 }

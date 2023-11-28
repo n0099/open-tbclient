@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SpritePBGuide;
+import tbclient.Global;
 /* loaded from: classes7.dex */
-public class q3d extends qoc {
+public class q3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SpritePBGuide spritePBGuide) {
+    public static JSONObject b(@NonNull Global global) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spritePBGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, global)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, GuildActivityConfig.GUIDE_TYPE, spritePBGuide.guide_type);
-            qoc.a(jSONObject, "guide_text", spritePBGuide.guide_text);
-            qoc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, spritePBGuide.button_text);
-            qoc.a(jSONObject, BigdayActivityConfig.JUMP_URL, spritePBGuide.jump_url);
+            ltc.a(jSONObject, "tbmall_newprops", global.tbmall_newprops);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.component.uistate.RichTextUiStateKt;
+import com.baidu.tieba.feed.component.uistate.CardReplyUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,100 +10,154 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.reflect.KFunction;
 /* loaded from: classes8.dex */
-public class s47 extends ya7 {
+public final class s47 extends v47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function2<Context, String, Unit> c;
-    public final Function1<n77, Unit> d;
-    public final List<e57> e;
+    public final w77 g;
+    public final String h;
+    public final String i;
+    public final List<a87> j;
+    public final List<a87> k;
+    public final List<a87> l;
+    public final Function2<Context, s47, Unit> m;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public s47() {
-        this(null, null, 3, null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s47(w77 replyData, String headSchema, String schema, Map<String, String> businessInfo, Map<String, String> logInfo, List<a87> userHeadClickStatList, List<a87> userNameClickStatList, List<a87> cardClickStatList, Function2<? super Context, ? super s47, Unit> onRootClick) {
+        super(businessInfo, logInfo, null, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {replyData, headSchema, schema, businessInfo, logInfo, userHeadClickStatList, userNameClickStatList, cardClickStatList, onRootClick};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Function2) objArr[0], (Function1) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @JvmOverloads
-    public s47(Function2<? super Context, ? super String, Unit> onRichTextClick, Function1<? super n77, Unit> onStat) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {onRichTextClick, onStat};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(onRichTextClick, "onRichTextClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.c = onRichTextClick;
-        this.d = onStat;
-        this.e = new ArrayList();
+        Intrinsics.checkNotNullParameter(replyData, "replyData");
+        Intrinsics.checkNotNullParameter(headSchema, "headSchema");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        Intrinsics.checkNotNullParameter(logInfo, "logInfo");
+        Intrinsics.checkNotNullParameter(userHeadClickStatList, "userHeadClickStatList");
+        Intrinsics.checkNotNullParameter(userNameClickStatList, "userNameClickStatList");
+        Intrinsics.checkNotNullParameter(cardClickStatList, "cardClickStatList");
+        Intrinsics.checkNotNullParameter(onRootClick, "onRootClick");
+        this.g = replyData;
+        this.h = headSchema;
+        this.i = schema;
+        this.j = userHeadClickStatList;
+        this.k = userNameClickStatList;
+        this.l = cardClickStatList;
+        this.m = onRootClick;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ s47(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
-        KFunction kFunction;
-        if ((i & 1) != 0) {
-            kFunction = RichTextUiStateKt.a;
-            function2 = (Function2) kFunction;
+    public /* synthetic */ s47(w77 w77Var, String str, String str2, Map map, Map map2, List list, List list2, List list3, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(w77Var, str, str2, map, map2, r8, r9, r10, r11);
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        Function2 function22;
+        Function2 function23;
+        if ((i & 32) != 0) {
+            arrayList = new ArrayList();
+        } else {
+            arrayList = list;
+        }
+        if ((i & 64) != 0) {
+            arrayList2 = new ArrayList();
+        } else {
+            arrayList2 = list2;
+        }
+        if ((i & 128) != 0) {
+            arrayList3 = new ArrayList();
+        } else {
+            arrayList3 = list3;
+        }
+        if ((i & 256) != 0) {
+            function23 = CardReplyUiStateKt.a;
+            function22 = function23;
+        } else {
+            function22 = function2;
         }
     }
 
-    public final Function2<Context, String, Unit> f() {
+    public final List<a87> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.l;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Function2<Context, s47, Unit> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.m;
         }
         return (Function2) invokeV.objValue;
     }
 
-    public final Function1<n77, Unit> g() {
+    public final w77 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
         }
-        return (Function1) invokeV.objValue;
+        return (w77) invokeV.objValue;
     }
 
-    public final List<e57> h() {
+    public final String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<a87> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<a87> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
         }
         return (List) invokeV.objValue;
     }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.nt6;
-import com.baidu.tieba.qr6;
+import com.baidu.tieba.as6;
+import com.baidu.tieba.xt6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "r", "Lcom/baidu/tieba/danmu/render/RenderObject;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RenderSystem$getDanmakus$2 extends Lambda implements Function1<nt6, qr6> {
+public final class RenderSystem$getDanmakus$2 extends Lambda implements Function1<xt6, as6> {
     public static /* synthetic */ Interceptable $ic;
     public static final RenderSystem$getDanmakus$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +57,13 @@ public final class RenderSystem$getDanmakus$2 extends Lambda implements Function
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final qr6 invoke(nt6 r) {
+    public final as6 invoke(xt6 r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r)) == null) {
             Intrinsics.checkNotNullParameter(r, "r");
             return r.d();
         }
-        return (qr6) invokeL.objValue;
+        return (as6) invokeL.objValue;
     }
 }

@@ -39,17 +39,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes6.dex */
     public interface f {
-        void D0(boolean z);
+        void C0(boolean z);
 
         void O(BarEmotionResponseMessage barEmotionResponseMessage);
 
-        void Q(boolean z);
+        void P(boolean z);
 
-        void V(ForumDetailSocketResponse forumDetailSocketResponse);
+        void S(ForumDetailSocketResponse forumDetailSocketResponse);
 
         void c(String str);
 
-        void x0(ForumDetailHttpResponse forumDetailHttpResponse);
+        void u0(ForumDetailHttpResponse forumDetailHttpResponse);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -98,7 +98,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 if (((LikeReturnData) customResponsedMessage.getData()).isLike() != 1) {
                     z = false;
                 }
-                this.a.a.a1(z);
+                this.a.a.Y0(z);
             }
         }
     }
@@ -145,10 +145,10 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.x0((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.u0((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.b.V((ForumDetailSocketResponse) responsedMessage);
+                        this.a.b.S((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -202,20 +202,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e61);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
                 this.a.a.showToast(errorString);
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.b.Q(false);
+                    this.a.b.P(false);
                 } else {
-                    this.a.b.D0(false);
+                    this.a.b.C0(false);
                 }
             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                this.a.b.Q(true);
+                this.a.b.P(true);
             } else {
-                this.a.b.D0(true);
+                this.a.b.C0(true);
             }
         }
     }

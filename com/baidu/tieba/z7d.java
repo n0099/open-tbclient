@@ -1,17 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.ebd;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.SdkTopicThread;
 /* loaded from: classes9.dex */
-public interface z7d {
-    void f(Activity activity, Dialog dialog, xad xadVar, PurchaseStatus purchaseStatus);
+public class z7d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void i(int i, String str, Activity activity, Dialog dialog, xad xadVar, ebd.b bVar, n9d n9dVar, r9d r9dVar, PayCallBackBean payCallBackBean, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void o(Activity activity, r9d r9dVar, Dialog dialog, xad xadVar);
+    @NonNull
+    public static JSONObject b(@NonNull SdkTopicThread sdkTopicThread) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sdkTopicThread)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "pic_url", sdkTopicThread.pic_url);
+            ltc.a(jSONObject, "title", sdkTopicThread.title);
+            ltc.a(jSONObject, "post_num", sdkTopicThread.post_num);
+            ltc.a(jSONObject, "zan_num", sdkTopicThread.zan_num);
+            ltc.a(jSONObject, "tid", sdkTopicThread.tid);
+            ltc.a(jSONObject, "need_topic", sdkTopicThread.need_topic);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

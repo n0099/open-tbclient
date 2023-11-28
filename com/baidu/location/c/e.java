@@ -75,7 +75,7 @@ public class e {
     public b S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ArrayList<ArrayList<Float>> f1045T;
+    public ArrayList<ArrayList<Float>> f1041T;
     public ArrayList<ArrayList<Float>> U;
     public ArrayList<ArrayList<Float>> V;
     public ArrayList<ArrayList<Float>> W;
@@ -274,9 +274,9 @@ public class e {
             arrayList3.addAll(this.a.Z);
             this.a.b(arrayList3);
             e eVar = this.a;
-            eVar.f1045T = eVar.a(true, false, false, false, true, -1.0f);
+            eVar.f1041T = eVar.a(true, false, false, false, true, -1.0f);
             e eVar2 = this.a;
-            e.b = eVar2.a(eVar2.f1045T);
+            e.b = eVar2.a(eVar2.f1041T);
             e eVar3 = this.a;
             eVar3.U = eVar3.a(true, true, true, true, true, -1.0f);
             e eVar4 = this.a;
@@ -416,8 +416,8 @@ public class e {
                     arrayList3.addAll(this.a.Y);
                     arrayList3.addAll(this.a.Z);
                     this.a.b(arrayList3);
-                    this.a.f1045T = this.a.a(true, false, false, false, true, -1.0f);
-                    e.b = this.a.a(this.a.f1045T);
+                    this.a.f1041T = this.a.a(true, false, false, false, true, -1.0f);
+                    e.b = this.a.a(this.a.f1041T);
                     this.a.U = this.a.a(true, true, true, true, true, -1.0f);
                     this.a.V = this.a.a(true, true, true, true, false, -1.0f);
                     e.c = this.a.a(this.a.V);
@@ -751,7 +751,7 @@ public class e {
         this.P = 0L;
         this.R = null;
         this.S = null;
-        this.f1045T = new ArrayList<>();
+        this.f1041T = new ArrayList<>();
         this.U = new ArrayList<>();
         this.V = new ArrayList<>();
         this.W = new ArrayList<>();
@@ -1298,7 +1298,7 @@ public class e {
                     d dVar = new d(this, null);
                     this.p = dVar;
                     this.g.addGpsStatusListener(dVar);
-                } else if (com.baidu.location.e.k.a(this.f, com.kuaishou.weapon.p0.h.g) == 1) {
+                } else if (com.baidu.location.e.k.a(this.f, com.kuaishou.weapon.p0.g.g) == 1) {
                     c cVar = new c(this, null);
                     this.n = cVar;
                     this.g.registerGnssStatusCallback(cVar);

@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h95;
+import com.baidu.tieba.l95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,10 +95,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     if (view2 != this.a.f) {
                         return;
                     }
-                    this.a.g1();
+                    this.a.f1();
                     return;
                 }
-                this.a.e1();
+                this.a.c1();
             }
         }
     }
@@ -152,11 +152,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.e.setEnabled(false);
                 }
                 if (length >= 32) {
-                    this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0332));
+                    this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f033a));
                     this.a.o.setTextColor(-65536);
                     return;
                 }
-                this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0333));
+                this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f033b));
                 this.a.o.setTextColor(-6250336);
             }
         }
@@ -295,13 +295,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 this.d.h.setVisibility(8);
                 this.d.j = null;
                 if (this.c.getNetContext().getResponse().isRequestSuccess()) {
-                    CreateBarSuccessActivity.L0(this.d.getPageContext().getPageActivity(), this.a);
+                    CreateBarSuccessActivity.I0(this.d.getPageContext().getPageActivity(), this.a);
                     this.d.finish();
                     return;
                 }
                 this.d.showToast(this.c.getErrorString());
                 if (this.c.isNetSuccess()) {
-                    this.d.g1();
+                    this.d.f1();
                 }
             }
         }
@@ -355,14 +355,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        h95 h95Var = new h95();
-                        h95Var.e(postNetData);
-                        if (h95Var.c() != null && h95Var.c().length() > 0) {
-                            this.c.n = h95Var.b();
+                        l95 l95Var = new l95();
+                        l95Var.e(postNetData);
+                        if (l95Var.c() != null && l95Var.c().length() > 0) {
+                            this.c.n = l95Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(h95Var.c());
+                            NetWork netWork2 = new NetWork(l95Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -455,15 +455,15 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d023d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0243);
             initData();
-            d1();
-            c1();
+            b1();
+            a1();
             adjustResizeForSoftInput();
         }
     }
 
-    public final void c1() {
+    public final void a1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.k == null) {
             e eVar = new e(this, null);
@@ -472,7 +472,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    public final void g1() {
+    public final void f1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k == null && this.j == null) {
             e eVar = new e(this, null);
@@ -510,7 +510,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    public final void d1() {
+    public final void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l = new a(this);
@@ -519,43 +519,43 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907db);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f5);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0926b4)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a78);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09117a);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09083a);
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907f7);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09257a);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092737)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a97);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a2);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090856);
             this.e = relativeLayout;
             relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09117b);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909b3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a3);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909cf);
             this.c = editText;
             editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0909c2);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0909de);
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0eb7));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ec5));
                 this.c.setText(this.s);
             } else {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0331));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0339));
             }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09083a);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910d8);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090856);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091100);
             this.f = frameLayout;
             frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fb);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091de4);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091def);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e65);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f092264).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f0922de).setOnTouchListener(new c(this));
         }
     }
 
-    public final void e1() {
+    public final void c1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j == null) {
             d dVar = new d(this, this.c.getText().toString().trim(), this.d.getText().toString().trim());
@@ -581,7 +581,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             getLayoutMode().onModeChanged(this.p);
             SkinManager.setButtonTextColor(this.r, i);
             SkinManager.setTextColor(this.b, i);
-            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f0334);
+            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f033c);
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), 0, this.s.length(), 33);
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.s.length(), str.length(), 33);

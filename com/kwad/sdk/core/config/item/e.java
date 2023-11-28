@@ -1,34 +1,50 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class e extends a<Double> {
-    public e(String str, Double d) {
-        super(str, d);
+public final class e extends b<JSONObject> {
+    public static String Bz() {
+        return "commercialLogRatioConfig";
+    }
+
+    public e() {
+        super(Bz(), new JSONObject());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences sharedPreferences) {
-        setValue(Double.valueOf(Double.parseDouble(sharedPreferences.getString(getKey(), sx().toString()))));
+    public final void a(SharedPreferences sharedPreferences) {
+        JSONObject value = getValue();
+        if (value == null) {
+            value = new JSONObject();
+        }
+        JSONObject jSONObject = null;
+        try {
+            jSONObject = new JSONObject(sharedPreferences.getString(getKey(), ""));
+        } catch (Throwable unused) {
+        }
+        if (jSONObject != null) {
+            value = jSONObject;
+        }
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(@NonNull SharedPreferences.Editor editor) {
-        editor.putString(getKey(), getValue().toString());
+    public final void b(SharedPreferences.Editor editor) {
+        if (getValue() != null) {
+            editor.putString(getKey(), getValue().toString());
+        } else {
+            editor.putString(getKey(), "");
+        }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
-        setValue(jSONObject != null ? Double.valueOf(jSONObject.optDouble(getKey(), sx().doubleValue())) : sx());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.config.item.b
-    @NonNull
-    /* renamed from: sz */
-    public final Double getValue() {
-        return (Double) super.getValue();
+    public final void j(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(getKey())) != null) {
+            setValue(optJSONObject);
+        } else {
+            setValue(Bx());
+        }
     }
 }

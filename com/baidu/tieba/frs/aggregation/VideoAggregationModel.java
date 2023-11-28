@@ -18,8 +18,8 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os7;
 import com.baidu.tieba.video.LiveConfig;
+import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<os7> list, boolean z, boolean z2);
+        void b(List<zu7> list, boolean z, boolean z2);
     }
 
     /* loaded from: classes6.dex */
@@ -57,7 +57,7 @@ public class VideoAggregationModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public LiveConfig liveConfig;
-        public List<os7> mDataList;
+        public List<zu7> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,10 +97,10 @@ public class VideoAggregationModel extends BdBaseModel {
                         this.mDataList = new ArrayList();
                         JSONArray jSONArray = new JSONArray(optString);
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            os7 os7Var = new os7();
-                            os7Var.d(jSONArray.optString(i2));
-                            if (os7Var.n != null) {
-                                this.mDataList.add(os7Var);
+                            zu7 zu7Var = new zu7();
+                            zu7Var.d(jSONArray.optString(i2));
+                            if (zu7Var.n != null) {
+                                this.mDataList.add(zu7Var);
                             }
                         }
                     }
@@ -149,7 +149,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<os7> list = videoAggregationResponseMessage.mDataList;
+                        List<zu7> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }
@@ -159,7 +159,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     VideoAggregationModel.R(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06b4);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06bc);
                     }
                     this.a.g.a(errorString);
                     return;
@@ -206,7 +206,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<os7> list = videoAggregationResponseMessage.mDataList;
+                        List<zu7> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }
@@ -216,7 +216,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     VideoAggregationModel.R(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06b4);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06bc);
                     }
                     this.a.g.a(errorString);
                     return;

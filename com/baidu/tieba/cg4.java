@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.Closeable;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes5.dex */
-public interface cg4 extends Closeable {
-    @Nullable
-    bg4 body();
+public interface cg4 {
+    ReadableByteChannel a();
 
-    int code();
+    long b();
 }

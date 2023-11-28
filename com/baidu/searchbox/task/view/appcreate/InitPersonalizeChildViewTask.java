@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.t98;
+import com.baidu.tieba.oc8;
 /* loaded from: classes4.dex */
 public class InitPersonalizeChildViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -55,7 +55,7 @@ public class InitPersonalizeChildViewTask extends LaunchTask {
             TbadkCoreApplication.getInst().getPersonalizeViewData().p = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
             TbadkCoreApplication.getInst().getPersonalizeViewData().q = new ThreadGodReplyLayout(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().getPersonalizeViewData().s = new RecommendInfoLayout(TbadkCoreApplication.getInst());
-            TbadkCoreApplication.getInst().getPersonalizeViewData().t = new t98(TbadkCoreApplication.getInst());
+            TbadkCoreApplication.getInst().getPersonalizeViewData().t = new oc8(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().getPersonalizeViewData().r = new ThreadCardBottomOpSegmentLayout(TbadkCoreApplication.getInst());
         } catch (Exception e) {
             BdLog.e(e);

@@ -1,7 +1,6 @@
 package com.fun.ad.sdk.internal.api.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +98,7 @@ public class MD5Utils {
             return (String) invokeL.objValue;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(PackageTable.MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("md5");
             byte[] bArr = new byte[16384];
             while (true) {
                 int read = inputStream.read(bArr, 0, 16384);

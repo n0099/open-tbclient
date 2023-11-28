@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.fg;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pf;
-import com.baidu.tieba.pp5;
+import com.baidu.tieba.qf;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FlutterPluginStatic {
     public static /* synthetic */ Interceptable $ic;
     public static int mFlutterPersonCenterRequestCount;
@@ -75,17 +75,17 @@ public class FlutterPluginStatic {
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                         return;
                     }
-                    String e = fg.f().e();
+                    String e = gg.f().e();
                     String versionName = TbadkCoreApplication.getInst().getVersionName();
-                    TbLog a = pf.a();
+                    TbLog a = qf.a();
                     a.i(FlutterPluginManager.TAG, "开始安装Flutter插件 配置的Flutter版本：" + e + " 客户端当前版本" + versionName + " data" + customResponsedMessage.getData());
                     if (TextUtils.isEmpty(versionName)) {
                         return;
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof pp5) {
-                        FlutterPluginManager.getInstance().init((pp5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof xp5) {
+                        FlutterPluginManager.getInstance().init((xp5) customResponsedMessage.getData());
                     } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                         FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {

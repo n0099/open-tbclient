@@ -7,7 +7,7 @@ import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.mobile.framework.revenuesdk.RevenueConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.HiidoConstantContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HiidoSDKApi {
     public static final String TAG = "HiidoSDKApi";
     public static StatisAPI mStatisAPI;

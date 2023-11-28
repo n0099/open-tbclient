@@ -2,7 +2,7 @@ package com.google.android.material.shadow;
 
 import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ShadowViewDelegate {
     float getRadius();
 

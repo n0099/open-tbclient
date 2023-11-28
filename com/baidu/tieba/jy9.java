@@ -1,141 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes6.dex */
-public class jy9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public View.OnClickListener b;
-    public RelativeLayout c;
-    public HeadImageView d;
-    public TextView e;
-    public TextView f;
-    public ImageView g;
+public interface jy9 {
+    void c(boolean z);
 
-    public jy9(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.a = pbFragment;
-        this.b = onClickListener;
-        b();
-    }
+    void d(View.OnLongClickListener onLongClickListener);
 
-    public void a(BdTypeListView bdTypeListView, int i) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.w(relativeLayout, i);
-        }
-    }
+    void e(View.OnClickListener onClickListener);
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
-            return;
-        }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d6, (ViewGroup) null);
-        this.c = relativeLayout;
-        HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091283);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setPlaceHolder(1);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0927d3);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0927d2);
-        this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091282);
-        this.c.setOnClickListener(this.b);
-    }
+    void f(boolean z);
 
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            RelativeLayout relativeLayout = this.c;
-            if (relativeLayout != null) {
-                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
-            }
-            HeadImageView headImageView = this.d;
-            if (headImageView != null) {
-                headImageView.setSkinType(i);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.f;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
-            }
-        }
-    }
+    void k(View.OnClickListener onClickListener);
 
-    public void d(BdTypeListView bdTypeListView) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.removeHeaderView(relativeLayout);
-        }
-    }
+    void l(int i);
 
-    public void e(es9 es9Var, BdTypeListView bdTypeListView) {
-        String charSequence;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, es9Var, bdTypeListView) == null) && es9Var != null && bdTypeListView != null) {
-            if (es9Var.O().isVideoThreadType() && es9Var.O().getSmartApp() != null) {
-                SmartApp smartApp = es9Var.O().getSmartApp();
-                this.c.setVisibility(0);
-                d(bdTypeListView);
-                a(bdTypeListView, 1);
-                if (!qd.isEmpty(smartApp.avatar)) {
-                    this.d.startLoad(smartApp.avatar, 10, false, false);
-                }
-                if (!qd.isEmpty(smartApp.name)) {
-                    charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.smart_app_suffix));
-                } else {
-                    charSequence = this.a.getText(R.string.intelligent_smart_app).toString();
-                }
-                this.e.setText(charSequence);
-                if (!qd.isEmpty(smartApp._abstract)) {
-                    this.f.setText(smartApp._abstract);
-                } else {
-                    this.f.setText(this.a.getText(R.string.smart_app_default_abstract));
-                }
-                this.c.setTag(smartApp);
-                return;
-            }
-            this.c.setVisibility(8);
-            d(bdTypeListView);
-        }
-    }
+    void o(TbRichTextView.z zVar);
+
+    void p(String str);
+
+    void r(boolean z);
+
+    void s(vv9 vv9Var);
+
+    void setFromCDN(boolean z);
 }

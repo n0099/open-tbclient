@@ -1,340 +1,137 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.impersonal.data.Extra;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pd9 {
+public abstract class pd9<SdkMsg extends ChatMsg, T> implements sd9<SdkMsg, qb9<T>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<vd9> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948058340, "Lcom/baidu/tieba/pd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948058340, "Lcom/baidu/tieba/pd9;");
-                return;
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
+
+    public pd9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new ArrayList();
     }
 
-    public static void a(Context context, String str, HashMap<String, Object> hashMap) {
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sd9
+    /* renamed from: d */
+    public SdkMsg b(qb9<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, hashMap) == null) {
-            if (hashMap != null) {
-                String str3 = (String) hashMap.get("enterroom_type");
-                String str4 = (String) hashMap.get("live_activity_type");
-                String str5 = (String) hashMap.get("extra");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.n.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
+        }
+        return (SdkMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sd9
+    /* renamed from: f */
+    public qb9<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
+        Extra extra;
+        String jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            qb9<T> qb9Var = new qb9<>();
+            qb9Var.i(g(msg));
+            qb9Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            qb9Var.d(msgKey);
+            qb9Var.e().m(msg.getContacterUk());
+            qb9Var.e().l(xwb.c(msg.getSenderUid(), 0L));
+            qb9Var.e().j(msg.getStatus());
+            qb9Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            qb9Var.e().i(isSelf);
+            if (!isSelf) {
+                qb9Var.e().h(TbSingleton.getInstance().getFunnySpriteAvatar());
+                qb9Var.e().g(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                qb9Var.e().h(TbadkCoreApplication.getCurrentPortrait());
+                qb9Var.e().g(TbadkCoreApplication.getCurrentAccountNameShow());
+            }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
                 try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("live_activity_type", str4);
-                    jSONObject.put("extra", str5);
-                    str2 = jSONObject.toString();
-                } catch (JSONException unused) {
-                    str2 = "";
-                }
-                if ("1".equals(str3)) {
-                    pf9.j().H(context, str2);
-                    return;
-                } else {
-                    pf9.j().D(context, "");
-                    return;
-                }
-            }
-            pf9.j().D(context, "");
-        }
-    }
-
-    public static void d(Context context, ae9 ae9Var, vd9 vd9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, ae9Var, vd9Var) != null) || context == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (ae9Var != null) {
-            try {
-                if (!TextUtils.isEmpty(ae9Var.a)) {
-                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, ae9Var.a);
-                    if (vd9Var != null) {
-                        a.add(vd9Var);
-                    }
-                }
-                jSONObject.put("isTranslucent", ae9Var.b);
-                if (!TextUtils.isEmpty(ae9Var.c)) {
-                    jSONObject.put("from", ae9Var.c);
-                }
-            } catch (JSONException unused) {
-            }
-        }
-        pf9.j().B(context, jSONObject.toString());
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void b(Context context, String str, Map<String, Object> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, map) == null) {
-            String str3 = (String) map.get("enterroom_type");
-            String str4 = (String) map.get("room_id");
-            String str5 = (String) map.get("live_id");
-            String str6 = (String) map.get("username");
-            String str7 = (String) map.get("userrec");
-            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
-            String str10 = (String) map.get("screen_direction");
-            String str11 = (String) map.get("open_giftlist");
-            String str12 = (String) map.get("tab");
-            String str13 = (String) map.get("tag");
-            String str14 = (String) map.get("source");
-            String str15 = (String) map.get("from");
-            String str16 = (String) map.get("extra");
-            String str17 = (String) map.get("audioUrl");
-            String str18 = (String) map.get("audio_bg");
-            String str19 = (String) map.get("chat_mcast_id");
-            String str20 = (String) map.get("open_msgpanel");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str12)) {
-                    jSONObject.put("tab", str12);
-                }
-                if (!TextUtils.isEmpty(str13)) {
-                    jSONObject.put("tag", str13);
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    jSONObject.put("source", str14);
-                }
-                if (!TextUtils.isEmpty(str15)) {
-                    jSONObject.put("from", str15);
-                }
-                if (!TextUtils.isEmpty(str8)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
-                }
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
-                }
-                if (!TextUtils.isEmpty(str10)) {
-                    jSONObject.put("screen_direction", str10);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    str2 = str5;
-                    try {
-                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
-                    } catch (JSONException e) {
-                        e = e;
+                    JSONObject jSONObject2 = new JSONObject(msg.getContentExtra());
+                    qb9Var.e().k(jSONObject2.optInt("type"));
+                    qb9Var.e().f(jSONObject2.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
                         e.printStackTrace();
-                        if (!"1".equals(str3)) {
-                        }
+                    } else {
+                        throw e;
                     }
-                } else {
-                    str2 = str5;
                 }
-                if (!TextUtils.isEmpty(str16)) {
-                    jSONObject.put("extra", str16);
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!rd.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject3 = new JSONObject(msgContent);
+                    pb9 g = qb9Var.g();
+                    String optString = jSONObject3.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.d(optString);
+                    JSONObject optJSONObject = jSONObject3.optJSONObject("extra");
+                    pb9 g2 = qb9Var.g();
+                    if (optJSONObject != null && (jSONObject = optJSONObject.toString()) != null) {
+                        Intrinsics.checkNotNullExpressionValue(jSONObject, "toString()");
+                        extra = (Extra) DataExt.toEntityNullable(jSONObject, Extra.class);
+                    } else {
+                        extra = null;
+                    }
+                    g2.c(extra);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
                 }
-                if (!TextUtils.isEmpty(str17)) {
-                    jSONObject.put("audioUrl", str17);
-                }
-                if (!TextUtils.isEmpty(str18)) {
-                    jSONObject.put("audio_bg", str18);
-                }
-                if (!TextUtils.isEmpty(str19)) {
-                    jSONObject.put("chat_mcast_id", str19);
-                }
-                if (!TextUtils.isEmpty(str20)) {
-                    jSONObject.put("open_msgpanel", str20);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                str2 = str5;
             }
-            if (!"1".equals(str3)) {
-                pf9.j().y(context, str, jSONObject.toString(), map);
-                return;
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("user_name", str6);
-                jSONObject2.put("open_giftlist", str11);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("live_id", str2);
-                jSONObject3.put("useRecommend", true);
-                jSONObject3.put("otherParams", jSONObject);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
-            }
-            pf9.j().x(context, jSONObject3.toString());
+            return qb9Var;
         }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            pf9.j().h(context, str);
-        }
-    }
-
-    public static void i(Activity activity, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, map) == null) {
-            h68.i().o(activity, map);
-        }
-    }
-
-    public static void m(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            pf9.j().A(context, str);
-        }
-    }
-
-    public static void p(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", str);
-            hashMap.put("isSubscribe", Boolean.valueOf(z));
-            pf9.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
-        }
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            pf9.j().q(context);
-        }
-    }
-
-    public static void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            pf9.j().t(context);
-        }
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            pf9.j().z(context);
-        }
-    }
-
-    public static void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i = 0; i < a.size(); i++) {
-                a.get(i).onCallback(jSONObject);
-            }
-            a.clear();
-        }
-    }
-
-    public static void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", Long.valueOf(j));
-            pf9.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
-        }
-    }
-
-    public static void f(Context context, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            pf9.j().v(context, j, i);
-        }
-    }
-
-    public static void g(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, context, str, i) == null) {
-            pf9.j().s(context, str, i);
-        }
-    }
-
-    public static void j(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            pf9.j().u(context, str, str2);
-        }
-    }
-
-    public static void n(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            pf9.j().C(context, str, str2);
-        }
-    }
-
-    public static void r(Application application, String str, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
-            pf9.j().r(application, str, uri);
-        }
-    }
-
-    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
-            long j = alaLiveInfoCoreData.liveID;
-            String str2 = alaLiveInfoCoreData.userName;
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
-                jSONObject.put("user_name", str2);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
-                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
-                jSONObject.put("open_giftlist", "0");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("live_id", j);
-                jSONObject2.put("useRecommend", true);
-                jSONObject2.put("otherParams", jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            pf9.j().x(context, jSONObject2.toString());
-        }
+        return (qb9) invokeL.objValue;
     }
 }

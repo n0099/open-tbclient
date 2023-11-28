@@ -1,80 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jf9 {
+public class jf9 implements kq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<oi> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.kq4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
+    }
+
+    public jf9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList();
-            List<RecommendForumInfo> list = dataRes.forum_cards;
-            if (list != null && list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        ff9 ff9Var = new ff9();
-                        ff9Var.i(list.get(i));
-                        ff9Var.l(true);
-                        arrayList.add(ff9Var);
-                    }
-                }
-            } else {
-                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-                if (recommendForumInfo != null) {
-                    ff9 ff9Var2 = new ff9();
-                    ff9Var2.i(recommendForumInfo);
-                    ff9Var2.l(false);
-                    arrayList.add(ff9Var2);
-                }
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                gf9 gf9Var = new gf9();
-                gf9Var.g(item);
-                arrayList.add(gf9Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                hf9 hf9Var = new hf9();
-                hf9Var.n(str);
-                hf9Var.l(sugLiveInfo);
-                arrayList.add(hf9Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                if9 if9Var = new if9();
-                if9Var.f(str);
-                if9Var.e(sugRankingInfo);
-                arrayList.add(if9Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                ef9 ef9Var = new ef9();
-                ef9Var.c(str);
-                ef9Var.d(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, ef9Var);
-                } else {
-                    arrayList.add(ef9Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kq4
+    public void b(HashMap<String, String> hashMap, lq4 lq4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, lq4Var) == null) && lq4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            String str = hashMap.get("fid");
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(JavaTypesHelper.toLong(str, 0L))));
+            TbadkCoreApplication.getInst().addLikeForum(str2);
+        }
     }
 }

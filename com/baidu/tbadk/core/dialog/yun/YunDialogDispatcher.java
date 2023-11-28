@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.dialog.yun;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.kma;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class YunDialogDispatcher implements rha {
+public class YunDialogDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class YunDialogDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

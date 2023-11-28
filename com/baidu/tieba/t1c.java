@@ -1,105 +1,45 @@
 package com.baidu.tieba;
 
+import android.util.Base64;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes8.dex */
-public class t1c extends BaseAdRipper {
+public class t1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t1c(Ssp.Pid pid) {
-        super(pid);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948129795, "Lcom/baidu/tieba/t1c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948129795, "Lcom/baidu/tieba/t1c;");
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        boolean z;
-        Object obj2;
-        AdResultData adResultData;
-        List<AdTemplate> adTemplateList;
-        List<AdInfo> list;
-        AdInfo adInfo;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                i2c i2cVar = (i2c) obj;
-                if (i2cVar != null) {
-                    Object obj3 = i2cVar.a;
-                    String[] strArr = {"BM", "Bu", "AC", "yJ"};
-                    Field field = null;
-                    int i = 0;
-                    while (true) {
-                        z = true;
-                        if (i >= 4) {
-                            break;
-                        }
-                        try {
-                            field = obj3.getClass().getDeclaredField(strArr[i]);
-                            field.setAccessible(true);
-                            break;
-                        } catch (NoSuchFieldException unused) {
-                            i++;
-                        }
-                    }
-                    if (field == null || (obj2 = field.get(obj3)) == null) {
-                        return null;
-                    }
-                    if (obj2 instanceof AdResultData) {
-                        adResultData = (AdResultData) obj2;
-                    } else {
-                        adResultData = null;
-                    }
-                    if (adResultData == null) {
-                        z = false;
-                    }
-                    if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
-                        AdTemplate adTemplate = adTemplateList.get(0);
-                        if (adTemplate == null) {
-                            list = null;
-                        } else {
-                            list = adTemplate.adInfoList;
-                        }
-                        if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                            return null;
-                        }
-                        return v1c.a(adInfo);
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            Charset forName = Charset.forName("UTF-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKeySpec);
+            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes10.dex */
 public interface e {
-    void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch);
+    File Gg();
 
-    File wv();
+    void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch);
 }

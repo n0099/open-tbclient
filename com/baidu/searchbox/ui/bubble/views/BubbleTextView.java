@@ -34,7 +34,7 @@ public class BubbleTextView extends BubbleBaseView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0195;
+        return R.layout.obfuscated_res_0x7f0d019a;
     }
 
     public int getTextColor() {
@@ -49,7 +49,7 @@ public class BubbleTextView extends BubbleBaseView {
                 return i2;
             }
         }
-        return AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060386);
+        return AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060388);
     }
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleBaseView
@@ -58,7 +58,7 @@ public class BubbleTextView extends BubbleBaseView {
             return false;
         }
         int textColor = getTextColor();
-        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09053d);
+        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090558);
         this.mBubbleText = textView;
         textView.setTextColor(textColor);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f8);

@@ -19,7 +19,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static TriState state;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ka
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ja
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ka
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

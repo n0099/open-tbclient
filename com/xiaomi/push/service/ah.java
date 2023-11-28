@@ -27,7 +27,7 @@ public final class ah {
         id idVar = new id();
         try {
             ir.a(idVar, bArr);
-            return a(u.m842a((Context) xMPushService), xMPushService, idVar);
+            return a(u.m846a((Context) xMPushService), xMPushService, idVar);
         } catch (ix e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             return null;
@@ -38,15 +38,15 @@ public final class ah {
         try {
             fk fkVar = new fk();
             fkVar.a(5);
-            fkVar.c(tVar.f1005a);
+            fkVar.c(tVar.f1001a);
             fkVar.b(a(idVar));
             fkVar.a("SECMSG", "message");
-            String str = tVar.f1005a;
-            idVar.f633a.f557a = str.substring(0, str.indexOf("@"));
-            idVar.f633a.f561c = str.substring(str.indexOf("/") + 1);
+            String str = tVar.f1001a;
+            idVar.f629a.f553a = str.substring(0, str.indexOf("@"));
+            idVar.f629a.f557c = str.substring(str.indexOf("/") + 1);
             fkVar.a(ir.a(idVar), tVar.c);
             fkVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m186a("try send mi push message. packagename:" + idVar.f638b + " action:" + idVar.f631a);
+            com.xiaomi.channel.commonutils.logger.b.m190a("try send mi push message. packagename:" + idVar.f634b + " action:" + idVar.f627a);
             return fkVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -71,8 +71,8 @@ public final class ah {
         byte[] a = ir.a(t);
         id idVar = new id();
         hw hwVar = new hw();
-        hwVar.f556a = 5L;
-        hwVar.f557a = "fakeid";
+        hwVar.f552a = 5L;
+        hwVar.f553a = "fakeid";
         idVar.a(hwVar);
         idVar.a(ByteBuffer.wrap(a));
         idVar.a(hhVar);
@@ -85,14 +85,14 @@ public final class ah {
 
     public static String a(id idVar) {
         Map<String, String> map;
-        hu huVar = idVar.f632a;
-        if (huVar != null && (map = huVar.f547b) != null) {
+        hu huVar = idVar.f628a;
+        if (huVar != null && (map = huVar.f543b) != null) {
             String str = map.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return idVar.f638b;
+        return idVar.f634b;
     }
 
     public static String a(String str) {
@@ -100,28 +100,28 @@ public final class ah {
     }
 
     public static void a(XMPushService xMPushService) {
-        t m842a = u.m842a(xMPushService.getApplicationContext());
-        if (m842a != null) {
-            bg.b a = u.m842a(xMPushService.getApplicationContext()).a(xMPushService);
-            com.xiaomi.channel.commonutils.logger.b.m186a("prepare account. " + a.f935a);
+        t m846a = u.m846a(xMPushService.getApplicationContext());
+        if (m846a != null) {
+            bg.b a = u.m846a(xMPushService.getApplicationContext()).a(xMPushService);
+            com.xiaomi.channel.commonutils.logger.b.m190a("prepare account. " + a.f931a);
             a(xMPushService, a);
             bg.a().a(a);
-            a(xMPushService, m842a, 172800);
+            a(xMPushService, m846a, 172800);
         }
     }
 
     public static void a(XMPushService xMPushService, id idVar) {
         da.a(idVar.b(), xMPushService.getApplicationContext(), idVar, -1);
-        fv m751a = xMPushService.m751a();
-        if (m751a == null) {
+        fv m755a = xMPushService.m755a();
+        if (m755a == null) {
             throw new gg("try send msg while connection is null.");
         }
-        if (!m751a.mo502a()) {
+        if (!m755a.mo506a()) {
             throw new gg("Don't support XMPP connection.");
         }
-        fk a = a(u.m842a((Context) xMPushService), xMPushService, idVar);
+        fk a = a(u.m846a((Context) xMPushService), xMPushService, idVar);
         if (a != null) {
-            m751a.b(a);
+            m755a.b(a);
         }
     }
 
@@ -136,16 +136,16 @@ public final class ah {
 
     public static void a(XMPushService xMPushService, String str, byte[] bArr) {
         da.a(str, xMPushService.getApplicationContext(), bArr);
-        fv m751a = xMPushService.m751a();
-        if (m751a == null) {
+        fv m755a = xMPushService.m755a();
+        if (m755a == null) {
             throw new gg("try send msg while connection is null.");
         }
-        if (!m751a.mo502a()) {
+        if (!m755a.mo506a()) {
             throw new gg("Don't support XMPP connection.");
         }
         fk a = a(xMPushService, bArr);
         if (a != null) {
-            m751a.b(a);
+            m755a.b(a);
         } else {
             x.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
         }
@@ -154,7 +154,7 @@ public final class ah {
     public static id b(String str, String str2) {
         ig igVar = new ig();
         igVar.b(str2);
-        igVar.c(hr.AppDataCleared.f508a);
+        igVar.c(hr.AppDataCleared.f504a);
         igVar.a(bd.a());
         igVar.a(false);
         return a(str, str2, igVar, hh.Notification);

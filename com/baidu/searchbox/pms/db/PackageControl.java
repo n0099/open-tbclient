@@ -92,7 +92,7 @@ public class PackageControl {
             contentValues.put("channel_id", packageInfo.channelId);
         }
         if (!TextUtils.isEmpty(packageInfo.md5)) {
-            contentValues.put(PackageTable.MD5, packageInfo.md5);
+            contentValues.put("md5", packageInfo.md5);
         }
         contentValues.put(PackageTable.MIN_HOST_VERSION, packageInfo.minHostVersion);
         contentValues.put(PackageTable.MAX_HOST_VERSION, packageInfo.maxHostVersion);
@@ -195,7 +195,7 @@ public class PackageControl {
             int columnIndex3 = cursor2.getColumnIndex("download_url");
             int columnIndex4 = cursor2.getColumnIndex("version");
             int columnIndex5 = cursor2.getColumnIndex("name");
-            int columnIndex6 = cursor2.getColumnIndex(PackageTable.MD5);
+            int columnIndex6 = cursor2.getColumnIndex("md5");
             int columnIndex7 = cursor2.getColumnIndex("size");
             int columnIndex8 = cursor2.getColumnIndex(PackageTable.EXTRA_FROM_SERVER);
             int columnIndex9 = cursor2.getColumnIndex(PackageTable.MIN_HOST_VERSION);
@@ -621,9 +621,8 @@ public class PackageControl {
         }
         Cursor cursor2 = str2;
         if (!TextUtils.isEmpty(str3)) {
-            ?? r9 = PackageTable.MD5;
-            arrayList.add(new Pair<>(PackageTable.MD5, str3));
-            cursor2 = r9;
+            arrayList.add(new Pair<>("md5", str3));
+            cursor2 = "md5";
         }
         List<PackageInfo> list = null;
         try {

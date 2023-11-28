@@ -1,7 +1,7 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.bkc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.usc;
+import com.baidu.tieba.woc;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
@@ -14,7 +14,7 @@ public enum GenericScheduledExecutorServiceFactory {
     public static final RxThreadFactory THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
 
     public static ScheduledExecutorService create() {
-        bkc<? extends ScheduledExecutorService> a = znc.a();
+        woc<? extends ScheduledExecutorService> a = usc.a();
         if (a == null) {
             return createDefault();
         }

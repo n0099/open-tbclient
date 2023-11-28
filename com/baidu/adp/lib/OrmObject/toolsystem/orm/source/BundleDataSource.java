@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.m8;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.r7;
-import com.baidu.tieba.u8;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.n8;
+import com.baidu.tieba.p9;
+import com.baidu.tieba.s7;
+import com.baidu.tieba.v8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class BundleDataSource implements m8 {
+public class BundleDataSource implements n8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle bundle;
@@ -52,7 +52,7 @@ public class BundleDataSource implements m8 {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.m8
+    @Override // com.baidu.tieba.n8
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class BundleDataSource implements m8 {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m8
+    @Override // com.baidu.tieba.n8
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                k9 k9Var = new k9(type);
-                u8 a = o9.a(object);
+                l9 l9Var = new l9(type);
+                v8 a = p9.a(object);
                 if (a != null) {
-                    return a.a(k9Var);
+                    return a.a(l9Var);
                 }
                 return null;
             }
@@ -81,7 +81,7 @@ public class BundleDataSource implements m8 {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.m8
+    @Override // com.baidu.tieba.n8
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
@@ -139,7 +139,7 @@ public class BundleDataSource implements m8 {
                     this.bundle.putShortArray(str, (short[]) obj);
                 } else if (componentType == String.class) {
                     this.bundle.putStringArray(str, (String[]) obj);
-                } else if (r7.e(componentType, Parcelable.class)) {
+                } else if (s7.e(componentType, Parcelable.class)) {
                     this.bundle.putParcelableArray(str, (Parcelable[]) obj);
                 }
             } else if (obj instanceof CharSequence) {

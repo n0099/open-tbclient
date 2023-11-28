@@ -251,7 +251,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         });
         this.d = new a(this, 3000L, 33L, 90);
         h();
-        f();
+        g();
     }
 
     public /* synthetic */ SpriteMemeGenerateView(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
@@ -263,9 +263,9 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, memeData) == null) {
             Intrinsics.checkNotNullParameter(memeData, "memeData");
             if (memeData instanceof GeneratedLoadingData) {
-                l();
+                n();
             } else if (memeData instanceof GeneratedErrorData) {
-                k();
+                l();
             } else if (!GlobalBuildConfig.isDebug()) {
             } else {
                 throw new RuntimeException("Wrong Data Type");
@@ -343,7 +343,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         }
     }
 
-    public final void f() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             getBinding().b.setText(getContext().getString(R.string.generate_desc));
@@ -351,7 +351,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         }
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             getBinding().d.setVisibility(8);
@@ -363,7 +363,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         }
     }
 
-    public final void l() {
+    public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             getBinding().d.setVisibility(0);
@@ -375,7 +375,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         }
     }
 
-    public final void i(long j, long j2, int i) {
+    public final void j(long j, long j2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
             this.d.cancel();

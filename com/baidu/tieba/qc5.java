@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.CallSuper;
+import com.baidu.adp.lib.safe.UiUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qc5 {
+public abstract class qc5 implements IInvokeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public qc5() {
         Interceptable interceptable = $ic;
@@ -30,57 +29,35 @@ public class qc5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* renamed from: onResult$lambda-0  reason: not valid java name */
+    public static final void m145onResult$lambda0(String toastText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(65537, null, toastText) == null) {
+            Intrinsics.checkNotNullParameter(toastText, "$toastText");
+            BdUtilHelper.showLongToast(TbadkCoreApplication.getInst(), toastText);
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.main.invoke.IInvokeCallback
+    @CallSuper
+    public void onResult(int i, final String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == -1400) {
+            if (str == null) {
+                str = "插件修复中...";
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.mc5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                str = "skin=dark";
-            } else {
-                str = "skin=default";
-            }
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        qc5.m145onResult$lambda0(str);
+                    }
+                }
+            });
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
-            return;
-        }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
     }
 }

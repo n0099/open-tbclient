@@ -1,58 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class q57 {
+public abstract class q57 extends j57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m87 d;
 
-    public static final p57 a(List<r57> reasonList, Map<String, String> businessInfo) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.nb7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, reasonList, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(reasonList, "reasonList");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            try {
-                String str = businessInfo.get("forum_id");
-                wc7.b(str, null, 1, null);
-                String str2 = businessInfo.get("forum_name");
-                wc7.b(str2, null, 1, null);
-                String str3 = businessInfo.get("thread_id");
-                wc7.b(str3, null, 1, null);
-                String str4 = businessInfo.get("uid");
-                wc7.b(str4, null, 1, null);
-                String str5 = businessInfo.get("is_grays_cale_forum");
-                wc7.b(str5, null, 1, null);
-                int parseInt = Integer.parseInt(str5);
-                String str6 = businessInfo.get("is_boomgrow");
-                wc7.b(str6, null, 1, null);
-                int parseInt2 = Integer.parseInt(str6);
-                String str7 = businessInfo.get("has_forum_rule");
-                wc7.b(str7, null, 1, null);
-                int parseInt3 = Integer.parseInt(str7);
-                String str8 = businessInfo.get("forum_head_url");
-                if (str8 == null) {
-                    str8 = "";
-                }
-                String str9 = businessInfo.get(IntentConfig.USER_LEVEL);
-                wc7.b(str9, null, 1, null);
-                int parseInt4 = Integer.parseInt(str9);
-                String str10 = businessInfo.get("is_manager");
-                wc7.b(str10, null, 1, null);
-                int parseInt5 = Integer.parseInt(str10);
-                String str11 = businessInfo.get("mask_delete");
-                wc7.b(str11, null, 1, null);
-                return new p57(str, str2, str3, str4, reasonList, parseInt, parseInt2, parseInt3, str8, parseInt4, parseInt5, str11);
-            } catch (Exception unused) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "browse_location" : (String) invokeV.objValue;
+    }
+
+    public abstract String f();
+
+    public q57() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (p57) invokeLL.objValue;
     }
 }

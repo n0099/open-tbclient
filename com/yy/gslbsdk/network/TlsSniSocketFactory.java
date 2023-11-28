@@ -23,7 +23,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TlsSniSocketFactory extends SSLSocketFactory {
     public HttpsURLConnection conn;
     public final String TAG = TlsSniSocketFactory.class.getSimpleName();
@@ -68,7 +68,7 @@ public class TlsSniSocketFactory extends SSLSocketFactory {
         this.conn = httpsURLConnection;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class HostnameVerifierEx implements HostnameVerifier {
         public static final int ALT_DNS_NAME = 2;
         public static final Pattern VERIFY_AS_IP_ADDRESS = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

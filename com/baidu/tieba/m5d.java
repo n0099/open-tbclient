@@ -4,27 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.UniversalLabel;
+import tbclient.NewParrScores;
 /* loaded from: classes7.dex */
-public class m5d extends qoc {
+public class m5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull UniversalLabel universalLabel) {
+    public static JSONObject b(@NonNull NewParrScores newParrScores) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, universalLabel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newParrScores)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "label_id", universalLabel.label_id);
-            qoc.a(jSONObject, "label_text", universalLabel.label_text);
-            qoc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, universalLabel.text_color);
-            qoc.a(jSONObject, "text_color_black", universalLabel.text_color_black);
-            qoc.a(jSONObject, "background_color", universalLabel.background_color);
-            qoc.a(jSONObject, "background_color_black", universalLabel.background_color_black);
-            qoc.a(jSONObject, "round_radius", universalLabel.round_radius);
+            ltc.a(jSONObject, "scores_total", newParrScores.scores_total);
+            ltc.a(jSONObject, "update_time", newParrScores.update_time);
+            ltc.a(jSONObject, "i_total", newParrScores.i_total);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

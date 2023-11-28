@@ -1,64 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Build;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.i61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b51 implements uj0 {
+public final class b51 implements a51.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uj0
-    public void a(@NonNull Application application) {
+    @Override // com.baidu.tieba.a51.a
+    public void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(b51 b51Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b51Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.a51.a
+    public boolean b(HashMap<String, String> hashMap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
+            return true;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (e61.g()) {
-                        c = z41.b();
-                    } else {
-                        c = z41.c();
-                    }
-                    z41.a().a(gf0.b(), c);
-                } catch (Exception e) {
-                    m61.d(e);
-                }
-            }
-        }
+        return invokeLI.booleanValue;
     }
 
     public b51() {
@@ -75,11 +53,33 @@ public final class b51 implements uj0 {
         }
     }
 
-    @Override // com.baidu.tieba.uj0
-    public void b() {
+    @Override // com.baidu.tieba.a51.a
+    public AbsNadBrowserView c(Context context, k61 k61Var, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vf0.c(new a(this));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, k61Var, i)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            n61.c(context, "创建native内核browserView");
+            return new NadNativeBrowserView(context);
+        }
+        return (AbsNadBrowserView) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.a51.a
+    public void d(Context context, boolean z, int i, i61.b listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    WebView.setDataDirectorySuffix(n11.a());
+                }
+                CookieSyncManager.createInstance(context);
+                listener.a();
+            } catch (Exception e) {
+                listener.b();
+                n61.d(e);
+            }
         }
     }
 }

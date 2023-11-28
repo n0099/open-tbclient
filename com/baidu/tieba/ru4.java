@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface ru4 {
-    void a();
+public interface ru4<T> {
+    void onError(int i, String str);
 
-    void onCancelClick();
+    void onSuccess(T t);
 }

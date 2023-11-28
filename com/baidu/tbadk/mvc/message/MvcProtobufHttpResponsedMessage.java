@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.data.IResponseData;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.id;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.sd;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.da;
+import com.baidu.tieba.jd;
+import com.baidu.tieba.td;
+import com.baidu.tieba.xn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends IResponseData, M
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        pn5 pn5Var;
+        xn5 xn5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -56,32 +56,32 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends IResponseData, M
                 String str = null;
                 if (getOrginalMessage() instanceof MvcSocketMessage) {
                     MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof pn5)) {
-                        pn5Var = (pn5) mvcSocketMessage.getData();
+                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof xn5)) {
+                        xn5Var = (xn5) mvcSocketMessage.getData();
                     }
-                    pn5Var = null;
+                    xn5Var = null;
                 } else {
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                         MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof pn5)) {
-                            pn5Var = (pn5) mvcNetMessage.getRequestData();
+                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof xn5)) {
+                            xn5Var = (xn5) mvcNetMessage.getRequestData();
                         }
                     }
-                    pn5Var = null;
+                    xn5Var = null;
                 }
-                if (pn5Var != null) {
-                    String cacheKey = pn5Var.getCacheKey();
-                    String cacheTableName = pn5Var.getCacheTableName();
-                    if (pn5Var.isNeedUid()) {
+                if (xn5Var != null) {
+                    String cacheKey = xn5Var.getCacheKey();
+                    String cacheTableName = xn5Var.getCacheTableName();
+                    if (xn5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        yz4.l();
-                        ca<byte[]> k = yz4.k(cacheTableName, str);
-                        if (k == null) {
+                        b05.k();
+                        da<byte[]> j = b05.j(cacheTableName, str);
+                        if (j == null) {
                             return;
                         }
-                        k.g(cacheKey, bArr);
+                        j.g(cacheKey, bArr);
                     }
                 }
             }
@@ -97,10 +97,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends IResponseData, M
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c2 = id.c(parseFrom, Error.class);
+            List<Field> c2 = jd.c(parseFrom, Error.class);
             if (c2 != null && c2.size() > 0) {
                 z = true;
-                Object a = sd.a(parseFrom, c2.get(0));
+                Object a = td.a(parseFrom, c2.get(0));
                 if (a instanceof Error) {
                     Error error = (Error) a;
                     setError(error.errorno.intValue());
@@ -109,8 +109,8 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends IResponseData, M
             } else {
                 z = false;
             }
-            if (!z && (c = id.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
-                Object a2 = sd.a(parseFrom, c.get(0));
+            if (!z && (c = jd.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
+                Object a2 = td.a(parseFrom, c.get(0));
                 if (a2 instanceof tbclient.Error) {
                     tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());

@@ -27,7 +27,7 @@ public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> 
         }
     }
 
-    public void J0(int i, int i2, Bundle bundle, String str) {
+    public void H0(int i, int i2, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bundle, str}) == null) {
             Intent intent = new Intent();

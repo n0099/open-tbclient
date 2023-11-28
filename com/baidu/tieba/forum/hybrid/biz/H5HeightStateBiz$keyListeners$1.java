@@ -50,7 +50,7 @@ public /* synthetic */ class H5HeightStateBiz$keyListeners$1 extends FunctionRef
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
             Intrinsics.checkNotNullParameter(p0, "p0");
-            ((H5HeightStateBiz) this.receiver).n(p0);
+            ((H5HeightStateBiz) this.receiver).l(p0);
         }
     }
 }

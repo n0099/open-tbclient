@@ -2,39 +2,39 @@ package rx.internal.util;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.ckc;
-import com.baidu.tieba.jjc;
-import com.baidu.tieba.ljc;
-import com.baidu.tieba.mjc;
-import com.baidu.tieba.nlc;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.qjc;
-import com.baidu.tieba.vjc;
-import com.baidu.tieba.wjc;
-import com.baidu.tieba.wnc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.goc;
+import com.baidu.tieba.hoc;
+import com.baidu.tieba.iqc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.qoc;
+import com.baidu.tieba.roc;
+import com.baidu.tieba.rsc;
+import com.baidu.tieba.usc;
+import com.baidu.tieba.xoc;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
-public final class ScalarSynchronousObservable<T> extends jjc<T> {
+public final class ScalarSynchronousObservable<T> extends eoc<T> {
     public static final boolean c = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     public final T b;
 
     /* loaded from: classes2.dex */
-    public class b implements ckc<wjc, qjc> {
-        public final /* synthetic */ mjc a;
+    public class b implements xoc<roc, loc> {
+        public final /* synthetic */ hoc a;
 
         /* loaded from: classes2.dex */
-        public class a implements wjc {
-            public final /* synthetic */ wjc a;
-            public final /* synthetic */ mjc.a b;
+        public class a implements roc {
+            public final /* synthetic */ roc a;
+            public final /* synthetic */ hoc.a b;
 
-            public a(b bVar, wjc wjcVar, mjc.a aVar) {
-                this.a = wjcVar;
+            public a(b bVar, roc rocVar, hoc.a aVar) {
+                this.a = rocVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.wjc
+            @Override // com.baidu.tieba.roc
             public void call() {
                 try {
                     this.a.call();
@@ -44,48 +44,48 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, mjc mjcVar) {
-            this.a = mjcVar;
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, hoc hocVar) {
+            this.a = hocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ckc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
-        public qjc call(wjc wjcVar) {
-            mjc.a createWorker = this.a.createWorker();
-            createWorker.b(new a(this, wjcVar, createWorker));
+        public loc call(roc rocVar) {
+            hoc.a createWorker = this.a.createWorker();
+            createWorker.b(new a(this, rocVar, createWorker));
             return createWorker;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements ljc, wjc {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements goc, roc {
         public static final long serialVersionUID = -2466317989629281651L;
-        public final pjc<? super T> actual;
-        public final ckc<wjc, qjc> onSchedule;
+        public final koc<? super T> actual;
+        public final xoc<roc, loc> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(pjc<? super T> pjcVar, T t, ckc<wjc, qjc> ckcVar) {
-            this.actual = pjcVar;
+        public ScalarAsyncProducer(koc<? super T> kocVar, T t, xoc<roc, loc> xocVar) {
+            this.actual = kocVar;
             this.value = t;
-            this.onSchedule = ckcVar;
+            this.onSchedule = xocVar;
         }
 
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.roc
         public void call() {
-            pjc<? super T> pjcVar = this.actual;
-            if (pjcVar.isUnsubscribed()) {
+            koc<? super T> kocVar = this.actual;
+            if (kocVar.isUnsubscribed()) {
                 return;
             }
             Object obj = (T) this.value;
             try {
-                pjcVar.onNext(obj);
-                if (pjcVar.isUnsubscribed()) {
+                kocVar.onNext(obj);
+                if (kocVar.isUnsubscribed()) {
                     return;
                 }
-                pjcVar.onCompleted();
+                kocVar.onCompleted();
             } catch (Throwable th) {
-                vjc.g(th, pjcVar, obj);
+                qoc.g(th, kocVar, obj);
             }
         }
 
@@ -94,7 +94,7 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
             return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + PreferencesUtil.RIGHT_MOUNT;
         }
 
-        @Override // com.baidu.tieba.ljc
+        @Override // com.baidu.tieba.goc
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
@@ -109,45 +109,45 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ckc<wjc, qjc> {
-        public final /* synthetic */ nlc a;
+    public class a implements xoc<roc, loc> {
+        public final /* synthetic */ iqc a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, nlc nlcVar) {
-            this.a = nlcVar;
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, iqc iqcVar) {
+            this.a = iqcVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ckc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
-        public qjc call(wjc wjcVar) {
-            return this.a.a(wjcVar);
+        public loc call(roc rocVar) {
+            return this.a.a(rocVar);
         }
     }
 
     /* JADX INFO: Add missing generic type declarations: [R] */
     /* loaded from: classes2.dex */
-    public class c<R> implements jjc.a<R> {
-        public final /* synthetic */ ckc a;
+    public class c<R> implements eoc.a<R> {
+        public final /* synthetic */ xoc a;
 
-        public c(ckc ckcVar) {
-            this.a = ckcVar;
+        public c(xoc xocVar) {
+            this.a = xocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xjc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(pjc<? super R> pjcVar) {
-            jjc jjcVar = (jjc) this.a.call(ScalarSynchronousObservable.this.b);
-            if (jjcVar instanceof ScalarSynchronousObservable) {
-                pjcVar.f(ScalarSynchronousObservable.Q(pjcVar, ((ScalarSynchronousObservable) jjcVar).b));
+        public void call(koc<? super R> kocVar) {
+            eoc eocVar = (eoc) this.a.call(ScalarSynchronousObservable.this.b);
+            if (eocVar instanceof ScalarSynchronousObservable) {
+                kocVar.f(ScalarSynchronousObservable.Q(kocVar, ((ScalarSynchronousObservable) eocVar).b));
             } else {
-                jjcVar.O(wnc.c(pjcVar));
+                eocVar.O(rsc.c(kocVar));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d<T> implements jjc.a<T> {
+    public static final class d<T> implements eoc.a<T> {
         public final T a;
 
         public d(T t) {
@@ -155,43 +155,43 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xjc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(pjc<? super T> pjcVar) {
-            pjcVar.f(ScalarSynchronousObservable.Q(pjcVar, this.a));
+        public void call(koc<? super T> kocVar) {
+            kocVar.f(ScalarSynchronousObservable.Q(kocVar, this.a));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class e<T> implements jjc.a<T> {
+    public static final class e<T> implements eoc.a<T> {
         public final T a;
-        public final ckc<wjc, qjc> b;
+        public final xoc<roc, loc> b;
 
-        public e(T t, ckc<wjc, qjc> ckcVar) {
+        public e(T t, xoc<roc, loc> xocVar) {
             this.a = t;
-            this.b = ckcVar;
+            this.b = xocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xjc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(pjc<? super T> pjcVar) {
-            pjcVar.f(new ScalarAsyncProducer(pjcVar, this.a, this.b));
+        public void call(koc<? super T> kocVar) {
+            kocVar.f(new ScalarAsyncProducer(kocVar, this.a, this.b));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> implements ljc {
-        public final pjc<? super T> a;
+    public static final class f<T> implements goc {
+        public final koc<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(pjc<? super T> pjcVar, T t) {
-            this.a = pjcVar;
+        public f(koc<? super T> kocVar, T t) {
+            this.a = kocVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.ljc
+        @Override // com.baidu.tieba.goc
         public void request(long j) {
             if (this.c) {
                 return;
@@ -202,20 +202,20 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
                     return;
                 }
                 this.c = true;
-                pjc<? super T> pjcVar = this.a;
-                if (pjcVar.isUnsubscribed()) {
+                koc<? super T> kocVar = this.a;
+                if (kocVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    pjcVar.onNext(obj);
-                    if (pjcVar.isUnsubscribed()) {
+                    kocVar.onNext(obj);
+                    if (kocVar.isUnsubscribed()) {
                         return;
                     }
-                    pjcVar.onCompleted();
+                    kocVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    vjc.g(th, pjcVar, obj);
+                    qoc.g(th, kocVar, obj);
                     return;
                 }
             }
@@ -228,7 +228,7 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
     }
 
     public ScalarSynchronousObservable(T t) {
-        super(znc.h(new d(t)));
+        super(usc.h(new d(t)));
         this.b = t;
     }
 
@@ -236,24 +236,24 @@ public final class ScalarSynchronousObservable<T> extends jjc<T> {
         return new ScalarSynchronousObservable<>(t);
     }
 
-    public <R> jjc<R> S(ckc<? super T, ? extends jjc<? extends R>> ckcVar) {
-        return jjc.d(new c(ckcVar));
+    public <R> eoc<R> S(xoc<? super T, ? extends eoc<? extends R>> xocVar) {
+        return eoc.d(new c(xocVar));
     }
 
-    public jjc<T> T(mjc mjcVar) {
-        ckc bVar;
-        if (mjcVar instanceof nlc) {
-            bVar = new a(this, (nlc) mjcVar);
+    public eoc<T> T(hoc hocVar) {
+        xoc bVar;
+        if (hocVar instanceof iqc) {
+            bVar = new a(this, (iqc) hocVar);
         } else {
-            bVar = new b(this, mjcVar);
+            bVar = new b(this, hocVar);
         }
-        return jjc.d(new e(this.b, bVar));
+        return eoc.d(new e(this.b, bVar));
     }
 
-    public static <T> ljc Q(pjc<? super T> pjcVar, T t) {
+    public static <T> goc Q(koc<? super T> kocVar, T t) {
         if (c) {
-            return new SingleProducer(pjcVar, t);
+            return new SingleProducer(kocVar, t);
         }
-        return new f(pjcVar, t);
+        return new f(kocVar, t);
     }
 }

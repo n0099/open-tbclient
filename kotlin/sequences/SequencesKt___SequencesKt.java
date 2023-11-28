@@ -908,12 +908,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T> int sumOfUInt(Sequence<? extends T> sequence, Function1<? super T, UInt> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        int m949constructorimpl = UInt.m949constructorimpl(0);
+        int m953constructorimpl = UInt.m953constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m949constructorimpl = UInt.m949constructorimpl(m949constructorimpl + selector.invoke((T) it.next()).m1000unboximpl());
+            m953constructorimpl = UInt.m953constructorimpl(m953constructorimpl + selector.invoke((T) it.next()).m1004unboximpl());
         }
-        return m949constructorimpl;
+        return m953constructorimpl;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
@@ -925,12 +925,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T> long sumOfULong(Sequence<? extends T> sequence, Function1<? super T, ULong> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        long m1027constructorimpl = ULong.m1027constructorimpl(0L);
+        long m1031constructorimpl = ULong.m1031constructorimpl(0L);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m1027constructorimpl = ULong.m1027constructorimpl(m1027constructorimpl + selector.invoke((T) it.next()).m1078unboximpl());
+            m1031constructorimpl = ULong.m1031constructorimpl(m1031constructorimpl + selector.invoke((T) it.next()).m1082unboximpl());
         }
-        return m1027constructorimpl;
+        return m1031constructorimpl;
     }
 
     public static final <T> Sequence<T> takeWhile(Sequence<? extends T> sequence, Function1<? super T, Boolean> predicate) {
@@ -2427,36 +2427,36 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final /* synthetic */ Double m2116max(Sequence sequence) {
+    public static final /* synthetic */ Double m2120max(Sequence sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        return m2122maxOrNull((Sequence<Double>) sequence);
+        return m2126maxOrNull((Sequence<Double>) sequence);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final /* synthetic */ Double m2124min(Sequence sequence) {
+    public static final /* synthetic */ Double m2128min(Sequence sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        return m2130minOrNull((Sequence<Double>) sequence);
+        return m2134minOrNull((Sequence<Double>) sequence);
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final /* synthetic */ Float m2117max(Sequence sequence) {
+    public static final /* synthetic */ Float m2121max(Sequence sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        return m2123maxOrNull((Sequence<Float>) sequence);
+        return m2127maxOrNull((Sequence<Float>) sequence);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final /* synthetic */ Float m2125min(Sequence sequence) {
+    public static final /* synthetic */ Float m2129min(Sequence sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        return m2131minOrNull((Sequence<Float>) sequence);
+        return m2135minOrNull((Sequence<Float>) sequence);
     }
 
     /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
@@ -2465,7 +2465,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T> float m2118maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
+    public static final <T> float m2122maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2485,7 +2485,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m2120maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> selector) {
+    public static final <T> Double m2124maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2505,7 +2505,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T> float m2126minOf(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
+    public static final <T> float m2130minOf(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2525,7 +2525,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m2128minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> selector) {
+    public static final <T> Double m2132minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2545,7 +2545,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m2119maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> selector) {
+    public static final <T, R extends Comparable<? super R>> R m2123maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2568,7 +2568,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m2121maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
+    public static final <T> Float m2125maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2588,7 +2588,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m2127minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> selector) {
+    public static final <T, R extends Comparable<? super R>> R m2131minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2611,7 +2611,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m2129minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
+    public static final <T> Float m2133minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> selector) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sequence.iterator();
@@ -2627,7 +2627,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Double m2122maxOrNull(Sequence<Double> sequence) {
+    public static final Double m2126maxOrNull(Sequence<Double> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Iterator<Double> it = sequence.iterator();
         if (!it.hasNext()) {
@@ -2642,7 +2642,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Double m2130minOrNull(Sequence<Double> sequence) {
+    public static final Double m2134minOrNull(Sequence<Double> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Iterator<Double> it = sequence.iterator();
         if (!it.hasNext()) {
@@ -2657,7 +2657,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Float m2123maxOrNull(Sequence<Float> sequence) {
+    public static final Float m2127maxOrNull(Sequence<Float> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Iterator<Float> it = sequence.iterator();
         if (!it.hasNext()) {
@@ -2672,7 +2672,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Float m2131minOrNull(Sequence<Float> sequence) {
+    public static final Float m2135minOrNull(Sequence<Float> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         Iterator<Float> it = sequence.iterator();
         if (!it.hasNext()) {

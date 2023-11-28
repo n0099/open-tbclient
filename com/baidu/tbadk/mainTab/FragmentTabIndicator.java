@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.vb;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final BdResourceCallback<BdImage> p;
 
     /* loaded from: classes5.dex */
-    public class a extends vb {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -81,7 +81,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.baidu.tieba.vb
+        @Override // com.baidu.tieba.wb
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
@@ -233,7 +233,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void addTip(String str, TbFragmentTabIndicator.FragmentTapTip fragmentTapTip) {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, fragmentTapTip) == null) && (view2 = fragmentTapTip.f1083view) != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, fragmentTapTip) == null) && (view2 = fragmentTapTip.f1079view) != null) {
             addView(view2);
             this.o.put(str, fragmentTapTip);
         }
@@ -509,8 +509,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             Iterator<Map.Entry<String, TbFragmentTabIndicator.FragmentTapTip>> it = this.o.entrySet().iterator();
             while (it.hasNext() && this.k.getText() != null) {
                 TbFragmentTabIndicator.FragmentTapTip value = it.next().getValue();
-                int measuredWidth2 = value.f1083view.getMeasuredWidth();
-                int measuredHeight2 = value.f1083view.getMeasuredHeight();
+                int measuredWidth2 = value.f1079view.getMeasuredWidth();
+                int measuredHeight2 = value.f1079view.getMeasuredHeight();
                 int measureText = (int) this.k.getPaint().measureText(this.k.getText().toString());
                 if (value.isRight) {
                     measuredWidth = (getMeasuredWidth() / 2) + value.offsetX + (measureText / 2);
@@ -521,9 +521,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                     measuredWidth -= this.m;
                     measuredHeight = this.l;
                 } else {
-                    measuredHeight = (getMeasuredHeight() / 2) - (value.f1083view.getMeasuredHeight() / 2);
+                    measuredHeight = (getMeasuredHeight() / 2) - (value.f1079view.getMeasuredHeight() / 2);
                 }
-                value.f1083view.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
+                value.f1079view.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
             }
         }
     }
@@ -537,10 +537,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             int size2 = View.MeasureSpec.getSize(i2);
             for (Map.Entry<String, TbFragmentTabIndicator.FragmentTapTip> entry : this.o.entrySet()) {
                 TbFragmentTabIndicator.FragmentTapTip value = entry.getValue();
-                ViewGroup.LayoutParams layoutParams = value.f1083view.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = value.f1079view.getLayoutParams();
                 int i3 = layoutParams.width;
                 if (i3 == -2) {
-                    value.f1083view.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                    value.f1079view.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                 } else {
                     if (i3 > size) {
                         i3 = size;
@@ -549,7 +549,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                     if (i4 > size2) {
                         i4 = size2;
                     }
-                    value.f1083view.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                    value.f1079view.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
                 }
             }
         }
@@ -561,7 +561,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (this.o.containsKey(str)) {
-                removeView(this.o.get(str).f1083view);
+                removeView(this.o.get(str).f1079view);
                 return this.o.remove(str);
             }
             return null;
@@ -618,10 +618,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.k.setTextColor(bqa.f(this.mThemeColorInfo.dark.font_color));
+                        this.k.setTextColor(uua.f(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else {
-                        this.k.setTextColor(bqa.f(this.mThemeColorInfo.day.font_color));
+                        this.k.setTextColor(uua.f(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }

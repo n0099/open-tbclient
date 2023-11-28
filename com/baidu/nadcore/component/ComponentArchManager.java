@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ef0;
 import com.baidu.tieba.ff0;
+import com.baidu.tieba.gf0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends ff0>, ff0> b;
+    public final SimpleArrayMap<Class<? extends gf0>, gf0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -49,7 +49,7 @@ public class ComponentArchManager implements LifecycleObserver {
 
     public final void r(IComponentPlugin component, boolean z) {
         Intrinsics.checkNotNullParameter(component, "component");
-        k(component);
+        j(component);
         d(component);
         if (z) {
             this.d.addObserver(component);
@@ -57,13 +57,13 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void w(Class<? extends ff0> clazz, ff0 componentService) {
+    public final void v(Class<? extends gf0> clazz, gf0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
     }
 
-    public static /* synthetic */ void v(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
+    public static /* synthetic */ void u(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
         if (obj == null) {
             if ((i & 2) != 0) {
                 z = true;
@@ -74,30 +74,9 @@ public class ComponentArchManager implements LifecycleObserver {
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: registerComponent");
     }
 
-    public final void B() {
-        Lifecycle lifecycle = this.d;
-        for (IComponentPlugin iComponentPlugin : this.a) {
-            lifecycle.removeObserver(iComponentPlugin);
-        }
-    }
-
-    public final void o() {
-        for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.onRelease();
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
-        o();
-        B();
-        this.b.clear();
-        this.a.clear();
-    }
-
-    public final void C(IComponentPlugin componentPlugin) {
+    public final void B(IComponentPlugin componentPlugin) {
         Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
-        g(componentPlugin);
+        f(componentPlugin);
         this.a.remove(componentPlugin);
     }
 
@@ -113,43 +92,64 @@ public class ComponentArchManager implements LifecycleObserver {
         if (context != null) {
             iComponentPlugin.t((Activity) context);
             iComponentPlugin.p(this.c);
-            iComponentPlugin.z(this);
-            iComponentPlugin.y();
-            iComponentPlugin.A();
+            iComponentPlugin.A(this);
+            iComponentPlugin.z();
+            iComponentPlugin.C();
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
     }
 
-    public final void g(IComponentPlugin iComponentPlugin) {
+    public final void f(IComponentPlugin iComponentPlugin) {
         this.d.removeObserver(iComponentPlugin);
-        iComponentPlugin.n();
+        iComponentPlugin.o();
     }
 
-    public final void j(ef0 event) {
+    public final void i(ff0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.s(event);
         }
     }
 
-    public final void k(IComponentPlugin iComponentPlugin) {
+    public final void j(IComponentPlugin iComponentPlugin) {
         iComponentPlugin.onInit();
     }
 
-    public final void l(Intent intent) {
+    public final void k(Intent intent) {
         Intrinsics.checkNotNullParameter(intent, "intent");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.onNewIntent(intent);
         }
     }
 
-    public <T extends ff0> T q(Class<T> clazz) {
+    public <T extends gf0> T q(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        ff0 ff0Var = this.b.get(clazz);
-        if (!(ff0Var instanceof ff0)) {
-            ff0Var = null;
+        gf0 gf0Var = this.b.get(clazz);
+        if (!(gf0Var instanceof gf0)) {
+            gf0Var = null;
         }
-        return (T) ff0Var;
+        return (T) gf0Var;
+    }
+
+    public final void n() {
+        for (IComponentPlugin iComponentPlugin : this.a) {
+            iComponentPlugin.onRelease();
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        n();
+        w();
+        this.b.clear();
+        this.a.clear();
+    }
+
+    public final void w() {
+        Lifecycle lifecycle = this.d;
+        for (IComponentPlugin iComponentPlugin : this.a) {
+            lifecycle.removeObserver(iComponentPlugin);
+        }
     }
 }

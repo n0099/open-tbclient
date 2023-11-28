@@ -1,181 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.KsScene;
-import java.util.HashMap;
-import java.util.List;
+import java.io.ObjectInput;
 /* loaded from: classes9.dex */
-public class x1c extends a1c<k1c> {
+public class x1c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x1c(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid, moduleConfigKs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248959, "Lcom/baidu/tieba/x1c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248959, "Lcom/baidu/tieba/x1c;");
                 return;
             }
         }
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    public static h1c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (h1c) l1c.b(b.getString("key_adcfg", null), new c2c() { // from class: com.baidu.tieba.o0c
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.c2c
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? x1c.c(objectInput) : invokeL.objValue;
+            }
+        }) : (h1c) invokeV.objValue;
+    }
+
+    public static /* synthetic */ h1c c(ObjectInput objectInput) {
+        return new h1c(objectInput.readInt(), objectInput);
+    }
+
+    public static void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            g("key_rpt_fai_c", h() + i);
+        }
+    }
+
+    public static void f(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int k = k();
+                int l = l();
+                int j = j();
+                b.edit().putInt("key_rpt_req_c", ((k - i) - i2) - i3).putInt("key_rpt_fai_c", h() - i).putInt("key_rpt_suc_c", l - i2).putInt("key_rpt_mis_c", j - i3).apply();
+            }
+        }
+    }
+
+    public static void g(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65543, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
+        }
+    }
+
+    public static /* synthetic */ q1c i(ObjectInput objectInput) {
+        return new q1c(objectInput.readInt(), objectInput);
+    }
+
+    public static q1c m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? (q1c) l1c.b(b.getString("key_rptcfg", null), new c2c() { // from class: com.baidu.tieba.s0c
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.c2c
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? x1c.i(objectInput) : invokeL.objValue;
+            }
+        }) : (q1c) invokeV.objValue;
+    }
+
+    public static double n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            synchronized (a) {
+                g("key_rpt_req_c", k() + 1);
+            }
+        }
+    }
+
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new o1c(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public static int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            k1c k1cVar = (k1c) obj;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b.getInt("key_rpt_fai_c", 0);
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public static int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            HashMap hashMap = new HashMap();
-            hashMap.put("thirdUserId", FunAdSdk.getFunAdConfig().userId);
-            hashMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, buildExtra);
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).rewardCallbackExtraData(hashMap).build();
-            onLoadStart(funAdSlot, tid);
-            KsLoadManager loadManager = KsAdSDK.getLoadManager();
-            if (loadManager == null) {
-                onError(FunAdSdk.PLATFORM_KS);
-            } else {
-                loadManager.loadRewardVideoAd(build, new a(this, tid));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b.getInt("key_rpt_mis_c", 0);
         }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes9.dex */
-    public class a implements KsLoadManager.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x1c b;
-
-        public a(x1c x1cVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x1cVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x1cVar;
-            this.a = str;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str, this.a);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list != null && !list.isEmpty()) {
-                    KsRewardVideoAd ksRewardVideoAd = list.get(0);
-                    if (ksRewardVideoAd == null) {
-                        LogPrinter.e("onNativeAdLoad error: ad is null or empty", new Object[0]);
-                        this.b.onError(0, "No Fill", this.a);
-                        return;
-                    }
-                    k1c k1cVar = new k1c(ksRewardVideoAd);
-                    x1c x1cVar = this.b;
-                    String str = this.a;
-                    x1cVar.getClass();
-                    ksRewardVideoAd.setRewardAdInteractionListener(new y1c(x1cVar, k1cVar, str));
-                    x1c x1cVar2 = this.b;
-                    String str2 = this.a;
-                    x1cVar2.getClass();
-                    if (ksRewardVideoAd != null) {
-                        ksRewardVideoAd.setRewardPlayAgainInteractionListener(new z1c(x1cVar2, k1cVar, str2));
-                    }
-                    this.b.onAdLoaded(k1cVar, this.a);
-                    return;
-                }
-                LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
-                this.b.onError(0, "No Fill", this.a);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static int k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            k1c k1cVar = (k1c) obj;
-            onShowStart(k1cVar);
-            if (!((KsRewardVideoAd) k1cVar.a).isAdEnable()) {
-                LogPrinter.e("Ad isn't ready now", new Object[0]);
-                onAdError(k1cVar, 0, "F:ad disable");
-                return false;
-            }
-            ((KsRewardVideoAd) k1cVar.a).showRewardVideoAd(activity, e());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return b.getInt("key_rpt_req_c", 0);
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return b.getInt("key_rpt_suc_c", 0);
+        }
+        return invokeV.intValue;
     }
 }

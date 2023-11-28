@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ez8;
+import com.baidu.tieba.g49;
 import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.ResponsePanelEmojiHolder;
-import com.baidu.tieba.xv8;
-import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final List<Reaction> a;
-    public y09 b;
+    public g49 b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -83,9 +83,9 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public void o(@NonNull List<Reaction> list) {
+    public void p(@NonNull List<Reaction> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list.size() <= 0) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list.size() <= 0) {
             return;
         }
         this.a.clear();
@@ -93,10 +93,10 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         notifyDataSetChanged();
     }
 
-    public void p(y09 y09Var) {
+    public void q(g49 g49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, y09Var) == null) {
-            this.b = y09Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, g49Var) == null) {
+            this.b = g49Var;
         }
     }
 
@@ -112,7 +112,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public void onBindViewHolder(@NonNull ResponsePanelEmojiHolder responsePanelEmojiHolder, @SuppressLint({"RecyclerView"}) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsePanelEmojiHolder, i) == null) {
@@ -125,13 +125,13 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: n */
+    /* renamed from: o */
     public ResponsePanelEmojiHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d029a, viewGroup, false);
-            int i2 = xv8.b;
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a1, viewGroup, false);
+            int i2 = ez8.b;
             inflate.setPadding(i2, 0, i2, 0);
             return new ResponsePanelEmojiHolder(inflate);
         }

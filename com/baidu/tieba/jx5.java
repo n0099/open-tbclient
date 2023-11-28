@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface jx5 {
-    void a();
-
-    void b(List<String> list);
+    void a(View view2, int i, int i2, int i3, int i4);
 }

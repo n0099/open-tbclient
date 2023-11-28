@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.px4;
-import com.baidu.tieba.t68;
-import com.baidu.tieba.x68;
+import com.baidu.tieba.n98;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.r98;
+import com.baidu.tieba.rx4;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<t68> a;
-    public ArrayList<ox4> b;
-    public ArrayList<x68> c;
+    public ArrayList<n98> a;
+    public ArrayList<qx4> b;
+    public ArrayList<r98> c;
     public String d;
     public int e;
     public b f;
@@ -32,7 +32,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, px4 px4Var, ArrayList<t68> arrayList, ArrayList<ox4> arrayList2, ArrayList<x68> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, rx4 rx4Var, ArrayList<n98> arrayList, ArrayList<qx4> arrayList2, ArrayList<r98> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -90,10 +90,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            px4 px4Var;
+            rx4 rx4Var;
             int i;
             int i2;
-            px4 px4Var2;
+            rx4 rx4Var2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -110,7 +110,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                px4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                rx4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
                 this.a.a = defaultGiftListSocketResponseMessage.getCategoryList();
@@ -119,18 +119,18 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                px4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                rx4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             } else {
-                px4Var = null;
+                rx4Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, px4Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, rx4Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
             }
             i = i2;
-            px4Var = px4Var2;
+            rx4Var = rx4Var2;
             if (this.a.f == null) {
             }
         }
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dra.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            dra.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            wva.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            wva.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

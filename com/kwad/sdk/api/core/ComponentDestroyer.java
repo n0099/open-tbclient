@@ -21,20 +21,6 @@ public class ComponentDestroyer {
         destroyActivity(activity, activity.getWindow());
     }
 
-    public static void destroyActivity(Context context, Window window) {
-        if (window == null) {
-            return;
-        }
-        View decorView = window.getDecorView();
-        destroyWebViewInTree(decorView);
-        fixInputMethodManagerLeak(context, decorView);
-    }
-
-    public static void destroyFragment(Context context, View view2) {
-        destroyWebViewInTree(view2);
-        fixInputMethodManagerLeak(context, view2);
-    }
-
     public static void destroyFragment(Fragment fragment) {
         if (fragment == null) {
             return;
@@ -64,6 +50,20 @@ public class ComponentDestroyer {
         }
     }
 
+    public static void destroyActivity(Context context, Window window) {
+        if (window == null) {
+            return;
+        }
+        View decorView = window.getDecorView();
+        destroyWebViewInTree(decorView);
+        fixInputMethodManagerLeak(context, decorView);
+    }
+
+    public static void destroyFragment(Context context, View view2) {
+        destroyWebViewInTree(view2);
+        fixInputMethodManagerLeak(context, view2);
+    }
+
     public static void fixInputMethodManagerLeak(Context context, View view2) {
         InputMethodManager inputMethodManager;
         if (context == null || view2 == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
@@ -79,10 +79,10 @@ public class ComponentDestroyer {
                 Object obj = declaredField.get(inputMethodManager);
                 if (!(obj instanceof View)) {
                     continue;
-                } else if (!context.equals(((View) obj).getContext())) {
-                    return;
-                } else {
+                } else if (context.equals(((View) obj).getContext())) {
                     declaredField.set(inputMethodManager, null);
+                } else {
+                    return;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

@@ -1,60 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.math.BigInteger;
 /* loaded from: classes8.dex */
 public class uv {
     public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public wv a;
 
-    public uv() {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(tv.a).modPow(new BigInteger(tv.b), new BigInteger(tv.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static uv a() {
+    public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            uv uvVar = new uv();
-            wv wvVar = new wv();
-            uvVar.a = wvVar;
-            wvVar.e("PKCS1Padding");
-            return uvVar;
-        }
-        return (uv) invokeV.objValue;
-    }
-
-    public void b(int i, xv xvVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, xvVar) == null) {
-            this.a.a(i, xvVar, vv.a);
-        }
-    }
-
-    public final byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            byte[] bArr = b;
             if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
+                return bArr;
             }
-            throw new IllegalArgumentException("Null input buffer");
+            byte[] byteArray = new BigInteger(tv.c).modPow(new BigInteger(tv.d), new BigInteger(tv.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
-        return (byte[]) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 }

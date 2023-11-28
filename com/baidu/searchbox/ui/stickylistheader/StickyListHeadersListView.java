@@ -531,7 +531,7 @@ public class StickyListHeadersListView extends FrameLayout {
     }
 
     public StickyListHeadersListView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406cf);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406d5);
     }
 
     @Override // android.widget.FrameLayout, android.view.View

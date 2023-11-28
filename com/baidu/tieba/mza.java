@@ -1,110 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rza;
-import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
+import android.app.Application;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
+import android.text.format.Time;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.RemindRecommendMessage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.Pair;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes7.dex */
-public final class mza<R extends rza> extends PageTraceMonitor<R> {
+public class mza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Fragment f;
-    public final Function1<R, eza> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mza(Fragment fragment, R thisRef, hza traceType, Function1<? super R, eza> traceHolderFactory) {
-        super(thisRef, traceType);
+    public static RemindRecommendMessage a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment, thisRef, traceType, traceHolderFactory};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rza) objArr2[0], (hza) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-        Intrinsics.checkNotNullParameter(traceType, "traceType");
-        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
-        this.f = fragment;
-        this.g = traceHolderFactory;
-    }
-
-    @Override // com.baidu.tieba.nza
-    public eza c(R thisRef) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            return this.g.invoke(thisRef);
-        }
-        return (eza) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public Lifecycle h(R thisRef) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
             try {
-                Lifecycle lifecycle = this.f.getLifecycle();
-                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
-                return lifecycle;
-            } catch (IllegalStateException e) {
-                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
+                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
+                JSONObject jSONObject = new JSONObject(str);
+                remindRecommendMessage.title = jSONObject.optString("title");
+                remindRecommendMessage.url = jSONObject.optString("url");
+                remindRecommendMessage.picture = jSONObject.optString("picture");
+                remindRecommendMessage.name = jSONObject.optString("name");
+                remindRecommendMessage.isLocal = false;
+                return remindRecommendMessage;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        return (Lifecycle) invokeL.objValue;
+        return (RemindRecommendMessage) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public void j(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            qza.a(this.f, (Pair[]) Arrays.copyOf(params, params.length));
-        }
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public String i(R thisRef) {
+    public static String g(DataRes dataRes) {
         InterceptResult invokeL;
-        rza rzaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Fragment parentFragment = this.f.getParentFragment();
-            if (parentFragment != null) {
-                if (parentFragment instanceof rza) {
-                    rzaVar = (rza) parentFragment;
-                } else {
-                    rzaVar = null;
-                }
-                if (rzaVar != null) {
-                    return rzaVar.n2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
+            if (dataRes != null && dataRes.local_dialog != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("title", dataRes.local_dialog.title);
+                    jSONObject.put("picture", dataRes.local_dialog.picture);
+                    jSONObject.put("url", dataRes.local_dialog.url);
+                    jSONObject.put("name", dataRes.local_dialog.name);
+                    return jSONObject.toString();
+                } catch (JSONException unused) {
                 }
             }
-            return thisRef.n2();
+            return null;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c(System.currentTimeMillis());
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("sync_local_dialog", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            String str = "12:05:00";
+            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
+            if (!TextUtils.isEmpty(loadString)) {
+                str = loadString;
+            }
+            String[] split = str.split(":");
+            int i4 = 5;
+            if (split != null && split.length == 3) {
+                i2 = JavaTypesHelper.toInt(split[0], 12);
+                i3 = JavaTypesHelper.toInt(split[1], 5);
+                i = JavaTypesHelper.toInt(split[2], 0);
+            } else {
+                i = 0;
+                i2 = 12;
+                i3 = 5;
+            }
+            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
+                i4 = i3;
+            } else {
+                i = 0;
+                i2 = 12;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            calendar.set(12, i4);
+            calendar.set(13, i);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
+                calendar.set(11, i2);
+            } else {
+                if (i2 >= 12) {
+                    i2 -= 12;
+                    calendar.set(9, 1);
+                } else {
+                    calendar.set(9, 0);
+                }
+                calendar.set(10, i2);
+            }
+            return calendar.getTimeInMillis();
+        }
+        return invokeJ.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            Time time = new Time();
+            time.set(j);
+            int i = time.year;
+            int i2 = time.month;
+            int i3 = time.monthDay;
+            time.set(System.currentTimeMillis());
+            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

@@ -1,42 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface qd2 extends JSRuntime, e52, TypedCallbackHandler {
-    byte[] G(JsSerializeValue jsSerializeValue, boolean z);
+public class qd2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String basePath;
+    @V8JavascriptField
+    public Object config;
+    @V8JavascriptField
+    public String viewMode;
 
-    void X(String str, String str2);
-
-    de2 a0();
-
-    boolean dispatchEvent(JSEvent jSEvent);
-
-    String getInitBasePath();
-
-    int getInvokeSourceType();
-
-    EventTarget m();
-
-    boolean post(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void postOnJSThread(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
-
-    EventTarget v();
-
-    zd2 w();
-
-    JsSerializeValue z(byte[] bArr, boolean z);
+    public qd2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

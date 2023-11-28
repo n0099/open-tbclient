@@ -7,9 +7,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
-import com.baidu.tieba.u91;
+import com.baidu.tieba.v91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -172,7 +171,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return u91.b().f(this.packageName);
+            return v91.b().f(this.packageName);
         }
         return (String) invokeV.objValue;
     }
@@ -878,7 +877,7 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setBroken(contentValues.getAsBoolean("broken").booleanValue());
             bundleInfo.setForceUpdate(contentValues.getAsBoolean("force_update").booleanValue());
             bundleInfo.setForbidden(contentValues.getAsBoolean("forbidden").booleanValue());
-            bundleInfo.setMd5(contentValues.getAsString(PackageTable.MD5));
+            bundleInfo.setMd5(contentValues.getAsString("md5"));
             bundleInfo.setSignature(contentValues.getAsString(SocialOperation.GAME_SIGNATURE));
             bundleInfo.setName(contentValues.getAsString("name"));
             bundleInfo.setDescription(contentValues.getAsString("description"));
@@ -923,7 +922,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("broken", Boolean.valueOf(bundleInfo.isBroken()));
             contentValues.put("force_update", Boolean.valueOf(bundleInfo.needForceUpdate()));
             contentValues.put("forbidden", Boolean.valueOf(bundleInfo.isForbidden()));
-            contentValues.put(PackageTable.MD5, bundleInfo.getMd5());
+            contentValues.put("md5", bundleInfo.getMd5());
             contentValues.put(SocialOperation.GAME_SIGNATURE, bundleInfo.getSignature());
             contentValues.put("name", bundleInfo.getName());
             contentValues.put("dependence", bundleInfo.getDescription());
@@ -1007,7 +1006,7 @@ public class BundleInfo implements IBundleInfo {
             int columnIndex7 = cursor.getColumnIndex("broken");
             int columnIndex8 = cursor.getColumnIndex("force_update");
             int columnIndex9 = cursor.getColumnIndex("forbidden");
-            int columnIndex10 = cursor.getColumnIndex(PackageTable.MD5);
+            int columnIndex10 = cursor.getColumnIndex("md5");
             int columnIndex11 = cursor.getColumnIndex(SocialOperation.GAME_SIGNATURE);
             int columnIndex12 = cursor.getColumnIndex("name");
             int columnIndex13 = cursor.getColumnIndex("description");
@@ -1197,7 +1196,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("broken", Boolean.valueOf(iBundleInfo.isBroken()));
             contentValues.put("force_update", Boolean.valueOf(iBundleInfo.needForceUpdate()));
             contentValues.put("forbidden", Boolean.valueOf(iBundleInfo.isForbidden()));
-            contentValues.put(PackageTable.MD5, iBundleInfo.getMd5());
+            contentValues.put("md5", iBundleInfo.getMd5());
             contentValues.put(SocialOperation.GAME_SIGNATURE, iBundleInfo.getSignature());
             contentValues.put("name", iBundleInfo.getName());
             contentValues.put("dependence", iBundleInfo.getDescription());

@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class s15 extends g15 {
+public class s15 extends j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,32 +33,17 @@ public class s15 extends g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+    @Override // com.baidu.tieba.j15
+    public void a(@NonNull Context context, @NonNull x05 x05Var) {
+        JSONObject syncJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            String a = u05Var.a("yun_dialogName");
-            String a2 = u05Var.a("yun_dialogUrl");
-            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
-                b(context, a2, a);
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, x05Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+            return;
         }
-    }
-
-    public final void b(Context context, String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            if (str.indexOf("?") > 0) {
-                str3 = str + "&page_type=" + TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT;
-            } else {
-                str3 = str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
-            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
-            BrowserHelper.startWebActivity(context, "", str3, false, true, true, bundle);
-        }
+        VersionData versionData = new VersionData();
+        versionData.parserJson(syncJson.optJSONObject("version"));
+        CombineDownload combineDownload = new CombineDownload();
+        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
     }
 }

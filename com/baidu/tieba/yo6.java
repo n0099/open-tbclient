@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.RecommendTopicCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes9.dex */
-public class yo6 implements j87<Message> {
+public class yo6 extends wa7<RecommendTopicCardView, gc8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yo6() {
+        super("recommend_topic_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,28 +25,34 @@ public class yo6 implements j87<Message> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j87
-    /* renamed from: a */
-    public ab7<?> b(Message message) {
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof LiveAnswer)) {
-                return null;
-            }
-            qe8 qe8Var = new qe8();
-            qe8Var.c((LiveAnswer) message);
-            d77 d77Var = new d77();
-            d77Var.a = qe8Var;
-            return new bb7(new t27(d77Var), "recommend_banner");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            fd7.h(a);
+            return a;
         }
-        return (ab7) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull RecommendTopicCardView recommendTopicCardView, @NonNull gc8 gc8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendTopicCardView, gc8Var) == null) {
+            recommendTopicCardView.a(gc8Var);
+        }
     }
 }

@@ -1,125 +1,134 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gx5 implements ImageAssetDelegate {
+public class gx5 implements hx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809317, "Lcom/baidu/tieba/gx5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.tieba.hx5
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 4) {
+                return 1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947809317, "Lcom/baidu/tieba/gx5;");
-                return;
-            }
+            return (i < 4 || i >= 7) ? 3 : 2;
         }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        return invokeI.intValue;
     }
 
     public gx5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = false;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hx5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (qd.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return i2;
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(str, 36, new Object[0]);
-            if (bdImage == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
+            if (i == 0) {
+                return e(constrainImageLayout, list, i2);
+            }
+            if (i == 1) {
+                return d(constrainImageLayout, list, i2);
+            }
+            if (i == 2) {
+                return c(constrainImageLayout, list, i2);
+            }
+            return i2;
+        }
+        return invokeLLII.intValue;
+    }
+
+    public final int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                constrainImageLayout.setImageMaxChildCount(3);
+                int i2 = count - 9;
+                if (i2 > 0) {
+                    int i3 = i + 3;
+                    List<MediaData> subList = ListUtils.subList(list, i, i3);
+                    constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+                    constrainImageLayout.setUrls(subList, i, true);
+                    return i3;
                 }
-                bdImage = this.b.getBitmapFromFile(str, 0, 0);
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                constrainImageLayout.setExtraCenterText(null);
+                return count;
             }
-            if (bdImage != null && bdImage.getRawBitmap() != null) {
-                Bitmap rawBitmap = bdImage.getRawBitmap();
-                try {
-                    if (rawBitmap.getConfig() != null) {
-                        return rawBitmap.copy(rawBitmap.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
+            return i;
+        }
+        return invokeLLI.intValue;
+    }
+
+    public final int d(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                if (ListUtils.getCount(list) == 4) {
+                    int i2 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                }
+                int i3 = i + 3;
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                return i3;
+            }
+            return i;
+        }
+        return invokeLLI.intValue;
+    }
+
+    public final int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                if (count == 1) {
+                    constrainImageLayout.setUrls(list, i);
+                    return 0;
+                } else if (count != 2 && count != 4 && count != 5) {
+                    int i2 = i + 3;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                } else {
+                    int i3 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                    return i3;
                 }
             }
-            BdResourceLoader.getInstance().loadResource(str, 36, null, null);
-            return null;
+            return i;
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeLLI.intValue;
     }
 }

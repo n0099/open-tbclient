@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 import android.util.Log;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RLog {
     public static final String HEADER = "MidPay:";
     public static CopyOnWriteArrayList<IRLogDelegate> logDelegates = new CopyOnWriteArrayList<>();

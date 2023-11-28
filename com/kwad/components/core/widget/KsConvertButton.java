@@ -13,14 +13,42 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     @Nullable
     public AdTemplate mAdTemplate;
     @Nullable
-    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public com.kwad.components.core.e.d.c mApkDownloadHelper;
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFinished() {
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadStarted() {
+    }
 
     public KsConvertButton(Context context) {
         super(context);
     }
 
+    private void aQ(@Nullable String str) {
+        if (str != null) {
+            setText(str);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onProgressUpdate(int i) {
+        aQ("下载中..." + i + "%");
+    }
+
     public KsConvertButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+    }
+
+    public final void a(@Nullable com.kwad.components.core.e.d.c cVar, AdTemplate adTemplate) {
+        this.mApkDownloadHelper = cVar;
+        this.mAdTemplate = adTemplate;
+        if (cVar != null) {
+            cVar.b(this);
+        }
+        aQ(getAdActionDesc());
     }
 
     public KsConvertButton(Context context, AttributeSet attributeSet, int i) {
@@ -32,57 +60,41 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
         super(context, attributeSet, i, i2);
     }
 
-    private void aL(@Nullable String str) {
-        if (str != null) {
-            setText(str);
-        }
-    }
-
     @Nullable
     private String getAdActionDesc() {
         AdTemplate adTemplate = this.mAdTemplate;
         if (adTemplate != null) {
-            return com.kwad.sdk.core.response.a.a.al(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
+            return com.kwad.sdk.core.response.b.a.aE(com.kwad.sdk.core.response.b.e.dP(adTemplate));
         }
         return null;
     }
 
-    public final void a(@Nullable com.kwad.components.core.c.a.c cVar, AdTemplate adTemplate) {
-        this.mApkDownloadHelper = cVar;
-        this.mAdTemplate = adTemplate;
-        if (cVar != null) {
-            cVar.b(this);
-        }
-        aL(getAdActionDesc());
-    }
-
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onDownloadFailed() {
+        String str;
         AdTemplate adTemplate = this.mAdTemplate;
-        aL(adTemplate != null ? com.kwad.sdk.core.response.a.a.al(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) : "立即下载");
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
+        if (adTemplate != null) {
+            str = com.kwad.sdk.core.response.b.a.aE(com.kwad.sdk.core.response.b.e.dP(adTemplate));
+        } else {
+            str = "立即下载";
+        }
+        aQ(str);
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onIdle() {
-        aL(getAdActionDesc());
+        aQ(getAdActionDesc());
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onInstalled() {
+        String str;
         AdTemplate adTemplate = this.mAdTemplate;
-        aL(adTemplate != null ? com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) : "立即打开");
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
-        aL("下载中..." + i + "%");
+        if (adTemplate != null) {
+            str = com.kwad.sdk.core.response.b.a.ac(com.kwad.sdk.core.response.b.e.dP(adTemplate));
+        } else {
+            str = "立即打开";
+        }
+        aQ(str);
     }
 }

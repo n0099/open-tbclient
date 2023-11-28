@@ -5,24 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.QuizCardTopConf;
-import tbclient.ThemeColorInfo;
+import tbclient.FrsPage.Size;
 /* loaded from: classes5.dex */
-public class c2d extends qoc {
+public class c2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull QuizCardTopConf quizCardTopConf) {
+    public static Size b(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, quizCardTopConf)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ThemeColorInfo themeColorInfo = quizCardTopConf.img;
-            if (themeColorInfo != null) {
-                qoc.a(jSONObject, "img", q4d.b(themeColorInfo));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            Size.Builder builder = new Size.Builder();
+            if (jSONObject.has("width")) {
+                builder.width = Integer.valueOf(jSONObject.optInt("width"));
             }
-            qoc.a(jSONObject, "text", quizCardTopConf.text);
+            if (jSONObject.has("height")) {
+                builder.height = Integer.valueOf(jSONObject.optInt("height"));
+            }
+            return builder.build(true);
+        }
+        return (Size) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(@NonNull Size size) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, size)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "width", size.width);
+            ltc.a(jSONObject, "height", size.height);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

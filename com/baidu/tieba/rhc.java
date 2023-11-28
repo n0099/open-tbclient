@@ -1,17 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UserData;
-/* compiled from: UserData.java */
 /* loaded from: classes8.dex */
-public final /* synthetic */ class rhc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void $default$destroy(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
-        }
-    }
+public interface rhc {
+    void a(vhc vhcVar, int i, String str, int i2);
 }

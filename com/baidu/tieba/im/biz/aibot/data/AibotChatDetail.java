@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.biz.aibot.data;
 
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
@@ -23,13 +25,18 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u000b\n\u0002\b\b\b\u0086\b\u0018\u00002\u00020\u0001:\u0004=>?@B\u0085\u0001\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b\u0012\u000e\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b\u0012\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0006\u0010\u000f\u001a\u00020\u0010¢\u0006\u0002\u0010\u0011J\u000b\u0010/\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u0015\u00100\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\u000f\u00101\u001a\b\u0012\u0004\u0012\u00020\t0\bHÆ\u0003J\u0011\u00102\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\bHÆ\u0003J\u0015\u00103\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÆ\u0003J\u0015\u00104\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\u0015\u00105\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\t\u00106\u001a\u00020\u0010HÆ\u0003J\u0099\u0001\u00107\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\u0014\b\u0002\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b2\u0010\b\u0002\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b2\u0014\b\u0002\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u0014\b\u0002\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u0014\b\u0002\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\b\b\u0002\u0010\u000f\u001a\u00020\u0010HÆ\u0001J\u0013\u00108\u001a\u0002092\b\u0010:\u001a\u0004\u0018\u00010\u0006HÖ\u0003J\t\u0010;\u001a\u00020\u0010HÖ\u0001J\t\u0010<\u001a\u00020\u0003HÖ\u0001R\u001e\u0010\u000f\u001a\u00020\u00108\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u001b\u0010\u0016\u001a\u00020\u00178FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u0018\u0010\u0019R\u001c\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\"\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b \u0010!R\u001b\u0010\"\u001a\u00020#8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u001b\u001a\u0004\b$\u0010%R\u001c\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R$\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b'\u0010\u001d\"\u0004\b(\u0010)R\u001b\u0010*\u001a\u00020+8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u001b\u001a\u0004\b,\u0010-R\u001c\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000¨\u0006A"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "Ljava/io/Serializable;", "noPermissionPrompt", "", "userInfoMap", "", "", "topicInfo", "", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$TopicInfo;", "defaultSug", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "greetingInfo", "configDataMap", "switchDataMap", "auditStatus", "", "(Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Ljava/util/List;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;I)V", "getAuditStatus", "()I", "setAuditStatus", "(I)V", "configData", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$ConfigData;", "getConfigData", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$ConfigData;", "configData$delegate", "Lkotlin/Lazy;", "getDefaultSug", "()Ljava/util/List;", "getGreetingInfo", "()Ljava/util/Map;", "getNoPermissionPrompt", "()Ljava/lang/String;", "switchData", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$SwitchData;", "getSwitchData", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$SwitchData;", "switchData$delegate", "getTopicInfo", "setTopicInfo", "(Ljava/util/List;)V", "userInfo", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "getUserInfo", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "userInfo$delegate", "component1", "component2", "component3", "component4", "component5", "component6", "component7", "component8", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "hashCode", "toString", "ConfigData", "SwitchData", "TopicInfo", "UserInfo", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\t\b\u0086\b\u0018\u00002\u00020\u0001:\u0005GHIJKB\u009b\u0001\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b\u0012\u000e\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b\u0012\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0006\u0010\u000f\u001a\u00020\u0010\u0012\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00120\b\u0012\u0006\u0010\u0013\u001a\u00020\u0014¢\u0006\u0002\u0010\u0015J\u000b\u00107\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\t\u00108\u001a\u00020\u0014HÂ\u0003J\u0015\u00109\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\u000f\u0010:\u001a\b\u0012\u0004\u0012\u00020\t0\bHÆ\u0003J\u0011\u0010;\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\bHÆ\u0003J\u0015\u0010<\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÆ\u0003J\u0015\u0010=\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\u0015\u0010>\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u0005HÂ\u0003J\t\u0010?\u001a\u00020\u0010HÆ\u0003J\u000f\u0010@\u001a\b\u0012\u0004\u0012\u00020\u00120\bHÂ\u0003J³\u0001\u0010A\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\u0014\b\u0002\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b2\u0010\b\u0002\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b2\u0014\b\u0002\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u0014\b\u0002\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\u0014\b\u0002\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00052\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u000e\b\u0002\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00120\b2\b\b\u0002\u0010\u0013\u001a\u00020\u0014HÆ\u0001J\u0013\u0010B\u001a\u00020C2\b\u0010D\u001a\u0004\u0018\u00010\u0006HÖ\u0003J\t\u0010E\u001a\u00020\u0010HÖ\u0001J\t\u0010F\u001a\u00020\u0003HÖ\u0001R\u001e\u0010\u000f\u001a\u00020\u00108\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R!\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001b0\b8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b\u001c\u0010\u001dR\u0016\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00120\b8\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u00020\u00148\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R\u001b\u0010 \u001a\u00020!8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u001f\u001a\u0004\b\"\u0010#R\u001c\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u001dR\"\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b&\u0010'R\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b(\u0010)R\u001b\u0010*\u001a\u00020+8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u001f\u001a\u0004\b,\u0010-R\u001c\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000R$\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b/\u0010\u001d\"\u0004\b0\u00101R\u001b\u00102\u001a\u0002038FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b6\u0010\u001f\u001a\u0004\b4\u00105R\u001c\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00060\u00058\u0002X\u0083\u0004¢\u0006\u0002\n\u0000¨\u0006L"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "Ljava/io/Serializable;", "noPermissionPrompt", "", "userInfoMap", "", "", "topicInfo", "", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$TopicInfo;", "defaultSug", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "greetingInfo", "configDataMap", "switchDataMap", "auditStatus", "", "botListMap", "Lcom/google/gson/JsonObject;", "botNum", "", "(Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Ljava/util/List;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;ILjava/util/List;J)V", "getAuditStatus", "()I", "setAuditStatus", "(I)V", "botList", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$BotList;", "getBotList", "()Ljava/util/List;", "botList$delegate", "Lkotlin/Lazy;", "configData", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$ConfigData;", "getConfigData", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$ConfigData;", "configData$delegate", "getDefaultSug", "getGreetingInfo", "()Ljava/util/Map;", "getNoPermissionPrompt", "()Ljava/lang/String;", "switchData", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$SwitchData;", "getSwitchData", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$SwitchData;", "switchData$delegate", "getTopicInfo", "setTopicInfo", "(Ljava/util/List;)V", "userInfo", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "getUserInfo", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "userInfo$delegate", "component1", "component10", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "hashCode", "toString", "BotList", "ConfigData", "SwitchData", "TopicInfo", "UserInfo", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class AibotChatDetail implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("audit_status")
     public int auditStatus;
+    public final Lazy botList$delegate;
+    @SerializedName("bot_list")
+    public final List<JsonObject> botListMap;
+    @SerializedName("bot_num")
+    public final long botNum;
     public final Lazy configData$delegate;
     @SerializedName("config")
     public final Map<String, Object> configDataMap;
@@ -48,22 +55,34 @@ public final class AibotChatDetail implements Serializable {
     @SerializedName(SourceConstant.SOURCE_USER_INFO)
     public final Map<String, Object> userInfoMap;
 
+    private final long component10() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.botNum : invokeV.longValue;
+    }
+
     private final Map<String, Object> component2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.userInfoMap : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.userInfoMap : (Map) invokeV.objValue;
     }
 
     private final Map<String, Object> component6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.configDataMap : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.configDataMap : (Map) invokeV.objValue;
     }
 
     private final Map<String, Object> component7() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.switchDataMap : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.switchDataMap : (Map) invokeV.objValue;
+    }
+
+    private final List<JsonObject> component9() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.botListMap : (List) invokeV.objValue;
     }
 
     public final String component1() {
@@ -96,16 +115,17 @@ public final class AibotChatDetail implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.auditStatus : invokeV.intValue;
     }
 
-    public final AibotChatDetail copy(String str, Map<String, ? extends Object> userInfoMap, List<TopicInfo> topicInfo, List<AbilityItem> list, Map<String, ? extends Object> greetingInfo, Map<String, ? extends Object> configDataMap, Map<String, ? extends Object> switchDataMap, int i) {
+    public final AibotChatDetail copy(String str, Map<String, ? extends Object> userInfoMap, List<TopicInfo> topicInfo, List<AbilityItem> list, Map<String, ? extends Object> greetingInfo, Map<String, ? extends Object> configDataMap, Map<String, ? extends Object> switchDataMap, int i, List<JsonObject> botListMap, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, Integer.valueOf(i), botListMap, Long.valueOf(j)})) == null) {
             Intrinsics.checkNotNullParameter(userInfoMap, "userInfoMap");
             Intrinsics.checkNotNullParameter(topicInfo, "topicInfo");
             Intrinsics.checkNotNullParameter(greetingInfo, "greetingInfo");
             Intrinsics.checkNotNullParameter(configDataMap, "configDataMap");
             Intrinsics.checkNotNullParameter(switchDataMap, "switchDataMap");
-            return new AibotChatDetail(str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, i);
+            Intrinsics.checkNotNullParameter(botListMap, "botListMap");
+            return new AibotChatDetail(str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, i, botListMap, j);
         }
         return (AibotChatDetail) invokeCommon.objValue;
     }
@@ -119,7 +139,7 @@ public final class AibotChatDetail implements Serializable {
             }
             if (obj instanceof AibotChatDetail) {
                 AibotChatDetail aibotChatDetail = (AibotChatDetail) obj;
-                return Intrinsics.areEqual(this.noPermissionPrompt, aibotChatDetail.noPermissionPrompt) && Intrinsics.areEqual(this.userInfoMap, aibotChatDetail.userInfoMap) && Intrinsics.areEqual(this.topicInfo, aibotChatDetail.topicInfo) && Intrinsics.areEqual(this.defaultSug, aibotChatDetail.defaultSug) && Intrinsics.areEqual(this.greetingInfo, aibotChatDetail.greetingInfo) && Intrinsics.areEqual(this.configDataMap, aibotChatDetail.configDataMap) && Intrinsics.areEqual(this.switchDataMap, aibotChatDetail.switchDataMap) && this.auditStatus == aibotChatDetail.auditStatus;
+                return Intrinsics.areEqual(this.noPermissionPrompt, aibotChatDetail.noPermissionPrompt) && Intrinsics.areEqual(this.userInfoMap, aibotChatDetail.userInfoMap) && Intrinsics.areEqual(this.topicInfo, aibotChatDetail.topicInfo) && Intrinsics.areEqual(this.defaultSug, aibotChatDetail.defaultSug) && Intrinsics.areEqual(this.greetingInfo, aibotChatDetail.greetingInfo) && Intrinsics.areEqual(this.configDataMap, aibotChatDetail.configDataMap) && Intrinsics.areEqual(this.switchDataMap, aibotChatDetail.switchDataMap) && this.auditStatus == aibotChatDetail.auditStatus && Intrinsics.areEqual(this.botListMap, aibotChatDetail.botListMap) && this.botNum == aibotChatDetail.botNum;
             }
             return false;
         }
@@ -129,11 +149,11 @@ public final class AibotChatDetail implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             String str = this.noPermissionPrompt;
             int hashCode = (((((str == null ? 0 : str.hashCode()) * 31) + this.userInfoMap.hashCode()) * 31) + this.topicInfo.hashCode()) * 31;
             List<AbilityItem> list = this.defaultSug;
-            return ((((((((hashCode + (list != null ? list.hashCode() : 0)) * 31) + this.greetingInfo.hashCode()) * 31) + this.configDataMap.hashCode()) * 31) + this.switchDataMap.hashCode()) * 31) + this.auditStatus;
+            return ((((((((((((hashCode + (list != null ? list.hashCode() : 0)) * 31) + this.greetingInfo.hashCode()) * 31) + this.configDataMap.hashCode()) * 31) + this.switchDataMap.hashCode()) * 31) + this.auditStatus) * 31) + this.botListMap.hashCode()) * 31) + c.a(this.botNum);
         }
         return invokeV.intValue;
     }
@@ -141,10 +161,339 @@ public final class AibotChatDetail implements Serializable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "AibotChatDetail(noPermissionPrompt=" + this.noPermissionPrompt + ", userInfoMap=" + this.userInfoMap + ", topicInfo=" + this.topicInfo + ", defaultSug=" + this.defaultSug + ", greetingInfo=" + this.greetingInfo + ", configDataMap=" + this.configDataMap + ", switchDataMap=" + this.switchDataMap + ", auditStatus=" + this.auditStatus + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "AibotChatDetail(noPermissionPrompt=" + this.noPermissionPrompt + ", userInfoMap=" + this.userInfoMap + ", topicInfo=" + this.topicInfo + ", defaultSug=" + this.defaultSug + ", greetingInfo=" + this.greetingInfo + ", configDataMap=" + this.configDataMap + ", switchDataMap=" + this.switchDataMap + ", auditStatus=" + this.auditStatus + ", botListMap=" + this.botListMap + ", botNum=" + this.botNum + ')';
         }
         return (String) invokeV.objValue;
+    }
+
+    @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010 \n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b+\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B\u007f\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0018\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b\u0012\u0006\u0010\u000e\u001a\u00020\t\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003\u0012\u0006\u0010\u0011\u001a\u00020\u0003\u0012\u0006\u0010\u0012\u001a\u00020\u0003\u0012\u0006\u0010\u0013\u001a\u00020\u0003\u0012\u0006\u0010\u0014\u001a\u00020\u0003¢\u0006\u0002\u0010\u0015J\t\u0010*\u001a\u00020\u0003HÆ\u0003J\t\u0010+\u001a\u00020\u0003HÆ\u0003J\t\u0010,\u001a\u00020\u0003HÆ\u0003J\t\u0010-\u001a\u00020\u0003HÆ\u0003J\t\u0010.\u001a\u00020\u0003HÆ\u0003J\t\u0010/\u001a\u00020\u0005HÆ\u0003J\t\u00100\u001a\u00020\u0003HÆ\u0003J\t\u00101\u001a\u00020\u0003HÆ\u0003J\t\u00102\u001a\u00020\tHÆ\u0003J\u001b\u00103\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000bHÆ\u0003J\t\u00104\u001a\u00020\tHÆ\u0003J\t\u00105\u001a\u00020\u0003HÆ\u0003J\t\u00106\u001a\u00020\u0003HÆ\u0003J\u009d\u0001\u00107\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\u00032\b\b\u0002\u0010\b\u001a\u00020\t2\u001a\b\u0002\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b2\b\b\u0002\u0010\u000e\u001a\u00020\t2\b\b\u0002\u0010\u000f\u001a\u00020\u00032\b\b\u0002\u0010\u0010\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u00032\b\b\u0002\u0010\u0012\u001a\u00020\u00032\b\b\u0002\u0010\u0013\u001a\u00020\u00032\b\b\u0002\u0010\u0014\u001a\u00020\u0003HÆ\u0001J\u0013\u00108\u001a\u0002092\b\u0010:\u001a\u0004\u0018\u00010\rHÖ\u0003J\t\u0010;\u001a\u00020\tHÖ\u0001J\t\u0010<\u001a\u00020\u0003HÖ\u0001R\u001e\u0010\u0014\u001a\u00020\u00038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u0016\u0010\u000f\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u0017R\u0016\u0010\u0010\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u0017R\u0016\u0010\u000e\u001a\u00020\t8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001dR\u001e\u0010\u0013\u001a\u00020\u00038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u0017\"\u0004\b \u0010\u0019R\u0016\u0010\u0012\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u0017R\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010\u0017R\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b#\u0010$R\u0011\u0010\u0007\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u0017R\u0016\u0010\u0011\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b&\u0010\u0017R#\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b¢\u0006\b\n\u0000\u001a\u0004\b'\u0010(R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b)\u0010\u0017¨\u0006="}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$BotList;", "Ljava/io/Serializable;", "uk", "", "paid", "", "name", "portrait", "gender", "", "tags", "", "", "", "dialogNum", "createUname", "description", "relation", "label", "hasFollow", NotificationCompat.WearableExtender.KEY_BACKGROUND, "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILjava/util/List;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getBackground", "()Ljava/lang/String;", "setBackground", "(Ljava/lang/String;)V", "getCreateUname", "getDescription", "getDialogNum", "()I", "getGender", "getHasFollow", "setHasFollow", "getLabel", "getName", "getPaid", "()J", "getPortrait", "getRelation", "getTags", "()Ljava/util/List;", "getUk", "component1", "component10", "component11", "component12", "component13", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "hashCode", "toString", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    /* loaded from: classes6.dex */
+    public static final class BotList implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName(NotificationCompat.WearableExtender.KEY_BACKGROUND)
+        public String background;
+        @SerializedName("create_uname")
+        public final String createUname;
+        @SerializedName("description")
+        public final String description;
+        @SerializedName("dialog_num")
+        public final int dialogNum;
+        public final int gender;
+        @SerializedName("has_follow")
+        public String hasFollow;
+        @SerializedName("label")
+        public final String label;
+        public final String name;
+        @SerializedName("pa")
+        public final long paid;
+        public final String portrait;
+        @SerializedName("relation")
+        public final String relation;
+        public final List<Map<String, Object>> tags;
+        public final String uk;
+
+        public final String component1() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.uk : (String) invokeV.objValue;
+        }
+
+        public final String component10() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.relation : (String) invokeV.objValue;
+        }
+
+        public final String component11() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.label : (String) invokeV.objValue;
+        }
+
+        public final String component12() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hasFollow : (String) invokeV.objValue;
+        }
+
+        public final String component13() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.background : (String) invokeV.objValue;
+        }
+
+        public final long component2() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.paid : invokeV.longValue;
+        }
+
+        public final String component3() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.name : (String) invokeV.objValue;
+        }
+
+        public final String component4() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.portrait : (String) invokeV.objValue;
+        }
+
+        public final int component5() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.gender : invokeV.intValue;
+        }
+
+        public final List<Map<String, Object>> component6() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tags : (List) invokeV.objValue;
+        }
+
+        public final int component7() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dialogNum : invokeV.intValue;
+        }
+
+        public final String component8() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.createUname : (String) invokeV.objValue;
+        }
+
+        public final String component9() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.description : (String) invokeV.objValue;
+        }
+
+        public final BotList copy(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label, String hasFollow, String background) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label, hasFollow, background})) == null) {
+                Intrinsics.checkNotNullParameter(uk, "uk");
+                Intrinsics.checkNotNullParameter(name, "name");
+                Intrinsics.checkNotNullParameter(portrait, "portrait");
+                Intrinsics.checkNotNullParameter(tags, "tags");
+                Intrinsics.checkNotNullParameter(createUname, "createUname");
+                Intrinsics.checkNotNullParameter(description, "description");
+                Intrinsics.checkNotNullParameter(relation, "relation");
+                Intrinsics.checkNotNullParameter(label, "label");
+                Intrinsics.checkNotNullParameter(hasFollow, "hasFollow");
+                Intrinsics.checkNotNullParameter(background, "background");
+                return new BotList(uk, j, name, portrait, i, tags, i2, createUname, description, relation, label, hasFollow, background);
+            }
+            return (BotList) invokeCommon.objValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof BotList) {
+                    BotList botList = (BotList) obj;
+                    return Intrinsics.areEqual(this.uk, botList.uk) && this.paid == botList.paid && Intrinsics.areEqual(this.name, botList.name) && Intrinsics.areEqual(this.portrait, botList.portrait) && this.gender == botList.gender && Intrinsics.areEqual(this.tags, botList.tags) && this.dialogNum == botList.dialogNum && Intrinsics.areEqual(this.createUname, botList.createUname) && Intrinsics.areEqual(this.description, botList.description) && Intrinsics.areEqual(this.relation, botList.relation) && Intrinsics.areEqual(this.label, botList.label) && Intrinsics.areEqual(this.hasFollow, botList.hasFollow) && Intrinsics.areEqual(this.background, botList.background);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (((((((((((((((((((((((this.uk.hashCode() * 31) + c.a(this.paid)) * 31) + this.name.hashCode()) * 31) + this.portrait.hashCode()) * 31) + this.gender) * 31) + this.tags.hashCode()) * 31) + this.dialogNum) * 31) + this.createUname.hashCode()) * 31) + this.description.hashCode()) * 31) + this.relation.hashCode()) * 31) + this.label.hashCode()) * 31) + this.hasFollow.hashCode()) * 31) + this.background.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                return "BotList(uk=" + this.uk + ", paid=" + this.paid + ", name=" + this.name + ", portrait=" + this.portrait + ", gender=" + this.gender + ", tags=" + this.tags + ", dialogNum=" + this.dialogNum + ", createUname=" + this.createUname + ", description=" + this.description + ", relation=" + this.relation + ", label=" + this.label + ", hasFollow=" + this.hasFollow + ", background=" + this.background + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public BotList(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label, String hasFollow, String background) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label, hasFollow, background};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            Intrinsics.checkNotNullParameter(name, "name");
+            Intrinsics.checkNotNullParameter(portrait, "portrait");
+            Intrinsics.checkNotNullParameter(tags, "tags");
+            Intrinsics.checkNotNullParameter(createUname, "createUname");
+            Intrinsics.checkNotNullParameter(description, "description");
+            Intrinsics.checkNotNullParameter(relation, "relation");
+            Intrinsics.checkNotNullParameter(label, "label");
+            Intrinsics.checkNotNullParameter(hasFollow, "hasFollow");
+            Intrinsics.checkNotNullParameter(background, "background");
+            this.uk = uk;
+            this.paid = j;
+            this.name = name;
+            this.portrait = portrait;
+            this.gender = i;
+            this.tags = tags;
+            this.dialogNum = i2;
+            this.createUname = createUname;
+            this.description = description;
+            this.relation = relation;
+            this.label = label;
+            this.hasFollow = hasFollow;
+            this.background = background;
+        }
+
+        public final String getBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.background;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getCreateUname() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.createUname;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getDescription() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.description;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final int getDialogNum() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.dialogNum;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int getGender() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.gender;
+            }
+            return invokeV.intValue;
+        }
+
+        public final String getHasFollow() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.hasFollow;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getLabel() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return this.label;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return this.name;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final long getPaid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                return this.paid;
+            }
+            return invokeV.longValue;
+        }
+
+        public final String getPortrait() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                return this.portrait;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getRelation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                return this.relation;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final List<Map<String, Object>> getTags() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                return this.tags;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final String getUk() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                return this.uk;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final void setBackground(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.background = str;
+            }
+        }
+
+        public final void setHasFollow(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.hasFollow = str;
+            }
+        }
     }
 
     @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b,\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001Bu\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\u0006\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003\u0012\u0006\u0010\n\u001a\u00020\u0006\u0012\u0006\u0010\u000b\u001a\u00020\u0006\u0012\u0006\u0010\f\u001a\u00020\u0003\u0012\u0006\u0010\r\u001a\u00020\u0003\u0012\u0006\u0010\u000e\u001a\u00020\u0003\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003\u0012\u0006\u0010\u0011\u001a\u00020\u0003¢\u0006\u0002\u0010\u0012J\t\u0010#\u001a\u00020\u0003HÆ\u0003J\t\u0010$\u001a\u00020\u0003HÆ\u0003J\t\u0010%\u001a\u00020\u0003HÆ\u0003J\t\u0010&\u001a\u00020\u0003HÆ\u0003J\t\u0010'\u001a\u00020\u0003HÆ\u0003J\t\u0010(\u001a\u00020\u0003HÆ\u0003J\t\u0010)\u001a\u00020\u0003HÆ\u0003J\t\u0010*\u001a\u00020\u0006HÆ\u0003J\t\u0010+\u001a\u00020\u0006HÆ\u0003J\t\u0010,\u001a\u00020\u0003HÆ\u0003J\t\u0010-\u001a\u00020\u0003HÆ\u0003J\t\u0010.\u001a\u00020\u0006HÆ\u0003J\t\u0010/\u001a\u00020\u0006HÆ\u0003J\t\u00100\u001a\u00020\u0003HÆ\u0003J\u0095\u0001\u00101\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\u00062\b\b\u0002\u0010\b\u001a\u00020\u00032\b\b\u0002\u0010\t\u001a\u00020\u00032\b\b\u0002\u0010\n\u001a\u00020\u00062\b\b\u0002\u0010\u000b\u001a\u00020\u00062\b\b\u0002\u0010\f\u001a\u00020\u00032\b\b\u0002\u0010\r\u001a\u00020\u00032\b\b\u0002\u0010\u000e\u001a\u00020\u00032\b\b\u0002\u0010\u000f\u001a\u00020\u00032\b\b\u0002\u0010\u0010\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u0003HÆ\u0001J\u0013\u00102\u001a\u0002032\b\u00104\u001a\u0004\u0018\u000105HÖ\u0003J\t\u00106\u001a\u00020\u0006HÖ\u0001J\t\u00107\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\r\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u0016\u0010\f\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0014R\u0016\u0010\t\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0014R\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0014R\u0016\u0010\u0004\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0014R\u0016\u0010\u000b\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u001aR\u0016\u0010\u0005\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u001aR\u0016\u0010\u0011\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0014R\u0016\u0010\u0010\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0014R\u0016\u0010\u0007\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001aR\u0016\u0010\u000e\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0014R\u0016\u0010\u000f\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b \u0010\u0014R\u0016\u0010\b\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u0014R\u0016\u0010\n\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010\u001a¨\u00068"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$ConfigData;", "Ljava/io/Serializable;", "inputBoxPromptText", "", "loadingText", "notFirstGreetingInterval", "", "restartDialogueInterval", AiBotChatDispatcher.AI_SINGLE_THEME_COLOR, "defaultAnswer", "timeout", "msgNumForSug", "chatBackground", "bubbleBgColor", "sugTextColor", "tagColor", "person_pic", "person_background", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getBubbleBgColor", "()Ljava/lang/String;", "getChatBackground", "getDefaultAnswer", "getInputBoxPromptText", "getLoadingText", "getMsgNumForSug", "()I", "getNotFirstGreetingInterval", "getPerson_background", "getPerson_pic", "getRestartDialogueInterval", "getSugTextColor", "getTagColor", "getThemeColor", "getTimeout", "component1", "component10", "component11", "component12", "component13", "component14", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "hashCode", "toString", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
@@ -835,7 +1184,7 @@ public final class AibotChatDetail implements Serializable {
         }
     }
 
-    @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010 \n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\"\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001Bo\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0018\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b\u0012\u0006\u0010\u000e\u001a\u00020\t\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003\u0012\u0006\u0010\u0011\u001a\u00020\u0003\u0012\u0006\u0010\u0012\u001a\u00020\u0003¢\u0006\u0002\u0010\u0013J\t\u0010#\u001a\u00020\u0003HÆ\u0003J\t\u0010$\u001a\u00020\u0003HÆ\u0003J\t\u0010%\u001a\u00020\u0003HÆ\u0003J\t\u0010&\u001a\u00020\u0005HÆ\u0003J\t\u0010'\u001a\u00020\u0003HÆ\u0003J\t\u0010(\u001a\u00020\u0003HÆ\u0003J\t\u0010)\u001a\u00020\tHÆ\u0003J\u001b\u0010*\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000bHÆ\u0003J\t\u0010+\u001a\u00020\tHÆ\u0003J\t\u0010,\u001a\u00020\u0003HÆ\u0003J\t\u0010-\u001a\u00020\u0003HÆ\u0003J\u0089\u0001\u0010.\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\u00032\b\b\u0002\u0010\b\u001a\u00020\t2\u001a\b\u0002\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b2\b\b\u0002\u0010\u000e\u001a\u00020\t2\b\b\u0002\u0010\u000f\u001a\u00020\u00032\b\b\u0002\u0010\u0010\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u00032\b\b\u0002\u0010\u0012\u001a\u00020\u0003HÆ\u0001J\u0013\u0010/\u001a\u0002002\b\u00101\u001a\u0004\u0018\u00010\rHÖ\u0003J\t\u00102\u001a\u00020\tHÖ\u0001J\t\u00103\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\u000f\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0015R\u0016\u0010\u0010\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0015R\u0016\u0010\u000e\u001a\u00020\t8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0018R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0018R\u0016\u0010\u0012\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u0015R\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u0015R\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u0011\u0010\u0007\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u0015R\u0016\u0010\u0011\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0015R#\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b¢\u0006\b\n\u0000\u001a\u0004\b \u0010!R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010\u0015¨\u00064"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "Ljava/io/Serializable;", "uk", "", "paid", "", "name", "portrait", "gender", "", "tags", "", "", "", "dialogNum", "createUname", "description", "relation", "label", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILjava/util/List;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getCreateUname", "()Ljava/lang/String;", "getDescription", "getDialogNum", "()I", "getGender", "getLabel", "getName", "getPaid", "()J", "getPortrait", "getRelation", "getTags", "()Ljava/util/List;", "getUk", "component1", "component10", "component11", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "hashCode", "toString", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010 \n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b(\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B\u007f\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0018\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b\u0012\u0006\u0010\u000e\u001a\u00020\t\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003\u0012\u0006\u0010\u0011\u001a\u00020\u0003\u0012\u0006\u0010\u0012\u001a\u00020\u0003\u0012\u0006\u0010\u0013\u001a\u00020\u0003\u0012\u0006\u0010\u0014\u001a\u00020\u0003¢\u0006\u0002\u0010\u0015J\t\u0010'\u001a\u00020\u0003HÆ\u0003J\t\u0010(\u001a\u00020\u0003HÆ\u0003J\t\u0010)\u001a\u00020\u0003HÆ\u0003J\t\u0010*\u001a\u00020\u0003HÆ\u0003J\t\u0010+\u001a\u00020\u0003HÆ\u0003J\t\u0010,\u001a\u00020\u0005HÆ\u0003J\t\u0010-\u001a\u00020\u0003HÆ\u0003J\t\u0010.\u001a\u00020\u0003HÆ\u0003J\t\u0010/\u001a\u00020\tHÆ\u0003J\u001b\u00100\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000bHÆ\u0003J\t\u00101\u001a\u00020\tHÆ\u0003J\t\u00102\u001a\u00020\u0003HÆ\u0003J\t\u00103\u001a\u00020\u0003HÆ\u0003J\u009d\u0001\u00104\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\u00032\b\b\u0002\u0010\b\u001a\u00020\t2\u001a\b\u0002\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b2\b\b\u0002\u0010\u000e\u001a\u00020\t2\b\b\u0002\u0010\u000f\u001a\u00020\u00032\b\b\u0002\u0010\u0010\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u00032\b\b\u0002\u0010\u0012\u001a\u00020\u00032\b\b\u0002\u0010\u0013\u001a\u00020\u00032\b\b\u0002\u0010\u0014\u001a\u00020\u0003HÆ\u0001J\u0013\u00105\u001a\u0002062\b\u00107\u001a\u0004\u0018\u00010\rHÖ\u0003J\t\u00108\u001a\u00020\tHÖ\u0001J\t\u00109\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\u000f\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0010\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0017R\u0016\u0010\u000e\u001a\u00020\t8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u001aR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u001aR\u0016\u0010\u0013\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0017R\u0016\u0010\u0014\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0017R\u0016\u0010\u0012\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u0017R\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0017R\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b \u0010!R\u0011\u0010\u0007\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010\u0017R\u0016\u0010\u0011\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b#\u0010\u0017R#\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\r0\f0\u000b¢\u0006\b\n\u0000\u001a\u0004\b$\u0010%R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b&\u0010\u0017¨\u0006:"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$UserInfo;", "Ljava/io/Serializable;", "uk", "", "paid", "", "name", "portrait", "gender", "", "tags", "", "", "", "dialogNum", "createUname", "description", "relation", "label", "introduceCard", "introduceVoice", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILjava/util/List;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getCreateUname", "()Ljava/lang/String;", "getDescription", "getDialogNum", "()I", "getGender", "getIntroduceCard", "getIntroduceVoice", "getLabel", "getName", "getPaid", "()J", "getPortrait", "getRelation", "getTags", "()Ljava/util/List;", "getUk", "component1", "component10", "component11", "component12", "component13", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "hashCode", "toString", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class UserInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -847,6 +1196,10 @@ public final class AibotChatDetail implements Serializable {
         @SerializedName("dialog_num")
         public final int dialogNum;
         public final int gender;
+        @SerializedName("introduce_card")
+        public final String introduceCard;
+        @SerializedName("introduce_voice")
+        public final String introduceVoice;
         @SerializedName("label")
         public final String label;
         public final String name;
@@ -876,58 +1229,70 @@ public final class AibotChatDetail implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.label : (String) invokeV.objValue;
         }
 
+        public final String component12() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.introduceCard : (String) invokeV.objValue;
+        }
+
+        public final String component13() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.introduceVoice : (String) invokeV.objValue;
+        }
+
         public final long component2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.paid : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.paid : invokeV.longValue;
         }
 
         public final String component3() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.name : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.name : (String) invokeV.objValue;
         }
 
         public final String component4() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.portrait : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.portrait : (String) invokeV.objValue;
         }
 
         public final int component5() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.gender : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.gender : invokeV.intValue;
         }
 
         public final List<Map<String, Object>> component6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tags : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tags : (List) invokeV.objValue;
         }
 
         public final int component7() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dialogNum : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dialogNum : invokeV.intValue;
         }
 
         public final String component8() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.createUname : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.createUname : (String) invokeV.objValue;
         }
 
         public final String component9() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.description : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.description : (String) invokeV.objValue;
         }
 
-        public final UserInfo copy(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label) {
+        public final UserInfo copy(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label, String introduceCard, String introduceVoice) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label, introduceCard, introduceVoice})) == null) {
                 Intrinsics.checkNotNullParameter(uk, "uk");
                 Intrinsics.checkNotNullParameter(name, "name");
                 Intrinsics.checkNotNullParameter(portrait, "portrait");
@@ -936,7 +1301,9 @@ public final class AibotChatDetail implements Serializable {
                 Intrinsics.checkNotNullParameter(description, "description");
                 Intrinsics.checkNotNullParameter(relation, "relation");
                 Intrinsics.checkNotNullParameter(label, "label");
-                return new UserInfo(uk, j, name, portrait, i, tags, i2, createUname, description, relation, label);
+                Intrinsics.checkNotNullParameter(introduceCard, "introduceCard");
+                Intrinsics.checkNotNullParameter(introduceVoice, "introduceVoice");
+                return new UserInfo(uk, j, name, portrait, i, tags, i2, createUname, description, relation, label, introduceCard, introduceVoice);
             }
             return (UserInfo) invokeCommon.objValue;
         }
@@ -944,13 +1311,13 @@ public final class AibotChatDetail implements Serializable {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
                 if (this == obj) {
                     return true;
                 }
                 if (obj instanceof UserInfo) {
                     UserInfo userInfo = (UserInfo) obj;
-                    return Intrinsics.areEqual(this.uk, userInfo.uk) && this.paid == userInfo.paid && Intrinsics.areEqual(this.name, userInfo.name) && Intrinsics.areEqual(this.portrait, userInfo.portrait) && this.gender == userInfo.gender && Intrinsics.areEqual(this.tags, userInfo.tags) && this.dialogNum == userInfo.dialogNum && Intrinsics.areEqual(this.createUname, userInfo.createUname) && Intrinsics.areEqual(this.description, userInfo.description) && Intrinsics.areEqual(this.relation, userInfo.relation) && Intrinsics.areEqual(this.label, userInfo.label);
+                    return Intrinsics.areEqual(this.uk, userInfo.uk) && this.paid == userInfo.paid && Intrinsics.areEqual(this.name, userInfo.name) && Intrinsics.areEqual(this.portrait, userInfo.portrait) && this.gender == userInfo.gender && Intrinsics.areEqual(this.tags, userInfo.tags) && this.dialogNum == userInfo.dialogNum && Intrinsics.areEqual(this.createUname, userInfo.createUname) && Intrinsics.areEqual(this.description, userInfo.description) && Intrinsics.areEqual(this.relation, userInfo.relation) && Intrinsics.areEqual(this.label, userInfo.label) && Intrinsics.areEqual(this.introduceCard, userInfo.introduceCard) && Intrinsics.areEqual(this.introduceVoice, userInfo.introduceVoice);
                 }
                 return false;
             }
@@ -960,24 +1327,24 @@ public final class AibotChatDetail implements Serializable {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (((((((((((((((((((this.uk.hashCode() * 31) + c.a(this.paid)) * 31) + this.name.hashCode()) * 31) + this.portrait.hashCode()) * 31) + this.gender) * 31) + this.tags.hashCode()) * 31) + this.dialogNum) * 31) + this.createUname.hashCode()) * 31) + this.description.hashCode()) * 31) + this.relation.hashCode()) * 31) + this.label.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (((((((((((((((((((((((this.uk.hashCode() * 31) + c.a(this.paid)) * 31) + this.name.hashCode()) * 31) + this.portrait.hashCode()) * 31) + this.gender) * 31) + this.tags.hashCode()) * 31) + this.dialogNum) * 31) + this.createUname.hashCode()) * 31) + this.description.hashCode()) * 31) + this.relation.hashCode()) * 31) + this.label.hashCode()) * 31) + this.introduceCard.hashCode()) * 31) + this.introduceVoice.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-                return "UserInfo(uk=" + this.uk + ", paid=" + this.paid + ", name=" + this.name + ", portrait=" + this.portrait + ", gender=" + this.gender + ", tags=" + this.tags + ", dialogNum=" + this.dialogNum + ", createUname=" + this.createUname + ", description=" + this.description + ", relation=" + this.relation + ", label=" + this.label + ')';
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                return "UserInfo(uk=" + this.uk + ", paid=" + this.paid + ", name=" + this.name + ", portrait=" + this.portrait + ", gender=" + this.gender + ", tags=" + this.tags + ", dialogNum=" + this.dialogNum + ", createUname=" + this.createUname + ", description=" + this.description + ", relation=" + this.relation + ", label=" + this.label + ", introduceCard=" + this.introduceCard + ", introduceVoice=" + this.introduceVoice + ')';
             }
             return (String) invokeV.objValue;
         }
 
-        public UserInfo(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label) {
+        public UserInfo(String uk, long j, String name, String portrait, int i, List<? extends Map<String, ? extends Object>> tags, int i2, String createUname, String description, String relation, String label, String introduceCard, String introduceVoice) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label};
+                Object[] objArr = {uk, Long.valueOf(j), name, portrait, Integer.valueOf(i), tags, Integer.valueOf(i2), createUname, description, relation, label, introduceCard, introduceVoice};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -995,6 +1362,8 @@ public final class AibotChatDetail implements Serializable {
             Intrinsics.checkNotNullParameter(description, "description");
             Intrinsics.checkNotNullParameter(relation, "relation");
             Intrinsics.checkNotNullParameter(label, "label");
+            Intrinsics.checkNotNullParameter(introduceCard, "introduceCard");
+            Intrinsics.checkNotNullParameter(introduceVoice, "introduceVoice");
             this.uk = uk;
             this.paid = j;
             this.name = name;
@@ -1006,12 +1375,14 @@ public final class AibotChatDetail implements Serializable {
             this.description = description;
             this.relation = relation;
             this.label = label;
+            this.introduceCard = introduceCard;
+            this.introduceVoice = introduceVoice;
         }
 
         public final String getCreateUname() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                 return this.createUname;
             }
             return (String) invokeV.objValue;
@@ -1020,7 +1391,7 @@ public final class AibotChatDetail implements Serializable {
         public final String getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 return this.description;
             }
             return (String) invokeV.objValue;
@@ -1029,7 +1400,7 @@ public final class AibotChatDetail implements Serializable {
         public final int getDialogNum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 return this.dialogNum;
             }
             return invokeV.intValue;
@@ -1038,16 +1409,34 @@ public final class AibotChatDetail implements Serializable {
         public final int getGender() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.gender;
             }
             return invokeV.intValue;
         }
 
+        public final String getIntroduceCard() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.introduceCard;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getIntroduceVoice() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.introduceVoice;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public final String getLabel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 return this.label;
             }
             return (String) invokeV.objValue;
@@ -1056,7 +1445,7 @@ public final class AibotChatDetail implements Serializable {
         public final String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.name;
             }
             return (String) invokeV.objValue;
@@ -1065,7 +1454,7 @@ public final class AibotChatDetail implements Serializable {
         public final long getPaid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 return this.paid;
             }
             return invokeV.longValue;
@@ -1074,7 +1463,7 @@ public final class AibotChatDetail implements Serializable {
         public final String getPortrait() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 return this.portrait;
             }
             return (String) invokeV.objValue;
@@ -1083,7 +1472,7 @@ public final class AibotChatDetail implements Serializable {
         public final String getRelation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                 return this.relation;
             }
             return (String) invokeV.objValue;
@@ -1092,7 +1481,7 @@ public final class AibotChatDetail implements Serializable {
         public final List<Map<String, Object>> getTags() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                 return this.tags;
             }
             return (List) invokeV.objValue;
@@ -1101,19 +1490,19 @@ public final class AibotChatDetail implements Serializable {
         public final String getUk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
                 return this.uk;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    public AibotChatDetail(String str, Map<String, ? extends Object> userInfoMap, List<TopicInfo> topicInfo, List<AbilityItem> list, Map<String, ? extends Object> greetingInfo, Map<String, ? extends Object> configDataMap, Map<String, ? extends Object> switchDataMap, int i) {
+    public AibotChatDetail(String str, Map<String, ? extends Object> userInfoMap, List<TopicInfo> topicInfo, List<AbilityItem> list, Map<String, ? extends Object> greetingInfo, Map<String, ? extends Object> configDataMap, Map<String, ? extends Object> switchDataMap, int i, List<JsonObject> botListMap, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, Integer.valueOf(i)};
+            Object[] objArr = {str, userInfoMap, topicInfo, list, greetingInfo, configDataMap, switchDataMap, Integer.valueOf(i), botListMap, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -1128,6 +1517,7 @@ public final class AibotChatDetail implements Serializable {
         Intrinsics.checkNotNullParameter(greetingInfo, "greetingInfo");
         Intrinsics.checkNotNullParameter(configDataMap, "configDataMap");
         Intrinsics.checkNotNullParameter(switchDataMap, "switchDataMap");
+        Intrinsics.checkNotNullParameter(botListMap, "botListMap");
         this.noPermissionPrompt = str;
         this.userInfoMap = userInfoMap;
         this.topicInfo = topicInfo;
@@ -1136,6 +1526,8 @@ public final class AibotChatDetail implements Serializable {
         this.configDataMap = configDataMap;
         this.switchDataMap = switchDataMap;
         this.auditStatus = i;
+        this.botListMap = botListMap;
+        this.botNum = j;
         this.userInfo$delegate = LazyKt__LazyJVMKt.lazy(new Function0<UserInfo>(this) { // from class: com.baidu.tieba.im.biz.aibot.data.AibotChatDetail$userInfo$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1256,18 +1648,58 @@ public final class AibotChatDetail implements Serializable {
                 return (AibotChatDetail.SwitchData) DataExt.toEntity(map, AibotChatDetail.SwitchData.class);
             }
         });
+        this.botList$delegate = LazyKt__LazyJVMKt.lazy(new Function0<List<? extends BotList>>(this) { // from class: com.baidu.tieba.im.biz.aibot.data.AibotChatDetail$botList$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ AibotChatDetail this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.util.List<com.baidu.tieba.im.biz.aibot.data.AibotChatDetail$BotList>' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public final List<? extends AibotChatDetail.BotList> invoke() {
+                InterceptResult invokeV;
+                List list2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    list2 = this.this$0.botListMap;
+                    return DataExt.toEntityList(DataExt.toJson(list2), AibotChatDetail.BotList.class);
+                }
+                return (List) invokeV.objValue;
+            }
+        });
     }
 
     public final void setAuditStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.auditStatus = i;
         }
     }
 
     public final void setTopicInfo(List<TopicInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "<set-?>");
             this.topicInfo = list;
         }
@@ -1282,10 +1714,19 @@ public final class AibotChatDetail implements Serializable {
         return invokeV.intValue;
     }
 
-    public final ConfigData getConfigData() {
+    public final List<BotList> getBotList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (List) this.botList$delegate.getValue();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final ConfigData getConfigData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return (ConfigData) this.configData$delegate.getValue();
         }
         return (ConfigData) invokeV.objValue;
@@ -1294,7 +1735,7 @@ public final class AibotChatDetail implements Serializable {
     public final List<AbilityItem> getDefaultSug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.defaultSug;
         }
         return (List) invokeV.objValue;
@@ -1303,7 +1744,7 @@ public final class AibotChatDetail implements Serializable {
     public final Map<String, Object> getGreetingInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.greetingInfo;
         }
         return (Map) invokeV.objValue;
@@ -1312,7 +1753,7 @@ public final class AibotChatDetail implements Serializable {
     public final String getNoPermissionPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.noPermissionPrompt;
         }
         return (String) invokeV.objValue;
@@ -1321,7 +1762,7 @@ public final class AibotChatDetail implements Serializable {
     public final SwitchData getSwitchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return (SwitchData) this.switchData$delegate.getValue();
         }
         return (SwitchData) invokeV.objValue;
@@ -1330,7 +1771,7 @@ public final class AibotChatDetail implements Serializable {
     public final List<TopicInfo> getTopicInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.topicInfo;
         }
         return (List) invokeV.objValue;
@@ -1339,7 +1780,7 @@ public final class AibotChatDetail implements Serializable {
     public final UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return (UserInfo) this.userInfo$delegate.getValue();
         }
         return (UserInfo) invokeV.objValue;

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityMainProcessToastEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class um5 implements dm5<HotEvent> {
+public final class um5 implements lm5<AICapacityMainProcessToastEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,18 +27,17 @@ public class um5 implements dm5<HotEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dm5
+    @Override // com.baidu.tieba.lm5
     /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
+    public boolean onEvent(AICapacityMainProcessToastEvent aICapacityMainProcessToastEvent) {
         InterceptResult invokeL;
-        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
-                kb5.u(hotEventData);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityMainProcessToastEvent)) == null) {
+            if (aICapacityMainProcessToastEvent == null) {
+                return false;
             }
-            return false;
+            AICapacityApplyHelper.e.a().j(aICapacityMainProcessToastEvent.getToastString());
+            return true;
         }
         return invokeL.booleanValue;
     }

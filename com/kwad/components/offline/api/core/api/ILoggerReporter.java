@@ -1,9 +1,8 @@
 package com.kwad.components.offline.api.core.api;
 
-import com.kwai.adclient.kscommerciallogger.model.BusinessType;
+import com.kwad.sdk.commercial.b;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public interface ILoggerReporter {
 
@@ -14,5 +13,5 @@ public interface ILoggerReporter {
         public static final String ERROR_LOG = "ad_client_error_log";
     }
 
-    void reportEvent(double d, String str, BusinessType businessType, String str2, JSONObject jSONObject);
+    void reportEvent(b bVar);
 }

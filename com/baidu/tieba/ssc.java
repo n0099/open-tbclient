@@ -1,40 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.coc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.BaseTextColor;
-import tbclient.FeedHeadText;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ssc extends qoc {
+public abstract class ssc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedHeadText feedHeadText) {
+    @Deprecated
+    public coc.f a(coc.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadText)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "text", feedHeadText.text);
-            qoc.a(jSONObject, "priority", feedHeadText.priority);
-            qoc.a(jSONObject, "can_degrade", feedHeadText.can_degrade);
-            qoc.a(jSONObject, "degrade_len", feedHeadText.degrade_len);
-            qoc.a(jSONObject, "degrade_priority", feedHeadText.degrade_priority);
-            qoc.a(jSONObject, "suffix", feedHeadText.suffix);
-            qoc.a(jSONObject, "type", feedHeadText.type);
-            BaseTextColor baseTextColor = feedHeadText.color;
-            if (baseTextColor != null) {
-                qoc.a(jSONObject, "color", hqc.b(baseTextColor));
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar : (coc.f) invokeL.objValue;
+    }
+
+    @Deprecated
+    public Throwable b(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+    }
+
+    @Deprecated
+    public coc.f c(coc cocVar, coc.f fVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cocVar, fVar)) == null) ? fVar : (coc.f) invokeLL.objValue;
+    }
+
+    public ssc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            BaseTextColor baseTextColor2 = feedHeadText.bg_color;
-            if (baseTextColor2 != null) {
-                qoc.a(jSONObject, "bg_color", hqc.b(baseTextColor2));
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

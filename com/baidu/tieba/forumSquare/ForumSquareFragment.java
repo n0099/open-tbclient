@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.eo7;
-import com.baidu.tieba.fo7;
+import com.baidu.tieba.qq7;
+import com.baidu.tieba.rq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumSquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eo7 a;
+    public qq7 a;
 
     public ForumSquareFragment() {
         Interceptable interceptable = $ic;
@@ -36,30 +36,30 @@ public class ForumSquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroyView();
             this.a = null;
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        fo7 fo7Var;
+    public void G2(String str) {
+        qq7 qq7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.onChangeSkinType(i);
-            eo7 eo7Var = this.a;
-            if (eo7Var != null && (fo7Var = eo7Var.d) != null) {
-                fo7Var.a(i);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (qq7Var = this.a) != null) {
+            qq7Var.j(str);
         }
     }
 
-    public void u2(String str) {
-        eo7 eo7Var;
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        rq7 rq7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eo7Var = this.a) != null) {
-            eo7Var.j(str);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            qq7 qq7Var = this.a;
+            if (qq7Var != null && (rq7Var = qq7Var.d) != null) {
+                rq7Var.a(i);
+            }
         }
     }
 
@@ -67,11 +67,11 @@ public class ForumSquareFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                eo7 eo7Var = new eo7(getContext(), getPageContext());
-                this.a = eo7Var;
-                eo7Var.e();
+                qq7 qq7Var = new qq7(getContext(), getPageContext());
+                this.a = qq7Var;
+                qq7Var.e();
                 this.a.d();
             }
             return this.a.d.e();
@@ -82,11 +82,11 @@ public class ForumSquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            eo7 eo7Var = this.a;
-            if (eo7Var != null) {
-                eo7Var.m();
+            qq7 qq7Var = this.a;
+            if (qq7Var != null) {
+                qq7Var.m();
             }
         }
     }

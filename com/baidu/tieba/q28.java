@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface q28 {
-    void d();
+    void a(int i);
 }

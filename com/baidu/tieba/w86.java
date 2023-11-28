@@ -1,91 +1,90 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w86 extends zk6<ba6> {
+public class w86 extends ci<a96, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ImageView j;
-    public View k;
-    public View l;
-
-    @Override // com.baidu.tieba.zk6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d096d : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
+    public TbPageContext a;
+    public k96 b;
+    public l96 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w86(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public w86(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), a96.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = i();
-        this.i = (TextView) i().findViewById(R.id.obfuscated_res_0x7f09277c);
-        this.j = (ImageView) i().findViewById(R.id.obfuscated_res_0x7f09126b);
-        this.l = i().findViewById(R.id.obfuscated_res_0x7f091080);
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.zk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: t */
+    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
-            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            k96 k96Var = new k96(this.a, viewGroup);
+            this.b = k96Var;
+            l96 l96Var = this.c;
+            if (l96Var != null) {
+                k96Var.r(l96Var);
+            }
+            return new LiveTabConcernRecommendLineHolder(this.b);
+        }
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+    }
+
+    public void x(l96 l96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, l96Var) == null) {
+            this.c = l96Var;
+            k96 k96Var = this.b;
+            if (k96Var != null) {
+                k96Var.r(l96Var);
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk6
-    /* renamed from: p */
-    public void k(ba6 ba6Var) {
+    @Override // com.baidu.tieba.ci
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a96 a96Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        InterceptResult invokeCommon;
+        k96 k96Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ba6Var) == null) {
-            if (ba6Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0bf6));
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a96Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder != null && (k96Var = liveTabConcernRecommendLineHolder.a) != null) {
+                k96Var.j(a96Var);
+                return liveTabConcernRecommendLineHolder.getView();
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0bf5));
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

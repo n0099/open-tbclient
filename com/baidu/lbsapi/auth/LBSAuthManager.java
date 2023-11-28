@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -408,7 +408,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", cuid);
         }
-        hashMap.put(u.w, a.getPackageName());
+        hashMap.put(t.r, a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         try {
@@ -478,7 +478,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", cuid);
         }
-        hashMap.put(u.w, a.getPackageName());
+        hashMap.put(t.r, a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         try {

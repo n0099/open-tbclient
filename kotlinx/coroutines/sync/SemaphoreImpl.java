@@ -132,7 +132,7 @@ public final class SemaphoreImpl implements Semaphore {
     */
     public final boolean addAcquireToQueue(CancellableContinuation<? super Unit> cancellableContinuation) {
         int i;
-        Object m2353constructorimpl;
+        Object m2357constructorimpl;
         boolean z;
         int i2;
         Symbol symbol;
@@ -149,7 +149,7 @@ public final class SemaphoreImpl implements Semaphore {
                 if (segment2.getId() < j || segment2.getRemoved()) {
                     Object nextOrClosed = segment2.getNextOrClosed();
                     if (nextOrClosed == ConcurrentLinkedListKt.CLOSED) {
-                        m2353constructorimpl = SegmentOrClosed.m2353constructorimpl(ConcurrentLinkedListKt.CLOSED);
+                        m2357constructorimpl = SegmentOrClosed.m2357constructorimpl(ConcurrentLinkedListKt.CLOSED);
                         break;
                     }
                     Segment segment3 = (Segment) ((ConcurrentLinkedListNode) nextOrClosed);
@@ -163,34 +163,34 @@ public final class SemaphoreImpl implements Semaphore {
                     }
                     segment2 = segment3;
                 } else {
-                    m2353constructorimpl = SegmentOrClosed.m2353constructorimpl(segment2);
+                    m2357constructorimpl = SegmentOrClosed.m2357constructorimpl(segment2);
                     break;
                 }
             }
             z = true;
-            if (!SegmentOrClosed.m2358isClosedimpl(m2353constructorimpl)) {
-                Segment m2356getSegmentimpl = SegmentOrClosed.m2356getSegmentimpl(m2353constructorimpl);
+            if (!SegmentOrClosed.m2362isClosedimpl(m2357constructorimpl)) {
+                Segment m2360getSegmentimpl = SegmentOrClosed.m2360getSegmentimpl(m2357constructorimpl);
                 while (true) {
                     Segment segment4 = (Segment) this.tail;
-                    if (segment4.getId() >= m2356getSegmentimpl.getId()) {
+                    if (segment4.getId() >= m2360getSegmentimpl.getId()) {
                         break;
-                    } else if (!m2356getSegmentimpl.tryIncPointers$kotlinx_coroutines_core()) {
+                    } else if (!m2360getSegmentimpl.tryIncPointers$kotlinx_coroutines_core()) {
                         z2 = false;
                         continue;
                         break;
-                    } else if (tail$FU.compareAndSet(this, segment4, m2356getSegmentimpl)) {
+                    } else if (tail$FU.compareAndSet(this, segment4, m2360getSegmentimpl)) {
                         if (segment4.decPointers$kotlinx_coroutines_core()) {
                             segment4.remove();
                         }
-                    } else if (m2356getSegmentimpl.decPointers$kotlinx_coroutines_core()) {
-                        m2356getSegmentimpl.remove();
+                    } else if (m2360getSegmentimpl.decPointers$kotlinx_coroutines_core()) {
+                        m2360getSegmentimpl.remove();
                     }
                 }
             } else {
                 break;
             }
         } while (!z2);
-        SemaphoreSegment semaphoreSegment = (SemaphoreSegment) SegmentOrClosed.m2356getSegmentimpl(m2353constructorimpl);
+        SemaphoreSegment semaphoreSegment = (SemaphoreSegment) SegmentOrClosed.m2360getSegmentimpl(m2357constructorimpl);
         i2 = SemaphoreKt.SEGMENT_SIZE;
         int i3 = (int) (andIncrement % i2);
         if (!semaphoreSegment.acquirers.compareAndSet(i3, null, cancellableContinuation)) {
@@ -227,7 +227,7 @@ public final class SemaphoreImpl implements Semaphore {
     */
     private final boolean tryResumeNextFromQueue() {
         int i;
-        Object m2353constructorimpl;
+        Object m2357constructorimpl;
         int i2;
         int i3;
         Symbol symbol;
@@ -247,7 +247,7 @@ public final class SemaphoreImpl implements Semaphore {
                 if (segment2.getId() < j || segment2.getRemoved()) {
                     Object nextOrClosed = segment2.getNextOrClosed();
                     if (nextOrClosed == ConcurrentLinkedListKt.CLOSED) {
-                        m2353constructorimpl = SegmentOrClosed.m2353constructorimpl(ConcurrentLinkedListKt.CLOSED);
+                        m2357constructorimpl = SegmentOrClosed.m2357constructorimpl(ConcurrentLinkedListKt.CLOSED);
                         break;
                     }
                     Segment segment3 = (Segment) ((ConcurrentLinkedListNode) nextOrClosed);
@@ -261,34 +261,34 @@ public final class SemaphoreImpl implements Semaphore {
                     }
                     segment2 = segment3;
                 } else {
-                    m2353constructorimpl = SegmentOrClosed.m2353constructorimpl(segment2);
+                    m2357constructorimpl = SegmentOrClosed.m2357constructorimpl(segment2);
                     break;
                 }
             }
             i2 = 0;
-            if (!SegmentOrClosed.m2358isClosedimpl(m2353constructorimpl)) {
-                Segment m2356getSegmentimpl = SegmentOrClosed.m2356getSegmentimpl(m2353constructorimpl);
+            if (!SegmentOrClosed.m2362isClosedimpl(m2357constructorimpl)) {
+                Segment m2360getSegmentimpl = SegmentOrClosed.m2360getSegmentimpl(m2357constructorimpl);
                 while (true) {
                     Segment segment4 = (Segment) this.head;
-                    if (segment4.getId() >= m2356getSegmentimpl.getId()) {
+                    if (segment4.getId() >= m2360getSegmentimpl.getId()) {
                         break;
-                    } else if (!m2356getSegmentimpl.tryIncPointers$kotlinx_coroutines_core()) {
+                    } else if (!m2360getSegmentimpl.tryIncPointers$kotlinx_coroutines_core()) {
                         z = false;
                         continue;
                         break;
-                    } else if (head$FU.compareAndSet(this, segment4, m2356getSegmentimpl)) {
+                    } else if (head$FU.compareAndSet(this, segment4, m2360getSegmentimpl)) {
                         if (segment4.decPointers$kotlinx_coroutines_core()) {
                             segment4.remove();
                         }
-                    } else if (m2356getSegmentimpl.decPointers$kotlinx_coroutines_core()) {
-                        m2356getSegmentimpl.remove();
+                    } else if (m2360getSegmentimpl.decPointers$kotlinx_coroutines_core()) {
+                        m2360getSegmentimpl.remove();
                     }
                 }
             } else {
                 break;
             }
         } while (!z);
-        SemaphoreSegment semaphoreSegment = (SemaphoreSegment) SegmentOrClosed.m2356getSegmentimpl(m2353constructorimpl);
+        SemaphoreSegment semaphoreSegment = (SemaphoreSegment) SegmentOrClosed.m2360getSegmentimpl(m2357constructorimpl);
         semaphoreSegment.cleanPrev();
         if (semaphoreSegment.getId() <= j) {
             i3 = SemaphoreKt.SEGMENT_SIZE;

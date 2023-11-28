@@ -190,7 +190,7 @@ public class bw {
             return "";
         }
         try {
-            if (bn.e(context, com.kuaishou.weapon.p0.h.d) && (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) != null) {
+            if (bn.e(context, com.kuaishou.weapon.p0.g.d) && (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) != null) {
                 String macAddress = ApiReplaceUtil.getMacAddress(connectionInfo);
                 if (!TextUtils.isEmpty(macAddress)) {
                     return macAddress;
@@ -798,7 +798,7 @@ public class bw {
         String replaceAll;
         int i2;
         WifiManager wifiManager;
-        if (context == null || !bn.e(context, com.kuaishou.weapon.p0.h.d)) {
+        if (context == null || !bn.e(context, com.kuaishou.weapon.p0.g.d)) {
             return "";
         }
         try {

@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.VoyagerImpl;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
-public class fub extends bg1<mub> {
+public class fub implements eub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +27,57 @@ public class fub extends bg1<mub> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public mub createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eub
+    public String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new VoyagerImpl();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (wsb.d().e() != null && wsb.d().e().c() != null) {
+                    return wsb.d().e().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                zwb.b(e.getMessage());
+                return "";
+            }
         }
-        return (mub) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eub
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (wsb.d().e() != null && wsb.d().e().c() != null) {
+                    return (T) wsb.d().e().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                zwb.b(e.getMessage());
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eub
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (wsb.d().e() != null && wsb.d().e().c() != null) {
+                    return (T) wsb.d().e().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                zwb.b(e.getMessage());
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
     }
 }

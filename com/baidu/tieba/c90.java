@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.util.Log;
+import android.view.Surface;
+import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,13 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class c90 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "c90";
     public transient /* synthetic */ FieldHolder $fh;
     public e90 a;
-    public i90 b;
-    public p90 c;
+    public List<d90> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +38,12 @@ public class c90 {
         }
     }
 
-    public c90(p90 p90Var) {
+    public c90(Object obj, List<q90> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p90Var};
+            Object[] objArr = {obj, list};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,100 +53,117 @@ public class c90 {
                 return;
             }
         }
-        this.c = p90Var;
-        this.a = new e90(p90Var.f(), 1);
-        d();
+        this.c = 0;
+        b(obj, list);
     }
 
-    public void b(long j) {
-        p90 p90Var;
+    public void a(long j) {
+        List<d90> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b != null && (p90Var = this.c) != null) {
-            if (p90Var.m()) {
-                d();
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && this.a != null && (list = this.b) != null && list.size() != 0) {
+            synchronized (this) {
+                for (d90 d90Var : this.b) {
+                    this.a.b(d90Var.c());
+                    d90Var.b(j);
+                }
+                notifyAll();
             }
-            if (j != 0) {
-                this.c.h().h(j);
-            }
-            this.b.a(this.c.e(), this.c.h());
+            this.a.d(j);
+            this.a.e();
         }
     }
 
-    public final void a(i90 i90Var) {
+    public final void b(Object obj, List<q90> list) {
+        d90 d90Var;
+        e90 e90Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i90Var) == null) {
-            if (i90Var == null) {
-                this.b = new h90();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) && list != null && list.size() != 0) {
+            List<d90> list2 = this.b;
+            if (list2 == null) {
+                this.b = new ArrayList();
             } else {
-                this.b = i90Var;
+                list2.clear();
             }
-            this.b.b(this.c.j(), this.c.i());
+            for (int i = 0; i < list.size(); i++) {
+                try {
+                    this.b.add(new d90(list.get(i)));
+                    if (list.get(i).l()) {
+                        this.c = i;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            int size = this.b.size();
+            int i2 = this.c;
+            if (size > i2) {
+                if (obj != null) {
+                    if (obj instanceof Surface) {
+                        this.a = new e90(this.b.get(this.c).c(), (Surface) obj, true);
+                    } else if (obj instanceof SurfaceTexture) {
+                        this.a = new e90(this.b.get(this.c).c(), (SurfaceTexture) obj);
+                    } else if (obj instanceof SurfaceHolder) {
+                        this.a = new e90(this.b.get(this.c).c(), (SurfaceHolder) obj);
+                    }
+                } else {
+                    List<d90> list3 = this.b;
+                    if (list3 != null && list3 != null && (d90Var = list3.get(i2)) != null && (e90Var = this.a) != null) {
+                        e90Var.f(d90Var.c());
+                    }
+                }
+            }
+            for (d90 d90Var2 : this.b) {
+                e90 e90Var2 = this.a;
+                if (e90Var2 != null) {
+                    e90Var2.b(d90Var2.c());
+                    d90Var2.f();
+                }
+            }
         }
     }
 
-    public void g(i90 i90Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, i90Var) == null) {
-            p90 p90Var = this.c;
-            if (p90Var != null) {
-                p90Var.p(i90Var);
-            }
-            this.b.release();
-            a(i90Var);
-        }
-    }
-
-    public e90 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (e90) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            i90 i90Var = this.b;
-            if (i90Var != null) {
-                i90Var.release();
-                this.b = null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             e90 e90Var = this.a;
             if (e90Var != null) {
-                e90Var.f();
+                e90Var.g();
                 this.a = null;
             }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            i90 g = this.c.g();
-            this.b = g;
-            a(g);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float[] b = this.c.h().b();
-            r90.b(b);
-            n90 c = this.c.c();
-            r90.e(b, c.g(), c.h());
-            r90.a(b, c.d());
-            r90.c(b, c.b());
-            if ((c.f() + 360) % 180 == 0) {
-                r90.d(b, this.c.j(), this.c.i(), c.e(), c.c());
-                return;
+            List<d90> list = this.b;
+            if (list != null) {
+                for (d90 d90Var : list) {
+                    d90Var.e();
+                }
+                this.b.clear();
+                this.b = null;
             }
-            l90 clone = this.c.i().clone();
-            clone.e(this.c.i().b());
-            clone.d(this.c.i().c());
-            r90.d(b, this.c.j(), clone, c.e(), c.c());
+        }
+    }
+
+    public void d(j90 j90Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, j90Var) == null) {
+            for (d90 d90Var : this.b) {
+                e90 e90Var = this.a;
+                if (e90Var != null) {
+                    e90Var.b(d90Var.c());
+                    d90Var.g(j90Var);
+                }
+            }
+        }
+    }
+
+    public void e(List<q90> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Log.d(d, "updateSurfaceDrawer !!!");
+            this.a.c();
+            for (d90 d90Var : this.b) {
+                d90Var.e();
+            }
+            this.b.clear();
+            b(null, list);
         }
     }
 }

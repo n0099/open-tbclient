@@ -1,22 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class hab {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final c6b b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, tbPageContext) != null) || tbPageContext == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818400, "Lcom/baidu/tieba/hab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947818400, "Lcom/baidu/tieba/hab;");
+                return;
+            }
         }
-        BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.getFeedBackUrl()}, true);
+        a = TimeUnit.DAYS.toMillis(5L);
+        b = new c6b("camera_last_api", 0, "camera_last_api_stamp");
+        c = "Lenovo K520".equals(DeviceInfoHelper.getModel());
     }
 }

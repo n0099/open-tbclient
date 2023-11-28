@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,17 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.Unit;
 import kotlin.jvm.JvmStatic;
-import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public interface ol5 {
     public static final a a = a.a;
 
-    void a(Context context, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i);
+    boolean a();
 
-    void b(List<String> list, Function1<? super Boolean, Unit> function1);
+    boolean b();
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -43,7 +40,7 @@ public interface ol5 {
                 }
             }
             a = new a();
-            b = new ServiceReference("aibot", "AibotChatService");
+            b = new ServiceReference("module_home", "SpriteStateService");
         }
 
         public a() {
@@ -66,10 +63,8 @@ public interface ol5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Object service = ServiceManager.getService(b);
-                if (service != null) {
-                    return (ol5) service;
-                }
-                throw new IllegalArgumentException("Required value was null.".toString());
+                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
+                return (ol5) service;
             }
             return (ol5) invokeV.objValue;
         }

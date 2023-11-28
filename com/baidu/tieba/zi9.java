@@ -1,73 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipRank;
-import tbclient.GetVipInfo.VipUser;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes9.dex */
-public class zi9 implements oi {
+public class zi9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361055, "Lcom/baidu/tieba/zi9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948361055, "Lcom/baidu/tieba/zi9;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static List<pi> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public zi9(VipRank vipRank, VipUser vipUser) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipRank, vipUser};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            List<RecommendForumInfo> list = dataRes.forum_cards;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        vi9 vi9Var = new vi9();
+                        vi9Var.k(list.get(i));
+                        vi9Var.l(true);
+                        arrayList.add(vi9Var);
+                    }
+                }
+            } else {
+                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+                if (recommendForumInfo != null) {
+                    vi9 vi9Var2 = new vi9();
+                    vi9Var2.k(recommendForumInfo);
+                    vi9Var2.l(false);
+                    arrayList.add(vi9Var2);
+                }
+            }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                wi9 wi9Var = new wi9();
+                wi9Var.g(item);
+                arrayList.add(wi9Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                xi9 xi9Var = new xi9();
+                xi9Var.n(str);
+                xi9Var.l(sugLiveInfo);
+                arrayList.add(xi9Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                yi9 yi9Var = new yi9();
+                yi9Var.f(str);
+                yi9Var.e(sugRankingInfo);
+                arrayList.add(yi9Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                ui9 ui9Var = new ui9();
+                ui9Var.c(str);
+                ui9Var.d(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, ui9Var);
+                } else {
+                    arrayList.add(ui9Var);
+                }
+            }
+            return arrayList;
         }
-        if (vipRank == null) {
-            return;
-        }
-        String str = vipRank.card_id;
-        ni9 ni9Var = new ni9();
-        this.a = ni9Var;
-        ni9Var.d(vipRank.class_name);
-        this.a.f(vipRank.class_url_name);
-        this.a.g(vipRank.class_url);
-        vipRank.my_score_rank.intValue();
-        String str2 = vipUser.portrait;
+        return (List) invokeLL.objValue;
     }
 }

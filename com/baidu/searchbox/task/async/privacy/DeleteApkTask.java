@@ -6,7 +6,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yb;
+import com.baidu.tieba.zb;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes4.dex */
@@ -54,7 +54,7 @@ public class DeleteApkTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        yb.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+        zb.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
             @Override // java.lang.Runnable
             public void run() {
                 DeleteApkTask.this.deleteApkFile();

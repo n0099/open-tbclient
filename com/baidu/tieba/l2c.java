@@ -1,47 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.ExpressResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class l2c implements FunSplashAd {
+public final class l2c implements ExpressResponse.ExpressDislikeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ m2c a;
 
-    public l2c() {
+    public l2c(m2c m2cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m2cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = m2cVar;
     }
 
-    @Override // com.fun.ad.sdk.FunSplashAd
-    public void removeMiniWindow() {
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeItemClick(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    @Override // com.fun.ad.sdk.FunSplashAd
-    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeWindowShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.mobads.sdk.api.ExpressResponse.ExpressDislikeListener
+    public void onDislikeWindowClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d("express feed onDislikeWindowClose", new Object[0]);
+            m2c m2cVar = this.a;
+            if (m2cVar != null) {
+                h3c h3cVar = (h3c) m2cVar;
+                h3cVar.b.e.onAdClose(h3cVar.a);
+            }
+        }
     }
 }

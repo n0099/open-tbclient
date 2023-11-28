@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class u02 extends nz1 {
+public class u02 extends oz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Align a;
+    public wz1 a;
 
     public u02() {
         Interceptable interceptable = $ic;
@@ -29,35 +27,26 @@ public class u02 extends nz1 {
         }
     }
 
-    @Override // com.baidu.tieba.nz1
-    public void a(oz1 oz1Var, Canvas canvas) {
-        Paint.Align align;
+    @Override // com.baidu.tieba.oz1
+    public void a(pz1 pz1Var, Canvas canvas) {
+        wz1 wz1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) && (align = this.a) != null) {
-            oz1Var.e.setTextAlign(align);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && (wz1Var = this.a) != null && wz1Var.d()) {
+            if (this.a.c()) {
+                pz1Var.c.setShader(this.a.b());
+                return;
+            }
+            pz1Var.m = this.a.a();
+            pz1Var.c.setColor(this.a.a());
+            pz1Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.nz1
+    @Override // com.baidu.tieba.oz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "left")) {
-                        this.a = Paint.Align.LEFT;
-                    } else if (TextUtils.equals(optString, "center")) {
-                        this.a = Paint.Align.CENTER;
-                    } else if (TextUtils.equals(optString, "right")) {
-                        this.a = Paint.Align.RIGHT;
-                    }
-                }
-            } catch (Exception e) {
-                if (rm1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new wz1(jSONArray);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.d.e;
 
 import android.content.Context;
 import android.os.Build;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.meizu.cloud.pushsdk.d.f.e;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +57,7 @@ public class c {
     }
 
     private void f() {
-        a(u.A, Build.MODEL);
+        a(t.v, Build.MODEL);
     }
 
     private void g() {

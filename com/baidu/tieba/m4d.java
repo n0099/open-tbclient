@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Terminal;
+import tbclient.LabelInfo;
 /* loaded from: classes7.dex */
-public class m4d extends qoc {
+public class m4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Terminal terminal) {
+    public static JSONObject b(@NonNull LabelInfo labelInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, terminal)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, labelInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "pc", terminal.pc);
-            qoc.a(jSONObject, "wap", terminal.wap);
-            qoc.a(jSONObject, CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, terminal.client);
+            ltc.a(jSONObject, "labelHot", labelInfo.labelHot);
+            ltc.a(jSONObject, "labelContent", labelInfo.labelContent);
+            ltc.a(jSONObject, "labelId", labelInfo.labelId);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes9.dex */
-public class xp2 {
+public class xp2 implements ze4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wp2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized wp2 a() {
-        InterceptResult invokeV;
-        wp2 wp2Var;
+    public xp2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (xp2.class) {
-                if (a == null) {
-                    a = new wp2();
-                }
-                wp2Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return wp2Var;
         }
-        return (wp2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ze4
+    public im4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new ye3(str);
+        }
+        return (im4) invokeL.objValue;
     }
 }

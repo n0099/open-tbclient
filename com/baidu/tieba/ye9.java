@@ -1,35 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes9.dex */
-public class ye9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ye9 {
+    void a(ICardInfo iCardInfo);
 
-    public static void a(TextView textView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = str2.trim().toLowerCase();
-            textView.setText(str);
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            if (indexOf >= 0) {
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
-                if (indexOf > 0) {
-                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
-                }
-                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
-                textView.setText(spannableStringBuilder);
-            }
-        }
-    }
+    ye9 b(String str, int i);
+
+    ye9 c(String str, long j);
+
+    ye9 d(String str, String str2);
 }

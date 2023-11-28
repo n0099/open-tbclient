@@ -1,31 +1,75 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
+import com.baidu.tbadk.pay.IyyPayResultCallback;
+import com.baidu.tbadk.pay.YYPayData;
+import com.baidu.tbadk.pay.YYPayResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pk9 {
+public class pk9 implements YYPayService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Context b;
-    public TextView c;
-    public ImageView d;
-    public TailData e;
-    public View f;
+
+    /* loaded from: classes7.dex */
+    public class a implements IyyPayResultCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ YYPayService.YYPayResultCallback a;
+
+        public a(pk9 pk9Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk9Var, yYPayResultCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yYPayResultCallback;
+        }
+
+        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.baidu.tbadk.pay.IyyPayResultCallback
+        public void onSuccess(YYPayResult yYPayResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yYPayResult) == null) {
+                if (yYPayResult != null) {
+                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
+                    yYPayResultMessage.setStatus(yYPayResult.status);
+                    yYPayResultMessage.setAppid(yYPayResult.appid);
+                    yYPayResultMessage.setUid(yYPayResult.uid.longValue());
+                    yYPayResultMessage.setUsedChannel(yYPayResult.usedChannel);
+                    yYPayResultMessage.setCurrencyType(yYPayResult.currencyType);
+                    yYPayResultMessage.setAmount(yYPayResult.amount.longValue());
+                    yYPayResultMessage.setCurrencyAmount(yYPayResult.currencyAmount.longValue());
+                    yYPayResultMessage.setOrderId(yYPayResult.orderId);
+                    yYPayResultMessage.setExpand(yYPayResult.expand);
+                    this.a.onSuccess(yYPayResultMessage);
+                    return;
+                }
+                this.a.onSuccess(null);
+            }
+        }
+    }
 
     public pk9() {
         Interceptable interceptable = $ic;
@@ -41,79 +85,27 @@ public class pk9 {
         }
     }
 
-    public TailData b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (TailData) invokeV.objValue;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
-            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
+            startPayment(context, null, yYPayResultCallback);
         }
     }
 
-    public View a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0985, (ViewGroup) null);
-            this.a = inflate;
-            this.b = context;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0924b0);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0924af);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0924ae);
-            this.f = findViewById;
-            findViewById.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.setTextColor(vk9.a(str));
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
+            startPayment(context, str, 0L, yYPayResultCallback);
         }
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new YYPayData(context, 1, str, l, new a(this, yYPayResultCallback)));
         }
-    }
-
-    public void f(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
-            this.e = tailData;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.b, wk9.a(str), null));
-        }
-    }
-
-    public void h(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
-            return;
-        }
-        g(tailData.getContent());
-        d(tailData.getFontColor());
-        this.d.setSelected(tailData.isSelected());
     }
 }

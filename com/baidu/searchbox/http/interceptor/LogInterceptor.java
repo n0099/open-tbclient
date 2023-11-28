@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tieba.ms;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.EOFException;
 import java.io.IOException;
@@ -223,7 +224,7 @@ public class LogInterceptor implements Interceptor {
             sb.append(proceed.request().url());
             sb.append(" (");
             sb.append(millis);
-            sb.append("ms");
+            sb.append(ms.c);
             if (z3) {
                 str2 = "";
             } else {

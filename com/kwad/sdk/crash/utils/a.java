@@ -7,6 +7,9 @@ public final class a {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
 
     public static Charset a(Charset charset) {
-        return charset == null ? Charset.defaultCharset() : charset;
+        if (charset == null) {
+            return Charset.defaultCharset();
+        }
+        return charset;
     }
 }

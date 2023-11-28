@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class o26 extends ih0 {
+public class o26 {
     public static /* synthetic */ Interceptable $ic;
+    public static o26 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap<String, List<a>> a;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p26 a;
-        public final /* synthetic */ o26 b;
+        public String a;
+        public HashMap<String, Object> b;
 
-        public a(o26 o26Var, p26 p26Var) {
+        public a(String str, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o26Var, p26Var};
+                Object[] objArr = {str, hashMap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,60 +38,71 @@ public class o26 extends ih0 {
                     return;
                 }
             }
-            this.b = o26Var;
-            this.a = p26Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a(view2)) {
-                return;
-            }
-            this.b.m();
+            this.a = str;
+            this.b = hashMap;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Type inference failed for: r9v4, types: [android.view.View] */
-    public o26(@NonNull p26 p26Var, @NonNull vg0 vg0Var) {
-        super(vg0Var, p26Var);
+    public o26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p26Var, vg0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((vg0) objArr2[0], (oh0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ?? realView = this.e.get().getRealView();
-        if (realView != 0) {
-            realView.setOnClickListener(new a(this, p26Var));
+        this.a = new HashMap<>();
+    }
+
+    public static o26 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (o26.class) {
+                    if (b == null) {
+                        b = new o26();
+                    }
+                }
+            }
+            return b;
+        }
+        return (o26) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List<a> list = this.a.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
         }
     }
 
-    @Override // com.baidu.tieba.ih0, com.baidu.tieba.fh0, com.baidu.tieba.nh0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull vg0 vg0Var) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, vg0Var) == null) {
-            super.a(adDownloadAction, vg0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v5, types: [android.view.View] */
-    public void u() {
+    public List<a> d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.get().getRealView().setVisibility(0);
-            m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return new ArrayList();
         }
+        return (List) invokeL.objValue;
     }
 }

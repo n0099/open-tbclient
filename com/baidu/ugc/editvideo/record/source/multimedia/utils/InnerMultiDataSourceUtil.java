@@ -18,14 +18,14 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.aob;
-import com.baidu.tieba.bsb;
-import com.baidu.tieba.csb;
-import com.baidu.tieba.ic0;
-import com.baidu.tieba.jpb;
-import com.baidu.tieba.nc0;
+import com.baidu.tieba.fub;
+import com.baidu.tieba.jc0;
 import com.baidu.tieba.oc0;
-import com.baidu.tieba.xrb;
+import com.baidu.tieba.pc0;
+import com.baidu.tieba.twb;
+import com.baidu.tieba.wsb;
+import com.baidu.tieba.xwb;
+import com.baidu.tieba.ywb;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
@@ -88,7 +88,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void applyHeaderAndFooterSegment(MediaTrackConfig mediaTrackConfig, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
-        if (mediaTrackConfig == null || csb.e(list) || csb.e(mediaTrackConfig.mediaTracks)) {
+        if (mediaTrackConfig == null || ywb.e(list) || ywb.e(mediaTrackConfig.mediaTracks)) {
             return;
         }
         Iterator<MultiMediaData> it = list.get(0).multiMediaDataList.iterator();
@@ -135,7 +135,7 @@ public class InnerMultiDataSourceUtil {
     public static void applyHeaderOrFooter(Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list, MediaSegment mediaSegment, int i, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
         ShaderConfig shaderConfig;
         MultiMediaData transSegment2Data;
-        if (mediaSegment == null || map == null || TextUtils.isEmpty(mediaSegment.shaderConfigKey) || (shaderConfig = map.get(mediaSegment.shaderConfigKey)) == null || csb.e(shaderConfig.textures) || (transSegment2Data = transSegment2Data(mediaSegment, (MediaTextureData) csb.c(shaderConfig.textures, 0))) == null) {
+        if (mediaSegment == null || map == null || TextUtils.isEmpty(mediaSegment.shaderConfigKey) || (shaderConfig = map.get(mediaSegment.shaderConfigKey)) == null || ywb.e(shaderConfig.textures) || (transSegment2Data = transSegment2Data(mediaSegment, (MediaTextureData) ywb.c(shaderConfig.textures, 0))) == null) {
             return;
         }
         list.get(0).multiMediaDataList.add(i, transSegment2Data);
@@ -145,21 +145,21 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void applyOtherTrack(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, long j, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
-        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) csb.c(list2, 0);
+        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) ywb.c(list2, 0);
         List<MultiMediaData> list3 = multiMediaDataTrack != null ? multiMediaDataTrack.multiMediaDataList : null;
         int i = 0;
         boolean z = false;
         for (int i2 = 1; i2 < list.size(); i2++) {
             MediaTrack mediaTrack = list.get(i2);
-            int b = csb.b(mediaTrack.mediaSegments);
+            int b = ywb.b(mediaTrack.mediaSegments);
             ArrayList arrayList = new ArrayList();
             for (int i3 = 0; i3 < b; i3++) {
                 MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i3);
                 if (mediaSegment.start == 0 && mediaSegment.end == 0) {
                     mediaSegment.end = j;
                 }
-                if (oc0.m(mediaTrack, "multi_input") && list3 != null) {
-                    MultiMediaData multiMediaData = (MultiMediaData) csb.c(list3, i);
+                if (pc0.m(mediaTrack, "multi_input") && list3 != null) {
+                    MultiMediaData multiMediaData = (MultiMediaData) ywb.c(list3, i);
                     if (multiMediaData == null) {
                         z = true;
                     } else {
@@ -174,7 +174,7 @@ public class InnerMultiDataSourceUtil {
                         i++;
                         z = false;
                     }
-                } else if (!oc0.m(mediaTrack, "edit_sticker")) {
+                } else if (!pc0.m(mediaTrack, "edit_sticker")) {
                     buildTexData(map, onInitMultiMediaListener, arrayList, mediaSegment);
                 } else if (TextUtils.equals(SubtitleLog.TAG, mediaSegment.type)) {
                     arrayList.add(new MultiMediaData());
@@ -191,7 +191,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void applySuperpositionSegment(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
-        if (csb.e(list) || csb.e(list2) || list.get(0).mediaSegments.size() < oc0.j) {
+        if (ywb.e(list) || ywb.e(list2) || list.get(0).mediaSegments.size() < pc0.j) {
             return;
         }
         MultiMediaData multiMediaData = list2.get(0).multiMediaDataSuperpositionHeader;
@@ -228,7 +228,7 @@ public class InnerMultiDataSourceUtil {
             }
         }
         if (mediaSegment2 != null) {
-            multiMediaData = transSegment2Data(mediaSegment2, (MediaTextureData) csb.c(map.get(mediaSegment2.shaderConfigKey).textures, 0));
+            multiMediaData = transSegment2Data(mediaSegment2, (MediaTextureData) ywb.c(map.get(mediaSegment2.shaderConfigKey).textures, 0));
             multiMediaData.scaleType = getOtherScaleType(mediaSegment2);
             if (onInitMultiMediaListener != null) {
                 onInitMultiMediaListener.onInitMultiMedia(multiMediaData);
@@ -236,7 +236,7 @@ public class InnerMultiDataSourceUtil {
         }
         list2.get(0).multiMediaDataSuperpositionHeader = multiMediaData;
         if (mediaSegment != null) {
-            multiMediaData2 = transSegment2Data(mediaSegment, (MediaTextureData) csb.c(map.get(mediaSegment.shaderConfigKey).textures, 0));
+            multiMediaData2 = transSegment2Data(mediaSegment, (MediaTextureData) ywb.c(map.get(mediaSegment.shaderConfigKey).textures, 0));
             multiMediaData2.scaleType = getOtherScaleType(mediaSegment);
             if (onInitMultiMediaListener != null) {
                 onInitMultiMediaListener.onInitMultiMedia(multiMediaData2);
@@ -281,7 +281,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void buildInputTrack(List<MultiMediaData> list, List<MediaTrack> list2) {
-        if (csb.e(list) || list2 == null) {
+        if (ywb.e(list) || list2 == null) {
             return;
         }
         MediaTrack mediaTrack = new MediaTrack();
@@ -301,7 +301,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x007f, code lost:
-        if (com.baidu.tieba.csb.b(r7) != com.baidu.tieba.csb.b(r2.mediaSegments)) goto L38;
+        if (com.baidu.tieba.ywb.b(r7) != com.baidu.tieba.ywb.b(r2.mediaSegments)) goto L38;
      */
     /* JADX WARN: Removed duplicated region for block: B:36:0x008a  */
     /* JADX WARN: Removed duplicated region for block: B:39:0x009b  */
@@ -324,7 +324,7 @@ public class InnerMultiDataSourceUtil {
             buildMultiMediaDataTrackList(list, list2);
         }
         if (mediaTrackConfig == null || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-            MediaTrack mediaTrack2 = (MediaTrack) csb.c(list3, 0);
+            MediaTrack mediaTrack2 = (MediaTrack) ywb.c(list3, 0);
             if (list3.size() != 0) {
                 Iterator<MultiMediaData> it2 = list.iterator();
                 while (it2.hasNext()) {
@@ -339,14 +339,14 @@ public class InnerMultiDataSourceUtil {
                 resetInputTrackTimeline(list, mediaTrack2);
                 if (mediaTrack2 != null) {
                 }
-                mediaTrack = (MediaTrack) csb.c(list3, 0);
+                mediaTrack = (MediaTrack) ywb.c(list3, 0);
                 if (mediaTrack != null) {
                     mediaTrack.glClearColor = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
                     mediaTrack.mediaTransitions = null;
                 }
                 arrayList = new ArrayList();
-                csb.a(arrayList, oc0.e(mediaTrack, mediaTrackConfig, mediaTrackConfig != null ? null : mediaTrackConfig.shaderConfigMapDebug));
-                if (csb.b(arrayList) > 0) {
+                ywb.a(arrayList, pc0.e(mediaTrack, mediaTrackConfig, mediaTrackConfig != null ? null : mediaTrackConfig.shaderConfigMapDebug));
+                if (ywb.b(arrayList) > 0) {
                     MediaTrack subtitleAndStickerTrack = getSubtitleAndStickerTrack(list3);
                     MediaTrack subtitleAndStickerTrack2 = getSubtitleAndStickerTrack(arrayList);
                     if (subtitleAndStickerTrack2 != null && subtitleAndStickerTrack != null) {
@@ -360,26 +360,26 @@ public class InnerMultiDataSourceUtil {
                 it = map.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, ShaderConfig> next2 = it.next();
-                    if (!TextUtils.equals(next2.getKey(), oc0.e) && !TextUtils.equals(next2.getKey(), oc0.c) && !next2.getKey().contains(oc0.d)) {
+                    if (!TextUtils.equals(next2.getKey(), pc0.e) && !TextUtils.equals(next2.getKey(), pc0.c) && !next2.getKey().contains(pc0.d)) {
                         next2.getValue().destroy();
                         it.remove();
                     }
                 }
                 if (mediaTrackConfig != null && (map2 = mediaTrackConfig.shaderConfigMapDebug) != null) {
                     for (Map.Entry<String, ShaderConfig> entry : map2.entrySet()) {
-                        if ((!TextUtils.equals(entry.getKey(), oc0.c) && !TextUtils.equals(entry.getKey(), oc0.e) && !entry.getKey().contains(oc0.d)) || !map.containsKey(entry.getKey())) {
+                        if ((!TextUtils.equals(entry.getKey(), pc0.c) && !TextUtils.equals(entry.getKey(), pc0.e) && !entry.getKey().contains(pc0.d)) || !map.containsKey(entry.getKey())) {
                             map.put(entry.getKey(), entry.getValue());
                         }
                     }
                 }
             }
             buildInputTrack(list, list3);
-            mediaTrack = (MediaTrack) csb.c(list3, 0);
+            mediaTrack = (MediaTrack) ywb.c(list3, 0);
             if (mediaTrack != null) {
             }
             arrayList = new ArrayList();
-            csb.a(arrayList, oc0.e(mediaTrack, mediaTrackConfig, mediaTrackConfig != null ? null : mediaTrackConfig.shaderConfigMapDebug));
-            if (csb.b(arrayList) > 0) {
+            ywb.a(arrayList, pc0.e(mediaTrack, mediaTrackConfig, mediaTrackConfig != null ? null : mediaTrackConfig.shaderConfigMapDebug));
+            if (ywb.b(arrayList) > 0) {
             }
             it = map.entrySet().iterator();
             while (it.hasNext()) {
@@ -394,17 +394,17 @@ public class InnerMultiDataSourceUtil {
             map.clear();
             map.putAll(mediaTrackConfig.shaderConfigMapDebug);
         }
-        int min = Math.min(csb.b(list), csb.c(list3, 0) != null ? csb.b(((MediaTrack) csb.c(list3, 0)).mediaSegments) : 0);
+        int min = Math.min(ywb.b(list), ywb.c(list3, 0) != null ? ywb.b(((MediaTrack) ywb.c(list3, 0)).mediaSegments) : 0);
         for (int i = 0; i < min; i++) {
-            MultiMediaData multiMediaData = (MultiMediaData) csb.c(list, i);
-            MediaSegment mediaSegment = csb.c(list3, 0) != null ? (MediaSegment) csb.c(((MediaTrack) csb.c(list3, 0)).mediaSegments, i) : null;
+            MultiMediaData multiMediaData = (MultiMediaData) ywb.c(list, i);
+            MediaSegment mediaSegment = ywb.c(list3, 0) != null ? (MediaSegment) ywb.c(((MediaTrack) ywb.c(list3, 0)).mediaSegments, i) : null;
             if (mediaSegment != null && multiMediaData != null && !TextUtils.isEmpty(mediaSegment.scaleType)) {
                 multiMediaData.scaleType = mediaSegment.scaleType;
             }
         }
         applySuperpositionSegment(list3, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener);
         applyHeaderAndFooterSegment(mediaTrackConfig, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener);
-        applyOtherTrack(list3, map, list2, getSegmentsDuration((MediaTrack) csb.c(list3, 0)), onInitMultiMediaListener);
+        applyOtherTrack(list3, map, list2, getSegmentsDuration((MediaTrack) ywb.c(list3, 0)), onInitMultiMediaListener);
     }
 
     public static void buildMultiMediaDataTrackList(List<MultiMediaData> list, List<MultiMediaDataTrack> list2) {
@@ -476,7 +476,7 @@ public class InnerMultiDataSourceUtil {
             multiMediaData = new MultiMediaData();
         } else {
             ShaderConfig shaderConfig = map.get(str);
-            int b = csb.b(shaderConfig.textures);
+            int b = ywb.b(shaderConfig.textures);
             if (b != 0) {
                 for (int i = 0; i < b; i++) {
                     MediaTextureData mediaTextureData = shaderConfig.textures.get(i);
@@ -572,7 +572,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static MultiMediaData findDataByUuid(List<MultiMediaData> list, String str) {
-        if (!TextUtils.isEmpty(str) && !csb.e(list)) {
+        if (!TextUtils.isEmpty(str) && !ywb.e(list)) {
             for (MultiMediaData multiMediaData : list) {
                 if (multiMediaData != null && TextUtils.equals(multiMediaData.uuid, str)) {
                     return multiMediaData;
@@ -589,7 +589,7 @@ public class InnerMultiDataSourceUtil {
         int size = list.size();
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < size; i++) {
-            MediaSegment mediaSegment = (MediaSegment) csb.c(list, i);
+            MediaSegment mediaSegment = (MediaSegment) ywb.c(list, i);
             if (mediaSegment == null || TextUtils.equals("input_blank", mediaSegment.type)) {
                 break;
             }
@@ -608,7 +608,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static int findInputIndexInSegments(List<MediaSegment> list, long j) {
-        if (csb.e(list)) {
+        if (ywb.e(list)) {
             return 0;
         }
         for (int i = 0; i < list.size(); i++) {
@@ -622,14 +622,14 @@ public class InnerMultiDataSourceUtil {
 
     public static MediaSegment findSegmentByMultiMediaData(MultiMediaData multiMediaData, List<MediaTrack> list, List<MultiMediaDataTrack> list2) {
         int b;
-        if (multiMediaData != null && list != null && list2 != null && (b = csb.b(list)) == csb.b(list2) && b != 0) {
+        if (multiMediaData != null && list != null && list2 != null && (b = ywb.b(list)) == ywb.b(list2) && b != 0) {
             for (int i = 0; i < b; i++) {
-                MediaTrack mediaTrack = (MediaTrack) csb.c(list, i);
-                MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) csb.c(list2, i);
+                MediaTrack mediaTrack = (MediaTrack) ywb.c(list, i);
+                MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) ywb.c(list2, i);
                 if (mediaTrack != null && multiMediaDataTrack != null) {
                     List<MultiMediaData> list3 = multiMediaDataTrack.multiMediaDataList;
                     List<MediaSegment> list4 = mediaTrack.mediaSegments;
-                    if (csb.b(list3) != csb.b(list4)) {
+                    if (ywb.b(list3) != ywb.b(list4)) {
                         continue;
                     } else {
                         int i2 = -1;
@@ -655,25 +655,25 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static String getAppPackageName() {
-        if (aob.d().b() == null || aob.d().b().getApplicationInfo() == null) {
+        if (wsb.d().b() == null || wsb.d().b().getApplicationInfo() == null) {
             return null;
         }
-        return aob.d().b().getApplicationInfo().packageName;
+        return wsb.d().b().getApplicationInfo().packageName;
     }
 
     public static Context getContext() {
-        return aob.d().b();
+        return wsb.d().b();
     }
 
     public static MediaTrack getEffectTrack(List<MediaTrack> list) {
-        if (csb.e(list)) {
+        if (ywb.e(list)) {
             return null;
         }
         for (MediaTrack mediaTrack : list) {
             boolean z = true;
             if (mediaTrack == null || !TextUtils.equals("effect", mediaTrack.trackType)) {
                 boolean z2 = false;
-                if (mediaTrack != null && !csb.e(mediaTrack.mediaSegments)) {
+                if (mediaTrack != null && !ywb.e(mediaTrack.mediaSegments)) {
                     Iterator<MediaSegment> it = mediaTrack.mediaSegments.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -757,7 +757,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static long getSegmentsDuration(MediaTrack mediaTrack) {
-        if (mediaTrack == null || csb.e(mediaTrack.mediaSegments)) {
+        if (mediaTrack == null || ywb.e(mediaTrack.mediaSegments)) {
             return 0L;
         }
         List<MediaSegment> list = mediaTrack.mediaSegments;
@@ -765,7 +765,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static List<MediaSegment> getStickerSegmentsDataByType(MediaTrack mediaTrack, String str) {
-        if (mediaTrack == null || csb.e(mediaTrack.mediaSegments) || TextUtils.isEmpty(str)) {
+        if (mediaTrack == null || ywb.e(mediaTrack.mediaSegments) || TextUtils.isEmpty(str)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -786,7 +786,7 @@ public class InnerMultiDataSourceUtil {
             return null;
         }
         for (MediaTrack mediaTrack : list) {
-            if (oc0.m(mediaTrack, str)) {
+            if (pc0.m(mediaTrack, str)) {
                 return mediaTrack;
             }
         }
@@ -823,11 +823,11 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static int hasGlobalFilter(MediaTrack mediaTrack) {
-        if (mediaTrack != null && !csb.e(mediaTrack.mediaSegments)) {
+        if (mediaTrack != null && !ywb.e(mediaTrack.mediaSegments)) {
             int size = mediaTrack.mediaSegments.size();
             for (int i = 0; i < size; i++) {
                 MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i);
-                if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(oc0.d)) {
+                if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(pc0.d)) {
                     return i;
                 }
             }
@@ -863,11 +863,11 @@ public class InnerMultiDataSourceUtil {
             return 0;
         }
         if (multiMediaData.mipmap) {
-            b = ic0.c();
+            b = jc0.c();
             GLUtils.texImage2D(3553, 0, bitmap, 0);
             GLES20.glGenerateMipmap(3553);
         } else {
-            b = ic0.b();
+            b = jc0.b();
             GLUtils.texImage2D(3553, 0, bitmap, 0);
         }
         if (multiMediaData.width == 0) {
@@ -892,12 +892,12 @@ public class InnerMultiDataSourceUtil {
         try {
             try {
                 mediaMetadataRetriever.setDataSource(multiMediaData.path);
-                multiMediaData.rotation = bsb.b(mediaMetadataRetriever.extractMetadata(24), 0);
-                multiMediaData.width = bsb.b(mediaMetadataRetriever.extractMetadata(18), 0);
-                multiMediaData.height = bsb.b(mediaMetadataRetriever.extractMetadata(19), 0);
-                multiMediaData.originalDuration = bsb.c(mediaMetadataRetriever.extractMetadata(9), 0L);
+                multiMediaData.rotation = xwb.b(mediaMetadataRetriever.extractMetadata(24), 0);
+                multiMediaData.width = xwb.b(mediaMetadataRetriever.extractMetadata(18), 0);
+                multiMediaData.height = xwb.b(mediaMetadataRetriever.extractMetadata(19), 0);
+                multiMediaData.originalDuration = xwb.c(mediaMetadataRetriever.extractMetadata(9), 0L);
             } catch (Exception e) {
-                xrb.d(e.getMessage());
+                twb.d(e.getMessage());
             }
         } finally {
             mediaMetadataRetriever.release();
@@ -912,12 +912,12 @@ public class InnerMultiDataSourceUtil {
         if (readText == null || "".equals(readText)) {
             return null;
         }
-        jpb jpbVar = new jpb();
-        MediaAEffect mediaAEffect = (MediaAEffect) jpbVar.b(readText, MediaAEffect.class);
+        fub fubVar = new fub();
+        MediaAEffect mediaAEffect = (MediaAEffect) fubVar.b(readText, MediaAEffect.class);
         if (mediaAEffect == null) {
             return null;
         }
-        ShaderConfig shaderConfig = (ShaderConfig) jpbVar.b(FileUtils.readText(new File(str + File.separator + "shader_config.json")), ShaderConfig.class);
+        ShaderConfig shaderConfig = (ShaderConfig) fubVar.b(FileUtils.readText(new File(str + File.separator + "shader_config.json")), ShaderConfig.class);
         if (shaderConfig == null) {
             return null;
         }
@@ -954,7 +954,7 @@ public class InnerMultiDataSourceUtil {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            mediaTransition = (MediaTransition) new jpb().b(sb.toString(), MediaTransition.class);
+                            mediaTransition = (MediaTransition) new fub().b(sb.toString(), MediaTransition.class);
                         } else {
                             StringBuilder sb2 = new StringBuilder();
                             try {
@@ -970,7 +970,7 @@ public class InnerMultiDataSourceUtil {
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            shaderConfig = (ShaderConfig) new jpb().b(sb2.toString(), ShaderConfig.class);
+                            shaderConfig = (ShaderConfig) new fub().b(sb2.toString(), ShaderConfig.class);
                             shaderConfig.resourcePath = file3.getParentFile().getAbsolutePath();
                         }
                     }
@@ -990,10 +990,10 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void modifyTimeByRange(List<MediaTrack> list, MediaTrack mediaTrack, long j, long j2) {
-        if (csb.e(list)) {
+        if (ywb.e(list)) {
             return;
         }
-        MediaTrack mediaTrack2 = (MediaTrack) csb.c(list, 0);
+        MediaTrack mediaTrack2 = (MediaTrack) ywb.c(list, 0);
         if (mediaTrack2 != null) {
             MediaSegment mediaSegment = mediaTrack2.superpositionHeader;
             if (mediaSegment != null) {
@@ -1012,7 +1012,7 @@ public class InnerMultiDataSourceUtil {
         }
         List<MediaSegment> list2 = effectTrack.mediaSegments;
         List<MediaSegment> list3 = mediaTrack.mediaSegments;
-        if (csb.e(list2) || csb.e(list3)) {
+        if (ywb.e(list2) || ywb.e(list3)) {
             return;
         }
         for (int i = 0; i < list2.size(); i++) {
@@ -1052,9 +1052,9 @@ public class InnerMultiDataSourceUtil {
             }
             MultiMediaDataTrack multiMediaDataTrack = list2.get(i2);
             arrayList.add(multiMediaDataTrack);
-            if (multiMediaDataTrack != null && !csb.e(multiMediaDataTrack.multiMediaDataList)) {
-                while (i < csb.b(multiMediaDataTrack.multiMediaDataList)) {
-                    MultiMediaData multiMediaData = (MultiMediaData) csb.c(multiMediaDataTrack.multiMediaDataList, i);
+            if (multiMediaDataTrack != null && !ywb.e(multiMediaDataTrack.multiMediaDataList)) {
+                while (i < ywb.b(multiMediaDataTrack.multiMediaDataList)) {
+                    MultiMediaData multiMediaData = (MultiMediaData) ywb.c(multiMediaDataTrack.multiMediaDataList, i);
                     if (multiMediaData != null && onReleaseMultiMediaListener != null) {
                         onReleaseMultiMediaListener.onReleaseMultiMedia(multiMediaData);
                     }
@@ -1078,26 +1078,26 @@ public class InnerMultiDataSourceUtil {
             i = list.indexOf(mediaTrack);
             list.remove(mediaTrack);
         }
-        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) csb.c(list2, i);
+        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) ywb.c(list2, i);
         if (multiMediaDataTrack != null && multiMediaDataTrack.multiMediaDataList != null) {
-            for (int i2 = 0; i2 < csb.b(multiMediaDataTrack.multiMediaDataList); i2++) {
-                MultiMediaData multiMediaData = (MultiMediaData) csb.c(multiMediaDataTrack.multiMediaDataList, i2);
+            for (int i2 = 0; i2 < ywb.b(multiMediaDataTrack.multiMediaDataList); i2++) {
+                MultiMediaData multiMediaData = (MultiMediaData) ywb.c(multiMediaDataTrack.multiMediaDataList, i2);
                 if (multiMediaData != null && onReleaseMultiMediaListener != null) {
                     onReleaseMultiMediaListener.onReleaseMultiMedia(multiMediaData);
                 }
             }
         }
-        csb.g(list2, i);
+        ywb.g(list2, i);
     }
 
     public static void resetInputTrackTimeline(List<MultiMediaData> list, MediaTrack mediaTrack) {
-        if (csb.e(list) || mediaTrack == null || csb.e(mediaTrack.mediaSegments)) {
+        if (ywb.e(list) || mediaTrack == null || ywb.e(mediaTrack.mediaSegments)) {
             return;
         }
         long j = 0;
         for (int i = 0; i < mediaTrack.mediaSegments.size(); i++) {
-            MultiMediaData multiMediaData = (MultiMediaData) csb.c(list, i);
-            MediaSegment mediaSegment = (MediaSegment) csb.c(mediaTrack.mediaSegments, i);
+            MultiMediaData multiMediaData = (MultiMediaData) ywb.c(list, i);
+            MediaSegment mediaSegment = (MediaSegment) ywb.c(mediaTrack.mediaSegments, i);
             if (multiMediaData != null && mediaSegment != null && !multiMediaData.isHeader() && !multiMediaData.isFooter()) {
                 mediaSegment.start = j;
                 j += (((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed();
@@ -1159,7 +1159,7 @@ public class InnerMultiDataSourceUtil {
         long currentSpeed = j + ((((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed());
         mediaSegment.end = currentSpeed;
         if (multiMediaData.addDefaultEffect) {
-            mediaSegment.mediaAEffect = nc0.b(currentSpeed - mediaSegment.start);
+            mediaSegment.mediaAEffect = oc0.b(currentSpeed - mediaSegment.start);
         }
         return mediaSegment;
     }
@@ -1185,7 +1185,7 @@ public class InnerMultiDataSourceUtil {
             if (i == -1 || i > i2) {
                 i = i2;
             }
-            MultiMediaData multiMediaData = (MultiMediaData) csb.c(list, i2);
+            MultiMediaData multiMediaData = (MultiMediaData) ywb.c(list, i2);
             if (multiMediaData != null) {
                 VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
                 if (multiMediaData.type == 1 && vLogSimplePlayer != null) {
@@ -1204,7 +1204,7 @@ public class InnerMultiDataSourceUtil {
         }
         if (i > 0) {
             for (int i3 = 0; i3 < i; i3++) {
-                MultiMediaData multiMediaData2 = (MultiMediaData) csb.c(list, i3);
+                MultiMediaData multiMediaData2 = (MultiMediaData) ywb.c(list, i3);
                 VLogSimplePlayer vLogSimplePlayer2 = multiMediaData2 != null ? multiMediaData2.player : null;
                 if (multiMediaData2 != null && multiMediaData2.type == 1 && vLogSimplePlayer2 != null && vLogSimplePlayer2.isPlaying()) {
                     vLogSimplePlayer2.pause();

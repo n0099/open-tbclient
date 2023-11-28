@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.tieba.ud;
+import com.baidu.tieba.vd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class RomTypeUtil {
     public static final String ROM_SMARTISAN = "SMARTISAN";
     public static final String ROM_VIVO = "VIVO";
     public static final String TAG = "Rom";
-    public static ud permissionUtil;
+    public static vd permissionUtil;
     public static String sName;
     public static String sVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -211,10 +211,10 @@ public class RomTypeUtil {
         }
     }
 
-    public static void setPermissionUtil(ud udVar) {
+    public static void setPermissionUtil(vd vdVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, udVar) == null) {
-            permissionUtil = udVar;
+        if (interceptable == null || interceptable.invokeL(65545, null, vdVar) == null) {
+            permissionUtil = vdVar;
         }
     }
 }

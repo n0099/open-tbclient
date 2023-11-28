@@ -32,7 +32,10 @@ public final class DisplayBitmapTask implements Runnable {
     }
 
     private boolean isViewWasReused() {
-        return !this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware));
+        if (!this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware))) {
+            return true;
+        }
+        return false;
     }
 
     @Override // java.lang.Runnable

@@ -17,31 +17,31 @@ public class ba implements at {
     public static boolean a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f134a;
+    public Context f130a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f135a;
+    public ServiceConnection f131a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f133a = 0;
+    public volatile int f129a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f136a = null;
+    public volatile a f132a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f137a = new Object();
+    public final Object f133a = new Object();
 
     /* loaded from: classes10.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        public String f138a;
+        public String f134a;
         public String b;
         public String c;
         public String d;
 
         public a() {
-            this.f138a = null;
+            this.f134a = null;
             this.b = null;
             this.c = null;
             this.d = null;
@@ -55,7 +55,7 @@ public class ba implements at {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            if (ba.this.f136a != null) {
+            if (ba.this.f132a != null) {
                 return;
             }
             new Thread(new bc(this, iBinder)).start();
@@ -87,32 +87,32 @@ public class ba implements at {
     }
 
     public ba(Context context) {
-        this.f134a = context;
+        this.f130a = context;
         a();
     }
 
     private void a() {
         boolean z;
-        this.f135a = new b();
+        this.f131a = new b();
         Intent intent = new Intent();
         intent.setClassName("com.heytap.openid", "com.heytap.openid.IdentifyService");
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         try {
-            z = this.f134a.bindService(intent, this.f135a, 1);
+            z = this.f130a.bindService(intent, this.f131a, 1);
         } catch (Exception unused) {
             z = false;
         }
-        this.f133a = z ? 1 : 2;
+        this.f129a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f133a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f129a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f137a) {
+        synchronized (this.f133a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m186a("oppo's " + str + " wait...");
-                this.f137a.wait(3000L);
+                com.xiaomi.channel.commonutils.logger.b.m190a("oppo's " + str + " wait...");
+                this.f133a.wait(3000L);
             } catch (Exception unused) {
             }
         }
@@ -137,7 +137,7 @@ public class ba implements at {
     /* JADX INFO: Access modifiers changed from: private */
     public String b() {
         try {
-            Signature[] signatureArr = this.f134a.getPackageManager().getPackageInfo(this.f134a.getPackageName(), 64).signatures;
+            Signature[] signatureArr = this.f130a.getPackageManager().getPackageInfo(this.f130a.getPackageName(), 64).signatures;
             MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
             StringBuilder sb = new StringBuilder();
             for (byte b2 : messageDigest.digest(signatureArr[0].toByteArray())) {
@@ -151,11 +151,11 @@ public class ba implements at {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m292b() {
-        ServiceConnection serviceConnection = this.f135a;
+    public void m296b() {
+        ServiceConnection serviceConnection = this.f131a;
         if (serviceConnection != null) {
             try {
-                this.f134a.unbindService(serviceConnection);
+                this.f130a.unbindService(serviceConnection);
             } catch (Exception unused) {
             }
         }
@@ -163,17 +163,17 @@ public class ba implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo271a() {
+    public String mo275a() {
         a("getOAID");
-        if (this.f136a == null) {
+        if (this.f132a == null) {
             return null;
         }
-        return this.f136a.b;
+        return this.f132a.b;
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo272a() {
+    public boolean mo276a() {
         return a;
     }
 }

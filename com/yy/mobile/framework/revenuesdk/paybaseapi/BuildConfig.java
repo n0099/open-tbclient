@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.paybaseapi;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.yy.mobile.framework.revenuesdk.paybaseapi";
     public static final String BUILD_TYPE = "release";

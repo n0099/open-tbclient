@@ -17,7 +17,7 @@ public final class b {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (Exception unused) {
+            } catch (Throwable unused) {
             }
         }
     }

@@ -1,118 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.forum.view.TopCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wo7 {
+public class wo7 extends wa7<TopCardView, h57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gi7 b;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
-        }
-    }
+    /* loaded from: classes8.dex */
+    public class a implements TopCardView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h57 a;
+        public final /* synthetic */ wo7 b;
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
-        if (!StringUtils.isNull(string)) {
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                if (jSONArray.length() <= 0) {
+        public a(wo7 wo7Var, h57 h57Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wo7Var, h57Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    Object obj = jSONArray.get(i);
-                    if (!str.equals(obj)) {
-                        arrayList.add((String) obj);
-                    }
+            }
+            this.b = wo7Var;
+            this.a = h57Var;
+        }
+
+        @Override // com.baidu.tieba.forum.view.TopCardView.a
+        public void a(boolean z) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                h57 h57Var = this.a;
+                int i2 = 2;
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 1;
                 }
-                SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+                h57Var.p(i);
+                gi7 gi7Var = this.b.b;
+                if (!z) {
+                    i2 = 1;
+                }
+                gi7Var.A(i2);
             }
         }
     }
 
-    public static void d(String str) {
-        JSONArray jSONArray;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wo7() {
+        super("feed_top_card");
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
-        try {
-            if (StringUtils.isNull(string)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(string);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
-            ArrayList<String> arrayList = null;
-            if (StringUtils.isNull(string)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            TopCardView topCardView = new TopCardView(viewGroup.getContext());
+            fd7.i(topCardView, Integer.valueOf(fd7.e() * 2));
+            return topCardView;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: f */
+    public void b(@NonNull TopCardView topCardView, @NonNull h57 h57Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, topCardView, h57Var) == null) {
+            if (topCardView.getContext() instanceof FragmentActivity) {
+                gi7 D = xh7.m((FragmentActivity) topCardView.getContext()).D();
+                this.b = D;
+                D.y();
             }
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                ArrayList<String> arrayList2 = new ArrayList<>();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    try {
-                        Object obj = jSONArray.get(i);
-                        if (obj instanceof String) {
-                            arrayList2.add((String) obj);
-                        }
-                    } catch (JSONException e) {
-                        e = e;
-                        arrayList = arrayList2;
-                        e.printStackTrace();
-                        return arrayList;
-                    }
-                }
-                return arrayList2;
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (ArrayList) invokeV.objValue;
+            this.b.A(h57Var.l());
+            this.b.x(topCardView, h57Var);
+            topCardView.setUpdateFoldingListener(new a(this, h57Var));
+            topCardView.f();
         }
     }
 }

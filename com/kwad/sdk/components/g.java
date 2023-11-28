@@ -1,7 +1,17 @@
 package com.kwad.sdk.components;
 /* loaded from: classes10.dex */
 public interface g {
-    void onSuccess();
+    void onDownloadFailed();
 
-    void pN();
+    void onDownloadFinished();
+
+    void onDownloadStarted();
+
+    void onIdle();
+
+    void onInstalled();
+
+    void onPaused(int i);
+
+    void onProgressUpdate(int i);
 }

@@ -1,171 +1,236 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import android.os.Message;
-import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class qfc extends lfc implements SurfaceHolder.Callback {
+public class qfc {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceView K;
 
-    @Override // com.baidu.tieba.ifc
-    public void c() {
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.ifc
-    public void d(SurfaceTexture surfaceTexture) {
+    public static String h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
+                        }
+                }
+            }
+            return "成功";
         }
+        return (String) invokeI.objValue;
     }
 
-    public qfc(Context context, View view2, int i, int i2, vdc vdcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), vdcVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091355, "Lcom/baidu/tieba/qfc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948091355, "Lcom/baidu/tieba/qfc;");
                 return;
             }
         }
-        this.K = null;
-        A(context, view2, i, i2, vdcVar);
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
-    @Override // com.baidu.tieba.lfc
-    public void A(Context context, Object obj, int i, int i2, vdc vdcVar) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        String[][] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), vdcVar}) == null) {
-            super.A(context, obj, i, i2, vdcVar);
-            if (obj != null && (obj instanceof SurfaceView)) {
-                SurfaceView surfaceView = (SurfaceView) obj;
-                this.K = surfaceView;
-                surfaceView.getHolder().addCallback(this);
-                if (Build.MODEL.equals("OPPO A33t")) {
-                    this.K.setLayerType(1, null);
-                }
-            }
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(true);
-            synchronized (this.i) {
-                if (this.K != null && this.K.getHolder() != null) {
-                    this.K.getHolder().setKeepScreenOn(true);
-                }
-                if (this.d != null) {
-                    if (this.a.available()) {
-                        this.d.g(2402);
-                        this.d.f(2402);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (pfc.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (pfc.e(context, intent)) {
+                                    return 0;
+                                }
+                            }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
+                        }
                     }
-                    TLog.l(this, "do send surfaceCreated. playerUid " + this.r);
-                    this.d.g(2401);
-                    this.d.f(2401);
+                }
+                if (!z) {
+                    return 1;
+                }
+                return 2;
+            } catch (Exception unused2) {
+                return 1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
+                }
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), ofc.a(context), g(z), str2);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", pfc.b(context, context.getPackageName()));
+            bundle.putString("appver", pfc.c(context));
+            bundle.putString("appdeviceid", ofc.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (pfc.e(context, intent)) {
+                    return intent;
                 }
             }
+            return null;
         }
-    }
-
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            X(false);
-            SurfaceView surfaceView = this.K;
-            if (surfaceView != null && surfaceView.getHolder() != null) {
-                this.K.getHolder().setKeepScreenOn(false);
-            }
-            synchronized (this.i) {
-                if (this.d != null && this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
-                }
-            }
-        }
-    }
-
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.finalize();
-        }
-    }
-
-    @Override // com.baidu.tieba.ifc
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Surface surface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SurfaceView surfaceView = this.K;
-            if (surfaceView == null || (surface = surfaceView.getHolder().getSurface()) == null || !surface.isValid()) {
-                return null;
-            }
-            return this.K.getHolder();
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i, i2, i3) == null) {
-            TLog.l(this, String.format("surfaceChanged(%d, %d, %d). playerUID %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.r)));
-            ddc ddcVar = this.d;
-            if (ddcVar != null) {
-                ddcVar.g(2404);
-                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
-            }
-            D();
-            this.I.set(true);
-            U();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceCreated. playerUid " + this.r);
-            this.I.set(true);
-            Y();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceDestroyed(). playerUid " + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Z();
-        }
+        return (Intent) invokeL.objValue;
     }
 }

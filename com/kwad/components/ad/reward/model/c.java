@@ -4,102 +4,34 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.kwad.components.ad.reward.KSRewardVideoActivityProxy;
+import com.kwad.components.core.c.f;
 import com.kwad.sdk.api.KsVideoPlayConfig;
-import com.kwad.sdk.core.response.a.d;
+import com.kwad.sdk.core.response.b.e;
+import com.kwad.sdk.core.response.model.AdGlobalConfigInfo;
 import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.File;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class c {
     public AdInfo mAdInfo;
+    public AdResultData mAdResultData;
     public AdTemplate mAdTemplate;
     public JSONObject mReportExtData;
     public int mScreenOrientation;
     public KsVideoPlayConfig mVideoPlayConfig;
     public int rewardType = 1;
+    public final boolean gt = com.kwad.components.ad.reward.a.b.gB();
 
-    @Nullable
-    public static c a(AdTemplate adTemplate, @Nullable AdTemplate adTemplate2, int i, KsVideoPlayConfig ksVideoPlayConfig) {
-        File ad;
-        c cVar = new c();
-        AdInfo bQ = d.bQ(adTemplate);
-        String A = com.kwad.sdk.core.response.a.a.A(bQ);
-        if (com.kwad.sdk.core.config.d.sc() >= 0 || ((ad = com.kwad.sdk.core.diskcache.a.a.sS().ad(A)) != null && ad.exists())) {
-            boolean isShowLandscape = ksVideoPlayConfig.isShowLandscape();
-            adTemplate.mInitVoiceStatus = ksVideoPlayConfig.isVideoSoundEnable() ? 2 : 1;
-            if (!TextUtils.isEmpty(ksVideoPlayConfig.getShowScene())) {
-                JSONObject jSONObject = new JSONObject();
-                r.putValue(jSONObject, "ext_showscene", ksVideoPlayConfig.getShowScene());
-                cVar.mReportExtData = jSONObject;
-            }
-            cVar.mVideoPlayConfig = ksVideoPlayConfig;
-            cVar.mAdTemplate = adTemplate;
-            cVar.mAdInfo = bQ;
-            cVar.mScreenOrientation = isShowLandscape ? 1 : 0;
-            cVar.rewardType = i;
-            adTemplate.mPlayAgain = adTemplate2;
-            return cVar;
-        }
-        return null;
-    }
-
-    @Nullable
-    public static c c(Intent intent) {
-        AdTemplate adTemplate;
-        Serializable serializableExtra = intent.getSerializableExtra("key_video_play_config");
-        if (!(serializableExtra instanceof KsVideoPlayConfig)) {
-            com.kwad.sdk.core.e.b.e("RewardActivityModel", "data is not instanceof VideoPlayConfigImpl:" + serializableExtra);
-            return null;
-        }
-        KsVideoPlayConfig ksVideoPlayConfig = (KsVideoPlayConfig) serializableExtra;
-        int intExtra = intent.getIntExtra(KSRewardVideoActivityProxy.KEY_REWARD_TYPE, 1);
-        String stringExtra = intent.getStringExtra("key_template_json");
-        try {
-            AdTemplate adTemplate2 = new AdTemplate();
-            adTemplate2.parseJson(new JSONObject(stringExtra));
-            String stringExtra2 = intent.getStringExtra(KSRewardVideoActivityProxy.KEY_TEMPLATE_PLAY_AGAIN);
-            if (stringExtra2 != null) {
-                adTemplate = new AdTemplate();
-                adTemplate.parseJson(new JSONObject(stringExtra2));
-            } else {
-                adTemplate = null;
-            }
-            return a(adTemplate2, adTemplate, intExtra, ksVideoPlayConfig);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
-            return null;
-        }
-    }
-
-    public final AdInfo by() {
+    public final AdInfo bH() {
         return this.mAdInfo;
     }
 
-    public final boolean bz() {
-        return d.cd(this.mAdTemplate);
-    }
-
-    public final boolean gL() {
-        return d.e(getAdTemplate(), com.kwad.components.ad.reward.kwai.b.j(by()));
-    }
-
-    public final boolean gM() {
-        return d.p(getAdTemplate());
-    }
-
-    public final KsVideoPlayConfig gN() {
-        return this.mVideoPlayConfig;
-    }
-
-    public final int gO() {
-        return this.rewardType;
-    }
-
-    public final JSONObject gP() {
-        return this.mReportExtData;
+    public final boolean bI() {
+        return e.eb(this.mAdTemplate);
     }
 
     public final AdTemplate getAdTemplate() {
@@ -110,8 +42,105 @@ public final class c {
         return this.mScreenOrientation;
     }
 
-    public final void y(AdTemplate adTemplate) {
-        this.mAdTemplate = adTemplate;
-        this.mAdInfo = d.bQ(adTemplate);
+    public final boolean hg() {
+        return e.i(getAdTemplate(), com.kwad.components.ad.reward.a.b.k(bH()));
+    }
+
+    public final boolean hh() {
+        return e.F(getAdTemplate());
+    }
+
+    public final AdResultData hi() {
+        return this.mAdResultData;
+    }
+
+    public final KsVideoPlayConfig hj() {
+        return this.mVideoPlayConfig;
+    }
+
+    public final int hk() {
+        return this.rewardType;
+    }
+
+    public final JSONObject hl() {
+        return this.mReportExtData;
+    }
+
+    public final AdGlobalConfigInfo hm() {
+        AdResultData adResultData = this.mAdResultData;
+        if (adResultData != null) {
+            return adResultData.adGlobalConfigInfo;
+        }
+        return null;
+    }
+
+    @Nullable
+    public static c a(Intent intent) {
+        KsVideoPlayConfig ksVideoPlayConfig;
+        if (com.kwad.sdk.core.config.d.Bw()) {
+            ksVideoPlayConfig = com.kwad.components.core.internal.api.e.b(intent.getStringExtra("key_video_play_config_json"), true);
+        } else {
+            Serializable serializableExtra = intent.getSerializableExtra("key_video_play_config");
+            if (!(serializableExtra instanceof KsVideoPlayConfig)) {
+                com.kwad.sdk.core.e.c.e("RewardActivityModel", "data is not instanceof VideoPlayConfigImpl:" + serializableExtra);
+                return null;
+            }
+            ksVideoPlayConfig = (KsVideoPlayConfig) serializableExtra;
+        }
+        int intExtra = intent.getIntExtra(KSRewardVideoActivityProxy.KEY_REWARD_TYPE, 1);
+        try {
+            AdResultData d = f.mB().d(intent.getIntExtra("key_ad_result_cache_idx", 0), true);
+            if (d == null) {
+                return null;
+            }
+            return a(d, intExtra, ksVideoPlayConfig);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+            return null;
+        }
+    }
+
+    @Nullable
+    public static c a(AdResultData adResultData, int i, KsVideoPlayConfig ksVideoPlayConfig) {
+        int i2;
+        c cVar = new c();
+        AdTemplate m = com.kwad.sdk.core.response.b.c.m(adResultData);
+        if (m == null) {
+            com.kwad.sdk.core.e.c.e("RewardActivityModel", "data is null:");
+            return null;
+        }
+        AdInfo dP = e.dP(m);
+        if (!c(m, dP)) {
+            return null;
+        }
+        boolean isShowLandscape = ksVideoPlayConfig.isShowLandscape();
+        if (ksVideoPlayConfig.isVideoSoundEnable()) {
+            i2 = 2;
+        } else {
+            i2 = 1;
+        }
+        m.mInitVoiceStatus = i2;
+        if (!TextUtils.isEmpty(ksVideoPlayConfig.getShowScene())) {
+            JSONObject jSONObject = new JSONObject();
+            t.putValue(jSONObject, "ext_showscene", ksVideoPlayConfig.getShowScene());
+            cVar.mReportExtData = jSONObject;
+        }
+        cVar.mVideoPlayConfig = ksVideoPlayConfig;
+        cVar.mAdResultData = adResultData;
+        cVar.mAdTemplate = m;
+        cVar.mAdInfo = dP;
+        cVar.mScreenOrientation = isShowLandscape ? 1 : 0;
+        cVar.rewardType = i;
+        return cVar;
+    }
+
+    public static boolean c(AdTemplate adTemplate, AdInfo adInfo) {
+        if (!com.kwad.sdk.core.config.d.Bw() && e.ef(adTemplate) < 0) {
+            File bO = com.kwad.sdk.core.diskcache.b.a.BS().bO(com.kwad.sdk.core.response.b.a.K(adInfo));
+            if (bO == null || !bO.exists()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

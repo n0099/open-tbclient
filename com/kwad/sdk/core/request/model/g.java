@@ -1,42 +1,21 @@
 package com.kwad.sdk.core.request.model;
 
-import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.r;
-import org.json.JSONObject;
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes10.dex */
-public final class g implements com.kwad.sdk.core.b {
-    public String acX;
-    public String acY;
-    public int acZ;
-    public int ada;
-    public String adb;
+public class g extends com.kwad.sdk.core.response.a.a {
+    public String ayN;
+    public String ayO;
+    public int thirdAge;
+    public int thirdGender;
+    public String thirdInterest;
 
-    public static g uT() {
+    public static g DW() {
         return new g();
     }
 
-    public final void cu(String str) {
-        this.acY = str;
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public final JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "user_id", this.acX);
-        r.putValue(jSONObject, "thirdUserId", this.acY);
-        int i = this.acZ;
-        if (i != 0) {
-            r.putValue(jSONObject, "thirdAge", i);
-        }
-        int i2 = this.ada;
-        if (i2 != 0) {
-            r.putValue(jSONObject, "thirdGender", i2);
-        }
-        r.putValue(jSONObject, "thirdInterest", this.adb);
-        return jSONObject;
+    public final g dS(String str) {
+        this.ayN = str;
+        return this;
     }
 }

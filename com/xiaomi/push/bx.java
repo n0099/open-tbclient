@@ -12,7 +12,7 @@ public class bx extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo306a() {
+    public String mo310a() {
         return "10052";
     }
 
@@ -22,10 +22,10 @@ public class bx extends aj.a {
         cm cmVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        cmVar = this.a.f155a;
+        cmVar = this.a.f151a;
         if (cmVar != null) {
-            cmVar2 = this.a.f155a;
-            context = this.a.f152a;
+            cmVar2 = this.a.f151a;
+            context = this.a.f148a;
             cmVar2.a(context);
             this.a.b("upload_time");
         }

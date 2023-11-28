@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j05;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,10 +31,10 @@ public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
-    public j05.e dialogAddToExpressionListener;
-    public j05.e dialogDownloadOriginListener;
-    public j05.e dialogRecognizePicListener;
-    public j05.e dialogSaveToDiskListener;
+    public m05.e dialogAddToExpressionListener;
+    public m05.e dialogDownloadOriginListener;
+    public m05.e dialogRecognizePicListener;
+    public m05.e dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public String disableShareToast;
     public String experimentId;
@@ -78,7 +78,7 @@ public class ShareDialogConfig extends IntentConfig {
     public DialogInterface.OnDismissListener onDismissListener;
     public View.OnClickListener onWeChatEmotionShareListener;
     public String originImgText;
-    public j05.e qrCodeClickListener;
+    public m05.e qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;
@@ -355,7 +355,7 @@ public class ShareDialogConfig extends IntentConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (qd.isEmpty(this.disableShareToast)) {
+            if (rd.isEmpty(this.disableShareToast)) {
                 return TbadkApplication.getInst().getString(R.string.thread_unshare_toast_content);
             }
             return this.disableShareToast;

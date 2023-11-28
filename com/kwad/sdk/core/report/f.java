@@ -1,107 +1,143 @@
 package com.kwad.sdk.core.report;
 
-import com.kwad.sdk.core.report.u;
-import com.kwad.sdk.utils.aa;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes10.dex */
-public final class f {
-    public u.b ZY = new u.b();
+public abstract class f implements o<g> {
+    public e avw;
 
-    public final f F(long j) {
-        this.ZY.ss = j;
-        return this;
+    public abstract String Du();
+
+    public abstract String Dv();
+
+    public abstract g g(@NonNull Cursor cursor);
+
+    public abstract String getTag();
+
+    public f(e eVar) {
+        a(eVar);
     }
 
-    public final f a(u.a aVar) {
-        this.ZY.abW = aVar;
-        return this;
+    private void a(e eVar) {
+        this.avw = eVar;
     }
 
-    public final f aI(int i) {
-        this.ZY.gJ = i;
-        return this;
+    private synchronized void c(g gVar) {
+        String tag = getTag();
+        com.kwad.sdk.core.e.c.d(tag, "deleteAction action = " + gVar);
+        try {
+            this.avw.getReadableDatabase().delete(Du(), "actionId=?", new String[]{gVar.actionId});
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTrace(e);
+        }
     }
 
-    public final f aJ(int i) {
-        this.ZY.abD = 1;
-        return this;
+    @Override // com.kwad.sdk.core.report.o
+    public final synchronized List<g> Dw() {
+        Cursor cursor = null;
+        try {
+            String Dv = Dv();
+            if (!TextUtils.isEmpty(Dv)) {
+                cursor = this.avw.getReadableDatabase().rawQuery(Dv, null);
+            }
+            if (cursor != null) {
+                ArrayList arrayList = new ArrayList();
+                while (cursor.moveToNext()) {
+                    try {
+                        arrayList.add(g(cursor));
+                    } catch (Exception e) {
+                        com.kwad.sdk.core.e.c.printStackTrace(e);
+                    }
+                }
+                String tag = getTag();
+                com.kwad.sdk.core.e.c.d(tag, "read size= " + arrayList.size());
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    String tag2 = getTag();
+                    com.kwad.sdk.core.e.c.d(tag2, "read action=" + ((g) it.next()));
+                }
+                com.kwad.sdk.crash.utils.b.closeQuietly(cursor);
+                return arrayList;
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.e.c.printStackTrace(e2);
+        }
+        com.kwad.sdk.crash.utils.b.closeQuietly(cursor);
+        return new ArrayList();
     }
 
-    public final f aK(int i) {
-        this.ZY.abE = i;
-        return this;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.report.o
+    /* renamed from: b */
+    public final synchronized void j(g gVar) {
+        String tag = getTag();
+        com.kwad.sdk.core.e.c.d(tag, "write = " + gVar);
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("actionId", gVar.actionId);
+            contentValues.put("aLog", gVar.toJson().toString());
+            try {
+                this.avw.getReadableDatabase().insert(Du(), null, contentValues);
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.c.printStackTrace(e);
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.e.c.printStackTrace(e2);
+        }
     }
 
-    public final f aL(int i) {
-        this.ZY.aat = i;
-        return this;
+    @Override // com.kwad.sdk.core.report.o
+    public final synchronized long size() {
+        long j;
+        Cursor cursor = null;
+        try {
+            SQLiteDatabase readableDatabase = this.avw.getReadableDatabase();
+            cursor = readableDatabase.rawQuery("select count(*) from " + Du(), null);
+            cursor.moveToFirst();
+            j = cursor.getLong(0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(cursor);
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+            com.kwad.sdk.crash.utils.b.closeQuietly(cursor);
+            j = 0;
+        }
+        return j;
     }
 
-    public final f aM(int i) {
-        this.ZY.abG = i;
-        return this;
-    }
-
-    public final f aN(int i) {
-        this.ZY.abX = i;
-        return this;
-    }
-
-    public final f aO(int i) {
-        this.ZY.abY = i;
-        return this;
-    }
-
-    public final f aP(int i) {
-        this.ZY.acd = i;
-        return this;
-    }
-
-    public final f aQ(int i) {
-        this.ZY.aV(i);
-        return this;
-    }
-
-    public final f aR(int i) {
-        this.ZY.acf = i;
-        return this;
-    }
-
-    public final f aS(int i) {
-        this.ZY.acg = i;
-        return this;
-    }
-
-    public final f aT(int i) {
-        this.ZY.ach = i;
-        return this;
-    }
-
-    public final f aU(int i) {
-        this.ZY.abH = i;
-        return this;
-    }
-
-    public final f b(aa.a aVar) {
-        this.ZY.gL = aVar;
-        return this;
-    }
-
-    public final f cr(String str) {
-        this.ZY.Mn = str;
-        return this;
-    }
-
-    public final f cs(String str) {
-        this.ZY.acb = str;
-        return this;
-    }
-
-    public final f e(double d) {
-        this.ZY.gM = d;
-        return this;
-    }
-
-    public final u.b uw() {
-        return this.ZY;
+    @Override // com.kwad.sdk.core.report.o
+    public final synchronized void v(List<g> list) {
+        String tag = getTag();
+        com.kwad.sdk.core.e.c.d(tag, "delete size= " + list.size());
+        SQLiteDatabase sQLiteDatabase = null;
+        try {
+            sQLiteDatabase = this.avw.getReadableDatabase();
+            sQLiteDatabase.beginTransaction();
+            for (g gVar : list) {
+                c(gVar);
+            }
+            sQLiteDatabase.setTransactionSuccessful();
+            if (sQLiteDatabase != null) {
+                try {
+                    sQLiteDatabase.endTransaction();
+                } catch (Exception e) {
+                    com.kwad.sdk.core.e.c.printStackTrace(e);
+                }
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.e.c.printStackTrace(e2);
+            if (sQLiteDatabase != null) {
+                try {
+                    sQLiteDatabase.endTransaction();
+                } catch (Exception e3) {
+                    com.kwad.sdk.core.e.c.printStackTrace(e3);
+                }
+            }
+        }
     }
 }

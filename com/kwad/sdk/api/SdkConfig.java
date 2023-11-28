@@ -88,6 +88,12 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        public SdkConfig build() {
+            return new SdkConfig(this);
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder appId(String str) {
             this.appId = str;
             return this;
@@ -112,12 +118,6 @@ public class SdkConfig {
         public Builder appWebKey(@Nullable String str) {
             this.appWebKey = str;
             return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public SdkConfig build() {
-            return new SdkConfig(this);
         }
 
         @KsAdSdkApi

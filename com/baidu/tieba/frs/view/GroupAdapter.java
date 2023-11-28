@@ -67,9 +67,9 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         this.a = list;
     }
 
-    public final void o(View.OnClickListener onClickListener) {
+    public final void p(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
             this.b = onClickListener;
         }
     }
@@ -85,7 +85,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         this((i & 1) != 0 ? null : list);
     }
 
-    public static final void n(GroupAdapter this$0, View view2) {
+    public static final void o(GroupAdapter this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -129,7 +129,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public GroupItemHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
             imageView.setPadding(0, BdUtilHelper.getDimens(parent.getContext(), R.dimen.tbds1), 0, 0);
             imageView.setAlpha(0.6f);
             linearLayout.addView(imageView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x48
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.r78
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,7 +156,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        GroupAdapter.n(GroupAdapter.this, view2);
+                        GroupAdapter.o(GroupAdapter.this, view2);
                     }
                 }
             });

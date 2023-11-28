@@ -15,29 +15,39 @@ import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ForumTagInfo;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr7;
+import com.baidu.tieba.bp5;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.ck7;
+import com.baidu.tieba.du7;
 import com.baidu.tieba.feed.log.FeedStat;
+import com.baidu.tieba.forum.ForumLog;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.viewmodel.BottomViewModel;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
-import com.baidu.tieba.gu4;
-import com.baidu.tieba.kh7;
-import com.baidu.tieba.li7;
-import com.baidu.tieba.lx6;
-import com.baidu.tieba.of1;
-import com.baidu.tieba.oj7;
-import com.baidu.tieba.pg7;
-import com.baidu.tieba.sr7;
-import com.baidu.tieba.to5;
-import com.baidu.tieba.ug7;
-import com.baidu.tieba.vj7;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.gl7;
+import com.baidu.tieba.iu4;
+import com.baidu.tieba.ki7;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.ni7;
+import com.baidu.tieba.nl7;
+import com.baidu.tieba.pf1;
+import com.baidu.tieba.pt7;
+import com.baidu.tieba.qi7;
+import com.baidu.tieba.sh7;
+import com.baidu.tieba.soa;
+import com.baidu.tieba.v05;
+import com.baidu.tieba.vx6;
+import com.baidu.tieba.wj7;
+import com.baidu.tieba.xh7;
+import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,30 +61,32 @@ import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u0000Y\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\b*\u0001\u001a\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010!\u001a\u00020\"H\u0002J\b\u0010#\u001a\u00020\"H\u0002J\b\u0010$\u001a\u00020\"H\u0002J\b\u0010%\u001a\u00020\"H\u0002J\b\u0010&\u001a\u00020\"H\u0002J\b\u0010'\u001a\u00020\"H\u0016J\b\u0010\u000b\u001a\u00020\"H\u0002J\u0010\u0010(\u001a\u00020\"2\u0006\u0010)\u001a\u00020*H\u0016J\u001a\u0010+\u001a\u00020\"2\b\u0010,\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00020\bH\u0016J\b\u0010-\u001a\u00020\"H\u0016J\u0006\u0010.\u001a\u00020\"J\b\u0010/\u001a\u00020\"H\u0016J\b\u00100\u001a\u00020\"H\u0016J\u0010\u00101\u001a\u00020\"2\u0006\u0010\t\u001a\u00020\nH\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0011\u001a\u00020\u00128BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0013\u0010\u0014R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001bR\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0016\u001a\u0004\b\u001e\u0010\u001f¨\u00062"}, d2 = {"Lcom/baidu/tieba/forum/controller/MainController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", StateManager.KEY_STATE, "Landroid/os/Bundle;", "forceReCreate", "", "forumModel", "Lcom/baidu/tieba/forum/model/ForumModel;", "isFromScheme", "isTopActivity", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "getLoadingView", "()Lcom/baidu/tbadk/loading/LoadingView;", "loadingView$delegate", "Lkotlin/Lazy;", "mForumName", "", "mHybridRefreshListener", "com/baidu/tieba/forum/controller/MainController$mHybridRefreshListener$1", "Lcom/baidu/tieba/forum/controller/MainController$mHybridRefreshListener$1;", "netRefreshView", "Lcom/baidu/tbadk/loading/NetRefreshView;", "getNetRefreshView", "()Lcom/baidu/tbadk/loading/NetRefreshView;", "netRefreshView$delegate", "attachLoading", "", "attachRefresh", "checkFromScheme", "detachLoading", "detachRefresh", "finish", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", MissionEvent.MESSAGE_DESTROY, "onFrsWebHeightConfirmed", MissionEvent.MESSAGE_PAUSE, "onResume", "startLoad", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+import tbclient.FrsPage.ForumInfo;
+@Metadata(d1 = {"\u0000[\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\t*\u0001\u001b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\"\u001a\u00020#H\u0002J\b\u0010$\u001a\u00020#H\u0002J\b\u0010%\u001a\u00020#H\u0002J\b\u0010&\u001a\u00020#H\u0002J\b\u0010'\u001a\u00020#H\u0002J\b\u0010(\u001a\u00020#H\u0016J\b\u0010\r\u001a\u00020#H\u0002J\u0010\u0010)\u001a\u00020#2\u0006\u0010*\u001a\u00020+H\u0016J\u001a\u0010,\u001a\u00020#2\b\u0010-\u001a\u0004\u0018\u00010\f2\u0006\u0010\t\u001a\u00020\nH\u0016J\b\u0010.\u001a\u00020#H\u0016J\u0006\u0010/\u001a\u00020#J\b\u00100\u001a\u00020#H\u0016J\b\u00101\u001a\u00020#H\u0016J\u0010\u00102\u001a\u00020#2\u0006\u0010\u000b\u001a\u00020\fH\u0002J\u0006\u00103\u001a\u00020#R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0013\u001a\u00020\u00148BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0017\u0010\u0018\u001a\u0004\b\u0015\u0010\u0016R\u000e\u0010\u0019\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001cR\u001b\u0010\u001d\u001a\u00020\u001e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\u0018\u001a\u0004\b\u001f\u0010 ¨\u00064"}, d2 = {"Lcom/baidu/tieba/forum/controller/MainController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "TAG", "", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", StateManager.KEY_STATE, "Landroid/os/Bundle;", "forceReCreate", "", "forumModel", "Lcom/baidu/tieba/forum/model/ForumModel;", "isFromScheme", "isTopActivity", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "getLoadingView", "()Lcom/baidu/tbadk/loading/LoadingView;", "loadingView$delegate", "Lkotlin/Lazy;", "mForumName", "mHybridRefreshListener", "com/baidu/tieba/forum/controller/MainController$mHybridRefreshListener$1", "Lcom/baidu/tieba/forum/controller/MainController$mHybridRefreshListener$1;", "netRefreshView", "Lcom/baidu/tbadk/loading/NetRefreshView;", "getNetRefreshView", "()Lcom/baidu/tbadk/loading/NetRefreshView;", "netRefreshView$delegate", "attachLoading", "", "attachRefresh", "checkFromScheme", "detachLoading", "detachRefresh", "finish", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", MissionEvent.MESSAGE_DESTROY, "onFrsWebHeightConfirmed", MissionEvent.MESSAGE_PAUSE, "onResume", "startLoad", "updateForumVisitTime", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MainController extends pg7 {
+public final class MainController extends sh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
-    public vj7 c;
-    public ActivityForumBinding d;
-    public Bundle e;
-    public String f;
-    public boolean g;
+    public final String c;
+    public nl7 d;
+    public ActivityForumBinding e;
+    public Bundle f;
+    public String g;
     public boolean h;
     public boolean i;
-    public final Lazy j;
+    public boolean j;
     public final Lazy k;
-    public a l;
+    public final Lazy l;
+    public a m;
 
     /* loaded from: classes6.dex */
-    public static final class a implements gu4.d {
+    public static final class a implements iu4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainController a;
 
-        @Override // com.baidu.tieba.gu4.d
+        @Override // com.baidu.tieba.iu4.d
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,42 +111,45 @@ public final class MainController extends pg7 {
             this.a = mainController;
         }
 
-        @Override // com.baidu.tieba.gu4.c
+        @Override // com.baidu.tieba.iu4.c
         public void a(String data) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 String optString = new JSONObject(data).optString(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME);
-                if (this.a.f.length() > 0) {
+                if (this.a.g.length() > 0) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (z && Intrinsics.areEqual(optString, this.a.f)) {
-                    if (this.a.h) {
-                        this.a.D();
+                if (z && Intrinsics.areEqual(optString, this.a.g)) {
+                    if (this.a.i) {
+                        this.a.F();
                     } else {
-                        this.a.g = true;
+                        this.a.h = true;
                     }
+                    TbLog b = ForumLog.b.b();
+                    String str = this.a.c;
+                    b.i(str, "forum " + this.a.g + " force recreate from hybrid notify");
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements vj7.a {
+    public static final class b implements nl7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainController a;
-        public final /* synthetic */ oj7 b;
+        public final /* synthetic */ gl7 b;
 
-        public b(MainController mainController, oj7 oj7Var) {
+        public b(MainController mainController, gl7 gl7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mainController, oj7Var};
+                Object[] objArr = {mainController, gl7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -145,43 +160,41 @@ public final class MainController extends pg7 {
                 }
             }
             this.a = mainController;
-            this.b = oj7Var;
+            this.b = gl7Var;
         }
 
-        @Override // com.baidu.tieba.vj7.a
-        public void a(kh7 data) {
-            dr7 dr7Var;
+        @Override // com.baidu.tieba.nl7.a
+        public void a(qi7 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                ViewModel viewModel = new ViewModelProvider(this.a.E()).get(ForumViewModel.class);
+                TbLog b = ForumLog.b.b();
+                String str = this.a.c;
+                b.i(str, "forum " + this.a.g + " request success");
+                ViewModel viewModel = new ViewModelProvider(this.a.G()).get(ForumViewModel.class);
                 Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(activi…rumViewModel::class.java)");
                 ForumViewModel forumViewModel = (ForumViewModel) viewModel;
                 forumViewModel.c().setValue(data.h());
                 forumViewModel.a().setValue(data);
-                forumViewModel.e().setValue(data.j());
-                ViewModel viewModel2 = new ViewModelProvider(this.a.E()).get(BottomViewModel.class);
+                forumViewModel.g().setValue(data.j());
+                ViewModel viewModel2 = new ViewModelProvider(this.a.G()).get(BottomViewModel.class);
                 Intrinsics.checkNotNullExpressionValue(viewModel2, "ViewModelProvider(activi…tomViewModel::class.java)");
                 ((BottomViewModel) viewModel2).e(data.g());
-                this.b.d(data.h().d());
-                this.b.e(data.h().e());
-                of1<dr7> a = new sr7().a();
-                if (a != null && (dr7Var = a.get()) != null) {
-                    dr7Var.b(String.valueOf(data.h().d()));
-                }
-                li7.b.a().b(String.valueOf(data.h().d()), System.currentTimeMillis());
-                ForumData forumData = new ForumData();
-                forumData.parserProtobuf(data.g().e());
-                lx6.o().t(forumData, data.h().f(), data.h().b());
+                this.b.f(data.h().e());
+                this.b.g(data.h().f());
             }
         }
 
-        @Override // com.baidu.tieba.vj7.a
+        @Override // com.baidu.tieba.nl7.a
         public void onError(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                TbLog b = ForumLog.b.b();
+                String str = this.a.c;
+                b.i(str, "forum " + this.a.g + " request error : " + i);
+                soa.a("frs_new", false);
+                this.a.D();
                 this.a.B();
-                this.a.z();
             }
         }
     }
@@ -203,8 +216,9 @@ public final class MainController extends pg7 {
         }
         Intrinsics.checkNotNullParameter(activity, "activity");
         this.b = activity;
-        this.f = "";
-        this.j = LazyKt__LazyJVMKt.lazy(new Function0<LoadingView>(this) { // from class: com.baidu.tieba.forum.controller.MainController$loadingView$2
+        this.c = "MainController";
+        this.g = "";
+        this.k = LazyKt__LazyJVMKt.lazy(new Function0<LoadingView>(this) { // from class: com.baidu.tieba.forum.controller.MainController$loadingView$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MainController this$0;
@@ -237,7 +251,7 @@ public final class MainController extends pg7 {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    LoadingView loadingView = new LoadingView(this.this$0.E());
+                    LoadingView loadingView = new LoadingView(this.this$0.G());
                     loadingView.onChangeSkinType();
                     SkinManager.setBackgroundColor(loadingView.getView(), R.color.CAM_X0201);
                     return loadingView;
@@ -245,38 +259,41 @@ public final class MainController extends pg7 {
                 return (LoadingView) invokeV.objValue;
             }
         });
-        this.k = LazyKt__LazyJVMKt.lazy(new MainController$netRefreshView$2(this));
-        this.l = new a(this);
+        this.l = LazyKt__LazyJVMKt.lazy(new MainController$netRefreshView$2(this));
+        this.m = new a(this);
     }
 
-    public final void I(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            y();
-            vj7 vj7Var = this.c;
-            if (vj7Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("forumModel");
-                vj7Var = null;
-            }
-            vj7Var.b(bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.sh7
     public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.i(i);
-            if (F().isViewAttached()) {
-                F().onChangeSkinType(i);
+            if (H().isViewAttached()) {
+                H().onChangeSkinType(i);
             }
         }
     }
 
     public final void A() {
-        Parcelable parcelable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " attach loading view");
+            LoadingView H = H();
+            ActivityForumBinding activityForumBinding = this.e;
+            if (activityForumBinding == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("binding");
+                activityForumBinding = null;
+            }
+            H.attachView(activityForumBinding.r);
+        }
+    }
+
+    public final void C() {
+        Parcelable parcelable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Intent intent = this.b.getIntent();
             String str = null;
             if (intent != null) {
@@ -294,156 +311,222 @@ public final class MainController extends pg7 {
                 }
             }
             if (!BdActivityStack.getInst().isActivityExist("MainTabActivity")) {
-                this.i = true;
+                this.j = true;
             }
         }
     }
 
     public final void D() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.g) {
-            this.g = false;
-            this.b.finish();
-            Intent intent = this.b.getIntent();
-            if (intent != null) {
-                intent.putExtra("key_no_animation", true);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " detach loading view");
+            LoadingView H = H();
+            ActivityForumBinding activityForumBinding = this.e;
+            if (activityForumBinding == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("binding");
+                activityForumBinding = null;
             }
-            FragmentActivity fragmentActivity = this.b;
-            fragmentActivity.startActivity(fragmentActivity.getIntent());
-            this.b.overridePendingTransition(0, 0);
+            H.dettachView(activityForumBinding.r);
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " detach network refresh view");
+            ck5 I = I();
+            ActivityForumBinding activityForumBinding = this.e;
+            if (activityForumBinding == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("binding");
+                activityForumBinding = null;
+            }
+            I.dettachView(activityForumBinding.r);
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LoadingView F = F();
-            ActivityForumBinding activityForumBinding = this.d;
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " attach network refresh view");
+            ck5 I = I();
+            ActivityForumBinding activityForumBinding = this.e;
             if (activityForumBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 activityForumBinding = null;
             }
-            F.dettachView(activityForumBinding.r);
+            I.attachView(activityForumBinding.r);
+            bp5.a.a(xh7.a(this.b), new Pair<>(PushMessageHelper.ERROR_TYPE, "new_frs_page"), new Pair<>("error_info", "new frs page net error"));
         }
     }
 
-    public final void C() {
+    public final void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wj5 G = G();
-            ActivityForumBinding activityForumBinding = this.d;
-            if (activityForumBinding == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("binding");
-                activityForumBinding = null;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.h) {
+                TbLog b2 = ForumLog.b.b();
+                String str = this.c;
+                b2.i(str, "forum " + this.g + " do force recreate onResume");
+                this.h = false;
+                this.b.finish();
+                Intent intent = this.b.getIntent();
+                if (intent != null) {
+                    intent.putExtra("key_no_animation", true);
+                }
+                FragmentActivity fragmentActivity = this.b;
+                fragmentActivity.startActivity(fragmentActivity.getIntent());
+                this.b.overridePendingTransition(0, 0);
             }
-            G.dettachView(activityForumBinding.r);
+            if (((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).a().getValue() != null) {
+                YunDialogManager.onShow(this.b, v05.q);
+            }
         }
     }
 
-    public final FragmentActivity E() {
+    public final FragmentActivity G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.b;
         }
         return (FragmentActivity) invokeV.objValue;
     }
 
-    public final LoadingView F() {
+    public final LoadingView H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (LoadingView) this.j.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return (LoadingView) this.k.getValue();
         }
         return (LoadingView) invokeV.objValue;
     }
 
-    public final wj5 G() {
+    public final ck5 I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (wj5) this.k.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (ck5) this.l.getValue();
         }
-        return (wj5) invokeV.objValue;
+        return (ck5) invokeV.objValue;
     }
 
-    public final void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            B();
-            C();
-        }
-    }
-
-    @Override // com.baidu.tieba.pg7
-    public void e() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            D();
+            E();
+            xq6.b().c(new wj7(true, xh7.a(this.b)));
+            L();
+        }
+    }
+
+    @Override // com.baidu.tieba.sh7
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.e();
-            if (this.i) {
+            if (this.j) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.b).createNormalCfg(2)));
             }
         }
     }
 
-    @Override // com.baidu.tieba.pg7
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.l();
-            vj7 vj7Var = this.c;
-            if (vj7Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("forumModel");
-                vj7Var = null;
-            }
-            vj7Var.d();
-            gu4.b.a().e(this.l);
-        }
-    }
-
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.sh7
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.m();
-            this.h = false;
+            this.i = false;
         }
     }
 
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.sh7
     public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.n();
-            this.h = true;
-            D();
+            this.i = true;
+            F();
         }
     }
 
-    public final void y() {
+    public final void K(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            LoadingView F = F();
-            ActivityForumBinding activityForumBinding = this.d;
-            if (activityForumBinding == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("binding");
-                activityForumBinding = null;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            A();
+            nl7 nl7Var = this.d;
+            if (nl7Var == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("forumModel");
+                nl7Var = null;
             }
-            F.attachView(activityForumBinding.r);
+            nl7Var.b(bundle);
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " start forum request");
         }
     }
 
-    @Override // com.baidu.tieba.pg7
+    public final void L() {
+        Long l;
+        ForumTagInfo forumTagInfo;
+        pt7 pt7Var;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            ki7 value = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().getValue();
+            ni7 value2 = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+            if (value != null) {
+                pf1<pt7> a2 = new du7().a();
+                String str = null;
+                if (a2 != null && (pt7Var = a2.get()) != null) {
+                    ForumInfo d = value.d();
+                    if (d != null) {
+                        l2 = d.id;
+                    } else {
+                        l2 = null;
+                    }
+                    pt7Var.b(String.valueOf(l2));
+                }
+                ck7 a3 = ck7.b.a();
+                ForumInfo d2 = value.d();
+                if (d2 != null) {
+                    l = d2.id;
+                } else {
+                    l = null;
+                }
+                a3.b(String.valueOf(l), System.currentTimeMillis());
+                ForumData forumData = new ForumData();
+                forumData.parserProtobuf(value.d());
+                vx6 o = vx6.o();
+                if (value2 != null) {
+                    forumTagInfo = value2.h();
+                } else {
+                    forumTagInfo = null;
+                }
+                if (value2 != null) {
+                    str = value2.c();
+                }
+                o.t(forumData, forumTagInfo, str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, bundle, binding) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, bundle, binding) == null) {
             Intrinsics.checkNotNullParameter(binding, "binding");
             super.k(bundle, binding);
-            this.d = binding;
+            this.e = binding;
             if (!FeedStat.a.e()) {
                 FeedStat.a.h();
             }
-            this.c = new vj7(this.b);
+            this.d = new nl7(this.b);
             Bundle extras = this.b.getIntent().getExtras();
             if (extras != null) {
                 bundle = extras;
@@ -451,7 +534,7 @@ public final class MainController extends pg7 {
             if (bundle == null) {
                 bundle = new Bundle();
             }
-            this.e = bundle;
+            this.f = bundle;
             Bundle bundle2 = null;
             if (bundle == null) {
                 Intrinsics.throwUninitializedPropertyAccessException(StateManager.KEY_STATE);
@@ -461,37 +544,42 @@ public final class MainController extends pg7 {
             if (string == null) {
                 string = "";
             }
-            this.f = string;
-            oj7 oj7Var = new oj7(this.b);
-            vj7 vj7Var = this.c;
-            if (vj7Var == null) {
+            this.g = string;
+            ForumLog.b.b().i(this.c, "forum " + this.g + " onCreate");
+            gl7 gl7Var = new gl7(this.b);
+            nl7 nl7Var = this.d;
+            if (nl7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("forumModel");
-                vj7Var = null;
+                nl7Var = null;
             }
-            vj7Var.g(new b(this, oj7Var));
-            Bundle bundle3 = this.e;
+            nl7Var.h(new b(this, gl7Var));
+            Bundle bundle3 = this.f;
             if (bundle3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException(StateManager.KEY_STATE);
             } else {
                 bundle2 = bundle3;
             }
-            I(bundle2);
-            A();
-            gu4.b.a().c(this.l);
+            K(bundle2);
+            C();
+            iu4.b.a().c(this.m);
         }
     }
 
-    public final void z() {
+    @Override // com.baidu.tieba.sh7
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            wj5 G = G();
-            ActivityForumBinding activityForumBinding = this.d;
-            if (activityForumBinding == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("binding");
-                activityForumBinding = null;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.l();
+            TbLog b2 = ForumLog.b.b();
+            String str = this.c;
+            b2.i(str, "forum " + this.g + " onDestroy");
+            nl7 nl7Var = this.d;
+            if (nl7Var == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("forumModel");
+                nl7Var = null;
             }
-            G.attachView(activityForumBinding.r);
-            to5.a.a(ug7.a(this.b), new Pair<>(PushMessageHelper.ERROR_TYPE, "new_frs_page"), new Pair<>("error_info", "new frs page net error"));
+            nl7Var.e();
+            iu4.b.a().e(this.m);
         }
     }
 }

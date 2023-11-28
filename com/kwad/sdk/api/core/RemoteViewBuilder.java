@@ -8,8 +8,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.widget.RemoteViews;
 import androidx.annotation.Keep;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 @KsAdSdkDynamicApi
 @Keep
 /* loaded from: classes10.dex */
@@ -23,23 +26,17 @@ public class RemoteViewBuilder {
 
         public CompletedRemoteViewImpl(Context context) {
             this.mContext = context;
-            this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
+            if (context instanceof ResContext) {
+                this.mOriginContext = ((ResContext) context).getDelegatedContext();
+            } else {
+                this.mOriginContext = context;
+            }
             this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, "ksad_notification_download_completed"));
-        }
-
-        @Override // com.kwad.sdk.api.core.ICompletedRemoteView
-        public RemoteViews build() {
-            return this.mRemoteViews;
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
         public void setIcon(int i) {
             setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
-        }
-
-        @Override // com.kwad.sdk.api.core.ICompletedRemoteView
-        public void setIcon(Bitmap bitmap) {
-            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
@@ -61,6 +58,16 @@ public class RemoteViewBuilder {
         public void setStatus(String str) {
             this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
         }
+
+        @Override // com.kwad.sdk.api.core.ICompletedRemoteView
+        public RemoteViews build() {
+            return this.mRemoteViews;
+        }
+
+        @Override // com.kwad.sdk.api.core.ICompletedRemoteView
+        public void setIcon(Bitmap bitmap) {
+            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
+        }
     }
 
     /* loaded from: classes10.dex */
@@ -76,23 +83,39 @@ public class RemoteViewBuilder {
         public final RemoteViews mRemoteViews;
 
         public ProgressRemoteViewImpl(Context context, int i, boolean z) {
+            String str;
             this.btnControlId = -1;
             this.btnTextColorChecked = Color.parseColor("#FFFFFFFF");
             this.btnTextColorUnchecked = Color.parseColor("#FF222222");
             this.downloadTaskId = 0;
             this.mContext = context;
             this.downloadTaskId = i;
-            this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, z ? "ksad_notification_download_progress_with_control" : "ksad_notification_download_progress_without_control"));
+            if (context instanceof ResContext) {
+                this.mOriginContext = ((ResContext) context).getDelegatedContext();
+            } else {
+                this.mOriginContext = context;
+            }
+            if (z) {
+                str = "ksad_notification_download_progress_with_control";
+            } else {
+                str = "ksad_notification_download_progress_without_control";
+            }
+            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, str));
             this.btnControlId = ResUtil.getId(this.mOriginContext, "ksad_download_control_btn");
             initViews();
             setControlBtnPaused(false);
         }
 
         private void initViews() {
+            PendingIntent broadcast;
             Intent intent = new Intent(ACTION_CLICK_CONTROL_BTN);
             intent.putExtra("taskId", this.downloadTaskId);
-            this.mRemoteViews.setOnClickPendingIntent(this.btnControlId, PendingIntent.getBroadcast(this.mContext, this.downloadTaskId, intent, 0));
+            if (Build.VERSION.SDK_INT >= 31) {
+                broadcast = PendingIntent.getBroadcast(this.mContext, this.downloadTaskId, intent, BDImageView.DEFAULT_BORDER_COLOR);
+            } else {
+                broadcast = PendingIntent.getBroadcast(this.mContext, this.downloadTaskId, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            }
+            this.mRemoteViews.setOnClickPendingIntent(this.btnControlId, broadcast);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -102,31 +125,35 @@ public class RemoteViewBuilder {
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setControlBtnPaused(boolean z) {
-            Context context;
             String str;
+            int i;
+            int drawableId;
             if (this.mRemoteViews == null) {
                 return;
             }
-            this.mRemoteViews.setTextViewText(this.btnControlId, z ? "继续" : "暂停");
-            this.mRemoteViews.setTextColor(this.btnControlId, z ? this.btnTextColorChecked : this.btnTextColorUnchecked);
             if (z) {
-                context = this.mOriginContext;
-                str = "ksad_notification_control_btn_bg_checked";
+                str = "继续";
             } else {
-                context = this.mOriginContext;
-                str = "ksad_notification_control_btn_bg_unchecked";
+                str = "暂停";
             }
-            this.mRemoteViews.setImageViewResource(ResUtil.getId(this.mOriginContext, "ksad_download_control_bg_image"), ResUtil.getDrawableId(context, str));
+            this.mRemoteViews.setTextViewText(this.btnControlId, str);
+            if (z) {
+                i = this.btnTextColorChecked;
+            } else {
+                i = this.btnTextColorUnchecked;
+            }
+            this.mRemoteViews.setTextColor(this.btnControlId, i);
+            if (z) {
+                drawableId = ResUtil.getDrawableId(this.mOriginContext, "ksad_notification_control_btn_bg_checked");
+            } else {
+                drawableId = ResUtil.getDrawableId(this.mOriginContext, "ksad_notification_control_btn_bg_unchecked");
+            }
+            this.mRemoteViews.setImageViewResource(ResUtil.getId(this.mOriginContext, "ksad_download_control_bg_image"), drawableId);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setIcon(int i) {
             setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
-        }
-
-        @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setIcon(Bitmap bitmap) {
-            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -140,11 +167,6 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setProgress(int i, int i2, boolean z) {
-            this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i, i2, z);
-        }
-
-        @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setSize(String str) {
             this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_size"), str);
         }
@@ -153,6 +175,20 @@ public class RemoteViewBuilder {
         public void setStatus(String str) {
             this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
         }
+
+        @Override // com.kwad.sdk.api.core.IProgressRemoteView
+        public void setIcon(Bitmap bitmap) {
+            this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
+        }
+
+        @Override // com.kwad.sdk.api.core.IProgressRemoteView
+        public void setProgress(int i, int i2, boolean z) {
+            this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i, i2, z);
+        }
+    }
+
+    public static Bitmap getBitmap(Context context, int i) {
+        return drawableToBitmap(context.getResources().getDrawable(i));
     }
 
     @KsAdSdkDynamicApi
@@ -175,25 +211,31 @@ public class RemoteViewBuilder {
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
+        int intrinsicWidth;
+        int intrinsicHeight;
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();
         }
-        int width = !drawable.getBounds().isEmpty() ? drawable.getBounds().width() : drawable.getIntrinsicWidth();
-        int height = !drawable.getBounds().isEmpty() ? drawable.getBounds().height() : drawable.getIntrinsicHeight();
-        if (width <= 0) {
-            width = 1;
+        if (!drawable.getBounds().isEmpty()) {
+            intrinsicWidth = drawable.getBounds().width();
+        } else {
+            intrinsicWidth = drawable.getIntrinsicWidth();
         }
-        if (height <= 0) {
-            height = 1;
+        if (!drawable.getBounds().isEmpty()) {
+            intrinsicHeight = drawable.getBounds().height();
+        } else {
+            intrinsicHeight = drawable.getIntrinsicHeight();
         }
-        Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        if (intrinsicWidth <= 0) {
+            intrinsicWidth = 1;
+        }
+        if (intrinsicHeight <= 0) {
+            intrinsicHeight = 1;
+        }
+        Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return createBitmap;
-    }
-
-    public static Bitmap getBitmap(Context context, int i) {
-        return drawableToBitmap(context.getResources().getDrawable(i));
     }
 }

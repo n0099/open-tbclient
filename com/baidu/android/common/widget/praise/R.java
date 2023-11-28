@@ -36,14 +36,14 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pHeight = 0x7f040552;
-        public static final int pMarginLeft = 0x7f040553;
-        public static final int pPaddingLeft = 0x7f040554;
-        public static final int pShowText = 0x7f040555;
-        public static final int pTextBold = 0x7f040556;
-        public static final int pTextColor = 0x7f040557;
-        public static final int pTextSize = 0x7f040558;
-        public static final int pWidth = 0x7f040559;
+        public static final int pHeight = 0x7f040558;
+        public static final int pMarginLeft = 0x7f040559;
+        public static final int pPaddingLeft = 0x7f04055a;
+        public static final int pShowText = 0x7f04055b;
+        public static final int pTextBold = 0x7f04055c;
+        public static final int pTextColor = 0x7f04055d;
+        public static final int pTextSize = 0x7f04055e;
+        public static final int pWidth = 0x7f04055f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -64,8 +64,8 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int praise_cool_icon_height = 0x7f07077b;
-        public static final int praise_cool_icon_width = 0x7f07077c;
+        public static final int praise_cool_icon_height = 0x7f07078e;
+        public static final int praise_cool_icon_width = 0x7f07078f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -86,9 +86,9 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int video_detail_like = 0x7f092930;
-        public static final int video_detail_like_icon = 0x7f092931;
-        public static final int video_detail_like_text = 0x7f092932;
+        public static final int video_detail_like = 0x7f0929b5;
+        public static final int video_detail_like_icon = 0x7f0929b6;
+        public static final int video_detail_like_text = 0x7f0929b7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -109,7 +109,7 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cool_praise_view = 0x7f0d0237;
+        public static final int cool_praise_view = 0x7f0d023d;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -130,10 +130,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int praise_billion_unit = 0x7f0f1161;
-        public static final int praise_firstpraise = 0x7f0f1162;
-        public static final int praise_ten_thousand = 0x7f0f1166;
-        public static final int praise_text = 0x7f0f1167;
+        public static final int praise_billion_unit = 0x7f0f1171;
+        public static final int praise_firstpraise = 0x7f0f1172;
+        public static final int praise_ten_thousand = 0x7f0f1176;
+        public static final int praise_text = 0x7f0f1177;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -178,7 +178,7 @@ public final class R {
                     return;
                 }
             }
-            coolPraiseView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040552, com.baidu.tieba.R.attr.obfuscated_res_0x7f040553, com.baidu.tieba.R.attr.obfuscated_res_0x7f040554, com.baidu.tieba.R.attr.obfuscated_res_0x7f040555, com.baidu.tieba.R.attr.obfuscated_res_0x7f040556, com.baidu.tieba.R.attr.obfuscated_res_0x7f040557, com.baidu.tieba.R.attr.obfuscated_res_0x7f040558, com.baidu.tieba.R.attr.obfuscated_res_0x7f040559};
+            coolPraiseView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040558, com.baidu.tieba.R.attr.obfuscated_res_0x7f040559, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04055f};
         }
 
         public styleable() {

@@ -115,23 +115,23 @@ public class LoaderManager {
         Throwable th;
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(this.mContext.getAssets().open(TitanConstant.APKID_ASSETS_PATH)));
-        } catch (Exception unused) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            bufferedReader = null;
-            th = th2;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            Closes.closeQuiet((Reader) bufferedReader);
-            return readLine;
+            try {
+                String readLine = bufferedReader.readLine();
+                Closes.closeQuiet((Reader) bufferedReader);
+                return readLine;
+            } catch (Exception unused) {
+                Closes.closeQuiet((Reader) bufferedReader);
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                Closes.closeQuiet((Reader) bufferedReader);
+                throw th;
+            }
         } catch (Exception unused2) {
-            Closes.closeQuiet((Reader) bufferedReader);
-            return null;
+            bufferedReader = null;
         } catch (Throwable th3) {
+            bufferedReader = null;
             th = th3;
-            Closes.closeQuiet((Reader) bufferedReader);
-            throw th;
         }
     }
 

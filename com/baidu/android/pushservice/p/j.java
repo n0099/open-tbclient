@@ -2,9 +2,14 @@ package com.baidu.android.pushservice.p;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -13,6 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j extends com.baidu.android.pushservice.z.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context c;
     public a d;
     public String e;
@@ -24,6 +31,20 @@ public class j extends com.baidu.android.pushservice.z.c {
     }
 
     public j(Context context, String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         ArrayList arrayList = new ArrayList();
         this.f = arrayList;
         this.c = context;
@@ -36,18 +57,20 @@ public class j extends com.baidu.android.pushservice.z.c {
 
     @Override // com.baidu.android.pushservice.z.c
     public void a() {
-        c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c();
+        }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x00f8 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0046 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x00fc */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x004a */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0108: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:56:0x0108 */
-    /* JADX WARN: Type inference failed for: r0v0 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [int] */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7, types: [android.content.Context] */
+    /* JADX WARN: Type inference failed for: r0v10 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v6, types: [int] */
     /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9, types: [android.content.Context] */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r1v5 */
     /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable[]] */
@@ -56,11 +79,14 @@ public class j extends com.baidu.android.pushservice.z.c {
     /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.android.pushservice.p.j$a] */
     public void c() {
         InputStream inputStream;
-        Closeable closeable;
         String string;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
         ?? r0 = -1;
         r0 = -1;
-        Closeable closeable2 = null;
+        InputStream inputStream2 = null;
         r1 = 0;
         ?? r1 = 0;
         try {
@@ -124,15 +150,15 @@ public class j extends com.baidu.android.pushservice.z.c {
                 }
             } catch (Throwable th) {
                 th = th;
-                closeable2 = closeable;
-                com.baidu.android.pushservice.q.c.a(this.c, closeable2);
+                inputStream2 = inputStream;
+                com.baidu.android.pushservice.q.c.a(this.c, inputStream2);
                 throw th;
             }
         } catch (Exception unused3) {
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.android.pushservice.q.c.a(this.c, closeable2);
+            com.baidu.android.pushservice.q.c.a(this.c, inputStream2);
             throw th;
         }
     }

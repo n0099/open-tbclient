@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,17 +46,10 @@ public final class BotEntranceManager {
     public String a;
     public int b;
 
-    @JvmStatic
-    public static final List<CallRobotEntrance> e(List<RobotSkillInfo> list, List<RobotSkill> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, list2)) == null) ? c.b(list, list2) : (List) invokeLL.objValue;
-    }
-
-    public static final BotEntranceManager h() {
+    public static final BotEntranceManager g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.c() : (BotEntranceManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.c() : (BotEntranceManager) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
@@ -192,7 +185,7 @@ public final class BotEntranceManager {
         this.b = -1;
     }
 
-    public final int g() {
+    public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -221,10 +214,10 @@ public final class BotEntranceManager {
                 if (it.hasNext()) {
                     obj = it.next();
                     CallRobotEntrance callRobotEntrance = (CallRobotEntrance) obj;
-                    if (TextUtils.equals(f(), callRobotEntrance.ability_conf.bot_uk)) {
-                        int g2 = g();
+                    if (TextUtils.equals(e(), callRobotEntrance.ability_conf.bot_uk)) {
+                        int f2 = f();
                         Integer num = callRobotEntrance.skill_id;
-                        if (num != null && g2 == num.intValue()) {
+                        if (num != null && f2 == num.intValue()) {
                             z = true;
                             continue;
                             if (z) {
@@ -276,7 +269,7 @@ public final class BotEntranceManager {
         return (RobotSkillInfo) invokeLL.objValue;
     }
 
-    public final String f() {
+    public final String e() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -296,15 +289,15 @@ public final class BotEntranceManager {
         return (String) invokeV.objValue;
     }
 
-    public final String i() {
+    public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!qd.isEmpty(f()) && g() != -1) {
+            if (!rd.isEmpty(e()) && f() != -1) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("bot_uk", f());
-                    jSONObject.put("skill_id", g());
+                    jSONObject.put("bot_uk", e());
+                    jSONObject.put("skill_id", f());
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
@@ -319,7 +312,7 @@ public final class BotEntranceManager {
         return (String) invokeV.objValue;
     }
 
-    public final String j(List<RobotSkillInfo> list) {
+    public final String i(List<RobotSkillInfo> list) {
         InterceptResult invokeL;
         boolean z;
         String str;
@@ -347,7 +340,7 @@ public final class BotEntranceManager {
         return (String) invokeL.objValue;
     }
 
-    public final void k(String value) {
+    public final void j(String value) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, value) == null) {
             Intrinsics.checkNotNullParameter(value, "value");
@@ -356,7 +349,7 @@ public final class BotEntranceManager {
         }
     }
 
-    public final void l(int i) {
+    public final void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.b = i;
@@ -364,12 +357,12 @@ public final class BotEntranceManager {
         }
     }
 
-    public final void m(String botUk, int i) {
+    public final void l(String botUk, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, botUk, i) == null) {
             Intrinsics.checkNotNullParameter(botUk, "botUk");
-            k(botUk);
-            l(i);
+            j(botUk);
+            k(i);
         }
     }
 }

@@ -8,30 +8,20 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes10.dex */
 public class KSLifecycleObserver {
-    public static KSLifecycleObserver sKSLifecycleObserver;
+    public static volatile KSLifecycleObserver sKSLifecycleObserver;
     public WeakReference<Activity> currentActivity;
     public Application mApplication;
     public boolean mIsInBackground = true;
-    public int startedActivityCount = 0;
+    public Set<Integer> mStartedActivitySet = new HashSet();
     public final List<KSLifecycleListener> mListeners = new CopyOnWriteArrayList();
     public boolean mHasInit = false;
     public boolean mEnable = false;
-
-    public static /* synthetic */ int access$208(KSLifecycleObserver kSLifecycleObserver) {
-        int i = kSLifecycleObserver.startedActivityCount;
-        kSLifecycleObserver.startedActivityCount = i + 1;
-        return i;
-    }
-
-    public static /* synthetic */ int access$210(KSLifecycleObserver kSLifecycleObserver) {
-        int i = kSLifecycleObserver.startedActivityCount;
-        kSLifecycleObserver.startedActivityCount = i - 1;
-        return i;
-    }
 
     public static KSLifecycleObserver getInstance() {
         if (sKSLifecycleObserver == null) {
@@ -82,6 +72,19 @@ public class KSLifecycleObserver {
         return weakReference.get();
     }
 
+    @Keep
+    public boolean isAppOnForeground() {
+        if (!this.mIsInBackground) {
+            return true;
+        }
+        return false;
+    }
+
+    @Keep
+    public boolean isEnable() {
+        return this.mEnable;
+    }
+
     public void init(@NonNull Context context) {
         try {
             if ((context instanceof Application) && !this.mHasInit) {
@@ -90,15 +93,7 @@ public class KSLifecycleObserver {
                 this.mApplication = application;
                 application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.kwad.sdk.api.core.KSLifecycleObserver.1
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-                        KSLifecycleObserver.this.mEnable = true;
-                        try {
-                            for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
-                                kSLifecycleListener.onActivityCreated(activity, bundle);
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
+                    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -106,20 +101,6 @@ public class KSLifecycleObserver {
                         try {
                             for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
                                 kSLifecycleListener.onActivityDestroyed(activity);
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityPaused(@NonNull Activity activity) {
-                        try {
-                            if (KSLifecycleObserver.this.currentActivity != null && KSLifecycleObserver.this.currentActivity.get() != null && ((Activity) KSLifecycleObserver.this.currentActivity.get()).equals(activity)) {
-                                KSLifecycleObserver.this.currentActivity = null;
-                            }
-                            for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
-                                kSLifecycleListener.onActivityPaused(activity);
                             }
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -139,16 +120,13 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
                     public void onActivityStarted(@NonNull Activity activity) {
                         try {
-                            KSLifecycleObserver.access$208(KSLifecycleObserver.this);
-                            if (KSLifecycleObserver.this.startedActivityCount == 1) {
-                                KSLifecycleObserver.this.onAppBackToForeground();
+                            KSLifecycleObserver.this.mStartedActivitySet.add(Integer.valueOf(activity.hashCode()));
+                            if (KSLifecycleObserver.this.mStartedActivitySet.size() != 1) {
+                                return;
                             }
+                            KSLifecycleObserver.this.onAppBackToForeground();
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
@@ -157,9 +135,36 @@ public class KSLifecycleObserver {
                     @Override // android.app.Application.ActivityLifecycleCallbacks
                     public void onActivityStopped(@NonNull Activity activity) {
                         try {
-                            KSLifecycleObserver.access$210(KSLifecycleObserver.this);
-                            if (KSLifecycleObserver.this.startedActivityCount == 0) {
-                                KSLifecycleObserver.this.onAppGoToBackground();
+                            KSLifecycleObserver.this.mStartedActivitySet.remove(Integer.valueOf(activity.hashCode()));
+                            if (KSLifecycleObserver.this.mStartedActivitySet.size() != 0) {
+                                return;
+                            }
+                            KSLifecycleObserver.this.onAppGoToBackground();
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+
+                    @Override // android.app.Application.ActivityLifecycleCallbacks
+                    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                        KSLifecycleObserver.this.mEnable = true;
+                        try {
+                            for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
+                                kSLifecycleListener.onActivityCreated(activity, bundle);
+                            }
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+
+                    @Override // android.app.Application.ActivityLifecycleCallbacks
+                    public void onActivityPaused(@NonNull Activity activity) {
+                        try {
+                            if (KSLifecycleObserver.this.currentActivity != null && KSLifecycleObserver.this.currentActivity.get() != null && ((Activity) KSLifecycleObserver.this.currentActivity.get()).equals(activity)) {
+                                KSLifecycleObserver.this.currentActivity = null;
+                            }
+                            for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
+                                kSLifecycleListener.onActivityPaused(activity);
                             }
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -170,16 +175,6 @@ public class KSLifecycleObserver {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-    }
-
-    @Keep
-    public boolean isAppOnForeground() {
-        return !this.mIsInBackground;
-    }
-
-    @Keep
-    public boolean isEnable() {
-        return this.mEnable;
     }
 
     @Keep

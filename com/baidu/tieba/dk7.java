@@ -1,7 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.forum.model.OperateType;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface dk7 {
-    void w0(OperateType operateType, boolean z, int i, String str, int i2);
+public final class dk7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            TiebaStatic.log(new StatisticItem("c13785"));
+        }
+    }
 }

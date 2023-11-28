@@ -6,11 +6,11 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.ag6;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
-import com.baidu.tieba.kk6;
-import com.baidu.tieba.qj6;
-import com.baidu.tieba.vk6;
+import com.baidu.tieba.el6;
+import com.baidu.tieba.ig6;
+import com.baidu.tieba.tk6;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ag6<String> a;
-    public final ag6<WebView> b;
+    public final ig6<String> a;
+    public final ig6<WebView> b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -61,12 +61,12 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
         }
     }
 
-    public SimpleWebViewLifeCycle(@NonNull ag6<WebView> ag6Var, @NonNull ag6<String> ag6Var2) {
+    public SimpleWebViewLifeCycle(@NonNull ig6<WebView> ig6Var, @NonNull ig6<String> ig6Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ag6Var, ag6Var2};
+            Object[] objArr = {ig6Var, ig6Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,30 +76,30 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
                 return;
             }
         }
-        this.b = ag6Var;
-        this.a = ag6Var2;
+        this.b = ig6Var;
+        this.a = ig6Var2;
     }
 
     public void b(Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
             WebView call = this.b.call();
-            if (call instanceof vk6) {
+            if (call instanceof el6) {
                 int i = a.a[event.ordinal()];
                 if (i != 1) {
                     if (i != 2) {
                         if (i == 3) {
-                            qj6.c("newHybrid", "WebView::onDestroy");
-                            ((kk6) ServiceManager.getService(kk6.a)).c(this.a.call(), call);
+                            zj6.c("newHybrid", "WebView::onDestroy");
+                            ((tk6) ServiceManager.getService(tk6.a)).c(this.a.call(), call);
                             return;
                         }
                         return;
                     }
-                    qj6.c("newHybrid", "WebView::onPause");
+                    zj6.c("newHybrid", "WebView::onPause");
                     call.onPause();
                     return;
                 }
-                qj6.c("newHybrid", "WebView::onResume");
+                zj6.c("newHybrid", "WebView::onResume");
                 call.onResume();
             }
         }

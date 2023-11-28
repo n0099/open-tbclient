@@ -1,21 +1,24 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hfc {
-    void a();
+public class hfc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean available();
-
-    boolean b(int i, boolean z);
-
-    int c();
-
-    void d(boolean z);
-
-    boolean e(Object obj);
-
-    int f();
-
-    void release();
-
-    boolean swapBuffer();
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return ifc.c(context);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

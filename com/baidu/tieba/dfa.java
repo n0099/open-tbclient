@@ -1,135 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.di8;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dfa {
+public class dfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kaa a;
+    public laa b;
+    public dba c;
+    public List<ci> d;
+    public ArrayList<pi> e;
+    public BdTypeListView f;
 
-    public dfa() {
+    public dfa(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                List<String> b = b();
-                if (true ^ b.isEmpty()) {
-                    return e(b);
-                }
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<re8> b = ula.d.a().b();
-            if (b.isEmpty()) {
-                return arrayList;
-            }
-            for (re8 re8Var : b) {
-                arrayList.add(re8Var.b());
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void c(List<re8> originList, List<di8.b> confirmList) {
-        re8 re8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, originList, confirmList) == null) {
-            Intrinsics.checkNotNullParameter(originList, "originList");
-            Intrinsics.checkNotNullParameter(confirmList, "confirmList");
-            if (!originList.isEmpty() && !confirmList.isEmpty()) {
-                HashMap hashMap = new HashMap();
-                for (re8 re8Var2 : originList) {
-                    if (re8Var2 != null && re8Var2.j()) {
-                        hashMap.put(re8Var2.b(), re8Var2);
-                    }
-                }
-                if (hashMap.isEmpty()) {
-                    return;
-                }
-                for (di8.b bVar : confirmList) {
-                    if (hashMap.containsKey(String.valueOf(bVar.a())) && bVar.b().c().b() && (re8Var = (re8) hashMap.get(String.valueOf(bVar.a()))) != null) {
-                        re8Var.n(true);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void d(String str, BdUniqueId mPageUniqueId) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, mPageUniqueId) == null) {
-            Intrinsics.checkNotNullParameter(mPageUniqueId, "mPageUniqueId");
-            String a = a(str);
-            if (a.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
                 return;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_SIGN_IN_RESULT);
-            httpMessage.addParam("scene_from", "recom");
-            httpMessage.addParam("forum_ids", a);
-            httpMessage.setTag(mPageUniqueId);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+        this.d = new ArrayList();
+        this.e = new ArrayList<>();
+        this.f = bdTypeListView;
+        a(tbPageContext);
+    }
+
+    public final void a(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.a = new kaa(tbPageContext);
+            this.b = new laa(tbPageContext, vba.b);
+            v9a v9aVar = new v9a(tbPageContext, this, tbPageContext.getUniqueId());
+            this.c = v9aVar;
+            this.b.x(v9aVar);
+            this.d.add(this.a);
+            this.d.add(this.b);
+            this.f.addAdapters(this.d);
         }
     }
 
-    public final String e(List<String> list) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (list.isEmpty()) {
-                return "";
-            }
-            return CollectionsKt___CollectionsKt.joinToString$default(list, ",", null, null, 0, null, null, 62, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof gi)) {
+            this.f.getAdapter2().notifyDataSetChanged();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void e() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bdTypeListView = this.f) != null) {
+            bdTypeListView.E();
+        }
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        ArrayList<pi> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            boolean z = false;
+            if (rd.isEmpty(str)) {
+                return false;
+            }
+            if (this.f != null && (arrayList = this.e) != null) {
+                Iterator<pi> it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    pi next = it.next();
+                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
+                        z = true;
+                        it.remove();
+                        break;
+                    }
+                }
+                if (z) {
+                    ArrayList<pi> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
+                    this.e = mergeDynamicThreadByTime;
+                    this.f.setData(mergeDynamicThreadByTime);
+                    b();
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(ArrayList<pi> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && arrayList != null && this.f != null) {
+            this.e.clear();
+            this.e.addAll(arrayList);
+            this.f.setData(this.e);
+        }
     }
 }

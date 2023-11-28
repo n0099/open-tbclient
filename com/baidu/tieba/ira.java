@@ -4,9 +4,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LinkInfo;
 /* loaded from: classes6.dex */
-public class ira {
+public final class ira extends kua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,15 +21,5 @@ public class ira {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(LinkInfo linkInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, linkInfo) != null) || linkInfo == null) {
-            return;
-        }
-        String str = linkInfo.desc;
-        String str2 = linkInfo.link;
-        String str3 = linkInfo.type;
     }
 }

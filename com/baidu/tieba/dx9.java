@@ -1,35 +1,68 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dx9 {
+public final class dx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public jy4 c;
+    public final nwa a;
+    public final Function1<FeedbackButtonStateType, Unit> b;
+    public final Function0<Boolean> c;
 
-    public dx9(TbPageContext tbPageContext) {
-        Uri uri;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof dx9) {
+                dx9 dx9Var = (dx9) obj;
+                return Intrinsics.areEqual(this.a, dx9Var.a) && Intrinsics.areEqual(this.b, dx9Var.b) && Intrinsics.areEqual(this.c, dx9Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            Function1<FeedbackButtonStateType, Unit> function1 = this.b;
+            int hashCode2 = (hashCode + (function1 == null ? 0 : function1.hashCode())) * 31;
+            Function0<Boolean> function0 = this.c;
+            return hashCode2 + (function0 != null ? function0.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "AigcFeedbackPostState(postData=" + this.a + ", onButtonClick=" + this.b + ", onInterceptClick=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public dx9(nwa postData, Function1<? super FeedbackButtonStateType, Unit> function1, Function0<Boolean> function0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {postData, function1, function0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,32 +72,36 @@ public class dx9 {
                 return;
             }
         }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            String queryParameter = uri.getQueryParameter("tid");
-            jy4 jy4Var = new jy4();
-            this.c = jy4Var;
-            jy4Var.a = uri.getQueryParameter("tid");
-            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-            if (!TextUtils.isEmpty(queryParameter) && BdActivityStack.getInst().getSize() <= 3) {
-                this.b = true;
-            }
-        }
+        Intrinsics.checkNotNullParameter(postData, "postData");
+        this.a = postData;
+        this.b = function1;
+        this.c = function0;
     }
 
-    public void a(PbModel pbModel) {
+    public final Function1<FeedbackButtonStateType, Unit> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.t1() != null && pbModel.t1().k() != null) {
-            ForumData k = pbModel.t1().k();
-            this.c.c = k.getFirst_class();
-            this.c.d = k.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-            if (BdActivityStack.getInst().isActivityExist("MainTabActivity")) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-            } else {
-                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Function1) invokeV.objValue;
+    }
+
+    public final Function0<Boolean> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Function0) invokeV.objValue;
+    }
+
+    public final nwa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (nwa) invokeV.objValue;
     }
 }

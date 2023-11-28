@@ -4,47 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedAuthorSocial;
-import tbclient.FeedContentResource;
-import tbclient.FeedKV;
-import tbclient.FeedPicAbstract;
-import tbclient.FrsTopThreadComponent;
+import tbclient.FeedbackReason;
 /* loaded from: classes6.dex */
-public class hyc extends qoc {
+public class hyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsTopThreadComponent frsTopThreadComponent) {
+    public static JSONObject b(@NonNull FeedbackReason feedbackReason) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTopThreadComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedbackReason)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (frsTopThreadComponent.title != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : frsTopThreadComponent.title) {
-                    jSONArray.put(gsc.b(feedContentResource));
-                }
-                qoc.a(jSONObject, "title", jSONArray);
-            }
-            FeedPicAbstract feedPicAbstract = frsTopThreadComponent.pic_abstract;
-            if (feedPicAbstract != null) {
-                qoc.a(jSONObject, "pic_abstract", btc.b(feedPicAbstract));
-            }
-            FeedAuthorSocial feedAuthorSocial = frsTopThreadComponent.author_social;
-            if (feedAuthorSocial != null) {
-                qoc.a(jSONObject, "author_social", bsc.b(feedAuthorSocial));
-            }
-            if (frsTopThreadComponent.business_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : frsTopThreadComponent.business_info) {
-                    jSONArray2.put(usc.b(feedKV));
-                }
-                qoc.a(jSONObject, "business_info", jSONArray2);
-            }
-            qoc.a(jSONObject, "scheme", frsTopThreadComponent.scheme);
+            ltc.a(jSONObject, "reason", feedbackReason.reason);
+            ltc.a(jSONObject, "id", feedbackReason.id);
+            ltc.a(jSONObject, "extra", feedbackReason.extra);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

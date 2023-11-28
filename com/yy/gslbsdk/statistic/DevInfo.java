@@ -8,7 +8,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.StringTools;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DevInfo {
     public String appId = StringTools.optString(GlobalTools.ACCOUNT_ID);
     public String gslbId = StringTools.optString(DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT));

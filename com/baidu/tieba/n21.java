@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.view.Window;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class n21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public static void a(Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && !str.startsWith(str2)) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65536, null, window) != null) || window == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        window.getDecorView().setSystemUiVisibility(3846);
     }
 }

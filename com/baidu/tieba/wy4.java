@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,27 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
+import tbclient.RecommendInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes9.dex */
-public class wy4 extends bw4 {
+public class wy4 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public List<MetaData> c;
-    public boolean d;
-
-    @Override // com.baidu.tieba.bw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    public ArrayList<xy4> b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +34,7 @@ public class wy4 extends bw4 {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public wy4() {
@@ -64,54 +50,50 @@ public class wy4 extends bw4 {
                 return;
             }
         }
-        this.d = true;
-        this.c = new ArrayList();
+        this.a = "";
+        this.b = new ArrayList<>();
     }
 
-    public List<MetaData> c() {
+    public ArrayList<xy4> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bw4
-    public NegativeFeedBackData getNegFeedBackData() {
+    @Override // com.baidu.tbadk.core.data.ThreadData
+    public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new NegativeFeedBackData();
+            return this.a;
         }
-        return (NegativeFeedBackData) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(List<User> list) {
-        int size;
+    public void d(RecommendInfo recommendInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
-            int size2 = list.size();
-            if (this.d) {
-                size = 10;
-            } else {
-                size = list.size();
-            }
-            int min = Math.min(size2, size);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.c.add(metaData);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendInfo) != null) || recommendInfo == null) {
+            return;
+        }
+        this.a = recommendInfo.title;
+        for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+            if (schoolRecomUserInfo != null) {
+                xy4 xy4Var = new xy4();
+                xy4Var.f(schoolRecomUserInfo);
+                this.b.add(xy4Var);
             }
         }
     }

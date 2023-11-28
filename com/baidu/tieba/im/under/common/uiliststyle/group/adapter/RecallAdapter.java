@@ -11,12 +11,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.RecallSysItem;
-import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,10 +58,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eac);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f22);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b4);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0928b5);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09293a);
         }
     }
 
@@ -93,7 +94,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0204, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d020a, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -131,32 +132,40 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                         int role = tbMsg.getUserFrom().getRole();
                         if (role != 2 && role != 3) {
                             if (role == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f0977);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0981);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f0953);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f095d);
                         }
                         holder.c.setText("");
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f0974);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f097e);
                     } else {
                         int role2 = tbMsg.getUserFrom().getRole();
                         if (role2 != 2 && role2 != 3) {
                             if (role2 == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f0977);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0981);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f0953);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f095d);
                         }
                         holder.c.setText(tbMsg.getUserTo().getUsername());
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f0973);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f097d);
                     }
                 } else if (type == 7015) {
                     holder.b.setText("");
                     holder.c.setText(tbMsg.getUserTo().getUsername());
-                    holder.d.setText(R.string.obfuscated_res_0x7f0f097c);
+                    holder.d.setText(R.string.obfuscated_res_0x7f0f0986);
+                } else if (type == 7023) {
+                    if (ListUtils.isEmpty(tbMsg.getRecallMsg())) {
+                        holder.a.setVisibility(8);
+                    } else {
+                        holder.b.setText("");
+                        holder.c.setText("");
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f094f);
+                    }
                 }
             }
-            vv8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+            cz8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

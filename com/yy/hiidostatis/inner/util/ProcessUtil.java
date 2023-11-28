@@ -6,7 +6,7 @@ import android.os.Process;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ProcessUtil {
     public static String mCurProcessName;
 

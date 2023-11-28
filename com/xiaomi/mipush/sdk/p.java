@@ -11,25 +11,25 @@ public final class p extends aj.a {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ig f86a;
+    public final /* synthetic */ ig f82a;
 
     public p(ig igVar, Context context) {
-        this.f86a = igVar;
+        this.f82a = igVar;
         this.a = context;
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo306a() {
+    public String mo310a() {
         return "22";
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        ig igVar = this.f86a;
+        ig igVar = this.f82a;
         if (igVar != null) {
             igVar.a(bd.a());
-            ao.a(this.a.getApplicationContext()).a((ao) this.f86a, hh.Notification, true, (hu) null, true);
+            ao.a(this.a.getApplicationContext()).a((ao) this.f82a, hh.Notification, true, (hu) null, true);
         }
     }
 }

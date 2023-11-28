@@ -1,187 +1,295 @@
 package com.baidu.tieba;
 
+import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.internal.util.UtilityFunctions;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
 /* loaded from: classes6.dex */
 public final class ikc {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "ikc";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(long j, long j2) {
-        InterceptResult invokeCommon;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947857832, "Lcom/baidu/tieba/ikc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947857832, "Lcom/baidu/tieba/ikc;");
+        }
+    }
+
+    public static int f(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j + j2;
-            if (j3 < 0) {
-                return Long.MAX_VALUE;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f)) == null) ? (int) (f + 0.5f) : invokeF.intValue;
+    }
+
+    public static float g(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) ? ((int) (f * 100.0f)) / 100.0f : invokeF.floatValue;
+    }
+
+    public static void a(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = mediaInfo.b;
+            int i6 = mediaInfo.c;
+            float f = i5 / mediaInfo.d;
+            float f2 = i6 / mediaInfo.e;
+            if (i2 == 1 || i2 == 3) {
+                i5 = mediaInfo.c;
+                i6 = mediaInfo.b;
+                f = i5 / mediaInfo.e;
+                f2 = i6 / mediaInfo.d;
             }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static long b(AtomicLong atomicLong, long j) {
-        long j2;
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
-            return j2;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static long c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j * j2;
-            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
-                return Long.MAX_VALUE;
-            }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
-    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
-    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, pjc<? super R> pjcVar, ckc<? super T, ? extends R> ckcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, pjcVar, ckcVar) == null) {
-            long j = atomicLong.get();
-            if (j == Long.MAX_VALUE) {
-                while (!pjcVar.isUnsubscribed()) {
-                    Object poll = queue.poll();
-                    if (poll == null) {
-                        pjcVar.onCompleted();
+            float g = g(f);
+            float g2 = g(f2);
+            fArr[2] = 0.0f;
+            fArr[3] = 0.0f;
+            fArr[6] = g;
+            fArr[7] = 0.0f;
+            fArr[10] = 0.0f;
+            fArr[11] = g2;
+            fArr[14] = g;
+            fArr[15] = g2;
+            if (i == 2) {
+                float f3 = i6 / i5;
+                int f4 = f(i3 * f3);
+                if (f4 > i4) {
+                    float f5 = ((f4 - i4) >> 1) / f4;
+                    if (i2 != 1 && i2 != 3) {
+                        fArr[3] = fArr[3] + f5;
+                        fArr[7] = fArr[7] + f5;
+                        fArr[11] = fArr[11] - f5;
+                        fArr[15] = fArr[15] - f5;
                         return;
                     }
-                    pjcVar.onNext((R) ckcVar.call(poll));
+                    fArr[2] = fArr[2] + f5;
+                    fArr[6] = fArr[6] - f5;
+                    fArr[10] = fArr[10] + f5;
+                    fArr[14] = fArr[14] - f5;
+                    return;
                 }
+                int f6 = f(i4 / f3);
+                float f7 = ((f6 - i3) >> 1) / f6;
+                if (i2 != 1 && i2 != 3) {
+                    fArr[2] = fArr[2] + f7;
+                    fArr[6] = fArr[6] - f7;
+                    fArr[10] = fArr[10] + f7;
+                    fArr[14] = fArr[14] - f7;
+                    return;
+                }
+                fArr[3] = fArr[3] + f7;
+                fArr[7] = fArr[7] + f7;
+                fArr[11] = fArr[11] - f7;
+                fArr[15] = fArr[15] - f7;
+            }
+        }
+    }
+
+    public static void b(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
+        int f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            fArr[0] = -1.0f;
+            fArr[1] = 1.0f;
+            fArr[4] = 1.0f;
+            fArr[5] = 1.0f;
+            fArr[8] = -1.0f;
+            fArr[9] = -1.0f;
+            fArr[12] = 1.0f;
+            fArr[13] = -1.0f;
+            int i5 = mediaInfo.b;
+            int i6 = mediaInfo.c;
+            if (i2 == 1 || i2 == 3) {
+                i5 = mediaInfo.c;
+                i6 = mediaInfo.b;
+            }
+            if (i == 1) {
+                float f2 = i6 / i5;
+                float f3 = i3;
+                if (f(f3 * f2) <= i4) {
+                    float f4 = (i4 - f) / i4;
+                    if (i2 != 1 && i2 != 3) {
+                        fArr[1] = fArr[1] - f4;
+                        fArr[5] = fArr[5] - f4;
+                        fArr[9] = fArr[9] + f4;
+                        fArr[13] = fArr[13] + f4;
+                        return;
+                    }
+                    fArr[0] = fArr[0] + f4;
+                    fArr[4] = fArr[4] - f4;
+                    fArr[8] = fArr[8] + f4;
+                    fArr[12] = fArr[12] - f4;
+                    return;
+                }
+                float f5 = (i3 - f(i4 / f2)) / f3;
+                if (i2 != 1 && i2 != 3) {
+                    fArr[0] = fArr[0] + f5;
+                    fArr[4] = fArr[4] - f5;
+                    fArr[8] = fArr[8] + f5;
+                    fArr[12] = fArr[12] - f5;
+                    return;
+                }
+                fArr[1] = fArr[1] - f5;
+                fArr[5] = fArr[5] - f5;
+                fArr[9] = fArr[9] + f5;
+                fArr[13] = fArr[13] + f5;
+            }
+        }
+    }
+
+    public static void c(String str, hkc hkcVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65539, null, str, hkcVar) != null) {
+            return;
+        }
+        while (true) {
+            int glGetError = GLES20.glGetError();
+            if (glGetError != 0) {
+                String format = String.format("%s failed. glError() = 0x%04x", str, Integer.valueOf(glGetError));
+                if (glGetError == 1285 && hkcVar != null && (i = hkcVar.a) < 10000) {
+                    hkcVar.a = i + 1;
+                }
+                TLog.d(a, format);
+            } else {
                 return;
             }
-            do {
-                long j2 = Long.MIN_VALUE;
-                while (true) {
-                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i != 0) {
-                        if (pjcVar.isUnsubscribed()) {
-                            return;
-                        }
-                        Object poll2 = queue.poll();
-                        if (poll2 == null) {
-                            pjcVar.onCompleted();
-                            return;
-                        } else {
-                            pjcVar.onNext((R) ckcVar.call(poll2));
-                            j2++;
-                        }
-                    } else {
-                        if (i == 0) {
-                            if (pjcVar.isUnsubscribed()) {
-                                return;
-                            }
-                            if (queue.isEmpty()) {
-                                pjcVar.onCompleted();
-                                return;
-                            }
-                        }
-                        j = atomicLong.get();
-                        if (j == j2) {
-                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
-                        }
-                    }
-                }
-            } while (j != Long.MIN_VALUE);
         }
     }
 
-    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, pjc<? super T> pjcVar) {
-        InterceptResult invokeCommon;
+    public static int d(String str, String str2, hkc hkcVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, pjcVar})) == null) {
-            return f(atomicLong, j, queue, pjcVar, UtilityFunctions.b());
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, pjc<? super R> pjcVar, ckc<? super T, ? extends R> ckcVar) {
-        InterceptResult invokeCommon;
-        long j2;
-        long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, pjcVar, ckcVar})) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                while (true) {
-                    j2 = atomicLong.get();
-                    j3 = j2 & Long.MIN_VALUE;
-                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
-                        break;
-                    }
-                }
-                if (j2 == Long.MIN_VALUE) {
-                    d(atomicLong, queue, pjcVar, ckcVar);
-                    return false;
-                } else if (j3 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, hkcVar)) == null) {
+            int[] iArr = new int[1];
+            int h = h(str, 35633);
+            if (h <= 0) {
+                c("loadShader(GL_VERTEX_SHADER)", hkcVar);
+                return -1;
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static long g(AtomicLong atomicLong, long j) {
-        long j2;
-        long j3;
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-                if (j2 == Long.MAX_VALUE) {
-                    return Long.MAX_VALUE;
-                }
-                j3 = j2 - j;
-                if (j3 < 0) {
-                    throw new IllegalStateException("More produced than requested: " + j3);
-                }
-            } while (!atomicLong.compareAndSet(j2, j3));
-            return j3;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static boolean h(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i != 0) {
-                    return true;
-                }
-                return false;
+            int h2 = h(str2, 35632);
+            if (h2 <= 0) {
+                c("loadShader(GL_FRAGMENT_SHADER)", hkcVar);
+                k(h, hkcVar);
+                return -1;
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+            int glCreateProgram = GLES20.glCreateProgram();
+            c("glCreateProgram()", hkcVar);
+            GLES20.glAttachShader(glCreateProgram, h);
+            GLES20.glAttachShader(glCreateProgram, h2);
+            GLES20.glLinkProgram(glCreateProgram);
+            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
+            if (iArr[0] <= 0) {
+                String str3 = a;
+                TLog.d(str3, "glLinkProgram() failed.\n" + GLES20.glGetProgramInfoLog(glCreateProgram));
+                glCreateProgram = j(glCreateProgram, hkcVar);
+            }
+            GLES20.glDeleteShader(h);
+            GLES20.glDeleteShader(h2);
+            return glCreateProgram;
         }
-        return invokeJ.booleanValue;
+        return invokeLLL.intValue;
+    }
+
+    public static int e(hkc hkcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, hkcVar)) == null) {
+            int[] iArr = new int[1];
+            GLES20.glGenTextures(1, iArr, 0);
+            c("glGenTextures()", hkcVar);
+            return iArr[0];
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
+            int[] iArr = new int[1];
+            int glCreateShader = GLES20.glCreateShader(i);
+            GLES20.glShaderSource(glCreateShader, str);
+            GLES20.glCompileShader(glCreateShader);
+            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+            if (iArr[0] != 1) {
+                String str2 = a;
+                TLog.h(str2, "[seek] glCompileShader() failed." + GLES20.glGetShaderInfoLog(glCreateShader));
+                return -1;
+            }
+            return glCreateShader;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int i(int i, hkc hkcVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i, hkcVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteBuffers(1, new int[]{i}, 0);
+                c("glDeleteBuffers()", hkcVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int j(int i, hkc hkcVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i, hkcVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteProgram(i);
+                c("glDeleteProgram()", hkcVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int k(int i, hkc hkcVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, hkcVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteShader(i);
+                c("glDeleteShader()", hkcVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int l(int i, hkc hkcVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, hkcVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteTextures(1, new int[]{i}, 0);
+                c("glDeleteTextures()", hkcVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
     }
 }

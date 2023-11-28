@@ -18,9 +18,23 @@ public class LimitedAgeMemoryCache implements MemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public boolean put(String str, DecodedResult decodedResult) {
+        boolean put = this.cache.put(str, decodedResult);
+        if (put) {
+            this.loadingDates.put(str, Long.valueOf(System.currentTimeMillis()));
+        }
+        return put;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public void clear() {
         this.cache.clear();
         this.loadingDates.clear();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public Collection<String> keys() {
+        return this.cache.keys();
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -31,20 +45,6 @@ public class LimitedAgeMemoryCache implements MemoryCache {
             this.loadingDates.remove(str);
         }
         return this.cache.get(str);
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection<String> keys() {
-        return this.cache.keys();
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public boolean put(String str, DecodedResult decodedResult) {
-        boolean put = this.cache.put(str, decodedResult);
-        if (put) {
-            this.loadingDates.put(str, Long.valueOf(System.currentTimeMillis()));
-        }
-        return put;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache

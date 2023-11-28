@@ -1,189 +1,61 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.SystemClock;
-import android.view.Choreographer;
-import androidx.annotation.RequiresApi;
-import androidx.collection.SimpleArrayMap;
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
+import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import com.baidu.ala.gift.IFrameCallback;
+import com.baidu.ala.gift.IImageFramePlayerViewController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class he6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<he6> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleArrayMap<b, Long> a;
-    public final ArrayList<b> b;
-    public final a c;
-    public c d;
-    public long e;
-    public boolean f;
+    public Context a;
+    public RelativeLayout b;
+    public IImageFramePlayerViewController c;
+    public AlaEffectPreviewView d;
+    public AlaEnterEffectData e;
+    public int f;
+    public IFrameCallback g;
+    public c h;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        boolean a(long j);
+    public interface c {
+        void a();
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Runnable b;
-        public final Handler c;
-        public long d;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.d = SystemClock.uptimeMillis();
-                    this.a.a.a();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(a aVar) {
-            super(aVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = -1L;
-            this.b = new a(this);
-            this.c = new Handler(Looper.myLooper());
-        }
-
-        @Override // com.baidu.tieba.he6.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.postDelayed(this.b, Math.max(10 - (SystemClock.uptimeMillis() - this.d), 0L));
-            }
-        }
-    }
-
-    @RequiresApi(16)
-    /* loaded from: classes6.dex */
-    public static class e extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Choreographer b;
-        public final Choreographer.FrameCallback c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Choreographer.FrameCallback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.view.Choreographer.FrameCallback
-            public void doFrame(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                    this.a.a.a();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(a aVar) {
-            super(aVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = Choreographer.getInstance();
-            this.c = new a(this);
-        }
-
-        @Override // com.baidu.tieba.he6.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.postFrameCallback(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a {
+    public class a implements IFrameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ he6 a;
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
 
         public a(he6 he6Var) {
             Interceptable interceptable = $ic;
@@ -203,33 +75,31 @@ public class he6 {
             this.a = he6Var;
         }
 
-        public void a() {
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e = SystemClock.uptimeMillis();
-                he6 he6Var = this.a;
-                he6Var.h(he6Var.e);
-                if (this.a.b.size() > 0) {
-                    this.a.j().a();
+                he6.b(this.a);
+                if (this.a.f <= 0 && this.a.e != null) {
+                    he6 he6Var = this.a;
+                    he6Var.g(he6Var.e);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class c {
+    public class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final a a;
+        public final /* synthetic */ he6 a;
 
-        public abstract void a();
-
-        public c(a aVar) {
+        public b(he6 he6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
+                Object[] objArr = {he6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -239,141 +109,130 @@ public class he6 {
                     return;
                 }
             }
-            this.a = aVar;
+            this.a = he6Var;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820880, "Lcom/baidu/tieba/he6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947820880, "Lcom/baidu/tieba/he6;");
-                return;
-            }
-        }
-        g = new ThreadLocal<>();
-    }
-
-    public static he6 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (g.get() == null) {
-                g.set(new he6());
-            }
-            return g.get();
-        }
-        return (he6) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f) {
-            for (int size = this.b.size() - 1; size >= 0; size--) {
-                if (this.b.get(size) == null) {
-                    this.b.remove(size);
+        @Override // com.baidu.tieba.he6.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                he6.b(this.a);
+                if (this.a.e != null) {
+                    if (this.a.e.type == 1 && this.a.f <= 0) {
+                        he6 he6Var = this.a;
+                        he6Var.g(he6Var.e);
+                    } else if (this.a.e.type == 0) {
+                        he6 he6Var2 = this.a;
+                        he6Var2.g(he6Var2.e);
+                    }
                 }
             }
-            this.f = false;
         }
     }
 
-    public he6() {
+    public he6(Context context, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, relativeLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SimpleArrayMap<>();
-        this.b = new ArrayList<>();
-        this.c = new a(this);
-        this.e = 0L;
-        this.f = false;
+        this.f = 2;
+        this.g = new a(this);
+        this.h = new b(this);
+        this.a = context;
+        this.b = relativeLayout;
     }
 
-    public final c j() {
-        InterceptResult invokeV;
+    public static /* synthetic */ int b(he6 he6Var) {
+        int i = he6Var.f;
+        he6Var.f = i - 1;
+        return i;
+    }
+
+    public void g(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+            return;
+        }
+        this.e = alaEnterEffectData;
+        int i = alaEnterEffectData.type;
+        if (i == 1) {
+            this.f = 2;
+            e(alaEnterEffectData);
+            f(alaEnterEffectData);
+        } else if (i == 0) {
+            f(alaEnterEffectData);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
+            if (iImageFramePlayerViewController != null) {
+                iImageFramePlayerViewController.onDestroy();
+            }
+            AlaEffectPreviewView alaEffectPreviewView = this.d;
+            if (alaEffectPreviewView != null) {
+                alaEffectPreviewView.f();
+            }
+        }
+    }
+
+    public final void e(AlaEnterEffectData alaEnterEffectData) {
+        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
+                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
+                this.c = iImageFramePlayerViewController;
+                iImageFramePlayerViewController.setFrameCallback(this.g);
+            }
+            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
+            if (iImageFramePlayerViewController2 != null) {
+                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
+                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, BdUtilHelper.getEquipmentHeight(this.a)));
+                }
+                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
+                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
+                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
+                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
+                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
+                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
+                }
+                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
+                this.c.setData(alaDynamicGiftAndNativeData);
+                this.c.startAnim();
+            }
+        }
+    }
+
+    public final void f(AlaEnterEffectData alaEnterEffectData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
             if (this.d == null) {
-                if (Build.VERSION.SDK_INT >= 16) {
-                    this.d = new e(this.c);
-                } else {
-                    this.d = new d(this.c);
-                }
+                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
+                this.d = alaEffectPreviewView;
+                alaEffectPreviewView.setAnimCompleteCallback(this.h);
             }
-            return this.d;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public void l(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.a.remove(bVar);
-            int indexOf = this.b.indexOf(bVar);
-            if (indexOf >= 0) {
-                this.b.set(indexOf, null);
-                this.f = true;
+            if (this.d.getParent() == null) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f0909e6);
+                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ef);
+                this.b.addView(this.d, layoutParams);
             }
-        }
-    }
-
-    public final boolean k(b bVar, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, bVar, j)) == null) {
-            Long l = this.a.get(bVar);
-            if (l == null) {
-                return true;
-            }
-            if (l.longValue() < j) {
-                this.a.remove(bVar);
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void f(b bVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, bVar, j) == null) {
-            if (this.b.size() == 0) {
-                j().a();
-            }
-            if (!this.b.contains(bVar)) {
-                this.b.add(bVar);
-            }
-            if (j > 0) {
-                this.a.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
-            }
-        }
-    }
-
-    public final void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            long uptimeMillis = SystemClock.uptimeMillis();
-            for (int i = 0; i < this.b.size(); i++) {
-                b bVar = this.b.get(i);
-                if (bVar != null && k(bVar, uptimeMillis)) {
-                    bVar.a(j);
-                }
-            }
-            g();
+            this.d.setData(alaEnterEffectData);
+            this.d.g();
         }
     }
 }

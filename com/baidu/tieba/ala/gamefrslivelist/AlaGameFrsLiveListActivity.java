@@ -33,7 +33,7 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationFilter;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rq7;
+import com.baidu.tieba.dt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -227,11 +227,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rq7)) {
-                rq7 rq7Var = (rq7) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof dt7)) {
+                dt7 dt7Var = (dt7) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (rq7Var.e() != null) {
-                    for (FragmentDelegate fragmentDelegate : rq7Var.e()) {
+                if (dt7Var.e() != null) {
+                    for (FragmentDelegate fragmentDelegate : dt7Var.e()) {
                         if (fragmentDelegate.getFragmentTabStructure().frag != null) {
                             arrayList.add(fragmentDelegate.getFragmentTabStructure().frag);
                         }
@@ -241,7 +241,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 int count = this.a.e.getCount();
                 for (int i = 0; i < count; i++) {
                     AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.a;
-                    alaGameFrsLiveListActivity.r1(alaGameFrsLiveListActivity.e.getItem(i), i, this.a.u1(i));
+                    alaGameFrsLiveListActivity.r1(alaGameFrsLiveListActivity.e.getItem(i), i, this.a.t1(i));
                 }
                 this.a.d.k();
                 this.a.d.e(0);
@@ -330,23 +330,23 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
     }
 
-    public final String t1(int i) {
+    public final String s1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             if (i != 0) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f0824);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f082c);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f0824);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f082c);
         }
         return (String) invokeI.objValue;
     }
 
-    public final String u1(int i) {
+    public final String t1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            return t1(i);
+            return s1(i);
         }
         return (String) invokeI.objValue;
     }
@@ -358,19 +358,19 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            rq7 rq7Var = new rq7(getPageContext().getPageActivity());
-            rq7Var.g(this.g);
-            rq7Var.h(this.h);
-            rq7Var.f(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, rq7Var));
+            dt7 dt7Var = new dt7(getPageContext().getPageActivity());
+            dt7Var.g(this.g);
+            dt7Var.h(this.h);
+            dt7Var.f(this.i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, dt7Var));
         }
     }
 
-    public final void x1() {
+    public final void v1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.b != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.h, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f0787));
+            sb.append(UtilHelper.getFixedBarText(this.h, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f078f));
             this.b.setCenterTextTitle(sb.toString());
         }
     }
@@ -428,7 +428,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 finish();
                 return;
             }
-            setContentView(w1(getLayoutInflater(), new FrameLayout(getPageContext().getPageActivity()), null));
+            setContentView(u1(getLayoutInflater(), new FrameLayout(getPageContext().getPageActivity()), null));
             initTabSpec();
             this.d.setCurrentTab(0);
         }
@@ -451,7 +451,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         this.d.b(cVar);
     }
 
-    public View w1(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View u1(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
@@ -469,11 +469,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(0, 0, BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0101, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0103, (View.OnClickListener) null);
             this.c = imageView;
             imageView.setLayoutParams(layoutParams2);
             this.c.setOnClickListener(new b(this));
-            x1();
+            v1();
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             this.b.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);

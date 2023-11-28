@@ -1,55 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.frs.mc.FrsModelController;
 /* loaded from: classes5.dex */
-public class b28 extends g15 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b28 {
+    FrsModelController J1();
 
-    public b28() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b();
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            if (context instanceof c25) {
-                c25 c25Var = (c25) context;
-                if (c25Var.j1() != null) {
-                    b25 j1 = c25Var.j1();
-                    if (j1.U() == null) {
-                        YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧内屏蔽弹窗失败：当前没有FRS吧数据");
-                        YunDialogManager.unMarkShowingDialogName("frsShield");
-                        return;
-                    } else if (!j38.d(j1)) {
-                        j1.G1(true);
-                        YunDialogManager.unMarkShowingDialogName("frsShield");
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧内屏蔽弹窗失败：获取到的IForumDialogExtSupport为空");
-            YunDialogManager.unMarkShowingDialogName("frsShield");
-        }
-    }
+    h78 c1();
+
+    s18 f2();
+
+    is7 u2();
 }

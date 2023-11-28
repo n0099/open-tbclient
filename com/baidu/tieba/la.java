@@ -1,15 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.switchs.BaiduBqtInitSwitch;
+import com.baidu.tbadk.switchs.BaiduBqtPrivacySwitch;
+import com.baidu.tbadk.switchs.CheckWebResProxySwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tbadk.switchs.KsInitSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface la {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("UniKVTest", "UniKVTest");
+public class la implements mf1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isTypeDoubleKv();
+    public la() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean isTypeDoubleSp();
-
-    boolean isTypeSp();
+    @Override // com.baidu.tieba.mf1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new b5());
+            arrayList.add(new o25());
+            arrayList.add(new j35());
+            arrayList.add(new fg5());
+            arrayList.add(new jh5());
+            arrayList.add(new BaiduBqtInitSwitch());
+            arrayList.add(new BaiduBqtPrivacySwitch());
+            arrayList.add(new CheckWebResProxySwitch());
+            arrayList.add(new GdtInitSwitch());
+            arrayList.add(new KsInitSwitch());
+            arrayList.add(new n56());
+            arrayList.add(new o56());
+            arrayList.add(new mh6());
+            arrayList.add(new nh6());
+            arrayList.add(new oh6());
+            arrayList.add(new ti8());
+            arrayList.add(new ui8());
+            arrayList.add(new e79());
+            arrayList.add(new vja());
+            return arrayList;
+        }
+        return invokeV.objValue;
+    }
 }

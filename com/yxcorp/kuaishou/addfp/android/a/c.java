@@ -11,29 +11,33 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.kuaishou.weapon.p0.g;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
 import com.yxcorp.kuaishou.addfp.android.Orange;
-import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.zip.CRC32;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
@@ -60,75 +64,30 @@ public class c {
         this();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x004b A[Catch: all -> 0x00a4, TryCatch #3 {all -> 0x00a4, blocks: (B:13:0x0015, B:16:0x0020, B:18:0x0026, B:20:0x002e, B:22:0x003a, B:27:0x004b, B:29:0x0059, B:32:0x0062, B:42:0x0084, B:44:0x008e, B:47:0x0095, B:49:0x009d, B:5:0x0006), top: B:63:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0084 A[Catch: all -> 0x00a4, TRY_ENTER, TryCatch #3 {all -> 0x00a4, blocks: (B:13:0x0015, B:16:0x0020, B:18:0x0026, B:20:0x002e, B:22:0x003a, B:27:0x004b, B:29:0x0059, B:32:0x0062, B:42:0x0084, B:44:0x008e, B:47:0x0095, B:49:0x009d, B:5:0x0006), top: B:63:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x009d A[Catch: all -> 0x00a4, TRY_LEAVE, TryCatch #3 {all -> 0x00a4, blocks: (B:13:0x0015, B:16:0x0020, B:18:0x0026, B:20:0x002e, B:22:0x003a, B:27:0x004b, B:29:0x0059, B:32:0x0062, B:42:0x0084, B:44:0x008e, B:47:0x0095, B:49:0x009d, B:5:0x0006), top: B:63:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00a8 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
-            return (String) invokeL.objValue;
-        }
-        boolean z2 = true;
-        try {
-            if (!(Build.VERSION.SDK_INT >= 26)) {
-                String b = b();
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-            }
-            if (Build.VERSION.SDK_INT >= 29) {
-                String str = Build.MODEL;
-                if (!TextUtils.isEmpty(str) && str.toLowerCase().contains("redmi") && str.toLowerCase().contains("note 7")) {
-                    z = true;
-                    if (!z) {
-                        String gSer = Orange.getInstance().gSer();
-                        if (!TextUtils.isEmpty(gSer) && !gSer.startsWith("KWE")) {
-                            return gSer;
-                        }
-                    }
-                    String[] strArr = {h.c};
-                    for (i = 0; i <= 0; i++) {
-                        if (context.checkPermission(strArr[0], Process.myPid(), Process.myUid()) == -1) {
-                            z2 = false;
-                            break;
-                        }
-                    }
-                    if (z2) {
-                        String serial = Build.getSerial();
-                        if (!TextUtils.isEmpty(serial) && !serial.equals("unknown")) {
-                            return serial;
-                        }
-                    }
-                    String str2 = Build.SERIAL;
-                    return TextUtils.isEmpty(str2) ? !str2.equals("unknown") ? str2 : "KWE_N" : "KWE_N";
-                }
-            }
-            z = false;
-            if (!z) {
-            }
-            String[] strArr2 = {h.c};
-            while (i <= 0) {
-            }
-            if (z2) {
-            }
-            String str22 = Build.SERIAL;
-            if (TextUtils.isEmpty(str22)) {
-            }
-        }
-    }
-
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "") : (String) invokeL.objValue;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) {
+            try {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if ("64".equals(next) && jSONObject.optInt(next, 1) == 0) {
+                        d = false;
+                    }
+                    if ("64_level".equals(next)) {
+                        e = jSONObject.optInt(next, 0);
+                    }
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -142,7 +101,7 @@ public class c {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65541, null)) != null) {
             return (String) invokeV.objValue;
         }
         try {
@@ -187,7 +146,7 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b.a : (c) invokeV.objValue;
     }
 
     public String a() {
@@ -202,6 +161,109 @@ public class c {
             }
         }
         return (String) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:41:0x006a A[Catch: all -> 0x00f5, TryCatch #3 {all -> 0x00f5, blocks: (B:4:0x0004, B:17:0x001c, B:20:0x0027, B:23:0x002d, B:27:0x0037, B:29:0x003f, B:31:0x004b, B:35:0x005a, B:41:0x006a, B:43:0x0078, B:58:0x00b3, B:68:0x00d5, B:70:0x00df, B:73:0x00e6, B:75:0x00ee, B:53:0x00a6, B:55:0x00ac, B:47:0x0084, B:49:0x008c, B:9:0x000d), top: B:88:0x0004 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Context context) {
+        boolean z;
+        boolean z2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (!d) {
+                    return "KWE_NPN";
+                }
+                boolean z3 = false;
+                if (Build.VERSION.SDK_INT >= 26) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    String b = b();
+                    if (!TextUtils.isEmpty(b)) {
+                        return b;
+                    }
+                }
+                if (e == 0) {
+                    int i = Build.VERSION.SDK_INT;
+                    if (i < 33) {
+                        if (i >= 29) {
+                            String str = Build.MODEL;
+                            if (!TextUtils.isEmpty(str) && str.toLowerCase().contains("redmi") && str.toLowerCase().contains("note 7")) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (Build.BRAND.equalsIgnoreCase("HONOR")) {
+                            }
+                        } else {
+                            z2 = false;
+                        }
+                        if (!z2) {
+                            String gSer = Orange.getInstance().gSer();
+                            if (!TextUtils.isEmpty(gSer) && !gSer.startsWith("KWE")) {
+                                return gSer;
+                            }
+                        }
+                    }
+                    z2 = true;
+                    if (!z2) {
+                    }
+                } else {
+                    Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                    String str2 = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "ro.serialno");
+                    if (!TextUtils.isEmpty(str2) && !str2.equals("unknown")) {
+                        return str2;
+                    }
+                }
+                String[] strArr = {g.c};
+                int i2 = 0;
+                while (true) {
+                    if (i2 <= 0) {
+                        try {
+                            if (context.checkPermission(strArr[i2], Process.myPid(), Process.myUid()) == -1) {
+                                break;
+                            }
+                            i2++;
+                        } catch (Throwable unused) {
+                        }
+                    } else {
+                        z3 = true;
+                        break;
+                    }
+                }
+                if (z3) {
+                    String serial = Build.getSerial();
+                    if (!TextUtils.isEmpty(serial) && !serial.equals("unknown")) {
+                        return serial;
+                    }
+                }
+                String str3 = Build.SERIAL;
+                if (!TextUtils.isEmpty(str3)) {
+                    if (!str3.equals("unknown")) {
+                        return str3;
+                    }
+                    return "KWE_N";
+                }
+                return "KWE_N";
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "KWE_N";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:115:0x02a2 A[Catch: all -> 0x02e8, TryCatch #13 {all -> 0x0346, blocks: (B:71:0x01d0, B:76:0x0201, B:84:0x0211, B:86:0x021e, B:88:0x022f, B:90:0x0244, B:92:0x0252, B:94:0x0260, B:96:0x0266, B:98:0x026e, B:100:0x0274, B:102:0x027c, B:107:0x0288, B:111:0x0291, B:123:0x02ec, B:105:0x0283, B:83:0x020e, B:112:0x0298, B:115:0x02a2, B:117:0x02b6, B:118:0x02c1, B:119:0x02c4, B:81:0x0209), top: B:161:0x01d0 }] */
@@ -226,188 +288,181 @@ public class c {
                 th = th;
                 str = "KWE_N";
             }
-            if (TextUtils.isEmpty(this.b)) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k23", g.a(a(Build.MANUFACTURER)));
-                jSONObject.put("k61", g.a(a(Build.BRAND)));
-                jSONObject.put("k27", g.a(a(Build.MODEL)));
-                jSONObject.put("k64", g.a(a(context)));
-                jSONObject.put("k31", g.a(com.yxcorp.kuaishou.addfp.android.b.d.c(false)));
-                jSONObject.put("k117", g.a(com.yxcorp.kuaishou.addfp.android.b.d.c(true)));
-                jSONObject.put("k66", g.a(com.yxcorp.kuaishou.addfp.android.b.d.a(false)));
-                jSONObject.put("k116", g.a(com.yxcorp.kuaishou.addfp.android.b.d.a(true)));
-                long j2 = 0;
-                jSONObject.put("k39", g.a(Long.toString(System.currentTimeMillis() - SystemClock.elapsedRealtime())));
-                jSONObject.put("k101", g.a(g.b(new String(Base64.decode("Y2F0IC9zeXMvZGV2aWNlcy9zb2MwL3NlcmlhbF9udW1iZXI=", 0)))));
-                jSONObject.put("k102", g.a(g.b(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
-                jSONObject.put("k57", g.a(com.yxcorp.kuaishou.addfp.android.b.d.b(false)));
-                jSONObject.put("k118", g.a(com.yxcorp.kuaishou.addfp.android.b.d.b(true)));
-                jSONObject.put("k68", g.a(com.yxcorp.kuaishou.addfp.android.b.d.e(false)));
-                jSONObject.put("k120", g.a(com.yxcorp.kuaishou.addfp.android.b.d.e(true)));
-                jSONObject.put("k105", g.a(Orange.getInstance().gRdi()));
-                String eGidLocal = KWEGIDDFP.instance().getEGidLocal(context, c().a(), false);
-                if (TextUtils.isEmpty(eGidLocal)) {
-                    eGidLocal = "KWE_N";
-                }
-                jSONObject.put("k83", g.a(eGidLocal));
-                jSONObject.put("k86", g.a(com.yxcorp.kuaishou.addfp.c.a.a.a(context)));
-                jSONObject.put("k3", g.a(context.getPackageName().replace("=", "").replace("&", "")));
-                jSONObject.put("k109", g.a(Orange.getInstance().gProps()));
-                jSONObject.put("k36", g.a(Orange.sdkVersion));
-                jSONObject.put("k14", g.a("AD_AND"));
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
+            }
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("k23", com.yxcorp.kuaishou.addfp.android.b.g.a(a(Build.MANUFACTURER)));
+            jSONObject.put("k61", com.yxcorp.kuaishou.addfp.android.b.g.a(a(Build.BRAND)));
+            jSONObject.put("k27", com.yxcorp.kuaishou.addfp.android.b.g.a(a(Build.MODEL)));
+            jSONObject.put("k64", com.yxcorp.kuaishou.addfp.android.b.g.a(a(context)));
+            jSONObject.put("k31", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.c(false)));
+            jSONObject.put("k117", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.c(true)));
+            jSONObject.put("k66", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.a(false)));
+            jSONObject.put("k116", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.a(true)));
+            long j2 = 0;
+            jSONObject.put("k39", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(System.currentTimeMillis() - SystemClock.elapsedRealtime())));
+            jSONObject.put("k101", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.g.b(new String(Base64.decode("Y2F0IC9zeXMvZGV2aWNlcy9zb2MwL3NlcmlhbF9udW1iZXI=", 0)))));
+            jSONObject.put("k102", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.g.b(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
+            jSONObject.put("k57", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.b(false)));
+            jSONObject.put("k118", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.b(true)));
+            jSONObject.put("k68", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.e(false)));
+            jSONObject.put("k120", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.e(true)));
+            jSONObject.put("k105", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gRdi()));
+            String eGidLocal = KWEGIDDFP.instance().getEGidLocal(context, c().a(), false);
+            if (TextUtils.isEmpty(eGidLocal)) {
+                eGidLocal = "KWE_N";
+            }
+            jSONObject.put("k83", com.yxcorp.kuaishou.addfp.android.b.g.a(eGidLocal));
+            jSONObject.put("k86", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.c.a.a.a(context)));
+            jSONObject.put("k3", com.yxcorp.kuaishou.addfp.android.b.g.a(context.getPackageName().replace("=", "").replace("&", "")));
+            jSONObject.put("k109", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gProps()));
+            jSONObject.put("k36", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.sdkVersion));
+            jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.g.a("AD_AND"));
+            try {
+                statFs = new StatFs(Environment.getDataDirectory().getPath());
+                str = "KWE_N";
+            } catch (Throwable unused) {
+                str = "KWE_N";
+            }
+            try {
+                j = statFs.getBlockCount() * statFs.getBlockSize();
+            } catch (Throwable unused2) {
+                j = 0;
+                jSONObject.put("k5", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(j)));
+                BufferedReader bufferedReader2 = null;
                 try {
-                    statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    str = "KWE_N";
-                } catch (Throwable unused) {
-                    str = "KWE_N";
-                }
-                try {
-                    j = statFs.getBlockCount() * statFs.getBlockSize();
-                } catch (Throwable unused2) {
-                    j = 0;
-                    jSONObject.put("k5", g.a(Long.toString(j)));
-                    BufferedReader bufferedReader2 = null;
+                    bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
                     try {
-                        bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
-                        try {
-                            j2 = Long.parseLong(bufferedReader.readLine().split("\\s+")[1]) * 1024;
-                            bufferedReader.close();
-                        } catch (Throwable th2) {
-                            th = th2;
-                            bufferedReader2 = bufferedReader;
-                            th.printStackTrace();
-                            if (bufferedReader2 != null) {
-                                bufferedReader2.close();
-                            }
-                            jSONObject.put("k46", g.a(Long.toString(j2)));
-                            jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
-                            jSONObject.put("k111", g.a("KWE_NPN"));
-                            jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
-                            jSONObject.put("k115", g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
-                            String d = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
-                            if (!z) {
-                            }
-                            jSONObject.put("k97", g.a(d));
-                            CRC32 crc32 = new CRC32();
-                            while (i <= 120) {
-                            }
-                            jSONObject.put("k14", g.a("AD_AND:" + String.valueOf(crc32.getValue())));
-                            StringBuilder sb = new StringBuilder("mimi :");
-                            sb.append(jSONObject.toString());
-                            sb.append(" ");
-                            sb.append(jSONObject.toString().getBytes().length);
-                            sb.append(" ");
-                            sb.append(System.currentTimeMillis() - currentTimeMillis);
-                            byte[] magicWrapper = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
-                            new StringBuilder("get mini lenth ").append(magicWrapper.length);
-                            this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
-                            this.c.unlock();
-                            if (TextUtils.isEmpty(this.b)) {
-                            }
-                            return this.b;
-                        }
-                    } catch (IOException unused3) {
-                    }
-                    jSONObject.put("k46", g.a(Long.toString(j2)));
-                    jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
-                    jSONObject.put("k111", g.a("KWE_NPN"));
-                    jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
-                    jSONObject.put("k115", g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
-                    String d2 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
-                    if (!z) {
-                    }
-                    jSONObject.put("k97", g.a(d2));
-                    CRC32 crc322 = new CRC32();
-                    while (i <= 120) {
-                    }
-                    jSONObject.put("k14", g.a("AD_AND:" + String.valueOf(crc322.getValue())));
-                    StringBuilder sb2 = new StringBuilder("mimi :");
-                    sb2.append(jSONObject.toString());
-                    sb2.append(" ");
-                    sb2.append(jSONObject.toString().getBytes().length);
-                    sb2.append(" ");
-                    sb2.append(System.currentTimeMillis() - currentTimeMillis);
-                    byte[] magicWrapper2 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
-                    new StringBuilder("get mini lenth ").append(magicWrapper2.length);
-                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper2, 0), "utf-8");
-                    this.c.unlock();
-                    if (TextUtils.isEmpty(this.b)) {
-                    }
-                    return this.b;
-                }
-                try {
-                    jSONObject.put("k5", g.a(Long.toString(j)));
-                    BufferedReader bufferedReader22 = null;
-                    try {
-                        bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
                         j2 = Long.parseLong(bufferedReader.readLine().split("\\s+")[1]) * 1024;
                         bufferedReader.close();
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                    jSONObject.put("k46", g.a(Long.toString(j2)));
-                    jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
-                    jSONObject.put("k111", g.a("KWE_NPN"));
-                    jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
-                    jSONObject.put("k115", g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
-                    String d22 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
-                    if (!z && !d22.equals("KWE_NPN") && d22.startsWith("KWE")) {
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            try {
-                                new CountDownLatch(1).await(1000L, TimeUnit.MILLISECONDS);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        d22 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
-                    }
-                    jSONObject.put("k97", g.a(d22));
-                    CRC32 crc3222 = new CRC32();
-                    for (i = 1; i <= 120; i++) {
-                        String str2 = "k" + i;
-                        if (jSONObject.has(str2)) {
-                            crc3222.update(jSONObject.optString(str2).getBytes());
-                        }
-                    }
-                    jSONObject.put("k14", g.a("AD_AND:" + String.valueOf(crc3222.getValue())));
-                    StringBuilder sb22 = new StringBuilder("mimi :");
-                    sb22.append(jSONObject.toString());
-                    sb22.append(" ");
-                    sb22.append(jSONObject.toString().getBytes().length);
-                    sb22.append(" ");
-                    sb22.append(System.currentTimeMillis() - currentTimeMillis);
-                    byte[] magicWrapper22 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
-                    new StringBuilder("get mini lenth ").append(magicWrapper22.length);
-                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper22, 0), "utf-8");
-                } catch (Throwable th4) {
-                    th = th4;
-                    try {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader2 = bufferedReader;
                         th.printStackTrace();
-                        this.b = "KWE_PE";
-                        responseDfpCallback.onFailed(-1, g.a(th));
+                        if (bufferedReader2 != null) {
+                            bufferedReader2.close();
+                        }
+                        jSONObject.put("k46", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(j2)));
+                        jSONObject.put("k110", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gKpsd()));
+                        jSONObject.put("k111", com.yxcorp.kuaishou.addfp.android.b.g.a("KWE_NPN"));
+                        jSONObject.put("k113", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
+                        jSONObject.put("k115", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
+                        String d2 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
+                        if (!z) {
+                        }
+                        jSONObject.put("k97", com.yxcorp.kuaishou.addfp.android.b.g.a(d2));
+                        CRC32 crc32 = new CRC32();
+                        while (i <= 120) {
+                        }
+                        jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.g.a("AD_AND:" + String.valueOf(crc32.getValue())));
+                        StringBuilder sb = new StringBuilder("mimi :");
+                        sb.append(jSONObject.toString());
+                        sb.append(" ");
+                        sb.append(jSONObject.toString().getBytes().length);
+                        sb.append(" ");
+                        sb.append(System.currentTimeMillis() - currentTimeMillis);
+                        byte[] magicWrapper = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
+                        new StringBuilder("get mini lenth ").append(magicWrapper.length);
+                        this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
                         this.c.unlock();
                         if (TextUtils.isEmpty(this.b)) {
                         }
                         return this.b;
-                    } finally {
-                        this.c.unlock();
                     }
+                } catch (IOException unused3) {
                 }
+                jSONObject.put("k46", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(j2)));
+                jSONObject.put("k110", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gKpsd()));
+                jSONObject.put("k111", com.yxcorp.kuaishou.addfp.android.b.g.a("KWE_NPN"));
+                jSONObject.put("k113", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
+                jSONObject.put("k115", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
+                String d22 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
+                if (!z) {
+                }
+                jSONObject.put("k97", com.yxcorp.kuaishou.addfp.android.b.g.a(d22));
+                CRC32 crc322 = new CRC32();
+                while (i <= 120) {
+                }
+                jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.g.a("AD_AND:" + String.valueOf(crc322.getValue())));
+                StringBuilder sb2 = new StringBuilder("mimi :");
+                sb2.append(jSONObject.toString());
+                sb2.append(" ");
+                sb2.append(jSONObject.toString().getBytes().length);
+                sb2.append(" ");
+                sb2.append(System.currentTimeMillis() - currentTimeMillis);
+                byte[] magicWrapper2 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
+                new StringBuilder("get mini lenth ").append(magicWrapper2.length);
+                this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper2, 0), "utf-8");
                 this.c.unlock();
                 if (TextUtils.isEmpty(this.b)) {
-                    this.b = str;
                 }
                 return this.b;
+            }
+            try {
+                jSONObject.put("k5", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(j)));
+                BufferedReader bufferedReader22 = null;
+                try {
+                    bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
+                    j2 = Long.parseLong(bufferedReader.readLine().split("\\s+")[1]) * 1024;
+                    bufferedReader.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+                jSONObject.put("k46", com.yxcorp.kuaishou.addfp.android.b.g.a(Long.toString(j2)));
+                jSONObject.put("k110", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gKpsd()));
+                jSONObject.put("k111", com.yxcorp.kuaishou.addfp.android.b.g.a("KWE_NPN"));
+                jSONObject.put("k113", com.yxcorp.kuaishou.addfp.android.b.g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
+                jSONObject.put("k115", com.yxcorp.kuaishou.addfp.android.b.g.a(com.yxcorp.kuaishou.addfp.android.b.d.d(true)));
+                String d222 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
+                if (!z && !d222.equals("KWE_NPN") && d222.startsWith("KWE")) {
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        try {
+                            new CountDownLatch(1).await(1000L, TimeUnit.MILLISECONDS);
+                        } catch (InterruptedException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    d222 = com.yxcorp.kuaishou.addfp.android.b.d.d(false);
+                }
+                jSONObject.put("k97", com.yxcorp.kuaishou.addfp.android.b.g.a(d222));
+                CRC32 crc3222 = new CRC32();
+                for (i = 1; i <= 120; i++) {
+                    String str2 = "k" + i;
+                    if (jSONObject.has(str2)) {
+                        crc3222.update(jSONObject.optString(str2).getBytes());
+                    }
+                }
+                jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.g.a("AD_AND:" + String.valueOf(crc3222.getValue())));
+                StringBuilder sb22 = new StringBuilder("mimi :");
+                sb22.append(jSONObject.toString());
+                sb22.append(" ");
+                sb22.append(jSONObject.toString().getBytes().length);
+                sb22.append(" ");
+                sb22.append(System.currentTimeMillis() - currentTimeMillis);
+                byte[] magicWrapper22 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
+                new StringBuilder("get mini lenth ").append(magicWrapper22.length);
+                this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper22, 0), "utf-8");
+            } catch (Throwable th4) {
+                th = th4;
+                try {
+                    th.printStackTrace();
+                    this.b = "KWE_PE";
+                    responseDfpCallback.onFailed(-1, com.yxcorp.kuaishou.addfp.android.b.g.a(th));
+                    this.c.unlock();
+                    if (TextUtils.isEmpty(this.b)) {
+                    }
+                    return this.b;
+                } finally {
+                    this.c.unlock();
+                }
+            }
+            this.c.unlock();
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = str;
             }
             return this.b;
         }
         return (String) invokeLLZ.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
-        }
     }
 }

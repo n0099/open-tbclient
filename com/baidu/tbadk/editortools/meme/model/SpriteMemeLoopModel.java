@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.editortools.meme.model.SpriteMemeLoopModel;
 import com.baidu.tbadk.editortools.meme.model.SpriteMemeLoopModel$spriteMemeLoopListener$2;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.dg5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.xf5;
+import com.baidu.tieba.vf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public final class SpriteMemeLoopModel {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(xf5 xf5Var);
+        void a(dg5 dg5Var);
 
         void onError();
     }
@@ -140,7 +140,7 @@ public final class SpriteMemeLoopModel {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SafeHandler inst = SafeHandler.getInst();
                 final SpriteMemeLoopModel spriteMemeLoopModel = this.a;
-                inst.post(new Runnable() { // from class: com.baidu.tieba.wf5
+                inst.post(new Runnable() { // from class: com.baidu.tieba.cg5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,7 +245,7 @@ public final class SpriteMemeLoopModel {
                                 }
                                 return;
                             }
-                            xf5 spriteMemeLoopData = spriteMemeLoopRespondedMessage.getSpriteMemeLoopData();
+                            dg5 spriteMemeLoopData = spriteMemeLoopRespondedMessage.getSpriteMemeLoopData();
                             if (spriteMemeLoopData != null) {
                                 SpriteMemeLoopModel spriteMemeLoopModel = this.a;
                                 DefaultLog.getInstance().i("SpriteMemeLoop", "请求结束，有返回数据");
@@ -335,7 +335,7 @@ public final class SpriteMemeLoopModel {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new SpriteMemeLoopModel.b(this.this$0, pf5.a.a().d(), pf5.a.a().d());
+                    return new SpriteMemeLoopModel.b(this.this$0, vf5.a.a().d(), vf5.a.a().d());
                 }
                 return (SpriteMemeLoopModel.b) invokeV.objValue;
             }

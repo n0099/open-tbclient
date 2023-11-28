@@ -17,6 +17,12 @@ public class OADIDSDKHelper25 {
     public static boolean mIsRequestIng;
     public static boolean sGetOaidFail;
 
+    /* loaded from: classes10.dex */
+    public interface a {
+        @WorkerThread
+        void dM(String str);
+    }
+
     @Keep
     /* loaded from: classes10.dex */
     public static class IIdentifierListener25 implements IIdentifierListener {
@@ -36,42 +42,14 @@ public class OADIDSDKHelper25 {
                     boolean unused = OADIDSDKHelper25.sGetOaidFail = true;
                 } else {
                     Log.d("KSAdSDK", "OADIDSDKHelper25:oaid time=" + currentTimeMillis + "--OAID:" + oaid);
-                    this.mOaidListener.cp(oaid);
+                    this.mOaidListener.dM(oaid);
                 }
             }
             boolean unused2 = OADIDSDKHelper25.mIsRequestIng = false;
         }
     }
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        @WorkerThread
-        void cp(String str);
-    }
-
-    public static void getOAId(Context context, a aVar) {
-        if (context == null || sGetOaidFail) {
-            return;
-        }
-        if (!isSupport()) {
-            sGetOaidFail = true;
-        } else if (mIsRequestIng) {
-        } else {
-            mIsRequestIng = true;
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                int InitSdk = MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener25(currentTimeMillis, aVar));
-                Log.d("KSAdSDK", "OADIDSDKHelper25:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + InitSdk);
-            } catch (Throwable unused) {
-                Log.d("KSAdSDK", "OADIDSDKHelper25:oaid sdk not find ");
-                mIsRequestIng = false;
-                sGetOaidFail = true;
-            }
-        }
-    }
-
     public static boolean isSupport() {
-        String str;
         if (Build.VERSION.SDK_INT < 21) {
             return false;
         }
@@ -84,12 +62,32 @@ public class OADIDSDKHelper25 {
                 Class.forName("com.bun.miitmdid.core.MdidSdkHelper", false, OADIDSDKHelper25.class.getClassLoader());
                 return true;
             } catch (Throwable unused) {
-                str = "OADIDSDKHelper25:com.bun.miitmdid.core.MdidSdkHelper oaid sdk not find ";
-                Log.d("KSAdSDK", str);
+                Log.d("KSAdSDK", "OADIDSDKHelper25:com.bun.miitmdid.core.MdidSdkHelper oaid sdk not find ");
                 return false;
             }
         } catch (Throwable unused2) {
-            str = "OADIDSDKHelper25:isSupport oaid sdk not find ";
+            Log.d("KSAdSDK", "OADIDSDKHelper25:isSupport oaid sdk not find ");
+            return false;
+        }
+    }
+
+    public static void getOAId(Context context, a aVar) {
+        if (context != null && !sGetOaidFail) {
+            if (!isSupport()) {
+                sGetOaidFail = true;
+            } else if (mIsRequestIng) {
+            } else {
+                mIsRequestIng = true;
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    int InitSdk = MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener25(currentTimeMillis, aVar));
+                    Log.d("KSAdSDK", "OADIDSDKHelper25:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + InitSdk);
+                } catch (Throwable unused) {
+                    Log.d("KSAdSDK", "OADIDSDKHelper25:oaid sdk not find ");
+                    mIsRequestIng = false;
+                    sGetOaidFail = true;
+                }
+            }
         }
     }
 }

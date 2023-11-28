@@ -113,8 +113,8 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a9, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091691);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c2, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091702);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.a.setFrame(0);

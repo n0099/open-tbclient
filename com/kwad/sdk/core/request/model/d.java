@@ -1,43 +1,32 @@
 package com.kwad.sdk.core.request.model;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.ae;
-import com.kwad.sdk.utils.ar;
-import com.kwad.sdk.utils.r;
-import org.json.JSONObject;
+import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.au;
+import com.kwad.sdk.utils.av;
+@KsJson
 /* loaded from: classes10.dex */
-public final class d implements com.kwad.sdk.core.b {
-    public String acO;
-    public int acP;
-    public int acQ;
+public class d extends com.kwad.sdk.core.response.a.a {
+    public String ayC;
+    public String ayD;
+    public int ayE;
+    public int ayF;
 
-    public static d uQ() {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
+    public static d DT() {
+        Context Jn = ServiceProvider.Jn();
         d dVar = new d();
-        dVar.acO = ar.cK(context);
-        dVar.acP = ae.cw(context);
-        dVar.acQ = ae.T(context, ar.cN(context));
+        dVar.ayC = av.cx(Jn);
+        dVar.ayD = ((com.kwad.sdk.service.a.f) ServiceProvider.get(com.kwad.sdk.service.a.f.class)).yh();
+        dVar.ayE = ag.ck(Jn);
+        dVar.ayF = ag.d(Jn, av.cA(Jn), au.KO());
         return dVar;
     }
 
-    public static d uR() {
+    public static d DU() {
         d dVar = new d();
-        dVar.acP = ae.cw(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext());
+        dVar.ayE = ag.ck(ServiceProvider.getContext());
         return dVar;
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public final JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "mac", this.acO);
-        r.putValue(jSONObject, "connectionType", this.acP);
-        r.putValue(jSONObject, "operatorType", this.acQ);
-        return jSONObject;
     }
 }

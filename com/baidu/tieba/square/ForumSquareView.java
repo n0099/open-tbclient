@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ck5;
 import com.baidu.tieba.enterForum.view.ForumHeaderView;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.pi;
 import com.baidu.tieba.square.adapter.LeftAdapter;
 import com.baidu.tieba.square.view.RightLeftListView;
-import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class ForumSquareView {
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public View.OnClickListener mOnNetRefreshClickListener;
-    public wj5 mRefreshView;
+    public ck5 mRefreshView;
     public RightLeftListView mRightLeftView;
     public View mRootLayout;
     public RelativeLayout mSearchViewContainer;
@@ -111,7 +111,7 @@ public class ForumSquareView {
         this.skinChangeListener = new a(this, 2001304);
         this.mActivity = context;
         this.mTbPageContext = tbPageContext;
-        this.mRootLayout = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032c, (ViewGroup) null);
+        this.mRootLayout = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0335, (ViewGroup) null);
         initUI();
         initListener();
     }
@@ -128,9 +128,9 @@ public class ForumSquareView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            wj5 wj5Var = this.mRefreshView;
-            if (wj5Var != null) {
-                return wj5Var.isViewAttached();
+            ck5 ck5Var = this.mRefreshView;
+            if (ck5Var != null) {
+                return ck5Var.isViewAttached();
             }
             return false;
         }
@@ -186,10 +186,10 @@ public class ForumSquareView {
     }
 
     public void hideNetRefreshView() {
-        wj5 wj5Var;
+        ck5 ck5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (wj5Var = this.mRefreshView) != null) {
-            wj5Var.dettachView(this.mLayoutContainer);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ck5Var = this.mRefreshView) != null) {
+            ck5Var.dettachView(this.mLayoutContainer);
             this.mRefreshView = null;
         }
     }
@@ -303,14 +303,14 @@ public class ForumSquareView {
             NavigationBar navigationBar = (NavigationBar) this.mRootLayout.findViewById(R.id.navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(this.mActivity.getString(R.string.obfuscated_res_0x7f0f07ea));
+            this.mNavigationBar.setCenterTextTitle(this.mActivity.getString(R.string.obfuscated_res_0x7f0f07f2));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
             this.createBarLayout = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
             this.mCreateBarView = textView;
-            textView.setText(this.mActivity.getString(R.string.obfuscated_res_0x7f0f07eb));
-            this.mSearchViewContainer = (RelativeLayout) this.mRootLayout.findViewById(R.id.obfuscated_res_0x7f090c1e);
-            ForumHeaderView forumHeaderView = (ForumHeaderView) this.mRootLayout.findViewById(R.id.obfuscated_res_0x7f090c1f);
+            textView.setText(this.mActivity.getString(R.string.obfuscated_res_0x7f0f07f3));
+            this.mSearchViewContainer = (RelativeLayout) this.mRootLayout.findViewById(R.id.obfuscated_res_0x7f090c3e);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) this.mRootLayout.findViewById(R.id.obfuscated_res_0x7f090c3f);
             this.searchView = forumHeaderView;
             forumHeaderView.setFrom(1);
             this.searchView.setSearchHint(TbSingleton.getInstance().getHotSearch());
@@ -339,9 +339,9 @@ public class ForumSquareView {
             if (loadingView != null) {
                 loadingView.onChangeSkinType();
             }
-            wj5 wj5Var = this.mRefreshView;
-            if (wj5Var != null) {
-                wj5Var.onChangeSkinType();
+            ck5 ck5Var = this.mRefreshView;
+            if (ck5Var != null) {
+                ck5Var.onChangeSkinType();
             }
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null && this.mActivity != null) {
@@ -373,7 +373,7 @@ public class ForumSquareView {
         }
     }
 
-    public void setForumListData(List<oi> list, int i) {
+    public void setForumListData(List<pi> list, int i) {
         RightLeftListView rightLeftListView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048592, this, list, i) == null) && (rightLeftListView = this.mRightLeftView) != null) {
@@ -389,7 +389,7 @@ public class ForumSquareView {
         }
     }
 
-    public void setForumListData(List<oi> list) {
+    public void setForumListData(List<pi> list) {
         RightLeftListView rightLeftListView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, list) == null) && (rightLeftListView = this.mRightLeftView) != null) {
@@ -504,12 +504,12 @@ public class ForumSquareView {
             return;
         }
         if (this.mRefreshView == null) {
-            wj5 wj5Var = new wj5(this.mActivity, this.mOnNetRefreshClickListener);
-            this.mRefreshView = wj5Var;
-            wj5Var.j(BdUtilHelper.getDimens(this.mActivity, R.dimen.obfuscated_res_0x7f0703a6));
+            ck5 ck5Var = new ck5(this.mActivity, this.mOnNetRefreshClickListener);
+            this.mRefreshView = ck5Var;
+            ck5Var.k(BdUtilHelper.getDimens(this.mActivity, R.dimen.obfuscated_res_0x7f0703a6));
         }
         this.mRefreshView.attachView(this.mLayoutContainer, z);
-        this.mRefreshView.o();
+        this.mRefreshView.q();
     }
 
     public void showNoDataView() {

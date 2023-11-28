@@ -2,280 +2,587 @@ package com.kwad.components.ad.reward.page;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.kwad.components.ad.reward.k;
-import com.kwad.components.ad.reward.l;
-import com.kwad.components.core.c.a.a;
-import com.kwad.components.core.i.a;
-import com.kwad.components.core.m.c;
-import com.kwad.components.core.webview.KsAdWebView;
-import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.components.ad.reward.h;
+import com.kwad.components.ad.reward.j.b;
+import com.kwad.components.ad.reward.model.RewardCallBackRespInfo;
+import com.kwad.components.ad.reward.widget.HandSlideView;
+import com.kwad.components.ad.reward.widget.RewardPreviewTopBarView;
+import com.kwad.components.core.e.d.a;
+import com.kwad.components.core.proxy.PageCreateStage;
+import com.kwad.components.core.proxy.c;
+import com.kwad.components.core.request.e;
+import com.kwad.components.core.s.h;
+import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.api.KsRewardVideoAd;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
-import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
-import com.kwad.sdk.core.e.b;
-import com.kwad.sdk.core.report.u;
-import com.kwad.sdk.core.response.a.d;
+import com.kwad.sdk.core.config.d;
+import com.kwad.sdk.core.network.f;
+import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.network.o;
+import com.kwad.sdk.core.report.j;
+import com.kwad.sdk.core.report.y;
 import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.core.response.model.BaseResultData;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.core.webview.KsAdWebView;
+import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.bm;
+import com.kwad.sdk.utils.bn;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
 /* loaded from: classes10.dex */
-public class AdRewardPreviewActivityProxy extends a {
+public class AdRewardPreviewActivityProxy extends c implements HandSlideView.a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_URL = "key_langingpage_url";
     public static final String TAG = "AdRewardPreviewActivityProxy";
     public static KsRewardVideoAd.RewardAdInteractionListener mInteractionListener;
     public AdTemplate mAdTemplate;
     public KsAdWebView mAdWebView;
-    public l mCloseDialog;
+    public h mCloseDialog;
     public int mCount;
-    public TextView mCountDownTips;
+    public com.kwad.components.core.s.h mCountdownHelper;
+    public long mCurrentDuration;
+    public View mHandSlideContainer;
+    @Nullable
+    public HandSlideView mHandSlideView;
     public long mLastDown;
+    public KsLogoView mLogoView;
+    public int mSkipCount;
+    public long mStartPlayTime;
+    public bm mTimerHelper;
+    public RewardPreviewTopBarView mTopBarView;
     public String mUrl;
-    public ImageView mWebCloseBtn;
     public AdBaseFrameLayout mWebContainer;
-    public Handler mHandler = new Handler(Looper.getMainLooper());
-    public boolean mEnableSkip = false;
-    public boolean counterPaused = false;
+    public boolean mHadAdClicked = false;
+    public boolean mCheckExposureResult = true;
+    public long mPageEnterTime = 0;
+    public boolean mReportedPageShow = false;
 
-    public static /* synthetic */ int access$410(AdRewardPreviewActivityProxy adRewardPreviewActivityProxy) {
-        int i = adRewardPreviewActivityProxy.mCount;
-        adRewardPreviewActivityProxy.mCount = i - 1;
-        return i;
+    @Override // com.kwad.components.core.proxy.c
+    public int getLayoutId() {
+        return R.layout.obfuscated_res_0x7f0d04ab;
     }
 
-    private u.b getClientParams() {
-        u.b bVar = new u.b();
-        bVar.abM = 0;
-        return bVar;
-    }
-
-    private KsAdWebView.d getWebErrorListener() {
-        return new KsAdWebView.d() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.5
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void a(int i, String str, String str2) {
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bv() {
-                c.ox().a(AdRewardPreviewActivityProxy.this.mAdTemplate, null, null);
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bw() {
-            }
-        };
-    }
-
-    @SuppressLint({"SetTextI18n"})
-    private void initView() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0914a6);
-        this.mAdWebView = ksAdWebView;
-        this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).R(this.mAdTemplate).aA(false).b(getWebErrorListener()));
-        this.mAdWebView.pp();
-        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914aa);
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091359);
-        this.mWebCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                com.kwad.sdk.core.report.a.a(AdRewardPreviewActivityProxy.this.mAdTemplate, 1, (JSONObject) null);
-                AdRewardPreviewActivityProxy.this.finish();
-            }
-        });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09142a);
-        this.mCountDownTips = textView;
-        textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                AdRewardPreviewActivityProxy.this.showCloseDialog();
-            }
-        });
-        TextView textView2 = this.mCountDownTips;
-        textView2.setText("激励领取视频还有" + this.mCount + "秒");
-        this.mHandler.postDelayed(new Runnable() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.3
-            @Override // java.lang.Runnable
-            @SuppressLint({"SetTextI18n"})
-            public final void run() {
-                if (AdRewardPreviewActivityProxy.this.counterPaused) {
-                    AdRewardPreviewActivityProxy.this.mHandler.postDelayed(this, 400L);
-                    return;
-                }
-                if (AdRewardPreviewActivityProxy.this.mCount <= 0) {
-                    AdRewardPreviewActivityProxy.this.mEnableSkip = true;
-                    AdRewardPreviewActivityProxy.this.skipToEnd();
-                } else {
-                    TextView textView3 = AdRewardPreviewActivityProxy.this.mCountDownTips;
-                    textView3.setText("激励领取视频还有" + AdRewardPreviewActivityProxy.this.mCount + "秒");
-                    AdRewardPreviewActivityProxy.this.mHandler.postDelayed(this, 1000L);
-                }
-                AdRewardPreviewActivityProxy.access$410(AdRewardPreviewActivityProxy.this);
-            }
-        }, 1000L);
-        AdInfo bQ = d.bQ(this.mAdTemplate);
-        if (this.mUrl != null) {
-            com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
-            if (com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                cVar.m(new a.C0625a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
-            }
-        }
-        this.mAdWebView.loadUrl(!TextUtils.isEmpty(this.mUrl) ? this.mUrl : com.kwad.sdk.core.response.a.a.ar(d.bQ(this.mAdTemplate)));
-        this.mWebContainer.a(new View.OnTouchListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.4
-            @Override // android.view.View.OnTouchListener
-            @SuppressLint({"ClickableViewAccessibility"})
-            public final boolean onTouch(View view2, MotionEvent motionEvent) {
-                if (motionEvent.getX() > AdRewardPreviewActivityProxy.this.mWebCloseBtn.getX() && motionEvent.getX() - AdRewardPreviewActivityProxy.this.mWebCloseBtn.getX() < AdRewardPreviewActivityProxy.this.mWebCloseBtn.getWidth() && motionEvent.getY() > AdRewardPreviewActivityProxy.this.mWebCloseBtn.getY() && motionEvent.getY() - AdRewardPreviewActivityProxy.this.mWebCloseBtn.getY() < AdRewardPreviewActivityProxy.this.mWebCloseBtn.getHeight()) {
-                    b.d(AdRewardPreviewActivityProxy.TAG, "onClick backIcon");
-                    return false;
-                }
-                if (motionEvent.getAction() == 0) {
-                    AdRewardPreviewActivityProxy.this.mLastDown = SystemClock.elapsedRealtime();
-                } else if (motionEvent.getAction() == 1) {
-                    long elapsedRealtime = SystemClock.elapsedRealtime() - AdRewardPreviewActivityProxy.this.mLastDown;
-                    if (AdRewardPreviewActivityProxy.this.mLastDown > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
-                        com.kwad.sdk.core.report.a.a(AdRewardPreviewActivityProxy.this.mAdTemplate, 72, AdRewardPreviewActivityProxy.this.mWebContainer.getTouchCoords());
-                        KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = AdRewardPreviewActivityProxy.mInteractionListener;
-                        if (rewardAdInteractionListener != null) {
-                            rewardAdInteractionListener.onAdClicked();
-                        }
-                    }
-                    AdRewardPreviewActivityProxy.this.mLastDown = 0L;
-                }
-                return false;
-            }
-        });
-    }
-
-    public static void launch(Context context, AdTemplate adTemplate, String str, KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        if (context == null || adTemplate == null) {
-            return;
-        }
-        mInteractionListener = rewardAdInteractionListener;
-        KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdRewardPreviewActivityProxy.class);
-        Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        intent.putExtra("key_template_json", adTemplate.toJson().toString());
-        intent.putExtra(KEY_URL, str);
-        context.startActivity(intent);
-        if (context instanceof ResContext) {
-            context = ((ResContext) context).getDelegatedContext();
-        }
-        if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(0, 0);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showCloseDialog() {
-        l lVar = this.mCloseDialog;
-        if (lVar == null || !lVar.isShowing()) {
-            k kVar = new k();
-            kVar.mAdTemplate = this.mAdTemplate;
-            this.mCloseDialog = l.a(getActivity(), this.mAdTemplate, l.a(kVar, "还差" + (this.mCount + 1) + "秒就可以获取奖励"), new l.b() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.6
-                @Override // com.kwad.components.ad.reward.l.b, com.kwad.components.core.webview.b.d.c
-                public final void G(boolean z) {
-                    AdRewardPreviewActivityProxy.this.counterPaused = false;
-                    AdRewardPreviewActivityProxy.this.finish();
-                }
-
-                @Override // com.kwad.components.ad.reward.l.b, com.kwad.components.core.webview.b.d.c
-                public final void fH() {
-                    AdRewardPreviewActivityProxy.this.counterPaused = true;
-                }
-
-                @Override // com.kwad.components.ad.reward.l.b, com.kwad.components.core.webview.b.d.c
-                public final void fI() {
-                    AdRewardPreviewActivityProxy.this.counterPaused = false;
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void skipToEnd() {
-        this.mCountDownTips.setVisibility(8);
-        this.mWebCloseBtn.setVisibility(0);
-        KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = mInteractionListener;
-        if (rewardAdInteractionListener != null) {
-            rewardAdInteractionListener.onRewardVerify();
-        }
-    }
-
-    @Override // com.kwad.components.core.i.a
+    @Override // com.kwad.components.core.proxy.c
     public String getPageName() {
         return TAG;
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onBackPressed() {
-        KsAdWebView ksAdWebView = this.mAdWebView;
-        if (ksAdWebView != null && ksAdWebView.canGoBack()) {
-            this.mAdWebView.goBack();
-            com.kwad.sdk.core.report.a.ay(this.mAdTemplate);
-        } else if (!this.mEnableSkip) {
-            showCloseDialog();
-        } else {
-            super.onBackPressed();
-            com.kwad.sdk.core.report.a.a(this.mAdTemplate, 11, (JSONObject) null);
+    /* loaded from: classes10.dex */
+    public static class a {
+        public static void a(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener, long j) {
+            if (rewardAdInteractionListener != null) {
+                try {
+                    rewardAdInteractionListener.onVideoSkipToEnd(j);
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+                }
+            }
+        }
+
+        public static void c(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+            if (rewardAdInteractionListener != null) {
+                rewardAdInteractionListener.onRewardVerify();
+                try {
+                    rewardAdInteractionListener.onRewardStepVerify(0, 0);
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+                }
+            }
+        }
+
+        public static void d(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+            if (rewardAdInteractionListener != null) {
+                try {
+                    rewardAdInteractionListener.onVideoPlayEnd();
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+                }
+            }
+        }
+
+        public static void e(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+            if (rewardAdInteractionListener != null) {
+                try {
+                    rewardAdInteractionListener.onPageDismiss();
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+                }
+            }
+        }
+
+        public static void f(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+            if (rewardAdInteractionListener != null) {
+                try {
+                    rewardAdInteractionListener.onAdClicked();
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+                }
+            }
         }
     }
 
-    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d049b);
-        String stringExtra = getIntent().getStringExtra("key_template_json");
-        this.mUrl = getIntent().getStringExtra(KEY_URL);
-        try {
-            AdTemplate adTemplate = new AdTemplate();
-            adTemplate.parseJson(new JSONObject(stringExtra));
-            this.mAdTemplate = adTemplate;
-        } catch (Throwable th) {
-            b.printStackTrace(th);
+    private void closeHandSlideMask() {
+        HandSlideView handSlideView = this.mHandSlideView;
+        if (handSlideView != null) {
+            handSlideView.destroy();
+            this.mHandSlideView = null;
         }
-        AdTemplate adTemplate2 = this.mAdTemplate;
-        if (adTemplate2 == null) {
-            finish();
+        View view2 = this.mHandSlideContainer;
+        if (view2 != null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    private o<e, RewardCallBackRespInfo> exposureRequest() {
+        return new o<e, RewardCallBackRespInfo>() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.7
+            @Override // com.kwad.sdk.core.network.o, com.kwad.sdk.core.network.g
+            public final /* bridge */ /* synthetic */ void onStartRequest(@NonNull f fVar) {
+            }
+
+            private void a(@NonNull RewardCallBackRespInfo rewardCallBackRespInfo) {
+                AdRewardPreviewActivityProxy adRewardPreviewActivityProxy = AdRewardPreviewActivityProxy.this;
+                boolean z = true;
+                if (rewardCallBackRespInfo.result != 1) {
+                    z = false;
+                }
+                adRewardPreviewActivityProxy.mCheckExposureResult = z;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: private */
+            @Override // com.kwad.sdk.core.network.o, com.kwad.sdk.core.network.g
+            /* renamed from: a */
+            public void onError(@NonNull e eVar, int i, String str) {
+                super.onError(eVar, i, str);
+                AdRewardPreviewActivityProxy.this.mCheckExposureResult = false;
+            }
+
+            @Override // com.kwad.sdk.core.network.o, com.kwad.sdk.core.network.g
+            public final /* synthetic */ void onSuccess(@NonNull f fVar, @NonNull BaseResultData baseResultData) {
+                a((RewardCallBackRespInfo) baseResultData);
+            }
+        };
+    }
+
+    private y.b getClientParams() {
+        y.b bVar = new y.b();
+        bVar.axA = 0;
+        return bVar;
+    }
+
+    private KsAdWebView.d getWebErrorListener() {
+        return new KsAdWebView.d() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.4
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageFinished() {
+                com.kwad.components.ad.reward.monitor.c.b(true, AdRewardPreviewActivityProxy.this.mAdTemplate, AdRewardPreviewActivityProxy.this.mPageEnterTime);
+                com.kwad.components.ad.reward.monitor.c.L(AdRewardPreviewActivityProxy.this.mAdTemplate);
+            }
+
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageStart() {
+                com.kwad.components.ad.reward.monitor.c.K(AdRewardPreviewActivityProxy.this.mAdTemplate);
+                if (!AdRewardPreviewActivityProxy.this.mAdTemplate.mPvReported) {
+                    AdRewardPreviewActivityProxy.this.checkExposure();
+                }
+                if (!AdRewardPreviewActivityProxy.this.mHadAdClicked) {
+                    AdRewardPreviewActivityProxy.this.showHandSlideMask();
+                }
+                y.a aVar = new y.a();
+                aVar.axc = "award_view";
+                b.a(true, AdRewardPreviewActivityProxy.this.mAdTemplate, null, new j().a(aVar));
+            }
+
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onReceivedHttpError(int i, String str, String str2) {
+                com.kwad.components.ad.reward.monitor.c.c(AdRewardPreviewActivityProxy.this.mAdTemplate, i, str);
+            }
+        };
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleCountdownEnd() {
+        if (this.mCheckExposureResult) {
+            a.c(mInteractionListener);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleEndClose() {
+        a.d(mInteractionListener);
+        com.kwad.sdk.core.report.a.a(this.mAdTemplate, 1, getTimerHelper().getTime(), (JSONObject) null);
+        finish();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showHandSlideMask() {
+        HandSlideView handSlideView = this.mHandSlideView;
+        if (handSlideView == null || handSlideView.isStarted()) {
             return;
         }
-        this.mCount = d.bQ(adTemplate2).adStyleInfo.adBrowseInfo.adBrowseDuration;
-        initView();
+        this.mHandSlideContainer.setVisibility(0);
+        this.mHandSlideView.a(this);
     }
 
-    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onDestroy() {
-        KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = mInteractionListener;
-        if (rewardAdInteractionListener != null) {
-            rewardAdInteractionListener.onPageDismiss();
+    public void checkExposure() {
+        long j = com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate).adRewardInfo.callBackStrategyInfo.impressionCheckMs;
+        if (j > 0 && com.kwad.sdk.core.response.b.a.ag(com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate)) > 5000) {
+            bn.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.5
+                @Override // java.lang.Runnable
+                public final void run() {
+                    AdRewardPreviewActivityProxy.this.checkRequest(1);
+                }
+            }, j);
         }
+    }
+
+    public bm getTimerHelper() {
+        if (this.mTimerHelper == null) {
+            this.mTimerHelper = new bm();
+        }
+        return this.mTimerHelper;
+    }
+
+    @Override // com.kwad.components.core.proxy.c
+    public void onActivityCreate() {
+        super.onActivityCreate();
+        com.kwad.sdk.i.a.aj("reward", "show");
+        com.kwad.sdk.commercial.e.c.bA(this.mAdTemplate);
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    public void onDestroy() {
+        a.e(mInteractionListener);
         mInteractionListener = null;
         KsAdWebView ksAdWebView = this.mAdWebView;
         if (ksAdWebView != null) {
             ksAdWebView.onActivityDestroy();
             this.mAdWebView = null;
         }
+        com.kwad.components.core.s.h hVar = this.mCountdownHelper;
+        if (hVar != null) {
+            hVar.stop();
+        }
         super.onDestroy();
-        this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.ad.reward.widget.HandSlideView.a
+    public void onHandSlideLoopEnd() {
+        closeHandSlideMask();
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
     public void onPause() {
+        super.onPause();
         overridePendingTransition(0, 0);
+        getTimerHelper().LN();
+        com.kwad.components.core.s.h hVar = this.mCountdownHelper;
+        if (hVar != null) {
+            hVar.pause();
+        }
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    public void onResume() {
+        super.onResume();
+        getTimerHelper().LM();
+        com.kwad.components.core.s.h hVar = this.mCountdownHelper;
+        if (hVar != null) {
+            hVar.resume();
+        }
+        if (!this.mReportedPageShow) {
+            com.kwad.components.ad.reward.monitor.c.f(true, this.mAdTemplate);
+            this.mReportedPageShow = true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkRequest(final int i) {
+        new l<e, RewardCallBackRespInfo>() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.6
+            @NonNull
+            public static RewardCallBackRespInfo C(String str) {
+                JSONObject jSONObject = new JSONObject(str);
+                RewardCallBackRespInfo rewardCallBackRespInfo = new RewardCallBackRespInfo();
+                rewardCallBackRespInfo.parseJson(jSONObject);
+                return rewardCallBackRespInfo;
+            }
+
+            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.response.model.BaseResultData' to match base method */
+            @Override // com.kwad.sdk.core.network.l
+            @NonNull
+            public final /* synthetic */ RewardCallBackRespInfo parseData(String str) {
+                return C(str);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: private */
+            @Override // com.kwad.sdk.core.network.a
+            @NonNull
+            /* renamed from: gj */
+            public e createRequest() {
+                return new e(i, AdRewardPreviewActivityProxy.this.mAdTemplate);
+            }
+        }.request(exposureRequest());
+    }
+
+    private void reportSubPageCreate(String str) {
+        com.kwad.components.ad.reward.monitor.c.c(true, this.mAdTemplate, str);
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    public void onCreate(@Nullable Bundle bundle) {
+        super.onCreate(bundle);
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        this.mPageEnterTime = elapsedRealtime;
+        com.kwad.components.ad.reward.monitor.c.a(true, this.mAdTemplate, elapsedRealtime);
+    }
+
+    @Override // com.kwad.components.core.proxy.c
+    public void onCreateCaughtException(Throwable th) {
+        super.onCreateCaughtException(th);
+        com.kwad.components.ad.reward.monitor.b.b(true, this.mAdTemplate);
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.components.core.proxy.a.c
+    public void onCreateStageChange(PageCreateStage pageCreateStage) {
+        super.onCreateStageChange(pageCreateStage);
+        reportSubPageCreate(pageCreateStage.getStage());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleAdClick() {
+        this.mHadAdClicked = true;
+        y.a aVar = new y.a();
+        aVar.axc = "award_view";
+        b.a(this.mAdTemplate, (String) null, "nativePreview", new j().cA(72).a(aVar).d(this.mWebContainer.getTouchCoords()), (JSONObject) null);
+        closeHandSlideMask();
+        a.f(mInteractionListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showCloseDialog() {
+        h hVar = this.mCloseDialog;
+        if (hVar != null && hVar.isShowing()) {
+            return;
+        }
+        int ceil = (int) Math.ceil(((float) this.mCurrentDuration) / 1000.0f);
+        this.mCloseDialog = h.a(getActivity(), this.mAdTemplate, h.h("还差" + ceil + "秒就可以获取奖励", ceil), new h.b() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.8
+            @Override // com.kwad.components.ad.reward.h.b, com.kwad.components.core.webview.tachikoma.e.c
+            public final void F(boolean z) {
+                a.a(AdRewardPreviewActivityProxy.mInteractionListener, System.currentTimeMillis() - AdRewardPreviewActivityProxy.this.mStartPlayTime);
+                com.kwad.sdk.core.report.a.a(AdRewardPreviewActivityProxy.this.mAdTemplate, 1, AdRewardPreviewActivityProxy.this.getTimerHelper().getTime(), (JSONObject) null);
+                AdRewardPreviewActivityProxy.this.finish();
+            }
+
+            @Override // com.kwad.components.ad.reward.h.b, com.kwad.components.core.webview.tachikoma.e.c
+            public final void fP() {
+                if (AdRewardPreviewActivityProxy.this.mCountdownHelper != null) {
+                    AdRewardPreviewActivityProxy.this.mCountdownHelper.pause();
+                }
+            }
+
+            @Override // com.kwad.components.ad.reward.h.b, com.kwad.components.core.webview.tachikoma.e.c
+            public final void fY() {
+                if (AdRewardPreviewActivityProxy.this.mCountdownHelper != null) {
+                    AdRewardPreviewActivityProxy.this.mCountdownHelper.resume();
+                }
+            }
+        });
+    }
+
+    @Override // com.kwad.components.core.proxy.c
+    public void initData() {
+        this.mUrl = getIntent().getStringExtra(KEY_URL);
+        AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate);
+        int i = dP.adStyleInfo.adBrowseInfo.adBrowseDuration;
+        int ae = com.kwad.sdk.core.response.b.a.ae(dP);
+        this.mCount = i;
+        this.mSkipCount = Math.min(ae, i);
+        this.mStartPlayTime = System.currentTimeMillis();
+        KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = mInteractionListener;
+        if (rewardAdInteractionListener != null) {
+            try {
+                rewardAdInteractionListener.onVideoPlayStart();
+            } catch (Throwable th) {
+                com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+            }
+        }
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    public void onBackPressed() {
+        boolean z;
+        KsAdWebView ksAdWebView = this.mAdWebView;
+        if (ksAdWebView != null && ksAdWebView.canGoBack()) {
+            this.mAdWebView.goBack();
+            com.kwad.sdk.core.report.a.bP(this.mAdTemplate);
+            return;
+        }
+        RewardPreviewTopBarView rewardPreviewTopBarView = this.mTopBarView;
+        if (rewardPreviewTopBarView != null && rewardPreviewTopBarView.kc()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            super.onBackPressed();
+            a.d(mInteractionListener);
+            com.kwad.sdk.core.report.a.a(this.mAdTemplate, 11, getTimerHelper().getTime(), (JSONObject) null);
+            return;
+        }
+        showCloseDialog();
+    }
+
+    public static void launch(Activity activity, AdResultData adResultData, AdTemplate adTemplate, String str, KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+        com.kwad.components.ad.reward.monitor.c.i(true, adTemplate);
+        boolean Bw = d.Bw();
+        mInteractionListener = rewardAdInteractionListener;
+        com.kwad.sdk.service.b.a(AdWebViewActivity.class, AdRewardPreviewActivityProxy.class);
+        Intent intent = new Intent(activity, AdWebViewActivity.class);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        intent.putExtra(KEY_URL, str);
+        if (Bw) {
+            intent.putExtra("key_ad_result_cache_idx", com.kwad.components.core.c.f.mB().i(adResultData));
+        } else {
+            intent.putExtra("key_template_json", adTemplate.toJson().toString());
+        }
+        try {
+            activity.startActivity(intent);
+            if (!Bw) {
+                activity.overridePendingTransition(0, 0);
+            }
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+            com.kwad.sdk.crash.b.m(e);
+            com.kwad.components.ad.reward.monitor.c.a(true, adTemplate, PageCreateStage.ERROR_START_ACTIVITY.getStage(), e.getMessage());
+        }
+        com.kwad.components.ad.reward.monitor.c.c(true, adTemplate, PageCreateStage.END_LAUNCH.getStage());
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0049 A[RETURN] */
+    @Override // com.kwad.components.core.proxy.c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean checkIntentData(@Nullable Intent intent) {
+        if (intent != null) {
+            try {
+            } catch (Throwable th) {
+                com.kwad.sdk.core.e.c.printStackTrace(th);
+            }
+            if (intent.hasExtra("key_ad_result_cache_idx")) {
+                this.mAdTemplate = com.kwad.components.core.c.f.mB().d(intent.getIntExtra("key_ad_result_cache_idx", 0), true).getFirstAdTemplate();
+                if (this.mAdTemplate == null) {
+                    return true;
+                }
+                com.kwad.sdk.i.a.aj("reward", "show");
+                return false;
+            }
+        }
+        String stringExtra = getIntent().getStringExtra("key_template_json");
+        AdTemplate adTemplate = new AdTemplate();
+        adTemplate.parseJson(new JSONObject(stringExtra));
+        this.mAdTemplate = adTemplate;
+        if (this.mAdTemplate == null) {
+        }
+    }
+
+    @Override // com.kwad.components.core.proxy.c
+    @SuppressLint({"SetTextI18n"})
+    public void initView() {
+        String aS;
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091512);
+        this.mAdWebView = ksAdWebView;
+        this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).eh(this.mAdTemplate).bt(true).bv(true).bs(true).b(getWebErrorListener()));
+        this.mAdWebView.onActivityCreate();
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091409);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091478);
+        this.mLogoView = ksLogoView;
+        ksLogoView.aD(this.mAdTemplate);
+        this.mHandSlideContainer = findViewById(R.id.obfuscated_res_0x7f091477);
+        AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate);
+        if (this.mUrl != null) {
+            com.kwad.components.core.e.d.c cVar = new com.kwad.components.core.e.d.c(this.mAdTemplate);
+            if (com.kwad.sdk.core.response.b.a.aF(dP) && d.AI() && ag.isWifiConnected(getActivity())) {
+                cVar.s(new a.C0644a(getActivity()).ao(false).ap(false).aq(this.mAdTemplate).ar(false));
+            }
+        }
+        if (!TextUtils.isEmpty(this.mUrl)) {
+            aS = this.mUrl;
+        } else {
+            aS = com.kwad.sdk.core.response.b.a.aS(com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate));
+        }
+        this.mAdWebView.loadUrl(aS);
+        getTimerHelper().startTiming();
+        this.mWebContainer.a(new View.OnTouchListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
+            @Override // android.view.View.OnTouchListener
+            @SuppressLint({"ClickableViewAccessibility"})
+            public final boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == 0) {
+                    AdRewardPreviewActivityProxy.this.mLastDown = SystemClock.elapsedRealtime();
+                    return false;
+                } else if (motionEvent.getAction() == 1) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime() - AdRewardPreviewActivityProxy.this.mLastDown;
+                    if (AdRewardPreviewActivityProxy.this.mLastDown > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
+                        AdRewardPreviewActivityProxy.this.handleAdClick();
+                    }
+                    AdRewardPreviewActivityProxy.this.mLastDown = 0L;
+                    return false;
+                } else {
+                    return false;
+                }
+            }
+        });
+        this.mHandSlideView = (HandSlideView) findViewById(R.id.obfuscated_res_0x7f091476);
+        com.kwad.components.core.s.h hVar = new com.kwad.components.core.s.h(this.mCount * 1000);
+        this.mCountdownHelper = hVar;
+        hVar.a(new h.a() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
+            @Override // com.kwad.components.core.s.h.a
+            public final void onProgress(long j, long j2) {
+                com.kwad.sdk.core.e.c.d(AdRewardPreviewActivityProxy.TAG, "onProgress currentDuration: " + j + " , totalDuration: " + j2);
+                AdRewardPreviewActivityProxy.this.mCurrentDuration = j;
+                AdRewardPreviewActivityProxy.this.mTopBarView.n(j);
+            }
+        });
+        this.mCountdownHelper.start();
+        RewardPreviewTopBarView rewardPreviewTopBarView = (RewardPreviewTopBarView) findViewById(R.id.obfuscated_res_0x7f091479);
+        this.mTopBarView = rewardPreviewTopBarView;
+        rewardPreviewTopBarView.setTotalCountDuration(this.mCount * 1000);
+        this.mTopBarView.setRewardTips(com.kwad.sdk.core.response.b.a.bY(dP));
+        this.mTopBarView.setCloseBtnDelayShowDuration(this.mSkipCount * 1000);
+        this.mTopBarView.setTopBarListener(new RewardPreviewTopBarView.a() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.3
+            @Override // com.kwad.components.ad.reward.widget.RewardPreviewTopBarView.a
+            public final void F(boolean z) {
+                if (z) {
+                    AdRewardPreviewActivityProxy.this.handleEndClose();
+                } else {
+                    AdRewardPreviewActivityProxy.this.showCloseDialog();
+                }
+            }
+
+            @Override // com.kwad.components.ad.reward.widget.RewardPreviewTopBarView.a
+            public final void G(boolean z) {
+                if (z) {
+                    return;
+                }
+                AdRewardPreviewActivityProxy.this.handleCountdownEnd();
+            }
+        });
     }
 }

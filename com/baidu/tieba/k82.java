@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.j82;
 /* loaded from: classes7.dex */
-public interface k82<T> {
-    T a();
+public interface k82<T extends j82> extends l82<T> {
+    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
 
-    void c(l82<T> l82Var);
+    void d(hg2 hg2Var);
 
-    T e(PMSAppInfo pMSAppInfo);
+    boolean i();
 
-    boolean f();
-
-    boolean g();
-
-    boolean h();
-
-    void reset();
+    void j(boolean z, s82 s82Var);
 }

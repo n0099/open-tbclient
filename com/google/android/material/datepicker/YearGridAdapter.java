@@ -10,11 +10,11 @@ import com.baidu.tieba.R;
 import com.google.android.material.datepicker.MaterialCalendar;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final MaterialCalendar<?> materialCalendar;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView textView;
 
@@ -57,7 +57,7 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         CalendarItemStyle calendarItemStyle;
         int yearForPosition = getYearForPosition(i);
-        String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0d1a);
+        String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0d28);
         viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
         viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
         CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
@@ -81,6 +81,6 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0671, viewGroup, false));
+        return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d068a, viewGroup, false));
     }
 }

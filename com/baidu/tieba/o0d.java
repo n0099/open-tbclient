@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.NovelFansInfo;
+import tbclient.FrsPage.Group;
 /* loaded from: classes7.dex */
-public class o0d extends qoc {
+public class o0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NovelFansInfo novelFansInfo) {
+    public static JSONObject b(@NonNull Group group) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, novelFansInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, group)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "level", novelFansInfo.level);
-            qoc.a(jSONObject, "level_name", novelFansInfo.level_name);
-            qoc.a(jSONObject, "level_icon", novelFansInfo.level_icon);
+            ltc.a(jSONObject, "hide_recommend_group", group.hide_recommend_group);
+            ltc.a(jSONObject, "group_count", group.group_count);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a77;
-import com.baidu.tieba.mj7;
+import com.baidu.tieba.el7;
+import com.baidu.tieba.n77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(@NonNull a77 a77Var);
+        void a(@NonNull n77 n77Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,12 +72,12 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setGravity(80);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a5, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d74);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d78);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d76);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d75);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d77);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ae, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d98);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d96);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d95);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d97);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
             this.e.addItemDecoration(new GridSpacingItemDecoration(3, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), false));
@@ -105,9 +105,9 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a77 m = this.f.m();
-            if (m != null) {
-                return m.b();
+            n77 n = this.f.n();
+            if (n != null) {
+                return n.b();
             }
             return 1;
         }
@@ -131,18 +131,18 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getTag() instanceof a77) {
+            if (view2.getTag() instanceof n77) {
                 b();
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.l() >= 0) {
                     boolean z = SharedPrefHelper.getInstance().getBoolean("key_frs_move_area_tip", true);
-                    a77 m = this.f.m();
-                    if (m != null) {
+                    n77 n = this.f.n();
+                    if (n != null) {
                         if (z) {
-                            mj7.a(this.a, this.j, this.k, m, this.h);
+                            el7.a(this.a, this.j, this.k, n, this.h);
                         } else if (this.h != null) {
                             view2.setTag("choose_done");
-                            this.h.a(m);
+                            this.h.a(n);
                         }
                     }
                 }
@@ -167,10 +167,10 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         }
     }
 
-    public void setData(List<a77> list, int i, String str) {
+    public void setData(List<n77> list, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048582, this, list, i, str) == null) {
-            this.f.q(list, i);
+            this.f.r(list, i);
             this.j = str;
             this.k = i;
             b();

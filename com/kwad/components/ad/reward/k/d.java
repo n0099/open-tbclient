@@ -1,23 +1,42 @@
 package com.kwad.components.ad.reward.k;
 
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.utils.ag;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public abstract class d {
-    public void a(u uVar) {
+public final class d implements com.kwad.sdk.core.webview.c.a {
+    public a xd;
+
+    /* loaded from: classes10.dex */
+    public interface a {
+        void a(com.kwad.components.core.webview.tachikoma.b.p pVar);
     }
 
-    public void aa(boolean z) {
+    @Override // com.kwad.sdk.core.webview.c.a
+    @NonNull
+    public final String getKey() {
+        return "clickCall";
     }
 
-    public final void b(@NonNull u uVar) {
-        a(uVar);
-        aa(ag.cB(fR().getContext()));
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void onDestroy() {
+        this.xd = null;
     }
 
-    public abstract ViewGroup fR();
+    public final void a(a aVar) {
+        this.xd = aVar;
+    }
 
-    public void onUnbind() {
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        com.kwad.components.core.webview.tachikoma.b.p pVar = new com.kwad.components.core.webview.tachikoma.b.p();
+        try {
+            pVar.parseJson(new JSONObject(str));
+            if (this.xd != null) {
+                this.xd.a(pVar);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

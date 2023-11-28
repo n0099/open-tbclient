@@ -1,52 +1,41 @@
 package com.kwad.components.core.webview.jshandler;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class g implements com.kwad.sdk.core.webview.kwai.a {
-    public Handler Ll = new Handler(Looper.getMainLooper());
-    public com.kwad.sdk.core.webview.a.kwai.b Lt;
-    @Nullable
-    public com.kwad.sdk.core.webview.kwai.c Lu;
+public final class g implements com.kwad.sdk.core.webview.c.a {
 
-    public g(com.kwad.sdk.core.webview.a.kwai.b bVar) {
-        this.Lt = bVar;
+    @KsJson
+    /* loaded from: classes10.dex */
+    public static class a extends com.kwad.sdk.core.response.a.a {
+        public String data;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void pw() {
-        com.kwad.sdk.core.webview.a.kwai.b bVar = this.Lt;
-        if (bVar != null) {
-            bVar.onClose();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.Lu = cVar;
-        this.Ll.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.g.1
-            @Override // java.lang.Runnable
-            public final void run() {
-                g.this.pw();
-                if (g.this.Lu != null) {
-                    g.this.Lu.a(null);
-                }
-            }
-        });
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     @NonNull
     public final String getKey() {
-        return "close";
+        return "md5";
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     public final void onDestroy() {
-        this.Lt = null;
-        this.Lu = null;
-        this.Ll.removeCallbacksAndMessages(null);
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        com.kwad.components.core.webview.tachikoma.b.j jVar = new com.kwad.components.core.webview.tachikoma.b.j();
+        try {
+            jVar.parseJson(new JSONObject(str));
+        } catch (Exception unused) {
+        }
+        a aVar = new a();
+        if (TextUtils.isEmpty(jVar.data)) {
+            aVar.data = "";
+        } else {
+            aVar.data = com.kwad.sdk.utils.ad.bn(jVar.data);
+        }
+        cVar.a(aVar);
     }
 }

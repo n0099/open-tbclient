@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShapePath {
     public static final float ANGLE_LEFT = 180.0f;
     public static final float ANGLE_UP = 270.0f;
@@ -29,14 +29,14 @@ public class ShapePath {
     @Deprecated
     public float startY;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class PathOperation {
         public final Matrix matrix = new Matrix();
 
         public abstract void applyToPath(Matrix matrix, Path path);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ArcShadowOperation extends ShadowCompatOperation {
         public final PathArcOperation operation;
 
@@ -50,7 +50,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LineShadowOperation extends ShadowCompatOperation {
         public final PathLineOperation operation;
         public final float startX;
@@ -76,7 +76,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathArcOperation extends PathOperation {
         public static final RectF rectF = new RectF();
         @Deprecated
@@ -166,7 +166,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathCubicOperation extends PathOperation {
         public float controlX1;
         public float controlX2;
@@ -242,7 +242,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathQuadOperation extends PathOperation {
         @Deprecated
         public float controlX;
@@ -331,7 +331,7 @@ public class ShapePath {
         return this.startY;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathLineOperation extends PathOperation {
         public float x;
         public float y;
@@ -346,7 +346,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class ShadowCompatOperation {
         public static final Matrix IDENTITY_MATRIX = new Matrix();
 

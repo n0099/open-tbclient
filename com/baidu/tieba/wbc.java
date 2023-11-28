@@ -1,73 +1,78 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
-public class wbc {
+public class wbc implements qbc {
     public static /* synthetic */ Interceptable $ic;
-    public static wbc a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948266257, "Lcom/baidu/tieba/wbc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948266257, "Lcom/baidu/tieba/wbc;");
-                return;
-            }
-        }
-        a = new wbc();
-    }
-
-    public wbc() {
+    public wbc(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = str;
     }
 
-    public static wbc b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (wbc) invokeV.objValue;
-    }
-
-    public File a(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context == null) {
-                pbc.b(StorageUtils.TAG, "Context is null, need setting Context!");
-                return null;
-            } else if (context.getExternalCacheDir() != null && context.getExternalCacheDir().exists()) {
-                return context.getExternalCacheDir();
-            } else {
-                return context.getCacheDir();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return "agc_" + lbc.c(b(str.getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
+                return "";
             }
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.qbc
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
+                return str2;
+            }
+            try {
+                return this.a.getResources().getString(identifier);
+            } catch (Resources.NotFoundException unused) {
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

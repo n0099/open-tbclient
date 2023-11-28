@@ -62,6 +62,7 @@ public final class FrsActivityStaticAutoGenerateUrlCollectorImpl implements ICmd
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_FRS);
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_FRS_RULES);
             arrayList.add("tname");
+            arrayList.add("unidispatch/frs");
             hashMap.put("com.baidu.tieba.frs.FrsActivityStatic", arrayList);
             return hashMap;
         }

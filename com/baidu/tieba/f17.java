@@ -4,32 +4,36 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.e17;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.pe5;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
+import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class f17 extends pe5 {
+public class f17 extends ve5 {
     public static /* synthetic */ Interceptable $ic;
-    public static f17 b;
+    public static f17 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<se5> a;
+    public LinkedList<ye5> a;
+    public final CustomMessageListener b;
 
-    @Override // com.baidu.tieba.pe5
+    @Override // com.baidu.tieba.ve5
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
+            return 4;
         }
         return invokeV.intValue;
     }
@@ -39,6 +43,40 @@ public class f17 extends pe5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f17 a;
+
+        /* renamed from: com.baidu.tieba.f17$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0292a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0292a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.g();
+                }
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f17 f17Var, int i) {
@@ -65,50 +103,9 @@ public class f17 extends pe5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
-                Object data = customResponsedMessage.getData();
-                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
-                    this.a.g(null);
-                    return;
-                }
-                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
-                LinkedList linkedList = new LinkedList();
-                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
-                    this.a.g(null);
-                    return;
-                }
-                linkedList.add(singleBarEmotionRecommendData);
-                this.a.g(linkedList);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements e17.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(f17 f17Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f17Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.e17.b
-        public void a(e17 e17Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e17Var) == null) {
-                MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.d();
+                lr6.a(new RunnableC0292a(this), "FaceShop", 1);
             }
         }
     }
@@ -123,76 +120,116 @@ public class f17 extends pe5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                Iterator<ye5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    ye5 next = it.next();
+                    if (next instanceof e17) {
+                        ((e17) next).y();
+                    }
+                }
             }
         }
     }
 
-    public static f17 f() {
+    public static f17 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
                 synchronized (f17.class) {
-                    if (b == null) {
-                        b = new f17();
+                    if (c == null) {
+                        c = new f17();
                     }
                 }
             }
-            return b;
+            return c;
         }
         return (f17) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pe5
-    public void d() {
+    @Override // com.baidu.tieba.ve5
+    public void b(ve5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2001444));
-        }
-    }
-
-    @Override // com.baidu.tieba.pe5
-    public void b(pe5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                e17 e17Var = (e17) this.a.get(i);
-                if (e17Var.u() && nn9.i().g(e17Var.f()) == null && aVar != null) {
-                    aVar.a(e17Var);
-                }
-            }
-        }
-    }
-
-    public final synchronized void g(List<o07> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        if (this.a != null) {
-                            this.a = null;
-                        }
-                        LinkedList<se5> linkedList = new LinkedList<>();
-                        boolean z = false;
-                        for (o07 o07Var : list) {
-                            if (o07Var != null && !StringUtils.isNull(o07Var.getGroupId()) && o07Var.IsValid()) {
-                                e17 e17Var = new e17(o07Var);
-                                linkedList.add(e17Var);
-                                z = e17Var.v(o07Var, new b(this));
-                            }
-                        }
-                        this.a = linkedList;
-                        if (z) {
-                            MessageManager.getInstance().runTask(2004603, (Class) null);
-                        }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
+            LinkedList<ye5> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<ye5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    ye5 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
                     }
                 }
-                if (this.a != null) {
-                    this.a = null;
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                }
+                return;
+            }
+            this.a = new LinkedList<>();
+            e17 e17Var = new e17();
+            this.a.add(e17Var);
+            if (aVar != null) {
+                aVar.a(e17Var);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ve5
+    public void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        List<DiyEmotionData> r = i17.o().r(TbadkCoreApplication.getCurrentAccount());
+        if (r != null && r.size() != 0) {
+            if (r != null && r.size() != 0) {
+                i = r.size() - 1;
+            } else {
+                i = 0;
+            }
+            StatisticItem statisticItem = new StatisticItem("c12224");
+            statisticItem.param("obj_param1", i);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            return;
+        }
+        DiyEmotionData diyEmotionData = new DiyEmotionData();
+        diyEmotionData.setPid("setting_icon");
+        diyEmotionData.setOrderId(301);
+        diyEmotionData.setSharpText("#(meme,diysetting)");
+        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
+        i17.o().c(diyEmotionData);
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<ye5> linkedList = this.a;
+            if (linkedList == null) {
+                return false;
+            }
+            Iterator<ye5> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ye5 next = it.next();
+                if (next instanceof e17) {
+                    return ((e17) next).w(str);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

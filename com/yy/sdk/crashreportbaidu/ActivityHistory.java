@@ -7,10 +7,10 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import com.baidu.tieba.pbc;
+import com.baidu.tieba.kgc;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum ActivityHistory {
     INSTANCE;
     
@@ -24,7 +24,7 @@ public enum ActivityHistory {
     public int mLastTrimLevel = 0;
     public int count = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
@@ -61,7 +61,7 @@ public enum ActivityHistory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class b implements ComponentCallbacks2 {
         @Override // android.content.ComponentCallbacks
         public void onConfigurationChanged(Configuration configuration) {
@@ -72,7 +72,7 @@ public enum ActivityHistory {
 
         @Override // android.content.ComponentCallbacks2
         public void onTrimMemory(int i) {
-            pbc.b(ActivityHistory.TAG, "trim level: " + i);
+            kgc.b(ActivityHistory.TAG, "trim level: " + i);
             ActivityHistory.this.mLastTrimLevel = i;
             if (i == 20) {
                 ActivityHistory.this.addRecord(ActivityHistory.BACKGROUND);
@@ -81,7 +81,7 @@ public enum ActivityHistory {
 
         @Override // android.content.ComponentCallbacks
         public void onLowMemory() {
-            pbc.b(ActivityHistory.TAG, "low memory");
+            kgc.b(ActivityHistory.TAG, "low memory");
         }
     }
 

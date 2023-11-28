@@ -97,11 +97,11 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d077c, this);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092390);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0796, this);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092412);
             this.a = settingTextSwitchView;
             SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.CAM_X0201);
-            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092392);
+            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092414);
             this.b = settingTextSwitchView2;
             SkinManager.setBackgroundColor(settingTextSwitchView2.getView(), R.color.CAM_X0201);
         }

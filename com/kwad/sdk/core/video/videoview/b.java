@@ -1,50 +1,50 @@
 package com.kwad.sdk.core.video.videoview;
 
 import android.content.Context;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 /* loaded from: classes10.dex */
-public abstract class b extends FrameLayout {
-    public Runnable JJ;
+public abstract class b extends RelativeLayout {
+    public Runnable TH;
     @NonNull
-    public final c aef;
+    public final c aAB;
+
+    public abstract void onPlayStateChanged(int i);
+
+    public void p(int i, int i2) {
+    }
+
+    public abstract void rd();
+
+    public abstract void reset();
 
     public b(Context context, @NonNull c cVar) {
         super(context);
-        this.aef = cVar;
+        this.aAB = cVar;
     }
 
-    public void l(int i, int i2) {
-    }
-
-    public abstract void oR();
-
-    public final void oX() {
-        oY();
-        if (this.JJ == null) {
-            this.JJ = new Runnable() { // from class: com.kwad.sdk.core.video.videoview.b.1
+    public final void rj() {
+        rk();
+        if (this.TH == null) {
+            this.TH = new Runnable() { // from class: com.kwad.sdk.core.video.videoview.b.1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    b.this.oR();
-                    if (b.this.JJ != null) {
+                    b.this.rd();
+                    if (b.this.TH != null) {
                         b bVar = b.this;
-                        bVar.postDelayed(bVar.JJ, 1000L);
+                        bVar.postDelayed(bVar.TH, 1000L);
                     }
                 }
             };
         }
-        post(this.JJ);
+        post(this.TH);
     }
 
-    public final void oY() {
-        Runnable runnable = this.JJ;
+    public final void rk() {
+        Runnable runnable = this.TH;
         if (runnable != null) {
             removeCallbacks(runnable);
-            this.JJ = null;
+            this.TH = null;
         }
     }
-
-    public abstract void onPlayStateChanged(int i);
-
-    public abstract void reset();
 }

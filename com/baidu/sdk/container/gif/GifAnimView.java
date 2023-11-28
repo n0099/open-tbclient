@@ -12,11 +12,11 @@ import android.os.SystemClock;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg1;
 import com.baidu.tieba.rg1;
 import com.baidu.tieba.sg1;
 import com.baidu.tieba.tg1;
 import com.baidu.tieba.ug1;
+import com.baidu.tieba.vg1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
-public class GifAnimView extends View implements qg1 {
+public class GifAnimView extends View implements rg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg1 a;
+    public sg1 a;
     public Bitmap b;
     public boolean c;
     public boolean d;
@@ -38,8 +38,8 @@ public class GifAnimView extends View implements qg1 {
     public c g;
     public GifImageType h;
     public boolean i;
-    public ug1 j;
-    public tg1 k;
+    public vg1 j;
+    public ug1 k;
     public int l;
     @SuppressLint({"HandlerLeak"})
     public Handler m;
@@ -223,7 +223,7 @@ public class GifAnimView extends View implements qg1 {
             }
             while (this.a.c) {
                 if (!this.a.d) {
-                    sg1 i = this.a.a.i();
+                    tg1 i = this.a.a.i();
                     this.a.b = i.a;
                     long j = i.b;
                     if (this.a.m != null) {
@@ -271,13 +271,13 @@ public class GifAnimView extends View implements qg1 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifAnimView(Context context, tg1 tg1Var) {
+    public GifAnimView(Context context, ug1 ug1Var) {
         this(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tg1Var};
+            Object[] objArr = {context, ug1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -288,20 +288,20 @@ public class GifAnimView extends View implements qg1 {
                 return;
             }
         }
-        this.k = tg1Var;
+        this.k = ug1Var;
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, inputStream) == null) {
-            rg1 rg1Var = this.a;
-            if (rg1Var != null) {
-                rg1Var.c();
+            sg1 sg1Var = this.a;
+            if (sg1Var != null) {
+                sg1Var.c();
                 this.a = null;
             }
-            rg1 rg1Var2 = new rg1(inputStream, this);
-            this.a = rg1Var2;
-            rg1Var2.start();
+            sg1 sg1Var2 = new sg1(inputStream, this);
+            this.a = sg1Var2;
+            sg1Var2.start();
         }
     }
 
@@ -358,14 +358,14 @@ public class GifAnimView extends View implements qg1 {
     private void setGifDecoderImage(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, bArr) == null) {
-            rg1 rg1Var = this.a;
-            if (rg1Var != null) {
-                rg1Var.c();
+            sg1 sg1Var = this.a;
+            if (sg1Var != null) {
+                sg1Var.c();
                 this.a = null;
             }
-            rg1 rg1Var2 = new rg1(bArr, this);
-            this.a = rg1Var2;
-            rg1Var2.start();
+            sg1 sg1Var2 = new sg1(bArr, this);
+            this.a = sg1Var2;
+            sg1Var2.start();
         }
     }
 
@@ -376,7 +376,7 @@ public class GifAnimView extends View implements qg1 {
         }
     }
 
-    @Override // com.baidu.tieba.qg1
+    @Override // com.baidu.tieba.rg1
     public void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && z && this.a != null) {
@@ -440,9 +440,9 @@ public class GifAnimView extends View implements qg1 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.d = true;
             this.c = false;
-            rg1 rg1Var = this.a;
-            if (rg1Var != null) {
-                rg1Var.c();
+            sg1 sg1Var = this.a;
+            if (sg1Var != null) {
+                sg1Var.c();
                 this.a = null;
             }
             if (this.j != null) {
@@ -466,12 +466,12 @@ public class GifAnimView extends View implements qg1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            rg1 rg1Var = this.a;
-            if (rg1Var == null) {
+            sg1 sg1Var = this.a;
+            if (sg1Var == null) {
                 return;
             }
             if (this.b == null) {
-                this.b = rg1Var.g();
+                this.b = sg1Var.g();
             }
             if (this.b == null) {
                 return;
@@ -487,9 +487,9 @@ public class GifAnimView extends View implements qg1 {
                 canvas.drawBitmap(this.b, (Rect) null, this.f, paint);
             }
             canvas.restoreToCount(saveCount);
-            ug1 ug1Var = this.j;
-            if (ug1Var != null && this.i) {
-                ug1Var.onAdPresent();
+            vg1 vg1Var = this.j;
+            if (vg1Var != null && this.i) {
+                vg1Var.onAdPresent();
                 this.i = false;
             }
         }
@@ -504,13 +504,13 @@ public class GifAnimView extends View implements qg1 {
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
-            rg1 rg1Var = this.a;
+            sg1 sg1Var = this.a;
             int i4 = 1;
-            if (rg1Var == null) {
+            if (sg1Var == null) {
                 i3 = 1;
             } else {
-                i4 = rg1Var.c;
-                i3 = rg1Var.d;
+                i4 = sg1Var.c;
+                i3 = sg1Var.d;
             }
             setMeasuredDimension(View.resolveSize(Math.max(i4 + paddingLeft + paddingRight, getSuggestedMinimumWidth()), i), View.resolveSize(Math.max(i3 + paddingTop + paddingBottom, getSuggestedMinimumHeight()), i2));
         }

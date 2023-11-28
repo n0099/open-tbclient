@@ -1,183 +1,172 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
+import com.baidu.tieba.pb.feedback.AigcFeedbackHelper;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ex9 extends uv9 {
+public final class ex9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public final Function0<ArrayList<pi>> b;
+    public final Function0<Unit> c;
+    public final CustomMessageListener d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex9(h1a h1aVar, BdUniqueId bdUniqueId) {
-        super(h1aVar, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public static final class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ex9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ex9 ex9Var) {
+            super(2016530);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ex9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof AgreeMessageData)) {
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    AgreeMessageData agreeMessageData = (AgreeMessageData) data;
+                    AgreeData agreeData = agreeMessageData.agreeData;
+                    if (agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+                        ArrayList arrayList = (ArrayList) this.a.b.invoke();
+                        if (arrayList != null && !arrayList.isEmpty()) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (z) {
+                            return;
+                        }
+                        Object obj = null;
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            Object obj2 = (pi) it.next();
+                            if (obj2 instanceof nwa) {
+                                nwa nwaVar = (nwa) obj2;
+                                String valueOf = String.valueOf(nwaVar.q0());
+                                String U = nwaVar.U();
+                                if (Intrinsics.areEqual(agreeData.threadId, valueOf) && Intrinsics.areEqual(agreeData.postId, U)) {
+                                    obj = obj2;
+                                    break;
+                                }
+                            }
+                        }
+                        if (obj != null) {
+                            nwa nwaVar2 = (nwa) obj;
+                            if (nwaVar2.z0()) {
+                                AgreeData p = nwaVar2.p();
+                                if (p != null) {
+                                    ex9 ex9Var = this.a;
+                                    if (!Intrinsics.areEqual(ex9Var.a, agreeMessageData.uniqueId)) {
+                                        p.agreeType = agreeData.agreeType;
+                                        p.hasAgree = agreeData.hasAgree;
+                                        p.diffAgreeNum = agreeData.diffAgreeNum;
+                                        p.agreeNum = agreeData.agreeNum;
+                                        p.disAgreeNum = agreeData.disAgreeNum;
+                                    } else if (p.isSelectDisagree()) {
+                                        nwaVar2.X0(1);
+                                        AigcFeedbackHelper.d(nwaVar2);
+                                    } else if (p.isSelectAgree() || ex9Var.e(p)) {
+                                        nwaVar2.X0(0);
+                                    }
+                                }
+                                this.a.c.invoke();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.tbadkCore.data.AgreeMessageData");
+            }
+        }
+    }
+
+    public ex9(BdUniqueId uniqueId, Function0<? extends ArrayList<pi>> dataList, Function0<Unit> afterSync) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h1aVar, bdUniqueId};
+            Object[] objArr = {uniqueId, dataList, afterSync};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((h1a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(dataList, "dataList");
+        Intrinsics.checkNotNullParameter(afterSync, "afterSync");
+        this.a = uniqueId;
+        this.b = dataList;
+        this.c = afterSync;
+        this.d = new a(this);
     }
 
-    public final void D0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pbCommenFloorItemViewHolder) == null) {
-            I0(pbCommenFloorItemViewHolder.F0);
-        }
-    }
-
-    public final void E0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbCommenFloorItemViewHolder) == null) {
-            I0(pbCommenFloorItemViewHolder.C0);
-        }
-    }
-
-    public final void F0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbCommenFloorItemViewHolder) == null) {
-            I0(pbCommenFloorItemViewHolder.s);
-        }
-    }
-
-    public final void G0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pbCommenFloorItemViewHolder) == null) && (view2 = pbCommenFloorItemViewHolder.J) != null) {
-            view2.setVisibility(4);
-        }
-    }
-
-    public final void H0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pbCommenFloorItemViewHolder) == null) {
-            TextView textView = pbCommenFloorItemViewHolder.D;
-            if (textView != null) {
-                textView.setVisibility(8);
-            }
-            TextView textView2 = pbCommenFloorItemViewHolder.m;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
-            }
-        }
-    }
-
-    public final void J0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pbCommenFloorItemViewHolder) == null) {
-            I0(pbCommenFloorItemViewHolder.w);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uv9, com.baidu.tieba.bi
-    /* renamed from: p0 */
-    public PbCommenFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public final boolean e(AgreeData agreeData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            PbCommenFloorItemViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup);
-            K0(onCreateViewHolder);
-            return onCreateViewHolder;
-        }
-        return (PbCommenFloorItemViewHolder) invokeL.objValue;
-    }
-
-    public final void I0(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            marginLayoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            marginLayoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            view2.setLayoutParams(marginLayoutParams);
-        }
-    }
-
-    public final void L0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pbCommenFloorItemViewHolder) == null) {
-            View findViewById = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927d1);
-            if (findViewById != null) {
-                SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeData)) == null) {
+            Intrinsics.checkNotNullParameter(agreeData, "<this>");
+            if (!agreeData.hasAgree && agreeData.isDisagreeType()) {
+                return true;
             }
-            View findViewById2 = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927d0);
-            if (findViewById2 != null) {
-                SkinManager.setViewTextColor(findViewById2, R.color.CAM_X0105, 1);
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void K0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        RelativeLayout.LayoutParams layoutParams;
+    public final CustomMessageListener d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pbCommenFloorItemViewHolder) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091bb8);
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07cf, (ViewGroup) null);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
-            if (relativeLayout != null) {
-                relativeLayout.addView(inflate, 0, layoutParams2);
-            }
-            LinearLayout linearLayout = (LinearLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091206);
-            if (linearLayout != null) {
-                if (linearLayout.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-                } else {
-                    layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-                }
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091fd7);
-                linearLayout.setLayoutParams(layoutParams);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-    }
-
-    @Override // com.baidu.tieba.uv9, com.baidu.tieba.wv9, com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        q0(i, view2, viewGroup, (vra) obj, (PbCommenFloorItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    @Override // com.baidu.tieba.uv9
-    public View q0(int i, View view2, ViewGroup viewGroup, vra vraVar, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vraVar, pbCommenFloorItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, vraVar, pbCommenFloorItemViewHolder);
-            F0(pbCommenFloorItemViewHolder);
-            H0(pbCommenFloorItemViewHolder);
-            D0(pbCommenFloorItemViewHolder);
-            E0(pbCommenFloorItemViewHolder);
-            J0(pbCommenFloorItemViewHolder);
-            G0(pbCommenFloorItemViewHolder);
-            L0(pbCommenFloorItemViewHolder);
-            d1a.w("c14887");
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        return (CustomMessageListener) invokeV.objValue;
     }
 }

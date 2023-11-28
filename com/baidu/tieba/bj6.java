@@ -1,33 +1,49 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.ContextWrapper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface bj6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
+public final class bj6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Application a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(List<Pair<String, String>> list);
+    public static Activity a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
+            }
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
+        }
+        return (Activity) invokeL.objValue;
+    }
 
-    void b(String str, HashMap<String, Object> hashMap);
+    public static void c(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
+            a = application;
+        }
+    }
 
-    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
-
-    void d(View view2, String str, HashMap<String, Object> hashMap);
-
-    void e(View view2, String str, ValueCallback<String> valueCallback);
-
-    void f(dj6 dj6Var, Object obj);
-
-    void g(String str, JSONObject jSONObject, WebView webView);
-
-    void h(String str, JSONObject jSONObject);
-
-    void i(View view2, String str, JSONObject jSONObject);
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
+    }
 }

@@ -1,76 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.Item;
 /* loaded from: classes8.dex */
-public class wi9 {
+public class wi9 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public ji9 b;
-    public LinkedHashMap<String, mi9> c;
+    public Long a;
+    public String b;
+    public String c;
+    public List<String> d;
+    public Double e;
+    public Integer f;
 
-    public wi9(DataRes dataRes) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271682, "Lcom/baidu/tieba/wi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271682, "Lcom/baidu/tieba/wi9;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+    }
+
+    public wi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (dataRes == null) {
-            return;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new vi9(dataRes);
-        new xi9(dataRes.special_list);
-        new oi9(dataRes.cooperate_list);
-        new si9(dataRes.theme_list);
-        new ki9(dataRes.banner_list);
-        new aj9(dataRes.task_list);
-        new zi9(dataRes.rank, dataRes.user);
-        new qi9(dataRes.daily_list);
-        ji9 ji9Var = new ji9();
-        this.b = ji9Var;
-        ji9Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    mi9 mi9Var = new mi9(vipBasicList);
-                    if (mi9Var.c != 3 || mi9Var.a().size() >= 2) {
-                        this.c.put(mi9Var.d, mi9Var);
-                    }
-                }
-            }
+        return (String) invokeV.objValue;
+    }
+
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 != null && list3.size() > 0) {
-            this.a = new ArrayList<>();
-            for (String str3 : dataRes.card_order) {
-                if (!StringUtils.isNull(str3)) {
-                    this.a.add(str3);
-                }
-            }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Double d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (Double) invokeV.objValue;
+    }
+
+    public Integer e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public List<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return g;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void g(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, item) == null) {
+            this.a = item.item_id;
+            this.b = item.item_name;
+            Double d = item.icon_size;
+            this.c = item.icon_url;
+            this.d = item.tags;
+            this.e = item.score;
+            this.f = item.star;
         }
     }
 }

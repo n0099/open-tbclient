@@ -16,6 +16,11 @@ import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 public class KsFragmentActivity extends FragmentActivity {
     public KsFragmentManager mFragmentManager;
 
+    @KsAdSdkDynamicApi
+    @Keep
+    public void onAttachFragment(KsFragment ksFragment) {
+    }
+
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
     public final FragmentManager getSupportFragmentManager() {
@@ -30,6 +35,18 @@ public class KsFragmentActivity extends FragmentActivity {
         return this.mFragmentManager;
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        ComponentDestroyer.destroyActivity(this);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity
+    @Keep
+    public void supportFinishAfterTransition() {
+        super.supportFinishAfterTransition();
+    }
+
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
     public final void onAttachFragment(Fragment fragment) {
@@ -37,17 +54,6 @@ public class KsFragmentActivity extends FragmentActivity {
         if (fragment instanceof IDelegateFragment) {
             onAttachFragment(((IDelegateFragment) fragment).getBase());
         }
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void onAttachFragment(KsFragment ksFragment) {
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        ComponentDestroyer.destroyActivity(this);
     }
 
     @Override // androidx.fragment.app.FragmentActivity
@@ -60,11 +66,5 @@ public class KsFragmentActivity extends FragmentActivity {
     @Keep
     public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
         super.startActivityFromFragment(fragment, intent, i, bundle);
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity
-    @Keep
-    public void supportFinishAfterTransition() {
-        super.supportFinishAfterTransition();
     }
 }

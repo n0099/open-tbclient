@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetRecommendTopic.DataReq;
 import tbclient.GetRecommendTopic.GetRecommendTopicReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetRecommendTopicReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

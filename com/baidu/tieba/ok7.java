@@ -1,41 +1,58 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.forum.data.ForumTabItem;
-import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ok7 {
+public final class ok7 implements lk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Integer[] a;
+    public final Function2<Integer, Intent, Unit> b;
 
-    public static final ForumStatConstant$TabType a(Bundle bundle) {
-        InterceptResult invokeL;
-        ForumStatConstant$TabType forumStatConstant$TabType;
+    public ok7(Integer[] codes, Function2<? super Integer, ? super Intent, Unit> onActivityResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
-            Intrinsics.checkNotNullParameter(bundle, "bundle");
-            ForumStatConstant$TabType forumStatConstant$TabType2 = ForumStatConstant$TabType.TAB_TYPE_UNKNOWN;
-            ForumTabItem forumTabItem = (ForumTabItem) bundle.getParcelable("forum_tab_info");
-            if (forumTabItem != null) {
-                if (forumTabItem.getNetType() == 2) {
-                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_HOT;
-                } else if ((forumTabItem.getTabId() == 1 && forumTabItem.getNetType() == 1) || forumTabItem.getTabId() == 503) {
-                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_NEW;
-                } else if (forumTabItem.getTabId() == 301) {
-                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_GOOD;
-                } else if (forumTabItem.isGeneralTab()) {
-                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_GENERAL;
-                } else {
-                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_UNKNOWN;
-                }
-                return forumStatConstant$TabType;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {codes, onActivityResult};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return forumStatConstant$TabType2;
         }
-        return (ForumStatConstant$TabType) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(codes, "codes");
+        Intrinsics.checkNotNullParameter(onActivityResult, "onActivityResult");
+        this.a = codes;
+        this.b = onActivityResult;
+    }
+
+    @Override // com.baidu.tieba.lk7
+    public void a(int i, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intent) == null) {
+            this.b.invoke(Integer.valueOf(i), intent);
+        }
+    }
+
+    @Override // com.baidu.tieba.lk7
+    public Integer[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Integer[]) invokeV.objValue;
     }
 }

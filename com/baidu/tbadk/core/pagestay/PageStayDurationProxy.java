@@ -24,7 +24,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class PageStayDurationProxy implements IPageStayDuration {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
-    public static final String KEY_S_TIME_PAGE_COUNT = "12.49_s_time_page_count_a";
+    public static final String KEY_S_TIME_PAGE_COUNT = "12.51_s_time_page_count_a";
     public static List<String> currentPageKeyList;
     public static int sTimeABTest;
     public transient /* synthetic */ FieldHolder $fh;

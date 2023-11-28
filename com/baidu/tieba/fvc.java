@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.ForumGroup;
-import tbclient.FrsPage.GroupFeedCard;
-import tbclient.FrsPage.TopbarEntrance;
+import tbclient.BawuThrones;
 /* loaded from: classes6.dex */
-public class fvc extends qoc {
+public class fvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumGroup forumGroup) {
+    public static JSONObject b(@NonNull BawuThrones bawuThrones) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bawuThrones)) == null) {
             JSONObject jSONObject = new JSONObject();
-            TopbarEntrance topbarEntrance = forumGroup.topbar_entrance;
-            if (topbarEntrance != null) {
-                qoc.a(jSONObject, "topbar_entrance", qxc.b(topbarEntrance));
-            }
-            GroupFeedCard groupFeedCard = forumGroup.feed_card;
-            if (groupFeedCard != null) {
-                qoc.a(jSONObject, "feed_card", pvc.b(groupFeedCard));
-            }
+            ltc.a(jSONObject, "total_recommend_num", bawuThrones.total_recommend_num);
+            ltc.a(jSONObject, "used_recommend_num", bawuThrones.used_recommend_num);
+            ltc.a(jSONObject, IMUserExtraData.KEY_BAZHU_LEVEL, bawuThrones.bazhu_level);
+            ltc.a(jSONObject, "used_bcast_cnt", bawuThrones.used_bcast_cnt);
+            ltc.a(jSONObject, "total_bcast_cnt", bawuThrones.total_bcast_cnt);
+            ltc.a(jSONObject, "newest_bcast_pv", bawuThrones.newest_bcast_pv);
+            ltc.a(jSONObject, "has_send_bcast", bawuThrones.has_send_bcast);
+            ltc.a(jSONObject, "newest_bcast_pushuser_cnt", bawuThrones.newest_bcast_pushuser_cnt);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

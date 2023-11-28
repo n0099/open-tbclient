@@ -6,7 +6,7 @@ public final class a {
     public static ValueAnimator ofArgb(int... iArr) {
         ValueAnimator valueAnimator = new ValueAnimator();
         valueAnimator.setIntValues(iArr);
-        valueAnimator.setEvaluator(b.Bv());
+        valueAnimator.setEvaluator(b.Mp());
         return valueAnimator;
     }
 }

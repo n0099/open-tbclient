@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,84 +9,59 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class fi5 extends ii5<gi5, hi5> {
+public class fi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947765111, "Lcom/baidu/tieba/fi5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947765111, "Lcom/baidu/tieba/fi5;");
+    public void b(mi5 mi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mi5Var) == null) {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fi5(gi5 gi5Var) {
-        super(gi5Var);
+    public fi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gi5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((oi5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ii5
-    /* renamed from: b */
-    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, hi5 hi5Var) {
-        InterceptResult invokeCommon;
-        Bitmap decodeStream;
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, hi5Var})) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = false;
-            options.inSampleSize = i;
-            options.inMutable = true;
-            options.inBitmap = bitmap;
-            Bitmap bitmap2 = null;
-            try {
-                ((gi5) this.a).reset();
-                try {
-                    decodeStream = BitmapFactory.decodeStream(((gi5) this.a).a(), null, options);
-                } catch (IllegalArgumentException unused) {
-                    BitmapFactory.Options options2 = new BitmapFactory.Options();
-                    options2.inJustDecodeBounds = false;
-                    options2.inSampleSize = i;
-                    options2.inMutable = true;
-                    decodeStream = BitmapFactory.decodeStream(((gi5) this.a).a(), null, options2);
-                }
-            } catch (IOException e) {
-                e = e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() == 4) {
+                return ((str.charAt(3) & 255) << 24) | (str.charAt(0) & 255) | ((str.charAt(1) & 255) << 8) | ((str.charAt(2) & 255) << 16);
             }
-            try {
-                paint.setXfermode(null);
-                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
-                return decodeStream;
-            } catch (IOException e2) {
-                e = e2;
-                bitmap2 = decodeStream;
-                e.printStackTrace();
-                return bitmap2;
-            }
+            return -1159790593;
         }
-        return (Bitmap) invokeCommon.objValue;
+        return invokeL.intValue;
+    }
+
+    public void c(mi5 mi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mi5Var) == null) {
+            int available = mi5Var.available();
+            b(mi5Var);
+            int available2 = available - mi5Var.available();
+            int i = this.a;
+            if (available2 <= i) {
+                if (available2 < i) {
+                    mi5Var.skip(i - available2);
+                    return;
+                }
+                return;
+            }
+            throw new IOException("Out of chunk area");
+        }
     }
 }

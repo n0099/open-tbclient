@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.PluginCheck;
-import com.baidu.tieba.kc5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pf;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.qc5;
+import com.baidu.tieba.qf;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FlutterPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Flutter";
@@ -38,7 +38,7 @@ public class FlutterPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public IFlutterPlugin mIFlutterPlugin;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final FlutterPluginManager INSTANCE;
@@ -120,8 +120,8 @@ public class FlutterPluginManager {
     public void init() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIFlutterPlugin == null) {
-            pf.a().i(TAG, "Flutter init() 触发插件安装");
-            invokePlugin(new kc5(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.1
+            qf.a().i(TAG, "Flutter init() 触发插件安装");
+            invokePlugin(new qc5(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -144,12 +144,12 @@ public class FlutterPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.kc5, com.baidu.nps.main.invoke.IInvokeCallback
+                @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
                 public void onResult(int i, String str, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         super.onResult(i, str, obj);
-                        TbLog a = pf.a();
+                        TbLog a = qf.a();
                         a.i(FlutterPluginManager.TAG, "Flutter init() 插件安装完成" + i + " " + str + " " + obj);
                         if (i != 14) {
                             return;
@@ -159,9 +159,9 @@ public class FlutterPluginManager {
                                 this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
                                 this.this$0.mIFlutterPlugin.init();
                             }
-                            r25.a();
+                            u25.a();
                         } catch (Throwable th) {
-                            TbLog a2 = pf.a();
+                            TbLog a2 = qf.a();
                             a2.e(FlutterPluginManager.TAG, "Flutter init() 插件安装异常" + th);
                             th.printStackTrace();
                         }
@@ -175,8 +175,8 @@ public class FlutterPluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intentConfig) == null) && this.mIFlutterPlugin == null) {
             tryShowLoadingToast();
-            pf.a().i(TAG, "Flutter init(IntentConfig) 触发插件安装");
-            invokePlugin(new kc5(this, intentConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
+            qf.a().i(TAG, "Flutter init(IntentConfig) 触发插件安装");
+            invokePlugin(new qc5(this, intentConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -201,12 +201,12 @@ public class FlutterPluginManager {
                     this.val$intentConfig = intentConfig;
                 }
 
-                @Override // com.baidu.tieba.kc5, com.baidu.nps.main.invoke.IInvokeCallback
+                @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
                 public void onResult(int i, String str, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         super.onResult(i, str, obj);
-                        TbLog a = pf.a();
+                        TbLog a = qf.a();
                         a.i(FlutterPluginManager.TAG, "Flutter init(IntentConfig) 插件安装完成" + i + " " + str + " " + obj);
                         if (i != 14) {
                             return;
@@ -248,7 +248,7 @@ public class FlutterPluginManager {
                                 }
                             });
                         } catch (Throwable th) {
-                            TbLog a2 = pf.a();
+                            TbLog a2 = qf.a();
                             a2.e(FlutterPluginManager.TAG, "Flutter init(IntentConfig) 插件安装异常" + th);
                             th.printStackTrace();
                         }
@@ -262,8 +262,8 @@ public class FlutterPluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, intentConfig) == null) && this.mIFlutterPlugin == null) {
             tryShowLoadingToast();
-            pf.a().i(TAG, "Flutter initFromPersonInfo 触发插件安装");
-            invokePlugin(new kc5(this, intentConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.5
+            qf.a().i(TAG, "Flutter initFromPersonInfo 触发插件安装");
+            invokePlugin(new qc5(this, intentConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -288,12 +288,12 @@ public class FlutterPluginManager {
                     this.val$intentConfig = intentConfig;
                 }
 
-                @Override // com.baidu.tieba.kc5, com.baidu.nps.main.invoke.IInvokeCallback
+                @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
                 public void onResult(int i, String str, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         super.onResult(i, str, obj);
-                        TbLog a = pf.a();
+                        TbLog a = qf.a();
                         a.i(FlutterPluginManager.TAG, "Flutter initFromPersonInfo 插件安装完成" + i + " " + str + " " + obj);
                         if (i != 14) {
                             return;
@@ -340,7 +340,7 @@ public class FlutterPluginManager {
                                 }
                             });
                         } catch (Throwable th) {
-                            TbLog a2 = pf.a();
+                            TbLog a2 = qf.a();
                             a2.e(FlutterPluginManager.TAG, "Flutter initFromPersonInfo 插件安装异常" + th);
                             th.printStackTrace();
                         }
@@ -355,13 +355,13 @@ public class FlutterPluginManager {
         if (interceptable == null || interceptable.invokeL(65541, this, iInvokeCallback) == null) {
             if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                 if (PluginCheck.c(PLUGIN_PKG_NAME, iInvokeCallback, TAG, false)) {
-                    pf.a().i(TAG, "Flutter invokePlugin：插件可用，直接加载");
+                    qf.a().i(TAG, "Flutter invokePlugin：插件可用，直接加载");
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IFlutterPlugin.class, iInvokeCallback);
                     return;
                 }
                 return;
             }
-            pf.a().i(TAG, "Flutter invokePlugin：开始下载");
+            qf.a().i(TAG, "Flutter invokePlugin：开始下载");
             NPSPackageManager.getInstance().installBundle(PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -398,7 +398,7 @@ public class FlutterPluginManager {
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                        TbLog a = pf.a();
+                        TbLog a = qf.a();
                         a.i(FlutterPluginManager.TAG, "Flutter invokePlugin 下载完成 " + i + " " + str);
                         if (i == 13 && PluginCheck.c(FlutterPluginManager.PLUGIN_PKG_NAME, this.val$invokeCallback, FlutterPluginManager.TAG, true)) {
                             NPSManager.getInstance().loadClazz(FlutterPluginManager.PLUGIN_PKG_NAME, FlutterPluginManager.PLUGIN_IMPL_CLASS, IFlutterPlugin.class, this.val$invokeCallback);
@@ -409,73 +409,12 @@ public class FlutterPluginManager {
         }
     }
 
-    public void init(pp5 pp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pp5Var) == null) {
-            if (this.mIFlutterPlugin == null) {
-                pf.a().i(TAG, "Flutter init(INpsPluginInitCallback) 触发插件安装");
-                invokePlugin(new IInvokeCallback(this, pp5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ FlutterPluginManager this$0;
-                    public final /* synthetic */ pp5 val$callback;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, pp5Var};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$callback = pp5Var;
-                    }
-
-                    @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i, String str, Object obj) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
-                            TbLog a = pf.a();
-                            a.i(FlutterPluginManager.TAG, "Flutter init(INpsPluginInitCallback) 插件安装完成" + i + " " + str + " " + obj);
-                            if (i != 14) {
-                                this.val$callback.onFail();
-                                return;
-                            }
-                            try {
-                                if (this.this$0.mIFlutterPlugin == null) {
-                                    this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
-                                    this.this$0.mIFlutterPlugin.init();
-                                }
-                                this.val$callback.onSuccess();
-                            } catch (Throwable th) {
-                                TbLog a2 = pf.a();
-                                a2.e(FlutterPluginManager.TAG, "Flutter init(INpsPluginInitCallback) 插件安装异常" + th);
-                                th.printStackTrace();
-                                this.val$callback.onFail();
-                            }
-                        }
-                    }
-                });
-                return;
-            }
-            pp5Var.onSuccess();
-        }
-    }
-
     public void init(FlutterOpenData flutterOpenData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, flutterOpenData) == null) && this.mIFlutterPlugin == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, flutterOpenData) == null) && this.mIFlutterPlugin == null) {
             tryShowLoadingToast();
-            pf.a().i(TAG, "Flutter init(FlutterOpenData) 触发插件安装");
-            invokePlugin(new kc5(this, flutterOpenData) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.2
+            qf.a().i(TAG, "Flutter init(FlutterOpenData) 触发插件安装");
+            invokePlugin(new qc5(this, flutterOpenData) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -500,12 +439,12 @@ public class FlutterPluginManager {
                     this.val$intentConfig = flutterOpenData;
                 }
 
-                @Override // com.baidu.tieba.kc5, com.baidu.nps.main.invoke.IInvokeCallback
+                @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
                 public void onResult(int i, String str, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         super.onResult(i, str, obj);
-                        TbLog a = pf.a();
+                        TbLog a = qf.a();
                         a.i(FlutterPluginManager.TAG, "Flutter init(FlutterOpenData) 插件安装完成" + i + " " + str + " " + obj);
                         if (i != 14) {
                             return;
@@ -547,13 +486,74 @@ public class FlutterPluginManager {
                                 }
                             });
                         } catch (Throwable th) {
-                            TbLog a2 = pf.a();
+                            TbLog a2 = qf.a();
                             a2.e(FlutterPluginManager.TAG, "Flutter init(FlutterOpenData) 插件安装异常" + th);
                             th.printStackTrace();
                         }
                     }
                 }
             });
+        }
+    }
+
+    public void init(xp5 xp5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xp5Var) == null) {
+            if (this.mIFlutterPlugin == null) {
+                qf.a().i(TAG, "Flutter init(INpsPluginInitCallback) 触发插件安装");
+                invokePlugin(new IInvokeCallback(this, xp5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ FlutterPluginManager this$0;
+                    public final /* synthetic */ xp5 val$callback;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, xp5Var};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$callback = xp5Var;
+                    }
+
+                    @Override // com.baidu.nps.main.invoke.IInvokeCallback
+                    public void onResult(int i, String str, Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
+                            TbLog a = qf.a();
+                            a.i(FlutterPluginManager.TAG, "Flutter init(INpsPluginInitCallback) 插件安装完成" + i + " " + str + " " + obj);
+                            if (i != 14) {
+                                this.val$callback.onFail();
+                                return;
+                            }
+                            try {
+                                if (this.this$0.mIFlutterPlugin == null) {
+                                    this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
+                                    this.this$0.mIFlutterPlugin.init();
+                                }
+                                this.val$callback.onSuccess();
+                            } catch (Throwable th) {
+                                TbLog a2 = qf.a();
+                                a2.e(FlutterPluginManager.TAG, "Flutter init(INpsPluginInitCallback) 插件安装异常" + th);
+                                th.printStackTrace();
+                                this.val$callback.onFail();
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+            xp5Var.onSuccess();
         }
     }
 }

@@ -6,39 +6,39 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 public class bl {
 
     /* renamed from: a  reason: collision with other field name */
-    public static byte[] f148a;
+    public static byte[] f144a;
     public static final String a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
-    public static char[] f149a = new char[64];
+    public static char[] f145a = new char[64];
 
     static {
         char c = 'A';
         int i = 0;
         while (c <= 'Z') {
-            f149a[i] = c;
+            f145a[i] = c;
             c = (char) (c + 1);
             i++;
         }
         char c2 = 'a';
         while (c2 <= 'z') {
-            f149a[i] = c2;
+            f145a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
         char c3 = TransactionIdCreater.FILL_BYTE;
         while (c3 <= '9') {
-            f149a[i] = c3;
+            f145a[i] = c3;
             c3 = (char) (c3 + 1);
             i++;
         }
-        char[] cArr = f149a;
+        char[] cArr = f145a;
         cArr[i] = '+';
         cArr[i + 1] = WebvttCueParser.CHAR_SLASH;
-        f148a = new byte[128];
+        f144a = new byte[128];
         int i2 = 0;
         while (true) {
-            byte[] bArr = f148a;
+            byte[] bArr = f144a;
             if (i2 >= bArr.length) {
                 break;
             }
@@ -46,7 +46,7 @@ public class bl {
             i2++;
         }
         for (int i3 = 0; i3 < 64; i3++) {
-            f148a[f149a[i3]] = (byte) i3;
+            f144a[f145a[i3]] = (byte) i3;
         }
     }
 
@@ -55,7 +55,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m302a(String str) {
+    public static byte[] m306a(String str) {
         return a(str.toCharArray());
     }
 
@@ -98,7 +98,7 @@ public class bl {
                 if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                     throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                 }
-                byte[] bArr2 = f148a;
+                byte[] bArr2 = f144a;
                 byte b = bArr2[c3];
                 byte b2 = bArr2[c4];
                 byte b3 = bArr2[c];
@@ -161,7 +161,7 @@ public class bl {
             int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
             int i14 = i5 & 63;
             int i15 = i8 + 1;
-            char[] cArr2 = f149a;
+            char[] cArr2 = f145a;
             cArr[i8] = cArr2[i11];
             int i16 = i15 + 1;
             cArr[i15] = cArr2[i12];
@@ -169,7 +169,7 @@ public class bl {
             cArr[i16] = i16 < i6 ? cArr2[i13] : '=';
             int i17 = i16 + 1;
             if (i17 < i6) {
-                c = f149a[i14];
+                c = f145a[i14];
             }
             cArr[i17] = c;
             i8 = i17 + 1;
@@ -179,6 +179,6 @@ public class bl {
     }
 
     public static String b(String str) {
-        return new String(m302a(str));
+        return new String(m306a(str));
     }
 }

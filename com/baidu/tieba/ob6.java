@@ -8,7 +8,7 @@ import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,22 +18,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ob6 extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment a;
+    public AlaFrsLiveFragment a;
 
     @Override // com.baidu.tbadk.mainTab.FragmentDelegate
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public ob6() {
+    public ob6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,8 +45,63 @@ public class ob6 extends FragmentDelegate {
                 return;
             }
         }
-        this.a = new AlaGameFrsLiveTabVideoFragment();
+        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
+        this.a = alaFrsLiveFragment;
+        alaFrsLiveFragment.U2(z);
         getFragmentTabStructure().frag = this.a;
+    }
+
+    public void a(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
+            alaFrsLiveFragment.Q2(str);
+        }
+    }
+
+    public void b(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
+            alaFrsLiveFragment.R2(str);
+        }
+    }
+
+    public void c(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
+            alaFrsLiveFragment.S2(str);
+        }
+    }
+
+    public void d(int i) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (alaFrsLiveFragment = this.a) != null) {
+            alaFrsLiveFragment.T2(i);
+        }
+    }
+
+    public void e(boolean z) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaFrsLiveFragment = this.a) != null) {
+            alaFrsLiveFragment.V2(z);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.mIndicator = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.mIndicator;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.FragmentDelegate
@@ -53,48 +110,11 @@ public class ob6 extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 3;
+            fragmentTabStructure.type = 2;
             fragmentTabStructure.textResId = R.string.ala_live;
             fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
             return fragmentTabStructure;
         }
         return (FragmentTabStructure) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.w2(str);
-        }
-    }
-
-    public void b(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.x2(str);
-        }
-    }
-
-    public void c(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.y2(z);
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

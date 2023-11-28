@@ -1,116 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.model.Downloads;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends AbsJsInterface>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final gj6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-773905928, "Lcom/baidu/tieba/gj6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-773905928, "Lcom/baidu/tieba/gj6$b;");
-                    return;
+    public static Set<yi6> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
+            if (optJSONObject == null) {
+                return hashSet;
+            }
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                if (optJSONObject2 != null) {
+                    String str = null;
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
+                    if (optJSONObject3 != null) {
+                        str = optJSONObject3.optString("android", "");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = com.kuaishou.weapon.p0.bq.e;
+                    }
+                    yi6 yi6Var = new yi6(next, optJSONObject2.optString("method", "GET"), str);
+                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
+                    if (optJSONObject4 != null) {
+                        Iterator<String> keys2 = optJSONObject4.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            if (!TextUtils.isEmpty(next2)) {
+                                yi6Var.a(next2, optJSONObject4.optString(next2));
+                            }
+                        }
+                    }
+                    hashSet.add(yi6Var);
                 }
             }
-            a = new gj6(null);
+            return hashSet;
         }
+        return (Set) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947795894, "Lcom/baidu/tieba/gj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void b(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            xi6.c().b();
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947795894, "Lcom/baidu/tieba/gj6;");
+            if (fk6.c(jSONArray)) {
                 return;
             }
-        }
-        a = new HashMap();
-    }
-
-    public gj6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("url", "");
+                    if (!TextUtils.isEmpty(optString)) {
+                        Set<yi6> a = a(optJSONObject);
+                        wi6 wi6Var = new wi6();
+                        if (!fk6.a(a)) {
+                            wi6Var.a = a;
+                            wi6Var.d = optString;
+                            xi6.c().a(optString, wi6Var);
+                        } else {
+                            xi6.c().a(optString, wi6Var);
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    public static gj6 a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static List<Pair<String, Long>> c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (gj6) invokeV.objValue;
-    }
-
-    public Map<String, Class<? extends AbsJsInterface>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            if (!a.isEmpty()) {
-                hashMap.putAll(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            pk6 pk6Var = (pk6) ServiceManager.getService(pk6.a);
+            if (pk6Var != null && URLUtil.isNetworkUrl(str)) {
+                return pk6Var.a(str);
             }
-            return hashMap;
+            return null;
         }
-        return (Map) invokeV.objValue;
-    }
-
-    public /* synthetic */ gj6(a aVar) {
-        this();
-    }
-
-    public void c(String str, Class<? extends AbsJsInterface> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls) == null) {
-            if (!a.containsKey(str)) {
-                a.put(str, cls);
-                return;
-            }
-            throw new JsInterfaceException("注册JsInterface失败！");
-        }
+        return (List) invokeL.objValue;
     }
 }

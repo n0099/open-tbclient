@@ -1,51 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
-import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface my5 {
-    ob<TextView> C1();
+public class my5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
 
-    void E0(Context context, String str);
+    public my5(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
+        this.b = R.color.CAM_X0305;
+        this.c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.d = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        this.e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
+        this.f = 0;
+        this.g = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+        this.h = 0;
+        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds26);
+        this.j = str;
+    }
 
-    ob<ItemCardView> K0();
-
-    ob<GifView> L();
-
-    void M1(Context context, String str);
-
-    ob<LinearLayout> P();
-
-    int T();
-
-    void Z(Context context, String str);
-
-    void b0(Context context, String str);
-
-    ListView getListView();
-
-    ob<RelativeLayout> k0();
-
-    ob<FestivalTipView> n0();
-
-    ob<ImageView> p0();
-
-    ob<View> q0();
-
-    void s0(Context context, String str);
-
-    void t0(Context context, String str, boolean z);
-
-    ob<TiebaPlusRecommendCard> t2();
-
-    void z0(Context context, String str, String str2);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
 }

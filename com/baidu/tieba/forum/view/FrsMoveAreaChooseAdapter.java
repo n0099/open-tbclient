@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a77;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.n77;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsMoveAreaChooseView a;
-    public List<a77> b;
+    public List<n77> b;
     public int c;
     public int d;
 
@@ -58,7 +58,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                     return;
                 }
             }
-            this.a = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f09069e);
+            this.a = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0906ba);
         }
     }
 
@@ -103,78 +103,53 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     }
 
     @Nullable
-    public a77 m() {
+    public n77 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<a77> list = this.b;
+            List<n77> list = this.b;
             if (list != null) {
-                for (a77 a77Var : list) {
-                    if (a77Var.b() == this.c) {
-                        return a77Var;
+                for (n77 n77Var : list) {
+                    if (n77Var.b() == this.c) {
+                        return n77Var;
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (a77) invokeV.objValue;
+        return (n77) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: n */
+    /* renamed from: o */
     public void onBindViewHolder(@NonNull a aVar, int i) {
-        a77 a77Var;
+        n77 n77Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, aVar, i) != null) || ListUtils.isEmpty(this.b) || (a77Var = (a77) ListUtils.getItem(this.b, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, aVar, i) != null) || ListUtils.isEmpty(this.b) || (n77Var = (n77) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
-        aVar.a.setTag(a77Var);
-        aVar.a.setText(a77Var.c());
+        aVar.a.setTag(n77Var);
+        aVar.a.setText(n77Var.c());
         aVar.a.setOnClickListener(this);
-        o(aVar.a, a77Var);
-    }
-
-    public final void o(TBSpecificationBtn tBSpecificationBtn, a77 a77Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, tBSpecificationBtn, a77Var) == null) {
-            if (a77Var.b() == this.c) {
-                w55 w55Var = new w55();
-                w55Var.r(R.color.CAM_X0304);
-                tBSpecificationBtn.setConfig(w55Var);
-                tBSpecificationBtn.k();
-                tBSpecificationBtn.setUseDisableState(false);
-            } else if (!a77Var.a()) {
-                w55 w55Var2 = new w55();
-                w55Var2.t(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(w55Var2);
-                tBSpecificationBtn.k();
-                tBSpecificationBtn.setUseDisableState(true);
-            } else {
-                w55 w55Var3 = new w55();
-                w55Var3.t(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(w55Var3);
-                tBSpecificationBtn.k();
-                tBSpecificationBtn.setUseDisableState(false);
-            }
-        }
+        p(aVar.a, n77Var);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: p */
+    /* renamed from: q */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01fa, viewGroup, false));
+            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0200, viewGroup, false));
         }
         return (a) invokeLI.objValue;
     }
 
-    public void q(List<a77> list, int i) {
+    public void r(List<n77> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, list, i) == null) {
             this.c = -1;
@@ -191,11 +166,11 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     public void onClick(View view2) {
         Window window;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || !(view2.getTag() instanceof a77)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || !(view2.getTag() instanceof n77)) {
             return;
         }
-        a77 a77Var = (a77) view2.getTag();
-        if (!a77Var.a()) {
+        n77 n77Var = (n77) view2.getTag();
+        if (!n77Var.a()) {
             FrsMoveAreaChooseView frsMoveAreaChooseView = this.a;
             if (frsMoveAreaChooseView != null && frsMoveAreaChooseView.getContext() != null && (this.a.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) this.a.getParent();
@@ -203,21 +178,46 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                 if ((context instanceof Activity) && (window = ((Activity) context).getWindow()) != null && (window.getDecorView() instanceof ViewGroup)) {
                     viewGroup = (ViewGroup) window.getDecorView();
                 }
-                if (a77Var.b() == this.d) {
-                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0860)).show(viewGroup);
+                if (n77Var.b() == this.d) {
+                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0868)).show(viewGroup);
                     return;
                 } else {
-                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0861)).show(viewGroup);
+                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0869)).show(viewGroup);
                     return;
                 }
             }
             return;
         }
-        this.c = a77Var.b();
+        this.c = n77Var.b();
         FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.a;
         if (frsMoveAreaChooseView2 != null) {
             frsMoveAreaChooseView2.onClick(view2);
         }
         notifyDataSetChanged();
+    }
+
+    public final void p(TBSpecificationBtn tBSpecificationBtn, n77 n77Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, tBSpecificationBtn, n77Var) == null) {
+            if (n77Var.b() == this.c) {
+                c65 c65Var = new c65();
+                c65Var.r(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(c65Var);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(false);
+            } else if (!n77Var.a()) {
+                c65 c65Var2 = new c65();
+                c65Var2.t(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(c65Var2);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(true);
+            } else {
+                c65 c65Var3 = new c65();
+                c65Var3.t(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(c65Var3);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(false);
+            }
+        }
     }
 }

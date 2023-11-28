@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.util.Random;
 /* loaded from: classes.dex */
 public final class Constants {
@@ -371,7 +371,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{h.a, h.c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", h.h, h.d};
+        mSdkPermissions = new String[]{g.a, g.c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", g.h, g.d};
     }
 
     public Constants() {

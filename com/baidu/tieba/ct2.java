@@ -11,13 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ct2 implements fw2 {
+public class ct2 implements gw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<zs2> a;
+    public ArrayList<at2> a;
     public int b;
-    public float c;
-    public boolean d;
+    public int c;
+    public int d;
+    public int e;
 
     public ct2() {
         Interceptable interceptable = $ic;
@@ -32,18 +33,19 @@ public class ct2 implements fw2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.fw2
+    @Override // com.baidu.tieba.gw2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<zs2> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
+            ArrayList<at2> arrayList = this.a;
+            if (arrayList != null && !arrayList.isEmpty()) {
                 return true;
             }
             return false;
@@ -51,7 +53,7 @@ public class ct2 implements fw2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fw2
+    @Override // com.baidu.tieba.gw2
     public void a(JSONObject jSONObject) throws JSONException {
         int length;
         Interceptable interceptable = $ic;
@@ -69,23 +71,20 @@ public class ct2 implements fw2 {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    zs2 zs2Var = new zs2();
-                    zs2Var.a(optJSONObject);
-                    if (zs2Var.isValid()) {
-                        this.a.add(zs2Var);
+                    at2 at2Var = new at2();
+                    at2Var.a(optJSONObject);
+                    if (at2Var.isValid()) {
+                        this.a.add(at2Var);
                     }
                 }
             }
         }
-        ArrayList<zs2> arrayList = this.a;
+        ArrayList<at2> arrayList = this.a;
         if (arrayList != null && arrayList.size() > 0) {
-            this.b = ts2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(ts2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            ts2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(ts2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+            this.b = (int) Math.abs(us2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = us2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = us2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
         }
     }
 }

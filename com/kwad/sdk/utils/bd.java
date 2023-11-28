@@ -1,67 +1,49 @@
 package com.kwad.sdk.utils;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import java.io.Closeable;
 /* loaded from: classes10.dex */
 public final class bd {
-    public static final Handler apf = new Handler(Looper.getMainLooper());
-    public static long gO = 400;
+    public final int mHeight;
+    public final int mWidth;
 
-    @SuppressLint({"MissingPermission"})
-    public static void a(Context context, Vibrator vibrator) {
-        if (vibrator == null || aj.Y(context, "android.permission.VIBRATE") != 0) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 26) {
-            vibrator.vibrate(VibrationEffect.createOneShot(gO, -1));
-        } else {
-            vibrator.vibrate(gO);
-        }
+    public bd(int i, int i2) {
+        this.mWidth = i;
+        this.mHeight = i2;
     }
 
-    public static void a(Runnable runnable, Object obj, long j) {
-        Message obtain = Message.obtain(apf, runnable);
-        obtain.obj = null;
-        apf.sendMessageDelayed(obtain, j);
+    public final float Le() {
+        return this.mWidth;
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static void b(Context context, Vibrator vibrator) {
-        if (vibrator == null || aj.Y(context, "android.permission.VIBRATE") != 0) {
-            return;
+    public final float Lf() {
+        return this.mHeight;
+    }
+
+    public final int getHeight() {
+        return this.mHeight;
+    }
+
+    public final int hashCode() {
+        int i = this.mHeight;
+        int i2 = this.mWidth;
+        return i ^ ((i2 >>> 16) | (i2 << 16));
+    }
+
+    public final String toString() {
+        return this.mWidth + "x" + this.mHeight;
+    }
+
+    public final boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
         }
-        vibrator.cancel();
-    }
-
-    public static void b(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable unused) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof bd) {
+            bd bdVar = (bd) obj;
+            if (this.mWidth == bdVar.mWidth && this.mHeight == bdVar.mHeight) {
+                return true;
             }
         }
-    }
-
-    public static void c(Runnable runnable) {
-        apf.removeCallbacks(runnable);
-    }
-
-    public static void runOnUiThread(Runnable runnable) {
-        if (Looper.getMainLooper() == Looper.myLooper()) {
-            runnable.run();
-        } else {
-            apf.post(runnable);
-        }
-    }
-
-    public static void runOnUiThreadDelay(Runnable runnable, long j) {
-        apf.postDelayed(runnable, j);
+        return false;
     }
 }

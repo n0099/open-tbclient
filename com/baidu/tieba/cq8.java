@@ -1,143 +1,246 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.yp8;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class cq8 {
+public class cq8 extends xp8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO c;
 
-    /* loaded from: classes5.dex */
-    public class a implements yp8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yp8.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683519, "Lcom/baidu/tieba/cq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683519, "Lcom/baidu/tieba/cq8;");
+                return;
             }
         }
+        d = BdUniqueId.gen().getId();
     }
 
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xp8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                return null;
-            }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString("eventId");
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d;
         }
-        return (GroupNewsPojo) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList != null && linkedList.size() != 0) {
-                LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-                Iterator<ChatMessage> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    GroupNewsPojo a2 = a(it.next());
-                    if (a2 != null) {
-                        linkedList2.add(a2);
-                    }
-                }
-                return linkedList2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.getName() + "：" + h();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public List<AtSelectData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO != null && optsDTO.getExt() != null) {
+                return this.c.getExt().getAtUserInfos();
             }
             return null;
         }
-        return (LinkedList) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static void c(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, yp8.b bVar) {
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            yp8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.getOpts();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b.getItemType();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null && itemsDTO.getOpts() != null && this.b.getOpts().size() > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.isOptional();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public cq8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = itemsDTO;
+        this.c = e();
+    }
+
+    public final BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.getOpts() != null && !this.b.getOpts().isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO : this.b.getOpts()) {
+                    if (optsDTO.getDefaultX() == 1) {
+                        return optsDTO;
+                    }
+                }
+                return this.b.getOpts().get(0);
+            }
+            return null;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = "";
+            if (this.b.getItemType() == 2 && (optsDTO = this.c) != null && optsDTO.getExt() != null) {
+                List<AtSelectData> atUserInfos = this.c.getExt().getAtUserInfos();
+                if (!ListUtils.isEmpty(atUserInfos)) {
+                    int size = atUserInfos.size();
+                    AtSelectData atSelectData = atUserInfos.get(0);
+                    if (atSelectData != null) {
+                        str = atSelectData.getNameShow();
+                    }
+                    int chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(str);
+                    if (chineseAndEnglishLength > 8) {
+                        str = StringHelper.subString(str, 8) + "...";
+                    }
+                    if (size == 1) {
+                        return str;
+                    }
+                    if (chineseAndEnglishLength <= 8) {
+                        return str + "...等" + size + "人";
+                    }
+                    return str + "等" + size + "人";
+                }
+            }
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO2 = this.c;
+            if (optsDTO2 == null) {
+                return "";
+            }
+            return optsDTO2.getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void m(BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, optsDTO) == null) {
+            this.c = optsDTO;
         }
     }
 
-    public static void d(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, groupMsgData) == null) && (b = b(groupMsgData.getListMessage())) != null && !b.isEmpty()) {
-            long j = 0;
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            Iterator<GroupNewsPojo> it = b.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo next = it.next();
-                if (!TextUtils.isEmpty(next.getNotice_id())) {
-                    long parseLong = Long.parseLong(next.getNotice_id());
-                    if (parseLong > j) {
-                        j = parseLong;
-                    }
-                }
-            }
-            qq8.c().i(linkedList);
-            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-            imMessageCenterPojo.setIs_hidden(1);
-            imMessageCenterPojo.setCustomGroupType(-2);
-            imMessageCenterPojo.setPulled_msgId(j);
-            wq8.f().k(imMessageCenterPojo);
-            Iterator<GroupNewsPojo> it2 = b.iterator();
-            while (it2.hasNext()) {
-                GroupNewsPojo next2 = it2.next();
-                if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void o(List<AtSelectData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setAtUserInfos(list);
+            this.c.setExt(ext);
         }
     }
 }

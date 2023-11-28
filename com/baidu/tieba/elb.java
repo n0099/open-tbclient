@@ -1,201 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class elb {
+public class elb extends xkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        tlb c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = zlb.c()) != null) {
-            c.b();
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ elb a;
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.getAppContext();
+        public a(elb elbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {elbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.a = elbVar;
         }
-        return (Context) invokeV.objValue;
-    }
 
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.d();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.n0()) {
+                    this.a.e.L0(9, false);
+                    this.a.o0(1);
+                    return;
+                }
+                elb elbVar = this.a;
+                elbVar.e.a(elbVar.a.getString(R.string.obfuscated_res_0x7f0f062a));
+                this.a.o0(0);
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public static tkb i() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public elb(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull jjb jjbVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, jjbVar, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return zlb.e();
-        }
-        return (tkb) invokeV.objValue;
-    }
-
-    public static xkb j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return zlb.f();
-        }
-        return (xkb) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            slb b = zlb.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, jjbVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (jjb) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xkb, com.baidu.tieba.ykb
+    public void K(@NonNull List<kjb<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.isDebug();
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            sib f = nkb.f(this.a);
+            list.add(f);
+            tib g = nkb.g(this.a);
+            f.w(g);
+            list.add(g);
+            list.add(nkb.o(this.a));
+            ajb n = nkb.n(this.a, this, this.s, this.J);
+            this.D = n;
+            list.add(n);
+            zib m = nkb.m(this.a, this, this.d, this.C, this.s, this.J);
+            this.F = m;
+            f.w(m);
+            list.add(this.F);
+        }
+    }
+
+    @Override // com.baidu.tieba.xkb, com.baidu.tieba.ykb
+    public void M(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(3);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setMoreVipIcon(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.M(true);
+            editorTools.N(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            pkb.h(this.a, editorTools, this);
+            pkb.d(editorTools, this);
+            pkb.a(this.a, editorTools, this);
+            pkb.b(this.a, editorTools, this);
+            pkb.i(this.a, editorTools);
+            pkb.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.h();
+            super.M(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.xkb, com.baidu.tieba.ykb
+    public void N(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.N(navigationBar);
+            if (this.q) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f12b3));
+                q0(0, 0);
+                r0(R.drawable.obfuscated_res_0x7f080bd8, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                this.j.setOnClickListener(new a(this));
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.c(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            tlb c = zlb.c();
-            if (c != null) {
-                return c.a(str);
-            }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.e(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.b(z);
-            }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        rlb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = zlb.a()) != null) {
-            a.a(i);
-        }
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.getInt(str, i);
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            rlb a = zlb.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        rlb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = zlb.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        rlb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = zlb.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        rlb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = zlb.a()) != null) {
-            a.putString(str, str2);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1158));
         }
     }
 }

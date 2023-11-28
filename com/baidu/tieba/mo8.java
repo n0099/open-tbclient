@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface mo8 {
-    int h();
+    void b(int i);
 
-    int q();
+    void d();
 
-    void reset();
+    void f();
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.lib.socket.msg;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,9 +87,9 @@ public class TbTimestampSysMsg extends TbSysMsg {
             Calendar calendar = Calendar.getInstance(Locale.CHINA);
             calendar.setTimeInMillis(j);
             if (CALENDAR.get(1) == calendar.get(1) && CALENDAR.get(6) == calendar.get(6)) {
-                return qd.getDateStringHm(calendar.getTime());
+                return rd.getDateStringHm(calendar.getTime());
             }
-            return qd.getDateStringMdHm(calendar.getTime());
+            return rd.getDateStringMdHm(calendar.getTime());
         }
         return (String) invokeJ.objValue;
     }

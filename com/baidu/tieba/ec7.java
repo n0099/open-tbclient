@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVideoView;
+import com.baidu.tieba.feed.component.CardForumEnterView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ec7 extends ja7<CardVideoView, k47> {
+public class ec7 extends wa7<CardForumEnterView, j47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class ec7 extends ja7<CardVideoView, k47> {
         }
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            sc7.j(a);
+            fd7.n(a, null, null, null, -2);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.mb7
     /* renamed from: e */
-    public void b(@NonNull CardVideoView cardVideoView, @NonNull k47 k47Var) {
+    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull j47 j47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, k47Var) == null) {
-            cardVideoView.b(k47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, j47Var) == null) {
+            cardForumEnterView.d(j47Var);
         }
     }
 }

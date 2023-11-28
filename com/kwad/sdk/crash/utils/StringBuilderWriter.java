@@ -7,16 +7,28 @@ public class StringBuilderWriter extends Writer implements Serializable {
     public static final long serialVersionUID = 4424285024471074820L;
     public final StringBuilder builder;
 
+    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+    }
+
+    @Override // java.io.Writer, java.io.Flushable
+    public void flush() {
+    }
+
     public StringBuilderWriter() {
         this.builder = new StringBuilder();
     }
 
-    public StringBuilderWriter(int i) {
-        this.builder = new StringBuilder(i);
+    public StringBuilder getBuilder() {
+        return this.builder;
     }
 
-    public StringBuilderWriter(StringBuilder sb) {
-        this.builder = sb == null ? new StringBuilder() : sb;
+    public String toString() {
+        return this.builder.toString();
+    }
+
+    public StringBuilderWriter(int i) {
+        this.builder = new StringBuilder(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,6 +36,17 @@ public class StringBuilderWriter extends Writer implements Serializable {
     public Writer append(char c) {
         this.builder.append(c);
         return this;
+    }
+
+    @Override // java.io.Writer
+    public void write(String str) {
+        if (str != null) {
+            this.builder.append(str);
+        }
+    }
+
+    public StringBuilderWriter(StringBuilder sb) {
+        this.builder = sb == null ? new StringBuilder() : sb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,29 +61,6 @@ public class StringBuilderWriter extends Writer implements Serializable {
     public Writer append(CharSequence charSequence, int i, int i2) {
         this.builder.append(charSequence, i, i2);
         return this;
-    }
-
-    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-    }
-
-    @Override // java.io.Writer, java.io.Flushable
-    public void flush() {
-    }
-
-    public StringBuilder getBuilder() {
-        return this.builder;
-    }
-
-    public String toString() {
-        return this.builder.toString();
-    }
-
-    @Override // java.io.Writer
-    public void write(String str) {
-        if (str != null) {
-            this.builder.append(str);
-        }
     }
 
     @Override // java.io.Writer

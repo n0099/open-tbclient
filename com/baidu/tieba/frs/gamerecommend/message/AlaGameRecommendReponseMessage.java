@@ -11,8 +11,8 @@ import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
-import com.baidu.tieba.xw7;
-import com.baidu.tieba.yw7;
+import com.baidu.tieba.iz7;
+import com.baidu.tieba.jz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xw7 mData;
+    public iz7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameRecommendReponseMessage() {
@@ -44,13 +44,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public xw7 getData() {
+    public iz7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (xw7) invokeV.objValue;
+        return (iz7) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -59,13 +59,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.length() > 0) {
-                xw7 xw7Var = new xw7();
-                this.mData = xw7Var;
+                iz7 iz7Var = new iz7();
+                this.mData = iz7Var;
                 boolean z = true;
                 if (jSONObject.optInt("recom_has_more") != 1) {
                     z = false;
                 }
-                xw7Var.a = z;
+                iz7Var.a = z;
                 this.mData.b = jSONObject.optInt("card_max_floor");
                 JSONArray optJSONArray = jSONObject.optJSONArray("recom_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -105,10 +105,10 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                     for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                         JSONObject optJSONObject5 = optJSONArray4.optJSONObject(i5);
                         if (optJSONObject5 != null) {
-                            yw7 yw7Var = new yw7();
-                            yw7Var.b = optJSONObject5.optString("title");
+                            jz7 jz7Var = new jz7();
+                            jz7Var.b = optJSONObject5.optString("title");
                             optJSONObject5.optInt("type");
-                            yw7Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
+                            jz7Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
                             JSONArray optJSONArray5 = optJSONObject5.optJSONArray("sub_nodes");
                             if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                                 for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
@@ -116,11 +116,11 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                                     if (optJSONObject6 != null) {
                                         ThreadData threadData2 = new ThreadData();
                                         threadData2.parserJson(optJSONObject6);
-                                        yw7Var.a.add(threadData2);
+                                        jz7Var.a.add(threadData2);
                                     }
                                 }
                             }
-                            this.mData.g.add(yw7Var);
+                            this.mData.g.add(jz7Var);
                         }
                     }
                 }

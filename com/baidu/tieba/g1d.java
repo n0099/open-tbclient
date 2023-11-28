@@ -4,38 +4,38 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PicDecoration;
-import tbclient.PicInfo;
+import tbclient.FrsPage.NovelExt;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class g1d extends qoc {
+public class g1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PicInfo picInfo) {
+    public static JSONObject b(@NonNull NovelExt novelExt) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, picInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, novelExt)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "small_pic_url", picInfo.small_pic_url);
-            qoc.a(jSONObject, "big_pic_url", picInfo.big_pic_url);
-            qoc.a(jSONObject, "origin_pic_url", picInfo.origin_pic_url);
-            qoc.a(jSONObject, "width", picInfo.width);
-            qoc.a(jSONObject, "height", picInfo.height);
-            qoc.a(jSONObject, "is_long_pic", picInfo.is_long_pic);
-            qoc.a(jSONObject, "crop_point_width_ratio", picInfo.crop_point_width_ratio);
-            qoc.a(jSONObject, "crop_point_height_ratio", picInfo.crop_point_height_ratio);
-            if (picInfo.decoration != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (PicDecoration picDecoration : picInfo.decoration) {
-                    jSONArray.put(f1d.b(picDecoration));
-                }
-                qoc.a(jSONObject, "decoration", jSONArray);
+            ltc.a(jSONObject, "chapter_time", novelExt.chapter_time);
+            ltc.a(jSONObject, "abstract", novelExt._abstract);
+            ThemeColorInfo themeColorInfo = novelExt.new_labels;
+            if (themeColorInfo != null) {
+                ltc.a(jSONObject, "new_labels", t9d.b(themeColorInfo));
             }
-            qoc.a(jSONObject, "scheme", picInfo.scheme);
-            qoc.a(jSONObject, "pic_type", picInfo.pic_type);
+            ThemeColorInfo themeColorInfo2 = novelExt.chapter_bg_color;
+            if (themeColorInfo2 != null) {
+                ltc.a(jSONObject, "chapter_bg_color", t9d.b(themeColorInfo2));
+            }
+            ThemeColorInfo themeColorInfo3 = novelExt.chapter_name_color;
+            if (themeColorInfo3 != null) {
+                ltc.a(jSONObject, "chapter_name_color", t9d.b(themeColorInfo3));
+            }
+            ThemeColorInfo themeColorInfo4 = novelExt.chapter_time_color;
+            if (themeColorInfo4 != null) {
+                ltc.a(jSONObject, "chapter_time_color", t9d.b(themeColorInfo4));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

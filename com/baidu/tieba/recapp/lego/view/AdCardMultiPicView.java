@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cea;
-import com.baidu.tieba.jc9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.uia;
+import com.baidu.tieba.zf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,14 +34,14 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d01aa : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
     }
 
     /* loaded from: classes8.dex */
@@ -140,17 +140,17 @@ public class AdCardMultiPicView extends AdCardBaseView {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
-            cea ceaVar = adCard.picInfo;
-            if (ceaVar == null) {
+            uia uiaVar = adCard.picInfo;
+            if (uiaVar == null) {
                 list = null;
             } else {
-                list = ceaVar.c;
+                list = uiaVar.c;
             }
-            if (!jc9.e(list) && ceaVar != null) {
-                int i = jc9.i(ceaVar.c);
+            if (!zf9.e(list) && uiaVar != null) {
+                int i = zf9.i(uiaVar.c);
                 int dimensionPixelSize = (int) ((this.x - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = ceaVar.e;
-                int i3 = ceaVar.d;
+                int i2 = uiaVar.e;
+                int i3 = uiaVar.d;
                 if (i2 != 0 && i3 != 0) {
                     f = i2 / i3;
                 } else {
@@ -167,21 +167,21 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 A0(this.i0, dimensionPixelSize, max);
                 A0(this.r0, dimensionPixelSize, max);
                 if (i == 1) {
-                    this.g0.r((String) jc9.d(list, 0));
+                    this.g0.u((String) zf9.d(list, 0));
                     this.g0.setVisibility(0);
                     B0(this.f0, 4);
                 } else if (i == 2) {
-                    this.g0.r((String) jc9.d(list, 0));
+                    this.g0.u((String) zf9.d(list, 0));
                     this.g0.setVisibility(0);
-                    this.i0.r((String) jc9.d(list, 1));
+                    this.i0.u((String) zf9.d(list, 1));
                     this.i0.setVisibility(0);
                     B0(this.h0, 3);
                 } else if (i >= 3) {
-                    this.g0.r((String) jc9.d(list, 0));
+                    this.g0.u((String) zf9.d(list, 0));
                     this.g0.setVisibility(0);
-                    this.i0.r((String) jc9.d(list, 1));
+                    this.i0.u((String) zf9.d(list, 1));
                     this.i0.setVisibility(0);
-                    this.r0.r((String) jc9.d(list, 2));
+                    this.r0.u((String) zf9.d(list, 2));
                     this.r0.setVisibility(0);
                 }
                 this.o.setVisibility(0);
@@ -196,11 +196,11 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public void e0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc5);
+            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f09203c);
             this.g0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090169);
-            this.h0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc4);
+            this.h0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f09203b);
             this.i0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090168);
-            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc6);
+            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f09203d);
             this.r0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f09016a);
             this.s0 = Y(R.string.J_X05)[0];
             this.g0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));

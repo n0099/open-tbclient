@@ -1,87 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tieba.c0c;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
 /* loaded from: classes6.dex */
 public class g0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public SplashAD g;
-    public View h;
-    public int i;
-    public int j;
-    public int[] k;
-    public int l;
-    public int m;
+    public long b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    public g0c(Context context) {
+    public g0c(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new int[2];
-        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
-        this.a = round;
-        this.b = Math.round((round * 16) / 9);
-        this.c = PxUtils.dpToPx(context, 6);
-        this.d = PxUtils.dpToPx(context, 100);
-        this.e = 1;
-        this.f = 300;
+        this.b = j;
+        this.a = i;
     }
 
-    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
+    public static g0c b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        long j;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
-            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
-            ViewUtils.removeFromParent(view2);
-            view2.setScaleX(1.0f);
-            view2.setScaleY(1.0f);
-            view2.setX(0.0f);
-            view2.setY(0.0f);
-            int[] iArr2 = new int[2];
-            viewGroup.getLocationOnScreen(iArr2);
-            float f3 = (f - iArr2[0]) + iArr[0];
-            float f4 = (f2 - iArr2[1]) + iArr[1];
-            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
-            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
-            viewGroup2.addView(view2, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
-            viewGroup2.setTranslationX(f3);
-            viewGroup2.setTranslationY(f4);
-            if (aVar != null) {
-                ((c0c.b.a) aVar).a.b.zoomOutAnimationFinish();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+            if (i >= i2) {
+                return null;
             }
+            long j2 = 0;
+            int i4 = i;
+            while (i4 < i2) {
+                char charAt = str.charAt(i4);
+                if (charAt >= '0' && charAt <= '9') {
+                    j2 = (j2 * 16) + (charAt - '0');
+                } else {
+                    if (charAt >= 'A' && charAt <= 'F') {
+                        j = j2 * 16;
+                        i3 = charAt - 'A';
+                    } else if (charAt < 'a' || charAt > 'f') {
+                        break;
+                    } else {
+                        j = j2 * 16;
+                        i3 = charAt - 'a';
+                    }
+                    j2 = j + i3 + 10;
+                }
+                if (j2 > 4294967295L) {
+                    return null;
+                }
+                i4++;
+            }
+            if (i4 == i) {
+                return null;
+            }
+            return new g0c(j2, i4);
         }
+        return (g0c) invokeLII.objValue;
+    }
+
+    public static g0c c(String str, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i >= i2) {
+                return null;
+            }
+            boolean z2 = false;
+            if (z) {
+                char charAt = str.charAt(i);
+                if (charAt != '+') {
+                    if (charAt == '-') {
+                        z2 = true;
+                    }
+                }
+                i++;
+            }
+            long j = 0;
+            int i3 = i;
+            while (i3 < i2) {
+                char charAt2 = str.charAt(i3);
+                if (charAt2 < '0' || charAt2 > '9') {
+                    break;
+                }
+                if (z2) {
+                    j = (j * 10) - (charAt2 - '0');
+                    if (j < -2147483648L) {
+                        return null;
+                    }
+                } else {
+                    j = (j * 10) + (charAt2 - '0');
+                    if (j > 2147483647L) {
+                        return null;
+                    }
+                }
+                i3++;
+            }
+            if (i3 == i) {
+                return null;
+            }
+            return new g0c(j, i3);
+        }
+        return (g0c) invokeCommon.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (int) this.b;
+        }
+        return invokeV.intValue;
     }
 }

@@ -9,8 +9,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d71;
-import com.baidu.tieba.gf0;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.hf0;
 /* loaded from: classes3.dex */
 public class NadScheduledConfirmView extends LinearLayout {
     public RadioButton a;
@@ -47,12 +47,12 @@ public class NadScheduledConfirmView extends LinearLayout {
         this.e = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
         this.b = (TextView) findViewById(R.id.tv_positive);
         this.a = (RadioButton) findViewById(R.id.rb_scheduled_dialog_wifi_confirm_btn);
-        this.c.setBackground(gf0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-        this.c.setDividerDrawable(gf0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-        this.e.setDividerDrawable(gf0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+        this.c.setBackground(hf0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+        this.c.setDividerDrawable(hf0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+        this.e.setDividerDrawable(hf0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
         this.b.setTextSize(16.0f);
         this.b.setText(getResources().getString(R.string.nad_scheduled_dialog_pos_btn_text));
-        this.b.setTextColor(d71.a().getResources().getColor(R.color.nad_dialog_pos_text_color));
+        this.b.setTextColor(e71.a().getResources().getColor(R.color.nad_dialog_pos_text_color));
         this.b.setVisibility(0);
     }
 }

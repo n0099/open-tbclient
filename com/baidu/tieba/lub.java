@@ -1,9 +1,25 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes7.dex */
 public interface lub {
-    void onFailure(String str, JSONObject jSONObject);
+    void a(DownloadException downloadException);
 
-    void onSuccess(String str, JSONObject jSONObject);
+    void b(DownloadException downloadException);
+
+    void onConnectCanceled();
+
+    void onConnected(long j, long j2, boolean z);
+
+    void onConnecting();
+
+    void onDownloadCanceled();
+
+    void onDownloadCompleted(String str);
+
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

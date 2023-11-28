@@ -1,69 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.util.Log;
+import androidx.constraintlayout.motion.utils.Easing;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.api.share.Share;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class v66 extends ActivityDelegation {
+public final class v66 implements aq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* loaded from: classes8.dex */
-    public class a implements DialogInterface.OnCancelListener {
+    public class a implements BdUniDispatchSchemeController.OnSchemeParsedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v66 a;
+        public final /* synthetic */ Context a;
 
-        public a(v66 v66Var) {
+        public a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v66Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,197 +58,225 @@ public class v66 extends ActivityDelegation {
                     return;
                 }
             }
-            this.a = v66Var;
+            this.a = context;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.OnSchemeParsedCallback
+        public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(WebViewActivityConfig.FROM_SCHEMA, true);
+                BrowserHelper.startWebActivity(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true, bundle);
             }
-            this.a.f(true);
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v66 a;
-
-        public b(v66 v66Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192787, "Lcom/baidu/tieba/v66;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = v66Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948192787, "Lcom/baidu/tieba/v66;");
                 return;
             }
-            this.a.f(false);
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-            }
-        }
-
-        public c(v66 v66Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        a = sm1.a;
+        b = NewUrlSchemaHelper.SCHEME;
     }
 
     public v66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAttachedToWindow() {
+    public static String b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        String str5;
+        String str6;
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e();
-            g(getAgent(), this.mParams.getString("options"));
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onSelfFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            h();
-        }
-    }
-
-    public final int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (str.equals(Share.WEIXIN_FRIEND)) {
-                return 3;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (str.equals(Share.WEIXIN_TIMELINE)) {
-                return 2;
-            }
-            if (str.equals(Share.QQFRIEND)) {
-                return 8;
-            }
-            if (str.equals(Share.QQDENGLU)) {
-                return 4;
-            }
-            if (str.equals(Share.SINAWEIBO)) {
-                return 6;
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.mResult.putBoolean("share_result", z);
-            h();
-            finish();
-        }
-    }
-
-    public final void g(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
-            if (activity == null) {
-                f(false);
-                return;
-            }
-            u66 u66Var = new u66();
-            try {
-                u66Var.e(new JSONObject(str));
-                TbadkCoreApplication.getInst().setCurAiAppid(u66Var.aiAppId);
-                if (!TextUtils.isEmpty(u66Var.c())) {
-                    int d = d(-1, u66Var.c());
-                    if (!TextUtils.isEmpty(u66Var.b()) && !TextUtils.isEmpty(u66Var.a())) {
-                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                        httpMessage.addParam("scheme", u66Var.b());
-                        httpMessage.setExtra(new tv4(u66Var, activity, d, new a(this)));
-                        MessageManager.getInstance().sendMessage(httpMessage);
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, u66Var, true));
-                    f(wa5.b(activity, d));
-                    return;
+            StringBuilder sb = new StringBuilder();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (TextUtils.isEmpty(next) || (opt = jSONObject.opt(next)) == null) {
+                    return null;
                 }
-                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", u66Var.aiAppId).param("obj_type", u66Var.aiAppType).param("obj_source", u66Var.aiAppSource));
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, u66Var, false);
-                shareDialogConfig.onCancelListener = new b(this);
-                shareDialogConfig.onDismissListener = new c(this);
-                JSONArray d2 = u66Var.d();
-                if (d2 != null && !TextUtils.isEmpty(u66Var.b()) && !TextUtils.isEmpty(u66Var.a())) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < d2.length(); i++) {
-                        try {
-                            arrayList.add(Integer.valueOf(d(-1, d2.getString(i))));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                String obj = opt.toString();
+                sb.append(next + "=" + Uri.encode(obj) + "&");
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                str4 = "/" + str4;
+            }
+            if (TextUtils.equals(str3, "NA")) {
+                str5 = "";
+            } else {
+                str5 = "/" + str3;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = str5 + str4;
+            }
+            String str7 = b;
+            if (TextUtils.isEmpty(str2)) {
+                if (!TextUtils.isEmpty(str)) {
+                    str7 = str7 + str;
+                }
+            } else {
+                String substring = str2.substring(1, str2.length());
+                if (TextUtils.isEmpty(str)) {
+                    str6 = str7 + substring;
+                } else {
+                    str6 = str7 + str + "/" + substring;
+                }
+                str7 = str6;
+            }
+            StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
+            String str8 = str7 + "?" + ((Object) sb2);
+            if (a) {
+                Log.i("DefaultInnerSkip", "encodeParams: " + ((Object) sb2));
+            }
+            return str8;
+        }
+        return (String) invokeLLLLL.objValue;
+    }
+
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (!TextUtils.isEmpty(str) && context != null) {
+                if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
+                    Uri parse = Uri.parse(str);
+                    if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+                        BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new a(context));
+                    } else {
+                        BrowserHelper.startWebActivity(context, parse);
+                    }
+                    return true;
+                }
+                if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
+                    Uri parse2 = Uri.parse(str);
+                    if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
+                        MutiProcessManager.publishEvent(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                        return true;
+                    }
+                }
+                return UtilHelper.dealOneScheme(context, str);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aq1
+    public ai3 a(Context context, String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
+            if (context == null) {
+                ai3 ai3Var = new ai3();
+                ai3Var.f("Context exception");
+                return ai3Var;
+            } else if (TextUtils.isEmpty(str5)) {
+                return c(str5);
+            } else {
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = "NA";
+                }
+                if ("icashwebview".equals(str4) && !StringUtils.isNull(str5)) {
+                    try {
+                        String optString = new JSONObject(str5).optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            e(optString);
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    if (!ListUtils.isEmpty(arrayList)) {
-                        u66Var.setCommandChannelArray(arrayList);
-                    }
-                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage2.addParam("scheme", u66Var.b());
-                    httpMessage2.setExtra(new tv4(u66Var, activity, shareDialogConfig.onCancelListener));
-                    MessageManager.getInstance().sendMessage(httpMessage2);
-                    return;
+                    ai3 ai3Var2 = new ai3();
+                    ai3Var2.f("invoke failed");
+                    return ai3Var2;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-            } catch (JSONException unused) {
-                f(false);
+                try {
+                    JSONObject jSONObject = new JSONObject(str5);
+                    jSONObject.put("launchMode", Easing.STANDARD_NAME);
+                    String b2 = b(str, str2, str3, str4, jSONObject);
+                    boolean d = d(context, b2);
+                    if (a) {
+                        Log.i("DefaultInnerSkip", "result = " + d + "\n拼接后的uri is: " + b2);
+                    }
+                    if (d) {
+                        return null;
+                    }
+                    ai3 ai3Var3 = new ai3();
+                    ai3Var3.f("invoke failed");
+                    return ai3Var3;
+                } catch (JSONException e2) {
+                    if (a) {
+                        Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
+                    }
+                    return c(str5);
+                }
             }
         }
+        return (ai3) invokeCommon.objValue;
+    }
+
+    public final ai3 c(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ai3 ai3Var = new ai3();
+            ai3Var.k(5L);
+            ai3Var.i(1L);
+            StringBuilder sb = new StringBuilder();
+            sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
+            if (TextUtils.isEmpty(str)) {
+                str2 = " empty";
+            } else {
+                str2 = "";
+            }
+            sb.append(str2);
+            sb.append(" parameter:");
+            sb.append(str);
+            sb.append("\n appId:");
+            sb.append(g63.K().getAppId());
+            sb.append("\n curPage:");
+            sb.append(ur2.V().U());
+            sb.append("\n");
+            ai3Var.f(sb.toString());
+            return ai3Var;
+        }
+        return (ai3) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        h63 M;
+        c33 y;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (M = h63.M()) == null || (y = M.y()) == null) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("key_param_url", str);
+        y.W(bundle, x66.class);
     }
 }

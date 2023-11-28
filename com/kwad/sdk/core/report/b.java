@@ -1,245 +1,121 @@
 package com.kwad.sdk.core.report;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.config.AppConfig;
-import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.core.network.g;
-import com.kwad.sdk.core.report.c;
-import com.kwad.sdk.core.response.model.BatchReportResult;
+import com.kwad.sdk.core.report.y;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.utils.ab;
+import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.bn;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
-    public static ExecutorService ZI;
-    public static volatile Handler mHandler;
-    public T ZL;
-    public Context mContext;
-    public volatile long ZG = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
-    public j ZH = new l();
-    public AtomicInteger ZJ = new AtomicInteger(0);
-    public AtomicInteger mRetryCount = new AtomicInteger(0);
-    public int ZK = 5;
-
-    public b() {
-        if (ZI == null) {
-            ZI = com.kwad.sdk.core.threads.b.vl();
-        }
+public final class b {
+    public static boolean cz(int i) {
+        return i >= 200 && i < 300;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void E(long j) {
-        if (mHandler == null) {
-            return;
-        }
-        mHandler.removeMessages(16843025);
-        Message obtain = Message.obtain(mHandler, a(this.mContext, this.ZH, this.ZJ));
-        obtain.what = 16843025;
-        mHandler.sendMessageDelayed(obtain, j);
-    }
-
-    private void c(@NonNull final i<T> iVar) {
-        new com.kwad.sdk.core.network.m<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.4
-            @NonNull
-            public static BatchReportResult cq(String str) {
-                JSONObject jSONObject = new JSONObject(str);
-                BatchReportResult batchReportResult = new BatchReportResult();
-                batchReportResult.parseJson(jSONObject);
-                return batchReportResult;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.kwad.sdk.core.report.b */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.kwad.sdk.core.network.a
-            @NonNull
-            public final R createRequest() {
-                c us = iVar.us();
-                b.this.ZL = us;
-                return (R) b.this.a((b) us);
-            }
-
-            @Override // com.kwad.sdk.core.network.m
-            public final boolean enableMonitorReport() {
-                return false;
-            }
-
-            @Override // com.kwad.sdk.core.network.a
-            public final ExecutorService getExecutor() {
-                return b.ZI;
-            }
-
-            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
-            @Override // com.kwad.sdk.core.network.m
-            @NonNull
-            public final /* synthetic */ BatchReportResult parseData(String str) {
-                return cq(str);
-            }
-        }.request(new com.kwad.sdk.core.network.n<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.5
-            private void a(@NonNull BatchReportResult batchReportResult) {
-                com.kwad.sdk.core.e.b.d("BaseBatchReporter", "立即上报 onSuccess action= " + b.this.ZL + " result " + batchReportResult.getResult());
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.kwad.sdk.core.report.b */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final void onError(@NonNull R r, int i, String str) {
-                b.this.a((i) new i<T>() { // from class: com.kwad.sdk.core.report.b.5.1
-                    @Override // com.kwad.sdk.core.report.i
-                    @NonNull
-                    public final T us() {
-                        return (T) b.this.ZL;
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004b, code lost:
+        r4.addAll(r6.urls);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<String> a(int i, y.b bVar, List<String> list, AdInfo adInfo, List<AdInfo.AdTrackInfo> list2) {
+        int i2;
+        if (i == 402 && com.kwad.sdk.core.response.b.a.bl(adInfo)) {
+            try {
+                if (!TextUtils.isEmpty(bVar.Xd)) {
+                    i2 = new JSONObject(bVar.Xd).optInt("photoPlaySecond");
+                } else {
+                    i2 = bVar.axk;
+                }
+                JSONObject jSONObject = new JSONObject(adInfo.adBaseInfo.videoPlayedNSConfig);
+                Iterator<AdInfo.AdTrackInfo> it = list2.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                });
+                    AdInfo.AdTrackInfo next = it.next();
+                    if (next.type == jSONObject.optInt(String.valueOf(i2)) && next.urls != null) {
+                        break;
+                    }
+                }
+            } catch (Throwable unused) {
             }
-
-            @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
-                a((BatchReportResult) baseResultData);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean un() {
-        int i = this.mRetryCount.get();
-        if (i > 16) {
-            i = 16;
+            return list;
         }
-        r rVar = (r) ServiceProvider.get(r.class);
-        return this.ZH.size() >= (rVar != null ? (long) (rVar.lr() << i) : 20L);
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void up() {
-        int andIncrement = this.mRetryCount.getAndIncrement();
-        if (andIncrement <= this.ZK) {
-            if (andIncrement > 0) {
-                this.ZG *= 2;
-            }
-            E(this.ZG);
-        }
-    }
-
-    public final void D(long j) {
-        this.ZG = j < 60 ? 60000L : j * 1000;
-    }
-
-    public R a(T t) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(t);
-        return o(arrayList);
-    }
-
-    public Runnable a(Context context, j<T> jVar, AtomicInteger atomicInteger) {
-        return new v(context, jVar, this, atomicInteger);
-    }
-
-    public final void a(@NonNull final i<T> iVar) {
-        ZI.execute(new Runnable() { // from class: com.kwad.sdk.core.report.b.1
-            @Override // java.lang.Runnable
-            public final void run() {
-                if (b.mHandler != null && !b.mHandler.hasMessages(16843025)) {
-                    b bVar = b.this;
-                    bVar.E(bVar.ZG);
-                }
-                c us = iVar.us();
-                if (us != null) {
-                    b.this.ZH.d(us);
-                }
-                if (b.this.un()) {
-                    b.this.uo();
-                }
-            }
-        });
-    }
-
-    public final void a(j jVar) {
-        this.ZH = jVar;
-    }
-
-    public final void a(final List<T> list, final AtomicBoolean atomicBoolean) {
-        if (list == null || list.size() <= 0) {
+    public static void a(@NonNull AdTemplate adTemplate, int i, @NonNull y.b bVar) {
+        ac.a aVar;
+        int i2;
+        List<String> b = b(adTemplate, i, bVar);
+        if (ah.M(b)) {
             return;
         }
-        this.ZJ.getAndIncrement();
-        new com.kwad.sdk.core.network.m<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.2
-            @NonNull
-            public static BatchReportResult cq(String str) {
-                JSONObject jSONObject = new JSONObject(str);
-                BatchReportResult batchReportResult = new BatchReportResult();
-                batchReportResult.parseJson(jSONObject);
-                return batchReportResult;
-            }
-
-            @Override // com.kwad.sdk.core.network.a
-            @NonNull
-            public final R createRequest() {
-                return (R) b.this.o(list);
-            }
-
-            @Override // com.kwad.sdk.core.network.m
-            public final boolean enableMonitorReport() {
-                return false;
-            }
-
-            @Override // com.kwad.sdk.core.network.a
-            public final ExecutorService getExecutor() {
-                return b.ZI;
-            }
-
-            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
-            @Override // com.kwad.sdk.core.network.m
-            @NonNull
-            public final /* synthetic */ BatchReportResult parseData(String str) {
-                return cq(str);
-            }
-        }.request(new com.kwad.sdk.core.network.n<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.3
-            private void a(@NonNull BatchReportResult batchReportResult) {
-                b.this.ZH.q(list);
-                if (b.this.ZJ.decrementAndGet() == 0 && atomicBoolean.get()) {
-                    b.this.up();
+        for (String str : b) {
+            com.kwad.sdk.commercial.j.a.p(adTemplate, i, str);
+            if (adTemplate.isCheatingFlow()) {
+                com.kwad.sdk.commercial.j.a.o(adTemplate, i, str);
+                return;
+            } else if (bn.gt(str)) {
+                com.kwad.sdk.commercial.j.a.a(adTemplate, i, str, "", 100001, "", 0);
+                return;
+            } else {
+                if (i == 2) {
+                    aVar = bVar.km;
+                } else {
+                    aVar = null;
                 }
-                b.this.D(batchReportResult.getInterval());
-                b bVar = b.this;
-                bVar.E(bVar.ZG);
-            }
-
-            @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final void onError(@NonNull R r, int i, String str) {
-                atomicBoolean.set(true);
-                if (b.this.ZJ.decrementAndGet() == 0) {
-                    b.this.up();
+                String a = ab.a(ServiceProvider.getContext(), str, aVar, com.kwad.sdk.core.response.b.a.aB(com.kwad.sdk.core.response.b.e.dP(adTemplate)));
+                AdHttpProxy xI = com.kwad.sdk.f.xI();
+                if (xI instanceof com.kwad.sdk.core.network.c.a) {
+                    i2 = 2;
+                } else {
+                    i2 = 1;
+                }
+                com.kwad.sdk.core.network.c doGetWithoutResponse = xI.doGetWithoutResponse(a, null);
+                if (cz(doGetWithoutResponse.code)) {
+                    com.kwad.sdk.core.e.c.d("AdTrackUtil", "trackUrl request success actionType: " + i);
+                    com.kwad.sdk.commercial.j.a.a(adTemplate, i, str, doGetWithoutResponse.code, i2);
+                } else {
+                    com.kwad.sdk.commercial.j.a.a(adTemplate, i, str, a, com.kwad.sdk.commercial.c.bU(doGetWithoutResponse.code), doGetWithoutResponse.atm, i2);
                 }
             }
-
-            @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
-                a((BatchReportResult) baseResultData);
-            }
-        });
-    }
-
-    public final void b(@NonNull i<T> iVar) {
-        c(iVar);
-    }
-
-    public synchronized void e(Context context, int i) {
-        this.mContext = context;
-        if (mHandler == null) {
-            mHandler = com.kwad.sdk.core.threads.a.vg();
         }
     }
 
-    public abstract R o(List<T> list);
-
-    public final void uo() {
-        E(0L);
+    public static List<String> b(AdTemplate adTemplate, int i, @NonNull y.b bVar) {
+        List<String> list;
+        ArrayList arrayList = new ArrayList();
+        AdInfo dP = com.kwad.sdk.core.response.b.e.dP(adTemplate);
+        List<AdInfo.AdTrackInfo> list2 = dP.adTrackInfoList;
+        if (ah.M(list2)) {
+            return arrayList;
+        }
+        List<String> a = a(i, bVar, arrayList, dP, list2);
+        if (a != null) {
+            return a;
+        }
+        Iterator<AdInfo.AdTrackInfo> it = list2.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            AdInfo.AdTrackInfo next = it.next();
+            if (next.type == i && (list = next.urls) != null) {
+                arrayList.addAll(list);
+                break;
+            }
+        }
+        return arrayList;
     }
 }

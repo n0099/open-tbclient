@@ -5,9 +5,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
-import com.ksad.download.f;
-import com.kwad.sdk.core.e.b;
-import com.kwad.sdk.utils.as;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.d;
+import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.ay;
 import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.util.ArrayList;
@@ -18,86 +19,63 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes10.dex */
 public class a {
-    public static volatile a VW;
-    public File VP;
-    public PackageManager VT;
-    public final f VU;
-    public volatile boolean VV;
-    public final Runnable VX = new Runnable() { // from class: com.kwad.sdk.core.diskcache.a.1
-        @Override // java.lang.Runnable
-        public final void run() {
-            synchronized (a.class) {
-                if (a.this.VP != null && a.this.VP.exists()) {
-                    for (File file : a.this.j(a.this.VP)) {
-                        if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.rD().bm(file.getAbsolutePath()) != null && a.this.k(file) != null) {
-                            a.this.VU.c(file);
+    public static PackageInfo a(Context context, File file) {
+        if (file != null && file.exists()) {
+            try {
+                if (file.exists() & (!file.isDirectory())) {
+                    PackageManager packageManager = context.getPackageManager();
+                    PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 65);
+                    if (packageManager.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                        return null;
+                    }
+                    return packageArchiveInfo;
+                }
+            } catch (Exception e) {
+                c.printStackTrace(e);
+            }
+        }
+        return null;
+    }
+
+    public static void aT(final Context context) {
+        g.schedule(new ay() { // from class: com.kwad.sdk.core.diskcache.a.1
+            @Override // com.kwad.sdk.utils.ay
+            public final void doTask() {
+                d xC;
+                synchronized (a.class) {
+                    File cL = aw.cL(context);
+                    if (!cL.exists()) {
+                        return;
+                    }
+                    for (File file : a.n(cL)) {
+                        if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.Ai().cF(file.getAbsolutePath()) != null && a.a(context, file) != null && (xC = com.kwad.sdk.c.xA().xC()) != null) {
+                            xC.g(file);
                         }
                     }
                 }
             }
-        }
-    };
-
-    public a(@NonNull Context context) {
-        this.VV = false;
-        this.VU = new com.kwad.sdk.core.download.a.a(context);
-        try {
-            File cZ = as.cZ(context);
-            this.VP = cZ;
-            cZ.mkdirs();
-            this.VT = context.getPackageManager();
-        } catch (Throwable th) {
-            b.printStackTrace(th);
-        }
-        this.VV = true;
+        }, 10L, TimeUnit.SECONDS);
     }
 
-    public static a bn(@NonNull Context context) {
-        if (VW == null) {
-            synchronized (a.class) {
-                if (VW == null) {
-                    VW = new a(context);
-                }
-            }
-        }
-        return VW;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<File> j(@NonNull File file) {
+    public static List<File> n(@NonNull File file) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return arrayList;
         }
         arrayList.addAll(Arrays.asList(listFiles));
-        n(arrayList);
+        t(arrayList);
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public PackageInfo k(File file) {
-        if (file != null && file.exists()) {
-            try {
-                if (file.exists() & (!file.isDirectory())) {
-                    PackageInfo packageArchiveInfo = this.VT.getPackageArchiveInfo(file.getPath(), 65);
-                    if (this.VT.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
-                        return null;
-                    }
-                    return packageArchiveInfo;
-                }
-            } catch (Exception e) {
-                b.printStackTrace(e);
-            }
-        }
-        return null;
-    }
-
-    private void n(List<File> list) {
+    public static void t(List<File> list) {
         Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.a.2
-            public static int a(File file, File file2) {
+            public static int c(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
-                    return file.lastModified() == file2.lastModified() ? 0 : 1;
+                    if (file.lastModified() == file2.lastModified()) {
+                        return 0;
+                    }
+                    return 1;
                 }
                 return -1;
             }
@@ -105,15 +83,8 @@ public class a {
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
             @Override // java.util.Comparator
             public final /* synthetic */ int compare(File file, File file2) {
-                return a(file, file2);
+                return c(file, file2);
             }
         });
-    }
-
-    public final void sI() {
-        File file;
-        if (this.VV && (file = this.VP) != null && file.exists()) {
-            g.schedule(this.VX, 10L, TimeUnit.SECONDS);
-        }
     }
 }

@@ -1,66 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.util.UtilHelper;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class s39 extends PopupWindow {
+public class s39 implements un8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final GroupChatFragment a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s39(View contentView, int i, int i2, boolean z) {
-        super(contentView, i, i2, z);
+    public s39(@NonNull GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contentView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {groupChatFragment};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contentView, "contentView");
+        this.a = groupChatFragment;
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
-        Integer num;
-        Resources resources;
-        DisplayMetrics displayMetrics;
+    @Override // com.baidu.tieba.un8
+    public void a(ViewState viewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                if (view2 != null) {
-                    view2.getGlobalVisibleRect(rect);
-                }
-                if (view2 != null && (resources = view2.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                    num = Integer.valueOf(displayMetrics.heightPixels - rect.bottom);
-                } else {
-                    num = null;
-                }
-                if (num != null) {
-                    setHeight(num.intValue() + UtilHelper.getStatusBarHeight());
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, viewState) == null) {
+            this.a.J3(viewState);
+        }
+    }
+
+    @Override // com.baidu.tieba.un8
+    public void c(@NonNull ViewState viewState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewState) == null) {
+            if (ViewState.VISIBLE == viewState) {
+                this.a.L3();
+            } else {
+                this.a.A3();
             }
-            super.showAsDropDown(view2);
+        }
+    }
+
+    @Override // com.baidu.tieba.un8
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a.F3(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.un8
+    public void b(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.a.j3() != null) {
+            this.a.j3().x1(str, z);
         }
     }
 }

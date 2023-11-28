@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface rw {
-    String a();
+    String getAppName();
 }

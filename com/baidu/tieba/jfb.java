@@ -1,11 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.kfb;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,213 +32,424 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class jfb {
+public class jfb extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final keb b;
-    @NonNull
-    public final EditorTools c;
-    @NonNull
-    public final ddb d;
-    @NonNull
-    public final vfb e;
-    @NonNull
-    public final zfb f;
-    @NonNull
-    public final WriteData g;
+    public int a;
+    public ValueAnimator b;
+    public ValueAnimator c;
+    public BaseFragmentActivity d;
+    public View e;
+    public ListView f;
+    public ViewGroup g;
+    public beb h;
+    public int i;
+    public f j;
+    public final AdapterView.OnItemClickListener k;
+    public final View.OnClickListener l;
 
-    public jfb(@NonNull TbPageContext<?> tbPageContext, @NonNull keb kebVar, @NonNull EditorTools editorTools, @NonNull ddb ddbVar, @NonNull vfb vfbVar, @NonNull zfb zfbVar, @NonNull WriteData writeData) {
+    /* loaded from: classes6.dex */
+    public interface f {
+        void b(int i, vq4 vq4Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfb a;
+
+        public a(jfb jfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfbVar;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                vq4 item = this.a.h.getItem(i);
+                if (this.a.j != null) {
+                    this.a.j.b(i, item);
+                }
+                this.a.j();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfb a;
+
+        public b(jfb jfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfbVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfb a;
+
+        public c(jfb jfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfbVar;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
+                layoutParams.height = intValue;
+                this.a.f.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfb a;
+
+        public d(jfb jfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfbVar;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
+                layoutParams.height = intValue;
+                this.a.f.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfb a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+
+        public e(jfb jfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfbVar;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                return;
+            }
+            this.a.h();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jfb(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext().getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, kebVar, editorTools, ddbVar, vfbVar, zfbVar, writeData};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = kebVar;
-        this.c = editorTools;
-        this.d = ddbVar;
-        this.e = vfbVar;
-        this.f = zfbVar;
-        this.g = writeData;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.d = baseFragmentActivity;
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(g(new ArrayList(), vq4.f));
+        GreyUtil.grey(this);
+        setFocusable(true);
+        setTouchable(true);
+        setOutsideTouchable(true);
+        setAnimationStyle(0);
+        setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    public List<oeb<?>> a(List<kfb.a> list) {
-        InterceptResult invokeL;
+    public void l(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (kfb.a aVar : list) {
-                oeb<?> b = b(aVar);
-                if (b != null) {
-                    b.h(aVar.b, this.g);
-                    arrayList.add(b);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
+            this.j = fVar;
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ListView listView = this.f;
+            if (listView != null) {
+                listView.clearAnimation();
+            }
+            ViewGroup viewGroup = this.g;
+            if (viewGroup != null) {
+                viewGroup.clearAnimation();
+            }
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.dismiss();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            i();
+        }
+    }
+
+    public final int e(List<vq4> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if (list != null && list.size() != 0 && !TextUtils.isEmpty(str)) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    vq4 vq4Var = list.get(i);
+                    if (vq4Var != null && str.equals(vq4Var.b())) {
+                        return i;
+                    }
                 }
             }
-            return arrayList;
+            return -1;
         }
-        return (List) invokeL.objValue;
+        return invokeLL.intValue;
     }
 
-    public oeb<?> b(kfb.a aVar) {
-        InterceptResult invokeL;
+    @SuppressLint({"ResourceAsColor"})
+    public final View g(List<vq4> list, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, str)) == null) {
+            BdListView bdListView = new BdListView(this.d.getPageContext().getPageActivity());
+            this.f = bdListView;
+            bdListView.setCacheColorHint(this.d.getResources().getColor(17170445));
+            bdListView.setDivider(null);
+            bdListView.setDividerHeight(0);
+            bdListView.setFadingEdgeLength(0);
+            beb bebVar = new beb(this.d);
+            this.h = bebVar;
+            bebVar.b(list, str);
+            bdListView.setAdapter((ListAdapter) this.h);
+            FrameLayout frameLayout = new FrameLayout(this.d.getPageContext().getPageActivity());
+            FrameLayout frameLayout2 = new FrameLayout(this.d.getPageContext().getPageActivity());
+            this.g = frameLayout2;
+            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
+            frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
+            this.f.setOnItemClickListener(this.k);
+            frameLayout.setOnClickListener(this.l);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.g, R.color.black_alpha70);
+            return frameLayout;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.c == null) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(this.f.getHeight(), 0);
+                this.c = ofInt;
+                ofInt.addUpdateListener(new d(this));
+                this.c.setDuration(350L);
             }
-            String str = aVar.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 3118:
-                    if (str.equals("c1")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3119:
-                    if (str.equals("c2")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3120:
-                    if (str.equals("c3")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 3121:
-                    if (str.equals("c4")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3122:
-                    if (str.equals("c5")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case 3123:
-                    if (str.equals("c6")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 3124:
-                    if (str.equals("c7")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3125:
-                    if (str.equals("c8")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 3126:
-                    if (str.equals("c9")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 96706:
-                            if (str.equals("c10")) {
-                                c = 15;
-                                break;
-                            }
-                            break;
-                        case 96707:
-                            if (str.equals("c11")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 96708:
-                            if (str.equals("c12")) {
-                                c = '\t';
-                                break;
-                            }
-                            break;
-                        case 96709:
-                            if (str.equals("c13")) {
-                                c = '\n';
-                                break;
-                            }
-                            break;
-                        case 96710:
-                            if (str.equals("c14")) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 96711:
-                            if (str.equals("c15")) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 96712:
-                            if (str.equals("c16")) {
-                                c = '\b';
-                                break;
-                            }
-                            break;
-                    }
+            this.c.start();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(350L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setAnimationListener(new e(this));
+            this.g.startAnimation(alphaAnimation);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b == null) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(0, this.a);
+                this.b = ofInt;
+                ofInt.addUpdateListener(new c(this));
+                this.b.setDuration(350L);
             }
-            switch (c) {
-                case 0:
-                    return rfb.a(this.a);
-                case 1:
-                    return rfb.b(this.a);
-                case 2:
-                    return rfb.c(this.a, this.b, this.c, this.d, this.e);
-                case 3:
-                    return rfb.e(this.a);
-                case 4:
-                    return rfb.f(this.a);
-                case 5:
-                    return rfb.g(this.a);
-                case 6:
-                    return rfb.h(this.a, this.f);
-                case 7:
-                    return rfb.i(this.a);
-                case '\b':
-                    return rfb.j(this.a);
-                case '\t':
-                    return rfb.k(this.a);
-                case '\n':
-                    return rfb.l(this.a);
-                case 11:
-                    return rfb.m(this.a, this.b, this.c, this.f, this.d, this.e);
-                case '\f':
-                    return rfb.n(this.a, this.b, this.d, this.e);
-                case '\r':
-                    return rfb.o(this.a);
-                case 14:
-                    return rfb.p(this.a);
-                case 15:
-                    return rfb.q(this.a);
-                default:
-                    return null;
+            this.b.start();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(350L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            this.g.startAnimation(alphaAnimation);
+        }
+    }
+
+    public void k(List<vq4> list, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, list, str) != null) || list == null) {
+            return;
+        }
+        this.i = e(list, str);
+        this.a = -2;
+        if (list.size() > 5) {
+            this.a = this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070402);
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.a);
+        } else {
+            layoutParams.height = this.a;
+        }
+        this.f.setLayoutParams(layoutParams);
+        if (this.a < 0) {
+            this.a = BdUtilHelper.getDimens(this.d, R.dimen.tbds168) * list.size();
+        }
+        this.h.b(list, str);
+        this.h.notifyDataSetChanged();
+    }
+
+    public void n(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            this.f.setSelection(this.i);
+            if (Build.VERSION.SDK_INT < 24) {
+                if (yb.k(this, view2)) {
+                    m();
+                    return;
+                }
+                return;
+            }
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                i = UtilHelper.getStatusBarHeight();
+            } else {
+                i = 0;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int height = (iArr[1] + view2.getHeight()) - i;
+            ((FrameLayout.LayoutParams) this.f.getLayoutParams()).topMargin = height;
+            ((FrameLayout.LayoutParams) this.g.getLayoutParams()).topMargin = height;
+            if (yb.m(this, view2, 0, 0, 0)) {
+                m();
             }
         }
-        return (oeb) invokeL.objValue;
     }
 }

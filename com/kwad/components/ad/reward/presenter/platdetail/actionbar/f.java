@@ -6,373 +6,379 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.os.SystemClock;
 import android.view.animation.DecelerateInterpolator;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tieba.R;
-import com.kwad.components.ad.reward.h.l;
+import com.kwad.components.ad.reward.e.g;
+import com.kwad.components.ad.reward.k.q;
 import com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardActionBarControl;
-import com.kwad.components.core.m.n;
 import com.kwad.components.core.playable.PlayableSource;
-import com.kwad.components.core.webview.KsAdWebView;
+import com.kwad.components.core.s.n;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.ac;
-import com.kwad.components.core.webview.jshandler.i;
-import com.kwad.components.core.webview.jshandler.k;
-import com.kwad.components.core.webview.jshandler.o;
-import com.kwad.components.core.webview.jshandler.q;
-import com.kwad.components.core.webview.jshandler.r;
-import com.kwad.components.core.webview.jshandler.s;
-import com.kwad.components.core.webview.jshandler.x;
+import com.kwad.components.core.webview.jshandler.ad;
+import com.kwad.components.core.webview.jshandler.ag;
+import com.kwad.components.core.webview.jshandler.ai;
+import com.kwad.components.core.webview.jshandler.aj;
+import com.kwad.components.core.webview.jshandler.ak;
+import com.kwad.components.core.webview.jshandler.aq;
+import com.kwad.components.core.webview.jshandler.aw;
+import com.kwad.components.core.webview.jshandler.az;
+import com.kwad.components.core.webview.jshandler.l;
+import com.kwad.components.core.webview.jshandler.m;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.core.webview.KsAdWebView;
 /* loaded from: classes10.dex */
-public final class f extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
-    public KsAdWebView bF;
-    public r.a bG;
-    public aa bI;
-    public ValueAnimator bN;
-    public ValueAnimator bO;
-    public com.kwad.components.core.c.a.c mApkDownloadHelper;
-    public com.kwad.sdk.core.webview.b mJsBridgeContext;
-    public com.kwad.components.core.webview.a mJsInterface;
+public final class f extends com.kwad.components.ad.reward.presenter.b {
+    @Nullable
+    public KsAdWebView cL;
+    public aj.a cM;
+    public com.kwad.components.core.webview.a cN;
+    public com.kwad.sdk.core.webview.b cO;
+    public aw cQ;
+    public ValueAnimator cV;
+    public ValueAnimator cW;
+    public com.kwad.components.core.e.d.c mApkDownloadHelper;
     public String mUrl;
-    public RewardActionBarControl ml;
-    public KsLogoView pM;
-    public boolean rS;
-    public long rT;
-    public int bH = -1;
-    public RewardActionBarControl.f rz = new RewardActionBarControl.f() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.1
-        @Override // com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardActionBarControl.f
-        public final boolean g(a aVar) {
+    public RewardActionBarControl oL;
+    public KsLogoView sq;
+    public boolean uZ;
+    public long va;
+    public int cP = -1;
+    public RewardActionBarControl.d uH = new RewardActionBarControl.d() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.1
+        @Override // com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardActionBarControl.d
+        public final boolean f(a aVar) {
             f fVar = f.this;
-            fVar.rS = fVar.g(aVar);
-            return f.this.rS;
+            fVar.uZ = fVar.f(aVar);
+            return f.this.uZ;
         }
     };
-    public com.kwad.components.ad.reward.d.e mPlayEndPageListener = new com.kwad.components.ad.reward.d.e() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.2
-        @Override // com.kwad.components.ad.reward.d.e
-        public final void bA() {
+    public g mPlayEndPageListener = new com.kwad.components.ad.reward.e.a() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.2
+        @Override // com.kwad.components.ad.reward.e.g
+        public final void bL() {
             f.this.release();
         }
     };
-    public com.kwad.sdk.core.webview.a.kwai.a bJ = new com.kwad.sdk.core.webview.a.kwai.a() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.3
-        @Override // com.kwad.sdk.core.webview.a.kwai.a
-        public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
-            f.this.nM.mAdOpenInteractionListener.bB();
+    public com.kwad.sdk.core.webview.d.a.a cR = new com.kwad.sdk.core.webview.d.a.a() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.3
+        @Override // com.kwad.sdk.core.webview.d.a.a
+        public final void a(com.kwad.sdk.core.webview.d.b.a aVar) {
+            f.this.qn.oH.bJ();
         }
     };
-    public r.b bK = new r.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.5
-        @Override // com.kwad.components.core.webview.jshandler.r.b
-        public final void a(r.a aVar) {
-            f.this.bG = aVar;
-            f.this.bF.setTranslationY(aVar.height + aVar.bottomMargin);
+    public aj.b cS = new aj.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.5
+        @Override // com.kwad.components.core.webview.jshandler.aj.b
+        public final void a(aj.a aVar) {
+            f.this.cM = aVar;
+            f.this.cL.setTranslationY(aVar.height + aVar.bottomMargin);
         }
     };
-    public q.b bL = new q.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.6
-        @Override // com.kwad.components.core.webview.jshandler.q.b
-        public final void a(q.a aVar) {
-            f.this.rS = false;
-            f.this.aJ();
+    public ai.b cT = new ai.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.6
+        @Override // com.kwad.components.core.webview.jshandler.ai.b
+        public final void a(ai.a aVar) {
+            f.this.uZ = false;
+            f.this.aE();
         }
     };
-    public x.b bM = new x.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.7
-        @Override // com.kwad.components.core.webview.jshandler.x.b
-        public final void a(x.a aVar) {
-            f.this.bH = aVar.status;
-            long elapsedRealtime = SystemClock.elapsedRealtime() - f.this.rT;
-            com.kwad.sdk.core.e.b.i("RewardActionBarWeb", "load time:" + elapsedRealtime + ", pageStatus: " + f.this.bH);
-            if (f.this.bH == 1) {
-                com.kwad.components.core.j.a.og().d(f.this.nM.mAdTemplate, elapsedRealtime);
+    public aq.b cU = new aq.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.7
+        @Override // com.kwad.components.core.webview.jshandler.aq.b
+        public final void a(aq.a aVar) {
+            f.this.cP = aVar.status;
+            long elapsedRealtime = SystemClock.elapsedRealtime() - f.this.va;
+            com.kwad.sdk.core.e.c.i("RewardActionBarWeb", "load time:" + elapsedRealtime + ", pageStatus: " + f.this.cP);
+            if (f.this.cP == 1) {
+                com.kwad.components.core.o.a.pX().h(f.this.qn.mAdTemplate, elapsedRealtime);
+            } else {
+                com.kwad.components.ad.reward.monitor.c.a(f.this.qn.mAdTemplate, f.this.qn.oX, "play_card", com.kwad.sdk.core.response.b.b.cj(f.this.qn.mAdTemplate), System.currentTimeMillis() - f.this.cL.getLoadTime(), 3);
             }
-            if (f.this.nM.fv()) {
-                return;
+            if (!f.this.qn.fC()) {
+                f.this.oL.id();
             }
-            f.this.ml.hw();
         }
     };
 
-    private void A(AdTemplate adTemplate) {
-        KsLogoView ksLogoView;
-        if (!com.kwad.sdk.core.response.a.a.bF(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) || ag.zL() || (ksLogoView = this.pM) == null) {
+    private void aA() {
+        com.kwad.components.core.webview.a aVar = this.cN;
+        if (aVar != null) {
+            aVar.destroy();
+            this.cN = null;
+        }
+    }
+
+    private void aD() {
+        O(this.qn.mAdTemplate);
+        aw awVar = this.cQ;
+        if (awVar != null) {
+            awVar.sg();
+        }
+        this.cL.setVisibility(0);
+        aw awVar2 = this.cQ;
+        if (awVar2 != null) {
+            awVar2.sh();
+        }
+    }
+
+    private void aF() {
+        if (this.cL.getVisibility() != 0) {
             return;
         }
-        ksLogoView.setVisibility(0);
+        aw awVar = this.cQ;
+        if (awVar != null) {
+            awVar.si();
+        }
+        this.cL.setVisibility(4);
+        aw awVar2 = this.cQ;
+        if (awVar2 != null) {
+            awVar2.sj();
+        }
     }
 
-    private void a(com.kwad.components.core.webview.a aVar) {
-        aVar.a(new i(this.mJsBridgeContext, this.mApkDownloadHelper, this.bJ));
-        aVar.a(new com.kwad.components.core.webview.b.kwai.c());
-        aVar.a(new l(this.mJsBridgeContext, this.mApkDownloadHelper, this.nM, -1L, this.bJ));
-        aVar.a(new com.kwad.components.core.webview.jshandler.l(this.mJsBridgeContext));
-        aVar.a(new o(this.mJsBridgeContext));
-        aVar.a(new k(this.mJsBridgeContext));
-        aVar.a(new r(this.mJsBridgeContext, this.bK));
-        aVar.a(new x(this.bM, com.kwad.sdk.core.response.a.b.aN(this.nM.mAdTemplate)));
-        aa aaVar = new aa();
-        this.bI = aaVar;
-        aVar.a(aaVar);
-        aVar.a(new ac(this.mJsBridgeContext, this.mApkDownloadHelper));
-        aVar.a(new q(this.bL));
-        aVar.a(new s(this.mJsBridgeContext));
-        aVar.a(new com.kwad.components.ad.reward.f.b(getContext(), this.nM.mAdTemplate, PlayableSource.ACTIONBAR_CLICK));
+    private void aG() {
+        ValueAnimator valueAnimator = this.cV;
+        if (valueAnimator != null) {
+            valueAnimator.removeAllListeners();
+            this.cV.cancel();
+        }
+        ValueAnimator valueAnimator2 = this.cW;
+        if (valueAnimator2 != null) {
+            valueAnimator2.removeAllListeners();
+            this.cW.cancel();
+        }
     }
 
-    private void aE() {
-        this.bH = -1;
-        aF();
-        this.bF.setBackgroundColor(0);
-        this.bF.getBackground().setAlpha(0);
-        this.bF.setVisibility(4);
-        this.bF.setClientConfig(this.bF.getClientConfig().R(this.nM.mAdTemplate).b(getWebListener()));
-        this.rT = SystemClock.elapsedRealtime();
-        this.mUrl = com.kwad.sdk.core.response.a.b.aN(this.nM.mAdTemplate);
-        com.kwad.sdk.core.e.b.d("RewardActionBarWeb", "startPreloadWebView url: " + this.mUrl);
-        com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "play_card", this.mUrl);
-        this.bF.loadUrl(this.mUrl);
+    private void aH() {
+        String str;
+        int i = this.cP;
+        if (i == -1) {
+            str = "timeout";
+        } else if (i != 1) {
+            str = "h5error";
+        } else {
+            str = AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+        }
+        com.kwad.sdk.core.e.c.w("RewardActionBarWeb", "show webCard fail, reason: " + str);
+    }
+
+    private void ax() {
+        com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
+        this.cO = bVar;
+        bVar.setAdTemplate(this.qn.mAdTemplate);
+        com.kwad.sdk.core.webview.b bVar2 = this.cO;
+        com.kwad.components.ad.reward.g gVar = this.qn;
+        bVar2.mScreenOrientation = gVar.mScreenOrientation;
+        AdBaseFrameLayout adBaseFrameLayout = gVar.mRootContainer;
+        bVar2.aCG = adBaseFrameLayout;
+        bVar2.Ov = adBaseFrameLayout;
+        bVar2.NP = this.cL;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
-    private void aF() {
-        clearJsInterfaceRegister();
-        com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.bF);
-        this.mJsInterface = aVar;
+    private void az() {
+        aA();
+        com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.cL);
+        this.cN = aVar;
         a(aVar);
-        this.bF.addJavascriptInterface(this.mJsInterface, "KwaiAd");
+        this.cL.addJavascriptInterface(this.cN, "KwaiAd");
     }
 
-    private void aI() {
-        A(this.nM.mAdTemplate);
-        aa aaVar = this.bI;
-        if (aaVar != null) {
-            aaVar.py();
+    private void ca() {
+        if (this.cL != null && com.kwad.sdk.core.response.b.b.cl(this.qn.mAdTemplate)) {
+            this.mApkDownloadHelper = this.qn.mApkDownloadHelper;
+            ax();
+            ay();
+            this.qn.b(this.mPlayEndPageListener);
         }
-        this.bF.setVisibility(0);
-        aa aaVar2 = this.bI;
-        if (aaVar2 != null) {
-            aaVar2.pz();
-        }
+    }
+
+    private KsAdWebView.d ih() {
+        return new KsAdWebView.d() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.4
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageStart() {
+            }
+
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onPageFinished() {
+                com.kwad.components.ad.reward.monitor.c.a(f.this.qn.oX, "play_card", f.this.mUrl, System.currentTimeMillis() - f.this.cL.getLoadTime());
+            }
+
+            @Override // com.kwad.sdk.core.webview.KsAdWebView.d
+            public final void onReceivedHttpError(int i, String str, String str2) {
+                com.kwad.components.ad.reward.monitor.c.a(f.this.qn.mAdTemplate, f.this.qn.oX, "play_card", com.kwad.sdk.core.response.b.b.cj(f.this.qn.mAdTemplate), System.currentTimeMillis() - f.this.cL.getLoadTime(), 2);
+            }
+        };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aJ() {
-        if (this.bF.getVisibility() != 0) {
+    public void release() {
+        this.cP = -1;
+        KsAdWebView ksAdWebView = this.cL;
+        if (ksAdWebView != null) {
+            ksAdWebView.setVisibility(8);
+        }
+        aA();
+    }
+
+    @Override // com.kwad.components.ad.reward.presenter.b, com.kwad.sdk.mvp.Presenter
+    public final void aj() {
+        super.aj();
+        com.kwad.components.ad.reward.monitor.c.a(this.qn.oX, "play_card");
+        RewardActionBarControl rewardActionBarControl = this.qn.oL;
+        this.oL = rewardActionBarControl;
+        rewardActionBarControl.a(this.uH);
+        ca();
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public final void onCreate() {
+        super.onCreate();
+        this.cL = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913eb);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public final void onUnbind() {
+        super.onUnbind();
+        RewardActionBarControl rewardActionBarControl = this.oL;
+        if (rewardActionBarControl != null) {
+            rewardActionBarControl.a((RewardActionBarControl.d) null);
+        }
+        this.qn.c(this.mPlayEndPageListener);
+        aG();
+        release();
+    }
+
+    private void O(AdTemplate adTemplate) {
+        KsLogoView ksLogoView;
+        if (com.kwad.sdk.core.response.b.a.cD(com.kwad.sdk.core.response.b.e.dP(adTemplate)) && !com.kwad.sdk.utils.ai.isOrientationPortrait() && (ksLogoView = this.sq) != null) {
+            ksLogoView.setVisibility(0);
+        }
+    }
+
+    private void a(com.kwad.components.core.webview.a aVar) {
+        aVar.a(new aa(this.cO, this.mApkDownloadHelper, this.cR, (byte) 0));
+        aVar.a(new com.kwad.components.core.webview.tachikoma.a.f());
+        aVar.a(new q(this.cO, this.mApkDownloadHelper, this.qn, -1L, this.cR, null));
+        aVar.a(new ad(this.cO));
+        aVar.a(new ag(this.cO));
+        aVar.a(new ac(this.cO));
+        aVar.a(new aj(this.cO, this.cS));
+        aVar.a(new aq(this.cU, com.kwad.sdk.core.response.b.b.cj(this.qn.mAdTemplate)));
+        aw awVar = new aw();
+        this.cQ = awVar;
+        aVar.a(awVar);
+        aVar.a(new az(this.cO, this.mApkDownloadHelper));
+        aVar.a(new ai(this.cT));
+        aVar.a(new ak(this.cO));
+        aVar.b(new m(this.cO));
+        aVar.b(new l(this.cO));
+        aVar.a(new com.kwad.components.ad.reward.i.b(getContext(), this.qn.mAdTemplate, PlayableSource.ACTIONBAR_CLICK));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aE() {
+        if (this.cL.getVisibility() != 0) {
             return;
         }
-        if (this.bG == null) {
-            aK();
+        if (this.cM == null) {
+            aF();
             return;
         }
-        aL();
-        KsAdWebView ksAdWebView = this.bF;
-        r.a aVar = this.bG;
+        aG();
+        KsAdWebView ksAdWebView = this.cL;
+        aj.a aVar = this.cM;
         ValueAnimator c = n.c(ksAdWebView, 0, aVar.height + aVar.bottomMargin);
-        this.bO = c;
+        this.cW = c;
         c.setInterpolator(new DecelerateInterpolator(2.0f));
-        this.bO.setDuration(300L);
-        this.bO.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.9
+        this.cW.setDuration(300L);
+        this.cW.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.9
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public final void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                f.this.bF.setVisibility(4);
-                if (f.this.bI != null) {
-                    f.this.bI.pB();
+                f.this.cL.setVisibility(4);
+                if (f.this.cQ != null) {
+                    f.this.cQ.sj();
                 }
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public final void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                if (f.this.bI != null) {
-                    f.this.bI.pA();
+                if (f.this.cQ != null) {
+                    f.this.cQ.si();
                 }
             }
         });
-        this.bO.start();
+        this.cW.start();
     }
 
-    private void aK() {
-        if (this.bF.getVisibility() != 0) {
-            return;
-        }
-        aa aaVar = this.bI;
-        if (aaVar != null) {
-            aaVar.pA();
-        }
-        this.bF.setVisibility(4);
-        aa aaVar2 = this.bI;
-        if (aaVar2 != null) {
-            aaVar2.pB();
-        }
-    }
-
-    private void aL() {
-        ValueAnimator valueAnimator = this.bN;
-        if (valueAnimator != null) {
-            valueAnimator.removeAllListeners();
-            this.bN.cancel();
-        }
-        ValueAnimator valueAnimator2 = this.bO;
-        if (valueAnimator2 != null) {
-            valueAnimator2.removeAllListeners();
-            this.bO.cancel();
-        }
-    }
-
-    private void aM() {
-        int i = this.bH;
-        String str = i == -1 ? "timeout" : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
-        com.kwad.sdk.core.e.b.w("RewardActionBarWeb", "show webCard fail, reason: " + str);
-    }
-
-    private void bQ() {
-        if (com.kwad.sdk.core.response.a.b.aP(this.nM.mAdTemplate)) {
-            com.kwad.components.ad.reward.k kVar = this.nM;
-            this.mApkDownloadHelper = kVar.mApkDownloadHelper;
-            RewardActionBarControl rewardActionBarControl = kVar.ml;
-            this.ml = rewardActionBarControl;
-            rewardActionBarControl.a(this.rz);
-            inflateJsBridgeContext();
-            aE();
-            this.nM.a(this.mPlayEndPageListener);
-        }
-    }
-
-    private void clearJsInterfaceRegister() {
-        com.kwad.components.core.webview.a aVar = this.mJsInterface;
-        if (aVar != null) {
-            aVar.destroy();
-            this.mJsInterface = null;
-        }
+    private void ay() {
+        this.cP = -1;
+        az();
+        this.cL.setBackgroundColor(0);
+        this.cL.getBackground().setAlpha(0);
+        this.cL.setVisibility(4);
+        this.cL.setClientConfig(this.cL.getClientConfig().eh(this.qn.mAdTemplate).b(ih()));
+        this.va = SystemClock.elapsedRealtime();
+        this.mUrl = com.kwad.sdk.core.response.b.b.cj(this.qn.mAdTemplate);
+        com.kwad.sdk.core.e.c.d("RewardActionBarWeb", "startPreloadWebView url: " + this.mUrl);
+        com.kwad.components.ad.reward.g gVar = this.qn;
+        com.kwad.components.ad.reward.monitor.c.a(gVar.mAdTemplate, gVar.oX, "play_card", this.mUrl);
+        this.cL.loadUrl(this.mUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean g(a aVar) {
-        KsAdWebView ksAdWebView = this.bF;
+    public boolean f(a aVar) {
+        KsAdWebView ksAdWebView = this.cL;
         if (ksAdWebView == null) {
             return false;
         }
         if (ksAdWebView.getVisibility() == 0) {
             return true;
         }
-        if (this.bH == 1) {
-            h(aVar);
+        if (this.cP == 1) {
+            g(aVar);
             return true;
         }
-        aM();
+        aH();
         return false;
     }
 
-    private KsAdWebView.d getWebListener() {
-        return new KsAdWebView.d() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.4
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void a(int i, String str, String str2) {
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bv() {
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bw() {
-                com.kwad.components.ad.reward.monitor.a.b(f.this.nM.mz, "play_card", f.this.mUrl, System.currentTimeMillis() - f.this.bF.getLoadTime());
-            }
-        };
-    }
-
-    private void h(final a aVar) {
-        if (this.bG == null) {
-            aI();
+    private void g(final a aVar) {
+        if (this.cM == null) {
+            aD();
             return;
         }
-        A(this.nM.mAdTemplate);
-        aL();
-        this.bF.setVisibility(0);
-        KsAdWebView ksAdWebView = this.bF;
-        r.a aVar2 = this.bG;
+        O(this.qn.mAdTemplate);
+        aG();
+        this.cL.setVisibility(0);
+        KsAdWebView ksAdWebView = this.cL;
+        aj.a aVar2 = this.cM;
         ValueAnimator c = n.c(ksAdWebView, aVar2.height + aVar2.bottomMargin, 0);
-        this.bN = c;
+        this.cV = c;
         c.setInterpolator(new DecelerateInterpolator(2.0f));
-        this.bN.setDuration(500L);
-        this.bN.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.8
+        this.cV.setDuration(500L);
+        this.cV.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.f.8
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public final void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (f.this.bI != null) {
-                    f.this.bI.pz();
+                if (f.this.cQ != null) {
+                    f.this.cQ.sh();
                 }
                 a aVar3 = aVar;
                 if (aVar3 != null) {
-                    aVar3.a(RewardActionBarControl.ShowActionBarResult.SHOW_H5_SUCCESS, f.this.bF);
+                    aVar3.a(RewardActionBarControl.ShowActionBarResult.SHOW_H5_SUCCESS, f.this.cL);
                 }
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public final void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                if (f.this.bI != null) {
-                    f.this.bI.py();
+                if (f.this.cQ != null) {
+                    f.this.cQ.sg();
                 }
             }
         });
-        this.bN.start();
-    }
-
-    private void inflateJsBridgeContext() {
-        com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
-        this.mJsBridgeContext = bVar;
-        bVar.setAdTemplate(this.nM.mAdTemplate);
-        com.kwad.sdk.core.webview.b bVar2 = this.mJsBridgeContext;
-        com.kwad.components.ad.reward.k kVar = this.nM;
-        bVar2.mScreenOrientation = kVar.mScreenOrientation;
-        AdBaseFrameLayout adBaseFrameLayout = kVar.mRootContainer;
-        bVar2.agd = adBaseFrameLayout;
-        bVar2.Gl = adBaseFrameLayout;
-        bVar2.Fv = this.bF;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void release() {
-        this.bH = -1;
-        this.bF.setVisibility(8);
-        clearJsInterfaceRegister();
-    }
-
-    @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void aq() {
-        super.aq();
-        com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "play_card");
-        if (com.kwad.components.ad.reward.k.c(this.nM)) {
-            com.kwad.components.core.webview.b.c.a.pR().a(this);
-        } else {
-            bQ();
-        }
-    }
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void onCreate() {
-        super.onCreate();
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09138f);
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912c1);
-    }
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void onUnbind() {
-        super.onUnbind();
-        RewardActionBarControl rewardActionBarControl = this.ml;
-        if (rewardActionBarControl != null) {
-            rewardActionBarControl.a((RewardActionBarControl.f) null);
-        }
-        com.kwad.components.core.webview.b.c.a.pR().b(this);
-        this.nM.b(this.mPlayEndPageListener);
-        aL();
-        release();
-    }
-
-    @Override // com.kwad.components.core.webview.b.d.b
-    public final void u(String str) {
-        if ("ksad-video-bottom-card-v2".equals(str)) {
-            bQ();
-        }
+        this.cV.start();
     }
 }

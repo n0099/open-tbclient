@@ -22,11 +22,6 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public void mark(int i) {
-        this.stream.mark(i);
-    }
-
-    @Override // java.io.InputStream
     public boolean markSupported() {
         return this.stream.markSupported();
     }
@@ -37,22 +32,27 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr) {
-        return this.stream.read(bArr);
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) {
-        return this.stream.read(bArr, i, i2);
-    }
-
-    @Override // java.io.InputStream
     public void reset() {
         this.stream.reset();
     }
 
     @Override // java.io.InputStream
+    public void mark(int i) {
+        this.stream.mark(i);
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr) {
+        return this.stream.read(bArr);
+    }
+
+    @Override // java.io.InputStream
     public long skip(long j) {
         return this.stream.skip(j);
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) {
+        return this.stream.read(bArr, i, i2);
     }
 }

@@ -1,28 +1,39 @@
 package com.kwad.sdk.core.network.b;
-
-import com.kwad.sdk.core.network.c;
-import com.kwad.sdk.export.proxy.AdHttpProxy;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class b implements AdHttpProxy {
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doGet(String str, Map<String, String> map) {
-        return com.kwad.sdk.core.network.kwai.b.doGet(str, map);
-    }
+public interface b {
+    b CR();
 
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doGetWithoutResponse(String str, Map<String, String> map) {
-        return com.kwad.sdk.core.network.kwai.b.a(str, map, false);
-    }
+    b CS();
 
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doPost(String str, Map<String, String> map, Map<String, String> map2) {
-        return com.kwad.sdk.core.network.kwai.b.doPost(str, map, map2);
-    }
+    b CT();
 
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
-        return com.kwad.sdk.core.network.kwai.b.doPost(str, map, jSONObject);
-    }
+    b CU();
+
+    b CV();
+
+    b CW();
+
+    b CX();
+
+    b ab(long j);
+
+    b cs(int i);
+
+    b ct(int i);
+
+    b cu(int i);
+
+    b cv(int i);
+
+    b dA(String str);
+
+    b dB(String str);
+
+    b dx(String str);
+
+    b dy(String str);
+
+    b dz(String str);
+
+    void report();
 }

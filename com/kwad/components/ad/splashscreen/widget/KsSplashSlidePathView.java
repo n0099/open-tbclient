@@ -12,91 +12,110 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 /* loaded from: classes10.dex */
 public class KsSplashSlidePathView extends ImageView {
-    public Path Be;
-    public Paint Bf;
-    public float Bg;
-    public float Bh;
-    public float Bi;
-    public float Bj;
-    public int Bk;
-    public a Bl;
-    public GestureDetector kE;
+    public Path GL;
+    public Paint GM;
+    public float GN;
+    public float GO;
+    public float GP;
+    public float GQ;
+    public int GR;
+    public a GS;
+    public GestureDetector GT;
 
     /* loaded from: classes10.dex */
     public interface a {
         void a(float f, float f2, float f3, float f4);
 
-        void kt();
+        void ln();
     }
 
     public KsSplashSlidePathView(Context context) {
         super(context);
-        this.Bk = Color.parseColor("#66ffffff");
+        this.GR = Color.parseColor("#66ffffff");
         init();
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(this.GL, this.GM);
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        b(motionEvent);
+        return true;
+    }
+
+    public void setOnSlideTouchListener(a aVar) {
+        this.GS = aVar;
     }
 
     public KsSplashSlidePathView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Bk = Color.parseColor("#66ffffff");
+        this.GR = Color.parseColor("#66ffffff");
         init();
     }
 
-    private void a(MotionEvent motionEvent) {
-        if (this.kE.onTouchEvent(motionEvent)) {
-            return;
-        }
-        int actionMasked = motionEvent.getActionMasked();
-        if (actionMasked == 0) {
-            this.Be.reset();
-            this.Bg = motionEvent.getX();
-            float y = motionEvent.getY();
-            this.Bh = y;
-            float f = this.Bg;
-            this.Bi = f;
-            this.Bj = y;
-            this.Be.moveTo(f, y);
-            invalidate();
-            if (this.Bl != null) {
-            }
-        } else if (actionMasked != 1) {
-            if (actionMasked != 2) {
-                return;
-            }
-            b(motionEvent.getX(), motionEvent.getY());
-            invalidate();
-        } else {
-            this.Be.reset();
-            invalidate();
-            a aVar = this.Bl;
-            if (aVar != null) {
-                aVar.a(this.Bg, this.Bh, motionEvent.getX(), motionEvent.getY());
-            }
+    private void c(float f, float f2) {
+        float abs = Math.abs(f - this.GP);
+        float abs2 = Math.abs(f2 - this.GQ);
+        if (abs >= 3.0f || abs2 >= 3.0f) {
+            Path path = this.GL;
+            float f3 = this.GP;
+            float f4 = this.GQ;
+            path.quadTo(f3, f4, (f + f3) / 2.0f, (f2 + f4) / 2.0f);
+            this.GP = f;
+            this.GQ = f2;
         }
     }
 
-    private void b(float f, float f2) {
-        float abs = Math.abs(f - this.Bi);
-        float abs2 = Math.abs(f2 - this.Bj);
-        if (abs >= 3.0f || abs2 >= 3.0f) {
-            Path path = this.Be;
-            float f3 = this.Bi;
-            float f4 = this.Bj;
-            path.quadTo(f3, f4, (f + f3) / 2.0f, (f2 + f4) / 2.0f);
-            this.Bi = f;
-            this.Bj = f2;
+    private void b(MotionEvent motionEvent) {
+        if (this.GT.onTouchEvent(motionEvent)) {
+            return;
+        }
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    c(motionEvent.getX(), motionEvent.getY());
+                    invalidate();
+                    return;
+                }
+                return;
+            }
+            this.GL.reset();
+            invalidate();
+            a aVar = this.GS;
+            if (aVar != null) {
+                aVar.a(this.GN, this.GO, motionEvent.getX(), motionEvent.getY());
+                return;
+            }
+            return;
+        }
+        this.GL.reset();
+        this.GN = motionEvent.getX();
+        float y = motionEvent.getY();
+        this.GO = y;
+        float f = this.GN;
+        this.GP = f;
+        this.GQ = y;
+        this.GL.moveTo(f, y);
+        invalidate();
+        if (this.GS != null) {
         }
     }
 
     private void init() {
-        this.Be = new Path();
+        this.GL = new Path();
         Paint paint = new Paint();
-        this.Bf = paint;
+        this.GM = paint;
         paint.setStrokeCap(Paint.Cap.ROUND);
-        this.Bf.setStrokeWidth(com.kwad.sdk.b.kwai.a.a(getContext(), 15.0f));
-        this.Bf.setStyle(Paint.Style.STROKE);
-        this.Bf.setColor(this.Bk);
-        this.Bf.setDither(true);
-        this.kE = new GestureDetector(new GestureDetector.OnGestureListener() { // from class: com.kwad.components.ad.splashscreen.widget.KsSplashSlidePathView.1
+        this.GM.setStrokeWidth(com.kwad.sdk.d.a.a.a(getContext(), 15.0f));
+        this.GM.setStyle(Paint.Style.STROKE);
+        this.GM.setColor(this.GR);
+        this.GM.setDither(true);
+        this.GT = new GestureDetector(new GestureDetector.OnGestureListener() { // from class: com.kwad.components.ad.splashscreen.widget.KsSplashSlidePathView.1
             @Override // android.view.GestureDetector.OnGestureListener
             public final boolean onDown(MotionEvent motionEvent) {
                 return false;
@@ -122,28 +141,12 @@ public class KsSplashSlidePathView extends ImageView {
 
             @Override // android.view.GestureDetector.OnGestureListener
             public final boolean onSingleTapUp(MotionEvent motionEvent) {
-                if (KsSplashSlidePathView.this.Bl != null) {
-                    KsSplashSlidePathView.this.Bl.kt();
+                if (KsSplashSlidePathView.this.GS != null) {
+                    KsSplashSlidePathView.this.GS.ln();
                     return true;
                 }
                 return false;
             }
         });
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawPath(this.Be, this.Bf);
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        a(motionEvent);
-        return true;
-    }
-
-    public void setOnSlideTouchListener(a aVar) {
-        this.Bl = aVar;
     }
 }

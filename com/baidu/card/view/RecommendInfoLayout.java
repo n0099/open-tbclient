@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.rt5;
-import com.baidu.tieba.upa;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.nua;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,11 +71,11 @@ public class RecommendInfoLayout extends RelativeLayout {
                 return;
             }
             if (view2.getContext() instanceof BaseActivity) {
-                rt5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
+                zt5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
             } else {
                 new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
             }
-            upa.w(this.b, 2, 1);
+            nua.x(this.b, 2, 1);
         }
     }
 
@@ -160,10 +160,10 @@ public class RecommendInfoLayout extends RelativeLayout {
         a(context);
     }
 
-    public void setData(bw4 bw4Var) {
+    public void setData(cw4 cw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null) {
-            ThreadData threadData = bw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null) {
+            ThreadData threadData = cw4Var.getThreadData();
             ThreadRecommendInfoData threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0);
             if (threadRecommendInfoData == null) {
                 return;
@@ -179,7 +179,7 @@ public class RecommendInfoLayout extends RelativeLayout {
             String str3 = threadRecommendInfoData.recommendReason;
             long j = threadRecommendInfoData.recommendTopicId;
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, this.e, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0787) + StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
+                this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, this.e, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f078f) + StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
             } else if (!TextUtils.isEmpty(str3)) {
                 this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
             }

@@ -30,10 +30,16 @@ public class PauseOnScrollListener implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2 && this.pauseOnFling) {
+                    this.imageLoader.pause();
+                }
+            } else if (this.pauseOnScroll) {
+                this.imageLoader.pause();
+            }
+        } else {
             this.imageLoader.resume();
-        } else if (i == 1 ? this.pauseOnScroll : !(i != 2 || !this.pauseOnFling)) {
-            this.imageLoader.pause();
         }
         AbsListView.OnScrollListener onScrollListener = this.externalListener;
         if (onScrollListener != null) {

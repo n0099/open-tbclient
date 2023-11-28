@@ -16,10 +16,10 @@ public class be implements at {
     public static String f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f140a;
+    public Context f136a;
 
     public be(Context context) {
-        this.f140a = context;
+        this.f136a = context;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
@@ -42,7 +42,7 @@ public class be implements at {
         Cursor cursor;
         String str2 = null;
         try {
-            cursor = this.f140a.getContentResolver().query(Uri.parse(str), null, null, null, null);
+            cursor = this.f136a.getContentResolver().query(Uri.parse(str), null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToNext()) {
@@ -80,13 +80,13 @@ public class be implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo271a() {
+    public String mo275a() {
         return a(b);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo272a() {
+    public boolean mo276a() {
         return "1".equals(r.a(f, "0"));
     }
 }

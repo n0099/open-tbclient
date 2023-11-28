@@ -20,7 +20,7 @@ import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum FloatingService {
     INSTANCT;
     
@@ -37,7 +37,7 @@ public enum FloatingService {
     public LogAdapter adapter = new LogAdapter();
     public volatile boolean init = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public long downTime;
         public boolean hasDown;
@@ -100,7 +100,7 @@ public enum FloatingService {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class LogAdapter extends BaseAdapter {
         @Override // android.widget.Adapter
         public long getItemId(int i) {

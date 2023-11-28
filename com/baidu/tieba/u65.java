@@ -1,6 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.CardLinkInfoData;
+import android.text.Editable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.u65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,22 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UrlParser.DataRes;
-import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes8.dex */
-public class u65 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class u65<T extends u65> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public CardLinkInfoData j;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void f(int i, boolean z);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,6 +48,10 @@ public class u65 {
         }
     }
 
+    public abstract void r(Editable editable);
+
+    public abstract void s(Editable editable, int i);
+
     public u65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,30 +62,170 @@ public class u65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
+            this.c.removeSpan(spanGroupForegroundColorSpan);
         }
     }
 
-    public void a(UrlParserResIdl urlParserResIdl) {
-        DataRes dataRes;
+    public void j() {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
-            this.a = dataRes.status.intValue();
-            this.b = urlParserResIdl.data.url_type.intValue();
-            DataRes dataRes2 = urlParserResIdl.data;
-            this.d = dataRes2.image;
-            this.e = dataRes2.title;
-            this.f = dataRes2.link_from;
-            this.g = dataRes2.price_txt;
-            boolean z = true;
-            if (dataRes2.is_recognize.intValue() != 1) {
-                z = false;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
+            this.c.removeSpan(eMRichTextAnyIconSpan);
+        }
+    }
+
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
+        }
+    }
+
+    public void n(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048589, this, obj, i, i2, i3) != null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
+        }
+    }
+
+    public void k(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) && (editable = this.c) != null && charSequence != null) {
+            try {
+                editable.replace(this.d, this.e, charSequence);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            this.h = z;
-            this.i = urlParserResIdl.data.description;
-            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
-            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
-            this.j = cardLinkInfoData;
+            this.e = this.d + charSequence.length();
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void q(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 != z && (aVar = this.g) != null) {
+                aVar.f(this.a, z);
+            }
         }
     }
 }

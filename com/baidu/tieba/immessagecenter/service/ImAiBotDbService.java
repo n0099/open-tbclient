@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bu8;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rd;
-import com.baidu.tieba.uq8;
+import com.baidu.tieba.sd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -123,7 +123,7 @@ public final class ImAiBotDbService {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = uq8.e().g("select * from tb_ai_bot WHERE paid=?", new String[]{str});
+                    cursor = bu8.e().g("select * from tb_ai_bot WHERE paid=?", new String[]{str});
                     if (cursor != null && cursor.moveToNext()) {
                         String string = cursor.getString(cursor.getColumnIndex("paid"));
                         Intrinsics.checkNotNullExpressionValue(string, "cursor.getString(cursor.…elper.INDEX_AI_BOT_PAID))");
@@ -150,7 +150,7 @@ public final class ImAiBotDbService {
                 }
                 return hashMap;
             } finally {
-                rd.a(cursor);
+                sd.a(cursor);
             }
         }
         return (Map) invokeL.objValue;
@@ -165,7 +165,7 @@ public final class ImAiBotDbService {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = uq8.e().g("select * from tb_ai_bot WHERE uid=?", new String[]{str});
+                    cursor = bu8.e().g("select * from tb_ai_bot WHERE uid=?", new String[]{str});
                     if (cursor != null && cursor.moveToNext()) {
                         String string = cursor.getString(cursor.getColumnIndex("paid"));
                         Intrinsics.checkNotNullExpressionValue(string, "cursor.getString(cursor.…elper.INDEX_AI_BOT_PAID))");
@@ -192,7 +192,7 @@ public final class ImAiBotDbService {
                 }
                 return hashMap;
             } finally {
-                rd.a(cursor);
+                sd.a(cursor);
             }
         }
         return (Map) invokeL.objValue;
@@ -229,9 +229,9 @@ public final class ImAiBotDbService {
                 if (!TextUtils.isEmpty(str3)) {
                     contentValues.put("uk", str3);
                 }
-                if (uq8.e().i("tb_ai_bot", contentValues, "uid=?", new String[]{str2}) == 0) {
+                if (bu8.e().i("tb_ai_bot", contentValues, "uid=?", new String[]{str2}) == 0) {
                     contentValues.put("uid", str2);
-                    uq8.e().f("tb_ai_bot", null, contentValues);
+                    bu8.e().f("tb_ai_bot", null, contentValues);
                 }
             } catch (Exception e) {
                 TbLog iMLog2 = IMLog.getInstance();

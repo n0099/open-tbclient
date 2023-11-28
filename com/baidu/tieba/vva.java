@@ -1,46 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes8.dex */
-public class vva extends CustomMessageListener {
+public class vva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public String a;
+    public String b;
+    public String c;
+    public Integer d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vva(MainTabActivity mainTabActivity, mua muaVar) {
-        super(2016311);
+    public vva() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, muaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !"advertevent://ignore".equals((String) customResponsedMessage.getData())) {
-            TbSingleton.getInstance().mIsSplashClick = true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, smartApp) != null) || smartApp == null) {
+            return;
         }
+        String str = smartApp.avatar;
+        this.a = smartApp.name;
+        this.b = smartApp.id;
+        this.c = smartApp.link;
+        this.d = smartApp.is_game;
     }
 }

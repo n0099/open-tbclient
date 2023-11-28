@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
+import com.baidu.tieba.feed.component.CardReplyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nc7 extends ja7<RecommendPersonAttentionCardView, r47> {
+public class nc7 extends wa7<CardReplyView, s47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,13 +35,26 @@ public class nc7 extends ja7<RecommendPersonAttentionCardView, r47> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
-    /* renamed from: e */
-    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull r47 r47Var) {
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, r47Var) == null) {
-            recommendPersonAttentionCardView.a(r47Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            fd7.j(a);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull CardReplyView cardReplyView, @NonNull s47 s47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardReplyView, s47Var) == null) {
+            cardReplyView.d(s47Var);
         }
     }
 }

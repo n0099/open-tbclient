@@ -12,21 +12,21 @@ public class aj {
     public static volatile aj a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f97a;
+    public SharedPreferences f93a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ScheduledThreadPoolExecutor f100a = new ScheduledThreadPoolExecutor(1);
+    public ScheduledThreadPoolExecutor f96a = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, ScheduledFuture> f99a = new HashMap();
+    public Map<String, ScheduledFuture> f95a = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    public Object f98a = new Object();
+    public Object f94a = new Object();
 
     /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract String mo306a();
+        public abstract String mo310a();
     }
 
     /* loaded from: classes10.dex */
@@ -52,7 +52,7 @@ public class aj {
     }
 
     public aj(Context context) {
-        this.f97a = context.getSharedPreferences("mipush_extra", 0);
+        this.f93a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static aj a(Context context) {
@@ -72,8 +72,8 @@ public class aj {
 
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
-        synchronized (this.f98a) {
-            scheduledFuture = this.f99a.get(aVar.mo306a());
+        synchronized (this.f94a) {
+            scheduledFuture = this.f95a.get(aVar.mo310a());
         }
         return scheduledFuture;
     }
@@ -83,11 +83,11 @@ public class aj {
     }
 
     public void a(Runnable runnable, int i) {
-        this.f100a.schedule(runnable, i, TimeUnit.SECONDS);
+        this.f96a.schedule(runnable, i, TimeUnit.SECONDS);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m265a(a aVar) {
+    public boolean m269a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -103,18 +103,18 @@ public class aj {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo306a());
+        String a2 = a(aVar.mo310a());
         ak akVar = new ak(this, aVar, z, a2);
         if (!z) {
-            long abs = Math.abs(System.currentTimeMillis() - this.f97a.getLong(a2, 0L)) / 1000;
+            long abs = Math.abs(System.currentTimeMillis() - this.f93a.getLong(a2, 0L)) / 1000;
             if (abs < i - i2) {
                 i2 = (int) (i - abs);
             }
         }
         try {
-            ScheduledFuture<?> scheduleAtFixedRate = this.f100a.scheduleAtFixedRate(akVar, i2, i, TimeUnit.SECONDS);
-            synchronized (this.f98a) {
-                this.f99a.put(aVar.mo306a(), scheduleAtFixedRate);
+            ScheduledFuture<?> scheduleAtFixedRate = this.f96a.scheduleAtFixedRate(akVar, i2, i, TimeUnit.SECONDS);
+            synchronized (this.f94a) {
+                this.f95a.put(aVar.mo310a(), scheduleAtFixedRate);
             }
             return true;
         } catch (Exception e) {
@@ -124,13 +124,13 @@ public class aj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m266a(String str) {
-        synchronized (this.f98a) {
-            ScheduledFuture scheduledFuture = this.f99a.get(str);
+    public boolean m270a(String str) {
+        synchronized (this.f94a) {
+            ScheduledFuture scheduledFuture = this.f95a.get(str);
             if (scheduledFuture == null) {
                 return false;
             }
-            this.f99a.remove(str);
+            this.f95a.remove(str);
             return scheduledFuture.cancel(false);
         }
     }
@@ -139,9 +139,9 @@ public class aj {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        ScheduledFuture<?> schedule = this.f100a.schedule(new al(this, aVar), i, TimeUnit.SECONDS);
-        synchronized (this.f98a) {
-            this.f99a.put(aVar.mo306a(), schedule);
+        ScheduledFuture<?> schedule = this.f96a.schedule(new al(this, aVar), i, TimeUnit.SECONDS);
+        synchronized (this.f94a) {
+            this.f95a.put(aVar.mo310a(), schedule);
         }
         return true;
     }

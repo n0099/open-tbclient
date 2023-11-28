@@ -23,6 +23,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -32,6 +33,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class DefaultConfigurationFactory {
+    public static BitmapDisplayer createBitmapDisplayer() {
+        return new SimpleBitmapDisplayer();
+    }
+
+    public static FileNameGenerator createFileNameGenerator() {
+        return new HashCodeFileNameGenerator();
+    }
+
+    public static Executor createTaskDistributor() {
+        return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
+    }
+
+    public static boolean hasHoneycomb() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            return true;
+        }
+        return false;
+    }
 
     /* loaded from: classes10.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
@@ -58,10 +77,6 @@ public class DefaultConfigurationFactory {
         }
     }
 
-    public static BitmapDisplayer createBitmapDisplayer() {
-        return new SimpleBitmapDisplayer();
-    }
-
     public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i, String str) {
         File createReserveDiskCacheDir = createReserveDiskCacheDir(context, str);
         if (j > 0 || i > 0) {
@@ -75,11 +90,19 @@ public class DefaultConfigurationFactory {
     }
 
     public static Executor createExecutor(int i, int i2, QueueProcessingType queueProcessingType) {
-        return new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i2, "uil-pool-"));
-    }
-
-    public static FileNameGenerator createFileNameGenerator() {
-        return new HashCodeFileNameGenerator();
+        boolean z;
+        BlockingQueue linkedBlockingQueue;
+        if (queueProcessingType == QueueProcessingType.LIFO) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            linkedBlockingQueue = new LIFOLinkedBlockingDeque();
+        } else {
+            linkedBlockingQueue = new LinkedBlockingQueue();
+        }
+        return new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, linkedBlockingQueue, createThreadFactory(i2, "uil-pool-"));
     }
 
     public static ImageDecoder createImageDecoder(boolean z) {
@@ -88,6 +111,19 @@ public class DefaultConfigurationFactory {
 
     public static ImageDownloader createImageDownloader(Context context) {
         return new BaseImageDownloader(context);
+    }
+
+    @TargetApi(11)
+    public static int getLargeMemoryClass(ActivityManager activityManager) {
+        return activityManager.getLargeMemoryClass();
+    }
+
+    @TargetApi(11)
+    public static boolean isLargeHeap(Context context) {
+        if ((context.getApplicationInfo().flags & 1048576) != 0) {
+            return true;
+        }
+        return false;
     }
 
     public static MemoryCache createMemoryCache(Context context, int i) {
@@ -105,28 +141,13 @@ public class DefaultConfigurationFactory {
     public static File createReserveDiskCacheDir(Context context, String str) {
         File file = new File(str);
         File file2 = new File(file, StorageUtils.INDIVIDUAL_DIR_NAME);
-        return (file2.exists() || file2.mkdir()) ? file2 : file;
-    }
-
-    public static Executor createTaskDistributor() {
-        return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
+        if (file2.exists() || file2.mkdir()) {
+            return file2;
+        }
+        return file;
     }
 
     public static ThreadFactory createThreadFactory(int i, String str) {
         return new DefaultThreadFactory(i, str);
-    }
-
-    @TargetApi(11)
-    public static int getLargeMemoryClass(ActivityManager activityManager) {
-        return activityManager.getLargeMemoryClass();
-    }
-
-    public static boolean hasHoneycomb() {
-        return Build.VERSION.SDK_INT >= 11;
-    }
-
-    @TargetApi(11)
-    public static boolean isLargeHeap(Context context) {
-        return (context.getApplicationInfo().flags & 1048576) != 0;
     }
 }

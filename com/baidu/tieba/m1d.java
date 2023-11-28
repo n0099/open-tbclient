@@ -5,24 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PopInfo;
+import tbclient.FrsPage.PostTopic;
 /* loaded from: classes7.dex */
-public class m1d extends qoc {
+public class m1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PopInfo popInfo) {
+    public static JSONObject b(@NonNull PostTopic postTopic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, popInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postTopic)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "if_pop", popInfo.if_pop);
-            qoc.a(jSONObject, "title", popInfo.title);
-            qoc.a(jSONObject, "v_title", popInfo.v_title);
-            qoc.a(jSONObject, "ahead_info", popInfo.ahead_info);
-            qoc.a(jSONObject, "ahead_url", popInfo.ahead_url);
-            qoc.a(jSONObject, "ok_info", popInfo.ok_info);
+            ltc.a(jSONObject, "title_topic", postTopic.title_topic);
+            ltc.a(jSONObject, "content_topic", postTopic.content_topic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

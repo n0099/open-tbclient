@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ju6 {
+public class ju6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final ju6 a;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a extends mz0 {
-        Cursor g(String str, String... strArr);
-    }
+    public ThreadData a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +31,7 @@ public final class ju6 {
                 return;
             }
         }
-        a = new ju6();
+        b = BdUniqueId.gen();
     }
 
     public ju6() {
@@ -53,39 +48,29 @@ public final class ju6 {
         }
     }
 
-    public final kz0 a(int i, int i2) {
-        InterceptResult invokeII;
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            return new kz0(i, "", "", i2, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (kz0) invokeII.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    public final IntegerColumn b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return new IntegerColumn(a(2, i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
-        return (IntegerColumn) invokeI.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final LongColumn c(int i) {
-        InterceptResult invokeI;
+    public void c(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return new LongColumn(a(3, i));
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a = threadData;
         }
-        return (LongColumn) invokeI.objValue;
-    }
-
-    public final StringColumn d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return new StringColumn(a(4, i));
-        }
-        return (StringColumn) invokeI.objValue;
     }
 }

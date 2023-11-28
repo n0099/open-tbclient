@@ -5,29 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PkModule;
-import tbclient.TopicModule;
+import tbclient.MyGroupInfo;
 /* loaded from: classes6.dex */
-public class i5d extends qoc {
+public class i5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopicModule topicModule) {
+    public static JSONObject b(@NonNull MyGroupInfo myGroupInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topicModule)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, myGroupInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "topic_id", topicModule.topic_id);
-            qoc.a(jSONObject, "topic_name", topicModule.topic_name);
-            qoc.a(jSONObject, "topic_desc", topicModule.topic_desc);
-            qoc.a(jSONObject, "discuss_num", topicModule.discuss_num);
-            qoc.a(jSONObject, "topic_image", topicModule.topic_image);
-            PkModule pkModule = topicModule.pk_module;
-            if (pkModule != null) {
-                qoc.a(jSONObject, "pk_module", i1d.b(pkModule));
-            }
-            qoc.a(jSONObject, "topic_avatar", topicModule.topic_avatar);
+            ltc.a(jSONObject, "group_id", myGroupInfo.group_id);
+            ltc.a(jSONObject, "group_name", myGroupInfo.group_name);
+            ltc.a(jSONObject, "portrait", myGroupInfo.portrait);
+            ltc.a(jSONObject, "member_num", myGroupInfo.member_num);
+            ltc.a(jSONObject, "max_member_num", myGroupInfo.max_member_num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

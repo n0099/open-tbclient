@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface us1 {
-    ts1 a();
+    void a(j52 j52Var);
 
-    ss1 b();
+    void b(j52 j52Var);
 }

@@ -14,7 +14,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.pic;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +116,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!qd.isEmpty(this.mAuthorName)) {
+            if (!rd.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -469,7 +470,7 @@ public class MarkData implements Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("media");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     String optString = optJSONArray.getJSONObject(0).optString("type");
-                    if (StringHelper.equals(optString, "pic")) {
+                    if (StringHelper.equals(optString, pic.f)) {
                         this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
                     } else if (StringHelper.equals(optString, "flash")) {
                         this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
@@ -490,7 +491,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString(IMUserExtraData.KEY_AUTH_DESC);
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (qd.isEmpty(this.portrait)) {
+                if (rd.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

@@ -1,67 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes9.dex */
-public abstract class xk3<OuT> implements Runnable {
+public class xk3 implements wk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final al3<OuT> a;
-    public OuT b;
+    public final Queue<vk3> a;
+    public vk3 b;
 
-    public abstract void c();
-
-    /* loaded from: classes9.dex */
-    public static class a extends xk3<OuT> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CountDownLatch c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(al3 al3Var, CountDownLatch countDownLatch) {
-            super(al3Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {al3Var, countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((al3) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = countDownLatch;
-        }
-
-        @Override // com.baidu.tieba.xk3
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.countDown();
-            }
-        }
-    }
-
-    public xk3(al3<OuT> al3Var) {
+    public xk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {al3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,59 +27,75 @@ public abstract class xk3<OuT> implements Runnable {
                 return;
             }
         }
-        this.b = null;
-        this.a = al3Var;
+        this.a = new ArrayDeque();
     }
 
-    public static <OuT> OuT b(al3<OuT> al3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, al3Var)) == null) {
-            return (OuT) a(Looper.getMainLooper(), al3Var);
-        }
-        return (OuT) invokeL.objValue;
-    }
-
-    public /* synthetic */ xk3(al3 al3Var, a aVar) {
-        this(al3Var);
-    }
-
-    public static <OuT> OuT a(Looper looper, al3<OuT> al3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, al3Var)) == null) {
-            if (al3Var == null) {
-                return null;
-            }
-            if (looper != null && Thread.currentThread() != looper.getThread()) {
-                CountDownLatch countDownLatch = new CountDownLatch(1);
-                a aVar = new a(al3Var, countDownLatch);
-                new Handler(looper).post(aVar);
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    g32.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
-                    e.printStackTrace();
-                }
-                return aVar.b;
-            }
-            return al3Var.create();
-        }
-        return (OuT) invokeLL.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                try {
-                    this.b = this.a.create();
-                } catch (Exception e) {
-                    g32.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
+            synchronized (this.a) {
+                if (this.b != null) {
+                    return;
                 }
-            } finally {
-                c();
+                e();
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.a();
+                    this.b = null;
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wk3
+    public void a(vk3 vk3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vk3Var) == null) {
+            synchronized (this.a) {
+                if (vk3Var == this.b) {
+                    e();
+                }
+            }
+        }
+    }
+
+    public void d(vk3 vk3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vk3Var) == null) {
+            if (vk3Var != null) {
+                synchronized (this.a) {
+                    Queue<vk3> queue = this.a;
+                    vk3Var.b(this);
+                    queue.offer(vk3Var);
+                }
+            }
+            b();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                this.b = null;
+                if (this.a.isEmpty()) {
+                    return;
+                }
+                vk3 poll = this.a.poll();
+                this.b = poll;
+                if (poll == null) {
+                    e();
+                } else {
+                    bk3.a0(poll);
+                }
             }
         }
     }

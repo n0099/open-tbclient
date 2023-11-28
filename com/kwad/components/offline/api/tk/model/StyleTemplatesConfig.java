@@ -1,7 +1,7 @@
 package com.kwad.components.offline.api.tk.model;
 
 import com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,17 +31,17 @@ public class StyleTemplatesConfig extends BaseOfflineCompoJsonParse<StyleTemplat
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse
-    public JSONObject toJson(StyleTemplatesConfig styleTemplatesConfig) {
-        return toJson(styleTemplatesConfig, (JSONObject) null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse
     public JSONObject toJson(StyleTemplatesConfig styleTemplatesConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        r.putValue(jSONObject, "styleTemplates", styleTemplatesConfig.styleTemplates);
+        t.putValue(jSONObject, "styleTemplates", styleTemplatesConfig.styleTemplates);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse
+    public JSONObject toJson(StyleTemplatesConfig styleTemplatesConfig) {
+        return toJson(styleTemplatesConfig, (JSONObject) null);
     }
 }

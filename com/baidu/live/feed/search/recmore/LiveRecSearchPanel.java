@@ -9,7 +9,7 @@ import androidx.annotation.DrawableRes;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchPanel;
 import com.baidu.live.feed.search.view.LiveSearchPanel;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.x60;
+import com.baidu.tieba.y60;
 import com.facebook.common.util.UriUtil;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
@@ -150,7 +150,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
         }
         LiveSearchPanel liveSearchPanel2 = this.searchPanel;
         if (liveSearchPanel2 != null && (editText = liveSearchPanel2.getEditText()) != null) {
-            x60.a(editText, i);
+            y60.a(editText, i);
         }
     }
 

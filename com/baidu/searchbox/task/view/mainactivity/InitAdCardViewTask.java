@@ -7,7 +7,7 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bk5;
+import com.baidu.tieba.hk5;
 import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
@@ -38,21 +38,21 @@ public class InitAdCardViewTask extends LaunchTask {
         try {
             AdCardSinglePicView adCardSinglePicView = new AdCardSinglePicView(tbPageContext);
             adCardSinglePicView.h0();
-            bk5.e().a(1101, adCardSinglePicView);
+            hk5.e().a(1101, adCardSinglePicView);
         } catch (Exception e) {
             BdLog.e(e);
         }
         try {
             AdCardMultiPicView adCardMultiPicView = new AdCardMultiPicView(tbPageContext);
             adCardMultiPicView.h0();
-            bk5.e().a(1102, adCardMultiPicView);
+            hk5.e().a(1102, adCardMultiPicView);
         } catch (Exception e2) {
             BdLog.e(e2);
         }
         try {
             AdCardVideoView adCardVideoView = new AdCardVideoView(tbPageContext, 2);
             adCardVideoView.h0();
-            bk5.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
+            hk5.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
         } catch (Exception e3) {
             BdLog.e(e3);
         }

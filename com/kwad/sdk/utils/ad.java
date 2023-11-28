@@ -1,32 +1,127 @@
 package com.kwad.sdk.utils;
 
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.MessageDigest;
 /* loaded from: classes10.dex */
 public final class ad {
-    public Map<String, com.kwad.sdk.core.webview.a> anM;
-    public Map<String, com.kwad.sdk.core.webview.kwai.c> anN;
+    public static final char[] amG = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public final void a(String str, com.kwad.sdk.core.webview.a aVar) {
-        this.anM.put(str, aVar);
-    }
-
-    public final void b(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.anN.put(str, cVar);
-    }
-
-    public final com.kwad.sdk.core.webview.a dK(String str) {
-        return this.anM.get(str);
-    }
-
-    public final com.kwad.sdk.core.webview.kwai.c dL(String str) {
-        return this.anN.get(str);
-    }
-
-    public final void release() {
-        for (com.kwad.sdk.core.webview.a aVar : this.anM.values()) {
-            aVar.mX();
+    public static String ab(File file) {
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2 = null;
+        if (file == null) {
+            return null;
         }
-        this.anM.clear();
-        this.anN.clear();
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            fileInputStream = new FileInputStream(file);
+            try {
+                try {
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read != -1) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String m = m(messageDigest.digest());
+                            com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                            return m;
+                        }
+                    }
+                } catch (Exception e) {
+                    e = e;
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream2);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream2);
+            throw th;
+        }
+    }
+
+    public static String l(byte[] bArr) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            StringBuilder sb = new StringBuilder();
+            int length = digest.length;
+            for (int i = 0; i < length; i++) {
+                int i2 = digest[i];
+                if (i2 < 0) {
+                    i2 += 256;
+                }
+                if (i2 < 16) {
+                    sb.append("0");
+                }
+                sb.append(Integer.toHexString(i2));
+            }
+            return sb.toString();
+        } catch (Exception unused) {
+            return "";
+        }
+    }
+
+    @NonNull
+    public static String bn(String str) {
+        return l(str.getBytes());
+    }
+
+    public static String fQ(String str) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update(str.getBytes());
+            byte[] digest = messageDigest.digest();
+            return toHexString(digest, 0, digest.length);
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTrace(e);
+            return "";
+        }
+    }
+
+    public static String fR(String str) {
+        return ab(new File(str));
+    }
+
+    public static String m(byte[] bArr) {
+        StringBuffer stringBuffer = new StringBuffer();
+        int length = bArr.length;
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(String.format("%02x", Byte.valueOf(bArr[i])));
+        }
+        return stringBuffer.toString();
+    }
+
+    public static String toHexString(byte[] bArr, int i, int i2) {
+        ap.checkNotNull(bArr);
+        if (i2 + 0 <= bArr.length) {
+            int i3 = i2 * 2;
+            char[] cArr = new char[i3];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i2; i5++) {
+                int i6 = bArr[i5 + 0] & 255;
+                int i7 = i4 + 1;
+                char[] cArr2 = amG;
+                cArr[i4] = cArr2[i6 >> 4];
+                i4 = i7 + 1;
+                cArr[i7] = cArr2[i6 & 15];
+            }
+            return new String(cArr, 0, i3);
+        }
+        throw new IndexOutOfBoundsException();
     }
 }

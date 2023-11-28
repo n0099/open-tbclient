@@ -57,15 +57,15 @@ public final class ForumBackFloatViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090340;
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090340);
+            int i = R.id.obfuscated_res_0x7f090354;
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090354);
             if (imageView != null) {
-                i = R.id.obfuscated_res_0x7f090341;
-                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090341);
+                i = R.id.obfuscated_res_0x7f090355;
+                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090355);
                 if (imageView2 != null) {
                     LinearLayout linearLayout = (LinearLayout) view2;
-                    i = R.id.obfuscated_res_0x7f090343;
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090343);
+                    i = R.id.obfuscated_res_0x7f090357;
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090357);
                     if (textView != null) {
                         return new ForumBackFloatViewBinding(linearLayout, imageView, imageView2, linearLayout, textView);
                     }
@@ -81,7 +81,7 @@ public final class ForumBackFloatViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02fb, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0303, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

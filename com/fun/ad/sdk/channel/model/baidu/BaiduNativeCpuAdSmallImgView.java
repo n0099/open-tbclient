@@ -124,15 +124,15 @@ public class BaiduNativeCpuAdSmallImgView extends LinearLayout {
                 if (TextUtils.isEmpty(iBasicCPUData.getBrandName())) {
                     this.c.setText(iBasicCPUData.getBrandName());
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f08c9);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f08d1);
                 }
                 GlideHelper.get().load(getContext(), iBasicCPUData.getAdLogoUrl(), this.d);
                 if (iBasicCPUData.isNeedDownloadApp()) {
                     button = this.e;
-                    i = R.string.obfuscated_res_0x7f0f08b4;
+                    i = R.string.obfuscated_res_0x7f0f08bc;
                 } else {
                     button = this.e;
-                    i = R.string.obfuscated_res_0x7f0f08b6;
+                    i = R.string.obfuscated_res_0x7f0f08be;
                 }
                 button.setText(i);
             } else {

@@ -23,14 +23,14 @@ import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.tencent.open.SocialConstants;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000d\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aH\u0010\u0002\u001a\u00020\u00032\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00052\u0012\u0010\u0007\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00052\u0018\u0010\b\u001a\u0014\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\n0\t\u001aB\u0010\u000b\u001a\u0004\u0018\u00010\f2\u0006\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00062\b\b\u0002\u0010\u0010\u001a\u00020\u00012\b\b\u0002\u0010\u0011\u001a\u00020\u00012\b\b\u0002\u0010\u0012\u001a\u00020\u00012\b\b\u0002\u0010\u0013\u001a\u00020\u0001\u001a\n\u0010\u0014\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0016\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0017\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0018\u001a\u00020\u0006*\u00020\u0015\u001a\u0012\u0010\u0019\u001a\u00020\u0006*\u00020\u000e2\u0006\u0010\u001a\u001a\u00020\u0006\u001a\n\u0010\u001b\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001c\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001d\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001e\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010\u001f\u001a\u00020\u0001*\u00020 \u001a\n\u0010!\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010\"\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010#\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010$\u001a\u00020%*\u00020\u000e\u001a\u001a\u0010&\u001a\u00020\n*\u00020\u000e2\u0006\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020*\u001a\u0012\u0010+\u001a\u00020,*\u00020\u000e2\u0006\u0010-\u001a\u00020.\u001a\u0012\u0010/\u001a\u00020\n*\u00020\u000e2\u0006\u0010-\u001a\u00020.\u001a\u0012\u00100\u001a\u00020\n*\u00020\u000e2\u0006\u0010'\u001a\u00020(\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"NOTIFICATION_CHANNEL_ID", "", "doubleTapAnimator", "Landroid/animation/ValueAnimator;", "startSize", "Lkotlin/Pair;", "", "endSize", "updateListener", "Lkotlin/Function2;", "", "getDefaultNotification", "Landroid/app/Notification;", "context", "Landroid/content/Context;", "icon", "channelId", "channelName", "title", "content", "buttonBottomMargin", "Landroid/view/View;", "buttonExtraPadding", "buttonHorizontalMargin", "buttonVerticalMargin", "dpToPxByScale", u.v, "floatingButtonHeight", "floatingButtonWidth", "floatingImageViewSize", "getNavBarHeight", "getScale", "Lcom/baidu/searchbox/floating/config/ScaleMode;", "getScreenHeight", "getScreenWidth", "getStatusBarHeight", "getWindowManager", "Landroid/view/WindowManager;", "registerLocalReceiver", SocialConstants.PARAM_RECEIVER, "Landroid/content/BroadcastReceiver;", "filter", "Landroid/content/IntentFilter;", "sendLocalBroadcast", "", "intent", "Landroid/content/Intent;", "sendLocalBroadcastSync", "unregisterLocalReceiver", "floating-view_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000d\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aH\u0010\u0002\u001a\u00020\u00032\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00052\u0012\u0010\u0007\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00052\u0018\u0010\b\u001a\u0014\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\n0\t\u001aB\u0010\u000b\u001a\u0004\u0018\u00010\f2\u0006\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00062\b\b\u0002\u0010\u0010\u001a\u00020\u00012\b\b\u0002\u0010\u0011\u001a\u00020\u00012\b\b\u0002\u0010\u0012\u001a\u00020\u00012\b\b\u0002\u0010\u0013\u001a\u00020\u0001\u001a\n\u0010\u0014\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0016\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0017\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u0018\u001a\u00020\u0006*\u00020\u0015\u001a\u0012\u0010\u0019\u001a\u00020\u0006*\u00020\u000e2\u0006\u0010\u001a\u001a\u00020\u0006\u001a\n\u0010\u001b\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001c\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001d\u001a\u00020\u0006*\u00020\u0015\u001a\n\u0010\u001e\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010\u001f\u001a\u00020\u0001*\u00020 \u001a\n\u0010!\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010\"\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010#\u001a\u00020\u0006*\u00020\u000e\u001a\n\u0010$\u001a\u00020%*\u00020\u000e\u001a\u001a\u0010&\u001a\u00020\n*\u00020\u000e2\u0006\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020*\u001a\u0012\u0010+\u001a\u00020,*\u00020\u000e2\u0006\u0010-\u001a\u00020.\u001a\u0012\u0010/\u001a\u00020\n*\u00020\u000e2\u0006\u0010-\u001a\u00020.\u001a\u0012\u00100\u001a\u00020\n*\u00020\u000e2\u0006\u0010'\u001a\u00020(\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"NOTIFICATION_CHANNEL_ID", "", "doubleTapAnimator", "Landroid/animation/ValueAnimator;", "startSize", "Lkotlin/Pair;", "", "endSize", "updateListener", "Lkotlin/Function2;", "", "getDefaultNotification", "Landroid/app/Notification;", "context", "Landroid/content/Context;", "icon", "channelId", "channelName", "title", "content", "buttonBottomMargin", "Landroid/view/View;", "buttonExtraPadding", "buttonHorizontalMargin", "buttonVerticalMargin", "dpToPxByScale", t.q, "floatingButtonHeight", "floatingButtonWidth", "floatingImageViewSize", "getNavBarHeight", "getScale", "Lcom/baidu/searchbox/floating/config/ScaleMode;", "getScreenHeight", "getScreenWidth", "getStatusBarHeight", "getWindowManager", "Landroid/view/WindowManager;", "registerLocalReceiver", SocialConstants.PARAM_RECEIVER, "Landroid/content/BroadcastReceiver;", "filter", "Landroid/content/IntentFilter;", "sendLocalBroadcast", "", "intent", "Landroid/content/Intent;", "sendLocalBroadcastSync", "unregisterLocalReceiver", "floating-view_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public final class UtilsKt {
     public static final String NOTIFICATION_CHANNEL_ID = "floating_bd_video";
@@ -133,7 +133,7 @@ public final class UtilsKt {
         Intrinsics.checkNotNullParameter(endSize, "endSize");
         Intrinsics.checkNotNullParameter(updateListener, "updateListener");
         final ValueAnimator ofPropertyValuesHolder = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("width", startSize.getFirst().intValue(), endSize.getFirst().intValue()), PropertyValuesHolder.ofInt("height", startSize.getSecond().intValue(), endSize.getSecond().intValue()));
-        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yi1
+        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,24 +219,24 @@ public final class UtilsKt {
 
     public static /* synthetic */ Notification getDefaultNotification$default(Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            i = R.drawable.obfuscated_res_0x7f080276;
+            i = R.drawable.obfuscated_res_0x7f080279;
         }
         if ((i2 & 4) != 0) {
             str = "floating_bd_video";
         }
         String str5 = str;
         if ((i2 & 8) != 0) {
-            str2 = context.getString(R.string.obfuscated_res_0x7f0f1100);
+            str2 = context.getString(R.string.obfuscated_res_0x7f0f1110);
             Intrinsics.checkNotNullExpressionValue(str2, "context.getString(R.stri…ing_notification_channel)");
         }
         String str6 = str2;
         if ((i2 & 16) != 0) {
-            str3 = context.getString(R.string.obfuscated_res_0x7f0f1102);
+            str3 = context.getString(R.string.obfuscated_res_0x7f0f1112);
             Intrinsics.checkNotNullExpressionValue(str3, "context.getString(R.stri…ating_notification_title)");
         }
         String str7 = str3;
         if ((i2 & 32) != 0) {
-            str4 = context.getString(R.string.obfuscated_res_0x7f0f1101);
+            str4 = context.getString(R.string.obfuscated_res_0x7f0f1111);
             Intrinsics.checkNotNullExpressionValue(str4, "context.getString(R.stri…ing_notification_content)");
         }
         return getDefaultNotification(context, i, str5, str6, str7, str4);

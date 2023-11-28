@@ -107,7 +107,7 @@ public class SimpleNavigationBar extends FrameLayout {
 
     public final void b(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_navigation, (ViewGroup) this, true);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091258);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091281);
         this.a = (TextView) findViewById(R.id.tv_title);
         this.b = (TextView) findViewById(R.id.tv_right);
         this.d = (ImageView) findViewById(R.id.iv_right);

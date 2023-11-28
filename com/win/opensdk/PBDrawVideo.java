@@ -245,9 +245,9 @@ public class PBDrawVideo implements g {
                 str = "";
             }
             if (str.equals("video")) {
-                View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0a51, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0a6b, (ViewGroup) null);
                 this.j = inflate;
-                VideoView videoView = (VideoView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092a9c);
+                VideoView videoView = (VideoView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b25);
                 this.i = videoView;
                 videoView.setVisibility(0);
                 this.i.setOnErrorListener(new m(this));
@@ -256,15 +256,15 @@ public class PBDrawVideo implements g {
                 arrayList.clear();
                 View view2 = this.j;
                 if (view2 != null) {
-                    View findViewById = view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092aab);
+                    View findViewById = view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b34);
                     this.k = findViewById;
                     arrayList.add(findViewById);
                 }
                 if (this.j != null && (eVar = this.c) != null && (b = eVar.b()) != null) {
-                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092aa0)).setText(b.getTitle());
-                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092a9e)).setText(b.getDesc());
-                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092aa2)).setText(b.getBtndesc());
-                    ImageView imageView = (ImageView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092a9f);
+                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b29)).setText(b.getTitle());
+                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b27)).setText(b.getDesc());
+                    ((TextView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b2b)).setText(b.getBtndesc());
+                    ImageView imageView = (ImageView) this.j.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092b28);
                     String icon = b.getIcon();
                     if (!TextUtils.isEmpty(icon)) {
                         new m0(new q(this, imageView)).a(icon, false);

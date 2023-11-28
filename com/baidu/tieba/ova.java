@@ -1,317 +1,233 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.view.KeyEvent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.zz4;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ova {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final mua b;
-    public final ava c;
-    public long d;
-    public e e;
 
-    /* loaded from: classes7.dex */
-    public class a implements ud5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public a(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // com.baidu.tieba.ud5
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-
-        @Override // com.baidu.tieba.ud5
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements vh0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public b(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // com.baidu.tieba.vh0
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-
-        @Override // com.baidu.tieba.vh0
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public c(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                zz4Var.dismiss();
-                if (this.a.c != null && this.a.c.d() != null) {
-                    this.a.c.d().b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public d(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                try {
-                    this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-                    zz4Var.dismiss();
-                } catch (Exception unused) {
-                    this.a.a.showToast(R.string.goto_developActivity_error_toast);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public e(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 1) {
-                    return;
-                }
-                this.a.g();
-            }
-        }
-
-        public /* synthetic */ e(ova ovaVar, a aVar) {
-            this(ovaVar);
-        }
-    }
-
-    public ova(MainTabActivity mainTabActivity, mua muaVar) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, muaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = 0L;
-        this.e = new e(this, null);
-        this.a = mainTabActivity;
-        this.b = muaVar;
-        this.c = mainTabActivity.e;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new zz4(this.a).setTitle(R.string.confirm_title).setCancelable(false).setMessageId(R.string.background_process_permission).setPositiveButton(R.string.now_goto_setting, new d(this)).setNegativeButton(R.string.next_time, new c(this)).create(a5.a(this.a)).show();
-        }
-    }
-
-    public boolean f(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                return false;
-            }
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016322, (Class) null);
-            if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
-                return true;
-            }
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2016323, (Class) null);
-            if (runTask2 != null && ((Boolean) runTask2.getData()).booleanValue()) {
-                return true;
-            }
-            w8b w8bVar = this.a.r;
-            if (w8bVar != null && w8bVar.b()) {
-                this.a.r.a(true);
-                return true;
-            } else if (this.b.C()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
-                return true;
-            } else {
-                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.FALSE);
-                if (runTask3 != null && runTask3.getData() != null && (runTask3.getData() instanceof Boolean) && ((Boolean) runTask3.getData()).booleanValue()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                if (TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3) {
                     return true;
                 }
-                if (System.currentTimeMillis() - this.d > 2000) {
-                    this.a.showToast(R.string.double_back_quit);
-                    this.d = System.currentTimeMillis();
-                } else if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                    sd5 sd5Var = new sd5();
-                    if (sd5Var.a() != null && sd5Var.a().get() != null) {
-                        sd5Var.a().get().a(this.a, new a(this));
-                    } else {
-                        g();
-                    }
-                } else {
-                    xh0.f().l();
-                    xh0.f().i(this.a, new b(this));
+                return false;
+            } else if (a06.a().i() && BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            x75 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (adAdSense != null && adAdSense.f()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                if (BdNetTypeUtil.isWifiNet()) {
+                    return true;
+                }
+                return false;
+            } else if (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
+                return true;
+            } else {
+                if (BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3) {
+                    return true;
                 }
                 return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void g() {
+    public static int c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
-                e();
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext == null || TextUtils.isEmpty(str)) {
+                return 0;
             }
-            ava avaVar = this.c;
-            if (avaVar != null && avaVar.d() != null) {
-                this.c.d().b();
+            if (str.startsWith("tieba://deeplink?")) {
+                Uri parse = Uri.parse(str);
+                if (sha.j(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT))) != 1000) {
+                    if (!d(tbPageContext, parse.getQueryParameter("wap"))) {
+                        return 0;
+                    }
+                    return 2;
+                }
+                return 1;
+            } else if (!d(tbPageContext, str)) {
+                return 0;
+            } else {
+                return 3;
             }
         }
+        return invokeLL.intValue;
+    }
+
+    public static boolean d(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
+            String[] strArr = {str};
+            if (UrlManager.getInstance().UrlValidated(str)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, strArr, true);
+                return true;
+            }
+            return UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x007b A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void e(List<Object> list, int i) {
+        boolean z;
+        int i2;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i) == null) && list != null && list.size() != 0) {
+            if (MessageManager.getInstance().findTask(2016447) != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i3 = 0;
+            while (i3 < list.size()) {
+                if (list.get(i3) instanceof ICardInfo) {
+                    if (z) {
+                        ICardInfo iCardInfo = (ICardInfo) list.get(i3);
+                        int viewCount = iCardInfo.getViewCount();
+                        ArrayList arrayList = new ArrayList();
+                        for (int i4 = 0; i4 < viewCount; i4++) {
+                            ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
+                            if (viewItem != null) {
+                                viewItem.setBdUniqueId(pf9.b.get(viewItem.getCardType()));
+                                arrayList.add(viewItem);
+                            }
+                        }
+                        if (arrayList.size() != 0) {
+                            list.remove(i3);
+                            list.addAll(i3, arrayList);
+                            i2 = arrayList.size();
+                            z2 = false;
+                            if (!z2) {
+                                list.remove(i3);
+                                i2 = 0;
+                            }
+                        }
+                    }
+                    i2 = 1;
+                    z2 = true;
+                    if (!z2) {
+                    }
+                } else {
+                    i2 = 1;
+                }
+                i3 += i2;
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a1 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void f(List<pi> list, int i) {
+        boolean z;
+        int i2;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, list, i) == null) && list != null && list.size() != 0) {
+            if (MessageManager.getInstance().findTask(2016447) != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i3 = 0;
+            while (i3 < list.size()) {
+                if (list.get(i3) instanceof wx4) {
+                    if (z) {
+                        if (!((wx4) list.get(i3)).isValid()) {
+                            ((wx4) list.get(i3)).d();
+                        }
+                        if (((wx4) list.get(i3)).isValid()) {
+                            ICardInfo c = ((wx4) list.get(i3)).c();
+                            int viewCount = c.getViewCount();
+                            ArrayList arrayList = new ArrayList();
+                            for (int i4 = 0; i4 < viewCount; i4++) {
+                                ICardInfo viewItem = c.getViewItem(i4, i);
+                                if (viewItem != null) {
+                                    viewItem.setBdUniqueId(pf9.b.get(viewItem.getCardType()));
+                                    arrayList.add(viewItem);
+                                }
+                            }
+                            if (arrayList.size() != 0) {
+                                list.remove(i3);
+                                list.addAll(i3, arrayList);
+                                i2 = arrayList.size();
+                                z2 = false;
+                                if (!z2) {
+                                    list.remove(i3);
+                                    i2 = 0;
+                                }
+                            }
+                        }
+                    }
+                    i2 = 1;
+                    z2 = true;
+                    if (!z2) {
+                    }
+                } else {
+                    i2 = 1;
+                }
+                i3 += i2;
+            }
+        }
+    }
+
+    public static ArrayList<BdUniqueId> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int size = pf9.b.size();
+            ArrayList<BdUniqueId> arrayList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                arrayList.add(pf9.b.valueAt(i));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

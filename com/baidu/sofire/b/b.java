@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.i1;
+import com.kuaishou.weapon.p0.bi;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -179,7 +179,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
                             }
                         }
                         String canonicalPath = new File(b.e.getFilesDir(), "sofire_tmp").getCanonicalPath();
-                        com.baidu.sofire.k.b.d(canonicalPath + i1.j + b2.key);
+                        com.baidu.sofire.k.b.d(canonicalPath + bi.j + b2.key);
                         com.baidu.sofire.k.b.d(b.e.getFileStreamPath(b2.packageName).getAbsolutePath());
                         return;
                     }
@@ -529,7 +529,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
                             int i = com.baidu.sofire.a.b.a;
                         }
                         if (str != null) {
-                            apkInfo.dataDir = str + i1.j + apkInfo.key;
+                            apkInfo.dataDir = str + bi.j + apkInfo.key;
                             StringBuilder sb = new StringBuilder();
                             sb.append(apkInfo.dataDir);
                             sb.append("/lib");

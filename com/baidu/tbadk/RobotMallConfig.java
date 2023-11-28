@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.model.CloudControlData;
+import com.baidu.tieba.u3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,6 +92,16 @@ public class RobotMallConfig {
         this.isVaild = z;
     }
 
+    private void dealConfigJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
+            this.mDefaultConf = jSONObject.optString("default_conf");
+            this.mAiChatEntranceImage = jSONObject.optString("aichat_entrance_img");
+            this.mAiChatEntranceUrl = jSONObject.optString("aichat_entrance_url");
+            u3b.a.b(jSONObject.optInt("errlog_switch", 0));
+        }
+    }
+
     @NonNull
     public static RobotMallConfig parseJson(JSONObject jSONObject) {
         InterceptResult invokeL;
@@ -112,14 +123,5 @@ public class RobotMallConfig {
             return robotMallConfig;
         }
         return (RobotMallConfig) invokeL.objValue;
-    }
-
-    private void dealConfigJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
-            this.mDefaultConf = jSONObject.optString("default_conf");
-            this.mAiChatEntranceImage = jSONObject.optString("aichat_entrance_img");
-            this.mAiChatEntranceUrl = jSONObject.optString("aichat_entrance_url");
-        }
     }
 }

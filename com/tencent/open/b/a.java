@@ -10,11 +10,11 @@ public class a extends RelativeLayout {
     public static final String a = a.class.getName();
     public Rect b;
     public boolean c;
-    public InterfaceC0711a d;
+    public InterfaceC0751a d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0711a {
+    public interface InterfaceC0751a {
         void a();
 
         void a(int i);
@@ -30,8 +30,8 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC0711a interfaceC0711a) {
-        this.d = interfaceC0711a;
+    public void a(InterfaceC0751a interfaceC0751a) {
+        this.d = interfaceC0751a;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -40,12 +40,12 @@ public class a extends RelativeLayout {
         Activity activity = (Activity) getContext();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
         int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
-        InterfaceC0711a interfaceC0711a = this.d;
-        if (interfaceC0711a != null && size != 0) {
+        InterfaceC0751a interfaceC0751a = this.d;
+        if (interfaceC0751a != null && size != 0) {
             if (height > 100) {
-                interfaceC0711a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
+                interfaceC0751a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
             } else {
-                interfaceC0711a.a();
+                interfaceC0751a.a();
             }
         }
         super.onMeasure(i, i2);

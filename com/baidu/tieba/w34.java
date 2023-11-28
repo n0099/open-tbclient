@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes8.dex */
 public interface w34 {
-    void a(hw2 hw2Var, Context context);
+    void a(v64 v64Var, u64 u64Var);
+
+    void b(m64 m64Var, l64 l64Var);
 }

@@ -1,371 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.model.ModelHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class qq8 {
+public final class qq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static qq8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final a b;
+    public final Map<String, StringBuilder> c;
 
-    public qq8() {
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(String str, String str2);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public qq8(a callback) {
+        this(null, callback, 1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (a) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(callback, "callback");
+    }
+
+    @JvmOverloads
+    public qq8(String separator, a callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {separator, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(separator, "separator");
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = separator;
+        this.b = callback;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public /* synthetic */ qq8(String str, a aVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "#<>#" : str, aVar);
+    }
+
+    public final void a(String key, String log) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, log) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(log, "log");
+            StringBuilder sb = this.c.get(key);
+            if (sb == null) {
+                sb = new StringBuilder();
+                this.c.put(key, sb);
+            } else {
+                sb.append(this.a);
+            }
+            sb.append(log);
         }
     }
 
-    public static qq8 c() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new qq8();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (Map.Entry<String, StringBuilder> entry : this.c.entrySet()) {
+                String sb = entry.getValue().toString();
+                Intrinsics.checkNotNullExpressionValue(sb, "it.value.toString()");
+                this.b.a(entry.getKey(), sb);
             }
-            return a;
+            this.c.clear();
         }
-        return (qq8) invokeV.objValue;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Boolean bool;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                uq8.e().b("tb_group_news", "notice_id = ?", new String[]{str});
-                bool = Boolean.TRUE;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.clear();
         }
-        return invokeL.booleanValue;
-    }
-
-    public LinkedList<GroupNewsPojo> b(long j, int i, int i2, String str) {
-        InterceptResult invokeCommon;
-        Cursor g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i2 < 0) {
-                i2 = 0;
-            }
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
-            }
-            Cursor cursor = null;
-            try {
-                try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            g = uq8.e().g("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
-                        } else {
-                            g = uq8.e().g(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        g = uq8.e().g("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
-                    } else {
-                        g = uq8.e().g("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
-                    }
-                    cursor = g;
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
-                        }
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e.printStackTrace();
-                }
-                rd.a(cursor);
-                return h(linkedList);
-            } catch (Throwable th) {
-                rd.a(cursor);
-                throw th;
-            }
-        }
-        return (LinkedList) invokeCommon.objValue;
-    }
-
-    public int d(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            Cursor cursor = null;
-            int i2 = 0;
-            try {
-                try {
-                    try {
-                        cursor = uq8.e().g(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
-                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                        e.printStackTrace();
-                    }
-                } catch (SQLiteException e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                return i2;
-            } finally {
-                rd.a(cursor);
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public boolean g(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            Cursor cursor = null;
-            String str2 = null;
-            cursor = null;
-            if (i < 1000) {
-                i = 1000;
-            }
-            try {
-                try {
-                    uq8 e = uq8.e();
-                    g = e.g("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                if (g.moveToNext()) {
-                    str2 = g.getString(g.getColumnIndex("notice_id"));
-                }
-                rd.a(g);
-                if (str2 != null) {
-                    uq8.e().b("tb_group_news", "notice_id<?", new String[]{str2});
-                }
-                rd.a(g);
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = g;
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                rd.a(cursor);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = g;
-                rd.a(cursor);
-                throw th;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content_status", (Integer) 3);
-                    return uq8.e().i("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-                }
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
-                e.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
-    public final long f(GroupNewsPojo groupNewsPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, groupNewsPojo)) == null) {
-            try {
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("INSERT INTO ");
-                    stringBuffer.append("tb_group_news");
-                    stringBuffer.append("(");
-                    stringBuffer.append("cmd");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content_status");
-                    stringBuffer.append(",");
-                    stringBuffer.append("ext");
-                    stringBuffer.append(",");
-                    stringBuffer.append(TbEnum.ParamKey.GID);
-                    stringBuffer.append(",");
-                    stringBuffer.append("notice_id");
-                    stringBuffer.append(",");
-                    stringBuffer.append("time");
-                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-                    SQLiteStatement a2 = uq8.e().a(stringBuffer.toString());
-                    if (a2 == null) {
-                        rd.c(a2);
-                        return -1L;
-                    }
-                    a2.clearBindings();
-                    sq8.b(a2, 1, groupNewsPojo.getCmd());
-                    sq8.b(a2, 2, groupNewsPojo.getContent());
-                    a2.bindLong(3, groupNewsPojo.getContent_status());
-                    sq8.b(a2, 4, groupNewsPojo.getExt());
-                    sq8.b(a2, 5, groupNewsPojo.getGid());
-                    sq8.b(a2, 6, groupNewsPojo.getNotice_id());
-                    a2.bindLong(7, groupNewsPojo.getTime());
-                    long executeInsert = a2.executeInsert();
-                    rd.c(a2);
-                    return executeInsert;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
-                    rd.c(null);
-                    return -1L;
-                }
-            } catch (Throwable th) {
-                rd.c(null);
-                throw th;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final LinkedList<GroupNewsPojo> h(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, linkedList)) == null) {
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            ArrayList arrayList = new ArrayList();
-            int size = linkedList.size();
-            for (int i = 0; i < size; i++) {
-                GroupNewsPojo groupNewsPojo = linkedList.get(i);
-                boolean z = false;
-                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    arrayList.add(groupNewsPojo.getNotice_id());
-                } else {
-                    linkedList2.add(groupNewsPojo);
-                }
-                int size2 = arrayList.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    e((String) arrayList.get(i3), 3);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public Boolean i(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        ValidateItemData validateItemData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, linkedList)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (linkedList != null && linkedList.size() != 0) {
-                try {
-                    try {
-                        uq8.e().h();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        List<ValidateItemData> list = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null) {
-                                    linkedList2 = b(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
-                                    }
-                                    if (list == null) {
-                                        list = new LinkedList<>();
-                                    }
-                                }
-                                if (list != null) {
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        validateItemData = ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next);
-                                    } else {
-                                        validateItemData = null;
-                                    }
-                                    if (validateItemData != null) {
-                                        for (ValidateItemData validateItemData2 : list) {
-                                            if (validateItemData.getUserId() != null && validateItemData.getUserId().equals(validateItemData2.getUserId()) && validateItemData.getGroupId() != null && validateItemData.getGroupId().equals(validateItemData2.getGroupId())) {
-                                                a(validateItemData2.getNotice_id());
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put(TbEnum.ParamKey.GID, next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (uq8.e().i("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                f(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        bool = Boolean.FALSE;
-                    }
-                    return bool;
-                } finally {
-                    uq8.e().c();
-                }
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
     }
 }

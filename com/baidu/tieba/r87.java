@@ -1,92 +1,40 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedKV;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class r87 {
+public class r87 implements w87<q57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
+    public r87() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final Map<String, String> b(List<FeedKV> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.w87
+    /* renamed from: a */
+    public nb7<?> b(@NonNull q57 q57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                String str2 = feedKV.value;
-                Intrinsics.checkNotNullExpressionValue(str2, "kv.value");
-                linkedHashMap.put(str, str2);
-            }
-            return linkedHashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q57Var)) == null) {
+            return new ob7(new BrowseLocationUiState(q57Var), "browse_location");
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static final List<n77> c(List<FeedKV> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            ArrayList arrayList = new ArrayList();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                n77 n77Var = new n77(str, null, null, null, null, 30, null);
-                Map<String, String> d = n77Var.d();
-                try {
-                    JSONObject jSONObject = new JSONObject(feedKV.value);
-                    if (d instanceof HashMap) {
-                        Iterator<String> keys = jSONObject.keys();
-                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (!Intrinsics.areEqual(key, "position_name")) {
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                String optString = jSONObject.optString(key);
-                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
-                                d.put(key, optString);
-                            }
-                        }
-                    }
-                    String optString2 = jSONObject.optString("position_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
-                    n77Var.g(optString2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                arrayList.add(n77Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return (nb7) invokeL.objValue;
     }
 }

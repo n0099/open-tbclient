@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.zp5;
+import com.baidu.tieba.hq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void x1() {
+    public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
@@ -41,19 +41,10 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public RelevanceItemSearchView B1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
-        }
-        return (RelevanceItemSearchView) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
             RelevanceItemSearchView relevanceItemSearchView = this.k;
             if (relevanceItemSearchView != null) {
@@ -62,10 +53,52 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public boolean D1(View view2, MotionEvent motionEvent) {
+    public RelevanceItemSearchView y1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.k;
+        }
+        return (RelevanceItemSearchView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                View currentFocus = getCurrentFocus();
+                if (z1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
+                }
+                return super.dispatchTouchEvent(motionEvent);
+            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
+                return true;
+            } else {
+                return onTouchEvent(motionEvent);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public hq5 m1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
+            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+            this.k = relevanceItemSearchView;
+            return relevanceItemSearchView;
+        }
+        return (hq5) invokeLL.objValue;
+    }
+
+    public boolean z1(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, motionEvent)) == null) {
             if (view2 == null || !(view2 instanceof EditText)) {
                 return false;
             }
@@ -81,38 +114,5 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                View currentFocus = getCurrentFocus();
-                if (D1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
-                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-                }
-                return super.dispatchTouchEvent(motionEvent);
-            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
-                return true;
-            } else {
-                return onTouchEvent(motionEvent);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public zp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, linearLayout, navigationBar)) == null) {
-            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-            this.k = relevanceItemSearchView;
-            return relevanceItemSearchView;
-        }
-        return (zp5) invokeLL.objValue;
     }
 }

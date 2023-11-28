@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -22,14 +23,17 @@ public class DrawableSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Drawable b;
+    public int b;
     public int c;
-    public IconType d;
-    public int e;
+    public int d;
+    public Drawable e;
     public int f;
-    public int g;
+    public IconType g;
     public int h;
     public int i;
+    public int j;
+    public int k;
+    public int l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -114,10 +118,10 @@ public class DrawableSpan extends ReplacementSpan {
                 return;
             }
         }
-        this.c = i;
-        this.d = iconType;
-        this.e = i2;
-        this.b = a();
+        this.f = i;
+        this.g = iconType;
+        this.h = i2;
+        this.e = a();
     }
 
     public DrawableSpan(Drawable drawable) {
@@ -135,34 +139,55 @@ public class DrawableSpan extends ReplacementSpan {
                 return;
             }
         }
-        this.b = drawable;
+        this.e = drawable;
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.h = i;
+            this.c = i;
         }
     }
 
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+            this.b = i;
         }
     }
 
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.i = i;
+            this.k = i;
         }
     }
 
-    public void f(Drawable drawable) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            this.b = drawable;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void i(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
+            this.e = drawable;
         }
     }
 
@@ -170,17 +195,17 @@ public class DrawableSpan extends ReplacementSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            IconType iconType = this.d;
+            IconType iconType = this.g;
             if (iconType == IconType.WEBP) {
-                int i = this.e;
+                int i = this.h;
                 if (i == 0) {
-                    return SkinManager.getDrawable(this.c);
+                    return SkinManager.getDrawable(this.f);
                 }
-                return WebPManager.getPureDrawable(this.c, SkinManager.getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS);
+                return WebPManager.getPureDrawable(this.f, SkinManager.getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (iconType == IconType.SVG) {
-                return SvgManager.getInstance().getPureDrawable(this.c, this.e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                return SvgManager.getInstance().getPureDrawable(this.f, this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                return SkinManager.getDrawable(this.c);
+                return SkinManager.getDrawable(this.f);
             }
         }
         return (Drawable) invokeV.objValue;
@@ -190,12 +215,12 @@ public class DrawableSpan extends ReplacementSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Drawable drawable = this.b;
+            Drawable drawable = this.e;
             if (drawable != null) {
                 int intrinsicHeight = drawable.getIntrinsicHeight();
-                int intrinsicWidth = this.b.getIntrinsicWidth();
+                int intrinsicWidth = this.e.getIntrinsicWidth();
                 if (intrinsicHeight != 0) {
-                    return (intrinsicWidth * this.g) / intrinsicHeight;
+                    return (intrinsicWidth * this.j) / intrinsicHeight;
                 }
             }
             return 0;
@@ -205,23 +230,30 @@ public class DrawableSpan extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            if (this.c > 0) {
-                this.b = a();
+            if (this.f > 0) {
+                this.e = a();
             }
-            Drawable drawable = this.b;
+            Drawable drawable = this.e;
             if (drawable == null) {
                 return;
             }
-            drawable.setBounds(0, 0, this.f, this.g);
+            drawable.setBounds(0, 0, this.i, this.j);
             canvas.save();
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            float f2 = f + this.a + this.h;
-            int i6 = fontMetricsInt.descent;
-            int i7 = fontMetricsInt.ascent;
-            canvas.translate(f2, ((i4 + ((i6 - i7) / 2)) + i7) - (this.g / 2));
-            this.b.draw(canvas);
+            float f3 = f + this.a + this.k;
+            int i6 = fontMetricsInt.ascent;
+            float f4 = i4 + i6;
+            int i7 = this.d;
+            if (i7 != 0) {
+                f2 = i7;
+            } else {
+                f2 = ((fontMetricsInt.descent - i6) / 2) - (this.j / 2);
+            }
+            canvas.translate(f3, f4 + f2);
+            this.e.draw(canvas);
             canvas.restore();
         }
     }
@@ -230,11 +262,20 @@ public class DrawableSpan extends ReplacementSpan {
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            this.g = ((int) paint.getTextSize()) - (this.a * 2);
-            int b = b();
-            this.f = b;
-            return (this.a * 2) + b + this.h + this.i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int i3 = this.c;
+            if (i3 > 0) {
+                this.j = i3;
+            } else {
+                this.j = ((int) paint.getTextSize()) - (this.a * 2);
+            }
+            int i4 = this.b;
+            if (i4 > 0) {
+                this.i = i4;
+            } else {
+                this.i = b() + (this.a * 2);
+            }
+            return this.i + this.k + this.l;
         }
         return invokeCommon.intValue;
     }

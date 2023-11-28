@@ -12,220 +12,243 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.kwad.sdk.utils.aa;
+import com.kwad.sdk.utils.ac;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes10.dex */
-public class KSFrameLayout extends FrameLayout implements e, i {
-    public final AtomicBoolean Kt;
-    public h Pq;
-    public final aa.a afd;
-    public g aqH;
-    public i aqI;
-    public float aqJ;
-    public boolean aqK;
-    public View aqL;
+public class KSFrameLayout extends FrameLayout implements com.kwad.sdk.core.view.d, e, i {
+    public final AtomicBoolean Uy;
+    public com.kwad.sdk.core.view.c aBD;
+    public final ac.a aBE;
+    public g aQU;
+    public i aQV;
+    public View aQW;
+    public float mRatio;
+    public h mViewRCHelper;
+    public boolean widthBasedRatio;
 
-    public KSFrameLayout(@NonNull Context context) {
-        super(context);
-        this.Kt = new AtomicBoolean(true);
-        this.aqJ = 0.0f;
-        this.afd = new aa.a();
-        this.aqK = true;
-        b(context, null);
-    }
-
-    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.Kt = new AtomicBoolean(true);
-        this.aqJ = 0.0f;
-        this.afd = new aa.a();
-        this.aqK = true;
-        b(context, attributeSet);
-    }
-
-    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.Kt = new AtomicBoolean(true);
-        this.aqJ = 0.0f;
-        this.afd = new aa.a();
-        this.aqK = true;
-        b(context, attributeSet);
-    }
-
-    public KSFrameLayout(@NonNull Context context, View view2) {
-        super(context);
-        this.Kt = new AtomicBoolean(true);
-        this.aqJ = 0.0f;
-        this.afd = new aa.a();
-        this.aqK = true;
-        this.aqL = view2;
-        b(context, null);
-    }
-
-    private void b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f0403dc};
-            Arrays.sort(iArr);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.aqJ = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403dc), 0.0f);
-            obtainStyledAttributes.recycle();
-        }
-        g gVar = new g(getPvView(), this);
-        this.aqH = gVar;
-        gVar.bs(true);
-        h hVar = new h();
-        this.Pq = hVar;
-        hVar.d(context, attributeSet);
-    }
-
-    public static float[] b(float f, float f2, float f3, float f4) {
+    public static float[] getRadius(float f, float f2, float f3, float f4) {
         return new float[]{f, f, f2, f2, f3, f3, f4, f4};
     }
 
-    private View getPvView() {
-        View view2 = this.aqL;
-        return view2 == null ? this : view2;
-    }
-
-    private void pY() {
-        if (this.Kt.getAndSet(false)) {
-            com.kwad.sdk.core.e.b.i("KSFrameLayout", "onViewAttached");
-            am();
-        }
-    }
-
-    private void pZ() {
-        if (this.Kt.getAndSet(true)) {
-            return;
-        }
-        com.kwad.sdk.core.e.b.i("KSFrameLayout", "onViewDetached");
-        an();
+    public KSFrameLayout(@NonNull Context context) {
+        super(context);
+        this.Uy = new AtomicBoolean(true);
+        this.mRatio = 0.0f;
+        this.aBE = new ac.a();
+        this.aBD = new com.kwad.sdk.core.view.c();
+        this.widthBasedRatio = true;
+        init(context, null);
     }
 
     @CallSuper
-    public void am() {
-        this.aqH.onAttachedToWindow();
-    }
-
-    @CallSuper
-    public void an() {
-        this.aqH.onDetachedFromWindow();
+    public void A(View view2) {
+        i iVar = this.aQV;
+        if (iVar != null) {
+            iVar.A(view2);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.Pq.f(canvas);
+        this.mViewRCHelper.beforeDispatchDraw(canvas);
         super.dispatchDraw(canvas);
-        this.Pq.g(canvas);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getAction();
-        if (action == 0) {
-            this.afd.q(getWidth(), getHeight());
-            this.afd.e(motionEvent.getX(), motionEvent.getY());
-        } else if (action == 1) {
-            this.afd.f(motionEvent.getX(), motionEvent.getY());
-        }
-        return super.dispatchTouchEvent(motionEvent);
+        this.mViewRCHelper.afterDispatchDraw(canvas);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.Pq.d(canvas);
+        this.mViewRCHelper.beforeDraw(canvas);
         super.draw(canvas);
-        this.Pq.e(canvas);
+        this.mViewRCHelper.afterDraw(canvas);
+    }
+
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        super.onWindowFocusChanged(z);
+        this.aBD.j(this, z);
+    }
+
+    public void setAllCorner(boolean z) {
+        this.mViewRCHelper.getCornerConf().setAllCorner(z);
+    }
+
+    public void setRadius(float f) {
+        this.mViewRCHelper.setRadius(f);
+        postInvalidate();
+    }
+
+    public void setRatio(float f) {
+        this.mRatio = f;
+    }
+
+    public void setViewVisibleListener(i iVar) {
+        this.aQV = iVar;
+    }
+
+    public void setVisiblePercent(float f) {
+        this.aQU.setVisiblePercent(f);
+    }
+
+    public void setWidthBasedRatio(boolean z) {
+        this.widthBasedRatio = z;
+    }
+
+    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.Uy = new AtomicBoolean(true);
+        this.mRatio = 0.0f;
+        this.aBE = new ac.a();
+        this.aBD = new com.kwad.sdk.core.view.c();
+        this.widthBasedRatio = true;
+        init(context, attributeSet);
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        if (this.mRatio != 0.0f) {
+            if (this.widthBasedRatio) {
+                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.mRatio), 1073741824);
+            } else {
+                i = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) / this.mRatio), 1073741824);
+            }
+        }
+        super.onMeasure(i, i2);
+    }
+
+    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.Uy = new AtomicBoolean(true);
+        this.mRatio = 0.0f;
+        this.aBE = new ac.a();
+        this.aBD = new com.kwad.sdk.core.view.c();
+        this.widthBasedRatio = true;
+        init(context, attributeSet);
+    }
+
+    public KSFrameLayout(@NonNull Context context, View view2) {
+        super(context);
+        this.Uy = new AtomicBoolean(true);
+        this.mRatio = 0.0f;
+        this.aBE = new ac.a();
+        this.aBD = new com.kwad.sdk.core.view.c();
+        this.widthBasedRatio = true;
+        this.aQW = view2;
+        init(context, null);
+    }
+
+    private View getPvView() {
+        View view2 = this.aQW;
+        if (view2 == null) {
+            return this;
+        }
+        return view2;
+    }
+
+    private void tb() {
+        if (this.Uy.getAndSet(false)) {
+            ac();
+        }
+    }
+
+    private void tc() {
+        if (!this.Uy.getAndSet(true)) {
+            ad();
+        }
+    }
+
+    @CallSuper
+    public void ac() {
+        this.aQU.onAttachedToWindow();
+    }
+
+    @CallSuper
+    public void ad() {
+        this.aQU.onDetachedFromWindow();
     }
 
     @Override // com.kwad.sdk.widget.e
     @MainThread
-    public aa.a getTouchCoords() {
-        return this.afd;
+    public ac.a getTouchCoords() {
+        return this.aBE;
     }
 
     public float getVisiblePercent() {
-        return this.aqH.getVisiblePercent();
+        return this.aQU.getVisiblePercent();
     }
 
-    @CallSuper
-    public void k(View view2) {
-        i iVar = this.aqI;
-        if (iVar != null) {
-            iVar.k(view2);
-        }
+    @Override // com.kwad.sdk.core.view.d
+    @NonNull
+    public com.kwad.sdk.core.view.c getWindowFocusChangeHelper() {
+        return this.aBD;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @Deprecated
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        pY();
+        tb();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @Deprecated
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        pZ();
+        tc();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        pY();
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        if (this.aqJ != 0.0f) {
-            if (this.aqK) {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.aqJ), 1073741824);
-            } else {
-                i = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) / this.aqJ), 1073741824);
-            }
-        }
-        super.onMeasure(i, i2);
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        this.aqH.b(i, i2, i3, i4);
-        super.onSizeChanged(i, i2, i3, i4);
-        this.aqH.Bw();
-        this.Pq.w(i, i2);
+        tb();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        pZ();
+        tc();
     }
 
-    public void setRadius(float f) {
-        this.Pq.setRadius(f);
-        postInvalidate();
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action == 1) {
+                this.aBE.g(motionEvent.getX(), motionEvent.getY());
+            }
+        } else {
+            this.aBE.B(getWidth(), getHeight());
+            this.aBE.f(motionEvent.getX(), motionEvent.getY());
+        }
+        return super.dispatchTouchEvent(motionEvent);
+    }
+
+    public void init(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        if (attributeSet != null) {
+            int[] iArr = {R.attr.obfuscated_res_0x7f0403e0};
+            Arrays.sort(iArr);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+            this.mRatio = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403e0), 0.0f);
+            obtainStyledAttributes.recycle();
+        }
+        g gVar = new g(getPvView(), this);
+        this.aQU = gVar;
+        gVar.cb(true);
+        h hVar = new h();
+        this.mViewRCHelper = hVar;
+        hVar.initAttrs(context, attributeSet);
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        this.aQU.b(i, i2, i3, i4);
+        super.onSizeChanged(i, i2, i3, i4);
+        this.aQU.Mq();
+        this.mViewRCHelper.onSizeChanged(i, i2);
     }
 
     public final void setRadius(float f, float f2, float f3, float f4) {
-        this.Pq.setRadius(b(f, f2, f3, f4));
+        this.mViewRCHelper.setRadius(getRadius(f, f2, f3, f4));
         postInvalidate();
-    }
-
-    public void setRatio(float f) {
-        this.aqJ = f;
-    }
-
-    public void setViewVisibleListener(i iVar) {
-        this.aqI = iVar;
-    }
-
-    public void setVisiblePercent(float f) {
-        this.aqH.setVisiblePercent(f);
-    }
-
-    public void setWidthBasedRatio(boolean z) {
-        this.aqK = z;
     }
 }

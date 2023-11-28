@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -172,7 +172,7 @@ public class DeviceInfoUtil {
 
     public static String getDeviceProcessor() {
         try {
-            String[] split = new BufferedReader(new FileReader(k1.a)).readLine().split(":\\s+", 2);
+            String[] split = new BufferedReader(new FileReader(bk.a)).readLine().split(":\\s+", 2);
             for (int i = 0; i < split.length; i++) {
             }
             return split[1];
@@ -199,7 +199,7 @@ public class DeviceInfoUtil {
 
     public static String getFieldFromCpuinfo(String str) {
         Matcher matcher;
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(k1.a));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(bk.a));
         Pattern compile = Pattern.compile(str + "\\s*:\\s*(.*)");
         do {
             try {

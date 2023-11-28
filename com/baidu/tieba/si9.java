@@ -1,88 +1,233 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes8.dex */
-public class si9 implements oi {
+public class si9 extends ci<xi9, SearchSuggestLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni9 a;
-    public List<ti9> b;
-    public List<ti9> c;
+    public final Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152518, "Lcom/baidu/tieba/si9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements zi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ si9 b;
+
+        public a(si9 si9Var, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si9Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948152518, "Lcom/baidu/tieba/si9;");
+            this.b = si9Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.zi
+        public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(piVar instanceof xi9)) {
                 return;
             }
+            xi9 xi9Var = (xi9) piVar;
+            this.b.x(xi9Var);
+            TbPageContext tbPageContext = (TbPageContext) a5.a(this.a);
+            String c = xi9Var.c();
+            String d = xi9Var.d();
+            String f = xi9Var.f();
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, c, d, f, "" + xi9Var.b(), "search_sug_live");
+            BdUtilHelper.hideSoftKeyPad(this.a, view2);
         }
-        d = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public b(si9 si9Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si9Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
         }
-        return (BdUniqueId) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.playAnimation();
+            }
+        }
     }
 
-    public si9(VipThemeList vipThemeList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public si9(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipThemeList == null) {
-            return;
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
+    }
+
+    public final void u(StatisticItem statisticItem, xi9 xi9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, statisticItem, xi9Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, xi9Var.g());
+            statisticItem.param(TiebaStatic.Params.ZHIBO_TYPE, xi9Var.k());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, xi9Var.c());
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, xi9Var.d());
+            statisticItem.param("yyuid", xi9Var.h());
+            statisticItem.param("template_id", xi9Var.f());
         }
-        String str = vipThemeList.card_id;
-        ni9 ni9Var = new ni9();
-        this.a = ni9Var;
-        ni9Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new ti9(vipThemeItem));
+    }
+
+    public View A(int i, View view2, ViewGroup viewGroup, xi9 xi9Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xi9Var, searchSuggestLiveViewHolder})) == null) {
+            if (xi9Var == null) {
+                return view2;
             }
+            B(searchSuggestLiveViewHolder);
+            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
+            EMManager.from(searchSuggestLiveViewHolder.e).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0308);
+            oi9.a(searchSuggestLiveViewHolder.b, xi9Var.e(), xi9Var.a());
+            y(searchSuggestLiveViewHolder.b);
+            D(searchSuggestLiveViewHolder.d);
+            C(xi9Var);
+            return view2;
         }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new ti9(vipThemeItem2));
-            }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void B(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchSuggestLiveViewHolder) == null) {
+            EMManager.from(searchSuggestLiveViewHolder.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
+            EMManager.from(searchSuggestLiveViewHolder.f).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X10);
+            SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
+            EMManager.from(searchSuggestLiveViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
         }
+    }
+
+    public final void C(xi9 xi9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_SHOW);
+            u(statisticItem, xi9Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void D(TBLottieAnimationView tBLottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tBLottieAnimationView) == null) {
+            tBLottieAnimationView.cancelAnimation();
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110056);
+            tBLottieAnimationView.setRepeatCount(-1);
+            tBLottieAnimationView.post(new b(this, tBLottieAnimationView));
+        }
+    }
+
+    public final void x(xi9 xi9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, xi9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_CLICK);
+            u(statisticItem, xi9Var);
+            statisticItem.param("source", "search_sug_live");
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void y(TextView textView) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textView) == null) && (context = this.a) != null && textView != null) {
+            textView.setMaxWidth(BdUtilHelper.getEquipmentWidth(context) - BdUtilHelper.getDimens(this.a, R.dimen.tbds297));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: z */
+    public SearchSuggestLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
+            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08c2, viewGroup, false));
+        }
+        return (SearchSuggestLiveViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xi9 xi9Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        A(i, view2, viewGroup, xi9Var, searchSuggestLiveViewHolder);
+        return view2;
     }
 }

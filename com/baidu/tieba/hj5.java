@@ -1,37 +1,23 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hj5 extends ij5 {
+public class hj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ij5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "filter" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ij5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.ij5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
-        }
-    }
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public hj5() {
         Interceptable interceptable = $ic;
@@ -45,5 +31,25 @@ public class hj5 extends ij5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static hj5 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                hj5 hj5Var = new hj5();
+                hj5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                hj5Var.b = jSONObject.optInt("width");
+                hj5Var.c = jSONObject.optInt("height");
+                hj5Var.d = jSONObject.optString("pic_url");
+                hj5Var.e = jSONObject.optString("thumbnail");
+                hj5Var.g = jSONObject.optString("origin_url");
+                return hj5Var;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (hj5) invokeL.objValue;
     }
 }

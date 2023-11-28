@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface vu7 {
-    void a(boolean z);
+    void t(String str);
 
-    void b(boolean z, boolean z2);
+    void u();
 
-    boolean c();
-
-    void onChangeSkinType(int i);
+    void x(boolean z);
 }

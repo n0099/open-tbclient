@@ -64,7 +64,7 @@ public class SwipeBackLayout extends FrameLayout {
     public int mMaximumVelocity;
     public int mMinimumVelocity;
     public int mMoveDistance;
-    public OnSlidingStateChangeListener mOnSlidingStateChangeListener;
+    public b mOnSlidingStateChangeListener;
     public ViewGroup mRealContentView;
     public Scroller mScroller;
     public int mTouchSlop;
@@ -73,17 +73,17 @@ public class SwipeBackLayout extends FrameLayout {
     public float mXVelocity;
 
     /* loaded from: classes.dex */
-    public interface OnSlidingStateChangeListener {
-        void onSlidingEnd(boolean z);
+    public interface b {
+        void a(boolean z);
 
-        void onSlidingStart();
+        void b();
     }
 
     /* loaded from: classes.dex */
-    public interface b {
-        void C0();
+    public interface c {
+        void A0();
 
-        void U();
+        void T();
     }
 
     /* loaded from: classes.dex */
@@ -207,9 +207,9 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                OnSlidingStateChangeListener onSlidingStateChangeListener = this.mOnSlidingStateChangeListener;
-                if (onSlidingStateChangeListener != null) {
-                    onSlidingStateChangeListener.onSlidingStart();
+                b bVar = this.mOnSlidingStateChangeListener;
+                if (bVar != null) {
+                    bVar.b();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -259,14 +259,14 @@ public class SwipeBackLayout extends FrameLayout {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight) {
                 if (i == 1) {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b3f);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b46);
                 } else if (i == 4) {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b3e);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b45);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b40);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b47);
                 }
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b40);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b47);
             }
         }
     }
@@ -280,14 +280,14 @@ public class SwipeBackLayout extends FrameLayout {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight) {
             if (i == 1) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b3f);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b46);
             } else if (i == 4) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b3e);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b45);
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b40);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b47);
             }
         } else {
-            this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b40);
+            this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b47);
         }
     }
 
@@ -532,17 +532,17 @@ public class SwipeBackLayout extends FrameLayout {
                 if (this.isTransparent) {
                     this.mRealContentView.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b40);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060b47);
                 }
             }
             this.mIsSupportNight = z;
         }
     }
 
-    public void setOnSlidingStateChangeListener(OnSlidingStateChangeListener onSlidingStateChangeListener) {
+    public void setOnSlidingStateChangeListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onSlidingStateChangeListener) == null) {
-            this.mOnSlidingStateChangeListener = onSlidingStateChangeListener;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
+            this.mOnSlidingStateChangeListener = bVar;
         }
     }
 
@@ -670,9 +670,9 @@ public class SwipeBackLayout extends FrameLayout {
                                 endDrag();
                                 scrollOrigin(10);
                                 this.mIsFinish = false;
-                                OnSlidingStateChangeListener onSlidingStateChangeListener = this.mOnSlidingStateChangeListener;
-                                if (onSlidingStateChangeListener != null) {
-                                    onSlidingStateChangeListener.onSlidingEnd(false);
+                                b bVar = this.mOnSlidingStateChangeListener;
+                                if (bVar != null) {
+                                    bVar.a(false);
                                 }
                             }
                         } else {
@@ -723,9 +723,9 @@ public class SwipeBackLayout extends FrameLayout {
                                 scrollOrigin();
                                 this.mIsFinish = false;
                             }
-                            OnSlidingStateChangeListener onSlidingStateChangeListener2 = this.mOnSlidingStateChangeListener;
-                            if (onSlidingStateChangeListener2 != null) {
-                                onSlidingStateChangeListener2.onSlidingEnd(this.mIsFinish);
+                            b bVar2 = this.mOnSlidingStateChangeListener;
+                            if (bVar2 != null) {
+                                bVar2.a(this.mIsFinish);
                             }
                             return true;
                         }
@@ -736,9 +736,9 @@ public class SwipeBackLayout extends FrameLayout {
                             scrollOrigin();
                             this.mIsFinish = false;
                         }
-                        OnSlidingStateChangeListener onSlidingStateChangeListener3 = this.mOnSlidingStateChangeListener;
-                        if (onSlidingStateChangeListener3 != null) {
-                            onSlidingStateChangeListener3.onSlidingEnd(this.mIsFinish);
+                        b bVar3 = this.mOnSlidingStateChangeListener;
+                        if (bVar3 != null) {
+                            bVar3.a(this.mIsFinish);
                         }
                     }
                 } else {

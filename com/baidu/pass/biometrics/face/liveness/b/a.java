@@ -16,7 +16,7 @@ public class a {
     public static final String S = "a";
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String f1052T = "living_recog";
+    public static final String f1048T = "living_recog";
     public static final int U = 1;
     public static final int V = 0;
     public static final int W = -1;

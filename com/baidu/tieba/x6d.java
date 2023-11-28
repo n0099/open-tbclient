@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
+import org.json.JSONObject;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes9.dex */
-public abstract class x6d<T> {
+public class x6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(Request request, boolean z, Exception exc);
-
-    public abstract void b(T t);
-
-    public x6d() {
+    @NonNull
+    public static JSONObject b(@NonNull PrivatePopInfo privatePopInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privatePopInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "pop_type", privatePopInfo.pop_type);
+            ltc.a(jSONObject, "pop_content", privatePopInfo.pop_content);
+            ltc.a(jSONObject, "pop_url", privatePopInfo.pop_url);
+            ltc.a(jSONObject, "pop_forum_id", privatePopInfo.pop_forum_id);
+            ltc.a(jSONObject, "title", privatePopInfo.title);
+            ltc.a(jSONObject, "day", privatePopInfo.day);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

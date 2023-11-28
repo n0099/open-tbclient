@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -472,7 +472,7 @@ public class ShareStorage {
         } catch (Exception e) {
             Log.e(ShareUtils.TAG, e.getMessage());
         }
-        if (!SapiUtils.checkRequestPermission(h.i, this.context)) {
+        if (!SapiUtils.checkRequestPermission(g.i, this.context)) {
             Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
             return null;
         }

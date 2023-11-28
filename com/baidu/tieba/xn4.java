@@ -1,118 +1,190 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
+import com.baidu.tieba.ek2;
+import com.baidu.tieba.pk2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes9.dex */
-public final class xn4 implements MediaGestureLayout.b {
+public class xn4 implements pk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public MediaGestureLayout b;
-    public MediaGestureLayout.c c;
+    public String a;
+    public pk2.a b;
+    public CyberExtractor c;
+    public volatile boolean d;
 
-    public xn4(Context context) {
+    @Override // com.baidu.tieba.ek2
+    @Nullable
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes9.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ xn4 c;
+
+        public a(xn4 xn4Var, String str, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xn4Var, str, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = xn4Var;
+            this.a = str;
+            this.b = map;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.d) {
+                    if (xn4.e) {
+                        Log.d("MediaExtractorWidget", "media extractor already released");
+                        return;
+                    }
+                    return;
+                }
+                this.c.c.setDataSource(this.c.getContext(), Uri.parse(jn2.a(this.a)), this.b);
+                Bundle metaData = this.c.c.getMetaData();
+                if (this.c.b != null) {
+                    this.c.b.a(metaData);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306123, "Lcom/baidu/tieba/xn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948306123, "Lcom/baidu/tieba/xn4;");
+                return;
+            }
+        }
+        e = sm1.a;
+    }
+
+    @Override // com.baidu.tieba.ek2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return op2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pk2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            CyberExtractor cyberExtractor = this.c;
+            if (cyberExtractor != null) {
+                cyberExtractor.release();
+            }
+            this.c = null;
+            pk2.a aVar = this.b;
+            if (aVar != null) {
+                aVar.onRelease();
+            }
+            this.b = null;
+        }
+    }
+
+    public xn4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        g(context);
+        this.a = str;
+        this.d = false;
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void a(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
+    @Override // com.baidu.tieba.ek2
+    public void A(@NonNull ek2.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && (cVar = this.c) != null) {
-            cVar.a(motionEvent);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.c = new CyberExtractor(true);
+            aVar.a(true);
         }
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void c(int i) {
-        MediaGestureLayout.c cVar;
+    @Override // com.baidu.tieba.pk2
+    public void w(pk2.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (cVar = this.c) != null) {
-            cVar.c(i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public void d(SwanVideoView swanVideoView) {
+    @Override // com.baidu.tieba.pk2
+    public void k(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
-            this.b.h(swanVideoView);
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public void e(un4 un4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, un4Var) == null) {
-            this.b.g(un4Var);
-        }
-    }
-
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.a = context;
-            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
-            this.b = mediaGestureLayout;
-            mediaGestureLayout.setMediaGestureListener(this);
-        }
-    }
-
-    public void h(MediaGestureLayout.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void onDoubleTap(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) && (cVar = this.c) != null) {
-            cVar.onDoubleTap(motionEvent);
-        }
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) && (cVar = this.c) != null) {
-            cVar.b(motionEvent, mediaGestureMode);
-        }
-    }
-
-    public ViewGroup f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (ViewGroup) invokeV.objValue;
+        bj3.j(new a(this, str, map), "loadMetadata");
     }
 }

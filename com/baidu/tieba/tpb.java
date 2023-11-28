@@ -1,17 +1,10 @@
 package com.baidu.tieba;
+
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface tpb {
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str, tpb tpbVar);
-    }
-
-    void cancel();
-
-    boolean isRunning();
-
-    void pause();
-
-    void start();
+    boolean b(File file, long j, boolean z, boolean z2);
 }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.vy2;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface nn1 {
-    void a(String str, vy2.k kVar);
+    List<e83> a(e73 e73Var);
+
+    List<e83> b(e73 e73Var);
+
+    List<e83> c(e73 e73Var);
 }

@@ -1,72 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import org.json.JSONObject;
+import tbclient.RewardCard;
+import tbclient.TaskInfo;
+import tbclient.VoteSchema;
 /* loaded from: classes7.dex */
-public class l9d {
+public class l9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GiftBagsInfo a;
-    public boolean b;
 
-    public l9d(GiftBagsInfo giftBagsInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = giftBagsInfo;
-        this.b = z;
-    }
-
-    public static boolean b(l9d l9dVar) {
+    @NonNull
+    public static JSONObject b(@NonNull TaskInfo taskInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l9dVar)) == null) {
-            if (l9dVar != null && l9dVar.a() != null && l9dVar.a().giftbag != null && !l9dVar.a().giftbag.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, taskInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "task_id", taskInfo.task_id);
+            ltc.a(jSONObject, "thread_id", taskInfo.thread_id);
+            ltc.a(jSONObject, "bgimg", taskInfo.bgimg);
+            ltc.a(jSONObject, "thread_img", taskInfo.thread_img);
+            ltc.a(jSONObject, "start_time", taskInfo.start_time);
+            ltc.a(jSONObject, "end_time", taskInfo.end_time);
+            ltc.a(jSONObject, "thread_img_size", taskInfo.thread_img_size);
+            ltc.a(jSONObject, "forum_id", taskInfo.forum_id);
+            ltc.a(jSONObject, "forum_name", taskInfo.forum_name);
+            ltc.a(jSONObject, "obj_id", taskInfo.obj_id);
+            VoteSchema voteSchema = taskInfo.vote_schema;
+            if (voteSchema != null) {
+                ltc.a(jSONObject, "vote_schema", lbd.b(voteSchema));
             }
-            return true;
+            RewardCard rewardCard = taskInfo.reward_card;
+            if (rewardCard != null) {
+                ltc.a(jSONObject, "reward_card", s7d.b(rewardCard));
+            }
+            ltc.a(jSONObject, "is_god_reply", taskInfo.is_god_reply);
+            ltc.a(jSONObject, "floor_god_reply", taskInfo.floor_god_reply);
+            ltc.a(jSONObject, "card_type", taskInfo.card_type);
+            ltc.a(jSONObject, "wh_rate", taskInfo.wh_rate);
+            ltc.a(jSONObject, "webview_url", taskInfo.webview_url);
+            ltc.a(jSONObject, "top_background_img", taskInfo.top_background_img);
+            ltc.a(jSONObject, "theme_color", taskInfo.theme_color);
+            ltc.a(jSONObject, "webview_data", taskInfo.webview_data);
+            return jSONObject;
         }
-        return invokeL.booleanValue;
-    }
-
-    public GiftBagsInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (GiftBagsInfo) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,40 +1,99 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class oab extends BdBaseView {
+public class oab implements pab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public View b;
+    public final CloudMusicModel a;
+    public final qab b;
 
-    public abstract void g();
+    /* loaded from: classes7.dex */
+    public class a implements wab<CloudMusicData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oab a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oab(BdPageContext bdPageContext) {
-        super(bdPageContext);
+        public a(oab oabVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oabVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oabVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wab
+        /* renamed from: b */
+        public void a(CloudMusicData cloudMusicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
+                this.a.b.u0(false);
+                if (cloudMusicData != null) {
+                    this.a.b.z(false);
+                    if (cloudMusicData.tag_list.isEmpty()) {
+                        this.a.b.z(true);
+                        return;
+                    } else {
+                        this.a.b.K(cloudMusicData);
+                        return;
+                    }
+                }
+                this.a.b.z(true);
+            }
+        }
+    }
+
+    public oab(CloudMusicModel cloudMusicModel, qab qabVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
+            Object[] objArr = {cloudMusicModel, qabVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bdPageContext;
-        g();
+        this.a = cloudMusicModel;
+        this.b = qabVar;
+        qabVar.T0(this);
+    }
+
+    @Override // com.baidu.tieba.pab
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.pab
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.u0(true);
+            this.a.P(new a(this));
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.yy.gslbsdk;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DnsResultInfo {
     public int mErrorCode = 5;
     public int mDataSource = 0;

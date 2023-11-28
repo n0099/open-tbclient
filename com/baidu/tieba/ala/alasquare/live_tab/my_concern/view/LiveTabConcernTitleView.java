@@ -10,24 +10,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca6;
-import com.baidu.tieba.zk6;
+import com.baidu.tieba.jl6;
+import com.baidu.tieba.ka6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LiveTabConcernTitleView extends zk6<ca6> {
+public class LiveTabConcernTitleView extends jl6<ka6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
-    @Override // com.baidu.tieba.zk6
+    @Override // com.baidu.tieba.jl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0974 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d098e : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -66,7 +66,7 @@ public class LiveTabConcernTitleView extends zk6<ca6> {
             this.a = liveTabConcernTitleView;
             View i3 = liveTabConcernTitleView.i();
             this.b = i3;
-            this.c = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f0923f4);
+            this.c = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f092476);
         }
     }
 
@@ -90,22 +90,22 @@ public class LiveTabConcernTitleView extends zk6<ca6> {
             }
         }
         this.i = new ViewHolder(this);
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk6
+    @Override // com.baidu.tieba.jl6
     /* renamed from: p */
-    public void k(ca6 ca6Var) {
+    public void j(ka6 ka6Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, ca6Var) == null) && ca6Var != null && !StringUtils.isNull(ca6Var.a) && (viewHolder = this.i) != null) {
-            viewHolder.c.setText(ca6Var.a);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ka6Var) == null) && ka6Var != null && !StringUtils.isNull(ka6Var.a) && (viewHolder = this.i) != null) {
+            viewHolder.c.setText(ka6Var.a);
         }
     }
 
-    @Override // com.baidu.tieba.zk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.tieba.jl6
+    public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setBackgroundColor(this.i.b, R.color.CAM_X0201);

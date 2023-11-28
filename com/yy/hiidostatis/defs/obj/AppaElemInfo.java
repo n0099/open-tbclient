@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AppaElemInfo extends ParamableElem implements Elem {
     public static final long serialVersionUID = 5075819899173282579L;
     public long dtime;

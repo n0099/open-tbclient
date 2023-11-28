@@ -8,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class fm2 extends ak2<rm2> {
+/* loaded from: classes6.dex */
+public class fm2 extends bk2<sm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setEnlargeEye" : (String) invokeV.objValue;
     }
 
     public fm2() {
@@ -37,23 +36,16 @@ public class fm2 extends ak2<rm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rm2 rm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sm2 sm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rm2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sm2Var) == null) {
             String str = command.what;
-            d(rm2Var, str, "" + command.obj, true);
+            d(sm2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (pm2.a(optLong)) {
-                        rm2Var.p(optLong, optBoolean);
-                    }
-                }
+            if (obj instanceof Integer) {
+                sm2Var.e(((Integer) obj).intValue());
             }
         }
     }

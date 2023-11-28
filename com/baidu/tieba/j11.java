@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.AdOperator;
+import com.baidu.nadcore.model.MonitorUrl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Ref;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class j11 {
+public class j11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,89 +36,228 @@ public final class j11 {
                 return;
             }
         }
-        a = new a(null);
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("__AD_EXTRA_PARAM_ENCODE_0__", 0);
+        a.put("__AD_EXTRA_PARAM_ENCODE_1__", 1);
+        a.put("__AD_EXTRA_PARAM_ENCODE_2__", 2);
+        a.put("__AD_EXTRA_PARAM_ENCODE_3__", 3);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.j11$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static final class C0351a implements hk0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Ref.ObjectRef a;
-            public final /* synthetic */ Context b;
-
-            @Override // com.baidu.tieba.hk0
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (i <= 0) {
+                return str;
             }
+            for (int i2 = 0; i2 < i; i2++) {
+                str = Uri.encode(str);
+            }
+            return str;
+        }
+        return (String) invokeLI.objValue;
+    }
 
-            public C0351a(Ref.ObjectRef objectRef, Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {objectRef, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+    public static String i(@NonNull AdBaseModel adBaseModel, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, adBaseModel, str)) == null) {
+            if (!o(str)) {
+                return str;
+            }
+            String d = d(adBaseModel);
+            if (!TextUtils.isEmpty(d)) {
+                return n(str, d);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(@NonNull AdBaseModel adBaseModel, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, adBaseModel, str)) == null) {
+            tm0 tm0Var = adBaseModel.l;
+            if (tm0Var != null && tm0Var.e) {
+                String str2 = tm0Var.a;
+                if (TextUtils.isEmpty(str2)) {
+                    return str;
+                }
+                boolean f = f(str2);
+                String str3 = tm0Var.b;
+                if (f) {
+                    if (TextUtils.isEmpty(str3)) {
+                        return str;
+                    }
+                } else {
+                    str3 = "";
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    return str3;
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c(String str, Long l, @Nullable List<MonitorUrl> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, l, list)) == null) {
+            String a2 = q21.a(q21.a(str, "auto_pop", "1"), "charge_delay_time", String.valueOf(l));
+            if (list != null) {
+                for (MonitorUrl monitorUrl : list) {
+                    if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
+                        a2 = q21.a(a2, "charge_url", monitorUrl.clickUrl);
                     }
                 }
-                this.a = objectRef;
-                this.b = context;
             }
+            return a2;
+        }
+        return (String) invokeLLL.objValue;
+    }
 
-            /* JADX WARN: Type inference failed for: r1v0, types: [T, android.graphics.drawable.BitmapDrawable] */
-            @Override // com.baidu.tieba.hk0
-            public void b(Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                    this.a.element = new BitmapDrawable(this.b.getResources(), bitmap);
+    public static String e(String str, Long l, @Nullable List<MonitorUrl> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, l, list)) == null) {
+            String a2 = q21.a(q21.a(str, "auto_pop", "0"), "charge_delay_time", String.valueOf(l));
+            if (list != null) {
+                for (MonitorUrl monitorUrl : list) {
+                    if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
+                        a2 = q21.a(a2, "charge_url", monitorUrl.clickUrl);
+                    }
                 }
             }
+            return a2;
         }
+        return (String) invokeLLL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, adBaseModel)) == null) {
+            if (adBaseModel != null && (str = adBaseModel.f.d) != null) {
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                hf0.b().getPackageManager().getApplicationInfo(str, 0);
+                return true;
+            } catch (PackageManager.NameNotFoundException | Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, adBaseModel) == null) {
+            j(adBaseModel);
+            l(adBaseModel);
+        }
+    }
+
+    public static void h(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, adBaseModel) == null) && adBaseModel.d && !TextUtils.isEmpty(adBaseModel.h.b)) {
+            AdOperator adOperator = adBaseModel.h;
+            adOperator.b = i(adBaseModel, adOperator.b);
+        }
+    }
+
+    public static void j(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, adBaseModel) == null) {
+            k(adBaseModel);
+            h(adBaseModel);
+            m(adBaseModel);
+        }
+    }
+
+    public static void k(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, adBaseModel) != null) || TextUtils.isEmpty(adBaseModel.f.c)) {
+            return;
+        }
+        bn0 bn0Var = adBaseModel.f;
+        bn0Var.c = i(adBaseModel, bn0Var.c);
+    }
+
+    public static void m(AdBaseModel adBaseModel) {
+        tm0 tm0Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, adBaseModel) == null) && (tm0Var = adBaseModel.l) != null && (str = tm0Var.b) != null) {
+            tm0Var.b = i(adBaseModel, str);
+        }
+    }
+
+    public static void l(@NonNull AdBaseModel adBaseModel) {
+        tm0 tm0Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, null, adBaseModel) == null) && (tm0Var = adBaseModel.l) != null && tm0Var.e) {
+            String str2 = tm0Var.b;
+            if (str2.contains("__AUTO_INVOKE__")) {
+                if (f(adBaseModel.l.a)) {
+                    str = "0";
+                } else {
+                    str = "1";
+                }
+                adBaseModel.l.b = str2.replace("__AUTO_INVOKE__", str);
+            }
+        }
+    }
+
+    public static boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                if (str.contains(entry.getKey())) {
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final Drawable a(Context context, String url) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, url)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(url, "url");
-                Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                objectRef.element = null;
-                gk0.a().c(url, new C0351a(objectRef, context));
-                return (Drawable) objectRef.element;
+    public static String n(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                    if (str.contains(entry.getKey())) {
+                        try {
+                            str = str.replaceAll(entry.getKey(), a(str2, entry.getValue().intValue()));
+                        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException unused) {
+                        }
+                    }
+                }
             }
-            return (Drawable) invokeLL.objValue;
+            return str;
         }
+        return (String) invokeLL.objValue;
     }
 }

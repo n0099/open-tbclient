@@ -117,7 +117,7 @@ public class LetterImageView extends ImageView {
     private void init() {
         boolean nightModeSwitcherState = NightModeHelper.getNightModeSwitcherState();
         if (this.mTextSize <= 0) {
-            this.mTextSize = UIRuntime.getAppContext().getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07058c);
+            this.mTextSize = UIRuntime.getAppContext().getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0705a2);
         }
         Paint paint = new Paint(1);
         this.mTextPaint = paint;

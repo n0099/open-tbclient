@@ -13,19 +13,19 @@ public class fg {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f366a;
+    public long f362a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ff f368a;
+    public ff f364a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f369a;
+    public String f365a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f370a = false;
+    public boolean f366a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    public bk f367a = bk.a();
+    public bk f363a = bk.a();
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -33,25 +33,25 @@ public class fg {
     }
 
     private ez a(bk.a aVar) {
-        if (aVar.f145a == 0) {
-            Object obj = aVar.f146a;
+        if (aVar.f141a == 0) {
+            Object obj = aVar.f142a;
             if (obj instanceof ez) {
                 return (ez) obj;
             }
             return null;
         }
-        ez m483a = m483a();
-        m483a.a(ey.CHANNEL_STATS_COUNTER.a());
-        m483a.c(aVar.f145a);
-        m483a.c(aVar.f147a);
-        return m483a;
+        ez m487a = m487a();
+        m487a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m487a.c(aVar.f141a);
+        m487a.c(aVar.f143a);
+        return m487a;
     }
 
     private fa a(int i) {
         ArrayList arrayList = new ArrayList();
-        fa faVar = new fa(this.f369a, arrayList);
-        if (!bi.e(this.f368a.f363a)) {
-            faVar.a(i.i(this.f368a.f363a));
+        fa faVar = new fa(this.f365a, arrayList);
+        if (!bi.e(this.f364a.f359a)) {
+            faVar.a(i.i(this.f364a.f359a));
         }
         jl jlVar = new jl(i);
         jd a2 = new jj.a().a(jlVar);
@@ -59,10 +59,10 @@ public class fg {
             faVar.b(a2);
         } catch (ix unused) {
         }
-        LinkedList<bk.a> m301a = this.f367a.m301a();
-        while (m301a.size() > 0) {
+        LinkedList<bk.a> m305a = this.f363a.m305a();
+        while (m305a.size() > 0) {
             try {
-                ez a3 = a(m301a.getLast());
+                ez a3 = a(m305a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -72,7 +72,7 @@ public class fg {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m301a.removeLast();
+                m305a.removeLast();
             } catch (ix | NoSuchElementException unused2) {
             }
         }
@@ -82,43 +82,43 @@ public class fg {
     public static ff a() {
         ff ffVar;
         synchronized (a.a) {
-            ffVar = a.a.f368a;
+            ffVar = a.a.f364a;
         }
         return ffVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static fg m481a() {
+    public static fg m485a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m482a() {
-        if (!this.f370a || System.currentTimeMillis() - this.f366a <= this.a) {
+    private void m486a() {
+        if (!this.f366a || System.currentTimeMillis() - this.f362a <= this.a) {
             return;
         }
-        this.f370a = false;
-        this.f366a = 0L;
+        this.f366a = false;
+        this.f362a = 0L;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ez m483a() {
+    public synchronized ez m487a() {
         ez ezVar;
         ezVar = new ez();
-        ezVar.a(bi.m294a((Context) this.f368a.f363a));
-        ezVar.f340a = (byte) 0;
-        ezVar.f344b = 1;
+        ezVar.a(bi.m298a((Context) this.f364a.f359a));
+        ezVar.f336a = (byte) 0;
+        ezVar.f340b = 1;
         ezVar.d((int) (System.currentTimeMillis() / 1000));
         return ezVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fa m484a() {
+    public synchronized fa m488a() {
         fa faVar;
         faVar = null;
         if (b()) {
             int i = PassBiometricUtil.k;
-            if (!bi.e(this.f368a.f363a)) {
+            if (!bi.e(this.f364a.f359a)) {
                 i = 375;
             }
             faVar = a(i);
@@ -127,39 +127,39 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m485a(int i) {
+    public void m489a(int i) {
         if (i > 0) {
             int i2 = i * 1000;
             if (i2 > 604800000) {
                 i2 = 604800000;
             }
-            if (this.a == i2 && this.f370a) {
+            if (this.a == i2 && this.f366a) {
                 return;
             }
-            this.f370a = true;
-            this.f366a = System.currentTimeMillis();
+            this.f366a = true;
+            this.f362a = System.currentTimeMillis();
             this.a = i2;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f366a);
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f362a);
         }
     }
 
     public synchronized void a(ez ezVar) {
-        this.f367a.a(ezVar);
+        this.f363a.a(ezVar);
     }
 
     public synchronized void a(XMPushService xMPushService) {
-        this.f368a = new ff(xMPushService);
-        this.f369a = "";
+        this.f364a = new ff(xMPushService);
+        this.f365a = "";
         com.xiaomi.push.service.bv.a().a(new fh(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m486a() {
-        return this.f370a;
+    public boolean m490a() {
+        return this.f366a;
     }
 
     public boolean b() {
-        m482a();
-        return this.f370a && this.f367a.m300a() > 0;
+        m486a();
+        return this.f366a && this.f363a.m304a() > 0;
     }
 }

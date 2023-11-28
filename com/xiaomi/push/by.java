@@ -13,7 +13,7 @@ public class by extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo306a() {
+    public String mo310a() {
         return "10054";
     }
 
@@ -24,9 +24,9 @@ public class by extends aj.a {
         Context context2;
         com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
         c = this.a.c();
-        context = this.a.f152a;
+        context = this.a.f148a;
         cb cbVar = new cb(c, new WeakReference(context));
-        context2 = this.a.f152a;
+        context2 = this.a.f148a;
         ci.a(context2).a(cbVar);
         this.a.b("check_time");
     }

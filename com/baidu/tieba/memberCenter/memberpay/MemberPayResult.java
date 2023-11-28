@@ -5,7 +5,7 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.bqa;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,10 +119,10 @@ public class MemberPayResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DYNAMIC_DISAPPEAR_CLICK = "click";
         public static final String DYNAMIC_DISAPPEAR_CONCEL = "concel";
-        public static final int NEW_TIP_COLOR_ID = 2131099736;
+        public static final int NEW_TIP_COLOR_ID = 2131099738;
         public static final String NEW_TIP_TEXT = "NEW";
         public static final String TIP_SHOW = "1";
-        public static final int WAIT_TIP_COLOR_ID = 2131099767;
+        public static final int WAIT_TIP_COLOR_ID = 2131099769;
         public static final String WAIT_TIP_TEXT = "敬请期待";
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("dynamic_color")
@@ -218,9 +218,9 @@ public class MemberPayResult {
                     return SkinManager.getColor(WAIT_TIP_COLOR_ID);
                 }
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    return bqa.f(this.dynamicColorDark);
+                    return uua.f(this.dynamicColorDark);
                 }
-                return bqa.f(this.dynamicColor);
+                return uua.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }

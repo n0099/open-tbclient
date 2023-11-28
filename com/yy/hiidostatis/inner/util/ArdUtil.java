@@ -30,8 +30,8 @@ import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.kuaishou.weapon.p0.h;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.BufferedReader;
 import java.io.File;
@@ -50,7 +50,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ArdUtil {
     public static final int NET_2G = 1;
     public static final int NET_3G = 2;
@@ -398,7 +398,7 @@ public class ArdUtil {
     public static WifiInfo getWifiInfo(Context context) {
         WifiManager wifiManager;
         try {
-            if (!checkPermissions(context, h.d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+            if (!checkPermissions(context, g.d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                 return null;
             }
             return wifiManager.getConnectionInfo();
@@ -411,7 +411,7 @@ public class ArdUtil {
     public static String getWifiName(Context context) {
         WifiInfo connectionInfo;
         try {
-            if (!checkPermissions(context, h.d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, g.d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();
@@ -554,7 +554,7 @@ public class ArdUtil {
             return str;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader(k1.a));
+            bufferedReader = new BufferedReader(new FileReader(bk.a));
             try {
                 String str2 = bufferedReader.readLine().split(":\\s+", 2)[1];
                 mCpuAbi = str2;
@@ -591,7 +591,7 @@ public class ArdUtil {
             return mCpuName;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader(k1.a));
+            bufferedReader = new BufferedReader(new FileReader(bk.a));
             try {
                 String str = bufferedReader.readLine().split(":\\s+", 2)[1];
                 mCpuName = str;
@@ -815,7 +815,7 @@ public class ArdUtil {
             return str;
         }
         try {
-            if (checkPermissions(context, h.d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+            if (checkPermissions(context, g.d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                 WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                 if (connectionInfo == null) {
                     macAddress = null;

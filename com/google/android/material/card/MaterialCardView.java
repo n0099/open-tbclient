@@ -27,7 +27,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
     public static final int DEF_STYLE_RES = 2131755888;
@@ -40,9 +40,9 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public OnCheckedChangeListener onCheckedChangeListener;
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f0406c8};
+    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f0406ce};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }
@@ -347,7 +347,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ee);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404f4);
     }
 
     @Override // androidx.cardview.widget.CardView, android.widget.FrameLayout, android.view.View

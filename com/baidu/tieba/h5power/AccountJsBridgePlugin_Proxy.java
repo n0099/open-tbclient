@@ -5,12 +5,12 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BindVerifyActivity;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.js4;
-import com.baidu.tieba.msa;
-import com.baidu.tieba.nsa;
-import com.baidu.tieba.osa;
-import com.baidu.tieba.qsa;
+import com.baidu.tieba.exa;
+import com.baidu.tieba.fxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.ks4;
+import com.baidu.tieba.mj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class AccountJsBridgePlugin_Proxy extends msa {
+public class AccountJsBridgePlugin_Proxy extends exa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public js4 mJsBridge;
+    public ks4 mJsBridge;
 
-    public AccountJsBridgePlugin_Proxy(js4 js4Var) {
+    public AccountJsBridgePlugin_Proxy(ks4 ks4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {js4Var};
+            Object[] objArr = {ks4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class AccountJsBridgePlugin_Proxy extends msa {
                 return;
             }
         }
-        this.mJsBridge = js4Var;
+        this.mJsBridge = ks4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -55,171 +55,171 @@ public class AccountJsBridgePlugin_Proxy extends msa {
         this.mNotificationNameList.add("realNameAuthResult");
     }
 
-    @Override // com.baidu.tieba.msa
-    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
+    @Override // com.baidu.tieba.exa
+    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, qsaVar, osaVar)) == null) {
-            if (osaVar == null) {
-                osaVar = new osa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ixaVar, gxaVar)) == null) {
+            if (gxaVar == null) {
+                gxaVar = new gxa();
             }
-            String b = qsaVar.b();
-            JSONObject e = qsaVar.e();
+            String b = ixaVar.b();
+            JSONObject e = ixaVar.e();
             if (b.equals("account/startLoginModule")) {
-                osaVar.s(true);
-                osa r = this.mJsBridge.r(webView, e.optString("cssUrl"));
+                gxaVar.s(true);
+                gxa r = this.mJsBridge.r(webView, e.optString("cssUrl"));
                 if (r != null) {
-                    osaVar.y(r.f());
-                    osaVar.u(r.b());
-                    osaVar.o(r.a());
-                    osaVar.x(r.e());
+                    gxaVar.y(r.f());
+                    gxaVar.u(r.b());
+                    gxaVar.o(r.a());
+                    gxaVar.x(r.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/loadThirdPartyLogin")) {
-                osaVar.s(true);
-                osa g = this.mJsBridge.g(webView, e.optInt("socialType"), e.optString("activityId"));
+                gxaVar.s(true);
+                gxa g = this.mJsBridge.g(webView, e.optInt("socialType"), e.optString("activityId"));
                 if (g != null) {
-                    osaVar.y(g.f());
-                    osaVar.u(g.b());
-                    osaVar.o(g.a());
-                    osaVar.x(g.e());
+                    gxaVar.y(g.f());
+                    gxaVar.u(g.b());
+                    gxaVar.o(g.a());
+                    gxaVar.x(g.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/startDownloadCss")) {
-                osaVar.s(true);
-                osa q = this.mJsBridge.q(webView, e.optString("downloadUrl"));
+                gxaVar.s(true);
+                gxa q = this.mJsBridge.q(webView, e.optString("downloadUrl"));
                 if (q != null) {
-                    osaVar.y(q.f());
-                    osaVar.u(q.b());
-                    osaVar.o(q.a());
-                    osaVar.x(q.e());
+                    gxaVar.y(q.f());
+                    gxaVar.u(q.b());
+                    gxaVar.o(q.a());
+                    gxaVar.x(q.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/bindMobileNumber")) {
-                osaVar.s(true);
-                osa c = this.mJsBridge.c(webView);
+                gxaVar.s(true);
+                gxa c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    osaVar.y(c.f());
-                    osaVar.u(c.b());
-                    osaVar.o(c.a());
-                    osaVar.x(c.e());
+                    gxaVar.y(c.f());
+                    gxaVar.u(c.b());
+                    gxaVar.o(c.a());
+                    gxaVar.x(c.e());
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/commonLogin")) {
-                osaVar.s(true);
-                osa p = this.mJsBridge.p(webView, e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
+                gxaVar.s(true);
+                gxa p = this.mJsBridge.p(webView, e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
                 this.mNotificationNameList.add("commonLogin");
                 if (p != null) {
-                    osaVar.y(p.f());
-                    osaVar.u(p.b());
-                    osaVar.o(p.a());
-                    osaVar.x(p.e());
-                    if (!osaVar.h()) {
-                        osaVar.n(false);
-                        addObserver(webView, "commonLogin", osaVar, false);
+                    gxaVar.y(p.f());
+                    gxaVar.u(p.b());
+                    gxaVar.o(p.a());
+                    gxaVar.x(p.e());
+                    if (!gxaVar.h()) {
+                        gxaVar.n(false);
+                        addObserver(webView, "commonLogin", gxaVar, false);
                     }
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/getAlipayUserId")) {
-                osaVar.s(true);
-                osa f = this.mJsBridge.f(webView);
+                gxaVar.s(true);
+                gxa f = this.mJsBridge.f(webView);
                 this.mNotificationNameList.add("aliAuthResult");
                 if (f != null) {
-                    osaVar.y(f.f());
-                    osaVar.u(f.b());
-                    osaVar.o(f.a());
-                    osaVar.x(f.e());
-                    if (!osaVar.h()) {
-                        osaVar.n(false);
-                        addObserver(webView, "aliAuthResult", osaVar, false);
+                    gxaVar.y(f.f());
+                    gxaVar.u(f.b());
+                    gxaVar.o(f.a());
+                    gxaVar.x(f.e());
+                    if (!gxaVar.h()) {
+                        gxaVar.n(false);
+                        addObserver(webView, "aliAuthResult", gxaVar, false);
                     }
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/authState")) {
-                osaVar.s(true);
-                osa d = this.mJsBridge.d(webView, e.optString("scene"));
+                gxaVar.s(true);
+                gxa d = this.mJsBridge.d(webView, e.optString("scene"));
                 this.mNotificationNameList.add("authStateResult");
                 if (d != null) {
-                    osaVar.y(d.f());
-                    osaVar.u(d.b());
-                    osaVar.o(d.a());
-                    osaVar.x(d.e());
-                    if (!osaVar.h()) {
-                        osaVar.n(false);
-                        addObserver(webView, "authStateResult", osaVar, false);
+                    gxaVar.y(d.f());
+                    gxaVar.u(d.b());
+                    gxaVar.o(d.a());
+                    gxaVar.x(d.e());
+                    if (!gxaVar.h()) {
+                        gxaVar.n(false);
+                        addObserver(webView, "authStateResult", gxaVar, false);
                     }
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             } else if (b.equals("account/realNameAuth")) {
-                osaVar.s(true);
-                osa n = this.mJsBridge.n(webView, e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
+                gxaVar.s(true);
+                gxa n = this.mJsBridge.n(webView, e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
                 this.mNotificationNameList.add("realNameAuthResult");
                 if (n != null) {
-                    osaVar.y(n.f());
-                    osaVar.u(n.b());
-                    osaVar.o(n.a());
-                    osaVar.x(n.e());
-                    if (!osaVar.h()) {
-                        osaVar.n(false);
-                        addObserver(webView, "realNameAuthResult", osaVar, false);
+                    gxaVar.y(n.f());
+                    gxaVar.u(n.b());
+                    gxaVar.o(n.a());
+                    gxaVar.x(n.e());
+                    if (!gxaVar.h()) {
+                        gxaVar.n(false);
+                        addObserver(webView, "realNameAuthResult", gxaVar, false);
                     }
                 }
-                osaVar.z(0);
+                gxaVar.z(0);
             }
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.msa
-    public dj6 getJsBridge() {
+    @Override // com.baidu.tieba.exa
+    public mj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (dj6) invokeV.objValue;
+        return (mj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.msa
-    public List<osa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.exa
+    public List<gxa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            osa osaVar = null;
+            gxa gxaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN)) {
-                osaVar = this.mJsBridge.s(webView, hashMap);
+                gxaVar = this.mJsBridge.s(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
-                osaVar = this.mJsBridge.l(webView, hashMap);
+                gxaVar = this.mJsBridge.l(webView, hashMap);
             } else if (str.equals("aliAuthResult")) {
-                osaVar = this.mJsBridge.k(webView, hashMap);
+                gxaVar = this.mJsBridge.k(webView, hashMap);
             } else if (str.equals("authStateResult")) {
-                osaVar = this.mJsBridge.e(webView, hashMap);
+                gxaVar = this.mJsBridge.e(webView, hashMap);
             } else if (str.equals("realNameAuthResult")) {
-                osaVar = this.mJsBridge.o(webView, hashMap);
+                gxaVar = this.mJsBridge.o(webView, hashMap);
             }
-            if (osaVar != null) {
-                osaVar.z(0);
+            if (gxaVar != null) {
+                gxaVar.z(0);
             }
-            List<nsa> list = this.mAsyncCallBackMethodList.get(str);
-            if (osaVar != null && list != null) {
-                Iterator<nsa> it = list.iterator();
-                if (!TextUtils.isEmpty(osaVar.e())) {
+            List<fxa> list = this.mAsyncCallBackMethodList.get(str);
+            if (gxaVar != null && list != null) {
+                Iterator<fxa> it = list.iterator();
+                if (!TextUtils.isEmpty(gxaVar.e())) {
                     while (it.hasNext()) {
-                        nsa next = it.next();
-                        if (next.b().equals(osaVar.e())) {
-                            osa osaVar2 = new osa();
-                            osaVar2.w(next.a());
-                            osaVar2.y(osaVar.f());
-                            osaVar2.u(osaVar.b());
-                            osaVar2.o(osaVar.a());
-                            osaVar2.j = osaVar.j;
-                            osaVar2.A(osaVar.l());
-                            arrayList.add(osaVar2);
+                        fxa next = it.next();
+                        if (next.b().equals(gxaVar.e())) {
+                            gxa gxaVar2 = new gxa();
+                            gxaVar2.w(next.a());
+                            gxaVar2.y(gxaVar.f());
+                            gxaVar2.u(gxaVar.b());
+                            gxaVar2.o(gxaVar.a());
+                            gxaVar2.j = gxaVar.j;
+                            gxaVar2.A(gxaVar.l());
+                            arrayList.add(gxaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -227,15 +227,15 @@ public class AccountJsBridgePlugin_Proxy extends msa {
                     }
                 } else {
                     while (it.hasNext()) {
-                        nsa next2 = it.next();
-                        osa osaVar3 = new osa();
-                        osaVar3.w(next2.a());
-                        osaVar3.y(osaVar.f());
-                        osaVar3.u(osaVar.b());
-                        osaVar3.o(osaVar.a());
-                        osaVar3.j = osaVar.j;
-                        osaVar3.A(osaVar.l());
-                        arrayList.add(osaVar3);
+                        fxa next2 = it.next();
+                        gxa gxaVar3 = new gxa();
+                        gxaVar3.w(next2.a());
+                        gxaVar3.y(gxaVar.f());
+                        gxaVar3.u(gxaVar.b());
+                        gxaVar3.o(gxaVar.a());
+                        gxaVar3.j = gxaVar.j;
+                        gxaVar3.A(gxaVar.l());
+                        arrayList.add(gxaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

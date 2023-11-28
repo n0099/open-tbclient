@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iv8 extends um8 {
+public final class iv8 extends hv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final iv8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BotsDTO.BotListDTO.SkillDTO a;
-    public TbTextGenImageMsg b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,69 +30,50 @@ public class iv8 extends um8 {
                 return;
             }
         }
-        c = BdUniqueId.gen().getId();
+        a = new iv8();
     }
 
-    @Override // com.baidu.tieba.um8
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public TbTextGenImageMsg b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (TbTextGenImageMsg) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getType();
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public iv8(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO) {
+    public iv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {skillDTO};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = skillDTO;
     }
 
-    public void e(@NonNull TbTextGenImageMsg tbTextGenImageMsg) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rv8
+    /* renamed from: e */
+    public void a(ChatMsg sdkMsg, TbBaseMsg tbMsg, String extJson) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tbTextGenImageMsg) == null) {
-            this.b = tbTextGenImageMsg;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sdkMsg, tbMsg, extJson) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            Intrinsics.checkNotNullParameter(extJson, "extJson");
+            sdkMsg.setCategory(4);
+            sdkMsg.setChatType(20);
+            sdkMsg.setChatRoomContentExt(extJson);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rv8
+    /* renamed from: f */
+    public String c(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            String chatRoomContentExt = sdkMsg.getChatRoomContentExt();
+            Intrinsics.checkNotNullExpressionValue(chatRoomContentExt, "sdkMsg.chatRoomContentExt");
+            return chatRoomContentExt;
+        }
+        return (String) invokeL.objValue;
     }
 }

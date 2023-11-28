@@ -38,9 +38,10 @@ public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
 
     @Override // com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer, com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer
     public void display(DecodedResult decodedResult, ImageAware imageAware, LoadedFrom loadedFrom) {
-        if (!(imageAware instanceof ImageViewAware)) {
-            throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
+        if (imageAware instanceof ImageViewAware) {
+            imageAware.setImageDrawable(new RoundedVignetteDrawable(decodedResult.mBitmap, this.cornerRadius, this.margin));
+            return;
         }
-        imageAware.setImageDrawable(new RoundedVignetteDrawable(decodedResult.mBitmap, this.cornerRadius, this.margin));
+        throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
     }
 }

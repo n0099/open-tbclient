@@ -19,13 +19,32 @@ public enum EcOrderCardStyle {
 
     @Nullable
     public static EcOrderCardStyle createFromAdInfo(AdInfo adInfo) {
-        if (com.kwad.components.ad.reward.kwai.b.j(adInfo) || com.kwad.components.ad.reward.kwai.b.i(adInfo)) {
-            AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
-            boolean hasSpike = bN.hasSpike();
-            boolean hasCoupon = bN.hasCoupon();
-            return (hasSpike && hasCoupon) ? SPIKE_AND_COUPON : hasSpike ? SPIKE : hasCoupon ? COUPON : bN.hasOriginalPrice() ? NO_SPIKE_AND_NO_COUPON : DEFAULT;
+        boolean z;
+        if (!com.kwad.components.ad.reward.a.b.k(adInfo) && !com.kwad.components.ad.reward.a.b.j(adInfo)) {
+            z = false;
+        } else {
+            z = true;
         }
-        return null;
+        if (!z) {
+            return null;
+        }
+        AdProductInfo cM = com.kwad.sdk.core.response.b.a.cM(adInfo);
+        boolean hasSpike = cM.hasSpike();
+        boolean hasCoupon = cM.hasCoupon();
+        boolean hasOriginalPrice = cM.hasOriginalPrice();
+        if (hasSpike && hasCoupon) {
+            return SPIKE_AND_COUPON;
+        }
+        if (hasSpike) {
+            return SPIKE;
+        }
+        if (hasCoupon) {
+            return COUPON;
+        }
+        if (hasOriginalPrice) {
+            return NO_SPIKE_AND_NO_COUPON;
+        }
+        return DEFAULT;
     }
 
     public final int getValue() {

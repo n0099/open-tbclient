@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,23 +16,18 @@ public class bz0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends ap0<String> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cz0 a;
+        public final /* synthetic */ hz0 a;
+        public final /* synthetic */ ap0 b;
 
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(cz0 cz0Var) {
+        public a(hz0 hz0Var, ap0 ap0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cz0Var};
+                Object[] objArr = {hz0Var, ap0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,68 +37,101 @@ public class bz0 {
                     return;
                 }
             }
-            this.a = cz0Var;
+            this.a = hz0Var;
+            this.b = ap0Var;
         }
 
-        @Override // com.baidu.tieba.yo0
-        public void a(Exception exc, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
-                az0.e(this.a.a(i, exc.getMessage()));
-            }
-        }
-
-        @Override // com.baidu.tieba.zo0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
-                az0.e(this.a.a(i, "success"));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bz0.g(this.a, this.b);
             }
         }
     }
 
-    public static void a(@Nullable cz0 cz0Var) {
-        e11 e11Var;
+    public static <T> void f(@NonNull hz0 hz0Var, @Nullable ap0<T> ap0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, cz0Var) == null) && cz0Var != null && !TextUtils.isEmpty(cz0Var.d())) {
-            hp0 hp0Var = new hp0();
-            hp0Var.l(cz0Var.d());
-            hp0Var.g(3000);
-            hp0Var.c();
-            if (!TextUtils.isEmpty(cz0Var.e)) {
-                hp0Var.d("User-Agent", cz0Var.e);
+        if (interceptable == null || interceptable.invokeLL(65541, null, hz0Var, ap0Var) == null) {
+            hz0Var.a();
+            c01.c(new a(hz0Var, ap0Var), "als_async_executor", 2);
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return hf0.d().A() + "/clog/clog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return hf0.d().A() + "/elog/plog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!y01.a) {
+                return Boolean.FALSE;
+            }
+            a11 a11Var = (a11) x01.a().a(a11.class);
+            if (a11Var != null && a11Var.a()) {
+                z = true;
             } else {
-                hp0Var.d("User-Agent", gf0.e());
+                z = false;
             }
-            oo0.b().a().a(hp0Var, new a(cz0Var));
-            if (x01.a && (e11Var = (e11) w01.a().a(e11.class)) != null) {
-                e11Var.b(new y01("计费", "", "并行计费"));
-            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public static void e(@NonNull hz0 hz0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hz0Var) == null) {
+            f(hz0Var, null);
         }
     }
 
-    public static void b(@Nullable String str) {
-        e11 e11Var;
+    public static <T> void g(hz0 hz0Var, @Nullable ap0<T> ap0Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        hp0 hp0Var = new hp0();
-        hp0Var.l(str);
-        hp0Var.g(3000);
-        hp0Var.d("User-Agent", gf0.e());
-        hp0Var.c();
-        oo0.b().a().a(hp0Var, null);
-        if (x01.a && (e11Var = (e11) w01.a().a(e11.class)) != null) {
-            e11Var.b(new y01("计费", "", "并行计费"));
+        if ((interceptable == null || interceptable.invokeLL(65542, null, hz0Var, ap0Var) == null) && hz0Var != null && hz0Var.isValid()) {
+            String hz0Var2 = hz0Var.toString();
+            if (hz0Var instanceof ClogBuilder) {
+                if (d().booleanValue()) {
+                    str = b();
+                } else {
+                    str = "https://als.baidu.com/clog/clog";
+                }
+            } else if (hz0Var instanceof iz0) {
+                if (d().booleanValue()) {
+                    str = c();
+                } else {
+                    str = "https://als.baidu.com/elog/plog";
+                }
+            } else if (hz0Var instanceof fz0) {
+                str = "https://afd.baidu.com/afd/close";
+            } else {
+                return;
+            }
+            hp0 hp0Var = new hp0();
+            hp0Var.h(hz0Var2);
+            hp0Var.k(BodyStyle.STRING);
+            hp0Var.i("application/x-www-form-urlencoded");
+            ip0 ip0Var = new ip0();
+            ip0Var.l(str);
+            ip0Var.f(hp0Var);
+            po0.b().a().a(ip0Var, ap0Var);
         }
     }
 }

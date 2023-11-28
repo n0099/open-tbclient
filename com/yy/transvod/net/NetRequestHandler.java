@@ -1,7 +1,7 @@
 package com.yy.transvod.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetRequestHandler {
     public static native void onNetComplete(long j, int i);
 

@@ -6,31 +6,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ag6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.eo8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.hr8;
+import com.baidu.tieba.ig6;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
 import com.baidu.tieba.im.biz.aibot.chatslice.ChatSlice;
-import com.baidu.tieba.im.biz.aibot.data.AibotArgs;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.os8;
-import com.baidu.tieba.ov4;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.ir8;
+import com.baidu.tieba.pv4;
+import com.baidu.tieba.rd;
 import com.baidu.tieba.sdkcode.tts.TtsApi;
 import com.baidu.tieba.sdkcode.tts.TtsListener;
 import com.baidu.tieba.sdkcode.tts.TtsManager;
-import com.baidu.tieba.sn8;
-import com.baidu.tieba.un8;
+import com.baidu.tieba.vq8;
+import com.baidu.tieba.vv8;
+import com.baidu.tieba.xq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,6 +43,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -54,33 +58,39 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u0000\u008f\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001#\u0018\u0000 H2\u00020\u00012\u00020\u0002:\u0004HIJKB\u001f\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u000e\u0010-\u001a\u00020.2\u0006\u0010/\u001a\u00020\u001dJ\b\u00100\u001a\u00020.H\u0002J\b\u00101\u001a\u00020.H\u0002J\b\u00102\u001a\u00020.H\u0016J\"\u00103\u001a\u0002042\u0006\u00105\u001a\u0002062\u0006\u00107\u001a\u0002082\b\u00109\u001a\u0004\u0018\u00010:H\u0016J\b\u0010;\u001a\u00020.H\u0016J\b\u0010<\u001a\u00020.H\u0016J\b\u0010=\u001a\u00020.H\u0016J\u0010\u0010>\u001a\u00020.2\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0018\u0010?\u001a\u00020.2\u0006\u0010@\u001a\u00020\u001b2\u0006\u0010A\u001a\u00020\u0019H\u0016J\u001c\u0010B\u001a\u00020.2\b\u0010C\u001a\u0004\u0018\u0001042\b\u00109\u001a\u0004\u0018\u00010:H\u0016J\b\u0010D\u001a\u00020.H\u0002J\u0012\u0010E\u001a\u00020.2\n\b\u0002\u0010F\u001a\u0004\u0018\u00010GR\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u001a\u0010\f\u001a\u00020\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0012\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0014\u0010\u0015R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020!X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u00020#X\u0082\u0004¢\u0006\u0004\n\u0002\u0010$R\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b%\u0010&R\u001a\u0010'\u001a\u00020(X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b)\u0010*\"\u0004\b+\u0010,¨\u0006L"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "botUk", "", "repo", "Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "argsData", "Lcom/baidu/tieba/im/biz/aibot/data/AibotArgs;", "(Ljava/lang/String;Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;Lcom/baidu/tieba/im/biz/aibot/data/AibotArgs;)V", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "h5Sender", "Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "getH5Sender", "()Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "setH5Sender", "(Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;)V", "initData", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "getInitData", "()Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "initData$delegate", "Lkotlin/Lazy;", "isWebViewReady", "", "mPageState", "", "mTTSExt", "Lorg/json/JSONObject;", "mTTSHelper", "Lcom/baidu/tieba/sdkcode/tts/TtsApi;", "mTTSListenerAdapter", "Lcom/baidu/tieba/sdkcode/tts/TtsListener$TtsListenerAdapter;", "onWebViewReady", "com/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1;", "getRepo", "()Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "setWebView", "(Lcom/baidu/tieba/browser/TbWebView;)V", "dealVoiceByMsgInTTS", "", "params", "initInjectBizData", "loadUrl", "onCreate", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "onSetPageState", "state", "refreshPage", "onViewCreated", "view", "trySetChatDetailToH5", "trySetPageStateToH5", "pageStateExt", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$PageStateExt;", "Companion", "InitData", "PageStateExt", "VisitedBotSet", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0099\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001(\u0018\u0000 Q2\u00020\u00012\u00020\u0002:\u0004QRSTB'\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\b\u0010\b\u001a\u0004\u0018\u00010\t¢\u0006\u0002\u0010\nJ\b\u00102\u001a\u000203H\u0002J\u000e\u00104\u001a\u0002032\u0006\u00105\u001a\u00020\"J\b\u00106\u001a\u000203H\u0002J\b\u00107\u001a\u00020\fH\u0002J\b\u00108\u001a\u00020\fH\u0002J\b\u00109\u001a\u000203H\u0002J\b\u0010:\u001a\u000203H\u0016J\"\u0010;\u001a\u00020<2\u0006\u0010=\u001a\u00020>2\u0006\u0010?\u001a\u00020@2\b\u0010A\u001a\u0004\u0018\u00010BH\u0016J\b\u0010C\u001a\u000203H\u0016J\b\u0010D\u001a\u000203H\u0016J\b\u0010E\u001a\u000203H\u0016J\u0010\u0010F\u001a\u0002032\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\u0018\u0010G\u001a\u0002032\u0006\u0010H\u001a\u00020 2\u0006\u0010I\u001a\u00020\fH\u0016J\u001c\u0010J\u001a\u0002032\b\u0010K\u001a\u0004\u0018\u00010<2\b\u0010A\u001a\u0004\u0018\u00010BH\u0016J\b\u0010L\u001a\u000203H\u0002J\b\u0010M\u001a\u000203H\u0002J\u0012\u0010N\u001a\u0002032\n\b\u0002\u0010O\u001a\u0004\u0018\u00010PR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0012\u001a\u00020\u0013X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u001b\u0010\u0018\u001a\u00020\u00198BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001a\u0010\u001bR\u000e\u0010\u001e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u00020(X\u0082\u0004¢\u0006\u0004\n\u0002\u0010)R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b*\u0010+R\u001a\u0010,\u001a\u00020-X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u0006U"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "botUk", "", "botPaid", "repo", "Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "argsData", "Lcom/baidu/tbadk/module/imaibot/AibotArgs;", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;Lcom/baidu/tbadk/module/imaibot/AibotArgs;)V", "canBackToPersonPage", "", "canChatPageStat", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "chatStartTime", "", "h5Sender", "Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "getH5Sender", "()Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "setH5Sender", "(Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;)V", "initData", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "getInitData", "()Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "initData$delegate", "Lkotlin/Lazy;", "isWebViewReady", "mPageState", "", "mTTSExt", "Lorg/json/JSONObject;", "mTTSHelper", "Lcom/baidu/tieba/sdkcode/tts/TtsApi;", "mTTSListenerAdapter", "Lcom/baidu/tieba/sdkcode/tts/TtsListener$TtsListenerAdapter;", "onWebViewReady", "com/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1;", "getRepo", "()Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "setWebView", "(Lcom/baidu/tieba/browser/TbWebView;)V", "dealChatPageShow", "", "dealVoiceByMsgInTTS", "params", "initInjectBizData", "isChatPageState", "isPersonPageState", "loadUrl", "onCreate", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "onSetPageState", "state", "refreshPage", "onViewCreated", "view", "statChatPageDuration", "trySetChatDetailToH5", "trySetPageStateToH5", "pageStateExt", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$PageStateExt;", "Companion", "InitData", "PageStateExt", "VisitedBotSet", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatSlice extends Slice implements un8 {
+public final class ChatSlice extends Slice implements xq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String v;
-    public static final a w;
+    public static final a A;
+    public static final String z;
     public transient /* synthetic */ FieldHolder $fh;
     public final String j;
-    public final AibotArgs k;
-    public TbWebView l;
-    public eo8 m;
-    public AibotChatDetail n;
-    public boolean o;
-    public final TtsApi p;
-    public JSONObject q;
-    public int r;
-    public final d s;
-    public final Lazy t;
-    public final TtsListener.a u;
+    public final String k;
+    public final AibotArgs l;
+    public TbWebView m;
+    public ir8 n;
+    public AibotChatDetail o;
+    public boolean p;
+    public final TtsApi q;
+    public JSONObject r;
+    public long s;
+    public boolean t;
+    public boolean u;
+    public int v;
+    public final d w;
+    public final Lazy x;
+    public final TtsListener.a y;
 
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u000e\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0082\b\u0018\u00002\u00020\u0001:\u0001\u001bB-\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\tJ\t\u0010\u0010\u001a\u00020\u0003HÆ\u0003J\t\u0010\u0011\u001a\u00020\u0005HÆ\u0003J\u000b\u0010\u0012\u001a\u0004\u0018\u00010\u0007HÆ\u0003J\u000b\u0010\u0013\u001a\u0004\u0018\u00010\u0007HÆ\u0003J5\u0010\u0014\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00072\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u0007HÆ\u0001J\u0013\u0010\u0015\u001a\u00020\u00162\b\u0010\u0017\u001a\u0004\u0018\u00010\u0018HÖ\u0003J\t\u0010\u0019\u001a\u00020\u0003HÖ\u0001J\t\u0010\u001a\u001a\u00020\u0007HÖ\u0001R\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\nR\u0018\u0010\b\u001a\u0004\u0018\u00010\u00078\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00078\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\fR\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000f¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "Ljava/io/Serializable;", "isColdStart", "", "userInfo", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;", "topicText", "", "sugText", "(ILcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;Ljava/lang/String;Ljava/lang/String;)V", "()I", "getSugText", "()Ljava/lang/String;", "getTopicText", "getUserInfo", "()Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;", "component1", "component2", "component3", "component4", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "hashCode", "toString", "UserInfo", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0014\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0082\b\u0018\u00002\u00020\u0001:\u0001!B9\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u0007\u0012\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\nJ\t\u0010\u0014\u001a\u00020\u0003HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0005HÆ\u0003J\u000b\u0010\u0016\u001a\u0004\u0018\u00010\u0007HÆ\u0003J\u000b\u0010\u0017\u001a\u0004\u0018\u00010\u0007HÆ\u0003J\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0003HÆ\u0003¢\u0006\u0002\u0010\rJF\u0010\u0019\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00072\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u00072\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\u0003HÆ\u0001¢\u0006\u0002\u0010\u001aJ\u0013\u0010\u001b\u001a\u00020\u001c2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001eHÖ\u0003J\t\u0010\u001f\u001a\u00020\u0003HÖ\u0001J\t\u0010 \u001a\u00020\u0007HÖ\u0001R\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\u000bR\u001a\u0010\t\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\n\n\u0002\u0010\u000e\u001a\u0004\b\f\u0010\rR\u0018\u0010\b\u001a\u0004\u0018\u00010\u00078\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00078\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0010R\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013¨\u0006\""}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "Ljava/io/Serializable;", "isColdStart", "", "userInfo", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;", "topicText", "", "sugText", AiBotChatDispatcher.AI_SINGLE_FROM, "(ILcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V", "()I", "getPageSource", "()Ljava/lang/Integer;", "Ljava/lang/Integer;", "getSugText", "()Ljava/lang/String;", "getTopicText", "getUserInfo", "()Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;", "component1", "component2", "component3", "component4", "component5", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "(ILcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData$UserInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "equals", "", "other", "", "hashCode", "toString", "UserInfo", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class InitData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("is_cold_start")
         public final int isColdStart;
+        @SerializedName("page_source")
+        public final Integer pageSource;
         @SerializedName("sug_text")
         public final String sugText;
         @SerializedName("topic_text")
@@ -88,20 +98,26 @@ public final class ChatSlice extends Slice implements un8 {
         @SerializedName(SourceConstant.SOURCE_USER_INFO)
         public final UserInfo userInfo;
 
-        public static /* synthetic */ InitData copy$default(InitData initData, int i, UserInfo userInfo, String str, String str2, int i2, Object obj) {
+        public static /* synthetic */ InitData copy$default(InitData initData, int i, UserInfo userInfo, String str, String str2, Integer num, int i2, Object obj) {
             if ((i2 & 1) != 0) {
                 i = initData.isColdStart;
             }
             if ((i2 & 2) != 0) {
                 userInfo = initData.userInfo;
             }
+            UserInfo userInfo2 = userInfo;
             if ((i2 & 4) != 0) {
                 str = initData.topicText;
             }
+            String str3 = str;
             if ((i2 & 8) != 0) {
                 str2 = initData.sugText;
             }
-            return initData.copy(i, userInfo, str, str2);
+            String str4 = str2;
+            if ((i2 & 16) != 0) {
+                num = initData.pageSource;
+            }
+            return initData.copy(i, userInfo2, str3, str4, num);
         }
 
         public final int component1() {
@@ -128,12 +144,18 @@ public final class ChatSlice extends Slice implements un8 {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sugText : (String) invokeV.objValue;
         }
 
-        public final InitData copy(int i, UserInfo userInfo, String str, String str2) {
+        public final Integer component5() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pageSource : (Integer) invokeV.objValue;
+        }
+
+        public final InitData copy(int i, UserInfo userInfo, String str, String str2, Integer num) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), userInfo, str, str2})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), userInfo, str, str2, num})) == null) {
                 Intrinsics.checkNotNullParameter(userInfo, "userInfo");
-                return new InitData(i, userInfo, str, str2);
+                return new InitData(i, userInfo, str, str2, num);
             }
             return (InitData) invokeCommon.objValue;
         }
@@ -141,13 +163,13 @@ public final class ChatSlice extends Slice implements un8 {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
                 if (this == obj) {
                     return true;
                 }
                 if (obj instanceof InitData) {
                     InitData initData = (InitData) obj;
-                    return this.isColdStart == initData.isColdStart && Intrinsics.areEqual(this.userInfo, initData.userInfo) && Intrinsics.areEqual(this.topicText, initData.topicText) && Intrinsics.areEqual(this.sugText, initData.sugText);
+                    return this.isColdStart == initData.isColdStart && Intrinsics.areEqual(this.userInfo, initData.userInfo) && Intrinsics.areEqual(this.topicText, initData.topicText) && Intrinsics.areEqual(this.sugText, initData.sugText) && Intrinsics.areEqual(this.pageSource, initData.pageSource);
                 }
                 return false;
             }
@@ -157,12 +179,14 @@ public final class ChatSlice extends Slice implements un8 {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 int hashCode = ((this.isColdStart * 31) + this.userInfo.hashCode()) * 31;
                 String str = this.topicText;
                 int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
                 String str2 = this.sugText;
-                return hashCode2 + (str2 != null ? str2.hashCode() : 0);
+                int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+                Integer num = this.pageSource;
+                return hashCode3 + (num != null ? num.hashCode() : 0);
             }
             return invokeV.intValue;
         }
@@ -170,8 +194,8 @@ public final class ChatSlice extends Slice implements un8 {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                return "InitData(isColdStart=" + this.isColdStart + ", userInfo=" + this.userInfo + ", topicText=" + this.topicText + ", sugText=" + this.sugText + ')';
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return "InitData(isColdStart=" + this.isColdStart + ", userInfo=" + this.userInfo + ", topicText=" + this.topicText + ", sugText=" + this.sugText + ", pageSource=" + this.pageSource + ')';
             }
             return (String) invokeV.objValue;
         }
@@ -311,12 +335,12 @@ public final class ChatSlice extends Slice implements un8 {
             }
         }
 
-        public InitData(int i, UserInfo userInfo, String str, String str2) {
+        public InitData(int i, UserInfo userInfo, String str, String str2, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), userInfo, str, str2};
+                Object[] objArr = {Integer.valueOf(i), userInfo, str, str2, num};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -331,16 +355,42 @@ public final class ChatSlice extends Slice implements un8 {
             this.userInfo = userInfo;
             this.topicText = str;
             this.sugText = str2;
+            this.pageSource = num;
         }
 
-        public /* synthetic */ InitData(int i, UserInfo userInfo, String str, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-            this(i, userInfo, (i2 & 4) != 0 ? null : str, (i2 & 8) != 0 ? null : str2);
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public /* synthetic */ InitData(int i, UserInfo userInfo, String str, String str2, Integer num, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+            this(i, userInfo, r4, r5, (i2 & 16) != 0 ? 0 : num);
+            String str3;
+            String str4;
+            if ((i2 & 4) != 0) {
+                str3 = null;
+            } else {
+                str3 = str;
+            }
+            if ((i2 & 8) != 0) {
+                str4 = null;
+            } else {
+                str4 = str2;
+            }
+        }
+
+        public final Integer getPageSource() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.pageSource;
+            }
+            return (Integer) invokeV.objValue;
         }
 
         public final String getSugText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 return this.sugText;
             }
             return (String) invokeV.objValue;
@@ -349,7 +399,7 @@ public final class ChatSlice extends Slice implements un8 {
         public final String getTopicText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return this.topicText;
             }
             return (String) invokeV.objValue;
@@ -358,7 +408,7 @@ public final class ChatSlice extends Slice implements un8 {
         public final UserInfo getUserInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return this.userInfo;
             }
             return (UserInfo) invokeV.objValue;
@@ -367,7 +417,7 @@ public final class ChatSlice extends Slice implements un8 {
         public final int isColdStart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 return this.isColdStart;
             }
             return invokeV.intValue;
@@ -552,7 +602,7 @@ public final class ChatSlice extends Slice implements un8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements ag6<Object> {
+    public static final class b implements ig6<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatSlice a;
@@ -576,13 +626,13 @@ public final class ChatSlice extends Slice implements un8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
+        @Override // com.baidu.tieba.ig6, java.util.concurrent.Callable
         /* renamed from: a */
         public JSONObject call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new JSONObject(DataExt.toJson(this.a.m0()));
+                return new JSONObject(DataExt.toJson(this.a.n0()));
             }
             return (JSONObject) invokeV.objValue;
         }
@@ -624,14 +674,14 @@ public final class ChatSlice extends Slice implements un8 {
                 hashMap2.put("statusDescription", errMsg);
                 hashMap.put("actionStatus", "1200");
                 hashMap.put("statusInfo", hashMap2);
-                if (this.a.q != null) {
-                    JSONObject jSONObject = this.a.q;
+                if (this.a.r != null) {
+                    JSONObject jSONObject = this.a.r;
                     Intrinsics.checkNotNull(jSONObject);
                     String jSONObject2 = jSONObject.toString();
                     Intrinsics.checkNotNullExpressionValue(jSONObject2, "mTTSExt!!.toString()");
                     hashMap.put("ext", DataExt.toMap(jSONObject2));
                 }
-                this.a.l0().a("handleAudioMsgByTTS", hashMap);
+                this.a.m0().a("handleAudioMsgByTTS", hashMap);
                 super.onPlayError(speakerId, i, errMsg);
             }
         }
@@ -643,14 +693,14 @@ public final class ChatSlice extends Slice implements un8 {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("actionStatus", "1005");
-                if (this.a.q != null) {
-                    JSONObject jSONObject = this.a.q;
+                if (this.a.r != null) {
+                    JSONObject jSONObject = this.a.r;
                     Intrinsics.checkNotNull(jSONObject);
                     String jSONObject2 = jSONObject.toString();
                     Intrinsics.checkNotNullExpressionValue(jSONObject2, "mTTSExt!!.toString()");
                     hashMap.put("ext", DataExt.toMap(jSONObject2));
                 }
-                this.a.l0().a("handleAudioMsgByTTS", hashMap);
+                this.a.m0().a("handleAudioMsgByTTS", hashMap);
                 super.onPlayFinish(speakerId);
             }
         }
@@ -662,14 +712,14 @@ public final class ChatSlice extends Slice implements un8 {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("actionStatus", "1002");
-                if (this.a.q != null) {
-                    JSONObject jSONObject = this.a.q;
+                if (this.a.r != null) {
+                    JSONObject jSONObject = this.a.r;
                     Intrinsics.checkNotNull(jSONObject);
                     String jSONObject2 = jSONObject.toString();
                     Intrinsics.checkNotNullExpressionValue(jSONObject2, "mTTSExt!!.toString()");
                     hashMap.put("ext", DataExt.toMap(jSONObject2));
                 }
-                this.a.l0().a("handleAudioMsgByTTS", hashMap);
+                this.a.m0().a("handleAudioMsgByTTS", hashMap);
                 super.onPlayStart(speakerId);
             }
         }
@@ -681,20 +731,20 @@ public final class ChatSlice extends Slice implements un8 {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("actionStatus", "1300");
-                if (this.a.q != null) {
-                    JSONObject jSONObject = this.a.q;
+                if (this.a.r != null) {
+                    JSONObject jSONObject = this.a.r;
                     Intrinsics.checkNotNull(jSONObject);
                     String jSONObject2 = jSONObject.toString();
                     Intrinsics.checkNotNullExpressionValue(jSONObject2, "mTTSExt!!.toString()");
                     hashMap.put("ext", DataExt.toMap(jSONObject2));
                 }
-                this.a.l0().a("handleAudioMsgByTTS", hashMap);
+                this.a.m0().a("handleAudioMsgByTTS", hashMap);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class d extends do8 {
+    public static final class d extends hr8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatSlice c;
@@ -720,14 +770,14 @@ public final class ChatSlice extends Slice implements un8 {
             this.c = chatSlice;
         }
 
-        @Override // com.baidu.tieba.gu4.c
+        @Override // com.baidu.tieba.iu4.c
         public void a(String data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                sn8.a.a("ChatSlice onWebViewReady");
-                this.c.o = true;
-                this.c.s0();
+                vq8.a.a("ChatSlice onWebViewReady");
+                this.c.p = true;
+                this.c.w0();
             }
         }
     }
@@ -745,53 +795,31 @@ public final class ChatSlice extends Slice implements un8 {
                 return;
             }
         }
-        v = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-chatgroup/ai-chat?customfullscreen=1&nonavigationbar=1";
-        w = new a();
+        z = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-chatgroup/ai-chat?customfullscreen=1&nonavigationbar=1";
+        A = new a();
     }
 
-    public final void p0() {
-        String str;
-        boolean z;
+    public final void w0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            AibotArgs aibotArgs = this.k;
-            if (aibotArgs == null || (str = aibotArgs.getH5Url()) == null) {
-                str = v;
-            }
-            if (str.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                str = v;
-            }
-            n0().loadUrl(str);
-            sn8.a.a("ChatSlice loadUrl", str);
-        }
-    }
-
-    public final void s0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.o && this.n != null) {
-            eo8 l0 = l0();
-            AibotChatDetail aibotChatDetail = this.n;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.p && this.o != null) {
+            ir8 m0 = m0();
+            AibotChatDetail aibotChatDetail = this.o;
             if (aibotChatDetail == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("chatDetail");
                 aibotChatDetail = null;
             }
-            l0.c("imBizAibotChatDetailData", DataExt.toJson(aibotChatDetail));
-            u0(this, null, 1, null);
-            sn8.a.a("ChatSlice trySetChatDetailToH5");
+            m0.c("imBizAibotChatDetailData", DataExt.toJson(aibotChatDetail));
+            y0(this, null, 1, null);
+            vq8.a.a("ChatSlice trySetChatDetailToH5");
         }
     }
 
-    public ChatSlice(String botUk, AibotChatRepo repo, AibotArgs aibotArgs) {
+    public ChatSlice(String botUk, String botPaid, AibotChatRepo repo, AibotArgs aibotArgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {botUk, repo, aibotArgs};
+            Object[] objArr = {botUk, botPaid, repo, aibotArgs};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -802,13 +830,15 @@ public final class ChatSlice extends Slice implements un8 {
             }
         }
         Intrinsics.checkNotNullParameter(botUk, "botUk");
+        Intrinsics.checkNotNullParameter(botPaid, "botPaid");
         Intrinsics.checkNotNullParameter(repo, "repo");
         this.j = botUk;
-        this.k = aibotArgs;
-        this.p = TtsManager.INSTANCE.createTts();
-        this.r = 2;
-        this.s = new d(this);
-        this.t = LazyKt__LazyJVMKt.lazy(new Function0<InitData>(this) { // from class: com.baidu.tieba.im.biz.aibot.chatslice.ChatSlice$initData$2
+        this.k = botPaid;
+        this.l = aibotArgs;
+        this.q = TtsManager.INSTANCE.createTts();
+        this.v = 2;
+        this.w = new d(this);
+        this.x = LazyKt__LazyJVMKt.lazy(new Function0<InitData>(this) { // from class: com.baidu.tieba.im.biz.aibot.chatslice.ChatSlice$initData$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatSlice this$0;
@@ -847,105 +877,134 @@ public final class ChatSlice extends Slice implements un8 {
                 AibotArgs aibotArgs2;
                 String str3;
                 AibotArgs aibotArgs3;
+                String str4;
+                AibotArgs aibotArgs4;
+                Integer num;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    ov4 t = ov4.t();
-                    String b2 = os8.b(t.j());
+                    pv4 t = pv4.t();
+                    String b2 = vv8.b(t.j());
                     Intrinsics.checkNotNullExpressionValue(b2, "am.currentAccountId.toUk()");
                     String m = t.m();
                     Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
                     String r = t.r();
                     Intrinsics.checkNotNullExpressionValue(r, "am.currentPortrait");
                     ChatSlice.InitData.UserInfo userInfo = new ChatSlice.InitData.UserInfo(b2, m, r);
-                    aVar = ChatSlice.w;
+                    aVar = ChatSlice.A;
                     str = this.this$0.j;
                     if (aVar.a(str)) {
                         i3 = 0;
                     } else {
-                        aVar2 = ChatSlice.w;
+                        aVar2 = ChatSlice.A;
                         str2 = this.this$0.j;
                         aVar2.b(str2);
                         i3 = 1;
                     }
-                    aibotArgs2 = this.this$0.k;
-                    String str4 = null;
+                    aibotArgs2 = this.this$0.l;
                     if (aibotArgs2 != null) {
                         str3 = aibotArgs2.getTopicText();
                     } else {
                         str3 = null;
                     }
-                    aibotArgs3 = this.this$0.k;
+                    aibotArgs3 = this.this$0.l;
                     if (aibotArgs3 != null) {
                         str4 = aibotArgs3.getSugText();
+                    } else {
+                        str4 = null;
                     }
-                    return new ChatSlice.InitData(i3, userInfo, str3, str4);
+                    aibotArgs4 = this.this$0.l;
+                    if (aibotArgs4 != null) {
+                        num = aibotArgs4.getPageSource();
+                    } else {
+                        num = null;
+                    }
+                    return new ChatSlice.InitData(i3, userInfo, str3, str4, num);
                 }
                 return (ChatSlice.InitData) invokeV.objValue;
             }
         });
-        this.u = new c(this);
+        this.y = new c(this);
     }
 
-    @Override // com.baidu.tieba.un8
-    public void N(AibotChatDetail chatDetail) {
+    @Override // com.baidu.tieba.xq8
+    public void O(AibotChatDetail chatDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatDetail) == null) {
             Intrinsics.checkNotNullParameter(chatDetail, "chatDetail");
             try {
-                sn8.a.a("ChatSlice setChatDetail");
-                this.n = chatDetail;
-                p0();
+                vq8.a.a("ChatSlice setChatDetail");
+                this.o = chatDetail;
                 s0();
+                w0();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    public final void q0(eo8 eo8Var) {
+    public final void t0(ir8 ir8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, eo8Var) == null) {
-            Intrinsics.checkNotNullParameter(eo8Var, "<set-?>");
-            this.m = eo8Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ir8Var) == null) {
+            Intrinsics.checkNotNullParameter(ir8Var, "<set-?>");
+            this.n = ir8Var;
         }
     }
 
-    public final void r0(TbWebView tbWebView) {
+    public final void u0(TbWebView tbWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, tbWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, tbWebView) == null) {
             Intrinsics.checkNotNullParameter(tbWebView, "<set-?>");
-            this.l = tbWebView;
+            this.m = tbWebView;
         }
     }
 
-    public final eo8 l0() {
+    public final void k0() {
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.s = System.currentTimeMillis();
+            if (this.u) {
+                gr8 gr8Var = gr8.a;
+                String str = this.k;
+                AibotArgs aibotArgs = this.l;
+                if (aibotArgs != null) {
+                    num = aibotArgs.getPageSource();
+                } else {
+                    num = null;
+                }
+                gr8Var.b(1, str, num);
+            }
+        }
+    }
+
+    public final ir8 m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            eo8 eo8Var = this.m;
-            if (eo8Var != null) {
-                return eo8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ir8 ir8Var = this.n;
+            if (ir8Var != null) {
+                return ir8Var;
             }
             Intrinsics.throwUninitializedPropertyAccessException("h5Sender");
             return null;
         }
-        return (eo8) invokeV.objValue;
+        return (ir8) invokeV.objValue;
     }
 
-    public final InitData m0() {
+    public final InitData n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (InitData) this.t.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return (InitData) this.x.getValue();
         }
         return (InitData) invokeV.objValue;
     }
 
-    public final TbWebView n0() {
+    public final TbWebView o0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TbWebView tbWebView = this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            TbWebView tbWebView = this.m;
             if (tbWebView != null) {
                 return tbWebView;
             }
@@ -955,22 +1014,14 @@ public final class ChatSlice extends Slice implements un8 {
         return (TbWebView) invokeV.objValue;
     }
 
-    public final void o0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            sn8.a.a("ChatSlice initInjectBizData");
-            n0().I("imBizAibotInitData", new b(this));
-        }
-    }
-
     @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            this.p.releaseAll();
-            do8.b.b(this.s);
-            n0().onDestroy();
+            this.q.releaseAll();
+            hr8.b.b(this.w);
+            o0().onDestroy();
         }
     }
 
@@ -979,8 +1030,11 @@ public final class ChatSlice extends Slice implements un8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            n0().onPause();
-            this.p.pauseAll();
+            o0().onPause();
+            this.q.pauseAll();
+            if (q0() && !this.t) {
+                v0();
+            }
         }
     }
 
@@ -989,71 +1043,113 @@ public final class ChatSlice extends Slice implements un8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            n0().onResume();
-            n0().W();
-            this.p.resumeAll();
+            o0().onResume();
+            o0().W();
+            this.q.resumeAll();
         }
+    }
+
+    public final void p0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            vq8.a.a("ChatSlice initInjectBizData");
+            o0().I("imBizAibotInitData", new b(this));
+        }
+    }
+
+    public final boolean q0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.v == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean r0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.v == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
-    public void w() {
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.w();
-            do8.b.a(this.s);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            super.v();
+            hr8.b.a(this.w);
         }
-    }
-
-    @Override // com.baidu.tieba.un8
-    public void S1(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.r == i) {
-            return;
-        }
-        this.r = i;
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
     public void a0(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.a0(view2, bundle);
-            o0();
+            p0();
         }
     }
 
-    public static /* synthetic */ void u0(ChatSlice chatSlice, PageStateExt pageStateExt, int i, Object obj) {
+    public static /* synthetic */ void y0(ChatSlice chatSlice, PageStateExt pageStateExt, int i, Object obj) {
         if ((i & 1) != 0) {
             pageStateExt = null;
         }
-        chatSlice.t0(pageStateExt);
+        chatSlice.x0(pageStateExt);
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
     public View U(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, inflater, container, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inflater, container, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Intrinsics.checkNotNullParameter(container, "container");
             TbWebView tbWebView = new TbWebView(container.getContext());
             tbWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            r0(tbWebView);
-            q0(new eo8(tbWebView));
+            u0(tbWebView);
+            t0(new ir8(tbWebView));
             return tbWebView;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public final void k0(JSONObject params) {
+    @Override // com.baidu.tieba.xq8
+    public void e2(int i, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, params) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
+            this.u = true;
+            if (this.v == i) {
+                return;
+            }
+            this.t = r0();
+            if (q0()) {
+                v0();
+            } else if (r0()) {
+                this.u = false;
+                k0();
+            }
+            this.v = i;
+        }
+    }
+
+    public final void l0(JSONObject params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, params) == null) {
             Intrinsics.checkNotNullParameter(params, "params");
             params.optString("chatType");
             params.optString("chatId");
             String speakId = params.optString("speakId");
             String optString = params.optString("actionType");
-            this.q = params.optJSONObject("ext");
+            this.r = params.optJSONObject("ext");
             JSONArray optJSONArray = params.optJSONArray("speechTexts");
             StringBuffer stringBuffer = new StringBuffer();
             if (optJSONArray != null && optJSONArray.length() != 0) {
@@ -1069,32 +1165,81 @@ public final class ChatSlice extends Slice implements un8 {
                     }
                 }
             }
-            TtsApi ttsApi = this.p;
+            TtsApi ttsApi = this.q;
             Intrinsics.checkNotNullExpressionValue(speakId, "speakId");
-            ttsApi.addWeakListener(speakId, this.u);
-            if (qd.isEquals(optString, "0")) {
-                TtsApi ttsApi2 = this.p;
+            ttsApi.addWeakListener(speakId, this.y);
+            if (rd.isEquals(optString, "0")) {
+                TtsApi ttsApi2 = this.q;
                 String stringBuffer2 = stringBuffer.toString();
                 Intrinsics.checkNotNullExpressionValue(stringBuffer2, "speechText.toString()");
                 ttsApi2.speak(speakId, stringBuffer2);
-            } else if (qd.isEquals(optString, "1")) {
-                this.p.pause(speakId);
-            } else if (qd.isEquals(optString, "2")) {
-                this.p.resume(speakId);
-            } else if (qd.isEquals(optString, "3")) {
-                this.p.stop(speakId);
+            } else if (rd.isEquals(optString, "1")) {
+                this.q.pause(speakId);
+            } else if (rd.isEquals(optString, "2")) {
+                this.q.resume(speakId);
+            } else if (rd.isEquals(optString, "3")) {
+                this.q.stop(speakId);
             }
         }
     }
 
-    public final void t0(PageStateExt pageStateExt) {
+    public final void s0() {
+        String str;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, pageStateExt) == null) {
-            Map mutableMapOf = MapsKt__MapsKt.mutableMapOf(TuplesKt.to(AiBotChatDispatcher.AI_SINGLE_PAGE_STATE, Integer.valueOf(this.r)));
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            AibotArgs aibotArgs = this.l;
+            if (aibotArgs == null || (str = aibotArgs.getH5Url()) == null) {
+                str = z;
+            }
+            if (str.length() == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                str = z;
+            }
+            if (!rd.isEquals(str, o0().getUrl())) {
+                o0().loadUrl(str);
+            }
+            vq8.a.a("ChatSlice loadUrl", str);
+        }
+    }
+
+    public final void v0() {
+        Integer num;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || !this.u) {
+            return;
+        }
+        String uid = BIMManager.getBdUidFromBdUK(this.j);
+        String format = new DecimalFormat(cj.d).format(Float.valueOf(((float) (System.currentTimeMillis() - this.s)) / 1000.0f));
+        if (format != null && Float.parseFloat(format) > 0.0f && Float.parseFloat(format) < 259200.0f) {
+            gr8 gr8Var = gr8.a;
+            Intrinsics.checkNotNullExpressionValue(uid, "uid");
+            AibotArgs aibotArgs = this.l;
+            if (aibotArgs != null) {
+                num = aibotArgs.getPageSource();
+            } else {
+                num = null;
+            }
+            gr8Var.a(uid, num, format);
+            this.s = System.currentTimeMillis();
+        }
+    }
+
+    public final void x0(PageStateExt pageStateExt) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, pageStateExt) == null) {
+            Map mutableMapOf = MapsKt__MapsKt.mutableMapOf(TuplesKt.to(AiBotChatDispatcher.AI_SINGLE_PAGE_STATE, Integer.valueOf(this.v)));
             if (pageStateExt != null) {
                 mutableMapOf.put("ext", DataExt.toMap(pageStateExt));
             }
-            l0().c("aibotNA.notifyPageState", DataExt.toJson(mutableMapOf));
+            m0().c("aibotNA.notifyPageState", DataExt.toJson(mutableMapOf));
+            if (this.s == 0 && q0()) {
+                k0();
+            }
         }
     }
 }

@@ -1,143 +1,191 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.annotation.FloatRange;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class te6 extends BdAsyncTask<Void, String, String> {
+public final class te6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public pe6 b;
-    public String c;
+    public double a;
+    public double b;
+    public boolean c;
+    public double d;
+    public double e;
+    public double f;
+    public double g;
+    public double h;
+    public double i;
+    public final qe6.h j;
 
-    public te6(String str, int i, pe6 pe6Var) {
+    public te6(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), pe6Var};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = pe6Var;
-        this.c = str;
+        this.a = Math.sqrt(1500.0d);
+        this.b = 0.5d;
+        this.c = false;
+        this.i = Double.MAX_VALUE;
+        this.j = new qe6.h();
+        this.i = f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return null;
-            }
-            return c(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (float) this.i;
         }
-        return (String) invokeL.objValue;
+        return invokeV.floatValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    public String c(String str) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ?? isEmpty = TextUtils.isEmpty(str);
-            String str2 = null;
-            str2 = null;
-            str2 = null;
-            InputStream inputStream = null;
-            try {
-                try {
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (isEmpty != 0) {
-                    return null;
-                }
-                try {
-                    isEmpty = new FileInputStream(str);
-                    try {
-                        byte[] bArr = new byte[isEmpty.available()];
-                        isEmpty.read(bArr);
-                        str2 = Base64.encodeToString(bArr, 0);
-                        isEmpty.close();
-                        isEmpty = isEmpty;
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (isEmpty != 0) {
-                            isEmpty.close();
-                            isEmpty = isEmpty;
-                        }
-                        return str2;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    isEmpty = 0;
-                } catch (Throwable th) {
-                    th = th;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = isEmpty;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        if (this.i != Double.MAX_VALUE) {
+            double d = this.b;
+            if (d > 1.0d) {
+                double d2 = this.a;
+                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
+                double d3 = this.b;
+                double d4 = this.a;
+                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
+            } else if (d >= 0.0d && d < 1.0d) {
+                this.h = this.a * Math.sqrt(1.0d - (d * d));
             }
-        } else {
-            return (String) invokeL.objValue;
+            this.c = true;
+            return;
+        }
+        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean c(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (Math.abs(f2) < this.e && Math.abs(f - a()) < this.d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public te6 d(@FloatRange(from = 0.0d) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (f >= 0.0f) {
+                this.b = f;
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Damping ratio must be non-negative");
+        }
+        return (te6) invokeF.objValue;
+    }
+
+    public te6 e(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            this.i = f;
+            return this;
+        }
+        return (te6) invokeF.objValue;
+    }
+
+    public te6 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f > 0.0f) {
+                this.a = Math.sqrt(f);
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
+        }
+        return (te6) invokeF.objValue;
+    }
+
+    public void g(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+            double abs = Math.abs(d);
+            this.d = abs;
+            this.e = abs * 62.5d;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public qe6.h h(double d, double d2, long j) {
+        InterceptResult invokeCommon;
+        double cos;
+        double d3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            super.onPostExecute((te6) str);
-            pe6 pe6Var = this.b;
-            if (pe6Var != null && str != null) {
-                pe6Var.a("", this.a, str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
+            b();
+            double d4 = j / 1000.0d;
+            double d5 = d - this.i;
+            double d6 = this.b;
+            if (d6 > 1.0d) {
+                double d7 = this.g;
+                double d8 = this.f;
+                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
+                double d10 = ((d5 * d7) - d2) / (d7 - d8);
+                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
+                double d11 = this.g;
+                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
+                double d12 = this.f;
+                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
+            } else if (d6 == 1.0d) {
+                double d13 = this.a;
+                double d14 = d2 + (d13 * d5);
+                double d15 = d5 + (d14 * d4);
+                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
+                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
+                double d16 = this.a;
+                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
+            } else {
+                double d17 = 1.0d / this.h;
+                double d18 = this.a;
+                double d19 = d17 * ((d6 * d18 * d5) + d2);
+                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
+                double d20 = this.a;
+                double d21 = this.b;
+                double d22 = (-d20) * pow3 * d21;
+                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
+                double d23 = this.h;
+                double sin = (-d23) * d5 * Math.sin(d23 * d4);
+                double d24 = this.h;
+                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
+                d3 = pow3;
             }
+            qe6.h hVar = this.j;
+            hVar.a = (float) (d3 + this.i);
+            hVar.b = (float) cos;
+            return hVar;
         }
+        return (qe6.h) invokeCommon.objValue;
     }
 }

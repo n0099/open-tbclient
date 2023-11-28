@@ -1,168 +1,165 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Message;
-import android.view.Surface;
-import android.view.TextureView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
 /* loaded from: classes7.dex */
-public class pfc extends lfc implements TextureView.SurfaceTextureListener {
+public final class pfc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface K;
-    public int L;
 
-    public pfc(Context context, dfc dfcVar, int i, int i2, vdc vdcVar) {
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, dfcVar, Integer.valueOf(i), Integer.valueOf(i2), vdcVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (str == null && str2 == null) {
+                return 0;
             }
-        }
-        this.K = null;
-        this.L = 0;
-        A(context, dfcVar, i, i2, vdcVar);
-    }
-
-    @Override // com.baidu.tieba.lfc
-    public void A(Context context, Object obj, int i, int i2, vdc vdcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), vdcVar}) == null) {
-            super.A(context, obj, i, i2, vdcVar);
-            if (obj != null && (obj instanceof dfc)) {
-                ((dfc) obj).a(this);
+            if (str != null && str2 == null) {
+                return 1;
             }
-        }
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                this.d.g(2402);
-                this.d.f(2402);
+            if (str == null) {
+                return -1;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ifc
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null) {
-            TLog.g(this, "OutputExternalSurfaceRender destroyWindow");
-        }
-    }
-
-    @Override // com.baidu.tieba.ifc
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void Z(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            X(true);
-            if (this.d != null) {
-                if (this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
+            if (str.equals(str2)) {
+                return 0;
+            }
+            if (str.startsWith(str2)) {
+                return 1;
+            }
+            if (str2.startsWith(str)) {
+                return -1;
+            }
+            String[] split = str.split("\\.|-");
+            String[] split2 = str2.split("\\.|-");
+            if (split.length <= split2.length) {
+                length = split.length;
+            } else {
+                length = split2.length;
+            }
+            for (int i = 0; i < length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    Integer.parseInt(split[i]);
+                    Integer.parseInt(split2[i]);
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                 }
-                TLog.g(this, "do send surfaceCreated, playerUID:" + this.r);
-                this.d.g(2401);
-                this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
             }
-        }
-    }
-
-    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
-        ddc ddcVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (ddcVar = this.d) != null) {
-            ddcVar.g(2404);
-            this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
-            TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
-            if (this.L % 100 == 0) {
-                TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+            if (split.length > length) {
+                return 1;
             }
-            this.L++;
-            D();
-            this.I.set(true);
-            U();
-            a0(surfaceTexture, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ifc
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            this.K = new Surface(surfaceTexture);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) && this.d != null && this.a.available()) {
-            this.d.g(2405);
-            this.d.f(2405);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i, i2) == null) {
-            TLog.g(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            this.I.set(true);
-            Z(surfaceTexture);
-            if (i > 0 && i2 > 0) {
-                a0(surfaceTexture, i, i2);
+            if (split2.length > length) {
+                return -1;
             }
+            return str.compareTo(str2);
         }
+        return invokeLL.intValue;
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        InterceptResult invokeL;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            TLog.g(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Y();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context != null && str != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(Context context, Class<? extends Activity> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+            if (context != null && cls != null) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    public static boolean e(android.content.Context r4, android.content.Intent r5) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.pfc.$ic
+            if (r0 != 0) goto L1a
+        L4:
+            r0 = 0
+            if (r4 == 0) goto L19
+            if (r5 != 0) goto La
+            goto L19
+        La:
+            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
+            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
+            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
+            if (r4 <= 0) goto L19
+            r0 = 1
+        L19:
+            return r0
+        L1a:
+            r1 = r0
+            r2 = 65540(0x10004, float:9.1841E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.pfc.e(android.content.Context, android.content.Intent):boolean");
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

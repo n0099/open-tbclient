@@ -37,15 +37,15 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cdb;
-import com.baidu.tieba.neb;
-import com.baidu.tieba.qeb;
-import com.baidu.tieba.reb;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.gr6;
+import com.baidu.tieba.jjb;
+import com.baidu.tieba.mjb;
+import com.baidu.tieba.njb;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.tieba.tkb;
+import com.baidu.tieba.v05;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wq6;
-import com.baidu.tieba.xfb;
+import com.baidu.tieba.yhb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 /* loaded from: classes8.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements neb, VoiceManager.j {
+public class NewWriteActivity extends BaseFragmentActivity implements jjb, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -66,20 +66,20 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
     @Nullable
     public View h;
     @Nullable
-    public cdb i;
+    public yhb i;
     @Nullable
-    public xfb j;
+    public tkb j;
     @Nullable
-    public qeb k;
+    public mjb k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.IPlayView J1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.IPlayView V1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.IPlayView) invokeL.objValue;
@@ -124,9 +124,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                qeb qebVar = this.a.k;
-                if (qebVar != null) {
-                    qebVar.b();
+                mjb mjbVar = this.a.k;
+                if (mjbVar != null) {
+                    mjbVar.b();
                 }
                 this.a.setResult(100);
                 this.a.t();
@@ -163,9 +163,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                qeb qebVar = this.a.k;
-                if (qebVar != null) {
-                    qebVar.B();
+                mjb mjbVar = this.a.k;
+                if (mjbVar != null) {
+                    mjbVar.B();
                     return false;
                 }
                 return false;
@@ -202,9 +202,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                qeb qebVar = this.a.k;
-                if (qebVar != null) {
-                    qebVar.s();
+                mjb mjbVar = this.a.k;
+                if (mjbVar != null) {
+                    mjbVar.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -240,7 +240,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.n1("6");
+                this.a.m1("6");
                 this.a.h.setVisibility(8);
             }
         }
@@ -279,9 +279,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                qeb qebVar = this.a.k;
-                if (qebVar != null) {
-                    qebVar.A();
+                mjb mjbVar = this.a.k;
+                if (mjbVar != null) {
+                    mjbVar.A();
                 }
                 BdUtilHelper.hideSoftKeyPad(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -306,15 +306,15 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         this.n = new a(this, 2921622);
     }
 
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.jjb
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            X0().stopPlay();
+            d1().stopPlay();
         }
     }
 
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.jjb
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -322,23 +322,10 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager X0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.g == null) {
-                this.g = new VoiceManager();
-            }
-            return this.g;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.jjb
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c.scrollTo(0, this.d.getHeight());
         }
     }
@@ -346,13 +333,26 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.l) {
                 ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 1);
             } else {
                 ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager d1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.g == null) {
+                this.g = new VoiceManager();
+            }
+            return this.g;
+        }
+        return (VoiceManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -367,12 +367,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         }
     }
 
-    public boolean o1() {
+    public boolean n1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            cdb cdbVar = this.i;
-            if (cdbVar != null && cdbVar.a()) {
+            yhb yhbVar = this.i;
+            if (yhbVar != null && yhbVar.a()) {
                 return true;
             }
             return false;
@@ -382,12 +382,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        qeb qebVar;
+        mjb mjbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            cdb cdbVar = this.i;
-            if ((cdbVar == null || !cdbVar.d()) && (qebVar = this.k) != null) {
-                L0(qebVar.onBackPressed());
+            yhb yhbVar = this.i;
+            if ((yhbVar == null || !yhbVar.d()) && (mjbVar = this.k) != null) {
+                K0(mjbVar.onBackPressed());
             }
         }
     }
@@ -397,12 +397,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onDestroy();
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onDestroy();
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onDestroy();
             }
             E();
-            X0().onDestory(getPageContext());
+            d1().onDestory(getPageContext());
             if (!this.m) {
                 WriteMsgHolder.setCurrentWriteActivityFromTag(null);
             }
@@ -414,14 +414,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onPause();
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onPause();
                 this.k.i();
             }
-            X0().onPause();
+            d1().onPause();
             BdUtilHelper.hideSoftKeyPad(this, getCurrentFocus());
-            YunDialogManager.onHidden(s05.n);
+            YunDialogManager.onHidden(v05.n);
         }
     }
 
@@ -430,12 +430,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onResume();
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onResume();
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onResume();
             }
-            X0().onResume(getPageContext());
-            YunDialogManager.onShow(this, s05.n);
+            d1().onResume(getPageContext());
+            YunDialogManager.onShow(this, v05.n);
         }
     }
 
@@ -444,11 +444,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onStart();
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onStart();
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onStart();
             }
-            X0().onStart(getPageContext());
+            d1().onStart(getPageContext());
         }
     }
 
@@ -457,15 +457,15 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onStop();
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onStop();
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onStop();
             }
-            X0().onStop(getPageContext());
+            d1().onStop(getPageContext());
         }
     }
 
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.jjb
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -474,19 +474,19 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         }
     }
 
-    @Override // com.baidu.tieba.neb
-    public void L0(boolean z) {
+    @Override // com.baidu.tieba.jjb
+    public void K0(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !z) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && !z) {
             setResult(100);
             finish();
         }
     }
 
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.jjb
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             new BdTopToast(this, 3000).setIcon(false).setContent(str).show((ViewGroup) this.a);
         }
     }
@@ -508,9 +508,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onChangeSkinType(i);
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -524,9 +524,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.e(z);
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.e(z);
             }
         }
     }
@@ -536,9 +536,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, intent) == null) {
             super.onNewIntent(intent);
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onNewIntent(intent);
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onNewIntent(intent);
             }
         }
     }
@@ -547,35 +547,35 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, bundle) == null) {
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onSaveInstanceState(bundle);
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onSaveInstanceState(bundle);
             }
-            X0().onSaveInstanceState(this);
+            d1().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.neb
-    public void M0(int i, boolean z) {
+    @Override // com.baidu.tieba.jjb
+    public void L0(int i, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("type", i);
-        xfb xfbVar = this.j;
-        if (xfbVar != null) {
-            this.k = xfbVar.a(i, z);
+        tkb tkbVar = this.j;
+        if (tkbVar != null) {
+            this.k = tkbVar.a(i, z);
         }
-        qeb qebVar = this.k;
-        if (qebVar != null) {
-            qebVar.onCreate(null);
+        mjb mjbVar = this.k;
+        if (mjbVar != null) {
+            mjbVar.onCreate(null);
             this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
 
-    public void n1(String str) {
+    public void m1(String str) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -587,7 +587,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
                 }
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{reb.a + str2 + ("&from=" + str)});
+                urlManager.dealOneLink(pageContext, new String[]{njb.a + str2 + ("&from=" + str)});
             } catch (Exception e2) {
                 BdLog.e("openPageByUrl fail:" + e2);
             }
@@ -599,9 +599,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048590, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            qeb qebVar = this.k;
-            if (qebVar != null) {
-                qebVar.onActivityResult(i, i2, intent);
+            mjb mjbVar = this.k;
+            if (mjbVar != null) {
+                mjbVar.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -619,27 +619,27 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0063);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091acb);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b40);
             this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092add);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907c0);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092b66);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907dc);
             this.e = (LinearLayout) findViewById(R.id.tool_view);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            xfb xfbVar = new xfb(getPageContext(), this.b, this.d, this.e, this);
-            this.j = xfbVar;
-            qeb b2 = xfbVar.b(bundle);
+            tkb tkbVar = new tkb(getPageContext(), this.b, this.d, this.e, this);
+            this.j = tkbVar;
+            mjb b2 = tkbVar.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
             }
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
-            X0().onCreate(getPageContext());
-            cdb cdbVar = new cdb(this);
-            this.i = cdbVar;
-            cdbVar.e();
+            d1().onCreate(getPageContext());
+            yhb yhbVar = new yhb(this);
+            this.i = yhbVar;
+            yhbVar.e();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_source", "old_write"));
         }
     }
@@ -648,21 +648,21 @@ public class NewWriteActivity extends BaseFragmentActivity implements neb, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092a0a)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f092a09);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092a92)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f092a91);
             }
             this.h.setVisibility(0);
             EMManager.from(this.h).setAlpha(R.string.A_X05).setBackGroundColor(R.color.CAM_X0611);
-            EMManager.from(this.h.findViewById(R.id.obfuscated_res_0x7f092a08)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.h.findViewById(R.id.obfuscated_res_0x7f092a90)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
             TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
             EMManager.from(textView).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0105).setBorderAlpha(R.string.A_X07);
             textView.setOnClickListener(new c(this));
             TextView textView2 = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_btn);
             EMManager.from(textView2).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0304).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBorderAlpha(R.string.A_X07);
             textView2.setOnClickListener(new d(this));
-            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f092a0c);
+            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f092a94);
             if (findViewById instanceof ImageView) {
-                Glide.with(findViewById).load(wq6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+                Glide.with(findViewById).load(gr6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
             }
         }
     }

@@ -1,131 +1,268 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.StatFs;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class cu8 extends gu8<ShareIMCommonCardData> {
-    public static /* synthetic */ Interceptable $ic;
+public class cu8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static cu8 c = null;
+    public static long d = -1;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout m;
-    public BarImageView n;
-    public TextView o;
-    public TextView p;
+    public b a;
+    public c b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cu8(@NonNull Context context) {
-        super(context);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947687363, "Lcom/baidu/tieba/cu8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947687363, "Lcom/baidu/tieba/cu8;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cu8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cu8 cu8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cu8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage)) {
+                return;
+            }
+            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.a.sendMessageDelayed(this.a.a.obtainMessage(1), 30000L);
+                return;
+            }
+            this.a.a.removeMessages(1);
+            this.a.j();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 1) {
+                    cu8.i().a.removeMessages(1);
+                    cu8.i().h();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<String, Object, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(cu8 cu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(cu8 cu8Var, a aVar) {
+            this(cu8Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                LinkedList<ImMessageCenterPojo> h = du8.f().h();
+                if (h != null && h.size() != 0) {
+                    if (cu8.d < 0) {
+                        try {
+                            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+                            long unused = cu8.d = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                            if (cu8.d > 2147483648L) {
+                                int unused2 = cu8.e = 5000;
+                            } else if (cu8.d > 1073741824) {
+                                int unused3 = cu8.e = 3000;
+                            } else {
+                                int unused4 = cu8.e = 1000;
+                            }
+                        } catch (Exception e) {
+                            BdLog.e(e);
+                        }
+                    }
+                    if (cu8.e < 1000) {
+                        int unused5 = cu8.e = 1000;
+                    }
+                    try {
+                        try {
+                            bu8.e().h();
+                            for (ImMessageCenterPojo imMessageCenterPojo : h) {
+                                if (isCancelled()) {
+                                    bu8.e().c();
+                                    return Boolean.FALSE;
+                                } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                                    gu8.w().r(imMessageCenterPojo.getGid(), cu8.e);
+                                } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                                    fu8.w().r(imMessageCenterPojo.getGid(), cu8.e);
+                                } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
+                                    xt8.c().g(imMessageCenterPojo.getGid(), cu8.e);
+                                }
+                            }
+                        } catch (Exception e2) {
+                            BdLog.e(e2.getMessage());
+                        }
+                        bu8.e().c();
+                        return Boolean.TRUE;
+                    } finally {
+                        bu8.e().c();
+                    }
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    public cu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new b(null);
+        this.b = null;
+        MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
-    @Override // com.baidu.tieba.zt8
-    public void a(String str) {
-        boolean z;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ShareIMCommonCardData shareIMCommonCardData = (ShareIMCommonCardData) this.j;
-            long userIdLong = this.k.getUserIdLong();
-            String userName = this.k.getUserName();
-            String name_show = this.k.getName_show();
-            String portrait = this.k.getPortrait();
-            if (this.k.getIsMyFriend() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c cVar = this.b;
+            if (cVar != null) {
+                cVar.cancel();
+                this.b = null;
             }
-            ow8.c(shareIMCommonCardData, str, userIdLong, userName, name_show, portrait, z);
+            c cVar2 = new c(this, null);
+            this.b = cVar2;
+            cVar2.setParallel(TiebaIMConfig.getParallel());
+            this.b.setPriority(4);
+            this.b.execute(new String[0]);
         }
     }
 
-    @Override // com.baidu.tieba.zt8
-    public void b(String str) {
+    public static cu8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ow8.e(str, this.k.groupData, (ShareIMCommonCardData) this.j);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.g();
-            EMManager.from(this.m).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0207);
-            EMManager.from(this.o).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            EMManager.from(this.p).setTextColor(R.color.CAM_X0109);
-            this.n.setStrokeColorResId(R.color.CAM_X0401);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu8
-    public void m(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            super.m(context);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_topic, i());
-            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_topic_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_topic_info_head);
-            this.n = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.n.setAutoChangeStyle(true);
-            this.n.setShowInnerBorder(true);
-            this.n.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.n.setRadiusById(R.string.J_X04);
-            this.o = (TextView) inflate.findViewById(R.id.im_share_topic_info_title);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_topic_info_desc);
-            g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gu8
-    /* renamed from: q */
-    public void o(ShareIMCommonCardData shareIMCommonCardData, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, shareIMCommonCardData, metaData) == null) {
-            super.o(shareIMCommonCardData, metaData);
-            if (shareIMCommonCardData == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (c == null) {
+                synchronized (cu8.class) {
+                    if (c == null) {
+                        c = new cu8();
+                    }
+                }
             }
-            this.n.startLoad(shareIMCommonCardData.getAvatar(), 10, false);
-            this.o.setText(shareIMCommonCardData.getTitle());
-            if (TextUtils.isEmpty(shareIMCommonCardData.getDesc())) {
-                this.p.setVisibility(8);
-                return;
-            }
-            this.p.setVisibility(0);
-            this.p.setText(shareIMCommonCardData.getDesc());
+            return c;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
+    public final void j() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.b) != null) {
+            cVar.cancel();
+            this.b = null;
         }
     }
 }

@@ -7,13 +7,13 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TaskDataSet implements Serializable {
     public static final Comparator<TaskData> DATA_COMPARATOR = new MyComparator();
     public static final long serialVersionUID = -8880276834197410994L;
     public Set<TaskData> dataSet = new TreeSet(DATA_COMPARATOR);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class MyComparator implements Comparator<TaskData>, Serializable {
         public static final long serialVersionUID = 605434724079570979L;
 

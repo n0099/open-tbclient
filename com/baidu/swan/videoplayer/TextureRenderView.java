@@ -11,33 +11,33 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.baidu.tieba.cn4;
 import com.baidu.tieba.dn4;
+import com.baidu.tieba.en4;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes4.dex */
-public class TextureRenderView extends TextureView implements cn4 {
-    public dn4 a;
+public class TextureRenderView extends TextureView implements dn4 {
+    public en4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
-    @Override // com.baidu.tieba.cn4
+    @Override // com.baidu.tieba.dn4
     public View getView() {
         return this;
     }
 
     /* loaded from: classes4.dex */
-    public static final class a implements cn4.b {
+    public static final class a implements dn4.b {
         public TextureRenderView a;
 
         public a(TextureRenderView textureRenderView) {
             this.a = textureRenderView;
         }
 
-        @Override // com.baidu.tieba.cn4.b
+        @Override // com.baidu.tieba.dn4.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             if (mediaPlayer != null && this.a.getSurfaceTexture() != null) {
@@ -51,8 +51,8 @@ public class TextureRenderView extends TextureView implements cn4 {
             }
         }
 
-        @Override // com.baidu.tieba.cn4.b
-        public cn4 b() {
+        @Override // com.baidu.tieba.dn4.b
+        public dn4 b() {
             return this.a;
         }
 
@@ -69,7 +69,7 @@ public class TextureRenderView extends TextureView implements cn4 {
         public int d;
         public WeakReference<TextureRenderView> f;
         public volatile boolean e = false;
-        public Map<cn4.a, Object> g = new ConcurrentHashMap();
+        public Map<dn4.a, Object> g = new ConcurrentHashMap();
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
@@ -79,7 +79,7 @@ public class TextureRenderView extends TextureView implements cn4 {
             this.f = new WeakReference<>(textureRenderView);
         }
 
-        public void b(cn4.a aVar) {
+        public void b(dn4.a aVar) {
             this.g.remove(aVar);
         }
 
@@ -87,7 +87,7 @@ public class TextureRenderView extends TextureView implements cn4 {
             this.e = z;
         }
 
-        public void a(cn4.a aVar) {
+        public void a(dn4.a aVar) {
             a aVar2;
             this.g.put(aVar, aVar);
             if (this.a != null) {
@@ -111,7 +111,7 @@ public class TextureRenderView extends TextureView implements cn4 {
             this.c = 0;
             this.d = 0;
             a aVar = new a(this.f.get());
-            for (cn4.a aVar2 : this.g.keySet()) {
+            for (dn4.a aVar2 : this.g.keySet()) {
                 aVar2.a(aVar);
             }
             return this.e;
@@ -130,7 +130,7 @@ public class TextureRenderView extends TextureView implements cn4 {
             this.c = 0;
             this.d = 0;
             a aVar = new a(this.f.get());
-            for (cn4.a aVar2 : this.g.keySet()) {
+            for (dn4.a aVar2 : this.g.keySet()) {
                 aVar2.b(aVar, 0, 0);
             }
         }
@@ -142,7 +142,7 @@ public class TextureRenderView extends TextureView implements cn4 {
             this.c = i;
             this.d = i2;
             a aVar = new a(this.f.get());
-            for (cn4.a aVar2 : this.g.keySet()) {
+            for (dn4.a aVar2 : this.g.keySet()) {
                 aVar2.c(aVar, 0, i, i2);
             }
         }
@@ -154,18 +154,18 @@ public class TextureRenderView extends TextureView implements cn4 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.cn4
-    public void a(cn4.a aVar) {
+    @Override // com.baidu.tieba.dn4
+    public void a(dn4.a aVar) {
         this.d.b(aVar);
     }
 
-    @Override // com.baidu.tieba.cn4
-    public void b(cn4.a aVar) {
+    @Override // com.baidu.tieba.dn4
+    public void b(dn4.a aVar) {
         this.d.a(aVar);
     }
 
     public final void c(Context context) {
-        this.a = new dn4(this);
+        this.a = new en4(this);
         b bVar = new b(this);
         this.d = bVar;
         setSurfaceTextureListener(bVar);
@@ -183,7 +183,7 @@ public class TextureRenderView extends TextureView implements cn4 {
         accessibilityNodeInfo.setClassName(TextureRenderView.class.getName());
     }
 
-    @Override // com.baidu.tieba.cn4
+    @Override // com.baidu.tieba.dn4
     public void setAspectRatio(int i) {
         this.a.d(i);
         requestLayout();
@@ -221,7 +221,7 @@ public class TextureRenderView extends TextureView implements cn4 {
         }
     }
 
-    @Override // com.baidu.tieba.cn4
+    @Override // com.baidu.tieba.dn4
     public void setVideoSize(int i, int i2) {
         if (i > 0 && i2 > 0) {
             this.a.g(i, i2);
@@ -243,7 +243,7 @@ public class TextureRenderView extends TextureView implements cn4 {
         return this.c;
     }
 
-    public cn4.b getSurfaceHolder() {
+    public dn4.b getSurfaceHolder() {
         return new a(this);
     }
 
@@ -253,7 +253,7 @@ public class TextureRenderView extends TextureView implements cn4 {
         Log.d("TextureRenderView", "onDetachedFromWindow");
     }
 
-    @Override // com.baidu.tieba.cn4
+    @Override // com.baidu.tieba.dn4
     @TargetApi(16)
     public void release() {
         if (this.c != null) {

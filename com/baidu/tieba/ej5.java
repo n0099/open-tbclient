@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,378 +13,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class ej5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String h;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "add_user_collect_emotoin";
+    public static String b = "image_url";
+    public static String c = "thumbnail_url";
+    public static String d = "pic_id";
+    public static String e = "package_id";
+    public static String f = "#(meme,setting)";
+    public static String g = "#(meme,collect_";
+    public static String h = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
-    public aj5 a;
-    public boolean b;
-    public ImageFileInfo c;
-    public dj5 d;
-    public dj5 e;
-    public dj5 f;
-    public dj5 g;
-
-    /* loaded from: classes5.dex */
-    public class a implements dj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ej5 a;
-
-        public a(ej5 ej5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ej5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ej5Var;
-        }
-
-        @Override // com.baidu.tieba.dj5
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            String m;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                if (this.a.a == null) {
-                    this.a.a = new aj5();
-                }
-                String filePath = imageFileInfo.getFilePath();
-                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
-                imageFileInfo.setPageActionsList(null);
-                if (filePath.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                    File file = new File(fl5.b.d(imageFileInfo.getFilePath(), true));
-                    if (file.exists()) {
-                        return file.getAbsolutePath();
-                    }
-                }
-                BdImage c = this.a.a.c(imageFileInfo, true);
-                if (c == null) {
-                    Bitmap k = this.a.k(imageFileInfo);
-                    if (k == null) {
-                        return null;
-                    }
-                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
-                    if (readPictureDegree != 0) {
-                        k = BitmapHelper.rotateBitmapBydegree(k, readPictureDegree);
-                    }
-                    m = this.a.m(k, 5242880L, 100);
-                } else {
-                    m = this.a.m(c.getRawBitmap(), 5242880L, 100);
-                }
-                imageFileInfo.setPageActionsList(pageActionsList);
-                return m;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements dj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ej5 a;
-
-        public b(ej5 ej5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ej5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ej5Var;
-        }
-
-        @Override // com.baidu.tieba.dj5
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return this.a.g(imageFileInfo.getFilePath());
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements dj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ej5 a;
-
-        public c(ej5 ej5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ej5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ej5Var;
-        }
-
-        @Override // com.baidu.tieba.dj5
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return this.a.m(this.a.i(imageFileInfo.getFilePath()), 5242880L, 100);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736281, "Lcom/baidu/tieba/ej5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947736281, "Lcom/baidu/tieba/ej5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947736281, "Lcom/baidu/tieba/ej5;")) == null) {
+            return;
         }
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
-    }
-
-    public ej5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = false;
-        this.d = new a(this);
-        b bVar = new b(this);
-        this.e = bVar;
-        this.f = bVar;
-        this.g = new c(this);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947736281, "Lcom/baidu/tieba/ej5;");
+        }
     }
 
-    public final String h(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ".jpg";
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            try {
-                substring = str.substring(str.lastIndexOf("."));
-            } catch (Exception unused) {
-            }
-            if (TextUtils.isEmpty(substring)) {
-                return ".jpg";
-            }
-            return substring;
         }
-        return (String) invokeL.objValue;
     }
 
-    public final BitmapFactory.Options l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            return options;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (BitmapFactory.Options) invokeL.objValue;
     }
 
-    public final String g(String str) {
-        InterceptResult invokeL;
-        int i;
+    public static String a() {
+        InterceptResult invokeV;
+        String currentAccount;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            long fileSize = FileHelper.getFileSize(str);
-            if (fileSize >= 31457280) {
-                i = 80;
-            } else if (fileSize >= 20971520) {
-                i = 85;
-            } else if (fileSize >= 15728640) {
-                i = 90;
-            } else if (fileSize >= Config.FULL_TRACE_LOG_LIMIT) {
-                i = 95;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
             } else {
-                i = 100;
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
             }
-            try {
-                int readPictureDegree = BitmapHelper.readPictureDegree(str);
-                if (readPictureDegree != 0 || i != 100) {
-                    Bitmap i2 = i(str);
-                    if (readPictureDegree != 0 && i2 != null) {
-                        return m(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
-                    }
-                    return m(i2, Config.FULL_TRACE_LOG_LIMIT, i);
-                }
-                return str;
-            } catch (Throwable unused) {
-                return str;
-            }
+            sb.append(currentAccount);
+            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Bitmap i(String str) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
+        String currentAccount;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BitmapFactory.Options l = l(str);
-            int i = l.outWidth;
-            int i2 = l.outHeight;
-            if (i != 0 && i2 != 0) {
-                Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
-                if (loadBitmap != null && !loadBitmap.isRecycled()) {
-                    return loadBitmap;
-                }
-                int i3 = 2;
-                for (int i4 = 0; i4 < 3; i4++) {
-                    l.inSampleSize = i3;
-                    Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, l);
-                    if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
-                        return loadBitmap2;
-                    }
-                    i3 *= 2;
-                }
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public String j(WriteData writeData, ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLLZ;
-        dj5 dj5Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, writeData, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            this.c = imageFileInfo;
-            String filePath = imageFileInfo.getFilePath();
-            boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
-            boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
-            if (!imageFileInfo.isGif() && (!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
-                if (checkIsLongImage) {
-                    dj5Var = this.g;
-                    str = "正常·长图";
-                } else {
-                    dj5Var = this.d;
-                    str = "正常·图";
-                }
-            } else if (checkIsLongImage) {
-                dj5Var = this.f;
-                str = "原始·长图";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("diy_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
             } else {
-                dj5Var = this.e;
-                str = "原始·图";
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
             }
-            sta.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
-            String a2 = dj5Var.a(imageFileInfo);
-            sta.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
-            return a2;
+            sb.append(currentAccount);
+            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String m(Bitmap bitmap, long j, int i) {
-        InterceptResult invokeCommon;
-        String str;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (this.b) {
-                ImageFileInfo imageFileInfo = this.c;
-                if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
-                    return FileHelper.compressBitmapToFile(h, wd.c(this.c.toCachedKey(false)) + h(this.c.getFilePath()), bitmap, (float) j, i);
-                }
-                return "";
-            }
-            ImageFileInfo imageFileInfo2 = this.c;
-            if (imageFileInfo2 != null && !TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) {
-                str = this.c.getTempUploadFileName();
-            } else {
-                str = "img_upload_temp_file.temp";
-            }
-            return FileHelper.compressBitmapToFile(str, bitmap, (float) j, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Math.abs(b().hashCode()) + "";
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Bitmap k(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        sb loaderProc;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageFileInfo)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            if (this.a == null) {
-                this.a = new aj5();
-            }
-            if (imageFileInfo.getImageType() == 0) {
-                return aj5.g(imageFileInfo, true);
-            }
-            if (imageFileInfo.getImageType() == 1 && (loaderProc = BdResourceLoader.getInstance().getLoaderProc(20)) != null) {
-                try {
-                    Object fromLocal = loaderProc.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
-                    if (fromLocal instanceof BdImage) {
-                        return ((BdImage) fromLocal).getRawBitmap();
-                    }
-                } catch (OutOfMemoryError unused) {
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
         }
-        return (Bitmap) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i = 0;
+        int i2 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i2++;
+            }
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
+                i++;
+            }
+        }
+        if (i2 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem);
+        }
+        if (i > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i);
+            TiebaStatic.log(statisticItem2);
+        }
     }
 }

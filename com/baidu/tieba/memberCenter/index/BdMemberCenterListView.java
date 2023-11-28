@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h16;
+import com.baidu.tieba.o16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public final int f1132T;
+    public final int f1128T;
     public a U;
 
     /* loaded from: classes7.dex */
@@ -122,15 +122,15 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h16.ExpandListView);
-        this.f1132T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o16.ExpandListView);
+        this.f1128T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
     public final void I(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.U.a(360.0f - ((f * 360.0f) / this.f1132T));
+            this.U.a(360.0f - ((f * 360.0f) / this.f1128T));
         }
     }
 
@@ -187,7 +187,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         } else {
             height = view2.getHeight();
         }
-        if (height >= this.O.b - (this.f1132T / 2)) {
+        if (height >= this.O.b - (this.f1128T / 2)) {
             J();
         } else {
             this.U.b();
@@ -271,7 +271,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
                 this.M = this.N;
                 this.Q = this.R;
-                this.O = new b(0, height, 0, this.f1132T + height);
+                this.O = new b(0, height, 0, this.f1128T + height);
             }
             return super.dispatchTouchEvent(motionEvent);
         }

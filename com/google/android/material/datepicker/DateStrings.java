@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DateStrings {
     public static Pair<String, String> getDateRangeString(@Nullable Long l, @Nullable Long l2) {
         return getDateRangeString(l, l2, null);

@@ -2,6 +2,7 @@ package okhttp3.logging;
 
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tieba.ms;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -177,7 +178,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
         sb.append(proceed.request().url());
         sb.append(" (");
         sb.append(millis);
-        sb.append("ms");
+        sb.append(ms.c);
         if (z2) {
             str2 = "";
         } else {

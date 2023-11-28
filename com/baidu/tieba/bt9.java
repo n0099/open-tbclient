@@ -1,46 +1,51 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.CountDownTimer;
+import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bt9 extends at9 {
+public class bt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public final PorterDuffColorFilter B;
-    public Bitmap z;
+    @Nullable
+    public final BaseActivity<?> a;
+    @Nullable
+    public BdAsyncTask<?, ?, ?> b;
+    public final AccountLoginCoreHelper.IReLoginCallback c;
 
     /* loaded from: classes5.dex */
-    public class a extends CountDownTimer {
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bt9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bt9 bt9Var, long j, long j2) {
-            super(j, j2);
+        public a(bt9 bt9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bt9Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {bt9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,246 +54,167 @@ public class bt9 extends at9 {
             this.a = bt9Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bt9 bt9Var = this.a;
-                bt9Var.v = LifeCycleState.DEAD;
-                bt9Var.w.cancel();
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
             }
+            this.a.j();
         }
 
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                if (j <= 2000) {
-                    bt9 bt9Var = this.a;
-                    bt9Var.g = (int) (bt9Var.g - bt9Var.h);
-                }
-                bt9 bt9Var2 = this.a;
-                int i = bt9Var2.t + 10;
-                bt9Var2.t = i;
-                if (i > 360) {
-                    bt9Var2.t = 0;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
+                return;
+            }
+            this.a.e();
+            this.a.g(accountData);
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) {
+                this.a.e();
+                if (this.a.a != null) {
+                    this.a.a.showToast(str2);
                 }
             }
         }
     }
 
-    public bt9(Bitmap bitmap, int i, int i2, int i3, int i4) {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(bt9 bt9Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bt9Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                AccountStorage.saveAccountData(this.a);
+                Logger.addLog("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public bt9(@Nullable BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = false;
-        this.z = bitmap;
-        this.b = i;
-        this.c = i2;
-        this.d = i;
-        this.e = i2;
-        int nextInt = this.x.nextInt(91) + 45;
-        this.a = nextInt;
-        if (nextInt < 90) {
-            this.o = Direction.RIGHT;
-        } else {
-            this.o = Direction.LEFT;
-            this.a = 180 - nextInt;
-        }
-        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
-        this.f = sqrt;
-        this.p = sqrt;
-        this.q = i3 - sqrt;
-        this.r = sqrt;
-        this.s = i4 - sqrt;
-        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
-        a aVar = new a(this, 3000L, 10L);
-        this.w = aVar;
-        aVar.start();
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    @Override // com.baidu.tieba.at9
-    public void a() {
+    public final void g(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.A) {
-                this.A = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            i(accountData);
+            Logger.addLog("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            if (this.a != null) {
+                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
+            }
+            f(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
+            return;
+        }
+        this.a.setResult(i, new Intent());
+        this.a.finish();
+    }
+
+    public final void e() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
+            return;
+        }
+        baseActivity.closeLoadingDialog();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
+                }
+                this.b = AccountLoginCoreHelper.getInstance().asyncReLogin(session.username, session.bduss, "", null, this.c);
                 return;
             }
-            int i = this.l + 1;
-            this.l = i;
-            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
-            double radians = Math.toRadians(this.a);
-            if (this.n == Direction.TOP) {
-                if (this.o == Direction.RIGHT) {
-                    f(radians);
-                } else {
-                    d(radians);
-                }
-            } else if (this.o == Direction.RIGHT) {
-                e(radians);
-            } else {
-                c(radians);
-            }
+            e();
+            f(0);
         }
     }
 
-    @Override // com.baidu.tieba.at9
-    public void b(Canvas canvas) {
-        Bitmap bitmap;
+    public final void j() {
+        BaseActivity<?> baseActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
-            if (this.g < 0) {
-                this.g = 0;
-            }
-            this.u.setAlpha(this.g);
-            if (this.y == 4) {
-                this.u.setColorFilter(this.B);
-            }
-            canvas.save();
-            canvas.rotate(this.t, this.d, this.e);
-            Bitmap bitmap2 = this.z;
-            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
-            canvas.restore();
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
+            return;
+        }
+        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().isShowing()) {
+            return;
+        }
+        BaseActivity<?> baseActivity2 = this.a;
+        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
+        if (this.a.getLoadingDialog() != null) {
+            this.a.getLoadingDialog().setCancelable(false);
+            this.a.getLoadingDialog().setCanceledOnTouchOutside(false);
         }
     }
 
-    public final void c(double d) {
+    public final void i(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
+        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
+            zb.a().c(new b(this, accountData));
+            Logger.addLog("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null) {
+                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
             }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                int i6 = this.r;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void e(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void f(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.j = this.i;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-            }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                this.b = tan2;
-                int i6 = this.r;
-                this.c = i6;
-                this.e = i6;
-                this.j = this.i;
-            }
+            BrowserHelper.initCookie(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
 }

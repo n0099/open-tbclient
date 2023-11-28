@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class j28 extends g15 {
+public final class j28 extends yfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.yfa
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "forum_follow" : (String) invokeV.objValue;
+    }
 
     public j28() {
         Interceptable interceptable = $ic;
@@ -30,18 +35,101 @@ public class j28 extends g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+    @Override // com.baidu.tieba.yfa
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            if (!(context instanceof c25)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "FRS升级弹窗失败：获取到的IForumDialogExtSupport为空");
-                YunDialogManager.unMarkShowingDialogName("frsUpgrade");
-                return;
-            }
-            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, TbadkCoreApplication.getInst().getCurrentPageContext(context));
-            upgradePopWindowMessage.setFromPage("frs");
-            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return fa5.e().o();
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ForumData)) {
+                d = null;
+            }
+            ForumData forumData = (ForumData) d;
+            if (forumData != null) {
+                str = forumData.getImage_url();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ForumData)) {
+                d = null;
+            }
+            ForumData forumData = (ForumData) d;
+            if (forumData != null) {
+                str = forumData.getId();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ForumData)) {
+                d = null;
+            }
+            ForumData forumData = (ForumData) d;
+            if (forumData != null) {
+                str = forumData.getName();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideForumSlogan() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ForumData)) {
+                d = null;
+            }
+            ForumData forumData = (ForumData) d;
+            if (forumData != null) {
+                str = forumData.getSlogan();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

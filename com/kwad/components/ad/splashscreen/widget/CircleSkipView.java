@@ -22,127 +22,63 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
 public class CircleSkipView extends KSFrameLayout implements a {
-    public boolean Aa;
-    public SkipView.a Ab;
-    public long Ac;
-    public float Ad;
+    public ValueAnimator FA;
+    public boolean FB;
+    public SkipView.a FC;
+    public long FD;
+    public float FE;
+    public float Fx;
+    public float Fy;
+    public int Fz;
     public Paint mPaint;
-    public boolean pX;
+    public RectF mRectF;
     public int padding;
     public int radius;
-    public RectF zV;
-    public float zW;
-    public float zX;
-    public int zY;
-    public ValueAnimator zZ;
+    public boolean sA;
 
     public CircleSkipView(@NonNull Context context) {
         this(context, null, 0);
     }
 
-    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mPaint = new Paint();
-        this.zW = 270.0f;
-        this.zX = 360.0f;
-        this.radius = 0;
-        this.zY = 0;
-        this.Aa = false;
-        this.Ac = 0L;
-        this.Ad = 0.0f;
-        this.padding = 0;
-        this.pX = true;
-        ab(context);
-    }
-
-    public static /* synthetic */ boolean a(CircleSkipView circleSkipView, boolean z) {
-        circleSkipView.Aa = true;
-        return true;
-    }
-
-    private void ab(Context context) {
+    private void S(Context context) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        ac(context);
-        addView(ad(context), layoutParams);
+        T(context);
+        addView(U(context), layoutParams);
         setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.widget.CircleSkipView.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
-                if (CircleSkipView.this.Ab != null) {
-                    CircleSkipView.this.Ab.kb();
+                if (CircleSkipView.this.FC != null) {
+                    CircleSkipView.this.FC.kT();
                 }
             }
         });
     }
 
-    private void ac(Context context) {
-        this.zY = com.kwad.sdk.b.kwai.a.a(context, 2.0f);
-        int a = com.kwad.sdk.b.kwai.a.a(context, 32.0f);
-        int i = this.zY;
+    private void T(Context context) {
+        this.Fz = com.kwad.sdk.d.a.a.a(context, 2.0f);
+        int a = com.kwad.sdk.d.a.a.a(context, 32.0f);
+        int i = this.Fz;
         this.radius = a - i;
         this.padding = i / 2;
         int i2 = this.padding;
         int i3 = this.radius;
-        this.zV = new RectF(i2, i2, i3 + i2, i3 + i2);
+        this.mRectF = new RectF(i2, i2, i3 + i2, i3 + i2);
     }
 
-    public static TextView ad(Context context) {
+    public static TextView U(Context context) {
         TextView textView = new TextView(context);
-        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0b99));
+        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0ba7));
         textView.setTextColor(-1);
         textView.setTextSize(12.0f);
         return textView;
     }
 
-    private void d(int i, final boolean z) {
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.zZ = ofFloat;
-        ofFloat.setDuration(i);
-        this.zZ.setInterpolator(new LinearInterpolator());
-        this.zZ.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.CircleSkipView.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public final void onAnimationEnd(Animator animator) {
-                if (CircleSkipView.this.Ad != 1.0f || CircleSkipView.this.Ab == null) {
-                    return;
-                }
-                CircleSkipView.this.Ab.kc();
-            }
-        });
-        this.zZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.splashscreen.widget.CircleSkipView.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                CircleSkipView.this.Ad = floatValue;
-                if (z) {
-                    CircleSkipView.a(CircleSkipView.this, true);
-                    float f = floatValue * 360.0f;
-                    CircleSkipView.this.zW = 270.0f - f;
-                    CircleSkipView.this.zX = 360.0f - f;
-                    CircleSkipView.this.invalidate();
-                }
-            }
-        });
-    }
-
-    private void kB() {
-        this.Aa = true;
-        ValueAnimator valueAnimator = this.zZ;
-        if (valueAnimator != null) {
-            valueAnimator.setCurrentPlayTime(this.Ac);
-            this.zZ.start();
-        }
-    }
-
-    private void kC() {
-        this.Aa = false;
-        ValueAnimator valueAnimator = this.zZ;
-        if (valueAnimator != null) {
-            this.Ac = valueAnimator.getCurrentPlayTime();
-            this.zZ.cancel();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void X(int i) {
+        SkipView.a aVar = this.FC;
+        if (aVar != null) {
+            aVar.Y(i);
         }
     }
 
@@ -150,7 +86,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
         paint.reset();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.zY);
+        paint.setStrokeWidth(this.Fz);
         paint.setColor(-1);
     }
 
@@ -164,57 +100,130 @@ public class CircleSkipView extends KSFrameLayout implements a {
     private void setOuterCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.zY);
+        paint.setStrokeWidth(this.Fz);
         paint.setColor(Color.parseColor("#33FFFFFF"));
         paint.setAntiAlias(true);
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final int Y(int i) {
-        getLayoutParams().height = com.kwad.sdk.b.kwai.a.a(getContext(), 35.0f);
+    public final void A(AdInfo adInfo) {
+        lJ();
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.a
+    public final void B(AdInfo adInfo) {
+        lI();
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.a
+    public final int aa(int i) {
+        getLayoutParams().height = com.kwad.sdk.d.a.a.a(getContext(), 35.0f);
         return getWidth();
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void a(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo) {
-        this.pX = com.kwad.sdk.core.response.a.a.bz(adInfo);
-        boolean bA = com.kwad.sdk.core.response.a.a.bA(adInfo);
-        if (this.pX) {
-            setVisibility(0);
+    public void setOnViewListener(SkipView.a aVar) {
+        this.FC = aVar;
+    }
+
+    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mPaint = new Paint();
+        this.Fx = 270.0f;
+        this.Fy = 360.0f;
+        this.radius = 0;
+        this.Fz = 0;
+        this.FB = false;
+        this.FD = 0L;
+        this.FE = 0.0f;
+        this.padding = 0;
+        this.sA = true;
+        S(context);
+    }
+
+    public static /* synthetic */ boolean a(CircleSkipView circleSkipView, boolean z) {
+        circleSkipView.FB = true;
+        return true;
+    }
+
+    private void c(final int i, final boolean z) {
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.FA = ofFloat;
+        ofFloat.setDuration(i);
+        this.FA.setInterpolator(new LinearInterpolator());
+        this.FA.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.CircleSkipView.2
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public final void onAnimationEnd(Animator animator) {
+                if (CircleSkipView.this.FE == 1.0f && CircleSkipView.this.FC != null) {
+                    CircleSkipView.this.FC.kU();
+                }
+            }
+        });
+        this.FA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.splashscreen.widget.CircleSkipView.3
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                CircleSkipView.this.FE = floatValue;
+                CircleSkipView circleSkipView = CircleSkipView.this;
+                circleSkipView.X((int) ((i / 1000) * circleSkipView.FE));
+                if (z) {
+                    CircleSkipView.a(CircleSkipView.this, true);
+                    float f = floatValue * 360.0f;
+                    CircleSkipView.this.Fx = 270.0f - f;
+                    CircleSkipView.this.Fy = 360.0f - f;
+                    CircleSkipView.this.invalidate();
+                }
+            }
+        });
+    }
+
+    private void lI() {
+        this.FB = true;
+        ValueAnimator valueAnimator = this.FA;
+        if (valueAnimator != null) {
+            valueAnimator.setCurrentPlayTime(this.FD);
+            this.FA.start();
         }
-        d(splashSkipViewModel.skipSecond * 1000, bA);
+    }
+
+    private void lJ() {
+        this.FB = false;
+        ValueAnimator valueAnimator = this.FA;
+        if (valueAnimator != null) {
+            this.FD = valueAnimator.getCurrentPlayTime();
+            this.FA.cancel();
+        }
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void bj() {
-        kC();
+    public final void bf() {
+        lJ();
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.a
+    public final void a(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo) {
+        this.sA = com.kwad.sdk.core.response.b.a.cv(adInfo);
+        boolean cw = com.kwad.sdk.core.response.b.a.cw(adInfo);
+        if (this.sA) {
+            setVisibility(0);
+        }
+        c(splashSkipViewModel.skipSecond * 1000, cw);
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         setBgCirclePaint(this.mPaint);
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, (Math.min(getWidth(), getHeight()) / 2.0f) - this.zY, this.mPaint);
+        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, (Math.min(getWidth(), getHeight()) / 2.0f) - this.Fz, this.mPaint);
         setOuterCirclePaint(this.mPaint);
-        canvas.drawArc(this.zV, 0.0f, 360.0f, false, this.mPaint);
-        if (this.Aa) {
+        canvas.drawArc(this.mRectF, 0.0f, 360.0f, false, this.mPaint);
+        if (this.FB) {
             setAnimationPaint(this.mPaint);
-            canvas.drawArc(this.zV, this.zW, -this.zX, false, this.mPaint);
+            canvas.drawArc(this.mRectF, this.Fx, -this.Fy, false, this.mPaint);
         }
         super.dispatchDraw(canvas);
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void s(AdInfo adInfo) {
-        kC();
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.a
-    public void setOnViewListener(SkipView.a aVar) {
-        this.Ab = aVar;
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void t(AdInfo adInfo) {
-        kB();
     }
 }

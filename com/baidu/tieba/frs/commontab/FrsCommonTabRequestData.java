@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.ks5;
-import com.baidu.tieba.x58;
+import com.baidu.tieba.r88;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,11 +88,11 @@ public class FrsCommonTabRequestData extends OrmObject implements INetRequestDat
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = x58.e().d("frs_feed");
+            String d = r88.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = ks5.f(d, ks5.e());
-            builder.ad_bear_sid_price = Double.valueOf(ks5.h());
-            builder.has_ad_bear = Integer.valueOf(ks5.m(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = ss5.g(d, ss5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ss5.i());
+            builder.has_ad_bear = Integer.valueOf(ss5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);

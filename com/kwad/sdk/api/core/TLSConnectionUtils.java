@@ -25,6 +25,17 @@ public class TLSConnectionUtils {
         }
     }
 
+    public static void wrapHttpURLConnection(URLConnection uRLConnection) {
+        if (!(uRLConnection instanceof HttpsURLConnection)) {
+            return;
+        }
+        HttpsURLConnection httpsURLConnection = (HttpsURLConnection) uRLConnection;
+        SSLSocketFactory systemDefaultSslSocketFactory = systemDefaultSslSocketFactory(systemDefaultTrustManager());
+        if (systemDefaultSslSocketFactory != null) {
+            httpsURLConnection.setSSLSocketFactory(systemDefaultSslSocketFactory);
+        }
+    }
+
     public static X509TrustManager systemDefaultTrustManager() {
         try {
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -36,16 +47,6 @@ public class TLSConnectionUtils {
             throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
         } catch (GeneralSecurityException unused) {
             return null;
-        }
-    }
-
-    public static void wrapHttpURLConnection(URLConnection uRLConnection) {
-        if (uRLConnection instanceof HttpsURLConnection) {
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) uRLConnection;
-            SSLSocketFactory systemDefaultSslSocketFactory = systemDefaultSslSocketFactory(systemDefaultTrustManager());
-            if (systemDefaultSslSocketFactory != null) {
-                httpsURLConnection.setSSLSocketFactory(systemDefaultSslSocketFactory);
-            }
         }
     }
 }

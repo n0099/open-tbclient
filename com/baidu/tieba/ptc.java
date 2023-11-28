@@ -5,25 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ForumShowInfo;
-import tbclient.ForumShowInfoTag;
+import tbclient.ActBtn;
 /* loaded from: classes7.dex */
-public class ptc extends qoc {
+public class ptc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumShowInfo forumShowInfo) {
+    public static JSONObject b(@NonNull ActBtn actBtn) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumShowInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, actBtn)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "content", forumShowInfo.content);
-            ForumShowInfoTag forumShowInfoTag = forumShowInfo.tag;
-            if (forumShowInfoTag != null) {
-                qoc.a(jSONObject, "tag", qtc.b(forumShowInfoTag));
-            }
-            qoc.a(jSONObject, "show_type", forumShowInfo.show_type);
+            ltc.a(jSONObject, "type", actBtn.type);
+            ltc.a(jSONObject, "url", actBtn.url);
+            ltc.a(jSONObject, "text", actBtn.text);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

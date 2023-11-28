@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.ro2;
+import com.baidu.tieba.so2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public final class ln2 extends bk2<ro2> {
+public final class ln2 extends ck2<so2> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ro2.a h;
+    public final so2.a h;
 
     /* loaded from: classes7.dex */
-    public class a implements ro2.a {
+    public class a implements so2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ln2 a;
@@ -45,7 +46,7 @@ public final class ln2 extends bk2<ro2> {
             this.a = ln2Var;
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.b != null) {
@@ -53,7 +54,7 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void b(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.b != null) {
@@ -61,7 +62,7 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void d(@NonNull String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.b != null) {
@@ -69,7 +70,18 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                if (this.a.b != null) {
+                    this.a.b.onCallback(this.a, "onPlayed", null);
+                }
+                zw1.e().l(str, true);
+            }
+        }
+
+        @Override // com.baidu.tieba.so2.a
         public void onError(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.a.b != null) {
@@ -77,18 +89,15 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void onRelease(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                if (ln2.i) {
-                    Log.i("InlineVideoController", "onRelease: " + str);
-                }
-                yw1.e().q(str);
+                zw1.e().q(str);
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -96,24 +105,12 @@ public final class ln2 extends bk2<ro2> {
                     this.a.b.onCallback(this.a, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    yw1.e().l(str, false);
+                    zw1.e().l(str, false);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (this.a.b != null) {
-                    this.a.b.onCallback(this.a, "onPlayed", null);
-                }
-                yw1.e().l(str, true);
-                yw1.e().k(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void f() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.b != null) {
@@ -121,7 +118,7 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void onEnded() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.b != null) {
@@ -129,7 +126,7 @@ public final class ln2 extends bk2<ro2> {
             }
         }
 
-        @Override // com.baidu.tieba.ro2.a
+        @Override // com.baidu.tieba.so2.a
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.b != null) {
@@ -151,22 +148,22 @@ public final class ln2 extends bk2<ro2> {
                 return;
             }
         }
-        i = rm1.a;
+        i = sm1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln2(@NonNull ro2 ro2Var) {
-        super(ro2Var);
+    public ln2(@NonNull so2 so2Var) {
+        super(so2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ro2Var};
+            Object[] objArr = {so2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((dk2) newInitContext.callArgs[0]);
+                super((ek2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -174,28 +171,71 @@ public final class ln2 extends bk2<ro2> {
         }
         a aVar = new a(this);
         this.h = aVar;
-        ro2Var.g0(aVar);
-        this.a.a(new on2());
+        so2Var.g0(aVar);
+        zw1.e().b(so2Var);
         this.a.a(new pn2());
         this.a.a(new qn2());
-        this.a.a(new tn2());
-        this.a.a(new sn2());
         this.a.a(new rn2());
         this.a.a(new un2());
+        this.a.a(new tn2());
+        this.a.a(new sn2());
         this.a.a(new vn2());
         this.a.a(new wn2());
         this.a.a(new xn2());
-        this.a.a(new zn2());
+        this.a.a(new yn2());
         this.a.a(new ao2());
         this.a.a(new bo2());
         this.a.a(new co2());
-        this.a.a(new eo2());
+        this.a.a(new do2());
         this.a.a(new fo2());
         this.a.a(new go2());
-        this.a.a(new io2());
         this.a.a(new jo2());
-        this.a.a(new do2());
-        this.a.a(new yn2());
-        this.a.a(new ho2());
+        this.a.a(new ko2());
+        this.a.a(new eo2());
+        this.a.a(new zn2());
+        this.a.a(new io2());
+    }
+
+    @Override // com.baidu.tieba.ck2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
+            if (w(command)) {
+                if (i) {
+                    Log.d("LiveInlineController", "reject command => " + command.what);
+                    return;
+                }
+                return;
+            }
+            super.sendCommand(command);
+        }
+    }
+
+    public final boolean w(ZeusPlugin.Command command) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command)) == null) {
+            if (command != null && TextUtils.equals(command.what, bo2.b)) {
+                if (i) {
+                    Log.d("LiveInlineController", "isRejectCommand: exempt release command");
+                }
+                return false;
+            }
+            int a2 = ((so2) this.c).a();
+            if (i && a2 != 1) {
+                if (command == null) {
+                    str = "";
+                } else {
+                    str = command.what;
+                }
+                Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((so2) this.c).a() + " command=> " + str);
+            }
+            if (a2 != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

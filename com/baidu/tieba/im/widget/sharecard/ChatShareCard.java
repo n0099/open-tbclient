@@ -36,12 +36,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw8;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
 import com.baidu.tieba.im.db.pojo.PbContentPojo;
-import com.baidu.tieba.iy5;
+import com.baidu.tieba.jz8;
+import com.baidu.tieba.py5;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -87,7 +87,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public ShareThreadMsgData S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ShareForumMsgData f1116T;
+    public ShareForumMsgData f1113T;
     public short U;
     public int V;
     public long W;
@@ -189,7 +189,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         return (List) invokeL.objValue;
     }
 
-    public final List<PbContentPojo> k(ShareThreadMsgData shareThreadMsgData) {
+    public final List<PbContentPojo> j(ShareThreadMsgData shareThreadMsgData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, shareThreadMsgData)) == null) {
@@ -255,7 +255,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 playVoiceBntNew.setVoiceModel(voiceModel);
                 playVoiceBntNew.setTag(voiceModel);
                 playVoiceBntNew.b();
-                playVoiceBntNew.m();
+                playVoiceBntNew.l();
                 return;
             }
             playVoiceBntNew.setVisibility(8);
@@ -352,7 +352,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.b.setVisibility(0);
                 if (ormObject instanceof ShareForumMsgData) {
                     ShareForumMsgData shareForumMsgData = (ShareForumMsgData) ormObject;
-                    this.f1116T = shareForumMsgData;
+                    this.f1113T = shareForumMsgData;
                     b(shareForumMsgData);
                     return;
                 }
@@ -382,7 +382,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareThreadMsgData) == null) {
             n(shareThreadMsgData);
-            l(this.l, this.k, shareThreadMsgData, e0, true, false, true);
+            k(this.l, this.k, shareThreadMsgData, e0, true, false, true);
             if (shareThreadMsgData.getMedia_list() != null && shareThreadMsgData.getMedia_list().size() > 0) {
                 this.m.setVisibility(0);
                 this.n.setVisibility(8);
@@ -392,7 +392,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.m.setVisibility(8);
             }
             p(this.Q, shareThreadMsgData);
-            m(shareThreadMsgData);
+            l(shareThreadMsgData);
         }
     }
 
@@ -400,7 +400,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, shareThreadMsgData) == null) {
             n(shareThreadMsgData);
-            l(this.l, this.k, shareThreadMsgData, e0, false, false, true);
+            k(this.l, this.k, shareThreadMsgData, e0, false, false, true);
             if (!StringUtils.isNull(shareThreadMsgData.getThumbnail_url())) {
                 this.m.setVisibility(0);
                 this.n.setVisibility(0);
@@ -415,7 +415,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.m.setVisibility(8);
             }
             p(this.Q, shareThreadMsgData);
-            m(shareThreadMsgData);
+            l(shareThreadMsgData);
         }
     }
 
@@ -426,7 +426,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.i.setVisibility(8);
                 this.h.setVisibility(0);
                 this.h.startLoad(shareThreadMsgData.getForum_avatar(), 10, false);
-                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f0787));
+                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f078f));
                 return;
             }
             this.i.setVisibility(0);
@@ -439,7 +439,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public final void b(ShareForumMsgData shareForumMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareForumMsgData) == null) {
-            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f0787));
+            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f078f));
             if (!StringUtils.isNull(shareForumMsgData.getSlogan())) {
                 this.e.setVisibility(0);
                 this.e.setText(String.format(getContext().getString(R.string.forum_slogan), shareForumMsgData.getSlogan()));
@@ -474,12 +474,12 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, shareThreadMsgData) == null) {
             n(shareThreadMsgData);
-            l(this.l, this.k, shareThreadMsgData, e0, false, false, true);
+            k(this.l, this.k, shareThreadMsgData, e0, false, false, true);
             if (shareThreadMsgData.getOrigin_thread_info() != null) {
                 this.m.setVisibility(8);
                 this.z.setVisibility(0);
                 ShareThreadMsgData origin_thread_info = shareThreadMsgData.getOrigin_thread_info();
-                l(this.B, this.A, origin_thread_info, f0, false, true, false);
+                k(this.B, this.A, origin_thread_info, f0, false, true, false);
                 if (o(origin_thread_info) == 2) {
                     if (!StringUtils.isNull(origin_thread_info.getThumbnail_url())) {
                         this.C.setVisibility(0);
@@ -502,7 +502,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 }
                 p(this.P, origin_thread_info);
             }
-            m(shareThreadMsgData);
+            l(shareThreadMsgData);
         }
     }
 
@@ -527,15 +527,15 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                cw8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
+                jz8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
                 return;
             }
-            if (this.f1116T != null) {
+            if (this.f1113T != null) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getContext());
-                frsActivityConfig.createNormalCfg(this.f1116T.getForum_name(), "");
+                frsActivityConfig.createNormalCfg(this.f1113T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            cw8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
+            jz8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
         }
     }
 
@@ -654,7 +654,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void l(TextView textView, TextView textView2, ShareThreadMsgData shareThreadMsgData, int i, boolean z, boolean z2, boolean z3) {
+    public final void k(TextView textView, TextView textView2, ShareThreadMsgData shareThreadMsgData, int i, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{textView, textView2, shareThreadMsgData, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && shareThreadMsgData != null) {
             ThreadData threadData = new ThreadData();
@@ -666,9 +666,9 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 if (z && !u(shareThreadMsgData)) {
                     threadData.setTitle(shareThreadMsgData.title);
                 }
-                if (!StringUtils.isNull(iy5.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+                if (!StringUtils.isNull(py5.I(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                     if (s(shareThreadMsgData) && !u(shareThreadMsgData) && z3) {
-                        threadData.setRichAbstractList(ShareThreadMsgData.parseContent(k(shareThreadMsgData)));
+                        threadData.setRichAbstractList(ShareThreadMsgData.parseContent(j(shareThreadMsgData)));
                     } else {
                         threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
                     }
@@ -687,7 +687,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void m(ShareThreadMsgData shareThreadMsgData) {
+    public final void l(ShareThreadMsgData shareThreadMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, shareThreadMsgData) == null) {
             if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {

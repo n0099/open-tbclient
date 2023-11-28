@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface lk5 {
-    BroadcastReceiver a(@NonNull Context context, @NonNull nk5 nk5Var);
+public final class lk5 extends yq6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Context context, long j, long j2, int i, long j3, mk5 mk5Var);
-
-    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
-
-    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull ok5 ok5Var);
+    public lk5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

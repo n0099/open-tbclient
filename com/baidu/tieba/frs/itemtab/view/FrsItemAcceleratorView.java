@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -146,7 +146,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (textView = this.d) != null) {
-            textView.setText(R.string.obfuscated_res_0x7f0f005b);
+            textView.setText(R.string.obfuscated_res_0x7f0f005c);
         }
     }
 
@@ -154,7 +154,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (textView = this.d) != null) {
-            textView.setText(R.string.obfuscated_res_0x7f0f005c);
+            textView.setText(R.string.obfuscated_res_0x7f0f005d);
         }
     }
 
@@ -195,7 +195,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             if (StringUtils.isNull(this.g)) {
                 EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0303);
             } else {
-                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(bqa.f(this.g));
+                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(uua.f(this.g));
             }
             EMManager.from(this.d).setTextSelectorColor(R.color.CAM_X0101);
             EMManager.from(this.e).setBackGroundColor(R.color.CAM_X0617);
@@ -212,7 +212,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             layoutParams.setMargins(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
             EMManager.from(this.b).setTextSize(R.dimen.T_X07);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0061);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0062);
             addView(this.b);
         }
     }
@@ -234,7 +234,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080a72, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080a78, null);
             addView(this.a);
         }
     }
@@ -266,7 +266,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.d.setGravity(16);
             this.d.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), 0);
             EMManager.from(this.d).setTextSize(R.dimen.T_X08);
-            this.d.setText(R.string.obfuscated_res_0x7f0f005c);
+            this.d.setText(R.string.obfuscated_res_0x7f0f005d);
             this.c.addView(this.d);
             this.e = new View(getContext());
             this.e.setLayoutParams(new LinearLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds3), BdUtilHelper.getDimens(getContext(), R.dimen.tbds29)));
@@ -274,7 +274,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.f.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080c57, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080c61, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }

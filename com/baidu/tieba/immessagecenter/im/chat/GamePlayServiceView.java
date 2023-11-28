@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.wjc;
+import com.baidu.tieba.roc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -195,16 +195,16 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, (ViewGroup) this, true);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09165b);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091675);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0834, (ViewGroup) this, true);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0916cc);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916e6);
             this.f = linearLayout;
             linearLayout.setOnClickListener(this.j);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092790);
-            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091674);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092813);
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916e5);
             this.h = linearLayout2;
             linearLayout2.setOnClickListener(this.k);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09278f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092812);
             d();
         }
     }
@@ -228,14 +228,14 @@ public class GamePlayServiceView extends RelativeLayout {
         }
     }
 
-    public void g(boolean z, wjc wjcVar) {
+    public void g(boolean z, roc rocVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048581, this, z, wjcVar) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048581, this, z, rocVar) == null) {
             this.d = z;
             if (z && (linearLayout = this.h) != null) {
                 linearLayout.setVisibility(0);
-                wjcVar.call();
+                rocVar.call();
             }
         }
     }

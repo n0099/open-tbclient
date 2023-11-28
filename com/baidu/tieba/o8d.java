@@ -1,58 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t7d;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONObject;
+import tbclient.SortButton;
 /* loaded from: classes7.dex */
-public class o8d implements obd {
+public class o8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t7d.b a;
 
-    @Override // com.baidu.tieba.obd
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static JSONObject b(@NonNull SortButton sortButton) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sortButton)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "text", sortButton.text);
+            ltc.a(jSONObject, "source_id", sortButton.source_id);
+            return jSONObject;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public o8d(t7d.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bVar;
-    }
-
-    @Override // com.baidu.tieba.obd
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
-            t7d.b bVar = this.a;
-            if (bVar != null) {
-                bVar.a(cancelType);
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

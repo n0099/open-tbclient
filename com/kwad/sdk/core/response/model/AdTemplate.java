@@ -1,11 +1,13 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.core.e.c;
 import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.utils.r;
-import com.kwad.sdk.utils.s;
+import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.u;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,38 +18,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
 /* loaded from: classes10.dex */
-public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static final long serialVersionUID = -5413539480595883024L;
     public long adLoadTotalTime;
     public long adShowStartTimeStamp;
     public int adStyle;
-    public long checkDataTime;
+    public AdVideoPreCacheConfig adVideoPreCacheConfig;
     public int contentType;
     public long downloadDuration;
     public String extra;
     public String impAdExtra;
-    public boolean inPlayAgain;
     public long llsid;
     public long loadDataTime;
-    @Nullable
+    public int loadType;
     public SceneImpl mAdScene;
-    public int mBidEcpm;
-    public transient boolean mDownloadFinishReported;
-    public long mDownloadFinishTime;
-    public long mDownloadSize;
-    public int mDownloadType;
+    public long mBidEcpm;
+    public boolean mClickOpenAppStore;
+    public long mCurPlayTime;
+    public String mDataCacheTraceElement;
+    public String mDataLoadTraceElement;
     public int mInitVoiceStatus;
-    public long mLoadDataTime;
-    public boolean mLoadFromCache;
+    public boolean mInstallApkFormUser;
+    public boolean mInstallApkFromSDK;
     public String mOriginJString;
     public PageInfo mPageInfo;
     public int mPhotoResponseType;
-    public transient boolean mPvReported;
+    public volatile transient boolean mPvReported;
     public transient boolean mTrackUrlReported;
     public boolean notNetworkRequest;
     public long posId;
     public int realShowType;
     public long showStartTime;
+    @Nullable
+    public TKAdLiveShopItemInfo tkLiveShopItemInfo;
     public int type;
     public List<AdInfo> adInfoList = new ArrayList();
     public PhotoInfo photoInfo = createPhotoInfo();
@@ -56,8 +59,8 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     public int serverPosition = -1;
     public boolean mIsFromContent = false;
     public boolean hasEnterAdWebViewLandPageActivity = false;
+    public boolean mHasReportVideoLoad = false;
     public String mUniqueId = "";
-    public transient String mMiniWindowId = null;
     public boolean mHasSelected = false;
     public transient int downloadSource = 2;
     public transient String installFrom = "";
@@ -67,19 +70,22 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     public volatile long mVisibleTimeParam = -1;
     public int mIsLeftSlipStatus = 0;
     public boolean interactLandingPageShowing = false;
+    public boolean mIsForceJumpLandingPage = false;
     public boolean mAdWebVideoPageShowing = false;
+    public boolean mIsAudioEnable = false;
     public boolean mRewardVerifyCalled = false;
     public boolean mCheatingFlow = false;
     public boolean mXiaomiAppStoreDetailViewOpen = false;
     public boolean isWebViewDownload = false;
-    public AdTemplate mPlayAgain = null;
-    public boolean isPlayAgainData = false;
     public boolean watched = false;
     public boolean converted = false;
     public boolean fromCache = false;
     public transient Map<String, Object> mLocalParams = new HashMap();
+    @NonNull
+    public AdStatusInfo mAdStatusInfo = new AdStatusInfo();
+    public boolean isNativeRewardPreview = false;
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject != null) {
@@ -96,31 +102,29 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
         }
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        r.a(jSONObject, "photoInfo", this.photoInfo);
+        t.a(jSONObject, "photoInfo", this.photoInfo);
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void beforeToJson(JSONObject jSONObject) {
         super.beforeToJson(jSONObject);
-        if (TextUtils.isEmpty(this.mOriginJString)) {
-            return;
+        if (!TextUtils.isEmpty(this.mOriginJString)) {
+            try {
+                u.merge(jSONObject, new JSONObject(this.mOriginJString));
+            } catch (JSONException e) {
+                c.printStackTraceOnly(e);
+            }
         }
-        try {
-            s.merge(jSONObject, new JSONObject(this.mOriginJString));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-        }
-    }
-
-    public PhotoInfo createPhotoInfo() {
-        return new PhotoInfo();
     }
 
     public boolean equals(@Nullable Object obj) {
-        return obj instanceof AdTemplate ? this.mUniqueId.equals(((AdTemplate) obj).mUniqueId) : super.equals(obj);
+        if (obj instanceof AdTemplate) {
+            return this.mUniqueId.equals(((AdTemplate) obj).mUniqueId);
+        }
+        return super.equals(obj);
     }
 
     @Nullable
@@ -132,57 +136,38 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
         return t;
     }
 
-    public Map<String, Object> getLocalParams() {
-        return this.mLocalParams;
-    }
-
-    public AdTemplate getPlayAgain() {
-        return this.mPlayAgain;
-    }
-
-    public int getServerPosition() {
-        int i = this.serverPosition;
-        return i != -1 ? i : getShowPosition();
-    }
-
-    public int getShowPosition() {
-        return this.positionShow;
-    }
-
-    public String getUniqueId() {
-        return this.mUniqueId;
-    }
-
-    public boolean hasPlayAgain() {
-        return this.mPlayAgain != null;
-    }
-
-    public int hashCode() {
-        String str = this.mUniqueId;
-        return str != null ? str.hashCode() : super.hashCode();
-    }
-
-    @Nullable
-    public Object putLocalParams(String str, Object obj) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return this.mLocalParams.put(str, obj);
-    }
-
     public void setCheatingFlow(boolean z) {
-        if (this.mCheatingFlow) {
-            return;
+        if (!this.mCheatingFlow) {
+            this.mCheatingFlow = z;
         }
-        this.mCheatingFlow = z;
+    }
+
+    public void setDownloadFinishTime(long j) {
+        this.mAdStatusInfo.setDownloadFinishTime(j);
+    }
+
+    public void setDownloadSize(long j) {
+        this.mAdStatusInfo.setDownloadSize(j);
+    }
+
+    public void setDownloadStatus(int i) {
+        this.mAdStatusInfo.setDownloadStatus(i);
+    }
+
+    public void setDownloadType(int i) {
+        this.mAdStatusInfo.setDownloadType(i);
+    }
+
+    public void setLoadDataTime(long j) {
+        this.mAdStatusInfo.setLoadDataTime(j);
+    }
+
+    public void setLoadFromCache(boolean z) {
+        this.mAdStatusInfo.setLoadFromCache(z);
     }
 
     public void setPhotoInfo(PhotoInfo photoInfo) {
         this.photoInfo = photoInfo;
-    }
-
-    public void setPlayAgain(AdTemplate adTemplate) {
-        this.mPlayAgain = adTemplate;
     }
 
     public void setServerPosition(int i) {
@@ -193,5 +178,89 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
 
     public void setShowPosition(int i) {
         this.positionShow = i;
+    }
+
+    public void setmCurPlayTime(long j) {
+        this.mCurPlayTime = j;
+    }
+
+    public AdResultData createAdResultData() {
+        AdResultData adResultData = new AdResultData();
+        ArrayList arrayList = new ArrayList(1);
+        arrayList.add(this);
+        adResultData.setAdTemplateList(arrayList);
+        return adResultData;
+    }
+
+    public PhotoInfo createPhotoInfo() {
+        return new PhotoInfo();
+    }
+
+    public long getDownloadFinishTime() {
+        return this.mAdStatusInfo.getDownloadFinishTime();
+    }
+
+    public long getDownloadSize() {
+        return this.mAdStatusInfo.getDownloadSize();
+    }
+
+    public int getDownloadStatus() {
+        return this.mAdStatusInfo.getDownloadStatus();
+    }
+
+    public int getDownloadType() {
+        return this.mAdStatusInfo.getDownloadType();
+    }
+
+    public long getLoadDataTime() {
+        return this.mAdStatusInfo.getLoadDataTime();
+    }
+
+    public Map<String, Object> getLocalParams() {
+        return this.mLocalParams;
+    }
+
+    public int getServerPosition() {
+        int i = this.serverPosition;
+        if (i != -1) {
+            return i;
+        }
+        return getShowPosition();
+    }
+
+    public int getShowPosition() {
+        return this.positionShow;
+    }
+
+    public String getUniqueId() {
+        return this.mUniqueId;
+    }
+
+    public long getmCurPlayTime() {
+        return this.mCurPlayTime;
+    }
+
+    public int hashCode() {
+        String str = this.mUniqueId;
+        if (str != null) {
+            return str.hashCode();
+        }
+        return super.hashCode();
+    }
+
+    public boolean isCheatingFlow() {
+        return this.mCheatingFlow;
+    }
+
+    public boolean isLoadFromCache() {
+        return this.mAdStatusInfo.isLoadFromCache();
+    }
+
+    @Nullable
+    public Object putLocalParams(String str, Object obj) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return this.mLocalParams.put(str, obj);
     }
 }

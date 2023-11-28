@@ -16,7 +16,7 @@ public class FileDownloadService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull
         public IServiceProxy getDelegate(Context context) {
-            return (IServiceProxy) Loader.get().newComponentProxyNewProcess(context, SeparateProcessService.class, this);
+            return (IServiceProxy) Loader.get().newComponentProxy(context, SeparateProcessService.class, this);
         }
     }
 
@@ -26,7 +26,7 @@ public class FileDownloadService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull
         public IServiceProxy getDelegate(Context context) {
-            return (IServiceProxy) Loader.get().newComponentProxyNewProcess(context, SharedMainProcessService.class, this);
+            return (IServiceProxy) Loader.get().newComponentProxy(context, SharedMainProcessService.class, this);
         }
     }
 }

@@ -1,124 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.ForumRule;
-import tbclient.PbContent;
+import org.json.JSONObject;
+import tbclient.AdMixFloor;
+import tbclient.App;
+import tbclient.GeneralTabList.DataRes;
+import tbclient.ItemInfo;
+import tbclient.SportPageHeadInfo;
+import tbclient.SportScheduleInfo;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class nv7 implements oi {
+public class nv7 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<PbContent> b;
-    public boolean c;
+    public boolean a;
+    public HashMap<String, MetaData> b;
+    public ArrayList<pi> c;
+    public int d;
+    public String e;
+    public String f;
+    public boolean g;
+    public SportScheduleInfo h;
+    public int i;
+    public ItemInfo j;
+    public List<App> k;
+    public int l;
+    public List<AdMixFloor> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015994, "Lcom/baidu/tieba/nv7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015994, "Lcom/baidu/tieba/nv7;");
-                return;
-            }
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
-        d = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+        }
     }
 
     public nv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new HashMap<>();
+        this.c = new ArrayList<>();
+        this.i = 1;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public List<PbContent> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        boolean z2 = false;
+        if (dataRes.has_more.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(ForumRule forumRule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, forumRule) == null) && forumRule != null) {
-            this.a = forumRule.title;
-            this.b = forumRule.content;
-            boolean z = true;
-            if (forumRule.status.intValue() != 1) {
-                z = false;
+        this.a = z;
+        if (!ListUtils.isEmpty(dataRes.user_list)) {
+            for (User user : dataRes.user_list) {
+                if (user != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(user);
+                    String userId = metaData.getUserId();
+                    if (userId != null && !"0".equals(userId)) {
+                        this.b.put(userId, metaData);
+                    }
+                }
             }
-            this.c = z;
         }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
+        if (!ListUtils.isEmpty(dataRes.general_list)) {
+            for (ThreadInfo threadInfo : dataRes.general_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.setUserMap(this.b);
+                    threadData.forceReadUserMap = true;
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.insertItemToTitleOrAbstractText();
+                    threadData.setFromFrsTab(true);
+                    this.c.add(threadData);
+                }
+            }
         }
-    }
-
-    public void f(List<PbContent> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
+        this.l = dataRes.ad_show_select.intValue();
+        this.m = dataRes.ad_mix_list;
+        String str = dataRes.ad_sample_map_key;
+        this.k = dataRes.app_list;
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
+        this.d = dataRes.new_thread_num.intValue();
+        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
+        if (sportPageHeadInfo != null) {
+            this.e = sportPageHeadInfo.head_url;
+            this.f = sportPageHeadInfo.jump_url;
+            if (sportPageHeadInfo.is_ad.intValue() == 1) {
+                z2 = true;
+            }
+            this.g = z2;
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
-        }
+        this.h = dataRes.sport_schedule_info;
+        this.i = dataRes.sort_type.intValue();
+        this.j = dataRes.item_info;
     }
 }

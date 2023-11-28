@@ -1,186 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.stamp.SignPopStampDialogUtil;
+import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes8.dex */
-public class uz7 extends PriorityOrganizer.Task {
+public final class uz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsActivity a;
-    public FrsFragment b;
-    public boolean c;
 
-    /* loaded from: classes8.dex */
-    public class a implements SignPopStampDialogUtil.clickCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uz7 a;
-
-        public a(uz7 uz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uz7Var;
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void closeBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void jumpToIconCenterBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
-        public void shareBtn() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(uz7 uz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-            }
-        }
-    }
-
-    public uz7(FrsActivity frsActivity) {
+    public static final void a(SpriteBottomTipView.a aVar, FrsSpriteNewUserGuide.BubbleText bubbleText) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        ThemeColorInfo themeColorInfo;
+        ThemeElement themeElement;
+        ThemeColorInfo themeColorInfo2;
+        ThemeElement themeElement2;
+        FrsSpriteNewUserGuide.ButtonInfo buttonInfo;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, aVar, bubbleText) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            ThemeColorInfo themeColorInfo3 = null;
+            if (bubbleText != null) {
+                str = bubbleText.title;
+            } else {
+                str = null;
             }
+            if (StringUtils.isNull(str)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0896);
+            }
+            aVar.t(str);
+            if (bubbleText != null) {
+                str2 = bubbleText.text;
+            } else {
+                str2 = null;
+            }
+            aVar.g(str2);
+            if (bubbleText != null && (buttonInfo = bubbleText.buttonInfo) != null) {
+                str3 = buttonInfo.text;
+            } else {
+                str3 = null;
+            }
+            aVar.e(str3);
+            if (bubbleText != null && (themeColorInfo2 = bubbleText.bgUrlTheme) != null && (themeElement2 = themeColorInfo2.day) != null) {
+                str4 = themeElement2.pattern_image;
+            } else {
+                str4 = null;
+            }
+            aVar.c(str4);
+            if (bubbleText != null && (themeColorInfo = bubbleText.bgUrlTheme) != null && (themeElement = themeColorInfo.dark) != null) {
+                str5 = themeElement.pattern_image;
+            } else {
+                str5 = null;
+            }
+            aVar.b(str5);
+            if (bubbleText != null) {
+                themeColorInfo3 = bubbleText.textColor;
+            }
+            b(aVar, themeColorInfo3);
         }
-        this.c = false;
-        this.a = frsActivity;
     }
 
-    public void a(boolean z) {
+    public static final void b(SpriteBottomTipView.a aVar, ThemeColorInfo themeColorInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c = z;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, aVar, themeColorInfo) == null) && themeColorInfo != null) {
+            ThemeElement themeElement = themeColorInfo.day;
+            String str2 = null;
+            if (themeElement != null) {
+                str = themeElement.font_color;
+            } else {
+                str = null;
+            }
+            int f = uua.f(str);
+            if (!uua.e(f)) {
+                aVar.u(Integer.valueOf(f));
+                aVar.h(Integer.valueOf(f));
+            }
+            ThemeElement themeElement2 = themeColorInfo.dark;
+            if (themeElement2 != null) {
+                str2 = themeElement2.font_color;
+            }
+            int f2 = uua.f(str2);
+            if (!uua.e(f2)) {
+                aVar.w(Integer.valueOf(f2));
+                aVar.j(Integer.valueOf(f2));
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isDataReady() {
-        InterceptResult invokeV;
+    public static final void c(SpriteBottomTipView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c) {
-                return true;
-            }
-            FrsFragment frsFragment = this.b;
-            if (frsFragment != null && !frsFragment.x4()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            b65 b65Var = new b65();
+            b65Var.s(R.color.CAM_X0601, R.color.CAM_X0920);
+            b65Var.k(UtilHelper.getDimenPixelSize(R.dimen.tbds10), UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+            b65Var.p(0);
+            b65Var.n(0);
+            b65Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds42));
+            b65Var.f(1);
+            b65Var.j(0, R.drawable.ic_icon_mybar_pure_list_arrow16_right, TBSpecificationButtonConfig.IconType.WEBP);
+            aVar.d(b65Var);
+            aVar.f(R.dimen.T_X07);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isNeedExecute() {
-        InterceptResult invokeV;
+    public static final void d(SpriteBottomTipView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (YunDialogManager.isShowingDialog()) {
-                return false;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (!PollingModel.checkIconPopHadShow() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.a.t1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (PollingModel.checkIconPopHadShow()) {
-                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
-                signPopStampDialogUtil.preShowPollingStampDialog(iconPopData);
-                signPopStampDialogUtil.setClickCallBack(new a(this));
-                signPopStampDialogUtil.setOnDismissListener(new b(this));
-                YunDialogManager.markShowingDialogName("userIcon");
-                if (!this.c) {
-                    this.b.F5(true);
-                    return;
-                }
-                return;
-            }
-            finish();
+        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            aVar.x(R.dimen.T_X05);
+            aVar.k(R.dimen.T_X07);
+            aVar.v(R.color.CAM_X0610);
+            aVar.i(R.color.CAM_X0610);
         }
     }
 }

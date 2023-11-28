@@ -29,18 +29,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.i09;
+import com.baidu.tieba.a59;
+import com.baidu.tieba.grb;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.PinnedOverlayAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.j05;
-import com.baidu.tieba.j09;
-import com.baidu.tieba.kmb;
-import com.baidu.tieba.s19;
+import com.baidu.tieba.k05;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.q39;
+import com.baidu.tieba.r39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class TopBubbleSlice extends Slice implements i09 {
+public class TopBubbleSlice extends Slice implements q39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -169,10 +169,10 @@ public class TopBubbleSlice extends Slice implements i09 {
         public void a(View view2) {
             TopBubbleData topBubbleData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090709)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090725)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091a23) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f091a98) {
                 this.a.x0();
             } else if (topBubbleData.isExcellent() || this.a.t.p()) {
                 this.a.x0();
@@ -183,10 +183,10 @@ public class TopBubbleSlice extends Slice implements i09 {
         public void b(View view2) {
             TopBubbleData topBubbleData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090709)) == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090725)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091a23) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f091a98) {
                 this.a.r0(topBubbleData);
                 this.a.r.dismiss();
                 this.a.t.s(true);
@@ -241,18 +241,18 @@ public class TopBubbleSlice extends Slice implements i09 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements j05.f {
+    public class d implements m05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h05 a;
+        public final /* synthetic */ k05 a;
         public final /* synthetic */ TopBubbleSlice b;
 
-        public d(TopBubbleSlice topBubbleSlice, h05 h05Var) {
+        public d(TopBubbleSlice topBubbleSlice, k05 k05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleSlice, h05Var};
+                Object[] objArr = {topBubbleSlice, k05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -263,20 +263,20 @@ public class TopBubbleSlice extends Slice implements i09 {
                 }
             }
             this.b = topBubbleSlice;
-            this.a = h05Var;
+            this.a = k05Var;
         }
 
-        @Override // com.baidu.tieba.j05.f
-        public void F0(j05 j05Var, int i, View view2) {
+        @Override // com.baidu.tieba.m05.f
+        public void E0(m05 m05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, j05Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, m05Var, i, view2) == null) {
                 if (i != 0) {
                     if (i == 1) {
                         this.b.y0();
                         this.a.dismiss();
                     }
                 } else if (!StringUtils.isNull(this.b.n) && !StringUtils.isNull(this.b.q)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{j09.d(kmb.a(kmb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{r39.d(grb.a(grb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
                     this.a.dismiss();
                 }
             }
@@ -312,7 +312,7 @@ public class TopBubbleSlice extends Slice implements i09 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.t.n();
-                s19.b(this.a.j.getPageActivity());
+                a59.b(this.a.j.getPageActivity());
             }
         }
     }
@@ -345,8 +345,8 @@ public class TopBubbleSlice extends Slice implements i09 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 f fVar = new f();
                 fVar.a = view2;
-                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f091a23);
-                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092387);
+                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f091a98);
+                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092409);
                 return fVar;
             }
             return (f) invokeL.objValue;
@@ -385,13 +385,13 @@ public class TopBubbleSlice extends Slice implements i09 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 g gVar = new g();
                 gVar.a = view2;
-                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d66);
-                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090abd);
+                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ddc);
+                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090adc);
                 gVar.c = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
-                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090abe);
-                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090abf);
-                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ab7);
+                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090add);
+                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ade);
+                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b2c);
                 gVar.b();
                 return gVar;
             }
@@ -402,7 +402,7 @@ public class TopBubbleSlice extends Slice implements i09 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundResource(this.b, R.drawable.pic_mask_chat_notice_bg);
-                SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f08062d);
+                SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080630);
                 EMManager.from(this.c).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X05);
                 EMManager.from(this.d).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0207);
             }
@@ -469,16 +469,16 @@ public class TopBubbleSlice extends Slice implements i09 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09bb, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09d5, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.i09
-    public void g() {
+    @Override // com.baidu.tieba.q39
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.k.l3().setVisibility(8);
+            this.k.x3().setVisibility(8);
             u0();
         }
     }
@@ -536,13 +536,13 @@ public class TopBubbleSlice extends Slice implements i09 {
         }
     }
 
-    @Override // com.baidu.tieba.i09
+    @Override // com.baidu.tieba.q39
     public void r(@NonNull List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.k.l3().setVisibility(0);
+            this.k.x3().setVisibility(0);
             TopBubbleData topBubbleData = list.get(0);
-            this.m.b.setTag(R.id.obfuscated_res_0x7f090709, topBubbleData);
+            this.m.b.setTag(R.id.obfuscated_res_0x7f090725, topBubbleData);
             this.m.b.c(topBubbleData);
             int size = list.size();
             if (size > 1) {
@@ -589,13 +589,13 @@ public class TopBubbleSlice extends Slice implements i09 {
             if (c2 != 0) {
                 if (c2 != 1) {
                     if (c2 == 2) {
-                        j09.f(topBubbleData.getVersionKey(), true);
+                        r39.f(topBubbleData.getVersionKey(), true);
                         this.l.i1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
                         return;
                     }
                     return;
                 }
-                this.k.V2();
+                this.k.h3();
                 UrlManager.getInstance().dealOneLink(this.j, new String[]{topBubbleData.getJumpTo()});
                 TiebaStatic.log(new StatisticItem("c15201"));
                 return;
@@ -609,8 +609,8 @@ public class TopBubbleSlice extends Slice implements i09 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             PinnedOverlayAdapter pinnedOverlayAdapter = new PinnedOverlayAdapter();
             this.s = pinnedOverlayAdapter;
-            pinnedOverlayAdapter.n(this.w);
-            g a2 = g.a(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0128, (ViewGroup) null));
+            pinnedOverlayAdapter.o(this.w);
+            g a2 = g.a(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012a, (ViewGroup) null));
             this.p = a2;
             a2.e.setOnClickListener(this.x);
             this.p.c.setAdapter(this.s);
@@ -631,10 +631,10 @@ public class TopBubbleSlice extends Slice implements i09 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.j.getPageActivity());
             this.o = tBAlertBuilder;
-            tBAlertBuilder.setTitle(R.string.obfuscated_res_0x7f0f09e2);
-            this.o.setDescStr(this.j.getString(R.string.obfuscated_res_0x7f0f09e6));
+            tBAlertBuilder.setTitle(R.string.obfuscated_res_0x7f0f09ec);
+            this.o.setDescStr(this.j.getString(R.string.obfuscated_res_0x7f0f09f0));
             this.o.setDescLightStyle(true);
-            this.o.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09e4, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09e5, TBAlertConfig.OperateBtnStyle.MAIN, new e(this)));
+            this.o.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09ee, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09ef, TBAlertConfig.OperateBtnStyle.MAIN, new e(this)));
             this.o.setAutoClose();
             this.o.setCancelable(false);
             this.o.show();
@@ -667,10 +667,10 @@ public class TopBubbleSlice extends Slice implements i09 {
     public final void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f0426), this.j.getString(R.string.obfuscated_res_0x7f0f09e2)};
-            h05 h05Var = new h05(this.j);
-            h05Var.i(null, strArr, new d(this, h05Var));
-            h05Var.l();
+            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f042e), this.j.getString(R.string.obfuscated_res_0x7f0f09ec)};
+            k05 k05Var = new k05(this.j);
+            k05Var.i(null, strArr, new d(this, k05Var));
+            k05Var.l();
         }
     }
 

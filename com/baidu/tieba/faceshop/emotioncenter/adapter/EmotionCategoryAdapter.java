@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.q17;
+import com.baidu.tieba.a27;
+import com.baidu.tieba.ci;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class EmotionCategoryAdapter extends bi<q17, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends ci<a27, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,12 +64,12 @@ public class EmotionCategoryAdapter extends bi<q17, EmotionCategoryViewHolder> {
                 return;
             }
             this.b = (TextView) view2.findViewById(R.id.emotion_title);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909df);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ef);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0645));
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909fb);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0b);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f064d));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f090681);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09069d);
         }
 
         public void b(int i) {
@@ -103,13 +103,13 @@ public class EmotionCategoryAdapter extends bi<q17, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
+    @Override // com.baidu.tieba.ci
     /* renamed from: t */
     public EmotionCategoryViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d029e, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02a5, viewGroup, false));
             emotionCategoryViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }
@@ -117,12 +117,12 @@ public class EmotionCategoryAdapter extends bi<q17, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
+    @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q17 q17Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a27 a27Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q17Var, emotionCategoryViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a27Var, emotionCategoryViewHolder})) == null) {
             return emotionCategoryViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

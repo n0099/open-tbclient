@@ -1,27 +1,41 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.res.Resources;
-import com.kwad.sdk.api.core.ResContext;
-import com.sina.weibo.sdk.utils.ResourceManager;
+import android.os.Build;
+import android.os.PowerManager;
+import android.os.SystemClock;
 /* loaded from: classes10.dex */
 public final class ao {
-    public static int ab(Context context, String str) {
-        Resources cH = cH(context);
-        if (cH == null) {
-            cH = context.getResources();
-        }
-        return cH.getIdentifier(str, ResourceManager.DRAWABLE, context.getPackageName());
+    public static volatile ao aNT = new ao();
+    public volatile boolean aNU;
+    public volatile long aNV = 0;
+    public volatile PowerManager aNW;
+
+    public static ao Ky() {
+        return aNT;
     }
 
-    public static Resources cH(Context context) {
-        if (context == null) {
-            return null;
+    public final boolean cs(Context context) {
+        if (this.aNV > 0 && SystemClock.elapsedRealtime() - this.aNV < 600) {
+            return this.aNU;
         }
-        Context applicationContext = context.getApplicationContext();
-        if (applicationContext instanceof ResContext) {
-            applicationContext = ((ResContext) applicationContext).getDelegatedContext();
+        boolean z = false;
+        if (this.aNW == null && context != null) {
+            synchronized (this) {
+                if (this.aNW == null) {
+                    this.aNW = (PowerManager) context.getApplicationContext().getSystemService("power");
+                }
+            }
         }
-        return applicationContext.getResources();
+        if (this.aNW != null) {
+            if (Build.VERSION.SDK_INT >= 20) {
+                z = this.aNW.isInteractive();
+            } else {
+                z = this.aNW.isScreenOn();
+            }
+        }
+        this.aNU = z;
+        this.aNV = SystemClock.elapsedRealtime();
+        return this.aNU;
     }
 }

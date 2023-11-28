@@ -177,7 +177,7 @@ public final class TextGenImageUpdateSysItem extends BaseItem<TbTextGenImageUpda
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

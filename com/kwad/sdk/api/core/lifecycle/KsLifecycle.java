@@ -10,6 +10,29 @@ import androidx.lifecycle.LifecycleOwner;
 public class KsLifecycle {
     public Lifecycle mBase;
 
+    public KsLifecycle(Lifecycle lifecycle) {
+        this.mBase = lifecycle;
+    }
+
+    @MainThread
+    public void addObserver(@NonNull final KsLifecycleObserver ksLifecycleObserver) {
+        if (ksLifecycleObserver instanceof KsGenericLifecycleObserver) {
+            GenericLifecycleObserver genericLifecycleObserver = new GenericLifecycleObserver() { // from class: com.kwad.sdk.api.core.lifecycle.KsLifecycle.1
+                @Override // androidx.lifecycle.LifecycleEventObserver
+                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                    ((KsGenericLifecycleObserver) ksLifecycleObserver).onStateChanged(KsLifeEvent.createfrom(event));
+                }
+            };
+            ksLifecycleObserver.setBase(genericLifecycleObserver);
+            this.mBase.addObserver(genericLifecycleObserver);
+        }
+    }
+
+    @MainThread
+    public void removeObserver(@NonNull KsLifecycleObserver ksLifecycleObserver) {
+        this.mBase.removeObserver(ksLifecycleObserver.getBase());
+    }
+
     @Keep
     /* loaded from: classes10.dex */
     public enum KsLifeEvent {
@@ -68,35 +91,15 @@ public class KsLifecycle {
         }
 
         public final boolean isAtLeast(@NonNull KsLifeState ksLifeState) {
-            return compareTo(ksLifeState) >= 0;
-        }
-    }
-
-    public KsLifecycle(Lifecycle lifecycle) {
-        this.mBase = lifecycle;
-    }
-
-    @MainThread
-    public void addObserver(@NonNull final KsLifecycleObserver ksLifecycleObserver) {
-        if (ksLifecycleObserver instanceof KsGenericLifecycleObserver) {
-            GenericLifecycleObserver genericLifecycleObserver = new GenericLifecycleObserver() { // from class: com.kwad.sdk.api.core.lifecycle.KsLifecycle.1
-                @Override // androidx.lifecycle.LifecycleEventObserver
-                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
-                    ((KsGenericLifecycleObserver) ksLifecycleObserver).onStateChanged(KsLifeEvent.createfrom(event));
-                }
-            };
-            ksLifecycleObserver.setBase(genericLifecycleObserver);
-            this.mBase.addObserver(genericLifecycleObserver);
+            if (compareTo(ksLifeState) >= 0) {
+                return true;
+            }
+            return false;
         }
     }
 
     @MainThread
     public KsLifeState getCurrentState() {
         return KsLifeState.createFrom(this.mBase.getCurrentState());
-    }
-
-    @MainThread
-    public void removeObserver(@NonNull KsLifecycleObserver ksLifecycleObserver) {
-        this.mBase.removeObserver(ksLifecycleObserver.getBase());
     }
 }

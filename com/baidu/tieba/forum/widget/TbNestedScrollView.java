@@ -21,8 +21,8 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.tieba.om7;
-import com.baidu.tieba.rm7;
+import com.baidu.tieba.bp7;
+import com.baidu.tieba.ep7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0092\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0015\n\u0002\u0010\u0015\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u000e\n\u0002\b$\b\u0016\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004B%\b\u0007\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b\u0012\b\b\u0002\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\b\u0010M\u001a\u00020:H\u0014J\u0010\u0010N\u001a\u00020\u00172\u0006\u0010O\u001a\u00020\nH\u0016J\u0010\u0010P\u001a\u00020\u00172\u0006\u0010Q\u001a\u00020\nH\u0016J\u0010\u0010R\u001a\u00020\u00172\u0006\u0010O\u001a\u00020\nH\u0016J\b\u0010S\u001a\u00020:H\u0016J \u0010T\u001a\u00020\u00172\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u00142\u0006\u0010W\u001a\u00020\u0017H\u0016J\u0018\u0010X\u001a\u00020\u00172\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u0014H\u0016J,\u0010Y\u001a\u00020\u00172\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\b\u0010W\u001a\u0004\u0018\u00010\\2\b\u0010]\u001a\u0004\u0018\u00010\\H\u0016J4\u0010Y\u001a\u00020\u00172\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\b\u0010W\u001a\u0004\u0018\u00010\\2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\nH\u0016J*\u0010_\u001a\u00020:2\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\2\b\b\u0002\u0010^\u001a\u00020\nH\u0002J2\u0010`\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\H\u0016J:\u0010`\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\nH\u0016JB\u0010`\u001a\u00020:2\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J<\u0010e\u001a\u00020:2\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\b\u0002\u0010^\u001a\u00020\n2\b\b\u0002\u0010W\u001a\u00020\\H\u0002J \u0010f\u001a\u00020:2\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0002J\u0018\u0010g\u001a\u00020\n2\u0006\u0010h\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0002J\u0010\u0010i\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0016J&\u0010l\u001a\u00020:2\u0006\u0010m\u001a\u00020\u00142\u0016\b\u0002\u0010n\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109J\b\u0010o\u001a\u00020\nH\u0016J\u0010\u0010p\u001a\u00020\n2\u0006\u0010Z\u001a\u00020\nH\u0002J\u0010\u0010q\u001a\u00020\n2\u0006\u0010[\u001a\u00020\nH\u0002J\u0018\u0010r\u001a\u00020\u00172\u0006\u0010s\u001a\u00020\u00142\u0006\u0010t\u001a\u00020\u0014H\u0014J\b\u0010u\u001a\u00020\u0017H\u0016J\u0010\u0010u\u001a\u00020\u00172\u0006\u0010^\u001a\u00020\nH\u0016J\b\u0010v\u001a\u00020\u0017H\u0016J\u0006\u0010w\u001a\u00020\u0017J\u0010\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020zH\u0002J\u0010\u0010{\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0016J2\u0010|\u001a\u00020:2\u0006\u0010}\u001a\u00020\u00172\u0006\u0010~\u001a\u00020\n2\u0006\u0010\u007f\u001a\u00020\n2\u0007\u0010\u0080\u0001\u001a\u00020\n2\u0007\u0010\u0081\u0001\u001a\u00020\nH\u0014J*\u0010\u0082\u0001\u001a\u00020\u00172\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u00142\u0006\u0010W\u001a\u00020\u0017H\u0016J\"\u0010\u0084\u0001\u001a\u00020\u00172\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u0014H\u0016J*\u0010\u0085\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J2\u0010\u0085\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\2\u0006\u0010^\u001a\u00020\nH\u0016J2\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\nH\u0016J:\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016JB\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\u0006\u0010^\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J$\u0010\u0087\u0001\u001a\u00020:2\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\nH\u0016J,\u0010\u0087\u0001\u001a\u00020:2\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J-\u0010\u008a\u0001\u001a\u00020:2\u0007\u0010\u008b\u0001\u001a\u00020\n2\u0007\u0010\u008c\u0001\u001a\u00020\n2\u0007\u0010\u008d\u0001\u001a\u00020\n2\u0007\u0010\u008e\u0001\u001a\u00020\nH\u0014J$\u0010\u008f\u0001\u001a\u00020\u00172\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0090\u0001\u001a\u00020\nH\u0016J,\u0010\u008f\u0001\u001a\u00020\u00172\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J\u0012\u0010\u0091\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u000202H\u0016J\u001a\u0010\u0091\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010^\u001a\u00020\nH\u0016J\u0011\u0010\u0092\u0001\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0017J\u001b\u0010\u0093\u0001\u001a\u00020:2\u0007\u0010\u0094\u0001\u001a\u00020\n2\u0007\u0010\u0095\u0001\u001a\u00020\nH\u0016J\u0012\u0010\u0096\u0001\u001a\u00020:2\u0007\u0010\u0097\u0001\u001a\u00020\u0017H\u0016J\t\u0010\u0098\u0001\u001a\u00020\u0017H\u0014J2\u0010\u0099\u0001\u001a\u00020:2\u0006\u0010h\u001a\u00020\n2\t\b\u0002\u0010\u009a\u0001\u001a\u00020\n2\u0016\b\u0002\u0010n\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109J\u0012\u0010\u009b\u0001\u001a\u00020\u00172\u0007\u0010\u0089\u0001\u001a\u00020\nH\u0016J\u001a\u0010\u009b\u0001\u001a\u00020\u00172\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J\t\u0010\u009c\u0001\u001a\u00020:H\u0016J\u0011\u0010\u009c\u0001\u001a\u00020:2\u0006\u0010^\u001a\u00020\nH\u0016J\u0012\u0010\u009d\u0001\u001a\u00020:2\t\b\u0002\u0010\u009c\u0001\u001a\u00020\u0017R\u001b\u0010\f\u001a\u00020\r8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0012\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001b\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u000e\u0010\u001e\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010 \u001a\u0012\u0012\u0004\u0012\u00020\"0!j\b\u0012\u0004\u0012\u00020\"`#¢\u0006\b\n\u0000\u001a\u0004\b$\u0010%R\u000e\u0010&\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010'\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@DX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010\u001d\"\u0004\b)\u0010*R\u000e\u0010+\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010,\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@DX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010\u001d\"\u0004\b.\u0010*R\u000e\u0010/\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\"\u00103\u001a\u0004\u0018\u0001022\b\u0010\u001a\u001a\u0004\u0018\u000102@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b4\u00105R\"\u00106\u001a\u0004\u0018\u0001022\b\u0010\u001a\u001a\u0004\u0018\u000102@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b7\u00105R\u001c\u00108\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010;\u001a\u00020<8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b?\u0010\u0011\u001a\u0004\b=\u0010>R \u0010@\u001a\u00020\nX\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bA\u0010B\u001a\u0004\bC\u0010\u001d\"\u0004\bD\u0010*R\u000e\u0010E\u001a\u00020FX\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010H\u001a\u00020\n2\u0006\u0010G\u001a\u00020\n@BX\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bI\u0010B\u001a\u0004\bJ\u0010\u001d\"\u0004\bK\u0010*R\u000e\u0010L\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u009e\u0001"}, d2 = {"Lcom/baidu/tieba/forum/widget/TbNestedScrollView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "Landroidx/core/view/NestedScrollingParent3;", "Landroidx/core/view/NestedScrollingChild3;", "Lcom/baidu/tieba/forum/widget/NestedScrollBehavior;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "childHelper", "Landroidx/core/view/NestedScrollingChildHelper;", "getChildHelper", "()Landroidx/core/view/NestedScrollingChildHelper;", "childHelper$delegate", "Lkotlin/Lazy;", "downState", "downX", "", "downY", "enableLog", "", "lastEventTime", "", "<set-?>", "lastScrollDir", "getLastScrollDir", "()I", "lastX", "lastY", "listeners", "Ljava/util/HashSet;", "Lcom/baidu/tieba/forum/widget/BehaviorScrollListener;", "Lkotlin/collections/HashSet;", "getListeners", "()Ljava/util/HashSet;", "maxFlingVelocity", "maxScroll", "getMaxScroll", "setMaxScroll", "(I)V", "minFlingVelocity", "minScroll", "getMinScroll", "setMinScroll", "moveDuration", "moveDx", "moveDy", "Landroid/view/View;", "nestedScrollChild", "getNestedScrollChild", "()Landroid/view/View;", "nestedScrollTarget", "getNestedScrollTarget", "onEndListener", "Lkotlin/Function1;", "", "parentHelper", "Landroidx/core/view/NestedScrollingParentHelper;", "getParentHelper", "()Landroidx/core/view/NestedScrollingParentHelper;", "parentHelper$delegate", "scrollAxis", "getScrollAxis$annotations", "()V", "getScrollAxis", "setScrollAxis", "scroller", "Landroid/widget/Scroller;", "value", "state", "getState$annotations", "getState", "setState", "touchInterceptSlop", "adjustScrollBounds", "canScrollHorizontally", HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, "canScrollSelf", MapBundleKey.MapObjKey.OBJ_DIR, "canScrollVertically", "computeScroll", "dispatchNestedFling", "velocityX", "velocityY", "consumed", "dispatchNestedPreFling", "dispatchNestedPreScroll", LoginConstants.DX_ONE_KEY_LOGIN, "dy", "", "offsetInWindow", "type", "dispatchNestedPreScrollInternal", "dispatchNestedScroll", "dxConsumed", "dyConsumed", "dxUnconsumed", "dyUnconsumed", "dispatchNestedScrollInternal", "dispatchScrollInternal", "dispatchScrollSelf", "scroll", "dispatchTouchEvent", "e", "Landroid/view/MotionEvent;", "fling", "velocity", "onEnd", "getNestedScrollAxes", "getScrollByX", "getScrollByY", "handleFling", "vx", "vy", "hasNestedScrollingParent", "isNestedScrollingEnabled", "isScrolling", LocalFilesFilterKt.FILTER_NAME_LOG, "text", "", "onInterceptTouchEvent", "onLayout", "changed", "left", "top", "right", "bottom", "onNestedFling", "target", "onNestedPreFling", "onNestedPreScroll", "onNestedScroll", "onNestedScrollAccepted", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "axes", "onScrollChanged", "l", "t", "oldl", "oldt", "onStartNestedScroll", "nestedScrollAxes", "onStopNestedScroll", "onTouchEvent", "scrollBy", "x", "y", "setNestedScrollingEnabled", SapiOptions.KEY_CACHE_ENABLED, "shouldBlockOnInterceptTouch", "smoothScrollTo", "duration", "startNestedScroll", "stopNestedScroll", "stopScroll", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public class TbNestedScrollView extends ConstraintLayout implements NestedScrollingParent3, NestedScrollingChild3, rm7 {
+public class TbNestedScrollView extends ConstraintLayout implements NestedScrollingParent3, NestedScrollingChild3, ep7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -52,7 +52,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public int c;
     public int d;
     public int e;
-    public final HashSet<om7> f;
+    public final HashSet<bp7> f;
     public View g;
     public View h;
     public boolean i;
@@ -128,7 +128,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -249,12 +249,12 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.forum.widget.TbNestedScrollView */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ void l(TbNestedScrollView tbNestedScrollView, float f, Function1 function1, int i, Object obj) {
+    public static /* synthetic */ void n(TbNestedScrollView tbNestedScrollView, float f, Function1 function1, int i, Object obj) {
         if (obj == null) {
             if ((i & 2) != 0) {
                 function1 = null;
             }
-            tbNestedScrollView.k(f, function1);
+            tbNestedScrollView.l(f, function1);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: fling");
@@ -326,7 +326,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: dispatchNestedPreScrollInternal");
     }
 
-    public static /* synthetic */ void f(TbNestedScrollView tbNestedScrollView, int i, int i2, int i3, int i4, int i5, int[] iArr, int i6, Object obj) {
+    public static /* synthetic */ void g(TbNestedScrollView tbNestedScrollView, int i, int i2, int i3, int i4, int i5, int[] iArr, int i6, Object obj) {
         int i7;
         if (obj == null) {
             if ((i6 & 16) != 0) {
@@ -361,19 +361,28 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         return (NestedScrollingParentHelper) invokeV.objValue;
     }
 
+    public final boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !this.m.isFinished();
+        }
+        return invokeV.booleanValue;
+    }
+
     public final int getLastScrollDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.d;
         }
         return invokeV.intValue;
     }
 
-    public final HashSet<om7> getListeners() {
+    public final HashSet<bp7> getListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.f;
         }
         return (HashSet) invokeV.objValue;
@@ -382,7 +391,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final int getMaxScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.c;
         }
         return invokeV.intValue;
@@ -391,7 +400,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final int getMinScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
@@ -401,7 +410,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public int getNestedScrollAxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
@@ -410,7 +419,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final View getNestedScrollChild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.g;
         }
         return (View) invokeV.objValue;
@@ -419,7 +428,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final View getNestedScrollTarget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.h;
         }
         return (View) invokeV.objValue;
@@ -428,7 +437,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final int getScrollAxis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
@@ -437,7 +446,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
@@ -447,7 +456,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return getChildHelper().hasNestedScrollingParent();
         }
         return invokeV.booleanValue;
@@ -471,29 +480,20 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         }
     }
 
-    public final boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            return !this.m.isFinished();
-        }
-        return invokeV.booleanValue;
-    }
-
     private final void setState(int i) {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65549, this, i) == null) && (i2 = this.e) != i) {
             this.e = i;
-            for (om7 om7Var : this.f) {
-                om7Var.a(this, i2, i);
+            for (bp7 bp7Var : this.f) {
+                bp7Var.a(this, i2, i);
             }
         }
     }
 
-    public final void A(String str) {
+    public final void B(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.i) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.i) {
             Log.d(getClass().getSimpleName(), str);
         }
     }
@@ -501,10 +501,10 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public final void F(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.m.forceFinished(true);
             if (z && (view2 = this.g) != null) {
-                ViewExtentionsKt.l(view2);
+                ViewExtentionsKt.m(view2);
             }
         }
     }
@@ -512,7 +512,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             int nestedScrollAxes = getNestedScrollAxes();
             if (nestedScrollAxes != 1) {
                 if (nestedScrollAxes != 2) {
@@ -529,7 +529,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean canScrollHorizontally(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             if (getNestedScrollAxes() != 1) {
                 return false;
             }
@@ -549,7 +549,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean canScrollVertically(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             if (getNestedScrollAxes() == 2) {
                 if (i > 0) {
                     if (getScrollY() < this.c) {
@@ -568,7 +568,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean hasNestedScrollingParent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
             return getChildHelper().hasNestedScrollingParent(i);
         }
         return invokeI.booleanValue;
@@ -583,11 +583,11 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         }
     }
 
-    public Boolean p(MotionEvent motionEvent) {
+    public Boolean s(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, motionEvent)) == null) {
-            return rm7.a.a(this, motionEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, motionEvent)) == null) {
+            return ep7.a.a(this, motionEvent);
         }
         return (Boolean) invokeL.objValue;
     }
@@ -639,19 +639,19 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         }
     }
 
-    public Boolean y(MotionEvent motionEvent) {
+    public Boolean z(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, motionEvent)) == null) {
-            return rm7.a.e(this, motionEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, motionEvent)) == null) {
+            return ep7.a.e(this, motionEvent);
         }
         return (Boolean) invokeL.objValue;
     }
 
     public final void D(int i, int i2, Function1<? super TbNestedScrollView, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, function1) == null) {
-            A("smoothScrollSelf " + i);
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, function1) == null) {
+            B("smoothScrollSelf " + i);
             G(this, false, 1, null);
             setState(2);
             this.q = 0.0f;
@@ -664,7 +664,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int childCount = getChildCount();
             int i = 0;
             int i2 = 0;
@@ -704,7 +704,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.m.computeScrollOffset()) {
                 int currX = (int) (this.m.getCurrX() - this.q);
                 int currY = (int) (this.m.getCurrY() - this.r);
@@ -740,42 +740,42 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
 
     public final void c(int i, int i2, int[] iArr, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
-            A("dispatchNestedPreScrollInternal: type=" + i3 + ", x=" + i + ", y=" + i2);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
+            B("dispatchNestedPreScrollInternal: type=" + i3 + ", x=" + i + ", y=" + i2);
             int nestedScrollAxes = getNestedScrollAxes();
             if (nestedScrollAxes != 1) {
                 if (nestedScrollAxes != 2) {
                     dispatchNestedPreScroll(i, i2, iArr, null, i3);
                     return;
                 }
-                Boolean t = t(i2, i3);
-                A("handleNestedPreScrollFirst = " + t);
-                if (Intrinsics.areEqual(t, Boolean.TRUE)) {
-                    int i4 = i(i2, i3);
-                    dispatchNestedPreScroll(i, i2 - i4, iArr, null, i3);
-                    iArr[1] = iArr[1] + i4;
+                Boolean u = u(i2, i3);
+                B("handleNestedPreScrollFirst = " + u);
+                if (Intrinsics.areEqual(u, Boolean.TRUE)) {
+                    int j = j(i2, i3);
+                    dispatchNestedPreScroll(i, i2 - j, iArr, null, i3);
+                    iArr[1] = iArr[1] + j;
                     return;
-                } else if (Intrinsics.areEqual(t, Boolean.FALSE)) {
+                } else if (Intrinsics.areEqual(u, Boolean.FALSE)) {
                     dispatchNestedPreScroll(i, i2, iArr, null, i3);
-                    iArr[1] = iArr[1] + i(i2 - iArr[1], i3);
+                    iArr[1] = iArr[1] + j(i2 - iArr[1], i3);
                     return;
-                } else if (t == null) {
+                } else if (u == null) {
                     dispatchNestedPreScroll(i, i2, iArr, null, i3);
                     return;
                 } else {
                     return;
                 }
             }
-            Boolean t2 = t(i, i3);
-            A("handleNestedPreScrollFirst = " + t2);
-            if (Intrinsics.areEqual(t2, Boolean.TRUE)) {
-                int i5 = i(i, i3);
-                dispatchNestedPreScroll(i - i5, i2, iArr, null, i3);
-                iArr[0] = iArr[0] + i5;
-            } else if (Intrinsics.areEqual(t2, Boolean.FALSE)) {
+            Boolean u2 = u(i, i3);
+            B("handleNestedPreScrollFirst = " + u2);
+            if (Intrinsics.areEqual(u2, Boolean.TRUE)) {
+                int j2 = j(i, i3);
+                dispatchNestedPreScroll(i - j2, i2, iArr, null, i3);
+                iArr[0] = iArr[0] + j2;
+            } else if (Intrinsics.areEqual(u2, Boolean.FALSE)) {
                 dispatchNestedPreScroll(i, i2, iArr, null, i3);
-                iArr[0] = iArr[0] + i(i - iArr[0], i3);
-            } else if (t2 == null) {
+                iArr[0] = iArr[0] + j(i - iArr[0], i3);
+            } else if (u2 == null) {
                 dispatchNestedPreScroll(i, i2, iArr, null, i3);
             }
         }
@@ -785,7 +785,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedFling(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             return getChildHelper().dispatchNestedFling(f, f2, z);
         }
         return invokeCommon.booleanValue;
@@ -806,7 +806,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedPreFling(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             return getChildHelper().dispatchNestedPreFling(f, f2);
         }
         return invokeCommon.booleanValue;
@@ -832,20 +832,11 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         return invokeII.booleanValue;
     }
 
-    public Boolean t(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048640, this, i, i2)) == null) {
-            return rm7.a.b(this, i, i2);
-        }
-        return (Boolean) invokeII.objValue;
-    }
-
     public Boolean u(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048641, this, i, i2)) == null) {
-            return rm7.a.c(this, i, i2);
+            return ep7.a.b(this, i, i2);
         }
         return (Boolean) invokeII.objValue;
     }
@@ -854,7 +845,16 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048642, this, i, i2)) == null) {
-            return rm7.a.d(this, i, i2);
+            return ep7.a.c(this, i, i2);
+        }
+        return (Boolean) invokeII.objValue;
+    }
+
+    public Boolean y(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048643, this, i, i2)) == null) {
+            return ep7.a.d(this, i, i2);
         }
         return (Boolean) invokeII.objValue;
     }
@@ -863,7 +863,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
             return getChildHelper().dispatchNestedPreScroll(i, i2, iArr, iArr2);
         }
         return invokeCommon.booleanValue;
@@ -875,7 +875,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{target, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             Intrinsics.checkNotNullParameter(target, "target");
-            if (!z && s(f, f2)) {
+            if (!z && t(f, f2)) {
                 return true;
             }
             return false;
@@ -897,7 +897,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
             return getChildHelper().dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
         }
         return invokeCommon.booleanValue;
@@ -926,7 +926,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     @Override // androidx.core.view.NestedScrollingChild3
     public void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] consumed) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), consumed}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), consumed}) == null) {
             Intrinsics.checkNotNullParameter(consumed, "consumed");
             getChildHelper().dispatchNestedScroll(i, i2, i3, i4, iArr, i5, consumed);
         }
@@ -946,7 +946,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
             return getChildHelper().dispatchNestedScroll(i, i2, i3, i4, iArr);
         }
         return invokeCommon.booleanValue;
@@ -957,7 +957,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{target, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             Intrinsics.checkNotNullParameter(target, "target");
-            f(this, i, i2, i3, i4, 0, null, 48, null);
+            g(this, i, i2, i3, i4, 0, null, 48, null);
         }
     }
 
@@ -965,7 +965,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
             return getChildHelper().dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
         }
         return invokeCommon.booleanValue;
@@ -976,7 +976,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{target, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             Intrinsics.checkNotNullParameter(target, "target");
-            f(this, i, i2, i3, i4, i5, null, 32, null);
+            g(this, i, i2, i3, i4, i5, null, 32, null);
         }
     }
 
@@ -984,12 +984,12 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public boolean dispatchTouchEvent(MotionEvent e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
-            Boolean p = p(e);
-            if (p != null) {
-                boolean booleanValue = p.booleanValue();
-                A("handleDispatchTouchEvent " + booleanValue);
+            Boolean s = s(e);
+            if (s != null) {
+                boolean booleanValue = s.booleanValue();
+                B("handleDispatchTouchEvent " + booleanValue);
                 return booleanValue;
             }
             return super.dispatchTouchEvent(e);
@@ -999,42 +999,42 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
 
     public final void e(int i, int i2, int i3, int i4, int i5, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
-            A("dispatchNestedScrollInternal: type=" + i5 + ", x=" + i3 + ", y=" + i4);
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
+            B("dispatchNestedScrollInternal: type=" + i5 + ", x=" + i3 + ", y=" + i4);
             int nestedScrollAxes = getNestedScrollAxes();
             if (nestedScrollAxes != 1) {
                 if (nestedScrollAxes != 2) {
                     dispatchNestedScroll(i, i2, i3, i4, null, i5, iArr);
                     return;
                 }
-                Boolean u = u(i4, i5);
-                A("handleNestedScrollFirst = " + u);
-                if (Intrinsics.areEqual(u, Boolean.TRUE)) {
-                    int i6 = i(i4, i5);
-                    dispatchNestedScroll(i, i2 + i6, i3, i4 - i6, null, i5, iArr);
-                    iArr[1] = iArr[1] + i6;
+                Boolean x = x(i4, i5);
+                B("handleNestedScrollFirst = " + x);
+                if (Intrinsics.areEqual(x, Boolean.TRUE)) {
+                    int j = j(i4, i5);
+                    dispatchNestedScroll(i, i2 + j, i3, i4 - j, null, i5, iArr);
+                    iArr[1] = iArr[1] + j;
                     return;
-                } else if (Intrinsics.areEqual(u, Boolean.FALSE)) {
+                } else if (Intrinsics.areEqual(x, Boolean.FALSE)) {
                     dispatchNestedScroll(i, i2, i3, i4, null, i5, iArr);
-                    iArr[1] = iArr[1] + i(i4 - iArr[1], i5);
+                    iArr[1] = iArr[1] + j(i4 - iArr[1], i5);
                     return;
-                } else if (u == null) {
+                } else if (x == null) {
                     dispatchNestedScroll(i, i2, i3, i4, null, i5, iArr);
                     return;
                 } else {
                     return;
                 }
             }
-            Boolean u2 = u(i3, i5);
-            A("handleNestedScrollFirst = " + u2);
-            if (Intrinsics.areEqual(u2, Boolean.TRUE)) {
-                int i7 = i(i3, i5);
-                dispatchNestedScroll(i + i7, i2, i3 - i7, i4, null, i5, iArr);
-                iArr[0] = iArr[0] + i7;
-            } else if (Intrinsics.areEqual(u2, Boolean.FALSE)) {
+            Boolean x2 = x(i3, i5);
+            B("handleNestedScrollFirst = " + x2);
+            if (Intrinsics.areEqual(x2, Boolean.TRUE)) {
+                int j2 = j(i3, i5);
+                dispatchNestedScroll(i + j2, i2, i3 - j2, i4, null, i5, iArr);
+                iArr[0] = iArr[0] + j2;
+            } else if (Intrinsics.areEqual(x2, Boolean.FALSE)) {
                 dispatchNestedScroll(i, i2, i3, i4, null, i5, iArr);
-                iArr[0] = iArr[0] + i(i3 - iArr[0], i5);
-            } else if (u2 == null) {
+                iArr[0] = iArr[0] + j(i3 - iArr[0], i5);
+            } else if (x2 == null) {
                 dispatchNestedScroll(i, i2, i3, i4, null, i5, iArr);
             }
         }
@@ -1042,8 +1042,8 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
 
     public final void h(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048604, this, i, i2, i3) == null) {
-            A("dispatchScrollInternal: type=" + i3 + ", x=" + i + ", y=" + i2);
+        if (interceptable == null || interceptable.invokeIII(1048605, this, i, i2, i3) == null) {
+            B("dispatchScrollInternal: type=" + i3 + ", x=" + i + ", y=" + i2);
             int[] iArr = new int[2];
             int nestedScrollAxes = getNestedScrollAxes();
             if (nestedScrollAxes != 1) {
@@ -1058,63 +1058,63 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
                 }
                 c(i, i2, iArr, i3);
                 int i6 = iArr[1] + 0;
-                int i7 = i6 + i(i2 - i6, i3);
-                int i8 = iArr[0];
+                int j = i6 + j(i2 - i6, i3);
+                int i7 = iArr[0];
                 iArr[0] = 0;
                 iArr[1] = 0;
-                e(i8, i7, i - i8, i2 - i7, i3, iArr);
+                e(i7, j, i - i7, i2 - j, i3, iArr);
                 return;
             }
             c(i, i2, iArr, i3);
-            int i9 = iArr[0] + 0;
-            int i10 = i9 + i(i - i9, i3);
-            int i11 = iArr[1];
+            int i8 = iArr[0] + 0;
+            int j2 = i8 + j(i - i8, i3);
+            int i9 = iArr[1];
             iArr[0] = 0;
             iArr[1] = 0;
-            e(i10, i11, i - i10, i2 - i11, i3, iArr);
+            e(j2, i9, i - j2, i2 - i9, i3, iArr);
         }
     }
 
-    public final int i(int i, int i2) {
+    public final int j(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048607, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048609, this, i, i2)) == null) {
             int i3 = 0;
             if (i == 0) {
                 return 0;
             }
-            Boolean x = x(i, i2);
-            if (!Intrinsics.areEqual(x, Boolean.TRUE)) {
-                if (!Intrinsics.areEqual(x, Boolean.FALSE) && b(i)) {
-                    A("canScrollSelf");
+            Boolean y = y(i, i2);
+            if (!Intrinsics.areEqual(y, Boolean.TRUE)) {
+                if (!Intrinsics.areEqual(y, Boolean.FALSE) && b(i)) {
+                    B("canScrollSelf");
                     scrollBy(i, i);
                 }
-                A("handleScrollSelf: type=" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + x + WebvttCueParser.CHAR_SPACE + i + LoadErrorCode.TOKEN_NEXT + i3);
+                B("handleScrollSelf: type=" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + y + WebvttCueParser.CHAR_SPACE + i + LoadErrorCode.TOKEN_NEXT + i3);
                 return i3;
             }
             i3 = i;
-            A("handleScrollSelf: type=" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + x + WebvttCueParser.CHAR_SPACE + i + LoadErrorCode.TOKEN_NEXT + i3);
+            B("handleScrollSelf: type=" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + y + WebvttCueParser.CHAR_SPACE + i + LoadErrorCode.TOKEN_NEXT + i3);
             return i3;
         }
         return invokeII.intValue;
     }
 
-    public boolean s(float f, float f2) {
+    public boolean t(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             int nestedScrollAxes = getNestedScrollAxes();
             boolean z = false;
             if (nestedScrollAxes != 1) {
                 if (nestedScrollAxes == 2 && Math.abs(f2) > this.k) {
-                    l(this, ViewExtentionsKt.e(Float.valueOf(f2), Float.valueOf(-this.l), Float.valueOf(this.l)).floatValue(), null, 2, null);
+                    n(this, ViewExtentionsKt.e(Float.valueOf(f2), Float.valueOf(-this.l), Float.valueOf(this.l)).floatValue(), null, 2, null);
                     z = true;
                 }
                 dispatchNestedFling(f, f2, z);
                 return z;
             }
             if (Math.abs(f) > this.k) {
-                l(this, ViewExtentionsKt.e(Float.valueOf(f), Float.valueOf(-this.l), Float.valueOf(this.l)).floatValue(), null, 2, null);
+                n(this, ViewExtentionsKt.e(Float.valueOf(f), Float.valueOf(-this.l), Float.valueOf(this.l)).floatValue(), null, 2, null);
                 z = true;
             }
             dispatchNestedFling(f, f2, z);
@@ -1123,10 +1123,10 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         return invokeCommon.booleanValue;
     }
 
-    public final void k(float f, Function1<? super TbNestedScrollView, Unit> function1) {
+    public final void l(float f, Function1<? super TbNestedScrollView, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Float.valueOf(f), function1}) == null) {
-            A("fling " + f);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Float.valueOf(f), function1}) == null) {
+            B("fling " + f);
             G(this, false, 1, null);
             setState(3);
             this.q = 0.0f;
@@ -1139,11 +1139,11 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         }
     }
 
-    public final int n(int i) {
+    public final int o(int i) {
         InterceptResult invokeI;
         int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
             int scrollX = getScrollX() + i;
             if (getNestedScrollAxes() != 1) {
                 intValue = getScrollX();
@@ -1159,11 +1159,11 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         return invokeI.intValue;
     }
 
-    public final int o(int i) {
+    public final int p(int i) {
         InterceptResult invokeI;
         int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i)) == null) {
             int scrollY = getScrollY() + i;
             if (getNestedScrollAxes() != 2) {
                 intValue = getScrollY();
@@ -1276,14 +1276,14 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
                     return;
                 }
                 this.d = i2 - i4;
-                for (om7 om7Var : this.f) {
-                    om7Var.b(this, i4, i2);
+                for (bp7 bp7Var : this.f) {
+                    bp7Var.b(this, i4, i2);
                 }
                 return;
             }
             this.d = i - i3;
-            for (om7 om7Var2 : this.f) {
-                om7Var2.b(this, i3, i);
+            for (bp7 bp7Var2 : this.f) {
+                bp7Var2.b(this, i3, i);
             }
         }
     }
@@ -1301,10 +1301,10 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
-            Boolean y = y(e);
-            if (y != null) {
-                boolean booleanValue = y.booleanValue();
-                A("handleTouchEvent " + booleanValue);
+            Boolean z = z(e);
+            if (z != null) {
+                boolean booleanValue = z.booleanValue();
+                B("handleTouchEvent " + booleanValue);
                 return booleanValue;
             }
             int action = e.getAction();
@@ -1318,8 +1318,8 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
                         this.q = e.getRawX();
                         this.r = e.getRawY();
                         if (this.e != 1) {
-                            boolean z = (r9 = getNestedScrollAxes()) != 1 ? false : false;
-                            if (z) {
+                            boolean z2 = (r9 = getNestedScrollAxes()) != 1 ? false : false;
+                            if (z2) {
                                 startNestedScroll(getNestedScrollAxes(), 0);
                                 setState(1);
                                 ViewParent parent = getParent();
@@ -1339,7 +1339,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
                     float f = this.t / (((float) j) / 1000.0f);
                     float f2 = this.u / (((float) j) / 1000.0f);
                     if (!dispatchNestedPreFling(f, f2)) {
-                        s(f, f2);
+                        t(f, f2);
                     }
                 }
             } else {
@@ -1355,10 +1355,10 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public void scrollBy(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048631, this, i, i2) == null) {
-            int n = n(i);
-            int o = o(i2);
-            super.scrollBy(n, o);
-            A("scrollBy " + i + LoadErrorCode.TOKEN_NEXT + n + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + LoadErrorCode.TOKEN_NEXT + o);
+            int o = o(i);
+            int p = p(i2);
+            super.scrollBy(o, p);
+            B("scrollBy " + i + LoadErrorCode.TOKEN_NEXT + o + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + LoadErrorCode.TOKEN_NEXT + p);
         }
     }
 }

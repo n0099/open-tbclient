@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -79,9 +79,9 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
 
     /* renamed from: getChildItemList$lambda-1  reason: not valid java name */
     public static final void m61getChildItemList$lambda1(View view2) {
-        String[] strArr = {h.c};
+        String[] strArr = {g.c};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.th1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.uh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,9 +100,9 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
 
     /* renamed from: getChildItemList$lambda-11  reason: not valid java name */
     public static final void m63getChildItemList$lambda11(View view2) {
-        String[] strArr = {h.i};
+        String[] strArr = {g.i};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.zh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ai1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +123,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     public static final void m65getChildItemList$lambda3(View view2) {
         String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ai1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.bi1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +144,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     public static final void m67getChildItemList$lambda5(View view2) {
         String[] strArr = {PermissionRequest.RESOURCE_AUDIO_CAPTURE};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.vh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.wh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -165,7 +165,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     public static final void m69getChildItemList$lambda7(View view2) {
         String[] strArr = {"android.permission.READ_CONTACTS"};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.yh1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.zh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -184,9 +184,9 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
 
     /* renamed from: getChildItemList$lambda-9  reason: not valid java name */
     public static final void m71getChildItemList$lambda9(View view2) {
-        String[] strArr = {h.g};
+        String[] strArr = {g.g};
         if (!DangerousPermissionUtils.isPermissionGroupGranted(AppRuntime.getAppContext(), strArr)) {
-            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.ci1
+            DangerousPermissionUtils.requestPermissions("basic", AppRuntime.getAppContext(), strArr, 100, new DangerousPermissionManager.RequestSystemPermissionCallBack() { // from class: com.baidu.tieba.di1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,7 +206,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
     public ArrayList<DebugItemInfo> getChildItemList() {
-        addItem(REQUEST_READ_PHPNE_STATE, new View.OnClickListener() { // from class: com.baidu.tieba.uh1
+        addItem(REQUEST_READ_PHPNE_STATE, new View.OnClickListener() { // from class: com.baidu.tieba.vh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -218,7 +218,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 }
             }
         });
-        addItem(REQUEST_CAMER, new View.OnClickListener() { // from class: com.baidu.tieba.di1
+        addItem(REQUEST_CAMER, new View.OnClickListener() { // from class: com.baidu.tieba.ei1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +230,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 }
             }
         });
-        addItem(REQUEST_MIC, new View.OnClickListener() { // from class: com.baidu.tieba.bi1
+        addItem(REQUEST_MIC, new View.OnClickListener() { // from class: com.baidu.tieba.ci1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,7 +242,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 }
             }
         });
-        addItem(REQUEST_CONTACTS, new View.OnClickListener() { // from class: com.baidu.tieba.wh1
+        addItem(REQUEST_CONTACTS, new View.OnClickListener() { // from class: com.baidu.tieba.xh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -254,7 +254,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 }
             }
         });
-        addItem(REQUEST_LOCATION, new View.OnClickListener() { // from class: com.baidu.tieba.sh1
+        addItem(REQUEST_LOCATION, new View.OnClickListener() { // from class: com.baidu.tieba.th1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -266,7 +266,7 @@ public final class PermissionDialogProvider extends DebugDataGroupProvider {
                 }
             }
         });
-        addItem(REQUEST_STORAGE, new View.OnClickListener() { // from class: com.baidu.tieba.xh1
+        addItem(REQUEST_STORAGE, new View.OnClickListener() { // from class: com.baidu.tieba.yh1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

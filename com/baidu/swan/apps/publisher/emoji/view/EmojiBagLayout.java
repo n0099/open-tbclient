@@ -16,9 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s33;
 import com.baidu.tieba.t33;
-import com.baidu.tieba.xj3;
+import com.baidu.tieba.u33;
+import com.baidu.tieba.yj3;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -78,7 +78,7 @@ public class EmojiBagLayout extends LinearLayout {
         public View getView(int i, View view2, ViewGroup viewGroup) {
             LinearLayout linearLayout;
             if (view2 == null) {
-                linearLayout = (LinearLayout) this.b.inflate(R.layout.obfuscated_res_0x7f0d094b, viewGroup, false);
+                linearLayout = (LinearLayout) this.b.inflate(R.layout.obfuscated_res_0x7f0d0965, viewGroup, false);
                 ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                 layoutParams.height = EmojiBagLayout.this.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070141);
                 linearLayout.setLayoutParams(layoutParams);
@@ -87,9 +87,9 @@ public class EmojiBagLayout extends LinearLayout {
             }
             ImageView imageView = (ImageView) linearLayout.findViewById(R.id.img_item);
             if (i == getCount() - 1) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0814ae);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0814d1);
             } else if (i < this.a.size()) {
-                imageView.setImageBitmap(t33.c().a(this.a.get(i)));
+                imageView.setImageBitmap(u33.c().a(this.a.get(i)));
             }
             return linearLayout;
         }
@@ -179,7 +179,7 @@ public class EmojiBagLayout extends LinearLayout {
         super.onSizeChanged(i, i2, i3, i4);
         Resources resources = getResources();
         int measuredHeight = getChildAt(0).getMeasuredHeight() - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070141) * 3);
-        int g = (measuredHeight / 4) + xj3.g(8.0f);
+        int g = (measuredHeight / 4) + yj3.g(8.0f);
         int i5 = (measuredHeight - (g * 2)) / 2;
         int size = this.d.size();
         for (int i6 = 0; i6 < size; i6++) {
@@ -211,7 +211,7 @@ public class EmojiBagLayout extends LinearLayout {
                 noScrollGridView.setStretchMode(2);
                 noScrollGridView.setVerticalScrollBarEnabled(false);
                 noScrollGridView.setOverScrollMode(2);
-                s33 g = s33.g(getContext().getApplicationContext());
+                t33 g = t33.g(getContext().getApplicationContext());
                 noScrollGridView.setOnItemClickListener(g.h());
                 noScrollGridView.setOnItemLongClickListener(g.i());
                 noScrollGridView.setOnTouchListener(g.j());

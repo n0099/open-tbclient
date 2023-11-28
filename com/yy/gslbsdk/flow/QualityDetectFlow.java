@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.flow;
 
 import android.content.Context;
+import com.baidu.tieba.ms;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.cache.ServerIPMgr;
@@ -32,7 +33,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class QualityDetectFlow {
     public static final String TAG = "QualityDetectFlow";
     public static QualityDetectFlow mQualityDetectFlow;
@@ -333,7 +334,7 @@ public class QualityDetectFlow {
                     if (canReport) {
                         long j = currentTimeMillis2 - currentTimeMillis;
                         addReportData(host, next, j);
-                        LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j + "ms");
+                        LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j + ms.c);
                     }
                 }
             }

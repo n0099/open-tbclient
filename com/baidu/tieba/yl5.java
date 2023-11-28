@@ -1,11 +1,19 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes9.dex */
-public interface yl5 extends fk5 {
-    public static final String b = "com.baidu.tieba.yl5";
-
+public interface yl5 extends dm5 {
     @NonNull
-    zl5 a(@NonNull TbPageContext tbPageContext);
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+
+    boolean isEnable();
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

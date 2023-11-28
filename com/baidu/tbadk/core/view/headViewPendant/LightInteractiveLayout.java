@@ -41,10 +41,10 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
+import com.baidu.tieba.f65;
+import com.baidu.tieba.g65;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.z55;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public a65 f;
+    public g65 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -90,7 +90,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public int y;
     public ArrayList<LightEmotionData> z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements RecyclerView.OnItemTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(a65 a65Var) {
+    public void setOnDismissListener(g65 g65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, a65Var) == null) {
-            this.f = a65Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, g65Var) == null) {
+            this.f = g65Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.q(a65Var);
+                lightEmotionAdapter.r(g65Var);
             }
         }
     }
@@ -531,14 +531,14 @@ public class LightInteractiveLayout extends ConstraintLayout {
     private Context getViewContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             WeakReference<Context> weakReference = this.g;
             if (weakReference != null) {
                 return weakReference.get();
             }
-            a65 a65Var = this.f;
-            if (a65Var != null) {
-                a65Var.onClose();
+            g65 g65Var = this.f;
+            if (g65Var != null) {
+                g65Var.onClose();
                 return null;
             }
             return null;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && qd.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && rd.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 L(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    z55.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    f65.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            a65 a65Var = this.f;
-            if (a65Var != null) {
-                a65Var.onClose();
+            g65 g65Var = this.f;
+            if (g65Var != null) {
+                g65Var.onClose();
             }
         }
     }
@@ -658,7 +658,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             this.z.addAll(TbSingleton.getInstance().getLightEmotionInfo());
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.n(this.z);
+                lightEmotionAdapter.o(this.z);
                 this.h.notifyDataSetChanged();
             }
         }
@@ -737,9 +737,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!H(this.b, this.v, rawY)) {
-                    a65 a65Var = this.f;
-                    if (a65Var != null) {
-                        a65Var.onClose();
+                    g65 g65Var = this.f;
+                    if (g65Var != null) {
+                        g65Var.onClose();
                         return true;
                     }
                     return true;

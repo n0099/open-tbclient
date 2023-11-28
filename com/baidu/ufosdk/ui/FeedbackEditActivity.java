@@ -104,7 +104,7 @@ public class FeedbackEditActivity extends Activity {
     public TextView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public SpannableString f1188T;
+    public SpannableString f1183T;
     public ClickableSpan U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -477,7 +477,7 @@ public class FeedbackEditActivity extends Activity {
                 TextView textView8 = new TextView(this);
                 SpannableString spannableString2 = new SpannableString("允许第三方网站使用您的反馈资料,《相关说明》");
                 spannableString2.setSpan(this.U, 16, spannableString2.length(), 33);
-                this.f1188T = spannableString2;
+                this.f1183T = spannableString2;
                 textView8.setText(spannableString2);
                 textView8.setTextSize(14.0f);
                 textView8.setTextColor(this.d ? -10066330 : -6710887);
@@ -1459,11 +1459,11 @@ public class FeedbackEditActivity extends Activity {
                 FeedbackManager.getInstance(this).setFeedbackCallback(null);
                 this.C = null;
             }
-            SpannableString spannableString = this.f1188T;
+            SpannableString spannableString = this.f1183T;
             if (spannableString != null) {
                 spannableString.removeSpan(this.U);
                 this.U = null;
-                this.f1188T = null;
+                this.f1183T = null;
             }
             super.onDestroy();
         }

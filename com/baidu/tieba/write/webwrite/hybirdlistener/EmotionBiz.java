@@ -6,15 +6,15 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.agb;
+import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.ebb;
-import com.baidu.tieba.fbb;
-import com.baidu.tieba.kcb;
-import com.baidu.tieba.m85;
+import com.baidu.tieba.ghb;
+import com.baidu.tieba.s85;
+import com.baidu.tieba.vgb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class EmotionBiz extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hbb
+    @Override // com.baidu.tieba.dgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,18 +42,18 @@ public final class EmotionBiz extends BizBase {
         return (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hbb
-    public fbb[] b() {
+    @Override // com.baidu.tieba.dgb
+    public bgb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (fbb[]) invokeV.objValue;
+        return (bgb[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, zbb writePageState) {
+    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, vgb writePageState) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +65,7 @@ public final class EmotionBiz extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (zbb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,35 +77,35 @@ public final class EmotionBiz extends BizBase {
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
     }
 
-    @Override // com.baidu.tieba.hbb
-    public ebb[] f() {
+    @Override // com.baidu.tieba.dgb
+    public agb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ebb[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (ebb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new agb[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
     public final void s(int i, Object obj) {
-        m85 m85Var;
+        s85 s85Var;
         String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, obj) == null) {
             if (k().getWriteImagesInfo() == null) {
                 k().setWriteImagesInfo(new WriteImagesInfo(9));
             }
-            if (obj instanceof m85) {
-                m85Var = (m85) obj;
+            if (obj instanceof s85) {
+                s85Var = (s85) obj;
             } else {
-                m85Var = null;
+                s85Var = null;
             }
-            if (m85Var == null) {
+            if (s85Var == null) {
                 return;
             }
-            if (EmotionGroupType.isSendAsPic(m85Var.g())) {
+            if (EmotionGroupType.isSendAsPic(s85Var.g())) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setImageType(1);
-                imageFileInfo.setFilePath(m85Var.d());
-                imageFileInfo.width = m85Var.i();
-                imageFileInfo.height = m85Var.b();
+                imageFileInfo.setFilePath(s85Var.d());
+                imageFileInfo.width = s85Var.i();
+                imageFileInfo.height = s85Var.b();
                 Function1<ImageFileInfo, Unit> h = l().h();
                 if (h != null) {
                     h.invoke(imageFileInfo);
@@ -113,19 +113,19 @@ public final class EmotionBiz extends BizBase {
                 }
                 return;
             }
-            String d = m85Var.d();
-            m85Var.g();
+            String d = s85Var.d();
+            s85Var.g();
             JSONObject jSONObject = new JSONObject();
-            EmotionGroupType g = m85Var.g();
+            EmotionGroupType g = s85Var.g();
             Intrinsics.checkNotNullExpressionValue(g, "data.type");
-            b = kcb.b(g);
+            b = ghb.b(g);
             JSONKt.c(jSONObject, "type", b);
             JSONKt.c(jSONObject, "name", d);
-            if (m85Var.g() != EmotionGroupType.LOCAL) {
-                JSONKt.c(jSONObject, "width", Integer.valueOf(m85Var.i()));
-                JSONKt.c(jSONObject, "height", Integer.valueOf(m85Var.b()));
-                JSONKt.c(jSONObject, "pid", m85Var.e());
-                JSONKt.c(jSONObject, "pname", m85Var.f());
+            if (s85Var.g() != EmotionGroupType.LOCAL) {
+                JSONKt.c(jSONObject, "width", Integer.valueOf(s85Var.i()));
+                JSONKt.c(jSONObject, "height", Integer.valueOf(s85Var.b()));
+                JSONKt.c(jSONObject, "pid", s85Var.e());
+                JSONKt.c(jSONObject, "pname", s85Var.f());
             }
             g().invoke("writePageNa.addEmotion", jSONObject);
         }

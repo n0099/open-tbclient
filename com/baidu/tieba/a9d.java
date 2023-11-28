@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONObject;
+import tbclient.SubBottomMenu;
 /* loaded from: classes5.dex */
-public class a9d {
+public class a9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2, CancelType cancelType) {
+    @NonNull
+    public static JSONObject b(@NonNull SubBottomMenu subBottomMenu) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                w9d.b(i, i2, PayUIEventType.purchaseclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                w9d.b(i, i2, PayUIEventType.purchaseclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subBottomMenu)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "name", subBottomMenu.name);
+            ltc.a(jSONObject, "url", subBottomMenu.url);
+            ltc.a(jSONObject, "type", subBottomMenu.type);
+            return jSONObject;
         }
-    }
-
-    public static void b(int i, int i2, CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                w9d.b(i, i2, PayUIEventType.paypageclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                w9d.b(i, i2, PayUIEventType.paypageclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

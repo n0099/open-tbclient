@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.nh8;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.ph8;
+import com.baidu.tieba.kk8;
+import com.baidu.tieba.mk8;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<oi> mTopicDataList;
+    public List<pi> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -43,7 +43,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<oi> getTopicDataList() {
+    public List<pi> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -68,16 +68,16 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    nh8 nh8Var = new nh8();
-                    nh8Var.R = i2;
-                    nh8Var.H(newTopicList);
-                    this.mTopicDataList.add(nh8Var);
-                    this.mTopicDataList.add(new ph8());
+                    kk8 kk8Var = new kk8();
+                    kk8Var.R = i2;
+                    kk8Var.H(newTopicList);
+                    this.mTopicDataList.add(kk8Var);
+                    this.mTopicDataList.add(new mk8());
                     i2++;
                 }
             }
-            List<oi> list = this.mTopicDataList;
-            ((ph8) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            List<pi> list = this.mTopicDataList;
+            ((mk8) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

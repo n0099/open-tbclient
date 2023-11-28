@@ -33,24 +33,12 @@ public class ResUtil {
         return getIdentifier(context, str, "id");
     }
 
-    public static int getIdentifier(Context context, String str, String str2) {
-        return getResources(context).getIdentifier(str, str2, getPackageName(context));
-    }
-
     public static int getLayoutId(Context context, String str) {
         return getIdentifier(context, str, TtmlNode.TAG_LAYOUT);
     }
 
-    public static String getPackageName(Context context) {
-        return context.getPackageName();
-    }
-
     public static int getRawId(Context context, String str) {
         return getIdentifier(context, str, "raw");
-    }
-
-    public static Resources getResources(Context context) {
-        return context.getResources();
     }
 
     public static String getString(Context context, String str) {
@@ -59,5 +47,17 @@ public class ResUtil {
 
     public static int getStyleId(Context context, String str) {
         return getIdentifier(context, str, "style");
+    }
+
+    public static int getIdentifier(Context context, String str, String str2) {
+        return getResources(context).getIdentifier(str, str2, getPackageName(context));
+    }
+
+    public static String getPackageName(Context context) {
+        return context.getPackageName();
+    }
+
+    public static Resources getResources(Context context) {
+        return context.getResources();
     }
 }

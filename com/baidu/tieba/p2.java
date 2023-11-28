@@ -74,9 +74,9 @@ public class p2 extends k1 implements f2 {
     public final l2 z;
 
     @Override // com.baidu.tieba.f2
-    public void G(boolean z) {
+    public void H(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
         }
     }
 
@@ -444,9 +444,45 @@ public class p2 extends k1 implements f2 {
     }
 
     @Override // com.baidu.tieba.f2
-    public void I1() {
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.f2
+    public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g();
+        }
+    }
+
+    @Override // com.baidu.tieba.f2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.f2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            g();
+        }
+    }
+
+    @Override // com.baidu.tieba.f2
+    public void U1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
                 if (this.F) {
                     this.F = false;
@@ -538,7 +574,7 @@ public class p2 extends k1 implements f2 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.H.h) {
                 SensorManager sensorManager = (SensorManager) this.y.getSystemService("sensor");
                 this.t = sensorManager;
@@ -611,7 +647,7 @@ public class p2 extends k1 implements f2 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int length = this.q.length;
             for (int i = 0; i < length; i++) {
                 if (this.q[i] == -1) {
@@ -635,7 +671,7 @@ public class p2 extends k1 implements f2 {
         InterceptResult invokeV;
         int rotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Context context = this.y;
             if (context instanceof Activity) {
                 rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
@@ -658,7 +694,7 @@ public class p2 extends k1 implements f2 {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SensorManager sensorManager = this.t;
             if (sensorManager != null) {
                 SensorEventListener sensorEventListener = this.J;
@@ -690,7 +726,7 @@ public class p2 extends k1 implements f2 {
     public int f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             int length = this.q.length;
             for (int i2 = 0; i2 < length; i2++) {
                 if (this.q[i2] == i) {
@@ -711,7 +747,7 @@ public class p2 extends k1 implements f2 {
     public final float[] h(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fArr)) == null) {
             float[] fArr2 = new float[fArr.length + 2];
             System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
             return fArr2;
@@ -722,7 +758,7 @@ public class p2 extends k1 implements f2 {
     public final int[] i(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, iArr)) == null) {
             int[] iArr2 = new int[iArr.length + 2];
             System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
             return iArr2;
@@ -733,7 +769,7 @@ public class p2 extends k1 implements f2 {
     public final boolean[] j(boolean[] zArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, zArr)) == null) {
             boolean[] zArr2 = new boolean[zArr.length + 2];
             System.arraycopy(zArr, 0, zArr2, 0, zArr.length);
             return zArr2;
@@ -745,7 +781,7 @@ public class p2 extends k1 implements f2 {
     public boolean onGenericMotion(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, view2, motionEvent)) == null) {
             if (this.O.a(motionEvent, this)) {
                 return true;
             }
@@ -764,7 +800,7 @@ public class p2 extends k1 implements f2 {
     public boolean onKey(View view2, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048587, this, view2, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048589, this, view2, i, keyEvent)) == null) {
             int size = this.h.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (this.h.get(i2).onKey(view2, i, keyEvent)) {
@@ -847,47 +883,11 @@ public class p2 extends k1 implements f2 {
         return invokeLIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.f2
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.f2
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            g();
-        }
-    }
-
-    @Override // com.baidu.tieba.f2
-    public void v1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            g();
-        }
-    }
-
-    @Override // com.baidu.tieba.f2
-    public void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, view2, motionEvent)) == null) {
             if (this.P && view2 != null) {
                 view2.setFocusableInTouchMode(true);
                 view2.requestFocus();

@@ -13,8 +13,10 @@ import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
 import com.baidu.tbadk.abtest.group.HomePagePromoteLoginUbsABTest;
 import com.baidu.tbadk.abtest.group.HttpsABTest;
 import com.baidu.tbadk.abtest.group.ImageViewerABTest;
+import com.baidu.tbadk.abtest.group.LiveEnterForumABTest;
 import com.baidu.tbadk.abtest.group.TbNetABTest;
 import com.baidu.tbadk.abtest.group.ThreadCardGroupUbsABTest;
+import com.baidu.tbadk.abtest.helper.LiveEnterForumTestHelper;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +44,7 @@ public class UbsABTestDataManager {
     public static String getSharedPrefKeyForUbsABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? PREF_KEY_SWITCHS : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? PREF_KEY_SWITCHS : (String) invokeV.objValue;
     }
 
     public UbsABTestDataManager() {
@@ -69,7 +71,7 @@ public class UbsABTestDataManager {
     private HashMap<String, UsbAbTestSwitch> getAllDataFormSharedPref() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
             try {
                 getSharedPrefKeyForUbsABTest();
@@ -90,26 +92,17 @@ public class UbsABTestDataManager {
         return (HashMap) invokeV.objValue;
     }
 
-    private void registerABTestGroup() {
+    private void afterSyncResultAbtest() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            registerABTestGroup(new ThreadCardGroupUbsABTest());
-            registerABTestGroup(new HomeGroupUbsABTest());
-            registerABTestGroup(new ConcernForumCardUbsABTest());
-            registerABTestGroup(new FrsTabLocationUbsABTest());
-            registerABTestGroup(new FrsNewAreaTabSortUbsABTest());
-            registerABTestGroup(new ImageViewerABTest());
-            registerABTestGroup(new HomePagePromoteLoginUbsABTest());
-            registerABTestGroup(new FirstLoginABTest());
-            registerABTestGroup(new TbNetABTest());
-            registerABTestGroup(new HttpsABTest());
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            LiveEnterForumTestHelper.writeTest();
         }
     }
 
     public static UbsABTestDataManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (mInstance == null) {
                 synchronized (UbsABTestDataManager.class) {
                     if (mInstance == null) {
@@ -142,7 +135,7 @@ public class UbsABTestDataManager {
 
     private void putAllUsbAbTest(HashMap<String, UsbAbTestSwitch> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, hashMap) == null) {
             synchronized (this.mSwitchs) {
                 this.mSwitchs.clear();
                 if (hashMap != null) {
@@ -202,7 +195,7 @@ public class UbsABTestDataManager {
 
     private void putUsbAbTestForAllGroup() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             for (Map.Entry<BdUniqueId, AbsGroupUbsABTest> entry : this.mAbTestGroups.entrySet()) {
                 AbsGroupUbsABTest value = entry.getValue();
                 if (value != null) {
@@ -215,7 +208,7 @@ public class UbsABTestDataManager {
 
     private void refreshUbsABTestMap() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.mUbsABTestMap.clear();
             for (BdUniqueId bdUniqueId : this.mAbTestGroups.keySet()) {
                 this.mUbsABTestMap.put(bdUniqueId, getUbsABTestByGroupKey(bdUniqueId));
@@ -238,9 +231,26 @@ public class UbsABTestDataManager {
         return (HashMap) invokeV.objValue;
     }
 
+    private void registerABTestGroup() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            registerABTestGroup(new ThreadCardGroupUbsABTest());
+            registerABTestGroup(new HomeGroupUbsABTest());
+            registerABTestGroup(new ConcernForumCardUbsABTest());
+            registerABTestGroup(new FrsTabLocationUbsABTest());
+            registerABTestGroup(new FrsNewAreaTabSortUbsABTest());
+            registerABTestGroup(new ImageViewerABTest());
+            registerABTestGroup(new HomePagePromoteLoginUbsABTest());
+            registerABTestGroup(new FirstLoginABTest());
+            registerABTestGroup(new TbNetABTest());
+            registerABTestGroup(new HttpsABTest());
+            registerABTestGroup(new LiveEnterForumABTest());
+        }
+    }
+
     private void setUbsABTestForGroup(AbsGroupUbsABTest absGroupUbsABTest) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, this, absGroupUbsABTest) != null) || absGroupUbsABTest == null) {
+        if ((interceptable != null && interceptable.invokeL(65545, this, absGroupUbsABTest) != null) || absGroupUbsABTest == null) {
             return;
         }
         ArrayList<String> aBTestKeys = absGroupUbsABTest.getABTestKeys();
@@ -280,6 +290,7 @@ public class UbsABTestDataManager {
                 }
                 putAllUsbAbTest(hashMap);
                 SharedPrefHelper.getInstance().putString(sharedPrefKeyForUbsABTest, jSONArray.toString());
+                afterSyncResultAbtest();
             } catch (Exception e) {
                 e.printStackTrace();
             }

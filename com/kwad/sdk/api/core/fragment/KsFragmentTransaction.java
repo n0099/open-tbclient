@@ -17,34 +17,6 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction add(int i, KsFragment ksFragment) {
-        this.mBase.add(i, ksFragment.getBase());
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction add(int i, KsFragment ksFragment, @Nullable String str) {
-        this.mBase.add(i, ksFragment.getBase(), str);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction add(KsFragment ksFragment, String str) {
-        this.mBase.add(ksFragment.getBase(), str);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction addSharedElement(View view2, String str) {
-        this.mBase.addSharedElement(view2, str);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public KsFragmentTransaction addToBackStack(@Nullable String str) {
         this.mBase.addToBackStack(str);
         return this;
@@ -59,44 +31,9 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public int commit() {
-        return this.mBase.commit();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public int commitAllowingStateLoss() {
-        return this.mBase.commitAllowingStateLoss();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void commitNow() {
-        this.mBase.commitNow();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void commitNowAllowingStateLoss() {
-        this.mBase.commitNowAllowingStateLoss();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public KsFragmentTransaction detach(KsFragment ksFragment) {
         this.mBase.detach(ksFragment.getBase());
         return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction disallowAddToBackStack() {
-        this.mBase.disallowAddToBackStack();
-        return this;
-    }
-
-    public FragmentTransaction getBase() {
-        return this.mBase;
     }
 
     @KsAdSdkDynamicApi
@@ -108,34 +45,8 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean isAddToBackStackAllowed() {
-        return this.mBase.isAddToBackStackAllowed();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public boolean isEmpty() {
-        return this.mBase.isEmpty();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public KsFragmentTransaction remove(KsFragment ksFragment) {
         this.mBase.remove(ksFragment.getBase());
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction replace(int i, KsFragment ksFragment) {
-        this.mBase.replace(i, ksFragment.getBase());
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction replace(int i, KsFragment ksFragment, @Nullable String str) {
-        this.mBase.replace(i, ksFragment.getBase(), str);
         return this;
     }
 
@@ -163,36 +74,8 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence) {
-        this.mBase.setBreadCrumbShortTitle(charSequence);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public KsFragmentTransaction setBreadCrumbTitle(int i) {
         this.mBase.setBreadCrumbTitle(i);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction setBreadCrumbTitle(CharSequence charSequence) {
-        this.mBase.setBreadCrumbTitle(charSequence);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction setCustomAnimations(int i, int i2) {
-        this.mBase.setCustomAnimations(i, i2);
-        return this;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
-        this.mBase.setCustomAnimations(i, i2, i3, i4);
         return this;
     }
 
@@ -228,6 +111,123 @@ public class KsFragmentTransaction {
     @Keep
     public KsFragmentTransaction show(KsFragment ksFragment) {
         this.mBase.show(ksFragment.getBase());
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction add(int i, KsFragment ksFragment) {
+        this.mBase.add(i, ksFragment.getBase());
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction addSharedElement(View view2, String str) {
+        this.mBase.addSharedElement(view2, str);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction replace(int i, KsFragment ksFragment) {
+        this.mBase.replace(i, ksFragment.getBase());
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction setCustomAnimations(int i, int i2) {
+        this.mBase.setCustomAnimations(i, i2);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction add(int i, KsFragment ksFragment, @Nullable String str) {
+        this.mBase.add(i, ksFragment.getBase(), str);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction replace(int i, KsFragment ksFragment, @Nullable String str) {
+        this.mBase.replace(i, ksFragment.getBase(), str);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction add(KsFragment ksFragment, String str) {
+        this.mBase.add(ksFragment.getBase(), str);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public int commit() {
+        return this.mBase.commit();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public int commitAllowingStateLoss() {
+        return this.mBase.commitAllowingStateLoss();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void commitNow() {
+        this.mBase.commitNow();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void commitNowAllowingStateLoss() {
+        this.mBase.commitNowAllowingStateLoss();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction disallowAddToBackStack() {
+        this.mBase.disallowAddToBackStack();
+        return this;
+    }
+
+    public FragmentTransaction getBase() {
+        return this.mBase;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public boolean isAddToBackStackAllowed() {
+        return this.mBase.isAddToBackStackAllowed();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public boolean isEmpty() {
+        return this.mBase.isEmpty();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence) {
+        this.mBase.setBreadCrumbShortTitle(charSequence);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction setBreadCrumbTitle(CharSequence charSequence) {
+        this.mBase.setBreadCrumbTitle(charSequence);
+        return this;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
+        this.mBase.setCustomAnimations(i, i2, i3, i4);
         return this;
     }
 }

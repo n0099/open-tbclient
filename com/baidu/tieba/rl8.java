@@ -1,63 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotItemIm;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotSkillItem;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotSkillRecentlyItem;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.RecentlyBotSkillInfoDto;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import tbclient.GetTopicRelateThread.DataRes;
+import tbclient.Hottopic.HotThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class rl8 implements zj8 {
+public class rl8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public List<qm6> a;
+    public gy4 b;
+    public long c;
     public int d;
-    @NonNull
-    public TbPageContext e;
-    public ql8 f;
-    public long g;
-    public long h;
-    public ArrayList<RobotItemIm> i;
-    public List<yj8> j;
-    public bk8 k;
+    public List<pi> e;
+    @Nullable
+    public Map<String, Object> f;
 
-    @Override // com.baidu.tieba.zj8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zj8
-    public void detach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public rl8(@NonNull TbPageContext tbPageContext) {
+    public rl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,301 +46,267 @@ public class rl8 implements zj8 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.i = new ArrayList<>();
-        this.j = new ArrayList();
-        this.e = tbPageContext;
-    }
-
-    public void a(List<yj8> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list) && this.k != null) {
-            this.j.clear();
-            this.j.addAll(list);
-            this.k.f(0, c());
-        }
-    }
-
-    @Override // com.baidu.tieba.zj8
-    public void e(@NonNull bk8 bk8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bk8Var) == null) {
-            this.k = bk8Var;
-        }
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = 1;
     }
 
     @Nullable
-    public yj8 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            if (!ListUtils.isEmpty(this.j) && i >= 0 && i < this.j.size()) {
-                return this.j.get(i);
-            }
-            return null;
-        }
-        return (yj8) invokeI.objValue;
-    }
-
-    public void u(ql8 ql8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, ql8Var) == null) {
-            this.f = ql8Var;
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.b + 1;
-            this.b = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.zj8
-    @NonNull
-    public List<yj8> c() {
+    public Map<String, Object> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+            return this.f;
         }
-        return (List) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public rl8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.d + 1;
-            this.d = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.zj8
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.j.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b = 0;
-            this.c = 0;
-            this.d = 0;
-            this.a = 0;
-            this.i.clear();
-        }
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return BdUtilHelper.dip2px(this.e.getPageActivity(), 42.0f);
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public ArrayList<RobotItemIm> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.i;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public void t() {
-        bk8 bk8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (bk8Var = this.k) != null) {
-            bk8Var.a(0, c().size());
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (this.b != 0) {
-                this.a += BdUtilHelper.dip2px(this.e.getPageActivity(), 42.0f) * this.b;
-            }
-            if (this.c != 0) {
-                this.a += BdUtilHelper.dip2px(this.e.getPageActivity(), 35.0f) * this.c;
-            }
-            if (this.d != 0 && !z) {
-                int dip2px = this.a + (BdUtilHelper.dip2px(this.e.getPageActivity(), 55.0f) * this.d);
-                this.a = dip2px;
-                this.a = dip2px + BdUtilHelper.dip2px(this.e.getPageActivity(), 42.0f);
-            }
-            if (!z) {
-                this.a += BdUtilHelper.dip2px(this.e.getPageActivity(), 52.0f);
-            }
-            this.a += BdUtilHelper.dip2px(this.e.getPageActivity(), 18.0f);
-        }
-    }
-
-    public void p(List<Object> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048593, this, list, z) == null) && !ListUtils.isEmpty(list) && this.k != null) {
-            i();
-            List<yj8> r = r(list);
-            if (ListUtils.isEmpty(r)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            h(z);
-            this.j.clear();
-            this.j.addAll(r);
-            this.k.f(0, c());
         }
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = i;
     }
 
-    public void q(List<Object> list, boolean z) {
+    public final void f(List<qm6> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048594, this, list, z) == null) && !ListUtils.isEmpty(list) && this.k != null) {
-            i();
-            List<yj8> r = r(list);
-            if (ListUtils.isEmpty(r)) {
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && !ListUtils.isEmpty(list)) {
+            qm6 qm6Var = list.get(list.size() - 1);
+            if (qm6Var.getThreadData() != null) {
+                this.c = JavaTypesHelper.toLong(qm6Var.getThreadData().getTid(), 0L);
             }
-            h(z);
-            this.j.clear();
-            this.j.addAll(r);
-            this.k.b(0, c());
         }
     }
 
-    @Nullable
-    public final List<yj8> r(@Nullable List<?> list) {
+    public final void c(@NonNull List<ThreadInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.insertItemToTitleOrAbstractText();
+                this.e.add(threadData);
+            }
+        }
+    }
+
+    public ArrayList<pi> d(uy4 uy4Var) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : list) {
-                if (obj instanceof BotsDTO.BotListDTO) {
-                    BotsDTO.BotListDTO botListDTO = (BotsDTO.BotListDTO) obj;
-                    if (botListDTO.getUser() != null) {
-                        String nameShow = botListDTO.getUser().getNameShow();
-                        String portrait = botListDTO.getUser().getPortrait();
-                        String uk = botListDTO.getUser().getUk();
-                        List<yj8> s = s(botListDTO.getSkill(), botListDTO.getUser().getUk());
-                        if (!TextUtils.isEmpty(nameShow) && !TextUtils.isEmpty(portrait) && !TextUtils.isEmpty(uk) && !ListUtils.isEmpty(s)) {
-                            b();
-                            TbPageContext tbPageContext = this.e;
-                            ql8 ql8Var = this.f;
-                            if (l() == 1 && (this.b != 1 || o() == 0)) {
-                                z = false;
-                            } else {
-                                z = true;
-                            }
-                            RobotItemIm robotItemIm = new RobotItemIm(s, portrait, nameShow, uk, tbPageContext, ql8Var, z);
-                            arrayList.add(robotItemIm);
-                            this.i.add(robotItemIm);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uy4Var)) == null) {
+            ArrayList<pi> arrayList = new ArrayList<>(this.e);
+            g(arrayList, uy4Var);
+            ArrayList<pi> arrayList2 = new ArrayList<>();
+            Iterator<pi> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                pi next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                        jz4 jz4Var = new jz4();
+                        jz4Var.t = threadData;
+                        jz4Var.position = i;
+                        jz4Var.a = true;
+                        arrayList2.add(jz4Var);
+                        jz4 jz4Var2 = new jz4();
+                        jz4Var2.t = threadData;
+                        jz4Var2.position = i;
+                        if (threadData.isBJHNormalThreadType()) {
+                            jz4Var2.f = true;
+                        } else if (threadData.picCount() == 1) {
+                            jz4Var2.d = true;
+                            jz4Var2.u = imageWidthAndHeight[0];
+                            jz4Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            jz4Var2.e = true;
+                        } else {
+                            jz4Var2.b = true;
                         }
+                        arrayList2.add(jz4Var2);
+                        if (threadData.getItem() != null) {
+                            jz4 jz4Var3 = new jz4();
+                            jz4Var3.n = true;
+                            jz4Var3.t = threadData;
+                            jz4Var3.position = i;
+                            arrayList2.add(jz4Var3);
+                        }
+                        jz4 jz4Var4 = new jz4();
+                        jz4Var4.m = true;
+                        jz4Var4.t = threadData;
+                        jz4Var4.position = i;
+                        arrayList2.add(jz4Var4);
+                        jz4 jz4Var5 = new jz4();
+                        jz4Var5.g = true;
+                        jz4Var5.t = threadData;
+                        jz4Var5.position = i;
+                        arrayList2.add(jz4Var5);
+                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                        jz4 jz4Var6 = new jz4();
+                        jz4Var6.t = threadData;
+                        jz4Var6.position = i;
+                        jz4Var6.a = true;
+                        arrayList2.add(jz4Var6);
+                        jz4 jz4Var7 = new jz4();
+                        jz4Var7.t = threadData;
+                        jz4Var7.position = i;
+                        jz4Var7.i = true;
+                        arrayList2.add(jz4Var7);
+                        if (threadData.getItem() != null) {
+                            jz4 jz4Var8 = new jz4();
+                            jz4Var8.n = true;
+                            jz4Var8.t = threadData;
+                            jz4Var8.position = i;
+                            arrayList2.add(jz4Var8);
+                        }
+                        jz4 jz4Var9 = new jz4();
+                        jz4Var9.m = true;
+                        jz4Var9.t = threadData;
+                        jz4Var9.position = i;
+                        arrayList2.add(jz4Var9);
+                        jz4 jz4Var10 = new jz4();
+                        jz4Var10.g = true;
+                        jz4Var10.t = threadData;
+                        jz4Var10.position = i;
+                        arrayList2.add(jz4Var10);
+                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
+                        threadData.position = i;
+                        arrayList2.add(threadData);
+                    } else if (ym6.R(threadData)) {
+                        ym6 ym6Var = new ym6(threadData);
+                        ym6Var.g = threadData.getTid();
+                        arrayList2.add(ym6Var);
+                    } else {
+                        jz4 jz4Var11 = new jz4();
+                        jz4Var11.t = threadData;
+                        jz4Var11.position = i;
+                        arrayList2.add(jz4Var11);
                     }
-                } else if (obj instanceof RecentlyBotSkillInfoDto) {
-                    RecentlyBotSkillInfoDto recentlyBotSkillInfoDto = (RecentlyBotSkillInfoDto) obj;
-                    RobotSkillRecentlyItem robotSkillRecentlyItem = new RobotSkillRecentlyItem(recentlyBotSkillInfoDto.getSkillName(), recentlyBotSkillInfoDto.getDesc(), recentlyBotSkillInfoDto.getBotName(), recentlyBotSkillInfoDto.getAvatar(), recentlyBotSkillInfoDto.getBotUk(), recentlyBotSkillInfoDto.getSkillId(), recentlyBotSkillInfoDto.getFuncType());
-                    robotSkillRecentlyItem.setRoomDetailInfo(this.g, this.h);
-                    arrayList.add(robotSkillRecentlyItem);
-                    g();
+                } else if (next instanceof BaseCardInfo) {
+                    ((BaseCardInfo) next).position = i;
+                    arrayList2.add(next);
+                } else {
+                    arrayList2.add(next);
                 }
+                i++;
             }
-            return arrayList;
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
         }
-        return (List) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    @Nullable
-    public final List<yj8> s(@Nullable List<?> list, String str) {
-        InterceptResult invokeLL;
+    public final void g(ArrayList<pi> arrayList, uy4 uy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, list, str)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, arrayList, uy4Var) == null) && uy4Var != null && !ListUtils.isEmpty(uy4Var.e())) {
+            int size = arrayList.size();
+            int i = 0;
+            int i2 = 0;
+            while (true) {
+                if (i >= size) {
+                    break;
+                }
+                if (arrayList.get(i) instanceof ThreadData) {
+                    if (uy4Var.floorPosition == i2) {
+                        ListUtils.add(arrayList, i, uy4Var);
+                        break;
+                    }
+                    i2++;
+                }
+                i++;
             }
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : list) {
-                if (obj instanceof BotsDTO.BotListDTO.SkillDTO) {
-                    BotsDTO.BotListDTO.SkillDTO skillDTO = (BotsDTO.BotListDTO.SkillDTO) obj;
-                    String name = skillDTO.getName();
-                    String desc = skillDTO.getDesc();
-                    int type = skillDTO.getType();
-                    boolean isShow = skillDTO.isShow();
-                    AbilityItem abilityItem = skillDTO.getAbilityItem();
-                    boolean isFuncJump = skillDTO.isFuncJump();
-                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(desc) && !TextUtils.isEmpty(str) && isShow) {
-                        f();
-                        arrayList.add(new RobotSkillItem(name, desc, type, str, abilityItem, isFuncJump));
+            if (size == 2) {
+                ListUtils.add(arrayList, uy4Var);
+            }
+        }
+    }
+
+    public void h(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.f = DataExt.toMap(dataRes);
+        if (dataRes.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    qm6 qm6Var = null;
+                    if (an6.L(threadData)) {
+                        qm6Var = new an6(threadData);
+                    } else if (zm6.R(threadData)) {
+                        qm6Var = new zm6();
+                        qm6Var.a = threadData;
+                    }
+                    if (qm6Var != null && qm6Var.isValid()) {
+                        qm6Var.E("c10816");
+                        this.a.add(qm6Var);
                     }
                 }
             }
-            return arrayList;
+            f(this.a);
+            c(dataRes.thread_list);
         }
-        return (List) invokeLL.objValue;
+        if (dataRes.page != null) {
+            gy4 gy4Var = new gy4();
+            this.b = gy4Var;
+            gy4Var.j(dataRes.page);
+        }
     }
 
-    public void v(long j, long j2) {
+    public void k(HotThread hotThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.g = j;
-            this.h = j2;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, hotThread) != null) || hotThread == null) {
+            return;
+        }
+        String str = hotThread.hot_title;
+        if (hotThread.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : hotThread.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    qm6 qm6Var = null;
+                    if (threadData.isShareThread) {
+                        qm6Var = new zm6();
+                        qm6Var.a = threadData;
+                    } else if (an6.L(threadData)) {
+                        qm6Var = new an6(threadData);
+                    } else if (zm6.R(threadData)) {
+                        qm6Var = new zm6();
+                        qm6Var.a = threadData;
+                    }
+                    if (qm6Var != null && qm6Var.isValid()) {
+                        qm6Var.E("c10816");
+                        this.a.add(qm6Var);
+                    }
+                }
+            }
+            f(this.a);
+            c(hotThread.thread_list);
+        }
+        if (hotThread.page != null) {
+            gy4 gy4Var = new gy4();
+            this.b = gy4Var;
+            gy4Var.j(hotThread.page);
         }
     }
 }

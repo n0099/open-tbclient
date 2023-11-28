@@ -1,41 +1,151 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.sapi2.dto.FaceBaseDTO;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.browser.UegTbJsBridge;
+import com.baidu.tbadk.browser.auth.AliAuthHttpProxy;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.certification.CertificationCheckParams;
+import com.baidu.tbadk.core.account.certification.CertificationRequestParams;
+import com.baidu.tbadk.core.account.certification.CheckCertificationResult;
+import com.baidu.tbadk.core.account.certification.ICertificationCallback;
+import com.baidu.tbadk.core.account.certification.ICheckCertificationCallback;
+import com.baidu.tbadk.core.account.certification.TbAccountRealNameResult;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.LoginDialogData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.xiuba.JSResultData;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.ks4;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ks4 implements dj6 {
+public class ks4 implements mj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AliAuthHttpProxy a;
 
-    @Override // com.baidu.tieba.dj6
+    @Override // com.baidu.tieba.mj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        cj6.a(this, webView, str, jSONObject);
+        lj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.dj6
-    public /* synthetic */ void onDestroy() {
-        cj6.b(this);
+    /* loaded from: classes7.dex */
+    public class a implements ICheckCertificationCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+
+        public a(ks4 ks4Var, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ks4Var, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = webView;
+        }
+
+        @Override // com.baidu.tbadk.core.account.certification.ICheckCertificationCallback
+        public void onResult(@Nullable CheckCertificationResult checkCertificationResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, checkCertificationResult) == null) {
+                if (checkCertificationResult == null) {
+                    DefaultLog.getInstance().e("CheckCertificationResult", "---- no result ----");
+                    return;
+                }
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("status", Integer.valueOf(checkCertificationResult.status));
+                hashMap.put(StatConstants.KEY_EXT_ERR_MSG, checkCertificationResult.resultMsg);
+                hashMap.put("livingUname", checkCertificationResult.livingUname);
+                hashMap.put("authsid", checkCertificationResult.authsid);
+                hashMap.put("authWidgetURL", checkCertificationResult.authWidgetURL);
+                hashMap.put("realNameStatus", Integer.valueOf(checkCertificationResult.getRealNameStatus()));
+                hashMap.put(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(checkCertificationResult.code));
+                nj6.a().d(this.a, "authStateResult", hashMap);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ICertificationCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+
+        public b(ks4 ks4Var, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ks4Var, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = webView;
+        }
+
+        @Override // com.baidu.tbadk.core.account.certification.ICertificationCallback
+        public void onResult(TbAccountRealNameResult tbAccountRealNameResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tbAccountRealNameResult) == null) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(tbAccountRealNameResult.resultCode));
+                linkedHashMap.put(StatConstants.KEY_EXT_ERR_MSG, tbAccountRealNameResult.resultMsg);
+                linkedHashMap.put("subResultCode", Integer.valueOf(tbAccountRealNameResult.subResultCode));
+                linkedHashMap.put("subResultMsg", tbAccountRealNameResult.subResultMsg);
+                linkedHashMap.put("status", Integer.valueOf(tbAccountRealNameResult.getStatus()));
+                linkedHashMap.put("callbackkey", tbAccountRealNameResult.callbackkey);
+                if (this.a != null) {
+                    nj6.a().d(this.a, "realNameAuthResult", linkedHashMap);
+                }
+            }
+        }
     }
 
     public ks4() {
@@ -52,199 +162,473 @@ public class ks4 implements dj6 {
         }
     }
 
-    @Override // com.baidu.tieba.dj6
+    @Override // com.baidu.tieba.mj6
+    public void onDestroy() {
+        AliAuthHttpProxy aliAuthHttpProxy;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (aliAuthHttpProxy = this.a) != null) {
+            aliAuthHttpProxy.k();
+        }
+    }
+
+    @Override // com.baidu.tieba.mj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.COMPLETE_TASK.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(f(webView, jSONObject.optString("activityId"), jSONObject.optString("missionId")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            } else if (CommonTbJsBridge.FINISH_TEST_ANSWER.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(c(webView, new JSONObject(str3).optLong("testId")).a());
-                    return true;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } else {
+            if (!TextUtils.equals("CommonJSBridge", str)) {
                 return false;
             }
+            if (TextUtils.equals("startLoginModule", str2)) {
+                try {
+                    jsPromptResult.confirm(r(webView, new JSONObject(str3).optString("cssUrl")).a());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
+                jsPromptResult.confirm(i(webView, str3));
+            } else if (CommonTbJsBridge.START_DOWNLOAD_CSS.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(q(webView, new JSONObject(str3).optString("downloadUrl")).a());
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            } else if (UegTbJsBridge.METHOD_BIND_MOBILE_NUMBER.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return true;
+            } else if (TextUtils.equals("startAllLoginModule", str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(p(webView, jSONObject.optString("type"), jSONObject.optString("addObserverNotify"), jSONObject.optString("activityId"), jSONObject.optString("cssUrl")).a());
+                    return true;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return false;
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public osa c(WebView webView, long j) {
-        InterceptResult invokeLJ;
+    public gxa c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, webView, j)) == null) {
-            osa osaVar = new osa();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
-            Activity a = si6.a(webView.getContext());
-            if (a != null) {
-                a.finish();
-            }
-            osaVar.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
-            return osaVar;
-        }
-        return (osa) invokeLJ.objValue;
-    }
-
-    public osa e(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            osa osaVar = new osa();
-            if (hashMap == null) {
-                return osaVar;
-            }
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            gxa gxaVar = new gxa();
             try {
-                jSONObject.put("threadInfo", hashMap.get("threadInfo"));
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, g85.b()));
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            a(webView, CommonTbJsBridge.CHANGE_POST_WALL, jSONObject);
-            osaVar.o(jSONObject.toString());
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeLL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public osa d(WebView webView, String str) {
-        int i;
+    public gxa f(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
+            if (this.a == null) {
+                this.a = new AliAuthHttpProxy(webView);
+            }
+            return this.a.l();
+        }
+        return (gxa) invokeL.objValue;
+    }
+
+    public /* synthetic */ void h(WebView webView) {
+        nj6.a().d(webView, "commonLogin", new HashMap<String, Object>(this) { // from class: com.baidu.tbadk.browser.bridge.AccountJsBridgePlugin$1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ks4 this$0;
+
+            {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                put("resultCode", 2);
+                put("hasLogin", Boolean.TRUE);
+            }
+        });
+    }
+
+    public gxa d(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            try {
-                i = Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                i = -1;
-            }
-            du4.b(i);
-            return new osa();
+            gxa gxaVar = new gxa();
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", m(str));
+            MessageManager.getInstance().runTask(2921709, String.class, new CertificationCheckParams(hashMap, new a(this, webView)));
+            return gxaVar;
         }
-        return (osa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public osa h(WebView webView, String str) {
+    public final String i(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            aia.d().f(str);
-            return new osa();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str)) == null) {
+            if (!rd.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return g(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                    return null;
+                }
+            }
+            return null;
         }
-        return (osa) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public osa k(WebView webView, HashMap hashMap) {
+    public gxa r(WebView webView, String str) {
         InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, str)) == null) {
+            gxa gxaVar = new gxa();
+            Activity a2 = bj6.a(webView.getContext());
+            if (a2 != null) {
+                ViewHelper.checkUpIsLoginFromH5(a2, webView.getOriginalUrl(), str);
+            }
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            gxaVar.o(OrmObject.jsonStrWithObject(jSResultData));
+            return gxaVar;
+        }
+        return (gxa) invokeLL.objValue;
+    }
+
+    public gxa e(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            gxa gxaVar = new gxa();
+            gxaVar.o(j(hashMap).toString());
+            return gxaVar;
+        }
+        return (gxa) invokeLL.objValue;
+    }
+
+    public gxa o(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, hashMap)) == null) {
+            gxa gxaVar = new gxa();
+            if (hashMap != null && !hashMap.isEmpty()) {
+                gxaVar.o(j(hashMap).toString());
+            }
+            return gxaVar;
+        }
+        return (gxa) invokeLL.objValue;
+    }
+
+    public gxa g(WebView webView, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, webView, i, str)) == null) {
+            gxa gxaVar = new gxa();
+            JSONObject jSONObject = new JSONObject();
+            Activity a2 = bj6.a(webView.getContext());
+            if (a2 == null) {
+                try {
+                    jSONObject.put("resultCode", 0);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
+            }
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a2, true);
+            loginActivityConfig.setThirdPartyLoginForResult(i, str);
+            loginActivityConfig.setUrl(webView.getOriginalUrl());
+            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
+        }
+        return (gxa) invokeLIL.objValue;
+    }
+
+    public final JSONObject j(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException e) {
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.e("AccountJsBridgePlugin", "Map转json失败:" + e);
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1018959312) {
+                if (hashCode != -142547405) {
+                    if (hashCode == 1368645956 && str.equals(FaceBaseDTO.BUSINESS_SENCE_FACE_LOGIN_SWITCH)) {
+                        c = 2;
+                    }
+                } else if (str.equals("baidu_mini_programs")) {
+                    c = 0;
+                }
+            } else if (str.equals("netdisk_2pwd")) {
+                c = 1;
+            }
+            if (c == 0) {
+                return "baidu_mini_programs";
+            }
+            if (c == 1) {
+                return "netdisk_2pwd";
+            }
+            if (c != 2) {
+                return FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE;
+            }
+            return FaceBaseDTO.BUSINESS_SENCE_FACE_LOGIN_SWITCH;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public gxa k(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            return new osa();
-        }
-        return (osa) invokeLL.objValue;
-    }
-
-    public osa f(WebView webView, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            osa osaVar = new osa();
-            int i = 0;
+            gxa gxaVar = new gxa();
+            int i2 = -1;
             try {
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                i2 = Integer.parseInt(hashMap.get("status"));
+                gxaVar.y(i2);
+                gxaVar.u(hashMap.get("message"));
+                if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, str2);
-                    CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-                    completeTaskReqMsg.completeId = jSONObject.toString();
-                    completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-                    MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-                    i = 1;
+                    jSONObject.put("avatar", hashMap.get("avatar"));
+                    jSONObject.put("nick_name", hashMap.get("nick_name"));
+                    jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
+                    gxaVar.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", i);
-                osaVar.o(jSONObject2.toString());
-                return osaVar;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                return osaVar;
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GET_ALI_PAY_USER_INFO);
+            if (i2 == 0) {
+                i = 0;
+            } else {
+                i = 1;
             }
+            TiebaStatic.log(statisticItem.param("obj_param1", i));
+            return gxaVar;
         }
-        return (osa) invokeLLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public osa j(WebView webView, String str, String str2) {
-        InterceptResult invokeLLL;
+    public gxa q(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
-            osa osaVar = new osa();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                qz5 qz5Var = new qz5();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
+            gxa gxaVar = new gxa();
+            JSONObject jSONObject = new JSONObject();
+            if (!rd.isEmpty(str)) {
                 try {
-                    qz5Var.a = URLDecoder.decode(str, "utf-8");
-                } catch (UnsupportedEncodingException e) {
-                    qz5Var.a = str;
+                    if (rd.isEmpty(str)) {
+                        jSONObject.put("resultCode", 0);
+                        gxaVar.o(jSONObject.toString());
+                        return gxaVar;
+                    }
+                    String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
+                    String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
+                    if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                        jSONObject.put("resultCode", 0);
+                        gxaVar.o(jSONObject.toString());
+                        return gxaVar;
+                    }
+                    DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
+                    downloadData.setPath(customLoginCssStoragePath);
+                    td5.k().l(downloadData);
+                    jSONObject.put("resultCode", 1);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
+        }
+        return (gxa) invokeLL.objValue;
+    }
+
+    public gxa l(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                obj = null;
+            } else {
+                obj = hashMap.get("isLogin");
+            }
+            if (!(obj instanceof Boolean) || !((Boolean) obj).booleanValue()) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
+            gxa gxaVar = new gxa();
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
+        }
+        return (gxa) invokeLL.objValue;
+    }
+
+    public gxa n(WebView webView, String str, boolean z, String str2, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{webView, str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
+            gxa gxaVar = new gxa();
+            MessageManager.getInstance().runTask(2921710, String.class, new CertificationRequestParams(m(str), z, i, str2, new b(this, webView)));
+            return gxaVar;
+        }
+        return (gxa) invokeCommon.objValue;
+    }
+
+    public gxa p(final WebView webView, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048592, this, webView, str, str2, str3, str4)) == null) {
+            gxa gxaVar = new gxa();
+            if (TbadkCoreApplication.isLogin()) {
+                ej6.a().c(new Runnable() { // from class: com.baidu.tieba.fs4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ks4.this.h(webView);
+                        }
+                    }
+                });
+                return gxaVar;
+            }
+            if ((str.equals("0") || str.equals("")) && str4 != null) {
+                Activity a2 = bj6.a(webView.getContext());
+                if (a2 != null) {
+                    ViewHelper.checkUpIsLoginFromH5(a2, webView.getOriginalUrl(), str4);
+                }
+                JSResultData jSResultData = new JSResultData();
+                jSResultData.setStatus(1);
+                jSResultData.setErrorCode("0");
+                jSResultData.setErrorMsg("");
+                gxaVar.o(OrmObject.jsonStrWithObject(jSResultData));
+            }
+            if ((str3 != null && !StringUtils.isNull(str) && (str.equals("1") || str.equals("2"))) || str.equals("3") || str.equals(YYOption.UrlProtocol.USER)) {
+                JSONObject jSONObject = new JSONObject();
+                Activity a3 = bj6.a(webView.getContext());
+                if (a3 == null) {
+                    try {
+                        jSONObject.put("resultCode", 0);
+                        jSONObject.put("status", 403);
+                    } catch (JSONException e) {
+                        BdLog.e(e);
+                    }
+                    gxaVar.o(jSONObject.toString());
+                    return gxaVar;
+                }
+                if (!StringUtils.isNull(str) && str.equals(YYOption.UrlProtocol.USER)) {
+                    DialogLoginHelper.checkUpIsLogin(new LoginDialogData(bj6.a(webView.getContext()), LoginDialogData.SCHEMA_LOGIN));
+                }
+                if (!StringUtils.isNull(str) && (str.equals("1") || str.equals("2") || str.equals("3"))) {
+                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a3, true);
+                    loginActivityConfig.setThirdPartyLoginForResult(Integer.parseInt(str), str3);
+                    loginActivityConfig.setUrl(webView.getOriginalUrl());
+                    ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+                }
+                try {
+                    jSONObject.put("resultCode", 1);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+                gxaVar.o(jSONObject.toString());
+            }
+            return gxaVar;
+        }
+        return (gxa) invokeLLLLL.objValue;
+    }
+
+    public gxa s(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, hashMap)) == null) {
+            gxa gxaVar = new gxa();
+            JSONObject jSONObject = new JSONObject();
+            if (hashMap != null && hashMap.get("hasLogin") != null && Boolean.TRUE.equals(hashMap.get("hasLogin"))) {
+                try {
+                    jSONObject.put("resultCode", 2);
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
+            } else if (hashMap != null && hashMap.get("isLogin") != null && Boolean.TRUE.equals(hashMap.get("isLogin")) && (!hashMap.containsKey("resultCode") || ((Integer) hashMap.get("resultCode")).intValue() != 0)) {
                 try {
-                    qz5Var.b = URLDecoder.decode(str2, "utf-8");
-                } catch (UnsupportedEncodingException e2) {
-                    qz5Var.b = str2;
+                    jSONObject.put("resultCode", 1);
+                    jSONObject.put("socialType", hashMap.get("social_type"));
+                    jSONObject.put("activityId", hashMap.get("activityId"));
+                } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921787, qz5Var));
-            }
-            return osaVar;
-        }
-        return (osa) invokeLLL.objValue;
-    }
-
-    public osa g(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            osa osaVar = new osa();
-            rv4.c().h();
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                osaVar.o(jSONObject.toString());
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return osaVar;
-        }
-        return (osa) invokeL.objValue;
-    }
-
-    public osa i(WebView webView, int i, String str) {
-        InterceptResult invokeLIL;
-        SmallTailThemeData smallTailThemeData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, i, str)) == null) {
-            if (i == 1) {
-                smallTailThemeData = new SmallTailThemeData();
-                smallTailThemeData.setPropsId(str);
+                a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } else {
-                smallTailThemeData = null;
+                try {
+                    jSONObject.put("resultCode", 0);
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+                gxaVar.o(jSONObject.toString());
+                gxaVar.q(403, "登录失败！");
+                return gxaVar;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921748, smallTailThemeData));
-            return new osa();
         }
-        return (osa) invokeLIL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 }

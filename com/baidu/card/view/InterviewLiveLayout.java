@@ -33,11 +33,11 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.ht;
-import com.baidu.tieba.lv4;
-import com.baidu.tieba.yl6;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.im6;
+import com.baidu.tieba.it;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
+public class InterviewLiveLayout extends FrameLayout implements it<cw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public yl6<bw4> c;
-    public bw4 d;
+    public im6<cw4> c;
+    public cw4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -181,7 +181,7 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
                 } else {
                     i = 14;
                 }
-                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                BdImage D = TbImageMemoryCache.w().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
                 if (D != null) {
                     i3 = D.getWidth();
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(yl6<bw4> yl6Var) {
+    public void setSubClickListener(im6<cw4> im6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yl6Var) == null) {
-            this.c = yl6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, im6Var) == null) {
+            this.c = im6Var;
         }
     }
 
@@ -323,16 +323,16 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
+    @Override // com.baidu.tieba.it
     /* renamed from: j */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(cw4 cw4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw4Var) == null) {
-            this.d = bw4Var;
-            if (bw4Var != null && this.e != null) {
-                ThreadData threadData = bw4Var.getThreadData();
-                fz4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) {
+            this.d = cw4Var;
+            if (cw4Var != null && this.e != null) {
+                ThreadData threadData = cw4Var.getThreadData();
+                hz4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -340,7 +340,7 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (lv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (nv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);

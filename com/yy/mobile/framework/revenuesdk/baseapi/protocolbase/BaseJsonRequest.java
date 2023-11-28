@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BaseJsonRequest implements IBaseJsonRequest {
     public ProtocolType protocolType;
     public PSCIMessageRequest psciMessageRequest;

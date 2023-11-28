@@ -54,7 +54,7 @@ public class EmojiDetailRecyclerAdapter extends RecyclerView.Adapter<EmojiDetail
         public void onClick(View view2) {
             EmojiDetailUserInfo emojiDetailUserInfo;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (emojiDetailUserInfo = (EmojiDetailUserInfo) view2.getTag(R.id.obfuscated_res_0x7f0909d7)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (emojiDetailUserInfo = (EmojiDetailUserInfo) view2.getTag(R.id.obfuscated_res_0x7f0909f3)) == null) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view2.getContext(), BIMManager.getBdUidFromBdUK(emojiDetailUserInfo.getUk()), emojiDetailUserInfo.getUserName())));
@@ -99,13 +99,13 @@ public class EmojiDetailRecyclerAdapter extends RecyclerView.Adapter<EmojiDetail
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public void onBindViewHolder(EmojiDetailHolder emojiDetailHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, emojiDetailHolder, i) == null) {
             emojiDetailHolder.getItemView().setOnClickListener(this.b);
             EmojiDetailUserInfo emojiDetailUserInfo = this.a.get(i);
-            emojiDetailHolder.getItemView().setTag(R.id.obfuscated_res_0x7f0909d7, emojiDetailUserInfo);
+            emojiDetailHolder.getItemView().setTag(R.id.obfuscated_res_0x7f0909f3, emojiDetailUserInfo);
             emojiDetailHolder.a.startLoad(emojiDetailUserInfo.getPortrait(), 12, false);
             emojiDetailHolder.b.setText(emojiDetailUserInfo.getUserName());
             EMManager.from(emojiDetailHolder.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01);
@@ -115,12 +115,12 @@ public class EmojiDetailRecyclerAdapter extends RecyclerView.Adapter<EmojiDetail
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: n */
+    /* renamed from: o */
     public EmojiDetailHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new EmojiDetailHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0297, viewGroup, false));
+            return new EmojiDetailHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d029e, viewGroup, false));
         }
         return (EmojiDetailHolder) invokeLI.objValue;
     }

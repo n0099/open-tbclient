@@ -1,33 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.h61;
+import com.baidu.tieba.a51;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class z41 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final int b = 0;
-    public static final int c;
+    public static final a51.a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(Context context, int i);
-
-        boolean b(HashMap<String, String> hashMap, int i);
-
-        AbsNadBrowserView c(Context context, j61 j61Var, int i);
-
-        void d(Context context, boolean z, int i, h61.b bVar);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,36 +25,6 @@ public final class z41 {
                 return;
             }
         }
-        a aVar = y41.a;
-        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
-        a = aVar;
-        c = 1;
-    }
-
-    public static final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
+        a = new b51();
     }
 }

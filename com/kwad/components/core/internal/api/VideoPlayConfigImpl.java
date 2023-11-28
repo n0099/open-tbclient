@@ -1,5 +1,6 @@
 package com.kwad.components.core.internal.api;
 
+import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 /* loaded from: classes10.dex */
 public class VideoPlayConfigImpl implements KsVideoPlayConfig {
@@ -8,6 +9,11 @@ public class VideoPlayConfigImpl implements KsVideoPlayConfig {
     public String showScene;
     public boolean skipThirtySecond;
     public boolean videoSoundEnable = true;
+
+    @InvokeBy(invokerClass = com.kwad.sdk.service.b.class, methodId = "initModeImplForInvoker")
+    public static void register() {
+        com.kwad.sdk.service.b.b(KsVideoPlayConfig.class, VideoPlayConfigImpl.class);
+    }
 
     @Override // com.kwad.sdk.api.KsVideoPlayConfig
     public String getShowScene() {

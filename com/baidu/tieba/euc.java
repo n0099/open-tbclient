@@ -4,28 +4,20 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.AlaLiveInsert;
-import tbclient.ThreadInfo;
+import tbclient.AichatBotCommentCard;
 /* loaded from: classes5.dex */
-public class euc extends qoc {
+public class euc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaLiveInsert alaLiveInsert) {
+    public static JSONObject b(@NonNull AichatBotCommentCard aichatBotCommentCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveInsert)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aichatBotCommentCard)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (alaLiveInsert.ala_live_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadInfo threadInfo : alaLiveInsert.ala_live_list) {
-                    jSONArray.put(v4d.b(threadInfo));
-                }
-                qoc.a(jSONObject, "ala_live_list", jSONArray);
-            }
+            ltc.a(jSONObject, "uk", aichatBotCommentCard.uk);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

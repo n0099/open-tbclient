@@ -1,81 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uw9 extends vra {
+public class uw9 extends yq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j1;
     public transient /* synthetic */ FieldHolder $fh;
-    public hy4 g1;
-    public hy4 h1;
-    public hy4 i1;
+    public boolean a;
+    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225554, "Lcom/baidu/tieba/uw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948225554, "Lcom/baidu/tieba/uw9;");
-                return;
-            }
-        }
-        j1 = BdUniqueId.gen();
-    }
-
-    public uw9() {
+    public uw9(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = z;
+        this.b = j;
     }
 
-    @Override // com.baidu.tieba.vra, com.baidu.tieba.oi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return j1;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean F1() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hy4 hy4Var = this.g1;
-            if (hy4Var != null && !StringUtils.isNull(hy4Var.b)) {
-                return true;
-            }
-            hy4 hy4Var2 = this.h1;
-            if (hy4Var2 != null && !StringUtils.isNull(hy4Var2.b)) {
-                return true;
-            }
-            hy4 hy4Var3 = this.i1;
-            if (hy4Var3 != null) {
-                return !StringUtils.isNull(hy4Var3.b);
-            }
-            return false;
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }

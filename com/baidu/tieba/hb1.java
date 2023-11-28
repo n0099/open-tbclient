@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hb1 {
-    void a(Activity activity, String str, String str2);
+public class hb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile gb1 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, ob1<JSONObject> ob1Var);
-
-    boolean b(Context context);
-
-    void c(Activity activity, String str, cb1 cb1Var);
-
-    void d(Context context, JSONObject jSONObject, cb1 cb1Var);
-
-    void e(Activity activity, String str, cb1 cb1Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, cb1 cb1Var);
-
-    String j(Context context);
+    public static synchronized gb1 a() {
+        InterceptResult invokeV;
+        gb1 gb1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (hb1.class) {
+                if (a == null) {
+                    a = new gb1();
+                }
+                gb1Var = a;
+            }
+            return gb1Var;
+        }
+        return (gb1) invokeV.objValue;
+    }
 }

@@ -27,9 +27,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.ob;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.ly5;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ import java.util.ArrayList;
 public class GridImageLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ob<ImageView> a;
-    public ob<GifView> b;
-    public ey5 c;
+    public pb<ImageView> a;
+    public pb<GifView> b;
+    public ly5 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -160,7 +160,7 @@ public class GridImageLayout extends RelativeLayout {
             float f2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null) {
-                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), this.a.n));
+                BdImage D = TbImageMemoryCache.w().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), this.a.n));
                 int i2 = 0;
                 if (D != null) {
                     i2 = D.getWidth();
@@ -295,12 +295,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(ey5 ey5Var) {
+    public void setLayoutStrategy(ly5 ly5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ey5Var) == null) {
-            this.c = ey5Var;
-            if (ey5Var != null) {
-                this.f = ey5Var.K;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ly5Var) == null) {
+            this.c = ly5Var;
+            if (ly5Var != null) {
+                this.f = ly5Var.K;
             }
         }
     }
@@ -333,7 +333,7 @@ public class GridImageLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (qd.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
+            if (rd.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
                 return;
             }
             View childAt = getChildAt(childCount - 1);
@@ -373,7 +373,7 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || qd.isEmpty(this.h) || getChildCount() != 9) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || rd.isEmpty(this.h) || getChildCount() != 9) {
             return;
         }
         int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X003);
@@ -468,9 +468,9 @@ public class GridImageLayout extends RelativeLayout {
         String U;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048579, this, i, tbRichTextImageInfo) == null) && tbRichTextImageInfo != null && this.c != null) {
-            ob<GifView> obVar = this.b;
-            if (obVar != null) {
-                gifView = obVar.b();
+            pb<GifView> pbVar = this.b;
+            if (pbVar != null) {
+                gifView = pbVar.b();
             } else {
                 gifView = null;
             }
@@ -498,7 +498,7 @@ public class GridImageLayout extends RelativeLayout {
                 gifView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
             gifView.setIsLongPic(tbRichTextImageInfo.X());
-            if (i == 8 && !qd.isEmpty(this.h)) {
+            if (i == 8 && !rd.isEmpty(this.h)) {
                 gifView.setLongIconSupport(false);
                 gifView.setGifIconSupport(false);
             } else {
@@ -652,10 +652,10 @@ public class GridImageLayout extends RelativeLayout {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, tbRichTextImageInfo) == null) && tbRichTextImageInfo != null && this.c != null) {
-            ob<ImageView> obVar = this.a;
+            pb<ImageView> pbVar = this.a;
             String str = null;
-            if (obVar != null) {
-                imageView = obVar.b();
+            if (pbVar != null) {
+                imageView = pbVar.b();
             } else {
                 imageView = null;
             }
@@ -687,7 +687,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
             tbImageView.setIsLongPic(tbRichTextImageInfo.X());
-            if (i == 8 && !qd.isEmpty(this.h)) {
+            if (i == 8 && !rd.isEmpty(this.h)) {
                 tbImageView.setLongIconSupport(false);
                 tbImageView.setGifIconSupport(false);
             } else {
@@ -762,11 +762,11 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setObjectPool(ob<ImageView> obVar, ob<GifView> obVar2) {
+    public void setObjectPool(pb<ImageView> pbVar, pb<GifView> pbVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, obVar, obVar2) == null) {
-            this.a = obVar;
-            this.b = obVar2;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, pbVar, pbVar2) == null) {
+            this.a = pbVar;
+            this.b = pbVar2;
         }
     }
 

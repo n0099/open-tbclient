@@ -1,37 +1,34 @@
 package com.kwad.components.ad.reward.c;
 
-import androidx.annotation.Nullable;
-import com.kwad.sdk.api.KsInnerAd;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import java.lang.reflect.Method;
 /* loaded from: classes10.dex */
-public class c {
-    @Nullable
-    public Object oR;
-
-    public c(Object obj) {
-        this.oR = obj;
+public final class c {
+    public static void a(b bVar, KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+        if (rewardAdInteractionListener != null && bVar != null) {
+            try {
+                rewardAdInteractionListener.onExtraRewardVerify(bVar.getType());
+            } catch (Throwable unused) {
+            }
+        }
     }
 
-    public void d(b bVar) {
-        if (this.oR == null || bVar == null || bVar.getHost() == null) {
-            return;
+    public static boolean a(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+        if (rewardAdInteractionListener == null) {
+            return false;
         }
         try {
-            ((KsInnerAd.KsInnerAdInteractionListener) this.oR).onAdClicked((KsInnerAd) bVar.getHost());
-        } catch (Exception unused) {
+            for (Method method : rewardAdInteractionListener.getClass().getMethods()) {
+                if ("onExtraRewardVerify".equals(method.getName())) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
         }
+        return false;
     }
 
-    public final void destroy() {
-        this.oR = null;
-    }
-
-    public void e(b bVar) {
-        if (this.oR == null || bVar == null || bVar.getHost() == null) {
-            return;
-        }
-        try {
-            ((KsInnerAd.KsInnerAdInteractionListener) this.oR).onAdShow((KsInnerAd) bVar.getHost());
-        } catch (Exception unused) {
-        }
+    public static b gN() {
+        return new b(1);
     }
 }

@@ -1,27 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.DealAuthInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public class jrc extends qoc {
+public abstract class jrc<E> extends hrc<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedQueueNode<E> producerNode;
 
-    @NonNull
-    public static JSONObject b(@NonNull DealAuthInfo dealAuthInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealAuthInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "item_name", dealAuthInfo.item_name);
-            qoc.a(jSONObject, "item_content", dealAuthInfo.item_content);
-            qoc.a(jSONObject, "item_url", dealAuthInfo.item_url);
-            return jSONObject;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894350, "Lcom/baidu/tieba/jrc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894350, "Lcom/baidu/tieba/jrc;");
+                return;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        a = ksc.a(jrc.class, "producerNode");
+    }
+
+    public jrc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final LinkedQueueNode<E> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (LinkedQueueNode) ksc.a.f(this, a);
+        }
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
+        }
     }
 }

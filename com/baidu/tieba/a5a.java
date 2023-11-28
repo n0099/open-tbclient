@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.personExtra.PersonBarByUidLocalMessage;
-import com.baidu.tieba.personExtra.ResponsePersonBarByUidLocalMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class a5a implements CustomMessageTask.CustomRunnable<String> {
+public final class a5a extends yfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.yfa
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "collect" : (String) invokeV.objValue;
+    }
 
     public a5a() {
         Interceptable interceptable = $ic;
@@ -31,26 +35,79 @@ public class a5a implements CustomMessageTask.CustomRunnable<String> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yfa
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof PersonBarByUidLocalMessage)) {
-                yz4.l();
-                String str = yz4.m("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
-                ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-                if (str != null) {
-                    try {
-                        responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                }
-                return responsePersonBarByUidLocalMessage;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return fa5.e().d();
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadAbstract() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getAbstract();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTid();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTitle();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

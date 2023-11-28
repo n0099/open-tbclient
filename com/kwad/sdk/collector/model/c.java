@@ -7,22 +7,26 @@ import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
 import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class c {
-    public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
+    public static AppRunningInfoNative a(String str, @Nullable AppStatusRules.Strategy strategy) {
+        long historyGranularity;
+        if (strategy == null) {
+            historyGranularity = -1;
+        } else {
+            historyGranularity = strategy.getHistoryGranularity();
+        }
         try {
-            return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
+            return new AppRunningInfoNative(historyGranularity, "", str);
         } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+            com.kwad.sdk.core.e.c.printStackTraceOnly(th);
             return null;
         }
     }
@@ -34,45 +38,9 @@ public final class c {
         return null;
     }
 
-    public static String a(d dVar) {
-        if (dVar instanceof RulesTargetNative) {
-            return AppStatusNative.rulesTargetGetPackageName((RulesTargetNative) dVar);
-        }
-        return null;
-    }
-
-    public static void a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map, @NonNull List<a> list) {
-        InstalledAppInfoManager.AppPackageInfo appPackageInfo;
-        ArrayList<d> target = strategy.getTarget();
-        if (target == null || target.size() == 0) {
-            return;
-        }
-        for (d dVar : target) {
-            if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
-                HashSet hashSet = new HashSet(b(dVar));
-                long startTimeWithMS = strategy.getStartTimeWithMS();
-                AppRunningInfoNative a = a(appPackageInfo, strategy);
-                if (a != null) {
-                    list.add(new AnalyseTaskNative(a, hashSet, startTimeWithMS));
-                }
-            }
-        }
-    }
-
-    public static void a(b bVar, long j) {
-        AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j);
-    }
-
     public static String b(b bVar) {
         if (bVar instanceof AppRunningInfoNative) {
             return AppStatusNative.appRunningInfoGetPackageName((AppRunningInfoNative) bVar);
-        }
-        return null;
-    }
-
-    public static List<String> b(d dVar) {
-        if (dVar instanceof RulesTargetNative) {
-            return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
         }
         return null;
     }
@@ -107,5 +75,40 @@ public final class c {
             }
         }
         return arrayList;
+    }
+
+    public static String a(d dVar) {
+        if (dVar instanceof RulesTargetNative) {
+            return AppStatusNative.rulesTargetGetPackageName((RulesTargetNative) dVar);
+        }
+        return null;
+    }
+
+    public static List<String> b(d dVar) {
+        if (dVar instanceof RulesTargetNative) {
+            return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
+        }
+        return null;
+    }
+
+    public static void a(@NonNull AppStatusRules.Strategy strategy, @NonNull List<a> list) {
+        ArrayList<d> target = strategy.getTarget();
+        if (target != null && target.size() != 0) {
+            for (d dVar : target) {
+                if (b(dVar) != null && b(dVar).size() != 0) {
+                    String a = a(dVar);
+                    HashSet hashSet = new HashSet(b(dVar));
+                    long startTimeWithMS = strategy.getStartTimeWithMS();
+                    AppRunningInfoNative a2 = a(a, strategy);
+                    if (a2 != null) {
+                        list.add(new AnalyseTaskNative(a2, hashSet, startTimeWithMS));
+                    }
+                }
+            }
+        }
+    }
+
+    public static void a(b bVar, long j) {
+        AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j);
     }
 }

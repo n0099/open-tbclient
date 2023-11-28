@@ -1,6 +1,6 @@
 package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
-import com.baidu.tieba.zs3;
+import com.baidu.tieba.at3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -93,7 +93,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             @Override // com.google.protobuf.MessageLite.Builder
             /* renamed from: m */
             public AuthInfo buildPartial() {
-                AuthInfo authInfo = new AuthInfo(this, (zs3) null);
+                AuthInfo authInfo = new AuthInfo(this, (at3) null);
                 int i = 1;
                 if ((this.a & 1) != 1) {
                     i = 0;
@@ -350,7 +350,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             }
         }
 
-        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, zs3 zs3Var) throws InvalidProtocolBufferException {
+        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, at3 at3Var) throws InvalidProtocolBufferException {
             this(codedInputStream, extensionRegistryLite);
         }
 
@@ -382,7 +382,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             }
         }
 
-        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, zs3 zs3Var) {
+        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, at3 at3Var) {
             this(builder);
         }
 
@@ -497,7 +497,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bimlog$LogRequest buildPartial() {
-            Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (zs3) null);
+            Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (at3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -930,7 +930,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, zs3 zs3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, at3 at3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -954,7 +954,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         return PARSER.parseFrom(byteString);
     }
 
-    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, zs3 zs3Var) {
+    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, at3 at3Var) {
         this(builder);
     }
 

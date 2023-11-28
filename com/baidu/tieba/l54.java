@@ -10,7 +10,7 @@ public class l54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public Object header;
+    public Object data;
 
     public l54(Object obj) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class l54 {
                 return;
             }
         }
-        this.header = obj;
+        this.data = obj;
     }
 }

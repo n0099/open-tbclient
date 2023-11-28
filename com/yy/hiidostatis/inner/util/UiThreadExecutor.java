@@ -6,7 +6,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UiThreadExecutor {
     public static final Handler HANDLER = new Handler(Looper.getMainLooper()) { // from class: com.yy.hiidostatis.inner.util.UiThreadExecutor.1
         @Override // android.os.Handler
@@ -22,7 +22,7 @@ public class UiThreadExecutor {
     };
     public static final Map<String, Token> TOKENS = new HashMap();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Token {
         public final String id;
         public int runnablesCount;

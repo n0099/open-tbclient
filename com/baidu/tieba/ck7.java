@@ -1,106 +1,166 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forum.model.FrsPageRequestMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class ck7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Long> a;
 
-    public static final FrsPageRequestMessage a(Bundle bundle) {
-        InterceptResult invokeL;
-        String str;
-        boolean z;
-        int i;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
-            Intrinsics.checkNotNullParameter(bundle, "bundle");
-            String string = bundle.getString("name");
-            String str2 = "";
-            if (string == null) {
-                string = "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677722, "Lcom/baidu/tieba/ck7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Uri uri = (Uri) bundle.getParcelable(IntentConfig.KEY_URI);
-            String str3 = (uri == null || (str3 = uri.toString()) == null) ? "" : "";
-            if (uri == null || (str = uri.getQueryParameter("name")) == null) {
-                if (uri != null) {
-                    str = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                } else {
-                    str = null;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947677722, "Lcom/baidu/tieba/ck7;");
+                return;
             }
-            if (string.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                if (str != null && str.length() != 0) {
-                    z2 = false;
-                } else {
-                    z2 = true;
-                }
-                if (!z2) {
-                    string = str.toString();
-                }
-            }
-            FrsPageRequestMessage frsPageRequestMessage = new FrsPageRequestMessage();
-            frsPageRequestMessage.setSortType(-1);
-            frsPageRequestMessage.setDefaultSortType(0);
-            frsPageRequestMessage.setPn(1);
-            frsPageRequestMessage.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
-            frsPageRequestMessage.setHotThreadId(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
-            frsPageRequestMessage.setObjLocate("2");
-            frsPageRequestMessage.setObjSource("-2");
-            String urlEncode = qd.getUrlEncode(string);
-            Intrinsics.checkNotNullExpressionValue(urlEncode, "getUrlEncode(forumName)");
-            frsPageRequestMessage.setKw(urlEncode);
-            frsPageRequestMessage.setWithGroup(1);
-            frsPageRequestMessage.setCid(0);
-            frsPageRequestMessage.setScrW(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            frsPageRequestMessage.setScrH(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            frsPageRequestMessage.setScrDip(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            if (TbImageHelper.getInstance().isShowBigImage()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            frsPageRequestMessage.setQType(i);
-            frsPageRequestMessage.setUpSchema(str3);
-            String string2 = bundle.getString("yuelaou_locate");
-            if (string2 == null) {
-                string2 = "";
-            }
-            frsPageRequestMessage.setYuelaoLocate(string2);
-            frsPageRequestMessage.setLastClickTid(JavaTypesHelper.toLong(xt5.a(), 0L));
-            String string3 = bundle.getString("from");
-            if (string3 != null) {
-                str2 = string3;
-            }
-            frsPageRequestMessage.setStType(str2);
-            frsPageRequestMessage.setDefaultNavTab(1);
-            frsPageRequestMessage.setLoadType(1);
-            if (ThreadData.isRecAppLoaded.get() && zca.m().b() != null) {
-                frsPageRequestMessage.setRefreshCount(zca.m().b().d(string, false) + 1);
-                frsPageRequestMessage.setLoadCount(zca.m().b().e(string, false));
-            }
-            frsPageRequestMessage.setNewFrs(1);
-            return frsPageRequestMessage;
         }
-        return (FrsPageRequestMessage) invokeL.objValue;
+        b = new a(null);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final ck7 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (ck7) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final ck7 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-887469220, "Lcom/baidu/tieba/ck7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-887469220, "Lcom/baidu/tieba/ck7$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new ck7();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final ck7 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (ck7) invokeV.objValue;
+        }
+    }
+
+    public ck7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public final long a(String fid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fid)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            return l.longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public final void b(String fid, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, j) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            if (j < 0) {
+                return;
+            }
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            if (l.longValue() < j) {
+                this.a.put(fid, Long.valueOf(j));
+            }
+        }
     }
 }

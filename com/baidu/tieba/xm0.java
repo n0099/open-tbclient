@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,22 +11,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.Unit;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class xm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static final a v;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
-    public String a;
+    public int a;
     @JvmField
     public String b;
     @JvmField
     public String c;
+    @JvmField
+    public boolean d;
+    @JvmField
+    public boolean e;
+    @JvmField
+    public boolean f;
+    @JvmField
+    public boolean g;
+    @JvmField
+    public List<MonitorUrl> h;
+    @JvmField
+    public String i;
+    @JvmField
+    public String j;
+    @JvmField
+    public String k;
+    @JvmField
+    public String l;
+    @JvmField
+    public String m;
+    @JvmField
+    public String n;
+    @JvmField
+    public List<an0> o;
+    @JvmField
+    public tm0 p;
+    @JvmField
+    public wm0 q;
+    @JvmField
+    public String r;
+    @JvmField
+    public on0 s;
+    @JvmField
+    public String t;
+    @JvmField
+    public boolean u;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +81,14 @@ public final class xm0 {
                 return;
             }
         }
-        d = new a(null);
+        v = new a(null);
+    }
+
+    @JvmStatic
+    public static final xm0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? v.a(jSONObject) : (xm0) invokeL.objValue;
     }
 
     /* loaded from: classes9.dex */
@@ -63,26 +114,107 @@ public final class xm0 {
             this();
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00ee, code lost:
+            if (r0.equals(com.baidu.searchbox.net.listener.DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST) != false) goto L36;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0125  */
         @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public final xm0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
+            boolean z;
+            JSONObject optJSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject == null) {
                     return null;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
-                if (optJSONObject == null) {
-                    optJSONObject = ly0.c(jSONObject.optString("panel"));
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("convert");
+                if (optJSONObject2 == null) {
+                    optJSONObject2 = my0.c(jSONObject.optString("convert"));
                 }
-                if (optJSONObject == null) {
+                if (optJSONObject2 == null) {
                     return null;
                 }
                 xm0 xm0Var = new xm0();
-                xm0Var.a = optJSONObject.optString("title");
-                xm0Var.b = optJSONObject.optString("brand_name");
-                xm0Var.c = optJSONObject.optString("avatar");
-                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
+                xm0Var.b = optJSONObject2.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                xm0Var.c = optJSONObject2.optString("button_icon");
+                xm0Var.i = optJSONObject2.optString("download_button_start_color");
+                xm0Var.j = optJSONObject2.optString("download_button_end_color");
+                xm0Var.k = optJSONObject2.optString("invoke_button_start_color");
+                xm0Var.l = optJSONObject2.optString("invoke_button_end_color");
+                xm0Var.m = optJSONObject2.optString("invoke_button_icon");
+                xm0Var.n = optJSONObject2.optString("invoke_button_text");
+                String optString = optJSONObject2.optString("button_text_color");
+                Intrinsics.checkNotNullExpressionValue(optString, "it.optString(\"button_text_color\")");
+                int i = 1;
+                if (optString.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    optJSONObject2.optString("button_text_color");
+                } else {
+                    optJSONObject2.optString("textColor");
+                }
+                optJSONObject2.optInt("buttonShineType");
+                xm0Var.r = optJSONObject2.optString("background_color");
+                xm0Var.t = optJSONObject2.optString("button_scheme");
+                ArrayList arrayList = new ArrayList();
+                JSONArray optJSONArray = optJSONObject2.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        an0 a = an0.d.a(optJSONArray.optJSONObject(i2));
+                        if (a != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                }
+                Unit unit = Unit.INSTANCE;
+                xm0Var.o = arrayList;
+                String optString2 = optJSONObject2.optString("type");
+                if (optString2 != null) {
+                    int hashCode = optString2.hashCode();
+                    if (hashCode != -1335224239) {
+                        if (hashCode != -1183693704) {
+                            if (hashCode == 1427818632 && optString2.equals("download")) {
+                                i = 2;
+                            }
+                        }
+                        xm0Var.a = i;
+                        xm0Var.p = tm0.c(optJSONObject2.optJSONObject("download"));
+                        wm0 wm0Var = new wm0();
+                        wm0Var.d = optJSONObject2.optString("ext");
+                        wm0Var.a = optJSONObject2.optString(BdVideoAd.AD_VIDEO_DAPAGE);
+                        Unit unit2 = Unit.INSTANCE;
+                        xm0Var.q = wm0Var;
+                        optJSONObject = optJSONObject2.optJSONObject("app_info");
+                        if (optJSONObject != null) {
+                            on0 d = on0.d(optJSONObject);
+                            xm0Var.s = d;
+                            if (d != null) {
+                                d.m = optJSONObject2.optString("ext");
+                            }
+                        }
+                        return xm0Var;
+                    }
+                    optString2.equals("detail");
+                }
+                i = 0;
+                xm0Var.a = i;
+                xm0Var.p = tm0.c(optJSONObject2.optJSONObject("download"));
+                wm0 wm0Var2 = new wm0();
+                wm0Var2.d = optJSONObject2.optString("ext");
+                wm0Var2.a = optJSONObject2.optString(BdVideoAd.AD_VIDEO_DAPAGE);
+                Unit unit22 = Unit.INSTANCE;
+                xm0Var.q = wm0Var2;
+                optJSONObject = optJSONObject2.optJSONObject("app_info");
+                if (optJSONObject != null) {
+                }
                 return xm0Var;
             }
             return (xm0) invokeL.objValue;
@@ -99,7 +231,22 @@ public final class xm0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 1;
+        this.h = new ArrayList();
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != 2 || this.p != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

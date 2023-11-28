@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jp9;
+import com.baidu.tieba.zs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jp9 a;
+    public zs9 a;
     public int b;
     public String[] c;
     public boolean d;
@@ -47,7 +47,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void m1() {
+    public final void l1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
             this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
@@ -56,7 +56,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void n1() {
+    public final void m1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
@@ -89,11 +89,11 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
+            l1();
+            zs9 zs9Var = new zs9(this, this.b, this.c, this.d);
+            this.a = zs9Var;
+            setContentView(zs9Var.d());
             m1();
-            jp9 jp9Var = new jp9(this, this.b, this.c, this.d);
-            this.a = jp9Var;
-            setContentView(jp9Var.d());
-            n1();
         }
     }
 }

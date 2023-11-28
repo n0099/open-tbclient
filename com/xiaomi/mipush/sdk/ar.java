@@ -22,15 +22,15 @@ public class ar extends ContentObserver {
         Context context2;
         Context context3;
         ao aoVar = this.a;
-        context = aoVar.f58a;
-        aoVar.f62a = Integer.valueOf(bn.a(context).a());
-        num = this.a.f62a;
+        context = aoVar.f54a;
+        aoVar.f58a = Integer.valueOf(bn.a(context).a());
+        num = this.a.f58a;
         if (num.intValue() != 0) {
-            context2 = this.a.f58a;
+            context2 = this.a.f54a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.a.f58a;
+            context3 = this.a.f54a;
             if (bi.b(context3)) {
-                this.a.m227c();
+                this.a.m231c();
             }
         }
     }

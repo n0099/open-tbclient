@@ -5,23 +5,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.MyGroupInfo;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
+import tbclient.FrsPage.TopbarEntrance;
 /* loaded from: classes5.dex */
-public class f0d extends qoc {
+public class f0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MyGroupInfo myGroupInfo) {
+    public static JSONObject b(@NonNull ForumGroup forumGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, myGroupInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumGroup)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "group_id", myGroupInfo.group_id);
-            qoc.a(jSONObject, "group_name", myGroupInfo.group_name);
-            qoc.a(jSONObject, "portrait", myGroupInfo.portrait);
-            qoc.a(jSONObject, "member_num", myGroupInfo.member_num);
-            qoc.a(jSONObject, "max_member_num", myGroupInfo.max_member_num);
+            TopbarEntrance topbarEntrance = forumGroup.topbar_entrance;
+            if (topbarEntrance != null) {
+                ltc.a(jSONObject, "topbar_entrance", t2d.b(topbarEntrance));
+            }
+            GroupFeedCard groupFeedCard = forumGroup.feed_card;
+            if (groupFeedCard != null) {
+                ltc.a(jSONObject, "feed_card", p0d.b(groupFeedCard));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

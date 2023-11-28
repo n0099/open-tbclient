@@ -182,7 +182,7 @@ public final class PbContentCollectionController {
             b().setVisibility(0);
             b().setStyleForPb();
             b().setData(threadData);
-            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.ey9
+            b().setEventCallback(new TbLabelWidget.b() { // from class: com.baidu.tieba.g2a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

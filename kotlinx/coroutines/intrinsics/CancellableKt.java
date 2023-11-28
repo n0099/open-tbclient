@@ -19,7 +19,7 @@ import kotlinx.coroutines.internal.DispatchedContinuationKt;
 public final class CancellableKt {
     public static final void dispatcherFailure(Continuation<?> continuation, Throwable th) {
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m855constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m859constructorimpl(ResultKt.createFailure(th)));
         throw th;
     }
 
@@ -35,7 +35,7 @@ public final class CancellableKt {
         try {
             Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation);
             Result.Companion companion = Result.Companion;
-            DispatchedContinuationKt.resumeCancellableWith$default(intercepted, Result.m855constructorimpl(Unit.INSTANCE), null, 2, null);
+            DispatchedContinuationKt.resumeCancellableWith$default(intercepted, Result.m859constructorimpl(Unit.INSTANCE), null, 2, null);
         } catch (Throwable th) {
             dispatcherFailure(continuation2, th);
         }
@@ -46,7 +46,7 @@ public final class CancellableKt {
         try {
             Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function1, continuation));
             Result.Companion companion = Result.Companion;
-            DispatchedContinuationKt.resumeCancellableWith$default(intercepted, Result.m855constructorimpl(Unit.INSTANCE), null, 2, null);
+            DispatchedContinuationKt.resumeCancellableWith$default(intercepted, Result.m859constructorimpl(Unit.INSTANCE), null, 2, null);
         } catch (Throwable th) {
             dispatcherFailure(continuation, th);
         }
@@ -56,7 +56,7 @@ public final class CancellableKt {
         try {
             Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function2, r, continuation));
             Result.Companion companion = Result.Companion;
-            DispatchedContinuationKt.resumeCancellableWith(intercepted, Result.m855constructorimpl(Unit.INSTANCE), function1);
+            DispatchedContinuationKt.resumeCancellableWith(intercepted, Result.m859constructorimpl(Unit.INSTANCE), function1);
         } catch (Throwable th) {
             dispatcherFailure(continuation, th);
         }

@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hq9;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.vw4;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.xt9;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class FriendBotView extends RelativeLayout {
     public CallRobotEntrance c;
     public boolean d;
     public f e;
-    public vw4 f;
+    public xw4 f;
     public String g;
     public StyleContentInfo h;
     public String i;
@@ -278,12 +278,12 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    public void setCallRobotEntranceData(vw4 vw4Var) {
+    public void setCallRobotEntranceData(xw4 xw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vw4Var) == null) {
-            this.f = vw4Var;
-            this.c = vw4Var.c();
-            setStyleContentInfo(vw4Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, xw4Var) == null) {
+            this.f = xw4Var;
+            this.c = xw4Var.c();
+            setStyleContentInfo(xw4Var);
             setLoadingToast(this.c);
             p();
             if (this.b.getVisibility() == 0) {
@@ -358,13 +358,13 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    private void setStyleContentInfo(vw4 vw4Var) {
+    private void setStyleContentInfo(xw4 xw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, vw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, this, xw4Var) == null) {
             if (TbadkApplication.getInst().getSkinType() == 4) {
-                this.h = vw4Var.a();
+                this.h = xw4Var.a();
             } else {
-                this.h = vw4Var.b();
+                this.h = xw4Var.b();
             }
         }
     }
@@ -528,8 +528,8 @@ public class FriendBotView extends RelativeLayout {
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (styleContentInfo = this.h) != null) {
             String str = styleContentInfo.icon;
             String str2 = styleContentInfo.dynamic_icon;
-            if (!qd.isEmpty(str2)) {
-                this.a.m(str2);
+            if (!rd.isEmpty(str2)) {
+                this.a.n(str2);
             }
             if (!TextUtils.isEmpty(str)) {
                 this.a.l(str);
@@ -548,7 +548,7 @@ public class FriendBotView extends RelativeLayout {
         TbImage tbImage;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (tbImage = this.a) != null) {
-            tbImage.q();
+            tbImage.r();
             u();
         }
     }
@@ -557,7 +557,7 @@ public class FriendBotView extends RelativeLayout {
         Map<String, Long> b2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = hq9.b()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = xt9.b()) == null) {
             return;
         }
         Iterator<Map.Entry<String, Long>> it = b2.entrySet().iterator();
@@ -579,7 +579,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map<String, Long> b2 = hq9.b();
+            Map<String, Long> b2 = xt9.b();
             if (b2 != null && b2.containsKey(str)) {
                 long currentTimeMillis = System.currentTimeMillis() - b2.get(str).longValue();
                 if (currentTimeMillis >= 0 && currentTimeMillis < 30000) {
@@ -597,7 +597,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map b2 = hq9.b();
+            Map b2 = xt9.b();
             if (b2 == null) {
                 b2 = new HashMap();
             }
@@ -663,7 +663,7 @@ public class FriendBotView extends RelativeLayout {
             if (!TextUtils.isEmpty(str)) {
                 this.a.setCurFrameToPLaceHolder();
                 this.a.l(str);
-                this.a.p();
+                this.a.q();
                 return;
             }
             u();

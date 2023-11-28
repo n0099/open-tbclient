@@ -29,21 +29,6 @@ public class KsNotificationCompat {
             this(context, null);
         }
 
-        public Builder(@NonNull Context context, @NonNull String str) {
-            try {
-                this.mBuilder = new NotificationCompat.Builder(context, str);
-            } catch (Throwable unused) {
-                this.mBuilder = new NotificationCompat.Builder(context);
-            }
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
-            this.mBuilder.addAction(i, charSequence, pendingIntent);
-            return this;
-        }
-
         @KsAdSdkApi
         @Keep
         public final Builder addExtras(Bundle bundle) {
@@ -56,24 +41,6 @@ public class KsNotificationCompat {
         public final Builder addPerson(String str) {
             this.mBuilder.addPerson(str);
             return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Notification build() {
-            return this.mBuilder.build();
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Bundle getExtras() {
-            return this.mBuilder.getExtras();
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Notification getNotification() {
-            return build();
         }
 
         @KsAdSdkApi
@@ -197,13 +164,6 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public final Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
-            this.mBuilder.setFullScreenIntent(pendingIntent, z);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
         public final Builder setGroup(String str) {
             this.mBuilder.setGroup(str);
             return this;
@@ -227,13 +187,6 @@ public class KsNotificationCompat {
         @Keep
         public final Builder setLargeIcon(Bitmap bitmap) {
             this.mBuilder.setLargeIcon(bitmap);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Builder setLights(@ColorInt int i, int i2, int i3) {
-            this.mBuilder.setLights(i, i2, i3);
             return this;
         }
 
@@ -274,13 +227,6 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public final Builder setProgress(int i, int i2, boolean z) {
-            this.mBuilder.setProgress(i, i2, z);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
         public final Builder setPublicVersion(Notification notification) {
             this.mBuilder.setPublicVersion(notification);
             return this;
@@ -316,13 +262,6 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public final Builder setSmallIcon(int i, int i2) {
-            this.mBuilder.setSmallIcon(i, i2);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
         public final Builder setSortKey(String str) {
             this.mBuilder.setSortKey(str);
             return this;
@@ -337,13 +276,6 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public final Builder setSound(Uri uri, int i) {
-            this.mBuilder.setSound(uri, i);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
         public final Builder setSubText(CharSequence charSequence) {
             this.mBuilder.setSubText(charSequence);
             return this;
@@ -353,13 +285,6 @@ public class KsNotificationCompat {
         @Keep
         public final Builder setTicker(CharSequence charSequence) {
             this.mBuilder.setTicker(charSequence);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public final Builder setTicker(CharSequence charSequence, RemoteViews remoteViews) {
-            this.mBuilder.setTicker(charSequence, remoteViews);
             return this;
         }
 
@@ -395,6 +320,88 @@ public class KsNotificationCompat {
         @Keep
         public final Builder setWhen(long j) {
             this.mBuilder.setWhen(j);
+            return this;
+        }
+
+        public Builder(@NonNull Context context, @NonNull String str) {
+            try {
+                this.mBuilder = new NotificationCompat.Builder(context, str);
+            } catch (Throwable unused) {
+                this.mBuilder = new NotificationCompat.Builder(context);
+            }
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
+            this.mBuilder.setFullScreenIntent(pendingIntent, z);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setSmallIcon(int i, int i2) {
+            this.mBuilder.setSmallIcon(i, i2);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setSound(Uri uri, int i) {
+            this.mBuilder.setSound(uri, i);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setTicker(CharSequence charSequence, RemoteViews remoteViews) {
+            this.mBuilder.setTicker(charSequence, remoteViews);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+            this.mBuilder.addAction(i, charSequence, pendingIntent);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setLights(@ColorInt int i, int i2, int i3) {
+            this.mBuilder.setLights(i, i2, i3);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setProgress(int i, int i2, boolean z) {
+            this.mBuilder.setProgress(i, i2, z);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Notification build() {
+            return this.mBuilder.build();
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Bundle getExtras() {
+            return this.mBuilder.getExtras();
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Notification getNotification() {
+            return build();
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public final Builder setDecoratedCustomStyle() {
+            this.mBuilder.setStyle(new NotificationCompat.DecoratedCustomViewStyle());
             return this;
         }
     }

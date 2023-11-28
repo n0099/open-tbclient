@@ -1,53 +1,68 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActBtn;
 /* loaded from: classes6.dex */
-public class jva {
+public class jva implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public CurrencySwitchTDouYBeanDialog b;
+    public String a;
+    public String b;
 
-    public jva(MainTabActivity mainTabActivity, mua muaVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947898132, "Lcom/baidu/tieba/jva;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947898132, "Lcom/baidu/tieba/jva;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public jva() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, muaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = mainTabActivity;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
-            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
-            this.b = currencySwitchTDouYBeanDialog;
-            currencySwitchTDouYBeanDialog.showDialog();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b() {
-        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
+    public void a(ActBtn actBtn) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (currencySwitchTDouYBeanDialog = this.b) != null) {
-            currencySwitchTDouYBeanDialog.onDestroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, actBtn) == null) && actBtn != null) {
+            this.a = actBtn.text;
+            this.b = actBtn.url;
         }
     }
 }

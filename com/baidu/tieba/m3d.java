@@ -5,20 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SpringVirtualUser;
+import tbclient.FullLengthNovel;
 /* loaded from: classes7.dex */
-public class m3d extends qoc {
+public class m3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SpringVirtualUser springVirtualUser) {
+    public static JSONObject b(@NonNull FullLengthNovel fullLengthNovel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, springVirtualUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fullLengthNovel)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "is_virtual", springVirtualUser.is_virtual);
-            qoc.a(jSONObject, "url", springVirtualUser.url);
+            ltc.a(jSONObject, "schema", fullLengthNovel.schema);
+            ltc.a(jSONObject, "has_truncate", fullLengthNovel.has_truncate);
+            ltc.a(jSONObject, "button_heigh", fullLengthNovel.button_heigh);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

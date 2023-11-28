@@ -21,9 +21,9 @@ import com.baidu.live.business.model.data.LiveFeedToolInfo;
 import com.baidu.live.business.model.data.LiveFeedToolWrapData;
 import com.baidu.live.business.view.search.LiveSearchGuideView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f60;
-import com.baidu.tieba.s80;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.g60;
+import com.baidu.tieba.t80;
+import com.baidu.tieba.x80;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LiveFeedPageToolFloatLayout extends RelativeLayout {
@@ -137,18 +137,18 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         if (this.e.getVisibility() == 0) {
             layoutParams2.addRule(15);
         } else {
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0915e4);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091655);
             layoutParams2.bottomMargin = (int) TypedValue.applyDimension(1, 7.0f, getResources().getDisplayMetrics());
         }
         this.g.setLayoutParams(layoutParams2);
     }
 
     public final void c() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) this, true);
-        this.d = findViewById(R.id.obfuscated_res_0x7f0915e4);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915d9);
-        this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915e5);
-        this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f0915da);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) this, true);
+        this.d = findViewById(R.id.obfuscated_res_0x7f091655);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09164a);
+        this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091656);
+        this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f09164b);
         this.e.setOnClickListener(new c());
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
@@ -170,7 +170,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         }
         ImageView imageView = this.e;
         if (imageView != null) {
-            w80 f = w80.f();
+            x80 f = x80.f();
             if (this.b) {
                 str2 = LiveFeedPageSdk.IMMERSION;
             } else {
@@ -229,8 +229,8 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         } else {
             f = 47.0f;
         }
-        float b2 = f60.b(context, f);
-        s80.f(this.e, b2, b2);
+        float b2 = g60.b(context, f);
+        t80.f(this.e, b2, b2);
         this.g.c();
         if (this.f != null) {
             for (int i = 0; i < this.f.getChildCount(); i++) {
@@ -294,7 +294,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             }
             if (z) {
                 LiveFeedPageToolItemView liveFeedPageToolItemView2 = new LiveFeedPageToolItemView(this.f.getContext());
-                liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080f5b, "搜索");
+                liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080f7b, "搜索");
                 liveFeedPageToolItemView2.setOnClickListener(new b());
                 this.f.addView(liveFeedPageToolItemView2, new LinearLayout.LayoutParams(-1, (int) TypedValue.applyDimension(1, 57.0f, getResources().getDisplayMetrics())));
             }
@@ -336,7 +336,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 } else {
                     f3 = 10.0f;
                 }
-                layoutParams3.rightMargin = f60.b(context, f3);
+                layoutParams3.rightMargin = g60.b(context, f3);
                 this.d.setLayoutParams(layoutParams2);
             }
         }
@@ -351,7 +351,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 } else {
                     f2 = 4.0f;
                 }
-                layoutParams5.rightMargin = f60.b(context2, f2);
+                layoutParams5.rightMargin = g60.b(context2, f2);
                 this.f.setLayoutParams(layoutParams4);
             }
         }
@@ -363,12 +363,12 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             } else {
                 f = 47.0f;
             }
-            int b2 = f60.b(context3, f);
+            int b2 = g60.b(context3, f);
             layoutParams.width = b2;
             layoutParams.height = b2;
             this.e.setLayoutParams(layoutParams);
         }
-        d(w80.f().r());
+        d(x80.f().r());
         e();
     }
 }

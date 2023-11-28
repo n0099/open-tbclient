@@ -14,69 +14,69 @@ import com.kwad.sdk.widget.h;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes10.dex */
 public class KSCornerButton extends Button {
-    public h Pq;
+    public com.kwad.sdk.widget.h mViewRCHelper;
 
     public KSCornerButton(Context context) {
         super(context);
-        c(context, null);
+        a(context, null);
+    }
+
+    @Override // android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        this.mViewRCHelper.beforeDispatchDraw(canvas);
+        super.dispatchDraw(canvas);
+        this.mViewRCHelper.afterDispatchDraw(canvas);
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        this.mViewRCHelper.beforeDraw(canvas);
+        super.draw(canvas);
+        this.mViewRCHelper.afterDraw(canvas);
+    }
+
+    public void setRadius(float f) {
+        this.mViewRCHelper.setRadius(f);
+        postInvalidate();
     }
 
     public KSCornerButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        c(context, attributeSet);
+        a(context, attributeSet);
     }
 
     public KSCornerButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        c(context, attributeSet);
+        a(context, attributeSet);
     }
 
     @RequiresApi(api = 21)
     public KSCornerButton(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        c(context, attributeSet);
-    }
-
-    private void c(Context context, @Nullable AttributeSet attributeSet) {
-        h.a aVar = new h.a();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCornerImageView);
-        aVar.bt(obtainStyledAttributes.getBoolean(1, true));
-        aVar.bu(obtainStyledAttributes.getBoolean(3, true));
-        aVar.bv(obtainStyledAttributes.getBoolean(2, true));
-        aVar.bw(obtainStyledAttributes.getBoolean(0, true));
-        obtainStyledAttributes.recycle();
-        h hVar = new h(aVar);
-        this.Pq = hVar;
-        hVar.d(context, attributeSet);
-    }
-
-    @Override // android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        this.Pq.f(canvas);
-        super.dispatchDraw(canvas);
-        this.Pq.g(canvas);
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        this.Pq.d(canvas);
-        super.draw(canvas);
-        this.Pq.e(canvas);
-    }
-
-    @NonNull
-    public h.a getCornerConf() {
-        return this.Pq.getCornerConf();
+        a(context, attributeSet);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.Pq.w(i, i2);
+        this.mViewRCHelper.onSizeChanged(i, i2);
     }
 
-    public void setRadius(float f) {
-        this.Pq.setRadius(f);
-        postInvalidate();
+    private void a(Context context, @Nullable AttributeSet attributeSet) {
+        h.a aVar = new h.a();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCornerImageView);
+        aVar.cc(obtainStyledAttributes.getBoolean(1, true));
+        aVar.cd(obtainStyledAttributes.getBoolean(3, true));
+        aVar.ce(obtainStyledAttributes.getBoolean(2, true));
+        aVar.cf(obtainStyledAttributes.getBoolean(0, true));
+        obtainStyledAttributes.recycle();
+        com.kwad.sdk.widget.h hVar = new com.kwad.sdk.widget.h(aVar);
+        this.mViewRCHelper = hVar;
+        hVar.initAttrs(context, attributeSet);
+    }
+
+    @NonNull
+    public h.a getCornerConf() {
+        return this.mViewRCHelper.getCornerConf();
     }
 }

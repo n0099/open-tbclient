@@ -1,7 +1,6 @@
 package com.baidu.ar.steploading;
 
 import com.baidu.ar.h.i;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.facebook.common.util.UriUtil;
 import java.io.File;
 import java.util.HashMap;
@@ -38,7 +37,7 @@ public class a {
                             fVar.xK = optJSONObject.getString("resPath");
                             fVar.xL = optJSONObject.optString("resId");
                             fVar.xM = optJSONObject.optString(Http2Codec.ENCODING);
-                            fVar.xN = optJSONObject.optString(PackageTable.MD5);
+                            fVar.xN = optJSONObject.optString("md5");
                             this.xu.put(fVar.xK, fVar);
                         }
                     }

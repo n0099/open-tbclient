@@ -1,24 +1,13 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Bundle;
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public interface dk0 extends ek0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public interface dk0 extends fk0 {
+    LinkedList<WeakReference<Activity>> a();
 
-    void onActivityDestroyed(Activity activity);
+    Activity b();
 
-    void onActivityPaused(Activity activity);
-
-    void onActivityResumed(Activity activity);
-
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
-
-    void onActivityStarted(Activity activity);
-
-    void onActivityStopped(Activity activity);
-
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+    Activity d();
 }

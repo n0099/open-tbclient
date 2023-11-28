@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.DealMedia;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
 /* loaded from: classes7.dex */
-public class lrc extends qoc {
+public abstract class lrc<E> extends AbstractQueue<E> implements mrc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull DealMedia dealMedia) {
-        InterceptResult invokeL;
+    public lrc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealMedia)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "type", dealMedia.type);
-            qoc.a(jSONObject, "small_pic", dealMedia.small_pic);
-            qoc.a(jSONObject, "big_pic", dealMedia.big_pic);
-            qoc.a(jSONObject, "water_pic", dealMedia.water_pic);
-            return jSONObject;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,55 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.view.TbImageAutoSwitch;
 /* loaded from: classes6.dex */
-public class g29 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g29 {
+    void a(int i);
 
-    public static String a(UserData userData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
-            if (userData == null) {
-                return "";
-            }
-            if (UtilHelper.isFllowByPriorty(userData)) {
-                if (userData.getAuthType() == 1) {
-                    if (userData.isOfficial()) {
-                        return "";
-                    }
-                } else if (userData.getAuthType() == 2) {
-                    if (userData.isOriginal()) {
-                        return userData.getCreatorInfo().authDesc;
-                    }
-                } else if (userData.getAuthType() == 3) {
-                    if (userData.isNewGod()) {
-                        return userData.getNewGodData().getFieldName() + ou5.c(userData.isVideoGod());
-                    }
-                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
-                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
-                }
-            }
-            if (TextUtils.isEmpty("") && userData.isOfficial()) {
-                return "";
-            }
-            if (TextUtils.isEmpty("") && userData.isOriginal()) {
-                return userData.getCreatorInfo().authDesc;
-            }
-            if (TextUtils.isEmpty("") && userData.isNewGod()) {
-                return userData.getNewGodData().getFieldName() + ou5.c(userData.isVideoGod());
-            } else if (!TextUtils.isEmpty("") || !userData.showBazhuGrade()) {
-                return "";
-            } else {
-                return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    @NonNull
+    View b();
+
+    @NonNull
+    LinearLayout c();
+
+    void d(@NonNull String str, long j);
+
+    @NonNull
+    TextView e();
+
+    @NonNull
+    TextView f();
+
+    int g();
+
+    @NonNull
+    HeadImageView h();
+
+    @NonNull
+    int i();
+
+    @NonNull
+    int j();
+
+    LinearLayout k();
+
+    @NonNull
+    LinearLayout l();
+
+    @Nullable
+    RelativeLayout m();
+
+    @Nullable
+    RecyclerView n();
+
+    int o();
+
+    void onChangeSkinType(int i);
+
+    @NonNull
+    RelativeLayout p();
+
+    TextView q();
+
+    @Nullable
+    RelativeLayout r();
+
+    @NonNull
+    TbImageAutoSwitch s();
+
+    void t(int i);
+
+    LinearLayout u();
 }

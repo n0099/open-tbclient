@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.c35;
-import com.baidu.tieba.cu4;
+import com.baidu.tieba.eu4;
+import com.baidu.tieba.f35;
+import com.baidu.tieba.fe7;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
-import com.baidu.tieba.fu5;
-import com.baidu.tieba.hu6;
+import com.baidu.tieba.he7;
+import com.baidu.tieba.ie7;
+import com.baidu.tieba.je7;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.ke7;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.od5;
-import com.baidu.tieba.of1;
-import com.baidu.tieba.sd5;
-import com.baidu.tieba.sd7;
-import com.baidu.tieba.ud7;
-import com.baidu.tieba.vd7;
-import com.baidu.tieba.wd7;
-import com.baidu.tieba.xd7;
+import com.baidu.tieba.nu5;
+import com.baidu.tieba.pf1;
+import com.baidu.tieba.ru6;
+import com.baidu.tieba.ud5;
+import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,12 +71,12 @@ public final class TbDownloadManager {
     }
 
     /* loaded from: classes5.dex */
-    public final class a implements xd7 {
+    public final class a implements ke7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbDownloadManager a;
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -103,7 +103,7 @@ public final class TbDownloadManager {
             this.a = tbDownloadManager;
         }
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -113,7 +113,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -123,7 +123,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -131,22 +131,22 @@ public final class TbDownloadManager {
                 TbLog downloaderLog = DownloaderLog.getInstance();
                 downloaderLog.i("TbDownloadManager", "下载器：函数 onComplete，下载器类型：" + this.a.r() + StringUtil.ARRAY_ELEMENT_SEPARATOR + data);
                 this.a.l(data);
-                cu4.b().a(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(data.getSource()), data.getName(), data.getUrl(), this.a.r());
+                eu4.b().a(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(data.getSource()), data.getName(), data.getUrl(), this.a.r());
             }
         }
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 TbLog downloaderLog = DownloaderLog.getInstance();
                 downloaderLog.i("TbDownloadManager", "下载器：函数 onPause，下载器类型：" + this.a.r() + StringUtil.ARRAY_ELEMENT_SEPARATOR + data);
-                cu4.b().a(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(data.getSource()), data.getName(), data.getUrl(), this.a.r());
+                eu4.b().a(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(data.getSource()), data.getName(), data.getUrl(), this.a.r());
             }
         }
 
-        @Override // com.baidu.tieba.xd7
+        @Override // com.baidu.tieba.ke7
         public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
@@ -160,7 +160,7 @@ public final class TbDownloadManager {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b extends bu5<Unit> {
+    public static final class b extends ju5<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbDownloadManager a;
@@ -194,7 +194,7 @@ public final class TbDownloadManager {
                 this.a.i(this.b, 2);
                 this.a.m().b(this.b);
                 this.a.w(r);
-                cu4 b = cu4.b();
+                eu4 b = eu4.b();
                 String valueOf = String.valueOf(this.b.getSource());
                 String name = this.b.getName();
                 String url = this.b.getUrl();
@@ -209,7 +209,7 @@ public final class TbDownloadManager {
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bu5
+        @Override // com.baidu.tieba.ju5
         public /* bridge */ /* synthetic */ Unit doInBackground() {
             a();
             return Unit.INSTANCE;
@@ -220,15 +220,15 @@ public final class TbDownloadManager {
     public static final class c extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DownloadData a;
-        public final /* synthetic */ TbDownloadManager b;
+        public final /* synthetic */ TbDownloadManager a;
+        public final /* synthetic */ DownloadData b;
 
-        public c(DownloadData downloadData, TbDownloadManager tbDownloadManager) {
+        public c(TbDownloadManager tbDownloadManager, DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {downloadData, tbDownloadManager};
+                Object[] objArr = {tbDownloadManager, downloadData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -238,8 +238,8 @@ public final class TbDownloadManager {
                     return;
                 }
             }
-            this.a = downloadData;
-            this.b = tbDownloadManager;
+            this.a = tbDownloadManager;
+            this.b = downloadData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -251,18 +251,18 @@ public final class TbDownloadManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                 Intrinsics.checkNotNullParameter(params, "params");
-                String packNameFromFile = FileHelper.getPackNameFromFile(TbadkCoreApplication.getInst().getApplicationContext(), this.a.getPath());
+                String packNameFromFile = FileHelper.getPackNameFromFile(TbadkCoreApplication.getInst().getApplicationContext(), this.a.o(this.b));
                 if (packNameFromFile != null && !StringsKt__StringsJVMKt.isBlank(packNameFromFile)) {
                     z = false;
                 } else {
                     z = true;
                 }
-                if (!z && (itemData = this.a.getItemData()) != null) {
+                if (!z && (itemData = this.b.getItemData()) != null) {
                     itemData.packageName = packNameFromFile;
                 }
-                int m = this.b.m().m(this.a);
-                this.b.A(this.a);
-                return Integer.valueOf(m);
+                int n = this.a.m().n(this.b);
+                this.a.A(this.b);
+                return Integer.valueOf(n);
             }
             return (Integer) invokeL.objValue;
         }
@@ -306,7 +306,7 @@ public final class TbDownloadManager {
                 if (itemData != null) {
                     itemData.mTbFileDownloaderType = this.b.r();
                 }
-                return Long.valueOf(this.b.m().k(this.a));
+                return Long.valueOf(this.b.m().l(this.a));
             }
             return (Long) invokeL.objValue;
         }
@@ -325,7 +325,7 @@ public final class TbDownloadManager {
                 return;
             }
         }
-        this.a = vd7.a.a();
+        this.a = ie7.a.a();
         this.b = LazyKt__LazyJVMKt.lazy(TbDownloadManager$downloadMultiInfoDbManager$2.INSTANCE);
     }
 
@@ -339,7 +339,7 @@ public final class TbDownloadManager {
         }
     }
 
-    public final void g(xd7 callback) {
+    public final void g(ke7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -350,7 +350,7 @@ public final class TbDownloadManager {
     public final void l(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) {
-            c cVar = new c(downloadData, this);
+            c cVar = new c(this, downloadData);
             cVar.setPriority(3);
             cVar.execute(new String[0]);
         }
@@ -385,7 +385,7 @@ public final class TbDownloadManager {
         }
     }
 
-    public final void u(xd7 callback) {
+    public final void u(ke7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -401,26 +401,26 @@ public final class TbDownloadManager {
     }
 
     public final void A(DownloadData downloadData) {
-        od5 od5Var;
+        ud5 ud5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) {
-            of1<od5> a2 = new sd5().a();
+            pf1<ud5> a2 = new yd5().a();
             if (a2 != null) {
-                od5Var = a2.get();
+                ud5Var = a2.get();
             } else {
-                od5Var = null;
+                ud5Var = null;
             }
-            if (od5Var == null) {
+            if (ud5Var == null) {
                 return;
             }
-            hu6 m = m();
+            ru6 m = m();
             String id = downloadData.getId();
             Intrinsics.checkNotNullExpressionValue(id, "data.id");
-            ApkDownloadInfoData b2 = c35.a.b(m.j(id, ""));
+            ApkDownloadInfoData b2 = f35.a.b(m.k(id, ""));
             if (b2 == null) {
                 return;
             }
-            od5Var.b(b2);
+            ud5Var.b(b2);
         }
     }
 
@@ -430,7 +430,7 @@ public final class TbDownloadManager {
             Intrinsics.checkNotNullParameter(data, "data");
             TbLog downloaderLog = DownloaderLog.getInstance();
             downloaderLog.i("TbDownloadManager", "下载器：函数 cancel，下载器类型：" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + data);
-            fu5.b(new b(this, data), null);
+            nu5.b(new b(this, data), null);
         }
     }
 
@@ -501,7 +501,7 @@ public final class TbDownloadManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    wd7 n;
+                    je7 n;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                         return;
@@ -523,9 +523,9 @@ public final class TbDownloadManager {
                 string = TbadkCoreApplication.getInst().getString(R.string.start_download_toast_content);
             }
             Intrinsics.checkNotNullExpressionValue(string, "if (isDownloadResume) {\n…_toast_content)\n        }");
-            ud7 ud7Var = new ud7();
-            ud7Var.c(string);
-            ud7Var.a();
+            he7 he7Var = new he7();
+            he7Var.c(string);
+            he7Var.a();
         }
     }
 
@@ -574,7 +574,7 @@ public final class TbDownloadManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    wd7 n;
+                    je7 n;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                         return;
@@ -609,28 +609,28 @@ public final class TbDownloadManager {
             if (this.a != 1 ? i != 1 : n().e(downloadData) == 7) {
                 z = true;
             }
-            cu4.b().c(z, downloadData, this.a);
+            eu4.b().c(z, downloadData, this.a);
             x(z);
-            sd7.d(downloadData);
+            fe7.d(downloadData);
         }
     }
 
-    public final hu6 m() {
+    public final ru6 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (hu6) this.b.getValue();
+            return (ru6) this.b.getValue();
         }
-        return (hu6) invokeV.objValue;
+        return (ru6) invokeV.objValue;
     }
 
-    public final wd7 n() {
+    public final je7 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return FileDownloaderProxy.b.a(this.a);
         }
-        return (wd7) invokeV.objValue;
+        return (je7) invokeV.objValue;
     }
 
     public final int r() {

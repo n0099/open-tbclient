@@ -4,7 +4,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes10.dex */
-public class VideoPlayerStatus extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class VideoPlayerStatus extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static final long serialVersionUID = -9021213312245598171L;
     public int mVideoPlayerBehavior = 1;
     public int mVideoPlayerType;

@@ -26,10 +26,10 @@ public final class CompletableDeferredKt {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T> boolean completeWith(CompletableDeferred<T> completableDeferred, Object obj) {
-        Throwable m858exceptionOrNullimpl = Result.m858exceptionOrNullimpl(obj);
-        if (m858exceptionOrNullimpl == null) {
+        Throwable m862exceptionOrNullimpl = Result.m862exceptionOrNullimpl(obj);
+        if (m862exceptionOrNullimpl == null) {
             return completableDeferred.complete(obj);
         }
-        return completableDeferred.completeExceptionally(m858exceptionOrNullimpl);
+        return completableDeferred.completeExceptionally(m862exceptionOrNullimpl);
     }
 }

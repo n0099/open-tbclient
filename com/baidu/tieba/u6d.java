@@ -1,27 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import androidx.core.app.NotificationCompat;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.Abstract;
+import tbclient.Agree;
+import tbclient.Media;
+import tbclient.MediaNum;
+import tbclient.PostList;
+import tbclient.User;
+import tbclient.Voice;
 /* loaded from: classes8.dex */
-public interface u6d {
-    void a(int[] iArr, IResult<BannerConfigResult> iResult);
+public class u6d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(PayFlowType payFlowType, Map<String, String> map, IResult<ProductListResult> iResult);
-
-    void c(@NonNull Activity activity, @NonNull PayFlowType payFlowType, @NonNull PayType payType, @NonNull ProductInfo productInfo, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback<String> iPayCallback, String str, String str2, String str3);
-
-    void d(IResult<MyBalanceResult> iResult);
-
-    void e(int i, String str, long j, IResult<SplitOrderConfigResult> iResult);
+    @NonNull
+    public static JSONObject b(@NonNull PostList postList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postList)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "id", postList.id);
+            User user = postList.author;
+            if (user != null) {
+                ltc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, qad.b(user));
+            }
+            if (postList._abstract != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (Abstract r3 : postList._abstract) {
+                    jSONArray.put(otc.b(r3));
+                }
+                ltc.a(jSONObject, "abstract", jSONArray);
+            }
+            if (postList.media != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (Media media : postList.media) {
+                    jSONArray2.put(c5d.b(media));
+                }
+                ltc.a(jSONObject, "media", jSONArray2);
+            }
+            if (postList.media_num != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (MediaNum mediaNum : postList.media_num) {
+                    jSONArray3.put(d5d.b(mediaNum));
+                }
+                ltc.a(jSONObject, "media_num", jSONArray3);
+            }
+            if (postList.voice_info != null) {
+                JSONArray jSONArray4 = new JSONArray();
+                for (Voice voice : postList.voice_info) {
+                    jSONArray4.put(jbd.b(voice));
+                }
+                ltc.a(jSONObject, "voice_info", jSONArray4);
+            }
+            ltc.a(jSONObject, "author_id", postList.author_id);
+            Agree agree = postList.agree;
+            if (agree != null) {
+                ltc.a(jSONObject, "agree", cuc.b(agree));
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

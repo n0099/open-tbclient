@@ -1,203 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.NewFloorInfo;
 /* loaded from: classes5.dex */
-public final class c79 {
+public class c79 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c79 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-935432761, "Lcom/baidu/tieba/c79$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-935432761, "Lcom/baidu/tieba/c79$a;");
+    public static void a(i69 i69Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, i69Var, i) == null) && i69Var != null && i69Var.u() != null && !ListUtils.isEmpty(i69Var.k()) && i69Var.k().size() >= 2) {
+            List<NewFloorInfo> k = i69Var.k();
+            if (k.size() > 2) {
+                if (StringHelper.equals(i69Var.u().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (k.get(1) != null) {
+                        if (k.get(1).is_floor.intValue() == 0) {
+                            b(i69Var, 12, i);
+                            return;
+                        } else if (k.get(1).is_floor.intValue() == 1) {
+                            b(i69Var, 13, i);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                } else if (k.get(1) != null) {
+                    if (k.get(1).is_floor.intValue() == 0) {
+                        if (i69Var.q() != null) {
+                            if (StringHelper.equals(i69Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                                b(i69Var, 14, i);
+                                return;
+                            } else {
+                                b(i69Var, 15, i);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (k.get(1).is_floor.intValue() == 1) {
+                        b(i69Var, 16, i);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
                     return;
                 }
             }
-            int[] iArr = new int[NotifyType.values().length];
-            iArr[NotifyType.AT_ME.ordinal()] = 1;
-            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
-            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
-            iArr[NotifyType.FANS.ordinal()] = 4;
-            $EnumSwitchMapping$0 = iArr;
+            b(i69Var, 11, i);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627812, "Lcom/baidu/tieba/c79;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947627812, "Lcom/baidu/tieba/c79;");
-                return;
-            }
-        }
-        a = new c79();
-    }
-
-    public c79() {
+    public static void b(i69 i69Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
-        }
-    }
-
-    public final void a(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            StatisticItem param = new StatisticItem("c12926").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i > 0) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
-        }
-    }
-
-    public final void b(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TiebaStatic.log("c12925");
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i > 0) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
-        }
-    }
-
-    public final void c() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int y = y95.p0().y();
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_FANS_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (y > 0) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", y));
-        }
-    }
-
-    public final void e() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int B = y95.p0().B();
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (B > 0) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", B));
-        }
-    }
-
-    public final void d(x39 x39Var) {
-        NotifyType notifyType;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, x39Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13720");
+        if ((interceptable == null || interceptable.invokeLII(65537, null, i69Var, i, i2) == null) && i69Var != null && i69Var.s() != null && i69Var.l() != null) {
+            StatisticItem statisticItem = new StatisticItem("c12928");
+            statisticItem.param("tid", i69Var.l().f);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (x39Var != null) {
-                notifyType = x39Var.c();
-            } else {
-                notifyType = null;
-            }
-            if (notifyType == null) {
-                i = -1;
-            } else {
-                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
-            }
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            statisticItem.param("obj_type", 4);
-                        }
-                    } else {
-                        statisticItem.param("obj_type", 3);
-                    }
-                } else {
-                    statisticItem.param("obj_type", 2);
-                }
-            } else {
-                statisticItem.param("obj_type", 1);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void f(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null) {
-            TiebaStatic.eventStat(context, "msg_atme_tab_click", "click", 1, new Object[0]);
-        }
-    }
-
-    public final void h(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13616");
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
+            statisticItem.param("fid", i69Var.l().e);
+            statisticItem.param("fname", i69Var.l().d);
+            statisticItem.param("pid", i69Var.o());
             statisticItem.param("obj_type", i);
+            statisticItem.param("obj_locate", i2);
             TiebaStatic.log(statisticItem);
         }
     }

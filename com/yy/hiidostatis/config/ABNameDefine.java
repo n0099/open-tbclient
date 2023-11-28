@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.config;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum ABNameDefine {
     GSLB("gslb", 1),
     VERIFY_RETURN("verifyreturn", 1),

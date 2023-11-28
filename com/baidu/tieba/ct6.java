@@ -1,88 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class ct6 implements et6 {
+public final class ct6 extends ks6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lt6 a;
-    public final lt6.a b;
 
-    public ct6(lt6 retainer, lt6.a locator) {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ct6(fs6 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {retainer, locator};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((fs6) objArr2[0], (b1) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(retainer, "retainer");
-        Intrinsics.checkNotNullParameter(locator, "locator");
-        this.a = retainer;
-        this.b = locator;
+        Intrinsics.checkNotNullParameter(context, "context");
+        b1 b = b1.i(ps6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    @Override // com.baidu.tieba.et6
-    public void a(qr6 item, long j, qt6 displayer, kr6 config) {
+    @Override // com.baidu.tieba.ks6
+    public void m(y0 entity, float f) {
+        as6 a;
+        ps6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.b.a(item, j, displayer, config);
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            ms6 b = kt6.b(entity);
+            if (b == null || (a = b.a()) == null || (a2 = kt6.a(entity)) == null) {
+                return;
+            }
+            if (jt6.b(this) >= a.e().l()) {
+                a2.h(true);
+                a2.c(jt6.b(this) - a.e().l());
+                return;
+            }
+            a2.h(false);
         }
-    }
-
-    @Override // com.baidu.tieba.et6
-    public void b(qr6 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            this.a.b(item);
-        }
-    }
-
-    @Override // com.baidu.tieba.et6
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.et6
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.et6
-    public boolean d(qr6 item, long j, qt6 displayer, kr6 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            item.f().B(this.a.a(item, j, displayer, config));
-            return item.f().p();
-        }
-        return invokeCommon.booleanValue;
     }
 }

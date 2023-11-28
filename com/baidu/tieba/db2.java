@@ -1,137 +1,115 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.bb2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.baidubce.http.Headers;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class db2 extends ua2 implements pa2 {
+public class db2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ma2 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db2(@NonNull Context context, ja2 ja2Var) {
-        super(context, ja2Var);
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
+
+        public a(String str, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = prefetchEvent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                db2.d(this.a);
+                db2.d(db2.e(this.a, this.b.pageUrl));
+            }
+        }
+    }
+
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, ja2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ja2) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !i03.a()) {
+            return;
+        }
+        String str = prefetchEvent.appPath;
+        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+            return;
+        }
+        bj3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list != null && list.length != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
+                }
+            }
+        } else if (file.isFile()) {
+            String absolutePath = file.getAbsolutePath();
+            if (TextUtils.isEmpty(absolutePath)) {
                 return;
             }
+            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+            }
         }
-        this.b = new eb2();
     }
 
-    public final WebResourceResponse b(String str, InputStream inputStream) {
+    public static String e(@NonNull String str, String str2) {
         InterceptResult invokeLL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
-            return new WebResourceResponse(true, str, "UTF-8", 200, DnsModel.MSG_OK, hashMap, new BufferedInputStream(inputStream));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = zj3.f(str2);
+            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
+                return null;
+            }
+            String substring = f.substring(0, lastIndexOf);
+            return str + File.separator + substring;
         }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb2
-    @SuppressLint({"BDThrowableCheck"})
-    public WebResourceResponse a(@NonNull bb2.a aVar) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!d(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
-            }
-            if (pa2.a) {
-                Log.d("HybridIntercept", "intercept file = " + d);
-            }
-            String c = c(d);
-            if (TextUtils.isEmpty(c)) {
-                if (!pa2.a) {
-                    return null;
-                }
-                throw new IllegalArgumentException("file path can't be null, src = " + d);
-            }
-            File file = new File(c);
-            if (file.exists() && file.isFile()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        str = "text/css";
-                    } else if (c.endsWith(".js")) {
-                        str = "application/javascript";
-                    } else {
-                        str = "text/plan";
-                    }
-                    return b(str, fileInputStream);
-                } catch (Throwable th) {
-                    if (pa2.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(th));
-                    }
-                }
-            }
-            g32.c("HybridIntercept", "file intercept error, src = " + d);
-            return null;
-        }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("interceptfile://") && str.length() > 16) {
-                str = str.substring(16);
-            }
-            if (pa2.a) {
-                Log.d("HybridIntercept", "file request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean d(@NonNull bb2.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (!aVar.c()) {
-                return true;
-            }
-            return this.b.a(aVar);
-        }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

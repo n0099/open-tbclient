@@ -1,43 +1,48 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
 /* loaded from: classes7.dex */
 public class m9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(m8 m8Var, t7 t7Var) {
+    public static final boolean a(u7 u7Var, n8 n8Var) {
         InterceptResult invokeLL;
-        Object objectByType;
+        c8 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, m8Var, t7Var)) == null) {
-            if (t7Var != null && m8Var != null) {
-                List<Field> b = r7.b(t7Var.getClass());
-                Set<String> keys = m8Var.getKeys();
-                for (Field field : b) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, u7Var, n8Var)) == null) {
+            if (u7Var != null && n8Var != null) {
+                for (Field field : s7.b(u7Var.getClass())) {
                     if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            if (keys.contains(name)) {
-                                Object objectByType2 = m8Var.getObjectByType(name, field.getGenericType());
-                                if (objectByType2 != null) {
-                                    r7.i(t7Var, name, objectByType2);
-                                }
-                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
-                                Object objectByType3 = m8Var.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
-                                if (objectByType3 != null) {
-                                    r7.i(t7Var, name, objectByType3);
-                                }
-                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = m8Var.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
-                                r7.i(t7Var, name, objectByType);
+                        if (!TextUtils.isEmpty(name) && (a = o9.a(s7.d(u7Var, name))) != null) {
+                            Object obj = null;
+                            if (n8Var instanceof JsonDataSource) {
+                                obj = a.f(new l9(field.getGenericType()));
+                            } else if (n8Var instanceof BundleDataSource) {
+                                obj = a.d(new l9(field.getGenericType()));
+                            } else if (n8Var instanceof IntentDataSource) {
+                                obj = a.e(new l9(field.getGenericType()));
+                            } else if (n8Var instanceof MapDataSource) {
+                                obj = a.b(new l9(field.getGenericType()));
+                            } else if (n8Var instanceof CursorDataSource) {
+                                obj = a.a(new l9(field.getGenericType()));
+                            } else if (n8Var instanceof ProtobufDataSource) {
+                                obj = a.c(new l9(field.getGenericType()));
+                            }
+                            if (obj != null) {
+                                n8Var.set(name, obj);
                             }
                         }
                     }

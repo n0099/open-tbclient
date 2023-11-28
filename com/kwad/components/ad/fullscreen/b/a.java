@@ -1,41 +1,62 @@
 package com.kwad.components.ad.fullscreen.b;
 
-import com.kwad.components.ad.reward.d;
-import com.kwad.components.ad.reward.d.i;
-import com.kwad.components.core.video.g;
-import com.kwad.components.core.video.h;
-import com.kwad.components.core.webview.b.a.n;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class a extends com.kwad.components.ad.reward.presenter.a {
-    public g mVideoPlayStateListener = new h() { // from class: com.kwad.components.ad.fullscreen.b.a.1
-        @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-        public final void onVideoPlayCompleted() {
-            super.onVideoPlayCompleted();
-            a.this.nM.fr();
+public final class a {
+    public static void F(Context context) {
+        b G = G(context);
+        long currentTimeMillis = System.currentTimeMillis();
+        if (G == null) {
+            G = new b(currentTimeMillis, 1);
+        } else if (!G.f(currentTimeMillis)) {
+            G.gM = currentTimeMillis;
+            G.gN = 1;
+        } else {
+            G.gN++;
         }
-    };
-    public final i ep = new i() { // from class: com.kwad.components.ad.fullscreen.b.a.2
-        @Override // com.kwad.components.ad.reward.d.i
-        public final void a(n nVar) {
-            if (nVar == null || nVar.type != 1) {
-                return;
-            }
-            a.this.nM.eF.release();
-            a.this.nM.fr();
-        }
-    };
-
-    @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void aq() {
-        super.aq();
-        this.nM.eF.a(this.mVideoPlayStateListener);
-        d.fc().a(this.ep);
+        a(context, G);
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void onUnbind() {
-        super.onUnbind();
-        this.nM.eF.b(this.mVideoPlayStateListener);
-        d.fc().b(this.ep);
+    @Nullable
+    public static b G(Context context) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(context.getSharedPreferences("ksadsdk_fullscreen_local_ad_count", 0).getString("key_local_info", null));
+            b bVar = new b();
+            bVar.parseJson(jSONObject);
+            return bVar;
+        } catch (Exception e) {
+            c.printStackTraceOnly(e);
+            return null;
+        }
+    }
+
+    public static void a(Context context, b bVar) {
+        if (context != null && bVar != null) {
+            context.getSharedPreferences("ksadsdk_fullscreen_local_ad_count", 0).edit().putString("key_local_info", bVar.toJson().toString()).apply();
+            return;
+        }
+        c.d("FullScreenLocalHelper", "saveFullScreenLocalInfo illegal arguments.");
+    }
+
+    public static boolean a(Context context, AdTemplate adTemplate) {
+        boolean z;
+        b G = G(context);
+        if (G != null && G.w(com.kwad.components.ad.fullscreen.a.b.bO())) {
+            z = false;
+        } else {
+            z = true;
+        }
+        boolean df = com.kwad.sdk.core.response.b.b.df(adTemplate);
+        if (!z || !df) {
+            return false;
+        }
+        return true;
     }
 }

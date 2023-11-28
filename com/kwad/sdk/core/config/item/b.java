@@ -6,9 +6,15 @@ import androidx.annotation.Nullable;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public abstract class b<T> {
-    public T VA;
-    public T Vz;
+    public T arf;
+    public T arg;
     public String mKey;
+
+    public abstract void a(SharedPreferences sharedPreferences);
+
+    public abstract void b(SharedPreferences.Editor editor);
+
+    public abstract void j(JSONObject jSONObject);
 
     public b(String str, T t) {
         this(str, t, t);
@@ -16,24 +22,32 @@ public abstract class b<T> {
 
     public b(String str, T t, T t2) {
         this.mKey = str;
-        this.VA = t;
-        this.Vz = t2;
+        this.arg = t;
+        this.arf = t2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
-    public static String bt(String str) {
-        return !TextUtils.isEmpty(str) ? com.kwad.sdk.core.a.c.bN(str) : str;
+    public static String cM(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return com.kwad.sdk.core.a.c.dj(str);
+        }
+        return str;
     }
 
-    public static String bu(String str) {
-        return (TextUtils.isEmpty(str) || !com.kwad.sdk.core.a.c.bP(str)) ? str : com.kwad.sdk.core.a.c.bO(str);
+    public static String cN(String str) {
+        if (!TextUtils.isEmpty(str) && com.kwad.sdk.core.a.c.dl(str)) {
+            return com.kwad.sdk.core.a.c.dk(str);
+        }
+        return str;
     }
 
-    public abstract void a(SharedPreferences sharedPreferences);
+    public final void setValue(T t) {
+        this.arg = t;
+    }
 
-    public abstract void b(SharedPreferences.Editor editor);
-
-    public abstract void e(JSONObject jSONObject);
+    public final T Bx() {
+        return this.arf;
+    }
 
     public final String getKey() {
         return this.mKey;
@@ -41,14 +55,6 @@ public abstract class b<T> {
 
     @Nullable
     public T getValue() {
-        return this.VA;
-    }
-
-    public final void setValue(T t) {
-        this.VA = t;
-    }
-
-    public final T sx() {
-        return this.Vz;
+        return this.arg;
     }
 }

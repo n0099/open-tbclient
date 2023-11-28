@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,21 +155,21 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof ai) {
-            ai aiVar = (ai) drawable;
-            aiVar.g(this.h);
+        if (drawable instanceof bi) {
+            bi biVar = (bi) drawable;
+            biVar.g(this.h);
             if (!this.d && z) {
                 f = 0.0f;
             } else {
                 f = this.a;
             }
-            aiVar.e(f);
+            biVar.e(f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            aiVar.d(i2);
-            aiVar.c(this.c);
-            aiVar.f(this.e);
+            biVar.d(i2);
+            biVar.c(this.c);
+            biVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -224,12 +224,12 @@ public class BdRoundedImageView extends AppCompatImageView {
         }
         this.d = obtainStyledAttributes.getBoolean(5, false);
         this.e = obtainStyledAttributes.getBoolean(4, false);
-        C();
-        r();
+        B();
+        u();
         obtainStyledAttributes.recycle();
     }
 
-    public final void C() {
+    public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b(this.f, false);
@@ -282,9 +282,9 @@ public class BdRoundedImageView extends AppCompatImageView {
         return (ImageView.ScaleType) invokeV.objValue;
     }
 
-    public final void r() {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             b(this.g, true);
         }
     }
@@ -292,31 +292,31 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.g = ai.b(drawable);
-            r();
+        if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
+            this.g = bi.b(drawable);
+            u();
             super.setBackgroundDrawable(this.g);
         }
     }
 
     public void setBorderColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             setBorderColors(ColorStateList.valueOf(i2));
         }
     }
 
     public void setBorderColors(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, colorStateList) != null) || this.c.equals(colorStateList)) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, colorStateList) != null) || this.c.equals(colorStateList)) {
             return;
         }
         if (colorStateList == null) {
             colorStateList = ColorStateList.valueOf(0);
         }
         this.c = colorStateList;
-        C();
-        r();
+        B();
+        u();
         if (this.b > 0) {
             invalidate();
         }
@@ -324,32 +324,32 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setBorderWidth(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048587, this, i2) != null) || this.b == i2) {
+        if ((interceptable != null && interceptable.invokeI(1048586, this, i2) != null) || this.b == i2) {
             return;
         }
         this.b = i2;
-        C();
-        r();
+        B();
+        u();
         invalidate();
     }
 
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i2) != null) || this.a == i2) {
+        if ((interceptable != null && interceptable.invokeI(1048587, this, i2) != null) || this.a == i2) {
             return;
         }
         this.a = i2;
-        C();
-        r();
+        B();
+        u();
     }
 
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new ai(bitmap);
-                C();
+                this.f = new bi(bitmap);
+                B();
             } else {
                 this.f = null;
             }
@@ -360,10 +360,10 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
             if (drawable != null) {
-                this.f = ai.b(drawable);
-                C();
+                this.f = bi.b(drawable);
+                B();
             } else {
                 this.f = null;
             }
@@ -374,7 +374,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
     public void setImageResource(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             super.setImageResource(i2);
             setImageDrawable(getDrawable());
         }
@@ -382,10 +382,10 @@ public class BdRoundedImageView extends AppCompatImageView {
 
     public void setOval(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.e = z;
-            C();
-            r();
+            B();
+            u();
             invalidate();
         }
     }
@@ -393,7 +393,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, scaleType) == null) {
             if (scaleType != null) {
                 if (this.h != scaleType) {
                     this.h = scaleType;
@@ -411,8 +411,8 @@ public class BdRoundedImageView extends AppCompatImageView {
                             super.setScaleType(scaleType);
                             break;
                     }
-                    C();
-                    r();
+                    B();
+                    u();
                     invalidate();
                     return;
                 }

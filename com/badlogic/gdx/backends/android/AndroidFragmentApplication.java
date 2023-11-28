@@ -73,11 +73,52 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
         m3.a();
     }
 
+    public n1 G2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (n1) invokeV.objValue;
+    }
+
+    public Files H2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (Files) invokeV.objValue;
+    }
+
+    public Net I2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (Net) invokeV.objValue;
+    }
+
+    public final boolean J2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            for (Fragment parentFragment = getParentFragment(); parentFragment != null; parentFragment = parentFragment.getParentFragment()) {
+                if (parentFragment.isRemoving()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.badlogic.gdx.Application
     public l1 getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.f;
         }
         return (l1) invokeV.objValue;
@@ -87,7 +128,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return getActivity().getWindow();
         }
         return (Window) invokeV.objValue;
@@ -97,7 +138,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return getActivity();
         }
         return (Context) invokeV.objValue;
@@ -107,7 +148,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public h3<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.i;
         }
         return (h3) invokeV.objValue;
@@ -117,7 +158,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public Graphics getGraphics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.a;
         }
         return (Graphics) invokeV.objValue;
@@ -128,7 +169,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public f2 mo7getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.b;
         }
         return (f2) invokeV.objValue;
@@ -138,7 +179,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public w3<q1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.j;
         }
         return (w3) invokeV.objValue;
@@ -148,7 +189,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public h3<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.h;
         }
         return (h3) invokeV.objValue;
@@ -158,7 +199,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public Application.ApplicationType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return Application.ApplicationType.Android;
         }
         return (Application.ApplicationType) invokeV.objValue;
@@ -168,7 +209,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return (WindowManager) getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
         return (WindowManager) invokeV.objValue;
@@ -177,50 +218,9 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDetach();
         }
-    }
-
-    public n1 u2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.c;
-        }
-        return (n1) invokeV.objValue;
-    }
-
-    public Files v2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.d;
-        }
-        return (Files) invokeV.objValue;
-    }
-
-    public Net w2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.e;
-        }
-        return (Net) invokeV.objValue;
-    }
-
-    public final boolean x2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            for (Fragment parentFragment = getParentFragment(); parentFragment != null; parentFragment = parentFragment.getParentFragment()) {
-                if (parentFragment.isRemoving()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public AndroidFragmentApplication() {
@@ -247,14 +247,14 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             boolean d = this.a.d();
             boolean z = d2.v;
             d2.v = true;
             this.a.t(true);
             this.a.q();
             this.b.onPause();
-            if (isRemoving() || x2() || getActivity().isFinishing()) {
+            if (isRemoving() || J2() || getActivity().isFinishing()) {
                 this.a.g();
                 this.a.i();
             }
@@ -268,7 +268,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // com.badlogic.gdx.Application
     public void error(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && this.l >= 1) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.l >= 1) {
             Log.e(str, str2);
         }
     }
@@ -276,7 +276,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // com.badlogic.gdx.Application
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) && this.l >= 2) {
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) && this.l >= 2) {
             Log.i(str, str2);
         }
     }
@@ -284,7 +284,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048592, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             synchronized (this.k) {
                 for (int i3 = 0; i3 < this.k.b; i3++) {
@@ -297,7 +297,7 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment
     public void onAttach(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
             if (activity instanceof a) {
                 a aVar = (a) activity;
             } else if (getParentFragment() instanceof a) {
@@ -314,20 +314,20 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             boolean z = true;
             if (configuration.hardKeyboardHidden != 1) {
                 z = false;
             }
-            this.b.G(z);
+            this.b.H(z);
         }
     }
 
     @Override // com.badlogic.gdx.Application
     public void postRunnable(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, runnable) == null) {
             synchronized (this.h) {
                 this.h.a(runnable);
                 o1.b.c();
@@ -338,13 +338,13 @@ public class AndroidFragmentApplication extends Fragment implements u1 {
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             o1.a = this;
             mo7getInput();
-            u2();
-            v2();
+            G2();
+            H2();
             o1.b = getGraphics();
-            w2();
+            I2();
             this.b.onResume();
             d2 d2Var = this.a;
             if (d2Var != null) {

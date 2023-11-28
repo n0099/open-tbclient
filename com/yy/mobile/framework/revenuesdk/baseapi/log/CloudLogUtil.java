@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CloudLogUtil {
     public static final String TAG = "CloudLogUtil";
     public static String mAppId = "";

@@ -11,7 +11,6 @@ import com.baidu.cyberplayer.sdk.remote.CyberDownloadItem;
 import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerFactory;
 import com.baidu.cyberplayer.sdk.videodownload.CyberDownloader;
-import com.baidu.searchbox.pms.db.PackageTable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
@@ -126,7 +125,7 @@ public class DuMediaPreloader implements IDuMediaDownload, CyberDownloader.Downl
             duMediaDownloadBean.mimeType = bundle.getString("mime_type");
             duMediaDownloadBean.status = bundle.getInt("status");
             duMediaDownloadBean.playUrl = bundle.getString("play_url");
-            duMediaDownloadBean.md5 = bundle.getString(PackageTable.MD5);
+            duMediaDownloadBean.md5 = bundle.getString("md5");
             duMediaDownloadBean.progress = bundle.getInt("progress");
             duMediaDownloadBean.totalBytes = bundle.getLong("video_size");
             duMediaDownloadBean.receivedBytes = bundle.getLong("downloaded_size");

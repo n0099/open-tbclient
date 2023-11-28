@@ -5,10 +5,10 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
 /* loaded from: classes10.dex */
-public class RewardWebViewInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class RewardWebViewInfo extends com.kwad.sdk.commercial.d.a implements Serializable {
     public static final long serialVersionUID = -4316140680874648788L;
-    public double ratioCount;
     public int status;
+    public int timeType;
     public String event = "";
     public String url = "";
     public String source = "";
@@ -16,7 +16,7 @@ public class RewardWebViewInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public String pageType = "";
     public long durationMs = -1;
 
-    @Override // com.kwad.sdk.core.response.kwai.a
+    @Override // com.kwad.sdk.core.response.a.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
         if (this.durationMs == -1) {
@@ -39,11 +39,6 @@ public class RewardWebViewInfo extends com.kwad.sdk.core.response.kwai.a impleme
         return this;
     }
 
-    public RewardWebViewInfo setRatioCount(double d) {
-        this.ratioCount = d;
-        return this;
-    }
-
     public RewardWebViewInfo setSceneId(String str) {
         this.sceneId = str;
         return this;
@@ -56,6 +51,11 @@ public class RewardWebViewInfo extends com.kwad.sdk.core.response.kwai.a impleme
 
     public RewardWebViewInfo setStatus(int i) {
         this.status = i;
+        return this;
+    }
+
+    public RewardWebViewInfo setTimeType(int i) {
+        this.timeType = i;
         return this;
     }
 

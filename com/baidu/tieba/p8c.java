@@ -1,35 +1,36 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes7.dex */
-public class p8c {
+public final class p8c extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
-    public static final Uri a;
-    public static final String[] b;
+    public static final p8c h;
     public transient /* synthetic */ FieldHolder $fh;
+    public Exception a;
+    public ArCoreApk.Availability b;
+    public boolean c;
+    public v8c d;
+    public boolean e;
+    public boolean f;
+    public int g;
 
     static {
         InterceptResult invokeClinit;
@@ -44,377 +45,223 @@ public class p8c {
                 return;
             }
         }
-        a = Uri.parse("content://com.huawei.hwid");
-        b = new String[]{"B92825C2BD5D6D6D1E7F39EECD17843B7D9016F611136B75441BC6F4D3F00F05", "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539"};
+        h = new p8c();
     }
 
-    public static int a(String str) {
+    public p8c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static p8c d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h;
+        }
+        return (p8c) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Exception exc = this.a;
+                if (this.d != null) {
+                    this.d.a();
+                    this.d = null;
+                }
+            }
+        }
+    }
+
+    public static /* synthetic */ boolean f(p8c p8cVar, boolean z) {
+        p8cVar.c = false;
+        return false;
+    }
+
+    public static int k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                u8c.f("BksUtil", "The directory  has already exists");
-                return 1;
-            } else if (file.mkdirs()) {
-                u8c.b("BksUtil", "create directory  success");
-                return 0;
-            } else {
-                u8c.d("BksUtil", "create directory  failed");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
+                int i = packageInfo.versionCode;
+                if (i == 0) {
+                    if (packageInfo.services != null) {
+                        if (packageInfo.services.length == 0) {
+                        }
+                    }
+                    return -1;
+                }
+                return i;
+            } catch (PackageManager.NameNotFoundException unused) {
                 return -1;
             }
         }
         return invokeL.intValue;
     }
 
-    public static String c(byte[] bArr) {
+    public final synchronized v8c e(Context context) {
         InterceptResult invokeL;
+        v8c v8cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    v8c v8cVar2 = new v8c((byte) 0);
+                    v8cVar2.d(context.getApplicationContext());
+                    this.d = v8cVar2;
                 }
-                return sb.toString();
+                v8cVar = this.d;
             }
-            return "";
+            return v8cVar;
         }
-        return (String) invokeL.objValue;
+        return (v8c) invokeL.objValue;
     }
 
-    public static String g(byte[] bArr) {
+    public final boolean h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bArr);
-                return c(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                u8c.d("BksUtil", "inputstraem exception");
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return new File(b(context) + File.separator + "hmsrootcas.bks").exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static InputStream n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (k(context)) {
-                u8c.e("BksUtil", "getFilesBksIS ");
-                try {
-                    return new FileInputStream(f(context));
-                } catch (FileNotFoundException unused) {
-                    u8c.d("BksUtil", "FileNotFoundExceptio: ");
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return context.createDeviceProtectedStorageContext().getFilesDir() + File.separator + "aegis";
-            }
-            return context.getApplicationContext().getFilesDir() + File.separator + "aegis";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("SHA-256").digest(bArr));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("BksUtil", "NoSuchAlgorithmException" + e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(InputStream inputStream, Context context) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, context) == null) && inputStream != null && context != null) {
-            String b2 = b(context);
-            if (!new File(b2).exists()) {
-                a(b2);
-            }
-            File file = new File(b2, "hmsrootcas.bks");
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    u8c.e("BksUtil", "write output stream ");
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                byte[] bArr = new byte[2048];
-                while (true) {
-                    int read = inputStream.read(bArr, 0, 2048);
-                    if (read != -1) {
-                        fileOutputStream.write(bArr, 0, read);
-                    } else {
-                        t8c.c(fileOutputStream);
-                        return;
-                    }
-                }
-            } catch (IOException unused2) {
-                fileOutputStream2 = fileOutputStream;
-                u8c.d("BksUtil", " IOException");
-                t8c.c(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                t8c.c(fileOutputStream2);
-                throw th;
-            }
-        }
-    }
-
-    public static byte[] e(Context context, String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    if (packageManager != null && (packageInfo = packageManager.getPackageInfo(str, 64)) != null) {
-                        return packageInfo.signatures[0].toByteArray();
-                    }
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.e("BksUtil", "PackageManager.NameNotFoundException : " + e.getMessage());
-                } catch (Exception e2) {
-                    Log.e("BksUtil", "get pm exception : " + e2.getMessage());
-                }
-                return new byte[0];
-            }
-            Log.e("BksUtil", "packageName is null or context is null");
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return b(context) + File.separator + "hmsrootcas.bks";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            return "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539".equalsIgnoreCase(j(e(context, str)));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean l(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            byte[] e = e(context, str);
-            for (String str2 : b) {
-                if (str2.equalsIgnoreCase(j(e))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean i(String str) {
-        InterceptResult invokeL;
-        int parseInt;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            l(context);
+            if (k(context) != 0 && k(context) < this.g) {
                 return false;
-            }
-            u8c.e("BksUtil", "hms version code is : " + str);
-            String[] split = str.split("\\.");
-            String[] split2 = "4.0.2.300".split("\\.");
-            int length = split.length;
-            int length2 = split2.length;
-            int max = Math.max(length, length2);
-            for (int i2 = 0; i2 < max; i2++) {
-                if (i2 < length) {
-                    try {
-                        parseInt = Integer.parseInt(split[i2]);
-                    } catch (Exception e) {
-                        u8c.d("BksUtil", " exception : " + e.getMessage());
-                        if (i2 < length2) {
-                            return false;
-                        }
-                        return true;
-                    }
-                } else {
-                    parseInt = 0;
-                }
-                if (i2 < length2) {
-                    i = Integer.parseInt(split2[i2]);
-                } else {
-                    i = 0;
-                }
-                if (parseInt < i) {
-                    return false;
-                }
-                if (parseInt > i) {
-                    return true;
-                }
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0100 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v18 */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
-    public static synchronized InputStream m(Context context) {
+    public final boolean j(Context context) {
         InterceptResult invokeL;
-        InputStream inputStream;
-        ByteArrayInputStream byteArrayInputStream;
-        String a2;
-        String g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            synchronized (p8c.class) {
-                u8c.e("BksUtil", "get bks from tss begin");
-                if (context != null) {
-                    r8c.b(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            l(context);
+            return this.f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk
+    public final ArCoreApk.Availability a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!i()) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            }
+            try {
+                if (h(context)) {
+                    g();
+                    return o8c.c(context);
                 }
-                Context a3 = r8c.a();
-                ByteArrayInputStream byteArrayInputStream2 = null;
-                if (a3 == null) {
-                    u8c.d("BksUtil", "context is null");
-                    return null;
-                } else if (!i(v8c.a("com.huawei.hwid")) && !i(v8c.a("com.huawei.hms"))) {
-                    u8c.d("BksUtil", "hms version code is too low : " + v8c.a("com.huawei.hwid"));
-                    return null;
-                } else {
-                    boolean l = l(a3, "com.huawei.hwid");
-                    ?? r2 = l;
-                    if (!l) {
-                        boolean h = h(a3, "com.huawei.hms");
-                        r2 = h;
-                        if (!h) {
-                            u8c.d("BksUtil", "hms sign error");
-                            return null;
+                synchronized (this) {
+                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
+                        this.c = true;
+                        o8c o8cVar = new o8c(this);
+                        if (h(context)) {
+                            o8cVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
+                        } else if (k(context) != -1) {
+                            o8cVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
+                        } else if (j(context)) {
+                            o8cVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                        } else {
+                            e(context).e(context, o8cVar);
                         }
                     }
-                    try {
-                        r2 = new ByteArrayOutputStream();
-                        try {
-                            inputStream = a3.getContentResolver().openInputStream(Uri.withAppendedPath(a, "files/hmsrootcas.bks"));
+                    if (this.b != null) {
+                        return this.b;
+                    }
+                    if (this.c) {
+                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
+                    }
+                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
+                    return ArCoreApk.Availability.UNKNOWN_ERROR;
+                }
+            } catch (FatalException e) {
+                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
+            }
+        }
+        return (ArCoreApk.Availability) invokeL.objValue;
+    }
+
+    public final synchronized void l(Context context) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this) {
+                if (this.e) {
+                    return;
+                }
+                PackageManager packageManager = context.getPackageManager();
+                String packageName = context.getPackageName();
+                try {
+                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
+                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
+                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
+                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
                             try {
-                                byte[] bArr = new byte[1024];
+                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
+                                String canonicalName = InstallActivity.class.getCanonicalName();
+                                int length = activityInfoArr.length;
+                                boolean z = false;
+                                int i = 0;
                                 while (true) {
-                                    int read = inputStream.read(bArr);
-                                    if (read <= -1) {
+                                    if (i >= length) {
                                         break;
+                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i++;
                                     }
-                                    r2.write(bArr, 0, read);
                                 }
-                                r2.flush();
-                                byteArrayInputStream = new ByteArrayInputStream(r2.toByteArray());
-                            } catch (Exception unused) {
+                                if (!z) {
+                                    String valueOf = String.valueOf(canonicalName);
+                                    if (valueOf.length() != 0) {
+                                        str = "Application manifest must contain activity ".concat(valueOf);
+                                    } else {
+                                        str = new String("Application manifest must contain activity ");
+                                    }
+                                    throw new FatalException(str);
+                                }
+                                this.e = true;
+                                return;
+                            } catch (PackageManager.NameNotFoundException e) {
+                                throw new FatalException("Could not load application package info", e);
                             }
-                            try {
-                                a2 = w8c.a("bks_hash", "", a3);
-                                g = g(r2.toByteArray());
-                            } catch (Exception unused2) {
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                u8c.d("BksUtil", "Get bks from HMS_VERSION_CODE exception : No content provider");
-                                t8c.b(inputStream);
-                                t8c.c(r2);
-                                t8c.b(byteArrayInputStream2);
-                                return n(a3);
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                t8c.b(inputStream);
-                                t8c.c(r2);
-                                t8c.b(byteArrayInputStream2);
-                                throw th;
-                            }
-                        } catch (Exception unused3) {
-                            inputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = null;
                         }
-                        if (k(a3) && a2.equals(g)) {
-                            u8c.e("BksUtil", "bks not update");
-                            t8c.b(inputStream);
-                            t8c.c(r2);
-                            t8c.b(byteArrayInputStream);
-                            return n(a3);
-                        }
-                        u8c.e("BksUtil", "update bks and sp");
-                        d(byteArrayInputStream, a3);
-                        w8c.c("bks_hash", g, a3);
-                        t8c.b(inputStream);
-                        t8c.c(r2);
-                        t8c.b(byteArrayInputStream);
-                        return n(a3);
-                    } catch (Throwable th3) {
-                        th = th3;
+                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
                     }
+                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
+                } catch (PackageManager.NameNotFoundException e2) {
+                    throw new FatalException("Could not load application package metadata", e2);
                 }
             }
-        } else {
-            return (InputStream) invokeL.objValue;
         }
     }
 }

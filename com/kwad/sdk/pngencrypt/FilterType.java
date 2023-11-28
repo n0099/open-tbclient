@@ -22,6 +22,10 @@ public enum FilterType {
     public static HashMap<Integer, FilterType> byVal = new HashMap<>();
     public final int val;
 
+    public static boolean isValidStandard(int i) {
+        return i >= 0 && i <= 4;
+    }
+
     static {
         FilterType[] values;
         for (FilterType filterType : values()) {
@@ -55,14 +59,16 @@ public enum FilterType {
 
     public static boolean isAdaptive(FilterType filterType) {
         int i = filterType.val;
-        return i <= -2 && i >= -4;
-    }
-
-    public static boolean isValidStandard(int i) {
-        return i >= 0 && i <= 4;
+        if (i <= -2 && i >= -4) {
+            return true;
+        }
+        return false;
     }
 
     public static boolean isValidStandard(FilterType filterType) {
-        return filterType != null && isValidStandard(filterType.val);
+        if (filterType != null && isValidStandard(filterType.val)) {
+            return true;
+        }
+        return false;
     }
 }

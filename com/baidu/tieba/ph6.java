@@ -1,30 +1,21 @@
 package com.baidu.tieba;
 
+import android.webkit.CookieManager;
+import android.webkit.WebView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.xml.sax.Attributes;
 /* loaded from: classes7.dex */
-public abstract class ph6 {
+public final class ph6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(boolean z, String str);
-
-    public abstract void b(boolean z, String str, Attributes attributes);
-
-    public ph6() {
+    public static void a(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+            webView.getSettings().setMixedContentMode(0);
+            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
         }
     }
 }

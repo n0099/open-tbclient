@@ -1,40 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.utils.LruCache;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes9.dex */
-public class xd0 {
+public class xd0 extends re0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, String> a;
 
-    /* loaded from: classes9.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xd0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-292930264, "Lcom/baidu/tieba/xd0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-292930264, "Lcom/baidu/tieba/xd0$a;");
-                    return;
-                }
-            }
-            a = new xd0();
-        }
+    @Override // com.baidu.tieba.re0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
     }
 
     public xd0() {
@@ -47,27 +38,32 @@ public class xd0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LruCache<>(8);
     }
 
-    public static xd0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.re0
+    public boolean b(@NonNull Context context, @NonNull ve0 ve0Var, @Nullable Map<String, Object> map, @Nullable ze0 ze0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ve0Var, map, ze0Var)) == null) {
+            super.b(context, ve0Var, map, ze0Var);
+            HashMap<String, String> d = ve0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            String str3 = d.get("ext");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String b = yd0.a().b(str);
+                JSONObject jSONObject = new JSONObject();
+                my0.f(jSONObject, "key", str);
+                my0.f(jSONObject, "message", b);
+                my0.f(jSONObject, "ext", str3);
+                d(ze0Var, ve0Var, jSONObject.toString(), 0, true);
+                return true;
+            }
+            c(ze0Var, ve0Var, 202, false);
+            return true;
         }
-        return (xd0) invokeV.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

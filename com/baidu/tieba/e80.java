@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e80 {
+public final class e80 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,46 +29,18 @@ public class e80 {
         }
     }
 
-    public e80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
-
-    public int b() {
+    @JvmStatic
+    public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static synchronized e80 a() {
-        InterceptResult invokeV;
-        e80 e80Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e80.class) {
-                if (b < 1000000) {
-                    b = 1000000;
-                }
-                e80Var = new e80();
-                e80Var.a = b;
-                b++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
+                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
             }
-            return e80Var;
+            String str = Build.MANUFACTURER;
+            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
+            return str;
         }
-        return (e80) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

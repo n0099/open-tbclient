@@ -80,7 +80,7 @@ public final class c {
             try {
                 boolean z = true;
                 if (this.c != null && SevenZipUtils.getInstance().prepare(this.c, this.b.a.c, this.b.a.d)) {
-                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
+                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, "unzip");
                     SevenZipUtils.getInstance().hook(true);
                     SevenZipUtils.getInstance().unzipWithMeta(this.b.a.c, this.b.a.d);
                     Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
@@ -98,7 +98,7 @@ public final class c {
                     });
                     thread.setName("T7@BlinkUnzip");
                     thread.start();
-                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_UNZIP);
+                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, "unzip");
                     return;
                 }
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();

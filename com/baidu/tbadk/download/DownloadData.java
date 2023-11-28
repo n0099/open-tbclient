@@ -5,8 +5,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tieba.filedownloader.data.ApkDownloadData;
-import com.baidu.tieba.md5;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.sd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class DownloadData implements Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
     public String app_icon;
-    public transient md5 callback;
+    public transient sd5 callback;
     public String check;
     public String description;
     public DownloadStaticsData downloadStaticsData;
@@ -54,6 +54,7 @@ public class DownloadData implements Serializable, Cloneable {
     public boolean isNeedNotify;
     public long length;
     public ApkDownloadData mApkDownloadData;
+    public String mDbExtraData;
     public Object mExtraData;
     public ItemData mItemData;
     public int mSource;
@@ -175,12 +176,12 @@ public class DownloadData implements Serializable, Cloneable {
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, md5 md5Var) {
+    public DownloadData(String str, String str2, String str3, sd5 sd5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, md5Var};
+            Object[] objArr = {str, str2, str3, sd5Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,7 +207,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.callback = md5Var;
+        this.callback = sd5Var;
         this.status = 5;
     }
 
@@ -251,13 +252,13 @@ public class DownloadData implements Serializable, Cloneable {
         return (String) invokeV.objValue;
     }
 
-    public md5 getCallback() {
+    public sd5 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.callback;
         }
-        return (md5) invokeV.objValue;
+        return (sd5) invokeV.objValue;
     }
 
     public String getCheck() {
@@ -524,10 +525,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setCallback(md5 md5Var) {
+    public void setCallback(sd5 sd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, md5Var) == null) {
-            this.callback = md5Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, sd5Var) == null) {
+            this.callback = sd5Var;
         }
     }
 
@@ -724,7 +725,7 @@ public class DownloadData implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            return "DownloadData{downloadStaticsData=" + this.downloadStaticsData + ", mApkDownloadData=" + this.mApkDownloadData + ", id='" + this.id + "', name='" + this.name + "', uniqueId='" + this.uniqueId + "', description='" + this.description + "', url='" + this.url + "', uri=" + this.uri + ", path='" + this.path + "', status=" + this.status + ", type=" + this.type + ", length=" + this.length + ", size=" + this.size + ", width=" + this.width + ", height=" + this.height + ", check='" + this.check + "', statusMsg='" + this.statusMsg + "', errorCode=" + this.errorCode + ", callback=" + this.callback + ", position=" + this.position + ", notifyId=" + this.notifyId + ", isNeedInvokeApk=" + this.isNeedInvokeApk + ", isForceDownload=" + this.isForceDownload + ", isNeedNotify=" + this.isNeedNotify + ", tag=" + Arrays.toString(this.tag) + ", action='" + this.action + "', app_icon='" + this.app_icon + "', user_name='" + this.user_name + "', mSource=" + this.mSource + ", mExtraData=" + this.mExtraData + ", mItemData=" + this.mItemData + '}';
+            return "DownloadData{downloadStaticsData=" + this.downloadStaticsData + ", mApkDownloadData=" + this.mApkDownloadData + ", id='" + this.id + "', name='" + this.name + "', uniqueId='" + this.uniqueId + "', description='" + this.description + "', url='" + this.url + "', uri=" + this.uri + ", path='" + this.path + "', status=" + this.status + ", type=" + this.type + ", length=" + this.length + ", size=" + this.size + ", width=" + this.width + ", height=" + this.height + ", check='" + this.check + "', statusMsg='" + this.statusMsg + "', errorCode=" + this.errorCode + ", callback=" + this.callback + ", position=" + this.position + ", notifyId=" + this.notifyId + ", isNeedInvokeApk=" + this.isNeedInvokeApk + ", isForceDownload=" + this.isForceDownload + ", isNeedNotify=" + this.isNeedNotify + ", tag=" + Arrays.toString(this.tag) + ", action='" + this.action + "', app_icon='" + this.app_icon + "', user_name='" + this.user_name + "', mSource=" + this.mSource + ", mExtraData=" + this.mExtraData + ", mItemData=" + this.mItemData + ", mDbExtraData='" + this.mDbExtraData + "'}";
         }
         return (String) invokeV.objValue;
     }

@@ -12,11 +12,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.launch.stats.FirstFrameSpeedStats;
+import com.baidu.tieba.cp7;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
-import com.baidu.tieba.pm7;
-import com.baidu.tieba.vm7;
-import com.baidu.tieba.xi7;
-import com.baidu.tieba.zl7;
+import com.baidu.tieba.go7;
+import com.baidu.tieba.hp7;
+import com.baidu.tieba.pk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,9 +50,9 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     public boolean I;
     public boolean J;
     public ValueAnimator K;
-    public final ArrayList<pm7> L;
+    public final ArrayList<cp7> L;
     public AnimatorListenerAdapter M;
-    public vm7 N;
+    public hp7 N;
     public boolean z;
 
     static {
@@ -240,7 +240,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         new LinkedHashMap();
         this.A = 1000L;
         this.B = 1000L;
-        this.C = zl7.a(10);
+        this.C = go7.a(10);
         this.D = true;
         this.F = 3;
         this.L = new ArrayList<>();
@@ -251,10 +251,10 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean t(int i, int i2) {
+    public Boolean u(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i, i2)) == null) {
             if (getScrollY() != 0) {
                 return Boolean.TRUE;
             }
@@ -264,20 +264,20 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean u(int i, int i2) {
+    public Boolean x(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
             return Boolean.TRUE;
         }
         return (Boolean) invokeII.objValue;
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean x(int i, int i2) {
+    public Boolean y(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) {
             if (i2 == 1) {
                 return Boolean.TRUE;
             }
@@ -286,7 +286,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         return (Boolean) invokeII.objValue;
     }
 
-    public static final void J(TbBottomSheetView this$0, int i, int i2, ValueAnimator valueAnimator) {
+    public static final void K(TbBottomSheetView this$0, int i, int i2, ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{this$0, Integer.valueOf(i), Integer.valueOf(i2), valueAnimator}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -299,7 +299,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         }
     }
 
-    public static final void N(TbBottomSheetView this$0, int i, int i2, ValueAnimator valueAnimator) {
+    public static final void O(TbBottomSheetView this$0, int i, int i2, ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{this$0, Integer.valueOf(i), Integer.valueOf(i2), valueAnimator}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -338,29 +338,29 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         return invokeV.booleanValue;
     }
 
-    public final void K() {
+    public final void L() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (valueAnimator = this.K) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (valueAnimator = this.K) != null) {
             valueAnimator.cancel();
             valueAnimator.removeAllUpdateListeners();
             valueAnimator.removeAllListeners();
         }
     }
 
-    public final vm7 getBottomSheetStateListener() {
+    public final hp7 getBottomSheetStateListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.N;
         }
-        return (vm7) invokeV.objValue;
+        return (hp7) invokeV.objValue;
     }
 
     public final AnimatorListenerAdapter getBounceAnimatorListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.M;
         }
         return (AnimatorListenerAdapter) invokeV.objValue;
@@ -369,7 +369,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     public final boolean getInterceptSelfScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.z;
         }
         return invokeV.booleanValue;
@@ -378,7 +378,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     public final int getMidScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.E;
         }
         return invokeV.intValue;
@@ -387,21 +387,66 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            K();
+            L();
+            this.L.clear();
         }
     }
 
-    public final void I(int i) {
+    public final void I(cp7 listener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            K();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            if (!this.L.contains(listener)) {
+                this.L.add(listener);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.z) {
+                return false;
+            }
+            return super.b(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void setBottomSheetStateListener(hp7 hp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, hp7Var) == null) {
+            this.N = hp7Var;
+        }
+    }
+
+    public final void setBounceAnimatorListener(AnimatorListenerAdapter animatorListenerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, animatorListenerAdapter) == null) {
+            this.M = animatorListenerAdapter;
+        }
+    }
+
+    public final void setInterceptSelfScroll(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.z = z;
+        }
+    }
+
+    public final void J(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            L();
             final int scrollY = getScrollY();
             final int i2 = i - scrollY;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat.setInterpolator(new xi7(0.55f));
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.nm7
+            ofFloat.setInterpolator(new pk7(0.55f));
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zo7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -409,7 +454,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        TbBottomSheetView.J(TbBottomSheetView.this, scrollY, i2, valueAnimator);
+                        TbBottomSheetView.K(TbBottomSheetView.this, scrollY, i2, valueAnimator);
                     }
                 }
             });
@@ -420,13 +465,13 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         }
     }
 
-    public final void L(int i, boolean z, Function0<Unit> function0) {
+    public final void M(int i, boolean z, Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), function0}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), function0}) == null) {
             this.D = false;
             scrollTo(getScrollX(), i);
             if (z) {
-                M();
+                N();
             }
             if (function0 != null) {
                 function0.invoke();
@@ -434,17 +479,17 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         }
     }
 
-    public final void M() {
+    public final void N() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            K();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            L();
             final int scrollY = getScrollY();
             final int i = this.C;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f, -1.0f, 0.0f);
             ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
             ofFloat.setRepeatCount(-1);
             ofFloat.setRepeatMode(1);
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.mm7
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yo7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -452,7 +497,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        TbBottomSheetView.N(TbBottomSheetView.this, scrollY, i, valueAnimator);
+                        TbBottomSheetView.O(TbBottomSheetView.this, scrollY, i, valueAnimator);
                     }
                 }
             });
@@ -467,7 +512,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     public void a() {
         int minScroll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             setMinScroll(this.G - getHeight());
             this.E = (getMinScroll() + this.H) - this.G;
             if (this.D) {
@@ -489,51 +534,17 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (this.z) {
-                return false;
-            }
-            return super.b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void setBottomSheetStateListener(vm7 vm7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, vm7Var) == null) {
-            this.N = vm7Var;
-        }
-    }
-
-    public final void setBounceAnimatorListener(AnimatorListenerAdapter animatorListenerAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, animatorListenerAdapter) == null) {
-            this.M = animatorListenerAdapter;
-        }
-    }
-
-    public final void setInterceptSelfScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.z = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean p(MotionEvent e) {
+    public Boolean s(MotionEvent e) {
         InterceptResult invokeL;
         int minScroll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
-            for (pm7 pm7Var : this.L) {
-                pm7Var.a(e);
+            for (cp7 cp7Var : this.L) {
+                cp7Var.a(e);
             }
             if (e.getAction() == 0) {
-                K();
+                L();
             }
             if ((e.getAction() == 3 || e.getAction() == 1) && getLastScrollDir() != 0 && getScrollY() >= getMinScroll() && getScrollY() <= getMaxScroll()) {
                 if (getScrollY() > this.E) {
@@ -593,7 +604,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                                     Intrinsics.checkNotNullParameter(it, "it");
                                     this.this$0.J = false;
-                                    vm7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
+                                    hp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
                                     if (bottomSheetStateListener != null) {
                                         bottomSheetStateListener.a();
                                     }
@@ -601,7 +612,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                             }
                         }, 2, null);
                     } else {
-                        I(i2);
+                        J(i2);
                     }
                 } else {
                     this.J = true;
@@ -648,14 +659,14 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                                 Intrinsics.checkNotNullParameter(it, "it");
                                 this.this$0.J = false;
                                 if (this.$desScrollY == this.this$0.getMaxScroll()) {
-                                    vm7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
+                                    hp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
                                     if (bottomSheetStateListener != null) {
                                         bottomSheetStateListener.a();
                                         return;
                                     }
                                     return;
                                 }
-                                vm7 bottomSheetStateListener2 = this.this$0.getBottomSheetStateListener();
+                                hp7 bottomSheetStateListener2 = this.this$0.getBottomSheetStateListener();
                                 if (bottomSheetStateListener2 != null) {
                                     bottomSheetStateListener2.b();
                                 }
@@ -665,14 +676,14 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                 }
                 return Boolean.TRUE;
             }
-            return super.p(e);
+            return super.s(e);
         }
         return (Boolean) invokeL.objValue;
     }
 
     public final void setup(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             this.F = i;
             this.G = i2;
             this.H = i3;
@@ -683,10 +694,10 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     }
 
     @Override // com.baidu.tieba.forum.widget.TbNestedScrollView
-    public Boolean y(MotionEvent e) {
+    public Boolean z(MotionEvent e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
             if (e.getAction() == 0) {
                 boolean z = false;

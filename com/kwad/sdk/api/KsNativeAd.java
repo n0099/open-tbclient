@@ -10,13 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
-import com.kwad.sdk.api.model.AdSourceLogoType;
 import java.util.List;
 import java.util.Map;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsNativeAd {
+public interface KsNativeAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -86,7 +85,7 @@ public interface KsNativeAd {
     @Nullable
     @KsAdSdkApi
     @Keep
-    String getAdSourceLogoUrl(@AdSourceLogoType int i);
+    String getAdSourceLogoUrl(int i);
 
     @Nullable
     @KsAdSdkApi
@@ -143,6 +142,16 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     int getInteractionType();
+
+    @Nullable
+    @KsAdSdkApi
+    @Keep
+    String getIntroductionInfo();
+
+    @Nullable
+    @KsAdSdkApi
+    @Keep
+    String getIntroductionInfoUrl();
 
     @KsAdSdkApi
     @Keep
@@ -223,7 +232,12 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 
     @KsAdSdkApi
     @Keep

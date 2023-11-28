@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.jvm.JvmStatic;
-/* compiled from: AibotChatService.kt */
+/* compiled from: HomePageSpriteStateService.kt */
 /* loaded from: classes7.dex */
 public final /* synthetic */ class nl5 {
     public static /* synthetic */ Interceptable $ic;

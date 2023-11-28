@@ -1,127 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ItemTabLogUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class d65 {
+public class d65 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean v;
 
-    public static final int a(int i, int i2) {
-        InterceptResult invokeII;
+    public d65() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 2;
-            } else if (i2 != 1) {
-                return i2 != 2 ? -1 : 3;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = true;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+        this.v = false;
+        this.o = this.p;
+        this.n = this.m;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return t(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0904;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void s(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = i;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            if (this.v) {
+                return u(f);
+            }
+            return v(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    @Deprecated
+    public void j(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
+            w(i, iconType);
+        }
+    }
+
+    public final Drawable u(float f) {
+        InterceptResult invokeF;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            int color = SkinManager.getColor(this.s, this.d);
+            int[] iArr = {uua.c(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.t);
+                gradientDrawable.setColors(iArr);
             } else {
-                return 4;
+                gradientDrawable = new GradientDrawable(this.t, iArr);
             }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        return invokeII.intValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public static final int b(String name) {
-        InterceptResult invokeL;
+    public void w(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
-                return 1;
-            }
-            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
-                return 2;
-            }
-            return 9;
-        }
-        return invokeL.intValue;
-    }
-
-    public static final void c(c65 itemLogData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
-            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
-            StatisticItem statisticItem = new StatisticItem();
-            boolean z = false;
-            switch (itemLogData.j()) {
-                case 1:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k());
-                    break;
-                case 2:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("fid", itemLogData.b());
-                    break;
-                case 3:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 4:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 5:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.c()).param("obj_source", itemLogData.g()).param("obj_locate", itemLogData.b()).param("obj_type", itemLogData.a());
-                    break;
-                case 6:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
-                    break;
-                case 7:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param(TiebaStatic.Params.OBJ_PARAM2, itemLogData.a());
-                    break;
-                case 8:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_source", itemLogData.g()).param("obj_param1", itemLogData.a());
-                    String e = itemLogData.e();
-                    if (!((e == null || e.length() == 0) ? true : true)) {
-                        statisticItem.param("obj_locate", itemLogData.e());
-                        break;
-                    }
-                    break;
-                case 9:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.b());
-                    break;
-                case 10:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.b());
-                    break;
-                case 11:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
-                    break;
-                case 12:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
-                    String i = itemLogData.i();
-                    if (!((i == null || i.length() == 0) ? true : true)) {
-                        statisticItem.param("post_id", itemLogData.i());
-                        break;
-                    }
-                    break;
-                case 13:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.k());
-                    break;
-                case 14:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.k());
-                    break;
-                case 15:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d()).param("uid", itemLogData.k());
-                    break;
-                case 16:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_name", itemLogData.f()).param("obj_type", itemLogData.h());
-                    break;
-                case 17:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
-                    break;
-                case 18:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
-                    break;
-                case 19:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
-                    break;
-            }
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
+            this.e[0] = i;
+            this.f = iconType;
         }
     }
 }

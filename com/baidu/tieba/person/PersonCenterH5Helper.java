@@ -6,7 +6,7 @@ import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.ku4;
+import com.baidu.tieba.mu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,12 +81,15 @@ public final class PersonCenterH5Helper {
             hashMap.put(TiebaStatic.Params.FRIEND_UID, uid);
             hashMap.put("friend_uid_portrait", portrait);
             String currentAccountNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
-            Intrinsics.checkNotNullExpressionValue(currentAccountNameShow, "getCurrentAccountNameShow()");
+            if (currentAccountNameShow == null) {
+                currentAccountNameShow = "";
+            }
             hashMap.put("current_logged_username", currentAccountNameShow);
             JSONLikeSerializable lightEmotionJsonStr = TbSingleton.getInstance().getLightEmotionJsonStr();
-            Intrinsics.checkNotNullExpressionValue(lightEmotionJsonStr, "getInstance().lightEmotionJsonStr");
-            hashMap.put("interact_memes", lightEmotionJsonStr);
-            ku4 j = ku4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
+            if (lightEmotionJsonStr != null) {
+                hashMap.put("interact_memes", lightEmotionJsonStr);
+            }
+            mu4 j = mu4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
             j.f(hashMap);
             j.p();
             return true;

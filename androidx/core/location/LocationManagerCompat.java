@@ -26,7 +26,7 @@ import androidx.core.os.ExecutorCompat;
 import androidx.core.util.Consumer;
 import androidx.core.util.Preconditions;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.lang.reflect.Field;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -69,7 +69,7 @@ public final class LocationManagerCompat {
             this.mConsumer = consumer;
         }
 
-        @RequiresPermission(anyOf = {h.h, h.g})
+        @RequiresPermission(anyOf = {g.h, g.g})
         private void cleanup() {
             this.mConsumer = null;
             this.mLocationManager.removeUpdates(this);
@@ -80,7 +80,7 @@ public final class LocationManagerCompat {
             }
         }
 
-        @RequiresPermission(anyOf = {h.h, h.g})
+        @RequiresPermission(anyOf = {g.h, g.g})
         public void cancel() {
             synchronized (this) {
                 if (this.mTriggered) {
@@ -92,7 +92,7 @@ public final class LocationManagerCompat {
         }
 
         @Override // android.location.LocationListener
-        @RequiresPermission(anyOf = {h.h, h.g})
+        @RequiresPermission(anyOf = {g.h, g.g})
         public void onLocationChanged(@Nullable final Location location) {
             synchronized (this) {
                 if (this.mTriggered) {
@@ -111,7 +111,7 @@ public final class LocationManagerCompat {
         }
 
         @Override // android.location.LocationListener
-        @RequiresPermission(anyOf = {h.h, h.g})
+        @RequiresPermission(anyOf = {g.h, g.g})
         public void onProviderDisabled(@NonNull String str) {
             onLocationChanged((Location) null);
         }
@@ -123,7 +123,7 @@ public final class LocationManagerCompat {
                 }
                 Runnable runnable = new Runnable() { // from class: androidx.core.location.LocationManagerCompat.CancellableLocationListener.1
                     @Override // java.lang.Runnable
-                    @RequiresPermission(anyOf = {h.h, h.g})
+                    @RequiresPermission(anyOf = {g.h, g.g})
                     public void run() {
                         CancellableLocationListener cancellableLocationListener = CancellableLocationListener.this;
                         cancellableLocationListener.mTimeoutRunnable = null;
@@ -193,7 +193,7 @@ public final class LocationManagerCompat {
         }
 
         @Override // android.location.GpsStatus.Listener
-        @RequiresPermission(h.g)
+        @RequiresPermission(g.g)
         public void onGpsStatusChanged(int i) {
             GpsStatus gpsStatus;
             final Executor executor = this.mExecutor;
@@ -420,7 +420,7 @@ public final class LocationManagerCompat {
     @RequiresApi(30)
     /* loaded from: classes.dex */
     public static class Api30Impl {
-        @RequiresPermission(anyOf = {h.h, h.g})
+        @RequiresPermission(anyOf = {g.h, g.g})
         @DoNotInline
         public static void getCurrentLocation(LocationManager locationManager, @NonNull String str, @Nullable CancellationSignal cancellationSignal, @NonNull Executor executor, @NonNull final Consumer<Location> consumer) {
             android.os.CancellationSignal cancellationSignal2;
@@ -439,7 +439,7 @@ public final class LocationManagerCompat {
         }
     }
 
-    @RequiresPermission(anyOf = {h.h, h.g})
+    @RequiresPermission(anyOf = {g.h, g.g})
     public static void getCurrentLocation(@NonNull LocationManager locationManager, @NonNull String str, @Nullable CancellationSignal cancellationSignal, @NonNull Executor executor, @NonNull final Consumer<Location> consumer) {
         if (Build.VERSION.SDK_INT >= 30) {
             Api30Impl.getCurrentLocation(locationManager, str, cancellationSignal, executor, consumer);
@@ -463,7 +463,7 @@ public final class LocationManagerCompat {
         if (cancellationSignal != null) {
             cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.core.location.LocationManagerCompat.2
                 @Override // androidx.core.os.CancellationSignal.OnCancelListener
-                @RequiresPermission(anyOf = {h.h, h.g})
+                @RequiresPermission(anyOf = {g.h, g.g})
                 public void onCancel() {
                     CancellableLocationListener.this.cancel();
                 }
@@ -520,7 +520,7 @@ public final class LocationManagerCompat {
 
     /* JADX WARN: Removed duplicated region for block: B:89:0x0114 A[Catch: all -> 0x0130, TryCatch #8 {all -> 0x0130, blocks: (B:83:0x00f3, B:84:0x0109, B:87:0x010c, B:89:0x0114, B:91:0x011c, B:92:0x0122, B:93:0x0123, B:94:0x0128, B:95:0x0129, B:96:0x012f, B:73:0x00e2), top: B:108:0x00a2 }] */
     /* JADX WARN: Removed duplicated region for block: B:95:0x0129 A[Catch: all -> 0x0130, TryCatch #8 {all -> 0x0130, blocks: (B:83:0x00f3, B:84:0x0109, B:87:0x010c, B:89:0x0114, B:91:0x011c, B:92:0x0122, B:93:0x0123, B:94:0x0128, B:95:0x0129, B:96:0x012f, B:73:0x00e2), top: B:108:0x00a2 }] */
-    @RequiresPermission(h.g)
+    @RequiresPermission(g.g)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -581,7 +581,7 @@ public final class LocationManagerCompat {
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // java.util.concurrent.Callable
-                    @RequiresPermission(h.g)
+                    @RequiresPermission(g.g)
                     public Boolean call() {
                         return Boolean.valueOf(locationManager.addGpsStatusListener(gpsStatusTransport));
                     }
@@ -655,7 +655,7 @@ public final class LocationManagerCompat {
         }
     }
 
-    @RequiresPermission(h.g)
+    @RequiresPermission(g.g)
     public static boolean registerGnssStatusCallback(@NonNull LocationManager locationManager, @NonNull GnssStatusCompat.Callback callback, @NonNull Handler handler) {
         if (Build.VERSION.SDK_INT >= 30) {
             return registerGnssStatusCallback(locationManager, ExecutorCompat.create(handler), callback);
@@ -663,7 +663,7 @@ public final class LocationManagerCompat {
         return registerGnssStatusCallback(locationManager, new InlineHandlerExecutor(handler), callback);
     }
 
-    @RequiresPermission(h.g)
+    @RequiresPermission(g.g)
     public static boolean registerGnssStatusCallback(@NonNull LocationManager locationManager, @NonNull Executor executor, @NonNull GnssStatusCompat.Callback callback) {
         if (Build.VERSION.SDK_INT >= 30) {
             return registerGnssStatusCallback(locationManager, null, executor, callback);

@@ -29,11 +29,6 @@ public class ResDialogFragment extends DelegateDialogFragment {
         getBase().setBase(this);
     }
 
-    @SuppressLint({"ValidFragment"})
-    public ResDialogFragment(KsDialogFragment ksDialogFragment) {
-        super(ksDialogFragment);
-    }
-
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, com.kwad.sdk.api.core.fragment.IDelegateFragment
     public final Activity getActivity2() {
         return super.getActivity();
@@ -50,6 +45,56 @@ public class ResDialogFragment extends DelegateDialogFragment {
         return Wrapper.wrapContextIfNeed(super.getContext());
     }
 
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onDestroyOptionsMenu() {
+        super.onDestroyOptionsMenu();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onDetach() {
+        super.onDetach();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, android.content.ComponentCallbacks
+    public /* bridge */ /* synthetic */ void onLowMemory() {
+        super.onLowMemory();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onPause() {
+        super.onPause();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onResume() {
+        super.onResume();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onStart() {
+        super.onStart();
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onStop() {
+        super.onStop();
+    }
+
+    @SuppressLint({"ValidFragment"})
+    public ResDialogFragment(KsDialogFragment ksDialogFragment) {
+        super(ksDialogFragment);
+    }
+
     @Override // androidx.fragment.app.Fragment
     @NonNull
     @SuppressLint({"RestrictedApi"})
@@ -63,18 +108,8 @@ public class ResDialogFragment extends DelegateDialogFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onAttach(Activity activity) {
         super.onAttach(activity);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onAttach(Context context) {
-        super.onAttach(Wrapper.wrapContextIfNeed(context));
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
@@ -102,56 +137,10 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onCreate(bundle);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
-        return super.onCreateAnimation(i, z, i2);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
-        return super.onCreateAnimator(i, z, i2);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
-    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
-    }
-
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment
     @NonNull
     public /* bridge */ /* synthetic */ Dialog onCreateDialog(Bundle bundle) {
         return super.onCreateDialog(bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    @Nullable
-    public /* bridge */ /* synthetic */ View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        return super.onCreateView(layoutInflater, viewGroup, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onDestroyOptionsMenu() {
-        super.onDestroyOptionsMenu();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onDetach() {
-        super.onDetach();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
@@ -171,21 +160,6 @@ public class ResDialogFragment extends DelegateDialogFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
-        super.onInflate(activity, attributeSet, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
-        super.onInflate(context, attributeSet, bundle);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, android.content.ComponentCallbacks
-    public /* bridge */ /* synthetic */ void onLowMemory() {
-        super.onLowMemory();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
     }
@@ -201,11 +175,6 @@ public class ResDialogFragment extends DelegateDialogFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onPause() {
-        super.onPause();
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onPictureInPictureModeChanged(boolean z) {
         super.onPictureInPictureModeChanged(z);
     }
@@ -215,29 +184,60 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onResume() {
-        super.onResume();
-    }
-
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onStart() {
-        super.onStart();
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onViewStateRestored(@Nullable Bundle bundle) {
+        super.onViewStateRestored(bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
+        return super.onCreateAnimation(i, z, i2);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
+        return super.onCreateAnimator(i, z, i2);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
+    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    @Nullable
+    public /* bridge */ /* synthetic */ View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        return super.onCreateView(layoutInflater, viewGroup, bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        super.onInflate(activity, attributeSet, bundle);
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i, strArr, iArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onStop() {
-        super.onStop();
+    public void onAttach(Context context) {
+        super.onAttach(Wrapper.wrapContextIfNeed(context));
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
+    public /* bridge */ /* synthetic */ void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        super.onCreateOptionsMenu(menu, menuInflater);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
@@ -246,7 +246,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onViewStateRestored(@Nullable Bundle bundle) {
-        super.onViewStateRestored(bundle);
+    public /* bridge */ /* synthetic */ void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
+        super.onInflate(context, attributeSet, bundle);
     }
 }

@@ -8,17 +8,12 @@ public class z74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(od2 od2Var) {
+    public static void a(pd2 pd2Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, od2Var) == null) && od2Var != null && od2Var.m().hasEventListener("audiointerruptionbegin") && j04.h().i()) {
-            od2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
-        }
-    }
-
-    public static void b(od2 od2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, od2Var) == null) && od2Var != null && od2Var.m().hasEventListener("audiointerruptionend")) {
-            od2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if ((interceptable == null || interceptable.invokeLL(65536, null, pd2Var, str) == null) && pd2Var != null && pd2Var.m().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new b84(str);
+            pd2Var.dispatchEvent(jSEvent);
         }
     }
 }

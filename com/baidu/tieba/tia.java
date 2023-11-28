@@ -1,51 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.common.security.AESUtil;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class tia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public tia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ph phVar = new ph();
-            String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !qd.isEmpty(TbConfig.getSubVersion())) {
-                version = version + "." + TbConfig.getSubVersion();
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
-                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
-                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-                jSONObject.put("_client_version", version);
-                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject.put(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
-                jSONObject.put(Config.DEVICE_PART, DeviceInfoHelper.getModel() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
-                jSONObject.put(SchemeDescPatchListener.PATCH, phVar.a(context));
-                return jd.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static tia a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            tia tiaVar = new tia();
+            tiaVar.a = jSONObject.optString("text");
+            tiaVar.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            return tiaVar;
+        }
+        return (tia) invokeL.objValue;
     }
 }

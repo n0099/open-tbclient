@@ -4,8 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,10 +16,13 @@ import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.ku4;
-import com.baidu.tieba.rha;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.dx;
+import com.baidu.tieba.kma;
+import com.baidu.tieba.mu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
@@ -25,7 +31,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class OpenWebViewDispatcher implements rha {
+public class OpenWebViewDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +50,27 @@ public class OpenWebViewDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @NonNull
+    public static String assembleH5DialogSchemaUrl(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("url", str);
+            hashMap.put("openType", 1);
+            hashMap.put("disableLoading", 1);
+            if (str2 != null) {
+                hashMap.put("dialogName", str2);
+            }
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("page", "h5/openWebView");
+            hashMap2.put(YunDialogManager.PAGE_PARAMS_KEY, hashMap);
+            return UrlUtils.appendParam("tiebaapp://router/portal", "params", dx.a(DataExt.toJson(hashMap2)));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
@@ -89,7 +115,7 @@ public class OpenWebViewDispatcher implements rha {
             } else {
                 bundle = null;
             }
-            ku4 j = ku4.j(context, optString);
+            mu4 j = mu4.j(context, optString);
             j.r(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);

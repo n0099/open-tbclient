@@ -3,13 +3,13 @@ package com.google.android.material.resources;
 import android.graphics.Typeface;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CancelableFontCallback extends TextAppearanceFontCallback {
     public final ApplyFont applyFont;
     public boolean cancelled;
     public final Typeface fallbackFont;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ApplyFont {
         void apply(Typeface typeface);
     }

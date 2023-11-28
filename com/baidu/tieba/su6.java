@@ -1,93 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.callback.IDownloadListener;
-import com.baidu.searchbox.download.unified.DownloadInfoData;
-import com.baidu.searchbox.download.unified.DownloadParams;
-import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
-import com.baidu.searchbox.download.unified.EventCallback;
-import com.baidu.searchbox.download.unified.EventControlInfoForResume;
-import com.baidu.searchbox.download.unified.EventControlInfoForStart;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.tu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class su6 {
+public class su6 extends mz0 implements tu6.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile su6 a;
-    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final SQLiteDatabase c;
+    @NonNull
+    public final SQLiteDatabase d;
 
-    public su6() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public su6(@NonNull SQLiteDatabase sQLiteDatabase) {
+        this(sQLiteDatabase, sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = DownloadUnifiedManager.getInstance();
     }
 
-    public static su6 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public su6(@NonNull SQLiteDatabase sQLiteDatabase, @NonNull SQLiteDatabase sQLiteDatabase2) {
+        super(sQLiteDatabase, sQLiteDatabase2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (su6.class) {
-                    if (a == null) {
-                        a = new su6();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase, sQLiteDatabase2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return a;
         }
-        return (su6) invokeV.objValue;
+        this.c = sQLiteDatabase;
+        this.d = sQLiteDatabase2;
     }
 
-    public void a(Uri uri) {
+    @Override // com.baidu.tieba.tu6.a
+    @NonNull
+    public Cursor g(@NonNull String str, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
-            b.deleteDownload(uri);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            return new a01(this.d.rawQuery(str, strArr));
         }
-    }
-
-    public void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
-            b.pauseDownload(uri);
-        }
-    }
-
-    public DownloadInfoData d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            return b.queryDownloadInfoData(uri);
-        }
-        return (DownloadInfoData) invokeL.objValue;
-    }
-
-    public void e(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
-            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
-        }
-    }
-
-    public void f(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
-            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
-        }
+        return (Cursor) invokeLL.objValue;
     }
 }

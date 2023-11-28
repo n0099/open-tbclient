@@ -1,52 +1,33 @@
 package com.kwad.components.ad.reward.c;
 
-import androidx.annotation.NonNull;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.util.ArrayList;
-import java.util.List;
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes10.dex */
-public final class b {
-    public Object oR;
-    public AdTemplate oS;
+public class b extends com.kwad.sdk.core.response.a.a {
+    public static int STATUS_NONE = 2;
+    public static int rl = 1;
+    public static int rm = 3;
+    public int rn;
+    public int ro;
 
-    public b(@NonNull AdTemplate adTemplate, int i) {
-        this.oR = null;
-        try {
-            this.oR = new a(adTemplate, i);
-        } catch (Throwable unused) {
-            this.oS = adTemplate;
-        }
+    public b() {
+        this.rn = STATUS_NONE;
     }
 
-    public static List<AdTemplate> f(List<b> list) {
-        ArrayList arrayList = new ArrayList();
-        for (b bVar : list) {
-            arrayList.add(bVar.getAdTemplate());
-        }
-        return arrayList;
+    public final int gM() {
+        return this.ro;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x000e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final AdTemplate getAdTemplate() {
-        AdTemplate adTemplate;
-        Object obj = this.oR;
-        if (obj != null) {
-            try {
-                adTemplate = ((a) obj).getAdTemplate();
-            } catch (Exception unused) {
-            }
-            return adTemplate != null ? this.oS : adTemplate;
-        }
-        adTemplate = null;
-        if (adTemplate != null) {
-        }
+    public final int getType() {
+        return this.rn;
     }
 
-    public final Object getHost() {
-        return this.oR;
+    public b(int i) {
+        this.rn = STATUS_NONE;
+        this.rn = 1;
+    }
+
+    public final void M(int i) {
+        this.ro = i;
     }
 }

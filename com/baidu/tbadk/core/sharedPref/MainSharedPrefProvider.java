@@ -13,7 +13,7 @@ import com.baidu.android.util.KVStorageFactory;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.v45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -131,9 +131,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = q45.o.length;
+                int length = v45.o.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(q45.o[i])) {
+                    if (str.equals(v45.o[i])) {
                         return true;
                     }
                 }

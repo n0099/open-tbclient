@@ -23,6 +23,8 @@ public class CmdConfigHttp {
     public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AFD_REQUEST_ASYNC = 1003397;
     public static final int CMD_AGREE = 1003426;
+    public static final int CMD_AI_CREATE_FORUM_BG_MESSAGE = 1003586;
+    public static final int CMD_AI_CREATE_FORUM_BG_QUERY_ID_MESSAGE = 1003585;
     public static final int CMD_ALA_HTTP_BASE_CMD = 1021000;
     public static final int CMD_ALA_HTTP_MAX_CMD = 1030999;
     public static final int CMD_ALA_LIVE_ROOM_CLOSED = 1003466;
@@ -171,6 +173,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_SEARCH_BACK_INTEREST_FORUM = 1003526;
     public static final int CMD_GET_SELECT_CLASS = 1003506;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
+    public static final int CMD_GET_SPRITE_CHAT_DETAIL_MESSAGE = 1003584;
     public static final int CMD_GET_STICKERS = 1003368;
     public static final int CMD_GET_STICKET_LIST = 1003341;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;

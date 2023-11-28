@@ -10,7 +10,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -55,7 +55,7 @@ public final class CommonUtils implements INoProGuard {
             return false;
         }
         try {
-            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, h.c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, g.c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {

@@ -1,68 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.os.Build;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
 /* loaded from: classes8.dex */
-public final class w31 {
-    public static /* synthetic */ Interceptable $ic;
-    public static q31 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w31 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
+    public static final w31 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948219540, "Lcom/baidu/tieba/w31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948219540, "Lcom/baidu/tieba/w31;");
-        }
-    }
+    void a(@NonNull Activity activity);
 
-    public w31() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes8.dex */
+    public class a implements w31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmStatic
-    public static final q31 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (w31.class) {
-                    if (a == null) {
-                        a = (q31) ServiceManager.getService(q31.a);
-                    }
-                    if (a == null) {
-                        a = q31.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (q31) invokeV.objValue;
+
+        @Override // com.baidu.tieba.w31
+        public void a(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
+                Window window = activity.getWindow();
+                window.clearFlags(67108864);
+                window.addFlags(Integer.MIN_VALUE);
+                window.setStatusBarColor(activity.getResources().getColor(R.color.nad_white));
+            }
+        }
     }
 }

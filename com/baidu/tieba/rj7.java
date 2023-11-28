@@ -1,135 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class rj7 {
+public final class rj7 extends yq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
 
-    public static final String a(Activity activity, String str, int i) {
-        InterceptResult invokeLLI;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, activity, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                String string = activity.getString(i);
-                Intrinsics.checkNotNullExpressionValue(string, "getString(defaultResId)");
-                return string;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return str;
+            return (obj instanceof rj7) && this.a == ((rj7) obj).a;
         }
-        return (String) invokeLLI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final void b(Object result, Activity activity) {
-        ViewGroup viewGroup;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, result, activity) == null) {
-            Intrinsics.checkNotNullParameter(result, "result");
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            View decorView = activity.getWindow().getDecorView();
-            ForumManageModel.b bVar = null;
-            if (decorView instanceof ViewGroup) {
-                viewGroup = (ViewGroup) decorView;
-            } else {
-                viewGroup = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean z = this.a;
+            if (z) {
+                return 1;
             }
-            if (viewGroup == null) {
-                return;
-            }
-            if (result instanceof ForumManageModel.b) {
-                bVar = (ForumManageModel.b) result;
-            }
-            if (bVar == null) {
-                return;
-            }
-            if (bVar.d != 0) {
-                if (bVar.h) {
-                    new BdTopToast(activity).setIcon(false).setContent(activity.getString(R.string.shield_fail)).show(viewGroup);
-                } else {
-                    new BdTopToast(activity).setIcon(false).setContent(activity.getString(R.string.delete_fail)).show(viewGroup);
-                }
-            } else if (bVar.a) {
-                String str = bVar.i;
-                if (str != null) {
-                    nq6.b().c(new gi7(activity, CollectionsKt__CollectionsJVMKt.listOf(str), 0));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, str));
-                }
-                if (bVar.h) {
-                    new BdTopToast(activity).setIcon(true).setContent(activity.getString(R.string.shield_success)).show(viewGroup);
-                } else {
-                    new BdTopToast(activity).setIcon(true).setContent(activity.getString(R.string.delete_success)).show(viewGroup);
-                }
-            } else {
-                String str2 = bVar.b;
-                Intrinsics.checkNotNullExpressionValue(str2, "data.mErrString");
-                String a = a(activity, str2, R.string.delete_fail);
-                if (bVar.c == 1211066) {
-                    qj7.c(activity, a);
-                } else {
-                    new BdTopToast(activity).setIcon(false).setContent(a).show(viewGroup);
-                }
-            }
+            return z ? 1 : 0;
         }
+        return invokeV.intValue;
     }
 
-    public static final void c(Object result, Activity activity) {
-        ForumManageModel.d dVar;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, result, activity) == null) {
-            Intrinsics.checkNotNullParameter(result, "result");
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (result instanceof ForumManageModel.d) {
-                dVar = (ForumManageModel.d) result;
-            } else {
-                dVar = null;
-            }
-            int i = R.string.mute_fail;
-            if (dVar == null) {
-                BdUtilHelper.showToast(activity, activity.getString(R.string.mute_fail));
-                return;
-            }
-            String str = dVar.b;
-            Intrinsics.checkNotNullExpressionValue(str, "retData.mErrString");
-            if (dVar.a) {
-                i = R.string.mute_success;
-            }
-            BdUtilHelper.showToast(activity, a(activity, str, i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "FragmentVisibilityEvent(visible=" + this.a + ')';
         }
+        return (String) invokeV.objValue;
     }
 
-    public static final void d(Object result, Activity activity, Function1<? super ArrayList<rx4>, Unit> successCallback) {
-        ForumManageModel.g gVar;
+    public rj7(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, result, activity, successCallback) == null) {
-            Intrinsics.checkNotNullParameter(result, "result");
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(successCallback, "successCallback");
-            if (result instanceof ForumManageModel.g) {
-                gVar = (ForumManageModel.g) result;
-            } else {
-                gVar = null;
-            }
-            if (gVar != null && gVar.a) {
-                successCallback.invoke(((ForumManageModel.g) result).c);
-            } else {
-                BdUtilHelper.showToast(activity, activity.getString(R.string.operation_failed));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = z;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

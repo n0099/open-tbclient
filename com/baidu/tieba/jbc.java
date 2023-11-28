@@ -1,36 +1,81 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Deprecated
 /* loaded from: classes6.dex */
-public abstract class jbc extends ibc {
+public abstract class jbc implements gbc {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, jbc> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void d(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878974, "Lcom/baidu/tieba/jbc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947878974, "Lcom/baidu/tieba/jbc;");
+                return;
+            }
+        }
+        a = new HashMap();
+        b = new Object();
+    }
+
+    public jbc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public void e(Context context, Surface surface, int i, int i2, int i3) {
+    public static jbc c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
+            }
+            return d(context, context.getPackageName());
         }
+        return (jbc) invokeL.objValue;
     }
 
-    public void f(Context context, Surface surface) {
+    public static jbc d(Context context, String str) {
+        InterceptResult invokeLL;
+        jbc jbcVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                jbcVar = a.get(str);
+                if (jbcVar == null) {
+                    jbcVar = new pbc(context, str);
+                    a.put(str, jbcVar);
+                }
+            }
+            return jbcVar;
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return (jbc) invokeLL.objValue;
     }
 }

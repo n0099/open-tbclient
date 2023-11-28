@@ -1,71 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class h76 implements nq2 {
+public class h76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public h76() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return op2.M().a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
+            if (a()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            if (defaultNightMode != i) {
+                AppCompatDelegate.setDefaultNightMode(i);
             }
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
+            intent.putExtra("key_night_mode", z);
+            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nq2
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return c(context);
-            }
-            return b(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, g76.class, null);
-            if (!callOnMainWithContentProvider.isOk()) {
-                return "";
-            }
-            return callOnMainWithContentProvider.mResult.getString("result", "");
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e5b;
-import com.baidu.tieba.pz6;
+import com.baidu.tieba.aab;
+import com.baidu.tieba.zz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public e5b l;
+    public aab l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public pz6 a;
+        public zz6 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new pz6();
+            this.a = new zz6();
         }
 
         @Override // android.view.View.OnClickListener
@@ -218,10 +218,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         m(0);
     }
 
-    public void setOnViewResponseListener(e5b e5bVar) {
+    public void setOnViewResponseListener(aab aabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e5bVar) == null) {
-            this.l = e5bVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aabVar) == null) {
+            this.l = aabVar;
         }
     }
 
@@ -245,23 +245,23 @@ public class PersonHeaderAttentionView extends LinearLayout {
             this.a = context;
             setOrientation(0);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d048c, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c66);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c63);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c67);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c5e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c5b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c61);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c60);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c74);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) this, true);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cdb);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd8);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cdc);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd3);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd0);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd6);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd5);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce9);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c73);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce8);
             this.j = textView2;
             textView2.setVisibility(8);
-            this.n = findViewById(R.id.obfuscated_res_0x7f090936);
-            this.o = findViewById(R.id.obfuscated_res_0x7f090934);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090935);
+            this.n = findViewById(R.id.obfuscated_res_0x7f090954);
+            this.o = findViewById(R.id.obfuscated_res_0x7f090952);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090953);
             this.p = findViewById;
             findViewById.setVisibility(8);
         }

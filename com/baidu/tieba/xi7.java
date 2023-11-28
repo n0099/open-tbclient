@@ -1,23 +1,68 @@
 package com.baidu.tieba;
 
-import android.view.animation.Interpolator;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ActivityConfig;
+import tbclient.ItemInfo;
 /* loaded from: classes9.dex */
-public final class xi7 implements Interpolator {
+public final class xi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
+    public final ForumWriteData a;
+    public final ActivityConfig b;
+    public final ItemInfo c;
 
-    public xi7(float f) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof xi7) {
+                xi7 xi7Var = (xi7) obj;
+                return Intrinsics.areEqual(this.a, xi7Var.a) && Intrinsics.areEqual(this.b, xi7Var.b) && Intrinsics.areEqual(this.c, xi7Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ForumWriteData forumWriteData = this.a;
+            int hashCode = (forumWriteData == null ? 0 : forumWriteData.hashCode()) * 31;
+            ActivityConfig activityConfig = this.b;
+            int hashCode2 = (hashCode + (activityConfig == null ? 0 : activityConfig.hashCode())) * 31;
+            ItemInfo itemInfo = this.c;
+            return hashCode2 + (itemInfo != null ? itemInfo.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "WriteButtonData(forumWriteData=" + this.a + ", activityConfig=" + this.b + ", itemInfo=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xi7(ForumWriteData forumWriteData, ActivityConfig activityConfig, ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {forumWriteData, activityConfig, itemInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,18 +72,35 @@ public final class xi7 implements Interpolator {
                 return;
             }
         }
-        this.a = f;
+        this.a = forumWriteData;
+        this.b = activityConfig;
+        this.c = itemInfo;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public final ActivityConfig a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            double pow = Math.pow(2.0d, (-10) * f);
-            float f2 = this.a;
-            return (float) ((pow * Math.sin(((f - (f2 / 4)) * 6.283185307179586d) / f2)) + 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeF.floatValue;
+        return (ActivityConfig) invokeV.objValue;
+    }
+
+    public final ForumWriteData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ForumWriteData) invokeV.objValue;
+    }
+
+    public final ItemInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ItemInfo) invokeV.objValue;
     }
 }

@@ -58,8 +58,8 @@ public final class FrsMultiDeleteBottomLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f09094d;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09094d);
+            int i = R.id.obfuscated_res_0x7f090969;
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090969);
             if (findViewById != null) {
                 i = R.id.multi_del_btn;
                 TextView textView = (TextView) view2.findViewById(R.id.multi_del_btn);
@@ -67,8 +67,8 @@ public final class FrsMultiDeleteBottomLayoutBinding implements ViewBinding {
                     i = R.id.multi_del_cancel_btn;
                     TextView textView2 = (TextView) view2.findViewById(R.id.multi_del_cancel_btn);
                     if (textView2 != null) {
-                        i = R.id.obfuscated_res_0x7f091897;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091897);
+                        i = R.id.obfuscated_res_0x7f091908;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091908);
                         if (relativeLayout != null) {
                             i = R.id.multi_del_forbidden_btn;
                             TextView textView3 = (TextView) view2.findViewById(R.id.multi_del_forbidden_btn);
@@ -90,7 +90,7 @@ public final class FrsMultiDeleteBottomLayoutBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03a6, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03af, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

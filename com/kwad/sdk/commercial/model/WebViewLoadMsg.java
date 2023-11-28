@@ -1,7 +1,7 @@
 package com.kwad.sdk.commercial.model;
 
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.core.response.kwai.a;
+import com.kwad.sdk.commercial.d.a;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes10.dex */
@@ -12,7 +12,6 @@ public class WebViewLoadMsg extends a implements Serializable {
     public String costTime;
     public String failReason;
     public String interval;
-    public double ratioCount;
     public int state;
     public String url;
 
@@ -28,11 +27,6 @@ public class WebViewLoadMsg extends a implements Serializable {
 
     public WebViewLoadMsg setInterval(String str) {
         this.interval = str;
-        return this;
-    }
-
-    public WebViewLoadMsg setRatioCount(double d) {
-        this.ratioCount = d;
         return this;
     }
 

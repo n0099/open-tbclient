@@ -9,28 +9,28 @@ import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.MD5Utils;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.HiidoConstantContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayEventStatisticsApiImpl implements IPayEventStatisticsApi {
     public final String TAG = "PayEventStatisticsApiImpl";
     public IPayFlowEventStatisticApi mPayFlowEventStatisticApi;
     public IPayUIEventStatisticApi mPayUIEventStatisticApi;
     public IPayUVEventStatisticApi mPayUVEventStatisticApi;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface IPayFlowEventStatisticApi {
         void reportPayFlow(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8);
 
         void reportPayFlow(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface IPayUIEventStatisticApi {
         void reportUIEvent(String str);
 
         void reportUIEvent(String str, String str2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface IPayUVEventStatisticApi {
         void reportUVEvent(String str, String str2, String str3, String str4);
     }

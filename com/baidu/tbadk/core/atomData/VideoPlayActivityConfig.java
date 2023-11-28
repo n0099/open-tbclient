@@ -45,6 +45,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String KEY_FPS_VIDEO_HOME_TAB = "HomeToTab_video_tran";
     public static final String KEY_FPS_VIDEO_PAGE = "video";
     public static final String KEY_FPS_VIDEO_TYPE = "tran";
+    public static final String KEY_IS_ON_BACK_PRESS_SHOW_ANIM = "key_is_on_back_press_show_anim";
     public static final String KEY_LIVE_CONFIG = "live_config";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
@@ -233,16 +234,32 @@ public class VideoPlayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setIsCheckPreFloor(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("is_check_pre_floor", z);
+        }
+    }
+
     public void setIsFromBjhPb(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             getIntent().putExtra("is_from_bjh_pb", z);
+        }
+    }
+
+    public void setIsOnBackPressShowAnim(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_IS_ON_BACK_PRESS_SHOW_ANIM, z);
         }
     }
 
     public void setIsShowPbCommentFloat(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
             getIntent().putExtra("is_show_pb_comment_float", z);
         }
     }
@@ -250,21 +267,21 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setIsTopThread(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra("frs_top_thread_type", z);
         }
     }
 
     public void setNid(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && getIntent() != null) {
             getIntent().putExtra("key_nid", str);
         }
     }
 
     public void setParamIsVertail(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(PARAM_IS_VERTAIL, z);
         }
     }
@@ -272,14 +289,14 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

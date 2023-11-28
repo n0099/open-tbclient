@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.controller.MessageRule;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes7.dex */
-public abstract class l6 extends n6<byte[]> {
+public abstract class l6 extends MessageRule<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void g(int i, BdUniqueId bdUniqueId);
-
-    public abstract void h(BdUniqueId bdUniqueId);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l6(int i) {
@@ -31,6 +31,9 @@ public abstract class l6 extends n6<byte[]> {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
+            throw new InvalidParameterException("cmd invalid");
         }
     }
 }

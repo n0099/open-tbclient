@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes5.dex */
 public class e40 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String g = "Flow";
+    public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile e40 f;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Context a;
     public int b;
-    public final long c;
-    public long d;
-    public Context e;
-    public Map<String, String> f;
+    public a50 c;
+    public ScheduledExecutorService d;
+    public ConcurrentHashMap<Integer, f40> e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,16 +46,14 @@ public class e40 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ e40 c;
+        public final /* synthetic */ e40 a;
 
-        public a(e40 e40Var, String str, String str2) {
+        public a(e40 e40Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e40Var, str, str2};
+                Object[] objArr = {e40Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,122 +63,202 @@ public class e40 {
                     return;
                 }
             }
-            this.c = e40Var;
-            this.a = str;
-            this.b = str2;
+            this.a = e40Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f.put(this.a, this.b);
+                this.a.c.c();
             }
         }
     }
 
-    public e40(Context context, int i, int i2) {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public f40 a;
+        public final /* synthetic */ e40 b;
+
+        public b(e40 e40Var, f40 f40Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e40Var, f40Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e40Var;
+            this.a = f40Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.k(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public f40 a;
+        public final /* synthetic */ e40 b;
+
+        public c(e40 e40Var, f40 f40Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e40Var, f40Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e40Var;
+            this.a = f40Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.f(this.a);
+            }
+        }
+    }
+
+    public e40(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0L;
-        this.e = context;
-        this.a = i;
-        this.b = i2;
-        this.c = System.currentTimeMillis();
-        this.f = new ConcurrentHashMap();
+        this.e = new ConcurrentHashMap<>();
+        this.a = context;
+        this.b = i40.g(context, "flow_handle", g);
+        this.c = a50.j(this.a);
+        this.d = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public e40 b(String str, int i) {
-        InterceptResult invokeLI;
+    public synchronized void e(f40 f40Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                d40.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
+        if (interceptable == null || interceptable.invokeL(1048579, this, f40Var) == null) {
+            synchronized (this) {
+                if (!this.e.containsKey(Integer.valueOf(f40Var.a))) {
+                    return;
+                }
+                if (n50.a) {
+                    o50.a("BehaviorProcess", "flow endFlow " + f40Var.f());
+                }
+                this.e.remove(Integer.valueOf(f40Var.a));
+                o50.a("BehaviorProcess", "flow endFlow");
+                this.d.execute(new c(this, f40Var));
             }
-            if (m50.a) {
-                String str2 = g;
-                n50.a(str2, "flow addEvent id:" + str + ",value:" + i);
-            }
-            return this;
-        }
-        return (e40) invokeLI.objValue;
-    }
-
-    public e40 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                d40.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
-            }
-            if (m50.a) {
-                String str2 = g;
-                n50.a(str2, "flow addEvent id:" + str + ",value:" + j);
-            }
-            return this;
-        }
-        return (e40) invokeLJ.objValue;
-    }
-
-    public e40 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && str2 != null) {
-                d40.h(this.e).f().execute(new a(this, str, str2));
-            }
-            if (m50.a) {
-                String str3 = g;
-                n50.a(str3, "flow addEvent id:" + str + ",value:" + str2);
-            }
-            return this;
-        }
-        return (e40) invokeLL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = System.currentTimeMillis();
-            d40.h(this.e).e(this);
         }
     }
 
-    public Map<String, String> g() {
-        InterceptResult invokeV;
+    public synchronized f40 b(int i) {
+        InterceptResult invokeI;
+        f40 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
         }
-        return (Map) invokeV.objValue;
+        return (f40) invokeI.objValue;
     }
 
-    public String f() {
+    public synchronized f40 g(int i) {
+        InterceptResult invokeI;
+        f40 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
+        }
+        return (f40) invokeI.objValue;
+    }
+
+    public static e40 h(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (f == null) {
+                synchronized (e40.class) {
+                    if (f == null) {
+                        f = new e40(context.getApplicationContext());
+                    }
+                }
+            }
+            return f;
+        }
+        return (e40) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.execute(new a(this));
+        }
+    }
+
+    public ScheduledExecutorService f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : this.f.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    public final f40 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (!this.e.containsKey(Integer.valueOf(i))) {
+                this.b++;
+                if (n50.a) {
+                    o50.a("BehaviorProcess", "FlowHandle:" + this.b);
+                }
+                f40 f40Var = new f40(this.a, i, this.b);
+                this.e.put(Integer.valueOf(i), f40Var);
+                this.d.execute(new b(this, f40Var));
+                i40.j(this.a, "flow_handle", this.b);
+                return f40Var;
+            }
+            return this.e.get(Integer.valueOf(i));
+        }
+        return (f40) invokeI.objValue;
     }
 }

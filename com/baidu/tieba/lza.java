@@ -1,69 +1,158 @@
 package com.baidu.tieba;
 
-import androidx.annotation.MainThread;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.SeekBar;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rza;
-import com.baidu.tieba.tracker.core.data.AbsEventNode;
-import com.baidu.tieba.tracker.core.data.TraceEventNode;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class lza<R extends rza> extends nza<R> {
+public class lza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<R, eza> f;
+    public BaseFragmentActivity a;
+    public SeekBar b;
+    public View c;
+    public int d;
+    public ViewTreeObserver.OnGlobalLayoutListener e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lza(R obj, hza traceType, Function1<? super R, eza> traceHolderFactory) {
-        super(obj, traceType);
+    /* loaded from: classes7.dex */
+    public class a implements SeekBar.OnSeekBarChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(lza lzaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lzaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+                zda zdaVar = new zda();
+                zdaVar.a = 2;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, zdaVar));
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_transparent_seekbar));
+                zda zdaVar = new zda();
+                zdaVar.a = 3;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, zdaVar));
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
+                zda zdaVar = new zda();
+                zdaVar.a = 1;
+                zdaVar.b = i;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, zdaVar));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lza a;
+
+        public b(lza lzaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lzaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lzaVar;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
+                if (layoutParams.bottomMargin != this.a.d) {
+                    layoutParams.bottomMargin = this.a.c.getHeight() - BdUtilHelper.getDimens(this.a.a, R.dimen.tbds16);
+                    this.a.b.setLayoutParams(layoutParams);
+                    this.a.d = layoutParams.bottomMargin;
+                }
+            }
+        }
+    }
+
+    public lza(BaseFragmentActivity baseFragmentActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, traceType, traceHolderFactory};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rza) objArr2[0], (hza) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(obj, "obj");
-        Intrinsics.checkNotNullParameter(traceType, "traceType");
-        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
-        this.f = traceHolderFactory;
+        this.d = -1;
+        this.e = new b(this);
+        this.a = baseFragmentActivity;
+        this.c = view2;
+        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0929fb);
+        this.b = seekBar;
+        seekBar.setOnSeekBarChangeListener(new a(this));
+        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
     }
 
-    @Override // com.baidu.tieba.nza
-    @MainThread
-    public AbsEventNode a(R thisRef, hza traceType) {
-        InterceptResult invokeLL;
+    public void f(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, traceType)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(traceType, "traceType");
-            return new TraceEventNode(thisRef.n2(), thisRef.Z1(), traceType);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            SeekBar seekBar = this.b;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
+            }
+            seekBar.setVisibility(i);
         }
-        return (AbsEventNode) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nza
-    public eza c(R thisRef) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            return this.f.invoke(thisRef);
-        }
-        return (eza) invokeL.objValue;
     }
 }

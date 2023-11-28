@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsBottomActivityBase;
-import tbclient.FrsBottomChatroomBase;
-import tbclient.FrsBottomSmartBgColor;
-import tbclient.FrsPage.FrsBottom;
+import tbclient.BotReplyContent;
+import tbclient.BotReplyUserInfo;
 /* loaded from: classes7.dex */
-public class kvc extends qoc {
+public class kvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottom frsBottom) {
+    public static JSONObject b(@NonNull BotReplyContent botReplyContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottom)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, botReplyContent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            FrsBottomActivityBase frsBottomActivityBase = frsBottom.frs_activity;
-            if (frsBottomActivityBase != null) {
-                qoc.a(jSONObject, "frs_activity", ttc.b(frsBottomActivityBase));
+            ltc.a(jSONObject, "text", botReplyContent.text);
+            BotReplyUserInfo botReplyUserInfo = botReplyContent.user_info;
+            if (botReplyUserInfo != null) {
+                ltc.a(jSONObject, SourceConstant.SOURCE_USER_INFO, lvc.b(botReplyUserInfo));
             }
-            FrsBottomChatroomBase frsBottomChatroomBase = frsBottom.frs_chatroom;
-            if (frsBottomChatroomBase != null) {
-                qoc.a(jSONObject, "frs_chatroom", wtc.b(frsBottomChatroomBase));
-            }
-            FrsBottomSmartBgColor frsBottomSmartBgColor = frsBottom.frs_smart_bg_color;
-            if (frsBottomSmartBgColor != null) {
-                qoc.a(jSONObject, "frs_smart_bg_color", xtc.b(frsBottomSmartBgColor));
-            }
-            qoc.a(jSONObject, "has_more_module", frsBottom.has_more_module);
+            ltc.a(jSONObject, "target_scheme", botReplyContent.target_scheme);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

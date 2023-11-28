@@ -1,52 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RewardCard;
-import tbclient.RewardMaterial;
+import tbclient.FrsPage.TopLiveData;
+import tbclient.FrsPage.TopLiveDataPostList;
+import tbclient.YyExt;
 /* loaded from: classes7.dex */
-public class p2d extends qoc {
+public class p2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RewardCard rewardCard) {
+    public static JSONObject b(@NonNull TopLiveData topLiveData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rewardCard)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topLiveData)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "id", rewardCard.id);
-            qoc.a(jSONObject, "icon", rewardCard.icon);
-            qoc.a(jSONObject, "title", rewardCard.title);
-            qoc.a(jSONObject, "start_text", rewardCard.start_text);
-            qoc.a(jSONObject, "end_text", rewardCard.end_text);
-            qoc.a(jSONObject, "end_time", rewardCard.end_time);
-            qoc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, rewardCard.button_text);
-            qoc.a(jSONObject, BigdayActivityConfig.JUMP_URL, rewardCard.jump_url);
-            qoc.a(jSONObject, "join_num", rewardCard.join_num);
-            if (rewardCard.reward_material != null) {
+            ltc.a(jSONObject, "title", topLiveData.title);
+            ltc.a(jSONObject, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, topLiveData.cover);
+            ltc.a(jSONObject, "desc", topLiveData.desc);
+            ltc.a(jSONObject, "live_size", topLiveData.live_size);
+            ltc.a(jSONObject, "jump_type", topLiveData.jump_type);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, topLiveData.jump_url);
+            ltc.a(jSONObject, "flv", topLiveData.flv);
+            ltc.a(jSONObject, "hls", topLiveData.hls);
+            YyExt yyExt = topLiveData.yy_ext;
+            if (yyExt != null) {
+                ltc.a(jSONObject, "yy_ext", tbd.b(yyExt));
+            }
+            if (topLiveData.post_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (RewardMaterial rewardMaterial : rewardCard.reward_material) {
-                    jSONArray.put(q2d.b(rewardMaterial));
+                for (TopLiveDataPostList topLiveDataPostList : topLiveData.post_list) {
+                    jSONArray.put(q2d.b(topLiveDataPostList));
                 }
-                qoc.a(jSONObject, "reward_material", jSONArray);
+                ltc.a(jSONObject, "post_list", jSONArray);
             }
-            qoc.a(jSONObject, "total_num", rewardCard.total_num);
-            if (rewardCard.head_imgs != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (String str : rewardCard.head_imgs) {
-                    jSONArray2.put(str);
-                }
-                qoc.a(jSONObject, "head_imgs", jSONArray2);
-            }
-            qoc.a(jSONObject, "join_succ_text", rewardCard.join_succ_text);
-            qoc.a(jSONObject, "banner_jump_url", rewardCard.banner_jump_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

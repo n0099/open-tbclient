@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import com.baidu.searchbox.pms.db.PackageTable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
@@ -12,7 +11,7 @@ public final class bs {
     public static class a {
         public static String a(byte[] bArr) {
             try {
-                return bs.b(MessageDigest.getInstance(PackageTable.MD5), bArr);
+                return bs.b(MessageDigest.getInstance("md5"), bArr);
             } catch (Exception unused) {
                 return "";
             }

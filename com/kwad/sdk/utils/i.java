@@ -1,33 +1,15 @@
 package com.kwad.sdk.utils;
-
-import android.content.Context;
-import androidx.annotation.Nullable;
 /* loaded from: classes10.dex */
-public abstract class i<T> {
-    public boolean Dv;
-    public boolean anc = false;
-
-    public i(boolean z) {
-        this.Dv = z;
+public final class i {
+    public static void an(String str, String str2) {
+        com.kwad.sdk.core.e.c.d("callbackLog", str + str2);
     }
 
-    public final void aD(boolean z) {
-        this.Dv = z;
+    public static void s(String str, int i) {
+        com.kwad.sdk.core.e.c.d("audioVideoLog", str + "_type_" + i + "_time_" + System.currentTimeMillis());
     }
 
-    @Nullable
-    public final T bZ(Context context) {
-        if (this.Dv && !this.anc) {
-            try {
-                return ca(context);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
-                return null;
-            }
-        }
-        return null;
+    public static void e(String str, String str2, String str3, String str4) {
+        an(str, str2 + "_" + str3 + "_" + str4);
     }
-
-    @Nullable
-    public abstract T ca(Context context);
 }

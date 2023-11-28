@@ -7,12 +7,12 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.msa;
-import com.baidu.tieba.nsa;
-import com.baidu.tieba.osa;
-import com.baidu.tieba.qsa;
-import com.baidu.tieba.xs4;
+import com.baidu.tieba.exa;
+import com.baidu.tieba.fxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.mj6;
+import com.baidu.tieba.zs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,17 +27,360 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SystemJsBridgePlugin_Proxy extends msa {
+public class SystemJsBridgePlugin_Proxy extends exa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xs4 mJsBridge;
+    public zs4 mJsBridge;
 
-    public SystemJsBridgePlugin_Proxy(xs4 xs4Var) {
+    @Override // com.baidu.tieba.exa
+    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ixaVar, gxaVar)) == null) {
+            gxa gxaVar2 = gxaVar == null ? new gxa() : gxaVar;
+            String b = ixaVar.b();
+            JSONObject e = ixaVar.e();
+            if (b.equals("system/saveImage")) {
+                gxaVar2.s(true);
+                gxa z = this.mJsBridge.z(webView, e.optString("imgUrl"));
+                this.mNotificationNameList.add("saveImageSuccess");
+                if (z != null) {
+                    gxaVar2.y(z.f());
+                    gxaVar2.u(z.b());
+                    gxaVar2.o(z.a());
+                    gxaVar2.x(z.e());
+                    if (!gxaVar2.h()) {
+                        gxaVar2.n(false);
+                        addObserver(webView, "saveImageSuccess", gxaVar2, false);
+                    }
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/orderGameApk")) {
+                gxaVar2.s(true);
+                gxa K = this.mJsBridge.K(webView, e.optString("id"), e.optString("name"));
+                this.mNotificationNameList.add("orderGameApkResult");
+                if (K != null) {
+                    gxaVar2.y(K.f());
+                    gxaVar2.u(K.b());
+                    gxaVar2.o(K.a());
+                    gxaVar2.x(K.e());
+                    if (!gxaVar2.h()) {
+                        gxaVar2.n(false);
+                        addObserver(webView, "orderGameApkResult", gxaVar2, false);
+                    }
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/goToPhotoAlbum")) {
+                gxaVar2.s(true);
+                gxa w = this.mJsBridge.w(webView);
+                this.mNotificationNameList.add("GetPhotoAlbum");
+                if (w != null) {
+                    gxaVar2.y(w.f());
+                    gxaVar2.u(w.b());
+                    gxaVar2.o(w.a());
+                    gxaVar2.x(w.e());
+                    if (!gxaVar2.h()) {
+                        gxaVar2.n(false);
+                        addObserver(webView, "GetPhotoAlbum", gxaVar2, false);
+                    }
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/selectPhotoAlbum")) {
+                gxaVar2.s(true);
+                int optInt = e.optInt("maxPhotoNum");
+                ArrayList<JSONObject> arrayList = new ArrayList<>();
+                ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("imageArray"));
+                gxa R = this.mJsBridge.R(webView, optInt, arrayList);
+                this.mNotificationNameList.add("selectPhotoAlbum");
+                if (R != null) {
+                    gxaVar2.y(R.f());
+                    gxaVar2.u(R.b());
+                    gxaVar2.o(R.a());
+                    gxaVar2.x(R.e());
+                    if (!gxaVar2.h()) {
+                        gxaVar2.n(false);
+                        addObserver(webView, "selectPhotoAlbum", gxaVar2, false);
+                    }
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/playSound")) {
+                gxaVar2.s(true);
+                gxa N = this.mJsBridge.N(webView, e.optString("soundUrl"));
+                if (N != null) {
+                    gxaVar2.y(N.f());
+                    gxaVar2.u(N.b());
+                    gxaVar2.o(N.a());
+                    gxaVar2.x(N.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/playVibrate")) {
+                gxaVar2.s(true);
+                gxa O = this.mJsBridge.O(webView);
+                if (O != null) {
+                    gxaVar2.y(O.f());
+                    gxaVar2.u(O.b());
+                    gxaVar2.o(O.a());
+                    gxaVar2.x(O.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/closeNativeMask")) {
+                gxaVar2.s(true);
+                gxa g = this.mJsBridge.g(webView, e.optInt("result"));
+                if (g != null) {
+                    gxaVar2.y(g.f());
+                    gxaVar2.u(g.b());
+                    gxaVar2.o(g.a());
+                    gxaVar2.x(g.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/checkAppInstall")) {
+                gxaVar2.s(true);
+                gxa e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
+                if (e2 != null) {
+                    gxaVar2.y(e2.f());
+                    gxaVar2.u(e2.b());
+                    gxaVar2.o(e2.a());
+                    gxaVar2.x(e2.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/disableSlideBack")) {
+                gxaVar2.s(true);
+                gxa j = this.mJsBridge.j(webView, e.optInt(PackageTable.DISABLE));
+                if (j != null) {
+                    gxaVar2.y(j.f());
+                    gxaVar2.u(j.b());
+                    gxaVar2.o(j.a());
+                    gxaVar2.x(j.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/startApp")) {
+                gxaVar2.s(true);
+                gxa T2 = this.mJsBridge.T(webView, e.optString("pkgName"), e.optString("schema"));
+                if (T2 != null) {
+                    gxaVar2.y(T2.f());
+                    gxaVar2.u(T2.b());
+                    gxaVar2.o(T2.a());
+                    gxaVar2.x(T2.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/hasNotificationPermission")) {
+                gxaVar2.s(true);
+                gxa A = this.mJsBridge.A(webView);
+                if (A != null) {
+                    gxaVar2.y(A.f());
+                    gxaVar2.u(A.b());
+                    gxaVar2.o(A.a());
+                    gxaVar2.x(A.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/goToNotificationSetting")) {
+                gxaVar2.s(true);
+                gxa v = this.mJsBridge.v(webView, e.optString("type"));
+                if (v != null) {
+                    gxaVar2.y(v.f());
+                    gxaVar2.u(v.b());
+                    gxaVar2.o(v.a());
+                    gxaVar2.x(v.e());
+                }
+                gxaVar2.z(0);
+            } else if (b.equals("system/downloadGameApk")) {
+                gxaVar2.s(true);
+                gxa gxaVar3 = gxaVar2;
+                gxa U = this.mJsBridge.U(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
+                if (U != null) {
+                    gxaVar3.y(U.f());
+                    gxaVar3.u(U.b());
+                    gxaVar3.o(U.a());
+                    gxaVar3.x(U.e());
+                }
+                gxaVar3.z(0);
+                return gxaVar3;
+            } else {
+                gxa gxaVar4 = gxaVar2;
+                if (b.equals("system/checkInstallGameApk")) {
+                    gxaVar4.s(true);
+                    gxa f = this.mJsBridge.f(webView, e.optString("pkgName"));
+                    if (f != null) {
+                        gxaVar4.y(f.f());
+                        gxaVar4.u(f.b());
+                        gxaVar4.o(f.a());
+                        gxaVar4.x(f.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/getAppStorage")) {
+                    gxaVar4.s(true);
+                    gxa m = this.mJsBridge.m(webView, e.optString("key"), e.optString("storageType"));
+                    this.mNotificationNameList.add("getAppStorageResult");
+                    if (m != null) {
+                        gxaVar4.y(m.f());
+                        gxaVar4.u(m.b());
+                        gxaVar4.o(m.a());
+                        gxaVar4.x(m.e());
+                        if (!gxaVar4.h()) {
+                            gxaVar4.n(false);
+                            addObserver(webView, "getAppStorageResult", gxaVar4, false);
+                        }
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/putAppStorage")) {
+                    gxaVar4.s(true);
+                    gxa P = this.mJsBridge.P(webView, e.optString("key"), e.optString("data"), e.optString("storageType"));
+                    if (P != null) {
+                        gxaVar4.y(P.f());
+                        gxaVar4.u(P.b());
+                        gxaVar4.o(P.a());
+                        gxaVar4.x(P.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/getHistoryForumData")) {
+                    gxaVar4.s(true);
+                    gxa q = this.mJsBridge.q(webView);
+                    if (q != null) {
+                        gxaVar4.y(q.f());
+                        gxaVar4.u(q.b());
+                        gxaVar4.o(q.a());
+                        gxaVar4.x(q.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/getFileDownloadStatus")) {
+                    gxaVar4.s(true);
+                    gxa p = this.mJsBridge.p(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"), e.optString("pkgName"));
+                    if (p != null) {
+                        gxaVar4.y(p.f());
+                        gxaVar4.u(p.b());
+                        gxaVar4.o(p.a());
+                        gxaVar4.x(p.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/getFileDownloadProgress")) {
+                    gxaVar4.s(true);
+                    gxa o = this.mJsBridge.o(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"), e.optString("pkgName"));
+                    if (o != null) {
+                        gxaVar4.y(o.f());
+                        gxaVar4.u(o.b());
+                        gxaVar4.o(o.a());
+                        gxaVar4.x(o.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/fileDownloadPause")) {
+                    gxaVar4.s(true);
+                    gxa l = this.mJsBridge.l(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"), e.optString("pkgName"));
+                    if (l != null) {
+                        gxaVar4.y(l.f());
+                        gxaVar4.u(l.b());
+                        gxaVar4.o(l.a());
+                        gxaVar4.x(l.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/fileDownloadDelete")) {
+                    gxaVar4.s(true);
+                    gxa k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"), e.optString("pkgName"));
+                    if (k != null) {
+                        gxaVar4.y(k.f());
+                        gxaVar4.u(k.b());
+                        gxaVar4.o(k.a());
+                        gxaVar4.x(k.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/installGameApk")) {
+                    gxaVar4.s(true);
+                    gxa B = this.mJsBridge.B(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
+                    if (B != null) {
+                        gxaVar4.y(B.f());
+                        gxaVar4.u(B.b());
+                        gxaVar4.o(B.a());
+                        gxaVar4.x(B.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/launchApk")) {
+                    gxaVar4.s(true);
+                    gxa F = this.mJsBridge.F(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
+                    if (F != null) {
+                        gxaVar4.y(F.f());
+                        gxaVar4.u(F.b());
+                        gxaVar4.o(F.a());
+                        gxaVar4.x(F.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/startLoadTimeInterval")) {
+                    gxaVar4.s(true);
+                    gxa t = this.mJsBridge.t(webView);
+                    if (t != null) {
+                        gxaVar4.y(t.f());
+                        gxaVar4.u(t.b());
+                        gxaVar4.o(t.a());
+                        gxaVar4.x(t.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/wakeKeyboard")) {
+                    gxaVar4.s(true);
+                    gxa V = this.mJsBridge.V(webView, e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
+                    if (V != null) {
+                        gxaVar4.y(V.f());
+                        gxaVar4.u(V.b());
+                        gxaVar4.o(V.a());
+                        gxaVar4.x(V.e());
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/keyboardHeightChange")) {
+                    gxaVar4.s(true);
+                    gxa D = this.mJsBridge.D(webView);
+                    this.mNotificationNameList.add("keyboardHeightChange");
+                    if (D != null) {
+                        gxaVar4.y(D.f());
+                        gxaVar4.u(D.b());
+                        gxaVar4.o(D.a());
+                        gxaVar4.x(D.e());
+                        if (!gxaVar4.h()) {
+                            gxaVar4.n(false);
+                            addObserver(webView, "keyboardHeightChange", gxaVar4, true);
+                        }
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else if (b.equals("system/pushNotificationPermission")) {
+                    gxaVar4.s(true);
+                    gxa x = this.mJsBridge.x(webView, e.optString("switch_name"), e.optString("operate_type"), e.optString("set_status"));
+                    this.mNotificationNameList.add("pushNotificationPermission");
+                    if (x != null) {
+                        gxaVar4.y(x.f());
+                        gxaVar4.u(x.b());
+                        gxaVar4.o(x.a());
+                        gxaVar4.x(x.e());
+                        if (!gxaVar4.h()) {
+                            gxaVar4.n(false);
+                            addObserver(webView, "pushNotificationPermission", gxaVar4, false);
+                        }
+                    }
+                    gxaVar4.z(0);
+                    return gxaVar4;
+                } else {
+                    return gxaVar4;
+                }
+            }
+            return gxaVar2;
+        }
+        return (gxa) invokeLLL.objValue;
+    }
+
+    public SystemJsBridgePlugin_Proxy(zs4 zs4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xs4Var};
+            Object[] objArr = {zs4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,7 +390,7 @@ public class SystemJsBridgePlugin_Proxy extends msa {
                 return;
             }
         }
-        this.mJsBridge = xs4Var;
+        this.mJsBridge = zs4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -57,6 +400,7 @@ public class SystemJsBridgePlugin_Proxy extends msa {
         this.mNotificationNameList.add("selectPhotoAlbum");
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
+        this.mNotificationNameList.add("getAppStorageResult");
         this.mNotificationNameList.add(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT);
         this.mNotificationNameList.add(CommonTbJsBridge.INSTALL_APK_RESULT);
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
@@ -64,410 +408,69 @@ public class SystemJsBridgePlugin_Proxy extends msa {
         this.mNotificationNameList.add("pushNotificationPermission");
     }
 
-    @Override // com.baidu.tieba.msa
-    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
-        InterceptResult invokeLLL;
-        osa osaVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, qsaVar, osaVar)) == null) {
-            if (osaVar == null) {
-                osaVar2 = new osa();
-            } else {
-                osaVar2 = osaVar;
-            }
-            String b = qsaVar.b();
-            JSONObject e = qsaVar.e();
-            if (b.equals("system/saveImage")) {
-                osaVar2.s(true);
-                osa w = this.mJsBridge.w(webView, e.optString("imgUrl"));
-                this.mNotificationNameList.add("saveImageSuccess");
-                if (w != null) {
-                    osaVar2.y(w.f());
-                    osaVar2.u(w.b());
-                    osaVar2.o(w.a());
-                    osaVar2.x(w.e());
-                    if (!osaVar2.h()) {
-                        osaVar2.n(false);
-                        addObserver(webView, "saveImageSuccess", osaVar2, false);
-                    }
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/orderGameApk")) {
-                osaVar2.s(true);
-                osa G = this.mJsBridge.G(webView, e.optString("id"), e.optString("name"));
-                this.mNotificationNameList.add("orderGameApkResult");
-                if (G != null) {
-                    osaVar2.y(G.f());
-                    osaVar2.u(G.b());
-                    osaVar2.o(G.a());
-                    osaVar2.x(G.e());
-                    if (!osaVar2.h()) {
-                        osaVar2.n(false);
-                        addObserver(webView, "orderGameApkResult", osaVar2, false);
-                    }
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/goToPhotoAlbum")) {
-                osaVar2.s(true);
-                osa t = this.mJsBridge.t(webView);
-                this.mNotificationNameList.add("GetPhotoAlbum");
-                if (t != null) {
-                    osaVar2.y(t.f());
-                    osaVar2.u(t.b());
-                    osaVar2.o(t.a());
-                    osaVar2.x(t.e());
-                    if (!osaVar2.h()) {
-                        osaVar2.n(false);
-                        addObserver(webView, "GetPhotoAlbum", osaVar2, false);
-                    }
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/selectPhotoAlbum")) {
-                osaVar2.s(true);
-                int optInt = e.optInt("maxPhotoNum");
-                ArrayList<JSONObject> arrayList = new ArrayList<>();
-                ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("imageArray"));
-                osa M = this.mJsBridge.M(webView, optInt, arrayList);
-                this.mNotificationNameList.add("selectPhotoAlbum");
-                if (M != null) {
-                    osaVar2.y(M.f());
-                    osaVar2.u(M.b());
-                    osaVar2.o(M.a());
-                    osaVar2.x(M.e());
-                    if (!osaVar2.h()) {
-                        osaVar2.n(false);
-                        addObserver(webView, "selectPhotoAlbum", osaVar2, false);
-                    }
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/playSound")) {
-                osaVar2.s(true);
-                osa I = this.mJsBridge.I(webView, e.optString("soundUrl"));
-                if (I != null) {
-                    osaVar2.y(I.f());
-                    osaVar2.u(I.b());
-                    osaVar2.o(I.a());
-                    osaVar2.x(I.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/playVibrate")) {
-                osaVar2.s(true);
-                osa J = this.mJsBridge.J(webView);
-                if (J != null) {
-                    osaVar2.y(J.f());
-                    osaVar2.u(J.b());
-                    osaVar2.o(J.a());
-                    osaVar2.x(J.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/closeNativeMask")) {
-                osaVar2.s(true);
-                osa f = this.mJsBridge.f(webView, e.optInt("result"));
-                if (f != null) {
-                    osaVar2.y(f.f());
-                    osaVar2.u(f.b());
-                    osaVar2.o(f.a());
-                    osaVar2.x(f.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/checkAppInstall")) {
-                osaVar2.s(true);
-                osa d = this.mJsBridge.d(webView, e.optString("pkgName"));
-                if (d != null) {
-                    osaVar2.y(d.f());
-                    osaVar2.u(d.b());
-                    osaVar2.o(d.a());
-                    osaVar2.x(d.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/disableSlideBack")) {
-                osaVar2.s(true);
-                osa i = this.mJsBridge.i(webView, e.optInt(PackageTable.DISABLE));
-                if (i != null) {
-                    osaVar2.y(i.f());
-                    osaVar2.u(i.b());
-                    osaVar2.o(i.a());
-                    osaVar2.x(i.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/startApp")) {
-                osaVar2.s(true);
-                osa O = this.mJsBridge.O(webView, e.optString("pkgName"), e.optString("schema"));
-                if (O != null) {
-                    osaVar2.y(O.f());
-                    osaVar2.u(O.b());
-                    osaVar2.o(O.a());
-                    osaVar2.x(O.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/hasNotificationPermission")) {
-                osaVar2.s(true);
-                osa x = this.mJsBridge.x(webView);
-                if (x != null) {
-                    osaVar2.y(x.f());
-                    osaVar2.u(x.b());
-                    osaVar2.o(x.a());
-                    osaVar2.x(x.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/goToNotificationSetting")) {
-                osaVar2.s(true);
-                osa s = this.mJsBridge.s(webView);
-                if (s != null) {
-                    osaVar2.y(s.f());
-                    osaVar2.u(s.b());
-                    osaVar2.o(s.a());
-                    osaVar2.x(s.e());
-                }
-                osaVar2.z(0);
-            } else if (b.equals("system/downloadGameApk")) {
-                osaVar2.s(true);
-                osa osaVar3 = osaVar2;
-                osa P = this.mJsBridge.P(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
-                if (P != null) {
-                    osaVar3.y(P.f());
-                    osaVar3.u(P.b());
-                    osaVar3.o(P.a());
-                    osaVar3.x(P.e());
-                }
-                osaVar3.z(0);
-                return osaVar3;
-            } else {
-                osa osaVar4 = osaVar2;
-                if (b.equals("system/checkInstallGameApk")) {
-                    osaVar4.s(true);
-                    osa e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
-                    if (e2 != null) {
-                        osaVar4.y(e2.f());
-                        osaVar4.u(e2.b());
-                        osaVar4.o(e2.a());
-                        osaVar4.x(e2.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/getAppStorage")) {
-                    osaVar4.s(true);
-                    osa l = this.mJsBridge.l(webView, e.optString("key"));
-                    if (l != null) {
-                        osaVar4.y(l.f());
-                        osaVar4.u(l.b());
-                        osaVar4.o(l.a());
-                        osaVar4.x(l.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/putAppStorage")) {
-                    osaVar4.s(true);
-                    osa K = this.mJsBridge.K(webView, e.optString("key"), e.optString("data"));
-                    if (K != null) {
-                        osaVar4.y(K.f());
-                        osaVar4.u(K.b());
-                        osaVar4.o(K.a());
-                        osaVar4.x(K.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/getHistoryForumData")) {
-                    osaVar4.s(true);
-                    osa o = this.mJsBridge.o(webView);
-                    if (o != null) {
-                        osaVar4.y(o.f());
-                        osaVar4.u(o.b());
-                        osaVar4.o(o.a());
-                        osaVar4.x(o.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/getFileDownloadStatus")) {
-                    osaVar4.s(true);
-                    osa n = this.mJsBridge.n(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
-                    if (n != null) {
-                        osaVar4.y(n.f());
-                        osaVar4.u(n.b());
-                        osaVar4.o(n.a());
-                        osaVar4.x(n.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/getFileDownloadProgress")) {
-                    osaVar4.s(true);
-                    osa m = this.mJsBridge.m(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
-                    if (m != null) {
-                        osaVar4.y(m.f());
-                        osaVar4.u(m.b());
-                        osaVar4.o(m.a());
-                        osaVar4.x(m.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/fileDownloadPause")) {
-                    osaVar4.s(true);
-                    osa k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
-                    if (k != null) {
-                        osaVar4.y(k.f());
-                        osaVar4.u(k.b());
-                        osaVar4.o(k.a());
-                        osaVar4.x(k.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/fileDownloadDelete")) {
-                    osaVar4.s(true);
-                    osa j = this.mJsBridge.j(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
-                    if (j != null) {
-                        osaVar4.y(j.f());
-                        osaVar4.u(j.b());
-                        osaVar4.o(j.a());
-                        osaVar4.x(j.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/installGameApk")) {
-                    osaVar4.s(true);
-                    osa y = this.mJsBridge.y(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
-                    if (y != null) {
-                        osaVar4.y(y.f());
-                        osaVar4.u(y.b());
-                        osaVar4.o(y.a());
-                        osaVar4.x(y.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/launchApk")) {
-                    osaVar4.s(true);
-                    osa C = this.mJsBridge.C(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
-                    if (C != null) {
-                        osaVar4.y(C.f());
-                        osaVar4.u(C.b());
-                        osaVar4.o(C.a());
-                        osaVar4.x(C.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/startLoadTimeInterval")) {
-                    osaVar4.s(true);
-                    osa r = this.mJsBridge.r(webView);
-                    if (r != null) {
-                        osaVar4.y(r.f());
-                        osaVar4.u(r.b());
-                        osaVar4.o(r.a());
-                        osaVar4.x(r.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/wakeKeyboard")) {
-                    osaVar4.s(true);
-                    osa Q = this.mJsBridge.Q(webView, e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
-                    if (Q != null) {
-                        osaVar4.y(Q.f());
-                        osaVar4.u(Q.b());
-                        osaVar4.o(Q.a());
-                        osaVar4.x(Q.e());
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/keyboardHeightChange")) {
-                    osaVar4.s(true);
-                    osa A = this.mJsBridge.A(webView);
-                    this.mNotificationNameList.add("keyboardHeightChange");
-                    if (A != null) {
-                        osaVar4.y(A.f());
-                        osaVar4.u(A.b());
-                        osaVar4.o(A.a());
-                        osaVar4.x(A.e());
-                        if (!osaVar4.h()) {
-                            osaVar4.n(false);
-                            addObserver(webView, "keyboardHeightChange", osaVar4, true);
-                        }
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else if (b.equals("system/pushNotificationPermission")) {
-                    osaVar4.s(true);
-                    osa u = this.mJsBridge.u(webView, e.optString("switch_name"), e.optString("operate_type"), e.optString("set_status"));
-                    this.mNotificationNameList.add("pushNotificationPermission");
-                    if (u != null) {
-                        osaVar4.y(u.f());
-                        osaVar4.u(u.b());
-                        osaVar4.o(u.a());
-                        osaVar4.x(u.e());
-                        if (!osaVar4.h()) {
-                            osaVar4.n(false);
-                            addObserver(webView, "pushNotificationPermission", osaVar4, false);
-                        }
-                    }
-                    osaVar4.z(0);
-                    return osaVar4;
-                } else {
-                    return osaVar4;
-                }
-            }
-            return osaVar2;
-        }
-        return (osa) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.msa
-    public dj6 getJsBridge() {
+    @Override // com.baidu.tieba.exa
+    public mj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (dj6) invokeV.objValue;
+        return (mj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.msa
-    public List<osa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.exa
+    public List<gxa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            osa osaVar = null;
+            gxa gxaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("saveImageSuccess")) {
-                osaVar = this.mJsBridge.L(webView, hashMap);
+                gxaVar = this.mJsBridge.Q(webView, hashMap);
             } else if (str.equals("orderGameApkResult")) {
-                osaVar = this.mJsBridge.H(webView, hashMap);
+                gxaVar = this.mJsBridge.L(webView, hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
-                osaVar = this.mJsBridge.p(webView, hashMap);
+                gxaVar = this.mJsBridge.r(webView, hashMap);
             } else if (str.equals("selectPhotoAlbum")) {
-                osaVar = this.mJsBridge.q(webView, hashMap);
+                gxaVar = this.mJsBridge.s(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
-                osaVar = this.mJsBridge.g(webView, hashMap);
+                gxaVar = this.mJsBridge.h(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
-                osaVar = this.mJsBridge.h(webView, hashMap);
+                gxaVar = this.mJsBridge.i(webView, hashMap);
+            } else if (str.equals("getAppStorageResult")) {
+                gxaVar = this.mJsBridge.n(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT)) {
-                osaVar = this.mJsBridge.E(webView, hashMap);
+                gxaVar = this.mJsBridge.H(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.INSTALL_APK_RESULT)) {
-                osaVar = this.mJsBridge.D(webView, hashMap);
+                gxaVar = this.mJsBridge.G(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
-                osaVar = this.mJsBridge.c(webView, hashMap);
+                gxaVar = this.mJsBridge.d(webView, hashMap);
             } else if (str.equals("keyboardHeightChange")) {
-                osaVar = this.mJsBridge.F(webView, hashMap);
+                gxaVar = this.mJsBridge.J(webView, hashMap);
             } else if (str.equals("pushNotificationPermission")) {
-                osaVar = this.mJsBridge.v(webView, hashMap);
+                gxaVar = this.mJsBridge.y(webView, hashMap);
             }
-            if (osaVar != null) {
-                osaVar.z(0);
+            if (gxaVar != null) {
+                gxaVar.z(0);
             }
-            List<nsa> list = this.mAsyncCallBackMethodList.get(str);
-            if (osaVar != null && list != null) {
-                Iterator<nsa> it = list.iterator();
-                if (!TextUtils.isEmpty(osaVar.e())) {
+            List<fxa> list = this.mAsyncCallBackMethodList.get(str);
+            if (gxaVar != null && list != null) {
+                Iterator<fxa> it = list.iterator();
+                if (!TextUtils.isEmpty(gxaVar.e())) {
                     while (it.hasNext()) {
-                        nsa next = it.next();
-                        if (next.b().equals(osaVar.e())) {
-                            osa osaVar2 = new osa();
-                            osaVar2.w(next.a());
-                            osaVar2.y(osaVar.f());
-                            osaVar2.u(osaVar.b());
-                            osaVar2.o(osaVar.a());
-                            osaVar2.j = osaVar.j;
-                            osaVar2.A(osaVar.l());
-                            arrayList.add(osaVar2);
+                        fxa next = it.next();
+                        if (next.b().equals(gxaVar.e())) {
+                            gxa gxaVar2 = new gxa();
+                            gxaVar2.w(next.a());
+                            gxaVar2.y(gxaVar.f());
+                            gxaVar2.u(gxaVar.b());
+                            gxaVar2.o(gxaVar.a());
+                            gxaVar2.j = gxaVar.j;
+                            gxaVar2.A(gxaVar.l());
+                            arrayList.add(gxaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -475,15 +478,15 @@ public class SystemJsBridgePlugin_Proxy extends msa {
                     }
                 } else {
                     while (it.hasNext()) {
-                        nsa next2 = it.next();
-                        osa osaVar3 = new osa();
-                        osaVar3.w(next2.a());
-                        osaVar3.y(osaVar.f());
-                        osaVar3.u(osaVar.b());
-                        osaVar3.o(osaVar.a());
-                        osaVar3.j = osaVar.j;
-                        osaVar3.A(osaVar.l());
-                        arrayList.add(osaVar3);
+                        fxa next2 = it.next();
+                        gxa gxaVar3 = new gxa();
+                        gxaVar3.w(next2.a());
+                        gxaVar3.y(gxaVar.f());
+                        gxaVar3.u(gxaVar.b());
+                        gxaVar3.o(gxaVar.a());
+                        gxaVar3.j = gxaVar.j;
+                        gxaVar3.A(gxaVar.l());
+                        arrayList.add(gxaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

@@ -4,8 +4,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.v35;
-import com.baidu.tieba.x35;
+import com.baidu.tieba.b45;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,18 +26,18 @@ public class SpecialInstallHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpecialInstallHandler(v35 v35Var) {
-        super(v35Var);
+    public SpecialInstallHandler(z35 z35Var) {
+        super(z35Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v35Var};
+            Object[] objArr = {z35Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((v35) newInitContext.callArgs[0]);
+                super((z35) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,7 +45,7 @@ public class SpecialInstallHandler extends NamedBridgeHandler {
         }
     }
 
-    @x35(isAsync = false, value = "isGameInstall")
+    @b45(isAsync = false, value = "isGameInstall")
     private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

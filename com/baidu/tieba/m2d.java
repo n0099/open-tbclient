@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.RecommendTip;
+import tbclient.FrsPage.Ticket;
 /* loaded from: classes7.dex */
-public class m2d extends qoc {
+public class m2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecommendTip recommendTip) {
+    public static JSONObject b(@NonNull Ticket ticket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendTip)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ticket)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "reason", recommendTip.reason);
-            qoc.a(jSONObject, TiebaStatic.Params.IS_FOLLOW, recommendTip.is_follow);
+            ltc.a(jSONObject, "time", ticket.time);
+            ltc.a(jSONObject, "url", ticket.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

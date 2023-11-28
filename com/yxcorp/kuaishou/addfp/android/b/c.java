@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,14 +52,32 @@ public class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (this.a) {
-                if (z != this.c) {
-                    return "KWE_NPN";
-                }
-                int i = this.b;
-                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "KWE_OTHER" : "KWE_NS" : "KWE_N" : "KWE_PE" : "KWE_PN" : !TextUtils.isEmpty(this.d) ? this.d : "KWE_N";
+            if (!this.a) {
+                return "KWE_OTHER";
             }
-            return "KWE_OTHER";
+            if (z != this.c) {
+                return "KWE_NPN";
+            }
+            int i = this.b;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return "KWE_OTHER";
+                            }
+                            return "KWE_NS";
+                        }
+                        return "KWE_N";
+                    }
+                    return "KWE_PE";
+                }
+                return "KWE_PN";
+            } else if (!TextUtils.isEmpty(this.d)) {
+                return this.d;
+            } else {
+                return "KWE_N";
+            }
         }
         return (String) invokeZ.objValue;
     }

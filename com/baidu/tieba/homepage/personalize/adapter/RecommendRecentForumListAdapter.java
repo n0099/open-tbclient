@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
 import com.baidu.tieba.homepage.personalize.view.HomePageRecentForumItemLayout;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.re8;
+import com.baidu.tieba.oh8;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public List<re8> b;
+    public List<oh8> b;
 
     /* loaded from: classes6.dex */
     public class RecentForumViewHolder extends RecyclerView.ViewHolder {
@@ -75,7 +75,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         this.a = tbPageContext;
     }
 
-    public void setData(List<re8> list) {
+    public void setData(List<oh8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             if (this.b == null) {
@@ -96,25 +96,25 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         return invokeV.intValue;
     }
 
-    public /* synthetic */ void l(re8 re8Var, int i, View view2) {
-        if (re8Var != null && !qd.isEmpty(re8Var.f())) {
-            UrlManager.getInstance().dealOneLink(this.a, new String[]{re8Var.f()});
-            o("c15376", i + 1, re8Var.b(), re8Var.d(), re8Var.h());
+    public /* synthetic */ void l(oh8 oh8Var, int i, View view2) {
+        if (oh8Var != null && !rd.isEmpty(oh8Var.g())) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{oh8Var.g()});
+            p("c15376", i + 1, oh8Var.b(), oh8Var.d(), oh8Var.j());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public void onBindViewHolder(@NonNull RecentForumViewHolder recentForumViewHolder, final int i) {
-        final re8 re8Var;
+        final oh8 oh8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (re8Var = this.b.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (oh8Var = this.b.get(i)) == null) {
             return;
         }
-        re8Var.m(i + 1);
-        recentForumViewHolder.a.setData(re8Var);
-        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zc8
+        oh8Var.o(i + 1);
+        recentForumViewHolder.a.setData(oh8Var);
+        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    RecommendRecentForumListAdapter.this.l(re8Var, i, view2);
+                    RecommendRecentForumListAdapter.this.l(oh8Var, i, view2);
                 }
             }
         });
@@ -131,7 +131,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: n */
+    /* renamed from: o */
     public RecentForumViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -141,9 +141,9 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         return (RecentForumViewHolder) invokeLI.objValue;
     }
 
-    public final void o(String str, int i, String str2, String str3, boolean z) {
+    public final void p(String str, int i, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), str2, str3, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), str2, str3, Boolean.valueOf(z)}) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("fid", str2);

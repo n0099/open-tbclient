@@ -1,69 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.SignatureContent;
+import tbclient.SignatureData;
 /* loaded from: classes6.dex */
-public class i8d implements obd {
+public class i8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public v7d c;
-    public AbsViewEventHandler d;
-    public IYYPayAmountView e;
 
-    @Override // com.baidu.tieba.obd
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static JSONObject b(@NonNull SignatureData signatureData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public i8d(int i, int i2, v7d v7dVar, AbsViewEventHandler absViewEventHandler, IYYPayAmountView iYYPayAmountView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), v7dVar, absViewEventHandler, iYYPayAmountView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "signature_id", signatureData.signature_id);
+            ltc.a(jSONObject, "fontKeyName", signatureData.fontKeyName);
+            ltc.a(jSONObject, "fontColor", signatureData.fontColor);
+            if (signatureData.content != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (SignatureContent signatureContent : signatureData.content) {
+                    jSONArray.put(h8d.b(signatureContent));
+                }
+                ltc.a(jSONObject, "content", jSONArray);
             }
+            return jSONObject;
         }
-        RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = v7dVar;
-        this.d = absViewEventHandler;
-        this.e = iYYPayAmountView;
-    }
-
-    @Override // com.baidu.tieba.obd
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.ON_DIALOG_DISMISS) {
-                this.e.release();
-            }
-            this.c.g(cancelType, this.d);
-            a9d.a(this.a, this.b, cancelType);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

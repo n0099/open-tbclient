@@ -72,17 +72,17 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a97);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b0c);
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d69);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0928e5);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f59);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ddf);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09296a);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fd1);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f4e);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911f8);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091207);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091202);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c46);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc6);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091221);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091230);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09122b);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cbb);
         this.g = BdUtilHelper.dip2px(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {

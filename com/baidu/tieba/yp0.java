@@ -1,48 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes9.dex */
-public class yp0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final yp0 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface yp0 extends up0, wp0 {
+    public static final a a = h71.a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948337712, "Lcom/baidu/tieba/yp0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948337712, "Lcom/baidu/tieba/yp0;");
-                return;
-            }
-        }
-        b = new yp0();
+    /* loaded from: classes9.dex */
+    public interface a {
+        yp0 a(Context context, int i, @Nullable zp0 zp0Var);
     }
 
-    public yp0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
+    void a(vp0 vp0Var);
+
+    void attachToContainer(@NonNull ViewGroup viewGroup);
+
+    void c(@NonNull kn0 kn0Var);
+
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

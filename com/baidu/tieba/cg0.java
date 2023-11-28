@@ -1,187 +1,109 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import androidx.annotation.NonNull;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.AdImageView;
-import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.searchbox.crius.CriusRuntime;
+import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
+import com.baidu.nadcore.crius.uiwidget.JumpButton;
+import com.baidu.nadcore.crius.uiwidget.SyncTextView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.data.RenderData;
-import com.baidu.searchbox.crius.factory.INativeRenderFactory;
-import com.baidu.searchbox.crius.util.CriusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.factory.IComponentFactory;
+import com.baidu.searchbox.crius.util.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
 /* loaded from: classes5.dex */
-public class cg0 implements INativeRenderFactory {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "cg0";
+public class cg0 implements IComponentFactory {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947673661, "Lcom/baidu/tieba/cg0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947673661, "Lcom/baidu/tieba/cg0;");
-        }
-    }
 
     public cg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final Drawable a(String str, @NonNull Context context) {
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public View createComponent(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, context)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("file://") && str.length() > 7) {
-                try {
-                    return context.getResources().getDrawable(context.getResources().getIdentifier(str.substring(7), ResourceManager.DRAWABLE, context.getPackageName()));
-                } catch (Exception unused) {
-                    if (CriusRuntime.DEBUG) {
-                        String str2 = a;
-                        Log.e(str2, "crius find placeholder image failed，placeHolder=" + str);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (NativeConstants.COMPONENT_VIEWBTN.equalsIgnoreCase(str)) {
+                    return new JumpButton(context);
                 }
+                if ("download".equalsIgnoreCase(str)) {
+                    return new ApkDownloadView(context);
+                }
+                if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equalsIgnoreCase(str)) {
+                    return new SyncTextView(context);
+                }
+                return null;
             }
-            return null;
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    public final void b(AdImageView adImageView, RenderData renderData, boolean z) {
-        Drawable a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adImageView, renderData, z) != null) || adImageView == null) {
-            return;
-        }
-        String str = renderData.placeHolderImage;
-        String str2 = renderData.placeHolderImageNight;
-        if (TextUtils.isEmpty(str)) {
-            str = renderData.backgroundImage;
-            str2 = renderData.backgroundImageNight;
-            if (TextUtils.isEmpty(str)) {
-                adImageView.setBackground(null);
-            }
-        }
-        if (z && !TextUtils.isEmpty(str2)) {
-            str = str2;
-        }
-        if (!TextUtils.isEmpty(str) && (a2 = a(str, gf0.b())) != null) {
-            adImageView.setPlaceHolderDrawable(a2);
-        }
-    }
-
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public View createView(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if ("image".equalsIgnoreCase(str)) {
-                AdImageView adImageView = new AdImageView(context);
-                adImageView.setImageScaleType(IAdImageView.ImageScaleType.CENTER_CROP);
-                return adImageView;
-            }
-            return null;
+            ImageView imageView = new ImageView(context);
+            imageView.setId(R.id.nad_base_delete_id);
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.nad_pop_close_btn));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setContentDescription("不感兴趣");
+            return imageView;
         }
         return (View) invokeLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public boolean renderBackground(String str, View view2, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public boolean renderComponent(String str, View view2, RenderData renderData, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, view2, str2, str3)) == null) {
-            if (view2 == null || TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (renderData == null) {
                 return false;
             }
-            if (str2.startsWith("file://") && str2.length() > 7) {
-                Drawable a2 = a(str2, gf0.b());
-                Drawable a3 = a(str3, gf0.b());
-                if (a2 != null) {
-                    if (a3 != null) {
-                        StateListDrawable stateListDrawable = new StateListDrawable();
-                        stateListDrawable.addState(new int[]{16842919}, a3);
-                        stateListDrawable.addState(new int[]{-16842919}, a2);
-                        view2.setBackground(stateListDrawable);
-                    } else {
-                        view2.setBackground(a2);
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (view2 instanceof JumpButton) {
+                    ((JumpButton) view2).setText(renderData.text);
+                    return true;
+                } else if (view2 instanceof ApkDownloadView) {
+                    ApkDownloadView apkDownloadView = (ApkDownloadView) view2;
+                    apkDownloadView.setDownloadStyle(renderData.downloadStyle);
+                    apkDownloadView.setTextSize(renderData.fontSize);
+                    apkDownloadView.setTextColor(ColorUtils.getColorRes(z, renderData.colorNight, renderData.color));
+                    apkDownloadView.setProgressColor(ColorUtils.getColorRes(z, renderData.progressNightColor, renderData.progressColor));
+                    apkDownloadView.setStrokeWidth(renderData.strokeWidth);
+                    apkDownloadView.setStrokeColor(ColorUtils.getColorRes(z, renderData.strokeNightColor, renderData.strokeColor));
+                    apkDownloadView.setBorderRadius(renderData.borderRadius);
+                    RenderData.BackgroundData backgroundData = renderData.backgroundData;
+                    if (backgroundData != null) {
+                        if (z) {
+                            str2 = backgroundData.backgroundColorNight;
+                        } else {
+                            str2 = backgroundData.backgroundColor;
+                        }
+                        apkDownloadView.setBackgroundColor(ColorUtils.parseColor(str2));
                     }
+                    return true;
+                } else if (!(view2 instanceof SyncTextView)) {
+                    return false;
                 } else {
-                    view2.setBackground(null);
+                    ((SyncTextView) view2).b(renderData, z, z3);
+                    return true;
                 }
             }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public boolean renderView(String str, View view2, RenderData renderData, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        int positive;
-        int positive2;
-        int positive3;
-        int positive4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean z3 = false;
-            if (renderData == null || view2 == null || !(view2 instanceof AdImageView)) {
-                return false;
-            }
-            AdImageView adImageView = (AdImageView) view2;
-            float f = renderData.borderRadius;
-            if (f > 0.0f) {
-                positive = (int) CriusUtil.positive(f);
-                positive2 = positive;
-                positive3 = positive2;
-                positive4 = positive3;
-            } else {
-                positive = (int) CriusUtil.positive(renderData.borderRadiusLeftTop);
-                positive2 = (int) CriusUtil.positive(renderData.borderRadiusRightTop);
-                positive3 = (int) CriusUtil.positive(renderData.borderRadiusLeftBottom);
-                positive4 = (int) CriusUtil.positive(renderData.borderRadiusRightBottom);
-            }
-            if (positive > 0 || positive2 > 0 || positive3 > 0 || positive4 > 0) {
-                adImageView.setRadius(positive, positive2, positive3, positive4);
-            }
-            int i = renderData.width;
-            if (i == renderData.height && positive == positive2 && positive2 == positive3 && positive3 == positive4 && positive3 * 2 == i) {
-                z3 = true;
-            }
-            if (z3) {
-                adImageView.setCircle();
-            }
-            adImageView.setBorder(renderData.borderRadiusWidth, renderData.borderRadiusColor);
-            b(adImageView, renderData, z);
-            adImageView.r(renderData.src);
+            ImageView imageView = (ImageView) view2;
+            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.nad_pop_close_btn));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             return true;
         }
         return invokeCommon.booleanValue;

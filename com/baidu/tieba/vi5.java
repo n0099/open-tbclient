@@ -1,96 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class vi5 {
+public class vi5 extends FilterInputStream implements ui5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static void a() {
+    @Override // com.baidu.tieba.ui5
+    public InputStream a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "before_request");
-                jSONObject.put("value", "1");
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (InputStream) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vi5(InputStream inputStream) {
+        super(inputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((InputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        try {
+            inputStream.reset();
+        } catch (IOException unused) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public byte peek() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte read = (byte) read();
+            this.a++;
+            return read;
+        }
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.tieba.ui5
+    public int position() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ui5
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a = 0;
             }
         }
     }
 
-    public static void b(String str) {
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ui5
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "0");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
-                }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            this.a += Math.max(0, read);
+            return read;
         }
+        return invokeLII.intValue;
     }
 
-    public static void c(String str) {
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ui5
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "1");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
-                }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            long skip = super.skip(j);
+            this.a = (int) (this.a + skip);
+            return skip;
         }
-    }
-
-    public static void d(boolean z, JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "request");
-                if (z) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject2.put("value", str);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
-                jSONObject2.put("ext", jSONObject3);
-                uBCManager.onEvent("4509", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        return invokeJ.longValue;
     }
 }

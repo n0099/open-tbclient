@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,9 +11,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p72 extends h72<JSONObject, hy1> {
+public class p72 extends i72<JSONObject, iy1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements j72 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.j72
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g72 g72Var = new g72();
+                g72Var.g(this.a);
+                g72Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
+            }
+        }
+
+        public static j72 b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
+            }
+            return (j72) invokeL.objValue;
+        }
+    }
 
     public p72() {
         Interceptable interceptable = $ic;
@@ -29,41 +72,30 @@ public class p72 extends h72<JSONObject, hy1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l72
+    @Override // com.baidu.tieba.m72
     @NonNull
     /* renamed from: c */
-    public hy1 a(@NonNull JSONObject jSONObject) {
+    public iy1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             if (jSONObject == null) {
-                return new hy1(202);
+                return new iy1(202);
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                return new hy1(202, "data is required");
+                return new iy1(202, "data is required");
             }
-            String optString = optJSONObject.optString("status");
+            String optString = optJSONObject.optString("path");
             if (TextUtils.isEmpty(optString)) {
-                return new hy1(202, "status is required");
+                return new iy1(202, "path is required");
             }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
+            w62 b = w62.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
             }
-            if (c != 0) {
-                if (c != 1) {
-                    return new hy1(202, "status value is invalid");
-                }
-                new f72().d();
-            }
-            return new hy1(0);
+            return new iy1(0);
         }
-        return (hy1) invokeL.objValue;
+        return (iy1) invokeL.objValue;
     }
 }

@@ -1,41 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gb6 extends FragmentDelegate {
+public class gb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment a;
+    public BdPageContext a;
+    public final List<ci> b;
+    public BdTypeMultiColumnListView c;
+    public hb6 d;
+    public kb6 e;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public gb6(boolean z) {
+    public gb6(BdPageContext bdPageContext, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {bdPageContext, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,76 +35,42 @@ public class gb6 extends FragmentDelegate {
                 return;
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.a = alaFrsLiveFragment;
-        alaFrsLiveFragment.I2(z);
-        getFragmentTabStructure().frag = this.a;
+        this.b = new ArrayList();
+        this.a = bdPageContext;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    public void a(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.E2(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new hb6((TbPageContext) this.a, nb6.b);
+            this.e = new kb6((TbPageContext) this.a, nb6.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    public void b(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public void b(v76 v76Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.F2(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v76Var) == null) {
+            hb6 hb6Var = this.d;
+            if (hb6Var != null) {
+                hb6Var.x(v76Var);
+            }
+            kb6 kb6Var = this.e;
+            if (kb6Var != null) {
+                kb6Var.x(v76Var);
+            }
         }
     }
 
-    public void c(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public void c(List<pi> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.G2(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
         }
-    }
-
-    public void d(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.H2(i);
-        }
-    }
-
-    public void e(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaFrsLiveFragment = this.a) != null) {
-            alaFrsLiveFragment.J2(z);
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 2;
-            fragmentTabStructure.textResId = R.string.ala_live;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
-        }
-        return (FragmentTabStructure) invokeV.objValue;
     }
 }

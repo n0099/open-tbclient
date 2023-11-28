@@ -1,20 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface kd7 extends md7 {
-    void B(Context context, AttributeSet attributeSet, View view2);
+public final class kd7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void g(int i, int i2);
+    @JvmOverloads
+    public static final boolean a(View view2, Object obj, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f092a45), obj)) {
+                return true;
+            }
+            if (z) {
+                view2.setTag(R.id.obfuscated_res_0x7f092a45, obj);
+            }
+            return false;
+        }
+        return invokeLLZ.booleanValue;
+    }
 
-    void m(Canvas canvas);
-
-    void q(Canvas canvas);
-
-    void setRadiusPx(int i);
-
-    void setRadiusPx(int i, int i2, int i3, int i4);
+    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
+        if ((i & 2) != 0) {
+            z = true;
+        }
+        return a(view2, obj, z);
+    }
 }

@@ -330,7 +330,7 @@ public final class LazyJavaClassMemberScope extends LazyJavaScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2112getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2116getContributedClassifier(Name name, LookupLocation lookupLocation) {
         MemoizedFunctionToNullable<Name, ClassDescriptorBase> memoizedFunctionToNullable;
         ClassDescriptorBase invoke;
         recordLookup(name, lookupLocation);
@@ -430,9 +430,9 @@ public final class LazyJavaClassMemberScope extends LazyJavaScope {
         if (this.skipRefinement) {
             TypeConstructor typeConstructor = getOwnerDescriptor().getTypeConstructor();
             Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "ownerDescriptor.typeConstructor");
-            Collection<KotlinType> mo2111getSupertypes = typeConstructor.mo2111getSupertypes();
-            Intrinsics.checkExpressionValueIsNotNull(mo2111getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
-            return mo2111getSupertypes;
+            Collection<KotlinType> mo2115getSupertypes = typeConstructor.mo2115getSupertypes();
+            Intrinsics.checkExpressionValueIsNotNull(mo2115getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
+            return mo2115getSupertypes;
         }
         return getC().getComponents().getKotlinTypeChecker().getKotlinTypeRefiner().refineSupertypes(getOwnerDescriptor());
     }
@@ -705,8 +705,8 @@ public final class LazyJavaClassMemberScope extends LazyJavaScope {
         Intrinsics.checkExpressionValueIsNotNull(valueParameters, "valueParameters");
         ValueParameterDescriptor valueParameterDescriptor = (ValueParameterDescriptor) CollectionsKt___CollectionsKt.lastOrNull((List<? extends Object>) valueParameters);
         if (valueParameterDescriptor != null) {
-            ClassifierDescriptor mo2110getDeclarationDescriptor = valueParameterDescriptor.getType().getConstructor().mo2110getDeclarationDescriptor();
-            if (mo2110getDeclarationDescriptor != null && (fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2110getDeclarationDescriptor)) != null) {
+            ClassifierDescriptor mo2114getDeclarationDescriptor = valueParameterDescriptor.getType().getConstructor().mo2114getDeclarationDescriptor();
+            if (mo2114getDeclarationDescriptor != null && (fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2114getDeclarationDescriptor)) != null) {
                 if (!fqNameUnsafe.isSafe()) {
                     fqNameUnsafe = null;
                 }
@@ -1021,10 +1021,10 @@ public final class LazyJavaClassMemberScope extends LazyJavaScope {
     public HashSet<Name> computeFunctionNames(DescriptorKindFilter descriptorKindFilter, Function1<? super Name, Boolean> function1) {
         TypeConstructor typeConstructor = getOwnerDescriptor().getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "ownerDescriptor.typeConstructor");
-        Collection<KotlinType> mo2111getSupertypes = typeConstructor.mo2111getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2111getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
+        Collection<KotlinType> mo2115getSupertypes = typeConstructor.mo2115getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2115getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
         HashSet<Name> hashSet = new HashSet<>();
-        for (KotlinType kotlinType : mo2111getSupertypes) {
+        for (KotlinType kotlinType : mo2115getSupertypes) {
             CollectionsKt__MutableCollectionsKt.addAll(hashSet, kotlinType.getMemberScope().getFunctionNames());
         }
         hashSet.addAll(getDeclaredMemberIndex().invoke().getMethodNames());
@@ -1081,9 +1081,9 @@ public final class LazyJavaClassMemberScope extends LazyJavaScope {
         LinkedHashSet linkedHashSet = new LinkedHashSet(getDeclaredMemberIndex().invoke().getFieldNames());
         TypeConstructor typeConstructor = getOwnerDescriptor().getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "ownerDescriptor.typeConstructor");
-        Collection<KotlinType> mo2111getSupertypes = typeConstructor.mo2111getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2111getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
-        for (KotlinType kotlinType : mo2111getSupertypes) {
+        Collection<KotlinType> mo2115getSupertypes = typeConstructor.mo2115getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2115getSupertypes, "ownerDescriptor.typeConstructor.supertypes");
+        for (KotlinType kotlinType : mo2115getSupertypes) {
             CollectionsKt__MutableCollectionsKt.addAll(linkedHashSet, kotlinType.getMemberScope().getVariableNames());
         }
         return linkedHashSet;

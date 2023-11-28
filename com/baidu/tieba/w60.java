@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes8.dex */
 public interface w60 {
-    void a(Context context, String str);
+    void O(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    void b(Context context);
+    void R0(List<String> list);
 
-    void c();
+    void h(int i);
 
-    void d();
+    void hideLoading();
 
-    void e(Context context);
+    void i();
 
-    void f(Context context, int i);
+    void i0(List<? extends LiveRoomEntity> list);
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void l(x60 x60Var);
 
-    void h();
+    void m0();
 
-    void i(String str);
+    void p(List<String> list);
 
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+    void q(SearchResultBean searchResultBean);
 
-    void onDetach();
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(w60 w60Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                w60Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-        }
-    }
+    void showToast(String str);
 }

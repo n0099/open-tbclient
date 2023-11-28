@@ -1,155 +1,174 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.novel.NovelMemberCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tieba.da;
+import com.baidu.tieba.wn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fo5 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class fo5<T extends wn5> extends do5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static fo5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947770877, "Lcom/baidu/tieba/fo5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947770877, "Lcom/baidu/tieba/fo5;");
-        }
-    }
-
-    public fo5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fo5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
-    public static fo5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (fo5.class) {
-                    if (g == null) {
-                        g = new fo5();
-                    }
-                }
-            }
-            return g;
-        }
-        return (fo5) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-            this.f = true;
-        }
-    }
-
-    public boolean b(View view2) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        wn5 wn5Var;
+        byte[] bArr;
+        wn5 wn5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            wn5 wn5Var3 = null;
+            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+                return null;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            if (i <= 0 || i >= this.b - this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str, String str2, wc5 wc5Var, NovelMemberCardView novelMemberCardView, int i, String str3, String str4) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, wc5Var, novelMemberCardView, Integer.valueOf(i), str3, str4}) == null) && wc5Var != null && novelMemberCardView != null && novelMemberCardView.getVisibility() == 0) {
-            String valueOf = String.valueOf(wc5Var.h());
-            String d = wc5Var.d();
-            if (wc5Var.j()) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            if (b(novelMemberCardView.getNovelReadMoreButton()) && !wc5Var.j()) {
-                if (this.c) {
-                    this.c = false;
-                    io5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2, i, str3, str4, d);
+            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+            wn5 wn5Var4 = (wn5) a();
+            try {
+                try {
+                    if (readCacheMessage.isNeedUid()) {
+                        str = TbadkCoreApplication.getCurrentAccount();
+                        if (str == null) {
+                            str = "";
+                        }
+                    } else {
+                        str = null;
+                    }
+                    if (wn5Var4 != null) {
+                        if (readCacheMessage.getRequestData() == null) {
+                            try {
+                                if (wn5Var4 instanceof vn5) {
+                                    b05.k();
+                                    List<da.b<byte[]>> a = wd.a(b05.j(this.b, str));
+                                    if (a != null) {
+                                        arrayList = new ArrayList(a.size());
+                                        for (da.b<byte[]> bVar : a) {
+                                            if (bVar != null && (bArr = bVar.b) != null && (wn5Var2 = (wn5) a()) != null) {
+                                                ((vn5) wn5Var2).initByByteArray(bArr);
+                                                arrayList.add(wn5Var2);
+                                            }
+                                        }
+                                        wn5Var3 = arrayList;
+                                    }
+                                } else if (wn5Var4 instanceof yn5) {
+                                    b05.k();
+                                    List<da.b<String>> b = wd.b(b05.n(this.b, str));
+                                    if (b != null) {
+                                        arrayList = new ArrayList(b.size());
+                                        for (da.b<String> bVar2 : b) {
+                                            if (bVar2 != null && (str2 = bVar2.b) != null && (wn5Var = (wn5) a()) != null) {
+                                                ((yn5) wn5Var).initByString(str2);
+                                                arrayList.add(wn5Var);
+                                            }
+                                        }
+                                        wn5Var3 = arrayList;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                wn5Var3 = wn5Var4;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, wn5Var3);
+                            } catch (Throwable th) {
+                                th = th;
+                                wn5Var3 = wn5Var4;
+                                new ReadCacheRespMsg(this.a, wn5Var3);
+                                throw th;
+                            }
+                        } else {
+                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                            String cacheTableName = readCacheMessage.getRequestData().getCacheTableName();
+                            try {
+                                if (wn5Var4 instanceof vn5) {
+                                    b05.k();
+                                    byte[] bArr2 = b05.j(cacheTableName, str).get(cacheKey);
+                                    if (bArr2 != null) {
+                                        ((vn5) wn5Var4).initByByteArray(bArr2);
+                                        ArrayList arrayList2 = new ArrayList();
+                                        arrayList2.add(wn5Var4);
+                                        cacheTableName = arrayList2;
+                                        wn5Var3 = cacheTableName;
+                                    }
+                                } else if (wn5Var4 instanceof yn5) {
+                                    b05.k();
+                                    String str3 = b05.n(cacheTableName, str).get(cacheKey);
+                                    if (str3 != null) {
+                                        ((yn5) wn5Var4).initByString(str3);
+                                        ?? arrayList3 = new ArrayList();
+                                        arrayList3.add(wn5Var4);
+                                        cacheTableName = arrayList3;
+                                        wn5Var3 = cacheTableName;
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                wn5Var3 = cacheTableName;
+                                e = e2;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, wn5Var3);
+                            } catch (Throwable th2) {
+                                wn5Var3 = cacheTableName;
+                                th = th2;
+                                new ReadCacheRespMsg(this.a, wn5Var3);
+                                throw th;
+                            }
+                        }
+                    }
+                    return new ReadCacheRespMsg(this.a, wn5Var3);
+                } catch (Exception e3) {
+                    e = e3;
                 }
-            } else {
-                this.c = true;
+            } catch (Throwable th3) {
+                th = th3;
             }
-            if (b(novelMemberCardView.getNovelPaidButton()) && wc5Var.j()) {
-                if (this.d) {
-                    this.d = false;
-                    io5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2, i, str3, str4, d);
-                }
-            } else {
-                this.d = true;
-            }
-            if (b(novelMemberCardView.getNovelCoverPage()) && !wc5Var.j()) {
-                if (this.e) {
-                    this.e = false;
-                    io5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2, i, str3, str4, d);
-                }
-            } else {
-                this.e = true;
-            }
-            if (b(novelMemberCardView.getNovelStoryChannelBtn())) {
-                if (this.f) {
-                    this.f = false;
-                    io5.c(CommonStatisticKey.KEY_PB_NOVEL_JUMP_STORY_CHANNEL_SHOW, valueOf, str, str3, str4, d);
-                    return;
-                }
-                return;
-            }
-            this.f = true;
+        } else {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 }

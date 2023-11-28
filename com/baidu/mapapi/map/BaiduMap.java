@@ -70,7 +70,7 @@ public class BaiduMap {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1047T;
+    public boolean f1043T;
     public boolean U;
     public boolean V;
     public Point W;
@@ -609,7 +609,7 @@ public class BaiduMap {
         com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
         if (dVar != null) {
             dVar.D(z);
-            this.f1047T = z;
+            this.f1043T = z;
         }
     }
 
@@ -730,13 +730,13 @@ public class BaiduMap {
             } else {
                 dVar.a(true);
                 this.j.C(this.S);
-                this.j.D(this.f1047T);
+                this.j.D(this.f1043T);
                 this.j.j(true);
             }
         } else {
             dVar.a(false);
             this.j.C(this.S);
-            this.j.D(this.f1047T);
+            this.j.D(this.f1043T);
             this.j.j(true);
             this.j.o(this.U);
         }
@@ -1082,7 +1082,7 @@ public class BaiduMap {
         this.j.a(new f(this));
         this.j.a(new g(this));
         this.S = this.j.B();
-        this.f1047T = this.j.C();
+        this.f1043T = this.j.C();
     }
 
     public void hideInfoWindow() {

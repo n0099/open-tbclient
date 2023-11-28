@@ -1,30 +1,9 @@
 package com.kwad.components.ad.reward.h;
 
-import androidx.annotation.NonNull;
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes10.dex */
-public class b implements com.kwad.sdk.core.webview.kwai.a {
-    public a tK;
-
-    /* loaded from: classes10.dex */
-    public interface a {
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        ie();
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String getKey() {
-        return "callButtonImpressionWhenPlay";
-    }
-
-    public void ie() {
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void onDestroy() {
-        this.tK = null;
-    }
+public class b extends com.kwad.sdk.core.response.a.a {
+    public long gM = -1;
+    public int rN = 0;
 }

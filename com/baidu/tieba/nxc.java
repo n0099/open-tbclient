@@ -1,33 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.FeedHeadIcon;
 /* loaded from: classes7.dex */
-public class nxc extends qoc {
+public class nxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopCode topCode) {
+    public static JSONObject b(@NonNull FeedHeadIcon feedHeadIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topCode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, BigdayActivityConfig.IMG_URL, topCode.img_url);
-            qoc.a(jSONObject, "game_link", topCode.game_link);
-            qoc.a(jSONObject, "summary", topCode.summary);
-            qoc.a(jSONObject, "code_link", topCode.code_link);
-            qoc.a(jSONObject, "get_type", topCode.get_type);
-            qoc.a(jSONObject, "surplusgift", topCode.surplusgift);
-            qoc.a(jSONObject, "giftworth", topCode.giftworth);
-            qoc.a(jSONObject, "type_text", topCode.type_text);
-            qoc.a(jSONObject, SubtitleLog.TAG, topCode.subtitle);
+            ltc.a(jSONObject, "url", feedHeadIcon.url);
+            ltc.a(jSONObject, "width", feedHeadIcon.width);
+            ltc.a(jSONObject, "height", feedHeadIcon.height);
+            ltc.a(jSONObject, "priority", feedHeadIcon.priority);
+            ltc.a(jSONObject, "can_degrade", feedHeadIcon.can_degrade);
+            ltc.a(jSONObject, "degrade_url", feedHeadIcon.degrade_url);
+            ltc.a(jSONObject, "degrade_width", feedHeadIcon.degrade_width);
+            ltc.a(jSONObject, "degrade_height", feedHeadIcon.degrade_height);
+            ltc.a(jSONObject, "degrade_priority", feedHeadIcon.degrade_priority);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,31 +1,66 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.webkit.ValueCallback;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.tieba.ps1;
 /* loaded from: classes7.dex */
-public interface os1 extends e52 {
-    boolean canGoBack();
+public interface os1<T extends ps1> extends qs1<T>, xr1 {
+    void A(int i);
 
-    View covertToView();
+    boolean G();
 
-    void destroy();
+    boolean I();
 
-    @Override // com.baidu.tieba.e52
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    void J(yc2 yc2Var);
 
-    int getContentHeight();
+    zs1 K();
 
-    View getCurrentWebView();
+    void M(FrameLayout frameLayout, w63 w63Var);
 
-    float getScale();
+    int O();
 
-    int getWebViewScrollX();
+    void P(String str);
 
-    int getWebViewScrollY();
+    void Q();
 
-    void goBack();
+    boolean T(fa3 fa3Var);
 
-    void setDefaultViewSize(int i, int i2, String str);
+    boolean U(fa3 fa3Var);
 
-    void webViewScrollTo(int i, int i2);
+    void V(v72 v72Var);
+
+    void W(w72 w72Var);
+
+    @Nullable
+    x22 Z();
+
+    boolean c();
+
+    int c0();
+
+    PullToRefreshBaseWebView e0();
+
+    boolean f0();
+
+    void g(hw2 hw2Var);
+
+    @Nullable
+    String g0();
+
+    void i(ViewGroup viewGroup, View view2);
+
+    rs1 j();
+
+    String l();
+
+    boolean q(int i);
+
+    void t(String str);
+
+    boolean u(fa3 fa3Var);
+
+    void x(FrameLayout frameLayout, w63 w63Var);
 }

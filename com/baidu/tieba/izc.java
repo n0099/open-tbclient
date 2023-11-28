@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.JNews;
+import tbclient.FrsPage.Bottle;
 /* loaded from: classes6.dex */
-public class izc extends qoc {
+public class izc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull JNews jNews) {
+    public static JSONObject b(@NonNull Bottle bottle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jNews)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bottle)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "jid", jNews.jid);
-            qoc.a(jSONObject, "url", jNews.url);
-            qoc.a(jSONObject, "from", jNews.from);
+            ltc.a(jSONObject, "has_enter_display", bottle.has_enter_display);
+            ltc.a(jSONObject, "tid", bottle.tid);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,21 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.wallet.ICertification;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
-@Service
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class lj9 implements oa5 {
+public class lj9 implements LiveRealAuthService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements ICertification.CertificationCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveRealAuthCallback a;
+
+        public a(lj9 lj9Var, LiveRealAuthCallback liveRealAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lj9Var, liveRealAuthCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveRealAuthCallback;
+        }
+
+        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
+        public void onResult(int i, Map<String, Object> map) {
+            LiveRealAuthCallback liveRealAuthCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) && (liveRealAuthCallback = this.a) != null) {
+                liveRealAuthCallback.onRealAuthResult(i, map);
+            }
+        }
+    }
 
     public lj9() {
         Interceptable interceptable = $ic;
@@ -31,42 +64,12 @@ public final class lj9 implements oa5 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0027 A[Catch: Exception -> 0x0031, TRY_LEAVE, TryCatch #0 {Exception -> 0x0031, blocks: (B:5:0x0009, B:7:0x0011, B:10:0x001b, B:16:0x0027), top: B:26:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x003c A[ORIG_RETURN, RETURN] */
-    @Override // com.baidu.tieba.oa5
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void parseJson(JSONObject json) {
-        String str;
-        boolean z;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
+    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject = json.optJSONObject("member_info");
-                if (optJSONObject != null) {
-                    str = optJSONObject.optString("member_recharge");
-                } else {
-                    str = null;
-                }
-                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                    z = false;
-                    if (z) {
-                        SharedPrefHelper.getInstance().putString(PayPanelUtils.KEY_PAY_PANEL_URL, str);
-                        return;
-                    }
-                    return;
-                }
-                z = true;
-                if (z) {
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    return;
-                }
-                throw e;
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) && (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) != null && runTask.getData() != null) {
+            ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
         }
     }
 }

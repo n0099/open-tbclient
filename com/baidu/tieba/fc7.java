@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVirtualHeadView;
+import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc7 extends ja7<CardVirtualHeadView, l47> {
+public class fc7 extends wa7<CardHeadView, k47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class fc7 extends ja7<CardVirtualHeadView, l47> {
         }
     }
 
-    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            sc7.k(a, 0);
+            fd7.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.mb7
     /* renamed from: e */
-    public void b(@NonNull CardVirtualHeadView cardVirtualHeadView, @NonNull l47 l47Var) {
+    public void b(@NonNull CardHeadView cardHeadView, @NonNull k47 k47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVirtualHeadView, l47Var) == null) {
-            cardVirtualHeadView.w(l47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, k47Var) == null) {
+            cardHeadView.g(k47Var);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PurchaseInfo implements Parcelable {
     public static final Parcelable.Creator<PurchaseInfo> CREATOR = new Parcelable.Creator<PurchaseInfo>() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
         /* JADX DEBUG: Method merged with bridge method */

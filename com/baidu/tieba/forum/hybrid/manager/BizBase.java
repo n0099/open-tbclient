@@ -2,19 +2,17 @@ package com.baidu.tieba.forum.hybrid.manager;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ej6;
-import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.hybrid.manager.BizBase$makeWrapListener$1;
-import com.baidu.tieba.ti7;
-import com.baidu.tieba.ui7;
-import com.baidu.tieba.wi7;
+import com.baidu.tieba.ki7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.mk7;
+import com.baidu.tieba.nj6;
+import com.baidu.tieba.ok7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,23 +26,23 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0005\b&\u0018\u00002\u00020\u0001B\u001b\u0012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J$\u0010!\u001a\u00020\"2\u0006\u0010#\u001a\u00020$2\u0014\u0010%\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010&\u0012\u0004\u0012\u00020\u00160\u001aJ\b\u0010'\u001a\u00020\u0016H\u0016J\u0015\u0010(\u001a\n\u0012\u0004\u0012\u00020*\u0018\u00010)H\u0016¢\u0006\u0002\u0010+J\u0010\u0010,\u001a\u00020\u00162\u0006\u0010-\u001a\u00020$H\u0016J\u000e\u0010,\u001a\u00020\u00162\u0006\u0010.\u001a\u00020\u0010R\u001c\u0010\b\u001a\u0004\u0018\u00010\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rRA\u0010\u000e\u001a2\u0012\u0013\u0012\u00110\u0010¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u0013\u0012\u0013\u0012\u00110\u0014¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u0015\u0012\u0004\u0012\u00020\u00160\u000f¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0018R/\u0010\u0019\u001a \u0012\u0004\u0012\u00020\u0010\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0010\u0012\u0004\u0012\u00020\u00160\u001a\u0012\u0004\u0012\u00020\u001b0\u000f¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0018R\u0017\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u001eR\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010 ¨\u0006/"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Biz;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "bottomData", "Lcom/baidu/tieba/forum/data/BottomData;", "getBottomData", "()Lcom/baidu/tieba/forum/data/BottomData;", "setBottomData", "(Lcom/baidu/tieba/forum/data/BottomData;)V", "dispatchToH5", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "eventName", "Lorg/json/JSONObject;", "r", "", "getDispatchToH5", "()Lkotlin/jvm/functions/Function2;", "makeWrapListener", "Lkotlin/Function1;", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "getMakeWrapListener", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "makeCodeHandler", "Lcom/baidu/tieba/forum/hybrid/manager/SimpleRequestCodeHandler;", "code", "", "onResult", "Landroid/content/Intent;", "onDataUpdate", "requestCodeHandlers", "", "Lcom/baidu/tieba/forum/hybrid/manager/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/forum/hybrid/manager/ActivityRequestCodeHandler;", PopItemMethodConstant.showToast, "resourceId", "toast", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public abstract class BizBase implements ui7 {
+public abstract class BizBase implements mk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> a;
     public final TbWebView b;
-    public fh7 c;
+    public ki7 c;
     public final Function2<String, Function1<? super String, Unit>, WrapListener> d;
     public final Function2<String, JSONObject, Unit> e;
 
-    @Override // com.baidu.tieba.ui7
-    public ti7[] b() {
+    @Override // com.baidu.tieba.mk7
+    public lk7[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (ti7[]) invokeV.objValue;
+        return (lk7[]) invokeV.objValue;
     }
 
     public void i() {
@@ -127,7 +125,7 @@ public abstract class BizBase implements ui7 {
                     this.c = function1;
                 }
 
-                @Override // com.baidu.tieba.gu4.c
+                @Override // com.baidu.tieba.iu4.c
                 public void a(String data) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -196,19 +194,19 @@ public abstract class BizBase implements ui7 {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e, r) == null) {
                     Intrinsics.checkNotNullParameter(e, "e");
                     Intrinsics.checkNotNullParameter(r, "r");
-                    ej6.a().i(this.this$0.g(), e, r);
+                    nj6.a().i(this.this$0.g(), e, r);
                 }
             }
         };
     }
 
-    public final fh7 c() {
+    public final ki7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (fh7) invokeV.objValue;
+        return (ki7) invokeV.objValue;
     }
 
     public final Function2<String, JSONObject, Unit> d() {
@@ -247,12 +245,12 @@ public abstract class BizBase implements ui7 {
         return (TbWebView) invokeV.objValue;
     }
 
-    public final wi7 h(int i, final Function1<? super Intent, Unit> onResult) {
+    public final ok7 h(int i, final Function1<? super Intent, Unit> onResult) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, onResult)) == null) {
             Intrinsics.checkNotNullParameter(onResult, "onResult");
-            return new wi7(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.forum.hybrid.manager.BizBase$makeCodeHandler$1
+            return new ok7(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.forum.hybrid.manager.BizBase$makeCodeHandler$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1<Intent, Unit> $onResult;
@@ -294,28 +292,13 @@ public abstract class BizBase implements ui7 {
                 }
             });
         }
-        return (wi7) invokeIL.objValue;
+        return (ok7) invokeIL.objValue;
     }
 
-    public final void j(fh7 fh7Var) {
+    public final void j(ki7 ki7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fh7Var) == null) {
-            this.c = fh7Var;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            BdUtilHelper.showToast(this.a.getPageActivity(), i);
-        }
-    }
-
-    public final void l(String toast) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, toast) == null) {
-            Intrinsics.checkNotNullParameter(toast, "toast");
-            BdToast.makeText(this.a.getPageActivity(), toast).show();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ki7Var) == null) {
+            this.c = ki7Var;
         }
     }
 }

@@ -1,90 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
-import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.TypedValue;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes6.dex */
-public final class icb {
+public class icb extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public boolean b;
 
-    public static final WriteVoteData b(String str) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
-        String str2;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public icb(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                JSONObject jSONObject3 = new JSONObject(str);
-                String title = jSONObject3.optString("title");
-                int optInt = jSONObject3.optInt("expire_type");
-                int optInt2 = jSONObject3.optInt("is_multi");
-                JSONArray optJSONArray = jSONObject3.optJSONArray("options");
-                ArrayList arrayList = new ArrayList();
-                boolean z = false;
-                if (optJSONArray != null) {
-                    i = optJSONArray.length();
-                } else {
-                    i = 0;
-                }
-                int i3 = 0;
-                while (true) {
-                    boolean z2 = true;
-                    if (i3 >= i) {
-                        break;
-                    }
-                    if (optJSONArray != null && (jSONObject2 = optJSONArray.getJSONObject(i3)) != null) {
-                        i2 = jSONObject2.optInt("id");
-                    } else {
-                        i2 = 0;
-                    }
-                    if (optJSONArray != null && (jSONObject = optJSONArray.getJSONObject(i3)) != null) {
-                        str2 = jSONObject.optString("text");
-                    } else {
-                        str2 = null;
-                    }
-                    if (str2 == null) {
-                        str2 = "";
-                    }
-                    if (str2.length() <= 0) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
-                        writeVoteItemData.setId(i2);
-                        writeVoteItemData.setText(str2);
-                        arrayList.add(writeVoteItemData);
-                    }
-                    i3++;
-                }
-                Intrinsics.checkNotNullExpressionValue(title, "title");
-                if (title.length() == 0) {
-                    z = true;
-                }
-                if (z && arrayList.isEmpty()) {
-                    return null;
-                }
-                WriteVoteData writeVoteData = new WriteVoteData();
-                writeVoteData.setTitle(title);
-                writeVoteData.setExpire_type(optInt);
-                writeVoteData.setIs_multi(optInt2);
-                writeVoteData.setOptions(arrayList);
-                return writeVoteData;
-            } catch (Exception e) {
-                DefaultLog.getInstance().i("write", "编辑数据异常：" + e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (WriteVoteData) invokeL.objValue;
+        this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f08159a);
+    }
+
+    public boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            Rect rect = new Rect();
+            getHitRect(rect);
+            int i3 = rect.left;
+            int i4 = this.a;
+            rect.left = i3 - i4;
+            rect.right += i4;
+            rect.top -= i4;
+            rect.bottom += i4;
+            return rect.contains(i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean isPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void setPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

@@ -30,6 +30,28 @@ public final class DisplayImageOptions {
     public final BitmapProcessor preProcessor;
     public final boolean resetViewBeforeLoading;
 
+    public DisplayImageOptions(Builder builder) {
+        this.imageResOnLoading = builder.imageResOnLoading;
+        this.imageResForEmptyUri = builder.imageResForEmptyUri;
+        this.imageResOnFail = builder.imageResOnFail;
+        this.imageOnLoading = builder.imageOnLoading;
+        this.imageForEmptyUri = builder.imageForEmptyUri;
+        this.imageOnFail = builder.imageOnFail;
+        this.resetViewBeforeLoading = builder.resetViewBeforeLoading;
+        this.cacheInMemory = builder.cacheInMemory;
+        this.cacheOnDisk = builder.cacheOnDisk;
+        this.imageScaleType = builder.imageScaleType;
+        this.decodingOptions = builder.decodingOptions;
+        this.delayBeforeLoading = builder.delayBeforeLoading;
+        this.considerExifParams = builder.considerExifParams;
+        this.extraForDownloader = builder.extraForDownloader;
+        this.preProcessor = builder.preProcessor;
+        this.postProcessor = builder.postProcessor;
+        this.displayer = builder.displayer;
+        this.handler = builder.handler;
+        this.isSyncLoading = builder.isSyncLoading;
+    }
+
     /* loaded from: classes10.dex */
     public static class Builder {
         public int imageResOnLoading = 0;
@@ -52,6 +74,10 @@ public final class DisplayImageOptions {
         public Handler handler = null;
         public boolean isSyncLoading = false;
 
+        public Builder setBlurRadius(int i) {
+            return this;
+        }
+
         public Builder bitmapConfig(Bitmap.Config config) {
             if (config != null) {
                 this.decodingOptions.inPreferredConfig = config;
@@ -60,24 +86,9 @@ public final class DisplayImageOptions {
             throw new IllegalArgumentException("bitmapConfig can't be null");
         }
 
-        public DisplayImageOptions build() {
-            return new DisplayImageOptions(this);
-        }
-
-        @Deprecated
-        public Builder cacheInMemory() {
-            this.cacheInMemory = true;
-            return this;
-        }
-
         public Builder cacheInMemory(boolean z) {
             this.cacheInMemory = z;
             return this;
-        }
-
-        @Deprecated
-        public Builder cacheOnDisc() {
-            return cacheOnDisk(true);
         }
 
         @Deprecated
@@ -87,29 +98,6 @@ public final class DisplayImageOptions {
 
         public Builder cacheOnDisk(boolean z) {
             this.cacheOnDisk = z;
-            return this;
-        }
-
-        public Builder cloneFrom(DisplayImageOptions displayImageOptions) {
-            this.imageResOnLoading = displayImageOptions.imageResOnLoading;
-            this.imageResForEmptyUri = displayImageOptions.imageResForEmptyUri;
-            this.imageResOnFail = displayImageOptions.imageResOnFail;
-            this.imageOnLoading = displayImageOptions.imageOnLoading;
-            this.imageForEmptyUri = displayImageOptions.imageForEmptyUri;
-            this.imageOnFail = displayImageOptions.imageOnFail;
-            this.resetViewBeforeLoading = displayImageOptions.resetViewBeforeLoading;
-            this.cacheInMemory = displayImageOptions.cacheInMemory;
-            this.cacheOnDisk = displayImageOptions.cacheOnDisk;
-            this.imageScaleType = displayImageOptions.imageScaleType;
-            this.decodingOptions = displayImageOptions.decodingOptions;
-            this.delayBeforeLoading = displayImageOptions.delayBeforeLoading;
-            this.considerExifParams = displayImageOptions.considerExifParams;
-            this.extraForDownloader = displayImageOptions.extraForDownloader;
-            this.preProcessor = displayImageOptions.preProcessor;
-            this.postProcessor = displayImageOptions.postProcessor;
-            this.displayer = displayImageOptions.displayer;
-            this.handler = displayImageOptions.handler;
-            this.isSyncLoading = displayImageOptions.isSyncLoading;
             return this;
         }
 
@@ -164,17 +152,8 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        public Builder resetViewBeforeLoading() {
-            this.resetViewBeforeLoading = true;
-            return this;
-        }
-
         public Builder resetViewBeforeLoading(boolean z) {
             this.resetViewBeforeLoading = z;
-            return this;
-        }
-
-        public Builder setBlurRadius(int i) {
             return this;
         }
 
@@ -183,28 +162,13 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        public Builder showImageForEmptyUri(Drawable drawable) {
-            this.imageForEmptyUri = drawable;
-            return this;
-        }
-
         public Builder showImageOnFail(int i) {
             this.imageResOnFail = i;
             return this;
         }
 
-        public Builder showImageOnFail(Drawable drawable) {
-            this.imageOnFail = drawable;
-            return this;
-        }
-
         public Builder showImageOnLoading(int i) {
             this.imageResOnLoading = i;
-            return this;
-        }
-
-        public Builder showImageOnLoading(Drawable drawable) {
-            this.imageOnLoading = drawable;
             return this;
         }
 
@@ -218,28 +182,88 @@ public final class DisplayImageOptions {
             this.isSyncLoading = z;
             return this;
         }
+
+        public DisplayImageOptions build() {
+            return new DisplayImageOptions(this);
+        }
+
+        @Deprecated
+        public Builder cacheInMemory() {
+            this.cacheInMemory = true;
+            return this;
+        }
+
+        @Deprecated
+        public Builder cacheOnDisc() {
+            return cacheOnDisk(true);
+        }
+
+        public Builder resetViewBeforeLoading() {
+            this.resetViewBeforeLoading = true;
+            return this;
+        }
+
+        public Builder cloneFrom(DisplayImageOptions displayImageOptions) {
+            this.imageResOnLoading = displayImageOptions.imageResOnLoading;
+            this.imageResForEmptyUri = displayImageOptions.imageResForEmptyUri;
+            this.imageResOnFail = displayImageOptions.imageResOnFail;
+            this.imageOnLoading = displayImageOptions.imageOnLoading;
+            this.imageForEmptyUri = displayImageOptions.imageForEmptyUri;
+            this.imageOnFail = displayImageOptions.imageOnFail;
+            this.resetViewBeforeLoading = displayImageOptions.resetViewBeforeLoading;
+            this.cacheInMemory = displayImageOptions.cacheInMemory;
+            this.cacheOnDisk = displayImageOptions.cacheOnDisk;
+            this.imageScaleType = displayImageOptions.imageScaleType;
+            this.decodingOptions = displayImageOptions.decodingOptions;
+            this.delayBeforeLoading = displayImageOptions.delayBeforeLoading;
+            this.considerExifParams = displayImageOptions.considerExifParams;
+            this.extraForDownloader = displayImageOptions.extraForDownloader;
+            this.preProcessor = displayImageOptions.preProcessor;
+            this.postProcessor = displayImageOptions.postProcessor;
+            this.displayer = displayImageOptions.displayer;
+            this.handler = displayImageOptions.handler;
+            this.isSyncLoading = displayImageOptions.isSyncLoading;
+            return this;
+        }
+
+        public Builder showImageForEmptyUri(Drawable drawable) {
+            this.imageForEmptyUri = drawable;
+            return this;
+        }
+
+        public Builder showImageOnFail(Drawable drawable) {
+            this.imageOnFail = drawable;
+            return this;
+        }
+
+        public Builder showImageOnLoading(Drawable drawable) {
+            this.imageOnLoading = drawable;
+            return this;
+        }
     }
 
-    public DisplayImageOptions(Builder builder) {
-        this.imageResOnLoading = builder.imageResOnLoading;
-        this.imageResForEmptyUri = builder.imageResForEmptyUri;
-        this.imageResOnFail = builder.imageResOnFail;
-        this.imageOnLoading = builder.imageOnLoading;
-        this.imageForEmptyUri = builder.imageForEmptyUri;
-        this.imageOnFail = builder.imageOnFail;
-        this.resetViewBeforeLoading = builder.resetViewBeforeLoading;
-        this.cacheInMemory = builder.cacheInMemory;
-        this.cacheOnDisk = builder.cacheOnDisk;
-        this.imageScaleType = builder.imageScaleType;
-        this.decodingOptions = builder.decodingOptions;
-        this.delayBeforeLoading = builder.delayBeforeLoading;
-        this.considerExifParams = builder.considerExifParams;
-        this.extraForDownloader = builder.extraForDownloader;
-        this.preProcessor = builder.preProcessor;
-        this.postProcessor = builder.postProcessor;
-        this.displayer = builder.displayer;
-        this.handler = builder.handler;
-        this.isSyncLoading = builder.isSyncLoading;
+    public final Drawable getImageForEmptyUri(Resources resources) {
+        int i = this.imageResForEmptyUri;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageForEmptyUri;
+    }
+
+    public final Drawable getImageOnFail(Resources resources) {
+        int i = this.imageResOnFail;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageOnFail;
+    }
+
+    public final Drawable getImageOnLoading(Resources resources) {
+        int i = this.imageResOnLoading;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageOnLoading;
     }
 
     public static DisplayImageOptions createSimple() {
@@ -264,21 +288,6 @@ public final class DisplayImageOptions {
 
     public final Handler getHandler() {
         return this.handler;
-    }
-
-    public final Drawable getImageForEmptyUri(Resources resources) {
-        int i = this.imageResForEmptyUri;
-        return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
-    }
-
-    public final Drawable getImageOnFail(Resources resources) {
-        int i = this.imageResOnFail;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
-    }
-
-    public final Drawable getImageOnLoading(Resources resources) {
-        int i = this.imageResOnLoading;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
     public final ImageScaleType getImageScaleType() {
@@ -314,26 +323,44 @@ public final class DisplayImageOptions {
     }
 
     public final boolean shouldDelayBeforeLoading() {
-        return this.delayBeforeLoading > 0;
+        if (this.delayBeforeLoading > 0) {
+            return true;
+        }
+        return false;
     }
 
     public final boolean shouldPostProcess() {
-        return this.postProcessor != null;
+        if (this.postProcessor != null) {
+            return true;
+        }
+        return false;
     }
 
     public final boolean shouldPreProcess() {
-        return this.preProcessor != null;
+        if (this.preProcessor != null) {
+            return true;
+        }
+        return false;
     }
 
     public final boolean shouldShowImageForEmptyUri() {
-        return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
+        if (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) {
+            return false;
+        }
+        return true;
     }
 
     public final boolean shouldShowImageOnFail() {
-        return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
+        if (this.imageOnFail == null && this.imageResOnFail == 0) {
+            return false;
+        }
+        return true;
     }
 
     public final boolean shouldShowImageOnLoading() {
-        return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
+        if (this.imageOnLoading == null && this.imageResOnLoading == 0) {
+            return false;
+        }
+        return true;
     }
 }

@@ -3,12 +3,12 @@ package com.kwad.sdk.core.d;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.kwad.sdk.core.e.b;
-import com.kwad.sdk.core.request.model.f;
+import com.kwad.sdk.core.e.c;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.service.kwai.d;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.service.a.f;
+import com.kwad.sdk.utils.t;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,31 +18,124 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    public static SimpleDateFormat EB = new SimpleDateFormat("yyyy-MM-dd");
-    public static volatile a XK;
+    public static SimpleDateFormat Mj = new SimpleDateFormat("yyyy-MM-dd");
+    public static volatile a atc;
 
-    public static void a(int i, long j) {
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
+    public static a Cv() {
+        if (atc == null) {
+            synchronized (a.class) {
+                if (atc == null) {
+                    atc = new a();
+                }
+            }
+        }
+        return atc;
+    }
+
+    public static int Cy() {
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
+        if (context == null) {
+            return 30;
+        }
+        return context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getInt("reward_aggregation_max_per_day", 30);
+    }
+
+    public static long Cz() {
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
+        if (context == null) {
+            return IMLikeRequest.TIME_INTERVAL;
+        }
+        return context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("reward_aggregation_min_interval", IMLikeRequest.TIME_INTERVAL);
+    }
+
+    public static boolean Cw() {
+        List<com.kwad.sdk.core.request.model.f> cr = cr(15);
+        if (cr.size() == 0) {
+            return true;
+        }
+        long j = -1;
+        int i = 0;
+        for (com.kwad.sdk.core.request.model.f fVar : cr) {
+            i += fVar.count;
+            long j2 = fVar.ayM;
+            if (j2 > j) {
+                j = j2;
+            }
+        }
+        c.d("AdCounter", "onBind localCountCheck: allCount: " + i + ", lastShowTime: " + j);
+        if (i > Cy()) {
+            return false;
+        }
+        if (j + (Cz() * 1000) <= System.currentTimeMillis()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static List<com.kwad.sdk.core.request.model.f> Cx() {
+        if (((f) ServiceProvider.get(f.class)).getContext() == null) {
+            return null;
+        }
+        String string = getString("ksadsdk_local_ad_task_info_adstyle_data");
+        ArrayList<com.kwad.sdk.core.request.model.f> arrayList = new ArrayList();
+        try {
+            JSONArray jSONArray = new JSONArray(string);
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                com.kwad.sdk.core.request.model.f fVar = new com.kwad.sdk.core.request.model.f();
+                fVar.parseJson(jSONObject);
+                arrayList.add(fVar);
+            }
+        } catch (Exception unused) {
+        }
+        ArrayList arrayList2 = new ArrayList();
+        for (com.kwad.sdk.core.request.model.f fVar2 : arrayList) {
+            if (a(fVar2)) {
+                arrayList2.add(fVar2);
+            }
+        }
+        return arrayList2;
+    }
+
+    public static void O(String str, String str2) {
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
+        if (context == null) {
+            return;
+        }
+        context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).edit().putString(str, str2).apply();
+    }
+
+    public static void f(int i, long j) {
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
         if (context == null) {
             return;
         }
         context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).edit().putInt("reward_aggregation_max_per_day", i).putLong("reward_aggregation_min_interval", j).apply();
     }
 
-    public static boolean a(@NonNull f fVar) {
-        long j = fVar.acW;
+    public static boolean a(@NonNull com.kwad.sdk.core.request.model.f fVar) {
+        long j = fVar.ayM;
         if (j <= 0) {
             return false;
         }
-        return EB.format(new Date(j)).equals(EB.format(new Date()));
+        return Mj.format(new Date(j)).equals(Mj.format(new Date()));
+    }
+
+    public static void bF(AdTemplate adTemplate) {
+        if (adTemplate.watched) {
+            c.d("AdCounter", "startWatchAd this ad has been watched.");
+        } else {
+            bG(adTemplate);
+        }
     }
 
     @NonNull
-    public static List<f> aA(int i) {
+    public static List<com.kwad.sdk.core.request.model.f> cr(int i) {
         ArrayList arrayList = new ArrayList();
-        List<f> ts = ts();
-        if (ts != null && ts.size() != 0) {
-            for (f fVar : ts) {
+        List<com.kwad.sdk.core.request.model.f> Cx = Cx();
+        if (Cx != null && Cx.size() != 0) {
+            for (com.kwad.sdk.core.request.model.f fVar : Cx) {
                 if (15 == fVar.adStyle) {
                     arrayList.add(fVar);
                 }
@@ -51,112 +144,43 @@ public class a {
         return arrayList;
     }
 
-    public static void an(AdTemplate adTemplate) {
-        if (adTemplate.watched) {
-            b.d("AdCounter", "startWatchAd this ad has been watched.");
-        } else {
-            ao(adTemplate);
-        }
-    }
-
-    public static void ao(AdTemplate adTemplate) {
-        f fVar;
-        int bY = com.kwad.sdk.core.response.a.d.bY(adTemplate);
-        int bK = com.kwad.sdk.core.response.a.d.bK(adTemplate);
-        List ts = ts();
-        if (ts != null && ts.size() != 0) {
-            boolean z = false;
-            Iterator it = ts.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                f fVar2 = (f) it.next();
-                if (fVar2.adStyle == bK && fVar2.taskType == bY) {
-                    fVar2.count++;
-                    if (!a(fVar2)) {
-                        fVar2.count = 1;
-                        fVar2.G(System.currentTimeMillis());
-                    }
-                    z = true;
-                }
-            }
-            if (!z) {
-                fVar = new f(bK, bY, 1, System.currentTimeMillis());
-            }
-            y("ksadsdk_local_ad_task_info_adstyle_data", r.B(ts).toString());
-            adTemplate.watched = true;
-        }
-        ts = new ArrayList();
-        fVar = new f(bK, bY, 1, System.currentTimeMillis());
-        ts.add(fVar);
-        y("ksadsdk_local_ad_task_info_adstyle_data", r.B(ts).toString());
-        adTemplate.watched = true;
-    }
-
     public static String getString(String str) {
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
+        Context context = ((f) ServiceProvider.get(f.class)).getContext();
         if (context == null) {
             return null;
         }
         return context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getString(str, null);
     }
 
-    public static a tr() {
-        if (XK == null) {
-            synchronized (a.class) {
-                if (XK == null) {
-                    XK = new a();
+    public static void bG(AdTemplate adTemplate) {
+        int dX = e.dX(adTemplate);
+        int dJ = e.dJ(adTemplate);
+        List Cx = Cx();
+        if (Cx != null && Cx.size() != 0) {
+            boolean z = false;
+            Iterator it = Cx.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                com.kwad.sdk.core.request.model.f fVar = (com.kwad.sdk.core.request.model.f) it.next();
+                if (fVar.adStyle == dJ && fVar.taskType == dX) {
+                    fVar.count++;
+                    if (!a(fVar)) {
+                        fVar.count = 1;
+                        fVar.aj(System.currentTimeMillis());
+                    }
+                    z = true;
                 }
             }
-        }
-        return XK;
-    }
-
-    public static List<f> ts() {
-        if (((d) ServiceProvider.get(d.class)).getContext() == null) {
-            return null;
-        }
-        String string = getString("ksadsdk_local_ad_task_info_adstyle_data");
-        ArrayList<f> arrayList = new ArrayList();
-        try {
-            JSONArray jSONArray = new JSONArray(string);
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                f fVar = new f();
-                fVar.parseJson(jSONObject);
-                arrayList.add(fVar);
+            if (!z) {
+                Cx.add(new com.kwad.sdk.core.request.model.f(dJ, dX, 1, System.currentTimeMillis()));
             }
-        } catch (Exception unused) {
+        } else {
+            Cx = new ArrayList();
+            Cx.add(new com.kwad.sdk.core.request.model.f(dJ, dX, 1, System.currentTimeMillis()));
         }
-        ArrayList arrayList2 = new ArrayList();
-        for (f fVar2 : arrayList) {
-            if (a(fVar2)) {
-                arrayList2.add(fVar2);
-            }
-        }
-        return arrayList2;
-    }
-
-    public static int tt() {
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
-        if (context == null) {
-            return 30;
-        }
-        return context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getInt("reward_aggregation_max_per_day", 30);
-    }
-
-    public static long tu() {
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
-        return context == null ? IMLikeRequest.TIME_INTERVAL : context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("reward_aggregation_min_interval", IMLikeRequest.TIME_INTERVAL);
-    }
-
-    public static void y(String str, String str2) {
-        Context context = ((d) ServiceProvider.get(d.class)).getContext();
-        if (context == null) {
-            return;
-        }
-        context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).edit().putString(str, str2).apply();
+        O("ksadsdk_local_ad_task_info_adstyle_data", t.K(Cx).toString());
+        adTemplate.watched = true;
     }
 }

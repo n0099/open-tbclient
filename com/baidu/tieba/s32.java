@@ -1,20 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
+import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.v8engine.JsFunction;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.dp2;
+import com.baidu.tieba.er2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,33 +14,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
+import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class s32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static volatile s32 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public c82 a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public volatile boolean e;
 
     /* loaded from: classes8.dex */
-    public static class a implements IWebSocketListener {
+    public class a implements zd2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsFunction a;
-        public final /* synthetic */ JsFunction b;
-        public final /* synthetic */ JsFunction c;
-        public final /* synthetic */ JsFunction d;
+        public final /* synthetic */ er2 a;
+        public final /* synthetic */ d82 b;
+        public final /* synthetic */ os1 c;
+        public final /* synthetic */ dp2.g d;
+        public final /* synthetic */ s32 e;
 
-        public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
+        public a(s32 s32Var, er2 er2Var, d82 d82Var, os1 os1Var, dp2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jsFunction, jsFunction2, jsFunction3, jsFunction4};
+                Object[] objArr = {s32Var, er2Var, d82Var, os1Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,77 +55,267 @@ public class s32 {
                     return;
                 }
             }
-            this.a = jsFunction;
-            this.b = jsFunction2;
-            this.c = jsFunction3;
-            this.d = jsFunction4;
+            this.e = s32Var;
+            this.a = er2Var;
+            this.b = d82Var;
+            this.c = os1Var;
+            this.d = gVar;
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onClose(JSONObject jSONObject) {
-            String jSONObject2;
+        @Override // com.baidu.tieba.zd2
+        public void a(pd2 pd2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject == null) {
-                    jSONObject2 = "";
-                } else {
-                    jSONObject2 = jSONObject.toString();
+            if (interceptable == null || interceptable.invokeL(1048576, this, pd2Var) == null) {
+                this.e.d = true;
+                q32.e().f("loaddebug");
+                h32.k("LocalDebugger", "prepareDaemon finish.");
+                ig2 j = this.e.j(this.a);
+                this.e.t(j);
+                if (s32.f) {
+                    Log.d("LocalDebugger", "debugInitMsg - " + j.s().toString());
                 }
-                if (s32.a) {
-                    Log.d("WebSocketHelper", "onClose - " + jSONObject2);
+                this.e.n(this.b, this.c, this.a, this.d);
+                this.e.p(this.b, this.c, this.a, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d82 a;
+        public final /* synthetic */ os1 b;
+        public final /* synthetic */ er2 c;
+        public final /* synthetic */ dp2.g d;
+        public final /* synthetic */ s32 e;
+
+        public b(s32 s32Var, d82 d82Var, os1 os1Var, er2 er2Var, dp2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var, d82Var, os1Var, er2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                JsFunction jsFunction = this.c;
-                if (jsFunction != null) {
-                    jsFunction.call(jSONObject2);
+            }
+            this.e = s32Var;
+            this.a = d82Var;
+            this.b = os1Var;
+            this.c = er2Var;
+            this.d = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (s32.f) {
+                    Log.d("LocalDebugger", "master onReceiveValue: " + str);
+                }
+                this.e.b = true;
+                this.e.u(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d82 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public c(s32 s32Var, d82 d82Var, String str, ValueCallback valueCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var, d82Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d82Var;
+            this.b = str;
+            this.c = valueCallback;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e().evaluateJavascript(this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(s32 s32Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onError(Throwable th, JSONObject jSONObject) {
-            String jSONObject2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) {
-                if (jSONObject == null) {
-                    jSONObject2 = "";
-                } else {
-                    jSONObject2 = jSONObject.toString();
-                }
-                if (s32.a) {
-                    Log.d("WebSocketHelper", "onError throwable - " + th);
-                    Log.d("WebSocketHelper", "onError jsonObject - " + jSONObject2);
-                }
-                JsFunction jsFunction = this.d;
-                if (jsFunction != null) {
-                    jsFunction.call(s32.g(th));
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && s32.f) {
+                Log.d("LocalDebugger", "slave onReceiveValue: " + str);
             }
         }
+    }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(String str) {
-            JsFunction jsFunction;
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ os1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public e(s32 s32Var, os1 os1Var, String str, ValueCallback valueCallback) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (jsFunction = this.b) != null) {
-                jsFunction.call(s32.h(str));
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var, os1Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = os1Var;
+            this.b = str;
+            this.c = valueCallback;
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onOpen(Map<String, String> map) {
-            JsFunction jsFunction;
+        /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.ps1] */
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, map) == null) && (jsFunction = this.a) != null) {
-                jsFunction.call();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.getWebView().evaluateJavascript(this.b, this.c);
             }
         }
+    }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(ByteBuffer byteBuffer) {
-            JsFunction jsFunction;
+    /* loaded from: classes8.dex */
+    public class f implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d82 a;
+        public final /* synthetic */ os1 b;
+        public final /* synthetic */ er2 c;
+        public final /* synthetic */ dp2.g d;
+        public final /* synthetic */ s32 e;
+
+        public f(s32 s32Var, d82 d82Var, os1 os1Var, er2 er2Var, dp2.g gVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) && (jsFunction = this.b) != null) {
-                jsFunction.call(s32.h(byteBuffer));
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var, d82Var, os1Var, er2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = s32Var;
+            this.a = d82Var;
+            this.b = os1Var;
+            this.c = er2Var;
+            this.d = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (s32.f) {
+                    Log.d("LocalDebugger", "slave onReceiveValue: " + str);
+                }
+                this.e.c = true;
+                this.e.u(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d82 a;
+        public final /* synthetic */ os1 b;
+        public final /* synthetic */ er2 c;
+        public final /* synthetic */ dp2.g d;
+
+        public g(s32 s32Var, d82 d82Var, os1 os1Var, er2 er2Var, dp2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s32Var, d82Var, os1Var, er2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d82Var;
+            this.b = os1Var;
+            this.c = er2Var;
+            this.d = gVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                s93.a(this.a, this.b, this.c, this.d);
             }
         }
     }
@@ -146,224 +333,174 @@ public class s32 {
                 return;
             }
         }
-        a = rm1.a;
+        f = sm1.a;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    public s32() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return i(202, str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
     }
 
-    public static String d(JsObject jsObject) {
-        InterceptResult invokeL;
+    public static s32 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            oy1 G = oy1.G(jsObject);
-            if (G == null) {
-                return f("paramsMap is null");
-            }
-            String C = G.C("taskId");
-            int r = G.r("code");
-            String C2 = G.C("reason");
-            if (TextUtils.isEmpty(C)) {
-                return f("taskId is empty");
-            }
-            try {
-                WebSocketManager.INSTANCE.close(C, r, C2);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "close success", null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (obj != null) {
-                try {
-                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, String.valueOf(obj));
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (g == null) {
+                synchronized (s32.class) {
+                    if (g == null) {
+                        g = new s32();
                     }
                 }
             }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getOnErrorParam - " + jSONObject2);
-            }
-            return jSONObject2;
+            return g;
         }
-        return (String) invokeL.objValue;
+        return (s32) invokeV.objValue;
     }
 
-    public static String m(JsObject jsObject) {
+    public pd2 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c82 c82Var = this.a;
+            if (c82Var != null) {
+                return c82Var.a();
+            }
+            return null;
+        }
+        return (pd2) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            h32.k("LocalDebugger", "releaseLocalDebugger");
+            c82 c82Var = this.a;
+            if (c82Var != null) {
+                c82Var.b();
+                this.a = null;
+            }
+            g = null;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            h32.k("LocalDebugger", "resetMasterAndSlaveStatus");
+            this.e = true;
+            this.b = false;
+            this.c = false;
+        }
+    }
+
+    public final ig2 j(@NonNull er2<er2.a> er2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            oy1 G = oy1.G(jsObject);
-            if (G == null) {
-                return f("paramsMap is null");
-            }
-            String C = G.C("taskId");
-            String C2 = G.C("data");
-            if (TextUtils.isEmpty(C)) {
-                return f("taskId is empty");
-            }
-            try {
-                WebSocketManager.INSTANCE.send(C, C2);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "send success", null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            oy1 G = oy1.G(jsObject);
-            if (G == null) {
-                return f("paramsMap is null");
-            }
-            String C = G.C("url");
-            if (TextUtils.isEmpty(C)) {
-                return f("url is null");
-            }
-            oy1 x = G.x("header");
-            String[] E = G.E(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-            WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
-            builder.setUrl(C);
-            builder.setHeaders(k(x));
-            if (E != null && E.length > 0) {
-                builder.setProtocols(Arrays.asList(E));
-            }
-            WebSocketTask connect = WebSocketManager.INSTANCE.connect(builder.build(), l(G));
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("taskId", connect.getTaskId());
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "connect success", jSONObject);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (obj instanceof String) {
-                    jSONObject.put("dataType", EMABTest.TYPE_STRING);
-                    jSONObject.put("data", obj);
-                } else if (obj instanceof ByteBuffer) {
-                    jSONObject.put("dataType", "arrayBuffer");
-                    ByteBuffer byteBuffer = (ByteBuffer) obj;
-                    byte[] bArr = new byte[byteBuffer.remaining()];
-                    byteBuffer.get(bArr);
-                    jSONObject.put("data", Base64.encodeToString(bArr, 2));
-                }
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getOnMessageParam - " + jSONObject2);
-            }
-            return jSONObject2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(int i, String str, JSONObject jSONObject) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65545, null, i, str, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("reason", i);
-                jSONObject2.put("message", str);
-                if (jSONObject != null) {
-                    jSONObject2.put("data", jSONObject);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject3 = jSONObject2.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getResultMsg - " + jSONObject3);
-            }
-            return jSONObject3;
-        }
-        return (String) invokeILL.objValue;
-    }
-
-    public static JsFunction j(@NonNull oy1 oy1Var, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, oy1Var, str, z)) == null) {
-            JsFunction v = oy1Var.v(str);
-            if (v != null) {
-                v.setReleaseMode(z);
-            }
-            return v;
-        }
-        return (JsFunction) invokeLLZ.objValue;
-    }
-
-    public static Map<String, String> k(oy1 oy1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, oy1Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, er2Var)) == null) {
             HashMap hashMap = new HashMap();
-            if (oy1Var != null) {
-                for (String str : oy1Var.k()) {
-                    hashMap.put(str, oy1Var.C(str));
-                }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "debugInit");
+                jSONObject.put("host", er2Var.Y());
+                jSONObject.put("wsServerPort", er2Var.Z());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return hashMap;
+            hashMap.put("message", jSONObject.toString());
+            return new ig2("message", hashMap);
         }
-        return (Map) invokeL.objValue;
+        return (ig2) invokeL.objValue;
     }
 
-    public static IWebSocketListener l(@NonNull oy1 oy1Var) {
-        InterceptResult invokeL;
+    public final void n(d82 d82Var, os1<?> os1Var, er2<er2.a> er2Var, dp2.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, oy1Var)) == null) {
-            return new a(j(oy1Var, "onOpen", true), j(oy1Var, "onMessage", false), j(oy1Var, "onClose", true), j(oy1Var, GameAssistConstKt.TYPE_CALLBACK_ERROR, false));
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, d82Var, os1Var, er2Var, gVar) == null) {
+            if (d82Var != null && d82Var.e() != null) {
+                bk3.a0(new c(this, d82Var, km4.E(new File(o32.e())), new b(this, d82Var, os1Var, er2Var, gVar)));
+            } else {
+                h32.k("LocalDebugger", "loadMasterDebugJs - master or js container is null");
+            }
         }
-        return (IWebSocketListener) invokeL.objValue;
+    }
+
+    public void o(os1<?> os1Var, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, os1Var, valueCallback) == null) {
+            if (os1Var != null && os1Var.getWebView() != null) {
+                String E = km4.E(new File(o32.f()));
+                if (valueCallback == null) {
+                    valueCallback = new d(this);
+                }
+                bk3.a0(new e(this, os1Var, E, valueCallback));
+                return;
+            }
+            h32.k("LocalDebugger", "loadSlaveDebugJs - slave or WebView is null");
+        }
+    }
+
+    public final void p(d82 d82Var, os1<?> os1Var, er2<er2.a> er2Var, dp2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, d82Var, os1Var, er2Var, gVar) == null) {
+            o(os1Var, new f(this, d82Var, os1Var, er2Var, gVar));
+        }
+    }
+
+    public final synchronized void u(d82 d82Var, os1<?> os1Var, er2<er2.a> er2Var, dp2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048586, this, d82Var, os1Var, er2Var, gVar) == null) {
+            synchronized (this) {
+                if (this.b && this.c) {
+                    h32.k("LocalDebugger", "startFirstPage");
+                    bk3.a0(new g(this, d82Var, os1Var, er2Var, gVar));
+                }
+            }
+        }
+    }
+
+    public void q(d82 d82Var, os1<?> os1Var, er2<er2.a> er2Var, dp2.g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(1048582, this, d82Var, os1Var, er2Var, gVar) != null) || !bd2.V().r0()) {
+            return;
+        }
+        h32.k("LocalDebugger", "prepareDaemon start.");
+        if (this.e && this.d && this.a != null) {
+            n(d82Var, os1Var, er2Var, gVar);
+            p(d82Var, os1Var, er2Var, gVar);
+            return;
+        }
+        c82 d2 = bd2.V().g0().d();
+        this.a = d2;
+        d2.c(new a(this, er2Var, d82Var, os1Var, gVar));
+    }
+
+    public final void t(hg2 hg2Var) {
+        c82 c82Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, hg2Var) == null) && (c82Var = this.a) != null) {
+            dg2.a(c82Var.a(), hg2Var);
+        }
     }
 }

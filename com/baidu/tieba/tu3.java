@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes8.dex */
 public interface tu3 {
-    void e(View view2);
+    void a(String str);
+
+    void c(AdElementInfo adElementInfo);
 }

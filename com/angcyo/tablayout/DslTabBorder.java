@@ -10,9 +10,9 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
-import com.baidu.tieba.ee7;
 import com.baidu.tieba.j0;
 import com.baidu.tieba.r0;
+import com.baidu.tieba.re7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -258,7 +258,7 @@ public class DslTabBorder extends j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ee7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, re7.DslTabLayout);
             final int color = obtainStyledAttributes.getColor(31, w());
             I(obtainStyledAttributes.getColor(32, x()));
             J(obtainStyledAttributes.getDimensionPixelOffset(33, r0.i() * 2));

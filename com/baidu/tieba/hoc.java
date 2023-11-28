@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jjc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,48 +8,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import rx.internal.operators.NotificationLite;
-import rx.subjects.SubjectSubscriptionManager;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes6.dex */
-public final class hoc<T> extends koc<T, T> {
+public abstract class hoc {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SubjectSubscriptionManager<T> b;
+
+    public abstract a createWorker();
 
     /* loaded from: classes6.dex */
-    public static class a implements xjc<SubjectSubscriptionManager.c<T>> {
+    public static abstract class a implements loc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SubjectSubscriptionManager a;
 
-        public a(SubjectSubscriptionManager subjectSubscriptionManager) {
+        public abstract loc b(roc rocVar);
+
+        public abstract loc c(roc rocVar, long j, TimeUnit timeUnit);
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {subjectSubscriptionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = subjectSubscriptionManager;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xjc
-        /* renamed from: a */
-        public void call(SubjectSubscriptionManager.c<T> cVar) {
+        public long a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                cVar.b(this.a.getLatest());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.currentTimeMillis();
             }
+            return invokeV.longValue;
         }
     }
 
@@ -68,122 +63,38 @@ public final class hoc<T> extends koc<T, T> {
                 return;
             }
         }
-        c = new Object[0];
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
     }
 
-    public static <T> hoc<T> Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return S(null, false);
-        }
-        return (hoc) invokeV.objValue;
-    }
-
-    public T T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object latest = this.b.getLatest();
-            if (NotificationLite.h(latest)) {
-                return (T) NotificationLite.e(latest);
-            }
-            return null;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hoc(jjc.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
-        super(aVar);
+    public hoc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, subjectSubscriptionManager};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jjc.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = subjectSubscriptionManager;
     }
 
-    public static <T> hoc<T> R(T t) {
+    public long now() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
+        }
+        return invokeV.longValue;
+    }
+
+    public <S extends hoc & loc> S when(xoc<eoc<eoc<coc>>, coc> xocVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
-            return S(t, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xocVar)) == null) {
+            return new SchedulerWhen(xocVar, this);
         }
-        return (hoc) invokeL.objValue;
-    }
-
-    public static <T> hoc<T> S(T t, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, t, z)) == null) {
-            SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
-            if (z) {
-                subjectSubscriptionManager.setLatest(NotificationLite.i(t));
-            }
-            a aVar = new a(subjectSubscriptionManager);
-            subjectSubscriptionManager.onAdded = aVar;
-            subjectSubscriptionManager.onTerminated = aVar;
-            return new hoc<>(subjectSubscriptionManager, subjectSubscriptionManager);
-        }
-        return (hoc) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.kjc
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object b = NotificationLite.b();
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(b)) {
-                    cVar.d(b);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kjc
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object c2 = NotificationLite.c(th);
-                ArrayList arrayList = null;
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(c2)) {
-                    try {
-                        cVar.d(c2);
-                    } catch (Throwable th2) {
-                        if (arrayList == null) {
-                            arrayList = new ArrayList();
-                        }
-                        arrayList.add(th2);
-                    }
-                }
-                vjc.d(arrayList);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kjc
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object i = NotificationLite.i(t);
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.next(i)) {
-                    cVar.d(i);
-                }
-            }
-        }
+        return (S) ((hoc) invokeL.objValue);
     }
 }

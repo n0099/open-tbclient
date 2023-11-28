@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d75;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.mi8;
-import com.baidu.tieba.mr7;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.x65;
+import com.baidu.tieba.jl8;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.xt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public x65 f;
+    public d75 f;
     public BdUniqueId g;
-    public mr7 h;
+    public xt7 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -68,7 +68,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null && !qd.isEmpty(this.a.h.a.getUserName()) && !qd.isEmpty(this.a.h.a.getUserId())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null && !rd.isEmpty(this.a.h.a.getUserName()) && !rd.isEmpty(this.a.h.a.getUserId())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getView().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
             }
         }
@@ -96,18 +96,18 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eab);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f21);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eaa);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea8);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f20);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f1e);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091f1f);
         this.e = entelechyUserLikeButton;
-        x65 x65Var = new x65(tbPageContext, entelechyUserLikeButton);
-        this.f = x65Var;
-        x65Var.l("1");
-        this.f.k(bdUniqueId);
+        d75 d75Var = new d75(tbPageContext, entelechyUserLikeButton);
+        this.f = d75Var;
+        d75Var.k("1");
+        this.f.j(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(mi8 mi8Var) {
+    public void a(jl8 jl8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, mi8Var) != null) || !(mi8Var instanceof mr7)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jl8Var) != null) || !(jl8Var instanceof xt7)) {
             return;
         }
-        mr7 mr7Var = (mr7) mi8Var;
-        this.h = mr7Var;
-        if (StringUtils.isNull(mr7Var.a.getUserId())) {
+        xt7 xt7Var = (xt7) jl8Var;
+        this.h = xt7Var;
+        if (StringUtils.isNull(xt7Var.a.getUserId())) {
             return;
         }
         this.b.startLoad(this.h.a.getPortrait(), 28, false);
@@ -149,7 +149,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.d.setText(StringHelper.cutStringWithEllipsis(this.h.a.getGodUserData().getIntro(), 6));
         this.c.setText(cutStringWithEllipsis);
         getView().setOnClickListener(this.k);
-        this.f.m(this.h.a);
+        this.f.l(this.h.a);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

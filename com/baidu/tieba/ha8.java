@@ -1,143 +1,69 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.gu4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.zc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.squareup.wire.Message;
 /* loaded from: classes6.dex */
-public final class ha8 extends ga8 {
+public class ha8 implements xg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbWebView b;
-    public final a c;
+    public zc8.c a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947817098, "Lcom/baidu/tieba/ha8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947817098, "Lcom/baidu/tieba/ha8;");
+    @Override // com.baidu.tieba.xg9
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a implements gu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ha8 a;
-
-        @Override // com.baidu.tieba.gu4.d
-        public String getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "home.updateNativeTab" : (String) invokeV.objValue;
-        }
-
-        public a(ha8 ha8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ha8Var;
-        }
-
-        @Override // com.baidu.tieba.gu4.c
-        public void a(String data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                try {
-                    JSONObject jSONObject = new JSONObject(data);
-                    String tabCode = jSONObject.optString("tab_code");
-                    int optInt = jSONObject.optInt("index");
-                    pq6 b = nq6.b();
-                    Intrinsics.checkNotNullExpressionValue(tabCode, "tabCode");
-                    b.c(new x98(tabCode, optInt));
-                } catch (JSONException e) {
-                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    throw e;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gu4.e
-        public TbWebView b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.b;
-            }
-            return (TbWebView) invokeV.objValue;
-        }
-    }
-
-    public ha8() {
+    public ha8(zc8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.ga8
-    public void b() {
+    @Override // com.baidu.tieba.xg9
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d(0);
-            gu4.b.a().c(this.c);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            ia8 ia8Var = new ia8();
+            qg9 qg9Var = new qg9();
+            qg9Var.a = j;
+            qg9Var.b = str;
+            mg9 a = vg9.d().a(qg9Var);
+            if (a != null) {
+                a.b(z, message, z2, i);
+            }
+            ia8Var.b(a);
+            zc8.c cVar = this.a;
+            if (cVar != null) {
+                cVar.d(z, ia8Var, z2, "", str, true);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ga8
-    public void c() {
+    @Override // com.baidu.tieba.xg9
+    public void b(long j, String str, String str2, int i) {
+        zc8.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(0);
-            gu4.b.a().e(this.c);
-        }
-    }
-
-    public final void f(TbWebView tbWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbWebView) == null) {
-            this.b = tbWebView;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
+            cVar.b(str, str2, i, true, 1);
         }
     }
 }

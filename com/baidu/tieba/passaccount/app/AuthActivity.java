@@ -21,8 +21,8 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nt9;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -242,7 +242,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    public String m(String str) {
+    public String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -256,13 +256,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                xp9.f().b(z, str);
+                nt9.f().b(z, str);
             } else if (i == 1) {
-                xp9.f().e(z);
+                nt9.f().e(z);
             } else if (i == 2) {
-                xp9.f().c(z);
+                nt9.f().c(z);
             } else {
-                xp9.f().a(null);
+                nt9.f().a(null);
             }
             finish();
         }
@@ -299,7 +299,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    public final String k() {
+    public final String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -310,7 +310,7 @@ public class AuthActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("isnew", YYOption.IsLive.VALUE_TRUE));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.v, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.x, "UTF-8")));
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(m(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", "UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }
@@ -320,7 +320,7 @@ public class AuthActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
-    public final List<PassNameValuePair> l() {
+    public final List<PassNameValuePair> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -339,7 +339,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(m(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", "UTF-8")));
                 arrayList.add(new PassNameValuePair("adapter", "3"));
                 arrayList.add(new PassNameValuePair("banner", "1"));
                 arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -390,11 +390,11 @@ public class AuthActivity extends BaseActivity {
             if (i == 0) {
                 setTitleText("身份验证");
                 this.sapiWebView.setWebviewClientCallback(new c(this));
-                this.sapiWebView.loadUrl(k());
+                this.sapiWebView.loadUrl(j());
             } else if (i == 1) {
                 setTitleText(R.string.modify_pwd);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.w);
-                this.sapiWebView.loadUrl(n(), l());
+                this.sapiWebView.loadUrl(n(), k());
                 this.sapiWebView.setChangePwdCallback(new d(this));
             } else if (i == 2) {
                 setTitleText("绑定手机");

@@ -29,14 +29,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
         this.mRefreshingViewSizeInPixel = 0;
-        this.mRefreshingView = (RefreshingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f17);
+        this.mRefreshingView = (RefreshingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f8e);
         int dp2px = DeviceUtil.ScreenInfo.dp2px(getContext(), 29.0f);
         this.mRefreshingViewSizeInPixel = dp2px;
         this.mTriggerRefreshLength = (int) (dp2px * 2.4f);
         int i = (int) (dp2px * 1.5f);
         this.mRefreshingHeight = i;
         this.mScrollStartLength = i;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f14);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f8b);
         this.mRefreshOverTip = headerRefreshIndicator;
         headerRefreshIndicator.initIfNeed();
     }
@@ -83,7 +83,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d021f, viewGroup, false);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0225, viewGroup, false);
         this.mRootChild = inflate;
         return inflate;
     }
@@ -141,7 +141,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (z) {
             this.mRefreshingView.setAlpha(0.0f);
             if (TextUtils.isEmpty(str)) {
-                this.mRefreshOverTip.setText(getResources().getText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11be));
+                this.mRefreshOverTip.setText(getResources().getText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ce));
             } else {
                 this.mRefreshOverTip.setText(str);
             }

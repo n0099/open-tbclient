@@ -6,30 +6,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecommendBook;
+import tbclient.Esport;
+import tbclient.EsportRank;
+import tbclient.EsportStatic;
 /* loaded from: classes8.dex */
-public class uwc extends qoc {
+public class uwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecommendBook recommendBook) {
+    public static JSONObject b(@NonNull Esport esport) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendBook)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esport)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "type", recommendBook.type);
-            qoc.a(jSONObject, "book_id", recommendBook.book_id);
-            qoc.a(jSONObject, "title", recommendBook.title);
-            qoc.a(jSONObject, "image", recommendBook.image);
-            if (recommendBook.desc != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : recommendBook.desc) {
-                    jSONArray.put(str);
-                }
-                qoc.a(jSONObject, "desc", jSONArray);
+            EsportStatic esportStatic = esport._static;
+            if (esportStatic != null) {
+                ltc.a(jSONObject, "static", xwc.b(esportStatic));
             }
-            qoc.a(jSONObject, "link_url", recommendBook.link_url);
+            ltc.a(jSONObject, "floor_no", esport.floor_no);
+            if (esport.billboard != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (EsportRank esportRank : esport.billboard) {
+                    jSONArray.put(wwc.b(esportRank));
+                }
+                ltc.a(jSONObject, "billboard", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -49,7 +49,7 @@ public /* synthetic */ class SharePageBiz$requestCodeHandlers$1 extends Function
     public final void invoke2(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            ((SharePageBiz) this.receiver).o(intent);
+            ((SharePageBiz) this.receiver).m(intent);
         }
     }
 }

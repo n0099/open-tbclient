@@ -3,22 +3,22 @@ package com.baidu.nadcore.player.remote;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-import com.baidu.tieba.ww0;
+import com.baidu.tieba.xw0;
 /* loaded from: classes3.dex */
 public class BDRemotePlayerService extends RemotePlayerService {
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getKernelNetHandle() {
-        return ww0.c.a().getNetHandle();
+        return xw0.c.a().getNetHandle();
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
-        return ww0.c.a().getNetHandle();
+        return xw0.c.a().getNetHandle();
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
     public IBinder onBind(Intent intent) {
-        ww0.c.a().a(this);
+        xw0.c.a().a(this);
         return super.onBind(intent);
     }
 }

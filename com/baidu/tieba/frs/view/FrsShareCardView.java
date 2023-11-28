@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return qd.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f0787);
+            return rd.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f078f);
         }
         return (String) invokeL.objValue;
     }
@@ -129,7 +129,7 @@ public class FrsShareCardView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return qd.charSequence2String(editText.getText(), null);
+            return rd.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }

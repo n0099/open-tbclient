@@ -12,9 +12,9 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emui_color_gray_1 = 0x7f060743;
-        public static final int emui_color_gray_10 = 0x7f060744;
-        public static final int emui_color_gray_7 = 0x7f060745;
+        public static final int emui_color_gray_1 = 0x7f060745;
+        public static final int emui_color_gray_10 = 0x7f060746;
+        public static final int emui_color_gray_7 = 0x7f060747;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090a43;
+        public static final int enable_service_text = 0x7f090a61;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -77,14 +77,14 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f09f2;
-        public static final int hms_bindfaildlg_message = 0x7f0f09f3;
-        public static final int hms_bindfaildlg_title = 0x7f0f09f4;
-        public static final int hms_confirm = 0x7f0f09f5;
-        public static final int hms_is_spoof = 0x7f0f09f6;
-        public static final int hms_spoof_hints = 0x7f0f09fa;
-        public static final int push_cat_body = 0x7f0f11cc;
-        public static final int push_cat_head = 0x7f0f11cd;
+        public static final int hms_apk_not_installed_hints = 0x7f0f09fc;
+        public static final int hms_bindfaildlg_message = 0x7f0f09fd;
+        public static final int hms_bindfaildlg_title = 0x7f0f09fe;
+        public static final int hms_confirm = 0x7f0f09ff;
+        public static final int hms_is_spoof = 0x7f0f0a00;
+        public static final int hms_spoof_hints = 0x7f0f0a04;
+        public static final int push_cat_body = 0x7f0f11dc;
+        public static final int push_cat_head = 0x7f0f11dd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

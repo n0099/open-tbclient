@@ -1,31 +1,29 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ComponentFactory;
-import tbclient.FrsTopThreadCardLayout;
+import tbclient.FeedVideoComponent;
+import tbclient.VideoField;
 /* loaded from: classes6.dex */
-public class gyc extends qoc {
+public class gyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsTopThreadCardLayout frsTopThreadCardLayout) {
+    public static JSONObject b(@NonNull FeedVideoComponent feedVideoComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTopThreadCardLayout)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedVideoComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (frsTopThreadCardLayout.components != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ComponentFactory componentFactory : frsTopThreadCardLayout.components) {
-                    jSONArray.put(erc.b(componentFactory));
-                }
-                qoc.a(jSONObject, "components", jSONArray);
+            VideoField videoField = feedVideoComponent.video_info;
+            if (videoField != null) {
+                ltc.a(jSONObject, WriteActivityConfig.VIDEO_INFO, cbd.b(videoField));
             }
+            ltc.a(jSONObject, "schema", feedVideoComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

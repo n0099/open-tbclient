@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.ebd;
-import com.baidu.tieba.n9d;
-import com.baidu.tieba.r9d;
-import com.baidu.tieba.yad;
+import com.baidu.tieba.cgd;
+import com.baidu.tieba.igd;
+import com.baidu.tieba.red;
+import com.baidu.tieba.ved;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes2.dex */
-public interface IYYPayResultView extends yad {
+public interface IYYPayResultView extends cgd {
 
     /* loaded from: classes2.dex */
     public enum Result {
@@ -22,7 +22,7 @@ public interface IYYPayResultView extends yad {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(n9d n9dVar);
+        void a(red redVar);
 
         void b();
 
@@ -60,12 +60,12 @@ public interface IYYPayResultView extends yad {
         public AbsViewEventHandler b;
         public WindowParams c;
         public List<SplitRecordItem> d;
-        public n9d e;
+        public red e;
         public PayFlowType f;
-        public r9d g;
+        public ved g;
         public IPayCallback<CurrencyChargeMessage> h;
         public boolean i;
-        public ebd.b j;
+        public igd.b j;
         public String k;
         public PayCallBackBean l;
 

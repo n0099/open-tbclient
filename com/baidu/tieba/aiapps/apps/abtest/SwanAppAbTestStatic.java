@@ -42,17 +42,17 @@ import com.baidu.tbadk.mutiprocess.ResponsedEventListener;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a66;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
-import com.baidu.tieba.ch;
+import com.baidu.tieba.b66;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.js3;
-import com.baidu.tieba.lf3;
-import com.baidu.tieba.po4;
-import com.baidu.tieba.r56;
-import com.baidu.tieba.s56;
-import com.baidu.tieba.sm1;
-import com.baidu.tieba.t56;
-import com.baidu.tieba.ue3;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ks3;
+import com.baidu.tieba.mf3;
+import com.baidu.tieba.qo4;
+import com.baidu.tieba.tm1;
+import com.baidu.tieba.ve3;
+import com.baidu.tieba.z56;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -129,12 +129,12 @@ public class SwanAppAbTestStatic {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    ue3.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                    ue3.a().putString("bd_box_uid", getUserInfoResult.uid);
-                    ue3.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                    ue3.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                    ue3.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    t56.k().w(getUserInfoResult);
+                    ve3.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                    ve3.a().putString("bd_box_uid", getUserInfoResult.uid);
+                    ve3.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                    ve3.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                    ve3.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                    b66.k().w(getUserInfoResult);
                 }
             }
         }
@@ -170,7 +170,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    t56.k().w(null);
+                    b66.k().w(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -197,7 +197,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.dm5
+        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.lm5
         /* renamed from: g */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -206,9 +206,9 @@ public class SwanAppAbTestStatic {
                 if (privacyPolicyEvent == null) {
                     return true;
                 }
-                r56.a();
+                z56.a();
                 if (!TextUtils.isEmpty(SwanAppAbTestStatic.a) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    js3.a(SwanAppAbTestStatic.a);
+                    ks3.a(SwanAppAbTestStatic.a);
                     SwanAppAbTestStatic.a = null;
                 }
                 return true;
@@ -248,7 +248,7 @@ public class SwanAppAbTestStatic {
                     }
                     String data = customMessage.getData();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        r56.a();
+                        z56.a();
                         SwanAppAbTestStatic.b(data);
                     }
                 }
@@ -288,7 +288,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity currentActivity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof po4) && (a = s56.a((po4) customResponsedMessage.getData())) != null && (currentActivity = BdActivityStack.getInst().currentActivity()) != null && currentActivity.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof qo4) && (a = a66.a((qo4) customResponsedMessage.getData())) != null && (currentActivity = BdActivityStack.getInst().currentActivity()) != null && currentActivity.getWindow() != null) {
                 try {
                     a.showAtLocation(currentActivity.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -389,8 +389,8 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                long f = lf3.f(0);
-                long f2 = lf3.f(1);
+                long f = mf3.f(0);
+                long f2 = mf3.f(1);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f));
                 TbadkCoreApplication.getInst().setNaws_game_ver(Long.toString(f2));
                 return null;
@@ -424,8 +424,8 @@ public class SwanAppAbTestStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (TbadkCoreApplication.getInst().getNaws_game_ver() == null) {
-                    long f = lf3.f(0);
-                    long f2 = lf3.f(1);
+                    long f = mf3.f(0);
+                    long f2 = mf3.f(1);
                     TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f));
                     TbadkCoreApplication.getInst().setNaws_game_ver(Long.toString(f2));
                     return null;
@@ -457,7 +457,7 @@ public class SwanAppAbTestStatic {
         MessageManager.getInstance().registerListener(new c(2921377));
         UrlManager.getInstance().addListener(new d());
         TbadkCoreApplication.getInst().RegisterIntent(AiAppGuideActivityConfig.class, AiAppGuideActivity.class);
-        TbadkCoreApplication.getInst().setSdk_ver(sm1.a());
+        TbadkCoreApplication.getInst().setSdk_ver(tm1.a());
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_BROWSE_HISTORY));
         MessageManager.getInstance().registerListener(new e(2921410));
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2921669, new f());
@@ -495,9 +495,9 @@ public class SwanAppAbTestStatic {
             UtilHelper.checkAiAppGuideResource();
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(dh.a);
+                requestParams.setRunType(eh.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new ch("com.baidu.tieba.soloader.libbaidumap", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new dh("com.baidu.tieba.soloader.libbaidumap", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START);

@@ -1,41 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.RectF;
-import android.os.Build;
-import android.view.View;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class b5b {
+public class b5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static final boolean d(View view2) {
+    public static byte[] a(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return view2.isAttachedToWindow();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            if (view2.getWindowToken() != null) {
-                return true;
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
             }
-            return false;
+            return sb.toString().getBytes();
         }
-        return invokeL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static final RectF c(View view2) {
+    public static byte[] b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            int[] iArr = {0, 0};
-            view2.getLocationOnScreen(iArr);
-            return new RectF(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
         }
-        return (RectF) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            cb cbVar = new cb();
+            cbVar.b().s(str);
+            cbVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
+            cbVar.b().c("", bArr);
+            new ab(cbVar).m(3, -1, -1);
+            int i = cbVar.c().b;
+            byte[] bArr2 = cbVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
+            try {
+                if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject("error").optInt("errno") != 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

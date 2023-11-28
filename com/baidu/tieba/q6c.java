@@ -1,78 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes7.dex */
-public class q6c {
+public class q6c extends w6c {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ z5c c;
+    public final /* synthetic */ n6c d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045227, "Lcom/baidu/tieba/q6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948045227, "Lcom/baidu/tieba/q6c;");
+    public q6c(n6c n6cVar, z5c z5cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n6cVar, z5cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
+        this.d = n6cVar;
+        this.c = z5cVar;
     }
 
-    public static byte[] a(char[] cArr) {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if ((cArr.length & 1) == 0) {
-                byte[] bArr = new byte[cArr.length >> 1];
-                int i = 0;
-                int i2 = 0;
-                while (i < cArr.length) {
-                    int digit = Character.digit(cArr[i], 16);
-                    if (digit == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
-                    }
-                    int i3 = i + 1;
-                    int digit2 = Character.digit(cArr[i3], 16);
-                    if (digit2 == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
-                    }
-                    i = i3 + 1;
-                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
-                    i2++;
-                }
-                return bArr;
-            }
-            throw new IllegalArgumentException("Odd number of characters.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b >> 4) & 15]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((n6c) this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((n6c) this.c, this.a, new String[0]);
+            this.a = true;
+        }
     }
 }

@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysItem, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d0);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092655);
         }
     }
 
@@ -81,7 +81,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysItem, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d09b2, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d09cc, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }

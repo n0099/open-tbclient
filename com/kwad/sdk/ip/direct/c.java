@@ -4,10 +4,10 @@ public final class c implements Comparable<c> {
     public String ip;
     public boolean success;
     public int weight;
-    public float ajf = -1.0f;
-    public int ajk = 20;
-    public int ajj = 3;
-    public StringBuffer ajl = new StringBuffer();
+    public float aHB = -1.0f;
+    public int aHH = 20;
+    public int aHG = 3;
+    public StringBuffer aHI = new StringBuffer();
 
     public c(String str) {
         this.ip = str;
@@ -18,19 +18,27 @@ public final class c implements Comparable<c> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(c cVar) {
-        return (int) (this.ajf - cVar.ajf);
+        return (int) (this.aHB - cVar.aHB);
     }
 
-    public final void aU(boolean z) {
+    public final void bB(boolean z) {
         this.success = z;
     }
 
-    public final void bf(int i) {
+    public final void dd(int i) {
         this.weight = i;
     }
 
-    public final void g(float f) {
-        this.ajf = f;
+    public final void i(float f) {
+        this.aHB = f;
+    }
+
+    public final int HH() {
+        return this.aHG;
+    }
+
+    public final float HI() {
+        return this.aHB;
     }
 
     public final String getIp() {
@@ -46,14 +54,6 @@ public final class c implements Comparable<c> {
     }
 
     public final String toString() {
-        return "PingNetEntity{ip='" + this.ip + "', pingCount=" + this.ajj + ", pingWaitTime=" + this.ajk + ", pingTime='" + this.ajf + " ms', success=" + this.success + '}';
-    }
-
-    public final int xN() {
-        return this.ajj;
-    }
-
-    public final float xO() {
-        return this.ajf;
+        return "PingNetEntity{ip='" + this.ip + "', pingCount=" + this.aHG + ", pingWaitTime=" + this.aHH + ", pingTime='" + this.aHB + " ms', success=" + this.success + '}';
     }
 }

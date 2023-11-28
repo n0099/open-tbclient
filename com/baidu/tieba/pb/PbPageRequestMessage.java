@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.nea;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.fja;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -193,6 +193,7 @@ public class PbPageRequestMessage extends NetMessage {
                 return;
             }
         }
+        this.thread_type = 0;
         this.isFromPbOptimize = false;
         this.isSubPostDataReverse = false;
         this.isJumpFloor = false;
@@ -283,7 +284,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.ori_ugc_tid = this.oriUgcTid;
                 builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
                 builder.ori_ugc_vid = this.oriUgcVid;
-                builder.ad_context_list = nea.f().d("PB");
+                builder.ad_context_list = fja.f().d("PB");
                 builder.up_schema = this.mSchemeUrl;
                 builder.from_push = Integer.valueOf(this.from_push);
                 AdExtParam.a b = AdExtParam.a.b();
@@ -292,7 +293,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.source_type = Integer.valueOf(this.sourceType);
                 NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
-                builder.app_transmit_data = ps5.b();
+                builder.app_transmit_data = xs5.b();
                 if (!this.isReqFoldComment) {
                     i3 = 0;
                 }
@@ -439,276 +440,276 @@ public class PbPageRequestMessage extends NetMessage {
         }
     }
 
+    public void setNeedIsTopAndIsGood(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, num) == null) {
+            this.thread_type = num;
+        }
+    }
+
     public void setNeedRepostRecommendForum(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.needRepostRecommendForum = Integer.valueOf(z ? 1 : 0);
         }
     }
 
     public void setObjLocate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.mObjLocate = str;
         }
     }
 
     public void setObjParam1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.objParam1 = str;
         }
     }
 
     public void setOfficialBarMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
             this.officialBarMsgId = j;
         }
     }
 
     public void setOpMessageID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
             this.opMessageID = j;
         }
     }
 
     public void setOpStat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.opStat = i;
         }
     }
 
     public void setOpType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
             this.opType = str;
         }
     }
 
     public void setOpUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.opUrl = str;
         }
     }
 
     public void setOriUgcNid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.oriUgcNid = str;
         }
     }
 
     public void setOriUgcTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.oriUgcTid = str;
         }
     }
 
     public void setOriUgcType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.oriUgcType = i;
         }
     }
 
     public void setOriUgcVid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             this.oriUgcVid = str;
         }
     }
 
     public void setQuery(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             this.mQuery = str;
         }
     }
 
     public void setRefreshCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             this.refreshCount = i;
         }
     }
 
     public void setReqFoldComment(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
             this.isReqFoldComment = z;
         }
     }
 
     public void setRequestTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             this.requestTime = i;
         }
     }
 
     public void setSchemeUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
             this.mSchemeUrl = str;
         }
     }
 
     public void setSimilarFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             this.mSimilarFrom = i;
         }
     }
 
     public void setSourceType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.sourceType = i;
         }
     }
 
     public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
             this.updateType = i;
         }
     }
 
     public void set_arround(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, num) == null) {
             this.arround = num;
         }
     }
 
     public void set_back(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, num) == null) {
             this.back = num;
         }
     }
 
     public void set_banner(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, num) == null) {
             this.banner = num;
         }
     }
 
     public void set_kz(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048626, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
             this.kz = j;
         }
     }
 
     public void set_last(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, num) == null) {
             this.last = num;
         }
     }
 
     public void set_lz(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, num) == null) {
             this.lz = num;
         }
     }
 
     public void set_mark(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, num) == null) {
             this.mark = num;
         }
     }
 
     public void set_message_click(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
             this.message_click = str;
         }
     }
 
     public void set_message_id(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, num) == null) {
             this.message_id = num;
         }
     }
 
     public void set_pid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
             this.pid = j;
         }
     }
 
     public void set_pn(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, num) == null) {
             this.pn = num;
         }
     }
 
     public void set_q_type(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, num) == null) {
             this.q_type = num;
         }
     }
 
     public void set_r(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, num) == null) {
             this.r = num;
         }
     }
 
     public void set_rn(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, num) == null) {
             this.rn = num;
         }
     }
 
     public void set_scr_dip(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Double.valueOf(d)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Double.valueOf(d)}) == null) {
             this.scr_dip = d;
         }
     }
 
     public void set_scr_h(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048639, this, num) == null) {
             this.scr_h = num;
         }
     }
 
     public void set_scr_w(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048640, this, num) == null) {
             this.scr_w = num;
         }
     }
 
     public void set_st_type(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             this.st_type = str;
-        }
-    }
-
-    public void set_thread_type(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, num) == null) {
-            this.thread_type = num;
         }
     }
 

@@ -11,17 +11,17 @@ import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be0;
-import com.baidu.tieba.bm0;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.ef0;
-import com.baidu.tieba.ly0;
-import com.baidu.tieba.o21;
-import com.baidu.tieba.ol0;
+import com.baidu.tieba.am0;
+import com.baidu.tieba.ce0;
+import com.baidu.tieba.cm0;
+import com.baidu.tieba.em0;
+import com.baidu.tieba.ff0;
+import com.baidu.tieba.my0;
+import com.baidu.tieba.p21;
 import com.baidu.tieba.pl0;
-import com.baidu.tieba.pn0;
-import com.baidu.tieba.tl0;
-import com.baidu.tieba.wl0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.qn0;
+import com.baidu.tieba.ul0;
 import com.baidu.tieba.xl0;
 import com.baidu.tieba.yl0;
 import com.baidu.tieba.zl0;
@@ -35,7 +35,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ArrowGuideComponent extends AbsComponentPlugin {
     public AdVideoImmersiveTipsView d;
     public boolean e;
-    public pn0 f;
+    public qn0 f;
 
     /* loaded from: classes3.dex */
     public static final class a implements View.OnClickListener {
@@ -44,23 +44,23 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            bm0 bm0Var = (bm0) ArrowGuideComponent.this.g().q(bm0.class);
-            if (bm0Var != null && bm0Var.j()) {
-                zl0 zl0Var = (zl0) ArrowGuideComponent.this.g().q(zl0.class);
-                if (zl0Var != null) {
-                    zl0Var.i(false, true, false);
+            cm0 cm0Var = (cm0) ArrowGuideComponent.this.f().q(cm0.class);
+            if (cm0Var != null && cm0Var.j()) {
+                am0 am0Var = (am0) ArrowGuideComponent.this.f().q(am0.class);
+                if (am0Var != null) {
+                    am0Var.i(false, true, false);
                 }
             } else {
-                zl0 zl0Var2 = (zl0) ArrowGuideComponent.this.g().q(zl0.class);
-                if (zl0Var2 != null) {
-                    zl0Var2.i(true, true, false);
+                am0 am0Var2 = (am0) ArrowGuideComponent.this.f().q(am0.class);
+                if (am0Var2 != null) {
+                    am0Var2.i(true, true, false);
                 }
             }
-            yl0 yl0Var = (yl0) ArrowGuideComponent.this.g().q(yl0.class);
-            if (yl0Var != null) {
+            zl0 zl0Var = (zl0) ArrowGuideComponent.this.f().q(zl0.class);
+            if (zl0Var != null) {
                 String str = ClogBuilder.LogType.FREE_CLICK.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                yl0Var.a(str, "learnmore");
+                zl0Var.a(str, "learnmore");
             }
         }
     }
@@ -78,8 +78,8 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
-        o21 animTimer;
-        o21 countDownTimer;
+        p21 animTimer;
+        p21 countDownTimer;
         super.onPause();
         AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
         if (adVideoImmersiveTipsView != null && (countDownTimer = adVideoImmersiveTipsView.getCountDownTimer()) != null) {
@@ -97,7 +97,7 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
         AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
         if (adVideoImmersiveTipsView != null) {
             adVideoImmersiveTipsView.j();
-            be0.g(adVideoImmersiveTipsView);
+            ce0.g(adVideoImmersiveTipsView);
         }
         this.d = null;
     }
@@ -131,15 +131,15 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.f = pn0.v.a(ly0.c(str2));
+            this.f = qn0.v.a(my0.c(str2));
         }
     }
 
-    public final void l(pl0 pl0Var) {
-        o21 animTimer;
-        o21 countDownTimer;
-        o21 animTimer2;
-        int i = dm0.$EnumSwitchMapping$0[pl0Var.b().ordinal()];
+    public final void k(ql0 ql0Var) {
+        p21 animTimer;
+        p21 countDownTimer;
+        p21 animTimer2;
+        int i = em0.$EnumSwitchMapping$0[ql0Var.b().ordinal()];
         if (i != 1) {
             if (i == 2) {
                 AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
@@ -173,26 +173,26 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void o(int i, int i2) {
-        bm0 bm0Var;
+    public final void m(int i, int i2) {
+        cm0 cm0Var;
         int i3;
         int i4;
         int i5;
-        zl0 zl0Var = (zl0) g().q(zl0.class);
-        if (zl0Var != null && (bm0Var = (bm0) g().q(bm0.class)) != null) {
-            if (!zl0Var.g()) {
-                pn0 pn0Var = this.f;
-                if (pn0Var != null) {
-                    i3 = pn0Var.a();
+        am0 am0Var = (am0) f().q(am0.class);
+        if (am0Var != null && (cm0Var = (cm0) f().q(cm0.class)) != null) {
+            if (!am0Var.g()) {
+                qn0 qn0Var = this.f;
+                if (qn0Var != null) {
+                    i3 = qn0Var.a();
                 } else {
                     i3 = 0;
                 }
                 if (i3 > 0) {
                     if (!this.e) {
-                        int k = bm0Var.k();
-                        pn0 pn0Var2 = this.f;
-                        if (pn0Var2 != null) {
-                            i4 = pn0Var2.a();
+                        int k = cm0Var.k();
+                        qn0 qn0Var2 = this.f;
+                        if (qn0Var2 != null) {
+                            i4 = qn0Var2.a();
                         } else {
                             i4 = -1;
                         }
@@ -218,12 +218,12 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        o21 animTimer;
-        o21 animTimer2;
-        o21 countDownTimer;
+        p21 animTimer;
+        p21 animTimer2;
+        p21 countDownTimer;
         super.onResume();
-        bm0 bm0Var = (bm0) g().q(bm0.class);
-        if (bm0Var != null && bm0Var.j()) {
+        cm0 cm0Var = (cm0) f().q(cm0.class);
+        if (cm0Var != null && cm0Var.j()) {
             AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
             if (adVideoImmersiveTipsView != null && (countDownTimer = adVideoImmersiveTipsView.getCountDownTimer()) != null) {
                 countDownTimer.c();
@@ -246,12 +246,12 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     public final void q() {
-        zl0 zl0Var;
+        am0 am0Var;
         WebViewContainer b2;
         int i;
-        pn0 pn0Var = this.f;
-        if ((pn0Var == null || !pn0Var.t()) && this.d == null && (zl0Var = (zl0) g().q(zl0.class)) != null && (b2 = zl0Var.b()) != null) {
-            wl0 a2 = xl0.a();
+        qn0 qn0Var = this.f;
+        if ((qn0Var == null || !qn0Var.t()) && this.d == null && (am0Var = (am0) f().q(am0.class)) != null && (b2 = am0Var.b()) != null) {
+            xl0 a2 = yl0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.a();
             int i2 = -1;
@@ -260,13 +260,13 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
             AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.max_bottom_tip);
             if (adVideoImmersiveTipsView != null) {
                 adVideoImmersiveTipsView.setOutClickListener(new a());
-                pn0 pn0Var2 = this.f;
-                if (pn0Var2 != null) {
-                    i2 = pn0Var2.j();
+                qn0 qn0Var2 = this.f;
+                if (qn0Var2 != null) {
+                    i2 = qn0Var2.j();
                 }
-                pn0 pn0Var3 = this.f;
-                if (pn0Var3 != null) {
-                    i = pn0Var3.k();
+                qn0 qn0Var3 = this.f;
+                if (qn0Var3 != null) {
+                    i = qn0Var3.k();
                 } else {
                     i = 0;
                 }
@@ -280,27 +280,27 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void s(ef0 event) {
-        ol0 ol0Var;
+    public void s(ff0 event) {
+        pl0 pl0Var;
         Intrinsics.checkNotNullParameter(event, "event");
         super.s(event);
         String a2 = event.a();
-        if (Intrinsics.areEqual(a2, tl0.class.getSimpleName())) {
-            if (!(event instanceof tl0)) {
+        if (Intrinsics.areEqual(a2, ul0.class.getSimpleName())) {
+            if (!(event instanceof ul0)) {
                 event = null;
             }
-            tl0 tl0Var = (tl0) event;
-            if (tl0Var != null) {
-                o(tl0Var.c(), tl0Var.b());
+            ul0 ul0Var = (ul0) event;
+            if (ul0Var != null) {
+                m(ul0Var.c(), ul0Var.b());
             }
+        } else if (Intrinsics.areEqual(a2, ql0.class.getSimpleName())) {
+            k((ql0) event);
         } else if (Intrinsics.areEqual(a2, pl0.class.getSimpleName())) {
-            l((pl0) event);
-        } else if (Intrinsics.areEqual(a2, ol0.class.getSimpleName())) {
-            if (!(event instanceof ol0)) {
+            if (!(event instanceof pl0)) {
                 event = null;
             }
-            if (((ol0) event) != null) {
-                float c = ol0Var.c() / (ol0Var.d() - ol0Var.b());
+            if (((pl0) event) != null) {
+                float c = pl0Var.c() / (pl0Var.d() - pl0Var.b());
                 AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
                 if (adVideoImmersiveTipsView != null) {
                     adVideoImmersiveTipsView.i(c);

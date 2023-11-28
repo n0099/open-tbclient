@@ -14,7 +14,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import java.lang.reflect.Constructor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StaticLayoutBuilderCompat {
     public static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
     public static final String TEXT_DIR_CLASS = "android.text.TextDirectionHeuristic";
@@ -37,7 +37,7 @@ public final class StaticLayoutBuilderCompat {
     @Nullable
     public TextUtils.TruncateAt ellipsize = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class StaticLayoutBuilderCompatException extends Exception {
         public StaticLayoutBuilderCompatException(Throwable th) {
             super("Error thrown initializing StaticLayout " + th.getMessage(), th);

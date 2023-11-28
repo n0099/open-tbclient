@@ -1,15 +1,15 @@
 package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
-import com.baidu.tieba.pf9;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.fj9;
+import com.baidu.tieba.kma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class YYCustomerServiceDispatcher implements rha {
+public class YYCustomerServiceDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "bdtiebalive://video/yylive/customerservice";
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,11 +28,11 @@ public class YYCustomerServiceDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            pf9.j().E(context, PREFIX);
+            fj9.j().E(context, PREFIX);
         }
     }
 }

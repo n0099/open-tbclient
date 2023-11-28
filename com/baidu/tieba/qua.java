@@ -1,35 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.mainentrance.MainEntrance;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashSet;
 /* loaded from: classes8.dex */
 public class qua {
     public static /* synthetic */ Interceptable $ic;
+    public static qua g;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public final pua a;
+    public int b;
+    public SparseArray<HashSet<String>> c;
+    public c d;
+    public Handler e;
+    public CustomMessageListener f;
 
-    public qua(TbPageContext tbPageContext) {
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qua quaVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {quaVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            c cVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 5) {
+                    Object obj = message.obj;
+                    if ((obj instanceof c) && (cVar = (c) obj) != null) {
+                        cVar.d = false;
+                        cVar.a = false;
+                        cVar.b = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qua a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(qua quaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {quaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = quaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
+            }
+            if (this.a.c != null) {
+                this.a.c.clear();
+            }
+            this.a.a.g();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+        public long c;
+        public boolean d;
+
+        public c(qua quaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {quaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+            this.b = 0;
+            this.c = 0L;
+            this.d = false;
+        }
+
+        public /* synthetic */ c(qua quaVar, a aVar) {
+            this(quaVar);
+        }
+    }
+
+    public qua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,61 +166,151 @@ public class qua {
                 return;
             }
         }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
+        this.e = new a(this, Looper.getMainLooper());
+        this.f = new b(this, 2005016);
+        this.b = SharedPrefHelper.getInstance().getInt("card_show_statistic_max_count", 200);
+        this.a = new pua();
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public void a(Intent intent, mua muaVar) {
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, muaVar) != null) || intent == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == null) {
+                this.d = new c(this, null);
+            }
+            if (this.d.d) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            c cVar = this.d;
+            if (cVar.a) {
+                int i = cVar.b + 1;
+                cVar.b = i;
+                if (currentTimeMillis - cVar.c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                    if (i >= this.b) {
+                        cVar.d = true;
+                        f(cVar);
+                        return true;
+                    }
+                } else {
+                    cVar.a = false;
+                    cVar.b = 0;
+                }
+            } else {
+                cVar.a = true;
+                cVar.c = currentTimeMillis;
+            }
+            return false;
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.des_page_home_recommend);
-            oy4 oy4Var = new oy4();
-            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
-            int i = 1;
-            if (matcher.find()) {
-                oy4Var.c = matcher.group(1);
+        return invokeV.booleanValue;
+    }
+
+    public final void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            Message obtainMessage = this.e.obtainMessage();
+            obtainMessage.what = 5;
+            obtainMessage.obj = cVar;
+            this.e.removeMessages(5);
+            this.e.sendMessageDelayed(obtainMessage, 300000L);
+        }
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            BdUtilHelper.checkMainThread();
+            if (bdUniqueId == null) {
+                return;
             }
-            if (stringExtra.equals(string)) {
-                oy4Var.a = 1;
-            } else {
-                oy4Var.a = 2;
-                oy4Var.b = stringExtra;
+            this.a.f(bdUniqueId);
+        }
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        SparseArray<HashSet<String>> sparseArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) && (sparseArray = this.c) != null) {
+            sparseArray.remove(bdUniqueId.getId());
+        }
+    }
+
+    public void k(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            BdUtilHelper.checkMainThread();
+            if (bdUniqueId == null) {
+                return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, oy4Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra(MainEntrance.GO_SUB_TYPE, 1);
-                i = 2;
-            } else {
-                intent.putExtra(MainEntrance.GO_SUB_TYPE, stringExtra);
-            }
-            if (muaVar != null && muaVar.A() != null) {
-                muaVar.A().setCurrentTabByType(i);
-                FragmentTabHost.c h = muaVar.A().h(i);
-                if (h != null) {
-                    Fragment fragment = h.c;
-                    if (fragment instanceof ev4) {
-                        ((ev4) fragment).c2(intent);
+            this.a.h(bdUniqueId);
+            j(bdUniqueId);
+        }
+    }
+
+    public static qua g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (g == null) {
+                synchronized (qua.class) {
+                    if (g == null) {
+                        g = new qua();
                     }
                 }
             }
+            return g;
         }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        return (qua) invokeV.objValue;
     }
 
-    public boolean b(Intent intent) {
-        InterceptResult invokeL;
+    public void c(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) {
+            this.a.d(bdUniqueId, true);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void h(BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, bdUniqueId, z) == null) {
+            if (BdLog.isDebugMode()) {
+                BdLog.d("logStatisticByKey start write log ");
+            }
+            this.a.d(bdUniqueId, z);
+        }
+    }
+
+    public void d(BdUniqueId bdUniqueId, String str, StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId, str, statisticItem) == null) && bdUniqueId != null && statisticItem != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (!this.a.c(bdUniqueId)) {
+                BdLog.e("error, bdUniqueId not register");
+                return;
+            }
+            if (TextUtils.isEmpty(str)) {
+                BdLog.e("id is null, statistic key is=" + statisticItem.getKey());
+            }
+            if (this.c == null) {
+                this.c = new SparseArray<>();
+            }
+            HashSet<String> hashSet = this.c.get(bdUniqueId.getId());
+            if (hashSet == null) {
+                hashSet = new HashSet<>();
+                this.c.put(bdUniqueId.getId(), hashSet);
+            }
+            String str2 = statisticItem.getKey() + "_" + str;
+            if (hashSet.contains(str2) || e()) {
+                return;
+            }
+            hashSet.add(str2);
+            this.a.a(bdUniqueId, statisticItem);
+            if (BdLog.isDebugMode()) {
+                BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
     }
 }

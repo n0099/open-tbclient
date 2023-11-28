@@ -1,31 +1,52 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.BackgroundItemView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class p2b {
+public class p2b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
+    public List<List<DressItemData>> a;
+    public TbPageContext<?> b;
+    public o2b c;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(byte[] bArr, double d) throws Exception;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public View a;
+        public BackgroundItemView b;
+        public BackgroundItemView c;
+        public BackgroundItemView d;
 
-        public b() {
+        public a(p2b p2bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,12 +58,12 @@ public abstract class p2b {
         }
     }
 
-    public p2b(String str) {
+    public p2b(TbPageContext<?> tbPageContext, o2b o2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, o2bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,6 +73,90 @@ public abstract class p2b {
                 return;
             }
         }
-        this.a = str;
+        this.b = tbPageContext;
+        this.c = o2bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public List<DressItemData> getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public void b(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            List<DressItemData> item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0145, viewGroup, false);
+                aVar = new a(this);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f09273e);
+                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
+                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090411);
+                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090412);
+                view2.setTag(aVar);
+            }
+            if (item != null) {
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
+                } else {
+                    aVar.a.setVisibility(8);
+                }
+                aVar.b.e(item.get(0));
+                aVar.b.setController(this.c);
+                if (item.size() > 2) {
+                    aVar.c.e(item.get(1));
+                    aVar.d.e(item.get(2));
+                    aVar.c.setController(this.c);
+                    aVar.d.setController(this.c);
+                } else if (item.size() > 1) {
+                    aVar.c.e(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.d.f();
+                } else {
+                    aVar.c.f();
+                    aVar.d.f();
+                }
+            }
+            this.b.getLayoutMode().onModeChanged(view2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

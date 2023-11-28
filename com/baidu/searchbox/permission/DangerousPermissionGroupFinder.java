@@ -2,7 +2,7 @@ package com.baidu.searchbox.permission;
 
 import android.annotation.SuppressLint;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class DangerousPermissionGroupFinder {
@@ -21,8 +21,8 @@ public class DangerousPermissionGroupFinder {
         HashMap<String, String> hashMap = new HashMap<>();
         this.mPermissionMap = hashMap;
         hashMap.put("android.permission.WRITE_EXTERNAL_STORAGE", "android.permission-group.STORAGE");
-        this.mPermissionMap.put(h.i, "android.permission-group.STORAGE");
-        this.mPermissionMap.put(h.c, "android.permission-group.PHONE");
+        this.mPermissionMap.put(g.i, "android.permission-group.STORAGE");
+        this.mPermissionMap.put(g.c, "android.permission-group.PHONE");
         this.mPermissionMap.put("android.permission.READ_PHONE_NUMBERS", "android.permission-group.PHONE");
         this.mPermissionMap.put("android.permission.CALL_PHONE", "android.permission-group.PHONE");
         this.mPermissionMap.put("com.android.voicemail.permission.ADD_VOICEMAIL", "android.permission-group.PHONE");
@@ -31,9 +31,9 @@ public class DangerousPermissionGroupFinder {
         this.mPermissionMap.put("android.permission.ACCEPT_HANDOVER", "android.permission-group.PHONE");
         this.mPermissionMap.put("android.permission.READ_CONTACTS", "android.permission-group.CONTACTS");
         this.mPermissionMap.put("android.permission.WRITE_CONTACTS", "android.permission-group.CONTACTS");
-        this.mPermissionMap.put(h.f, "android.permission-group.CONTACTS");
-        this.mPermissionMap.put(h.h, "android.permission-group.LOCATION");
-        this.mPermissionMap.put(h.g, "android.permission-group.LOCATION");
+        this.mPermissionMap.put(g.f, "android.permission-group.CONTACTS");
+        this.mPermissionMap.put(g.h, "android.permission-group.LOCATION");
+        this.mPermissionMap.put(g.g, "android.permission-group.LOCATION");
         this.mPermissionMap.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission-group.MICROPHONE");
         this.mPermissionMap.put("android.permission.SEND_SMS", "android.permission-group.SMS");
         this.mPermissionMap.put("android.permission.RECEIVE_SMS", "android.permission-group.SMS");

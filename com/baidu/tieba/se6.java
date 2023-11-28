@@ -1,151 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ManagerElection;
 /* loaded from: classes8.dex */
-public class se6 {
+public final class se6 extends qe6<se6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public re6 a;
-    public qe6 b;
-    public List<qe6> c;
-    public ManagerElection d;
-    public boolean e;
-    public long f;
-    public BdUniqueId g;
+    public te6 s;
+    public float t;
+    public boolean u;
 
-    public se6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public <K> se6(K k, re6<K> re6Var) {
+        super(k, re6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k, re6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(objArr2[0], (re6) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.s = null;
+        this.t = Float.MAX_VALUE;
+        this.u = false;
     }
 
-    public re6 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qe6
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (re6) invokeV.objValue;
-    }
-
-    public List<qe6> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ManagerElection e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (ManagerElection) invokeV.objValue;
-    }
-
-    public qe6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (qe6) invokeV.objValue;
-    }
-
-    public BdUniqueId g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(ArrayList<qe6> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.c = arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l();
+            this.s.g(e());
+            super.h();
         }
     }
 
-    public void i(long j) {
+    @Override // com.baidu.tieba.qe6
+    public boolean j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.f = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (this.u) {
+                float f = this.t;
+                if (f != Float.MAX_VALUE) {
+                    this.s.e(f);
+                    this.t = Float.MAX_VALUE;
+                }
+                this.b = this.s.a();
+                this.a = 0.0f;
+                this.u = false;
+                return true;
+            }
+            if (this.t != Float.MAX_VALUE) {
+                this.s.a();
+                long j2 = j / 2;
+                qe6.h h = this.s.h(this.b, this.a, j2);
+                this.s.e(this.t);
+                this.t = Float.MAX_VALUE;
+                qe6.h h2 = this.s.h(h.a, h.b, j2);
+                this.b = h2.a;
+                this.a = h2.b;
+            } else {
+                qe6.h h3 = this.s.h(this.b, this.a, j);
+                this.b = h3.a;
+                this.a = h3.b;
+            }
+            float max = Math.max(this.b, this.h);
+            this.b = max;
+            float min = Math.min(max, this.g);
+            this.b = min;
+            if (!k(min, this.a)) {
+                return false;
+            }
+            this.b = this.s.a();
+            this.a = 0.0f;
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public boolean k(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return this.s.c(f, f2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            te6 te6Var = this.s;
+            if (te6Var != null) {
+                double a = te6Var.a();
+                if (a <= this.g) {
+                    if (a >= this.h) {
+                        return;
+                    }
+                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+                }
+                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
+            }
+            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
     }
 
-    public void j(boolean z) {
+    public se6 m(te6 te6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, te6Var)) == null) {
+            this.s = te6Var;
+            return this;
         }
-    }
-
-    public void k(ManagerElection managerElection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
-            this.d = managerElection;
-        }
-    }
-
-    public void l(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.g = bdUniqueId;
-        }
-    }
-
-    public void m(re6 re6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, re6Var) == null) {
-            this.a = re6Var;
-        }
-    }
-
-    public void n(qe6 qe6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, qe6Var) == null) {
-            this.b = qe6Var;
-        }
+        return (se6) invokeL.objValue;
     }
 }

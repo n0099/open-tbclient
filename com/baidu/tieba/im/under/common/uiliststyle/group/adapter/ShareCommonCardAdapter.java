@@ -110,7 +110,7 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090f00);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090f20);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setRoomId(this.m);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(n, -2));

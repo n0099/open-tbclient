@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.splashad.SplashAdView;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.text.TextUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class rua {
+public final class rua implements ta5 {
     public static /* synthetic */ Interceptable $ic;
-    public static rua b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
 
     public rua() {
         Interceptable interceptable = $ic;
@@ -34,59 +30,36 @@ public class rua {
         }
     }
 
-    public static rua a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ta5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new rua();
-            }
-            return b;
-        }
-        return (rua) invokeV.objValue;
-    }
-
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
-        }
-    }
-
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
-        }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void e(MainTabActivity mainTabActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) {
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("SplashAdViewController", "开屏广告：showSplash, activity is: " + mainTabActivity);
-            if (mainTabActivity != null) {
-                SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-                this.a = new WeakReference<>(splashAdView);
-                mainTabActivity.getWindow().setFlags(1024, 1024);
-                ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0922de);
-                if (viewGroup != null) {
-                    viewGroup.setVisibility(0);
-                    viewGroup.addView(splashAdView);
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject = json.optJSONObject("wl_config");
+                if (optJSONObject != null) {
+                    AICapacityApplyHelper a = AICapacityApplyHelper.e.a();
+                    boolean z = true;
+                    if (optJSONObject.optInt("ai_available_status") != 1) {
+                        z = false;
+                    }
+                    a.g(z);
                 }
+                JSONObject optJSONObject2 = json.optJSONObject("common_scheme");
+                if (optJSONObject2 != null) {
+                    String aiWriteScheme = optJSONObject2.optString("ai_write_scheme");
+                    if (!TextUtils.isEmpty(aiWriteScheme)) {
+                        AICapacityApplyHelper a2 = AICapacityApplyHelper.e.a();
+                        Intrinsics.checkNotNullExpressionValue(aiWriteScheme, "aiWriteScheme");
+                        a2.h(aiWriteScheme);
+                    }
+                }
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
+                }
+                throw e;
             }
         }
     }

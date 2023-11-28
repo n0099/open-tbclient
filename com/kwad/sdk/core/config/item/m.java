@@ -1,58 +1,42 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class m extends b<String> {
-    public static volatile String[] VG;
-
-    public m(String str, String str2) {
-        super(str, str2);
-        VG = null;
-    }
-
-    public static void bv(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        VG = str.split(",");
-    }
-
-    public static boolean h(long j) {
-        String[] strArr;
-        if (VG == null) {
-            return false;
-        }
-        for (String str : VG) {
-            if (str != null && String.valueOf(j).equals(str.trim())) {
-                return true;
-            }
-        }
-        return false;
+public final class m extends a<Long> {
+    public m(String str) {
+        this(str, 0L);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        String string = sharedPreferences.getString(getKey(), sx());
-        setValue(string);
-        bv(string);
+        setValue(Long.valueOf(sharedPreferences.getLong(getKey(), Bx().longValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void b(@NonNull SharedPreferences.Editor editor) {
-        editor.putString(getKey(), getValue());
+        editor.putLong(getKey(), getValue().longValue());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            setValue(sx());
-            return;
+    public final void j(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            setValue(Long.valueOf(jSONObject.optLong(getKey(), Bx().longValue())));
+        } else {
+            setValue(Bx());
         }
-        String optString = jSONObject.optString(getKey(), sx());
-        setValue(optString);
-        bv(optString);
+    }
+
+    public m(String str, Long l) {
+        super(str, l);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: BE */
+    public final Long getValue() {
+        return (Long) super.getValue();
     }
 }

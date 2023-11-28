@@ -1307,7 +1307,7 @@ public class e {
             if ((this.g.isWifiEnabled() || this.g.isScanAlwaysAvailable()) && this.k.priority != 4) {
                 this.g.startScan();
             }
-            if (com.baidu.location.e.k.a(this.d, com.kuaishou.weapon.p0.h.g) == 1 && Build.VERSION.SDK_INT >= 29 && this.v) {
+            if (com.baidu.location.e.k.a(this.d, com.kuaishou.weapon.p0.g.g) == 1 && Build.VERSION.SDK_INT >= 29 && this.v) {
                 this.e.requestCellInfoUpdate(this.d.getMainExecutor(), new a(this, null));
             }
             synchronized (this.s) {

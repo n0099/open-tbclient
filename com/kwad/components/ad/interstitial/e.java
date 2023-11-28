@@ -4,92 +4,135 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.kwad.components.ad.KsAdLoadManager;
-import com.kwad.components.core.k.kwai.a;
-import com.kwad.components.core.m.m;
-import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.components.core.request.model.ImpInfo;
+import com.kwad.components.core.request.model.a;
+import com.kwad.components.core.s.m;
+import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.network.f;
+import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.utils.bd;
+import com.kwad.sdk.utils.bn;
+import com.kwad.sdk.utils.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public final class e {
-    public static void loadInterstitialAd(@NonNull final KsScene ksScene, @NonNull final KsLoadManager.InterstitialAdListener interstitialAdListener) {
-        boolean a = m.oF().a(ksScene, "loadInterstitialAd");
+    public static void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull final KsLoadManager.InterstitialAdListener interstitialAdListener) {
+        if (!KsAdSDKImpl.get().hasInitFinish()) {
+            com.kwad.sdk.core.e.c.e("KsAdInterstitialLoadManager", "loadInterstitialAd please init sdk first");
+            bn.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.1
+                @Override // java.lang.Runnable
+                public final void run() {
+                    KsLoadManager.InterstitialAdListener interstitialAdListener2 = KsLoadManager.InterstitialAdListener.this;
+                    int i = com.kwad.sdk.core.network.e.ats.errorCode;
+                    interstitialAdListener2.onError(i, com.kwad.sdk.core.network.e.ats.msg + "sdk not init");
+                }
+            });
+            return;
+        }
+        final SceneImpl covert = SceneImpl.covert(ksScene);
+        boolean a = m.qR().a(covert, "loadInterstitialAd");
         final long elapsedRealtime = SystemClock.elapsedRealtime();
-        ksScene.setAdStyle(13);
-        com.kwad.components.ad.interstitial.monitor.b.cr().cs();
-        KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0630a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.interstitial.e.1
-            @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
-            public final void a(@NonNull final AdResultData adResultData, boolean z) {
-                b bVar;
+        covert.setAdStyle(13);
+        com.kwad.components.ad.interstitial.report.c.dQ().i(covert.getPosId());
+        KsAdLoadManager.M();
+        KsAdLoadManager.a(new a.C0661a().e(new ImpInfo(covert)).aI(a).a(new com.kwad.components.core.request.d() { // from class: com.kwad.components.ad.interstitial.e.2
+            @Override // com.kwad.components.core.request.d, com.kwad.components.core.request.c
+            public final void a(@NonNull AdResultData adResultData, boolean z) {
+                String str;
+                String str2;
                 final List<AdTemplate> adTemplateList = adResultData.getAdTemplateList();
                 if (adTemplateList.isEmpty()) {
-                    f fVar = f.Yd;
-                    onError(fVar.errorCode, fVar.Qd);
+                    int i = com.kwad.sdk.core.network.e.ats.errorCode;
+                    if (TextUtils.isEmpty(adResultData.testErrorMsg)) {
+                        str2 = com.kwad.sdk.core.network.e.ats.msg;
+                    } else {
+                        str2 = adResultData.testErrorMsg;
+                    }
+                    onError(i, str2);
+                    i.an("insertAd_", "onInterstitialAdCacheFailed");
                     return;
                 }
-                bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.1.2
+                bn.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.2.2
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
-                            KsLoadManager.InterstitialAdListener.this.onRequestResult(adTemplateList.size());
+                            interstitialAdListener.onRequestResult(adTemplateList.size());
                         } catch (Throwable th) {
-                            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                            com.kwad.sdk.core.e.c.printStackTraceOnly(th);
                         }
                     }
                 });
-                com.kwad.components.ad.interstitial.monitor.b.cr().a(adTemplateList.get(0), elapsedRealtime, z);
-                long elapsedRealtime2 = SystemClock.elapsedRealtime();
+                try {
+                    if (com.kwad.sdk.components.c.f(com.kwad.components.core.n.a.b.a.class) != null) {
+                        com.kwad.sdk.components.c.f(com.kwad.components.core.n.a.b.a.class);
+                        adTemplateList.get(0);
+                        com.kwad.sdk.core.response.b.e.dP(adTemplateList.get(0));
+                    }
+                } catch (Exception unused) {
+                }
+                com.kwad.components.ad.interstitial.report.c.dQ().a(adTemplateList.get(0), z);
+                com.kwad.sdk.commercial.e.c.j(adTemplateList.get(0), adTemplateList.size());
+                SystemClock.elapsedRealtime();
                 final ArrayList arrayList = new ArrayList();
                 for (AdTemplate adTemplate : adTemplateList) {
                     if (adTemplate != null) {
                         if (adTemplate.mAdScene == null) {
-                            KsScene ksScene2 = ksScene;
-                            if (ksScene2 instanceof SceneImpl) {
-                                adTemplate.mAdScene = (SceneImpl) ksScene2;
+                            adTemplate.mAdScene = SceneImpl.this;
+                        }
+                        String K = com.kwad.sdk.core.response.b.a.K(com.kwad.sdk.core.response.b.e.dP(adTemplate));
+                        if (!com.kwad.sdk.core.response.b.b.cR(adTemplate)) {
+                            com.kwad.components.ad.interstitial.report.realtime.a.dU();
+                            com.kwad.components.ad.interstitial.report.realtime.a.w(adTemplate);
+                        }
+                        AdResultData a2 = com.kwad.sdk.core.response.b.c.a(adResultData, adTemplate);
+                        if (!TextUtils.isEmpty(K)) {
+                            boolean j = com.kwad.components.ad.interstitial.a.a.j(adTemplate);
+                            if (com.kwad.sdk.core.config.d.Ar() || j) {
+                                arrayList.add(new b(SceneImpl.this, a2));
                             }
+                        } else {
+                            arrayList.add(new b(SceneImpl.this, a2));
                         }
-                        if (TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.A(com.kwad.sdk.core.response.a.d.bQ(adTemplate)))) {
-                            bVar = new b(ksScene, adTemplate);
-                        } else if (com.kwad.components.ad.interstitial.monitor.a.g(adTemplate)) {
-                            bVar = new b(ksScene, adTemplate);
-                        }
-                        arrayList.add(bVar);
                     }
                 }
                 if (arrayList.size() == 0) {
-                    f fVar2 = f.Yd;
-                    onError(fVar2.errorCode, fVar2.Qd);
+                    int i2 = com.kwad.sdk.core.network.e.ats.errorCode;
+                    if (TextUtils.isEmpty(adResultData.testErrorMsg)) {
+                        str = com.kwad.sdk.core.network.e.ats.msg;
+                    } else {
+                        str = adResultData.testErrorMsg;
+                    }
+                    onError(i2, str);
+                    com.kwad.components.ad.interstitial.report.realtime.a.dU();
+                    com.kwad.components.ad.interstitial.report.realtime.a.a(com.kwad.sdk.core.network.e.ats);
+                    i.an("insertAd_", "onInterstitialAdCacheFailed");
                     return;
                 }
-                com.kwad.components.ad.interstitial.monitor.b.cr().b(adTemplateList.get(0), elapsedRealtime2, z);
-                bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.1.3
+                com.kwad.components.ad.interstitial.report.c.dQ().b(adTemplateList.get(0), z);
+                bn.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.2.3
                     @Override // java.lang.Runnable
                     public final void run() {
-                        KsAdLoadManager.ab().b(arrayList);
-                        KsLoadManager.InterstitialAdListener.this.onInterstitialAdLoad(arrayList);
-                        KsAdLoadManager.ab();
-                        KsAdLoadManager.a(adResultData, elapsedRealtime);
+                        KsAdLoadManager.M().b(arrayList);
+                        i.an("insertAd_", "onInterstitialAdCacheSuccess");
+                        interstitialAdListener.onInterstitialAdLoad(arrayList);
                     }
                 });
             }
 
-            @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
+            @Override // com.kwad.components.core.request.d, com.kwad.components.core.request.k
             public final void onError(final int i, final String str) {
-                com.kwad.components.ad.interstitial.monitor.b.cr().d(i, str);
-                bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.1.1
+                com.kwad.components.ad.interstitial.report.c.dQ().a(i, str, SceneImpl.this.getPosId());
+                bn.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.2.1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        com.kwad.sdk.core.e.b.e("KsAdInterstitialLoadManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
-                        KsLoadManager.InterstitialAdListener.this.onError(i, str);
+                        com.kwad.sdk.core.e.c.w("KsAdInterstitialLoadManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        interstitialAdListener.onError(i, str);
                     }
                 });
             }
-        }).oo());
+        }).ql());
     }
 }

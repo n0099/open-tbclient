@@ -24,27 +24,8 @@ public abstract class BaseDiskCache implements DiskCache {
     public final FileNameGenerator fileNameGenerator;
     public final File reserveCacheDir;
 
-    public BaseDiskCache(File file) {
-        this(file, null);
-    }
-
-    public BaseDiskCache(File file, File file2) {
-        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator());
-    }
-
-    public BaseDiskCache(File file, File file2, FileNameGenerator fileNameGenerator) {
-        this.bufferSize = 32768;
-        this.compressFormat = DEFAULT_COMPRESS_FORMAT;
-        this.compressQuality = 100;
-        if (file == null) {
-            throw new IllegalArgumentException("cacheDir argument must be not null");
-        }
-        if (fileNameGenerator == null) {
-            throw new IllegalArgumentException("fileNameGenerator argument must be not null");
-        }
-        this.cacheDir = file;
-        this.reserveCacheDir = file2;
-        this.fileNameGenerator = fileNameGenerator;
+    @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
+    public void close() {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
@@ -58,17 +39,17 @@ public abstract class BaseDiskCache implements DiskCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    public void close() {
+    public File getDirectory() {
+        return this.cacheDir;
+    }
+
+    public BaseDiskCache(File file) {
+        this(file, null);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public File get(String str) {
         return getFile(str);
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    public File getDirectory() {
-        return this.cacheDir;
     }
 
     public File getFile(String str) {
@@ -84,6 +65,38 @@ public abstract class BaseDiskCache implements DiskCache {
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean remove(String str) {
         return getFile(str).delete();
+    }
+
+    public void setBufferSize(int i) {
+        this.bufferSize = i;
+    }
+
+    public void setCompressFormat(Bitmap.CompressFormat compressFormat) {
+        this.compressFormat = compressFormat;
+    }
+
+    public void setCompressQuality(int i) {
+        this.compressQuality = i;
+    }
+
+    public BaseDiskCache(File file, File file2) {
+        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator());
+    }
+
+    public BaseDiskCache(File file, File file2, FileNameGenerator fileNameGenerator) {
+        this.bufferSize = 32768;
+        this.compressFormat = DEFAULT_COMPRESS_FORMAT;
+        this.compressQuality = 100;
+        if (file != null) {
+            if (fileNameGenerator != null) {
+                this.cacheDir = file;
+                this.reserveCacheDir = file2;
+                this.fileNameGenerator = fileNameGenerator;
+                return;
+            }
+            throw new IllegalArgumentException("fileNameGenerator argument must be not null");
+        }
+        throw new IllegalArgumentException("cacheDir argument must be not null");
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
@@ -141,17 +154,5 @@ public abstract class BaseDiskCache implements DiskCache {
             th = th2;
             z = false;
         }
-    }
-
-    public void setBufferSize(int i) {
-        this.bufferSize = i;
-    }
-
-    public void setCompressFormat(Bitmap.CompressFormat compressFormat) {
-        this.compressFormat = compressFormat;
-    }
-
-    public void setCompressQuality(int i) {
-        this.compressQuality = i;
     }
 }

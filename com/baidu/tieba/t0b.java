@@ -1,90 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.wa0;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t0b {
+public class t0b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final fza b;
 
-    /* loaded from: classes8.dex */
-    public class a implements wa0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z0b a;
-
-        @Override // com.baidu.tieba.wa0.a
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t0b(MainTabActivity mainTabActivity, fza fzaVar) {
+        super(2010045);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, fzaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public a(z0b z0bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z0bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z0bVar;
-        }
-
-        @Override // com.baidu.tieba.wa0.a
-        public void onResult(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("write", "打开视频编辑页2，Ar下载:" + z + " " + str);
-                if (z) {
-                    this.a.a();
-                } else {
-                    this.a.b();
-                }
-            }
-        }
+        this.a = mainTabActivity;
+        this.b = fzaVar;
+        setTag(mainTabActivity.getUniqueId());
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return wa0.o();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(Context context, z0b z0bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, z0bVar) == null) {
-            c(context);
-            wa0.q(new a(z0bVar));
-        }
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            new tb0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
-            FileHelper.makeDirectory(".stickers");
-            FileHelper.makeDirectory(".filters");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && this.b != null && TbadkCoreApplication.getInst().getCurrentActivity() == this.a) {
+            boolean z = false;
+            this.b.t = JavaTypesHelper.toBoolean(customResponsedMessage.getData().toString(), false);
+            fza fzaVar = this.b;
+            this.b.G((fzaVar.t || fzaVar.u) ? true : true);
         }
     }
 }

@@ -19,12 +19,6 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
         this.lruCache = Collections.synchronizedMap(new LinkedHashMap(10, 1.1f, true));
     }
 
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public void clear() {
-        this.lruCache.clear();
-        super.clear();
-    }
-
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
     public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
@@ -42,18 +36,15 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public boolean put(String str, DecodedResult decodedResult) {
-        if (super.put(str, decodedResult)) {
-            this.lruCache.put(str, decodedResult);
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult remove(String str) {
         this.lruCache.remove(str);
         return super.remove(str);
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public void clear() {
+        this.lruCache.clear();
+        super.clear();
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
@@ -69,5 +60,14 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
             }
         }
         return decodedResult;
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public boolean put(String str, DecodedResult decodedResult) {
+        if (super.put(str, decodedResult)) {
+            this.lruCache.put(str, decodedResult);
+            return true;
+        }
+        return false;
     }
 }

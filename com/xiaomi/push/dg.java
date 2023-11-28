@@ -7,19 +7,19 @@ public class dg extends am.b {
     public am.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ de f222a;
+    public final /* synthetic */ de f218a;
 
     public dg(de deVar) {
-        this.f222a = deVar;
+        this.f218a = deVar;
     }
 
     @Override // com.xiaomi.push.am.b
     public void b() {
-        de.b bVar = (de.b) this.f222a.f210a.peek();
+        de.b bVar = (de.b) this.f218a.f206a.peek();
         if (bVar == null || !bVar.a()) {
             return;
         }
-        if (this.f222a.f210a.remove(bVar)) {
+        if (this.f218a.f206a.remove(bVar)) {
             this.a = bVar;
         }
         am.b bVar2 = this.a;
@@ -30,10 +30,10 @@ public class dg extends am.b {
 
     @Override // com.xiaomi.push.am.b
     /* renamed from: c */
-    public void mo365c() {
+    public void mo369c() {
         am.b bVar = this.a;
         if (bVar != null) {
-            bVar.mo365c();
+            bVar.mo369c();
         }
     }
 }

@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
-public interface nw5 {
-    void a(Bitmap bitmap);
+public interface nw5 extends gq5 {
+    void d2(String str, boolean z);
 
-    void b();
+    boolean goBack();
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

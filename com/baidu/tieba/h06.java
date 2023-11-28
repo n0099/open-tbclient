@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import java.util.Map;
 /* loaded from: classes6.dex */
 public interface h06<T> {
-    void b(Map<String, String> map);
+    void a(String str);
 
-    void f(T t, String str);
+    void b(T t);
+
+    String getTitle();
+
+    void onChangeSkinType();
+
+    void onDestroy();
 }

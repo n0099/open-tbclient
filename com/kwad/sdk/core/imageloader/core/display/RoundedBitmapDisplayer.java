@@ -28,6 +28,11 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
         public final int margin;
         public final Paint paint;
 
+        @Override // android.graphics.drawable.Drawable
+        public int getOpacity() {
+            return -3;
+        }
+
         public RoundedDrawable(Bitmap bitmap, int i, int i2) {
             this.cornerRadius = i;
             this.margin = i2;
@@ -48,11 +53,6 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
             RectF rectF = this.mRect;
             float f = this.cornerRadius;
             canvas.drawRoundRect(rectF, f, f, this.paint);
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public int getOpacity() {
-            return -3;
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -88,9 +88,10 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
 
     @Override // com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer
     public void display(DecodedResult decodedResult, ImageAware imageAware, LoadedFrom loadedFrom) {
-        if (!(imageAware instanceof ImageViewAware)) {
-            throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
+        if (imageAware instanceof ImageViewAware) {
+            imageAware.setImageDrawable(new RoundedDrawable(decodedResult.mBitmap, this.cornerRadius, this.margin));
+            return;
         }
-        imageAware.setImageDrawable(new RoundedDrawable(decodedResult.mBitmap, this.cornerRadius, this.margin));
+        throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
     }
 }

@@ -9,36 +9,36 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 /* loaded from: classes10.dex */
 public class RatioFrameLayout extends FrameLayout {
-    public float aqZ;
+    public double anQ;
 
     public RatioFrameLayout(@NonNull Context context) {
         this(context, null);
+    }
+
+    public void setRatio(double d) {
+        this.anQ = d;
     }
 
     public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.aqZ = 0.0f;
-    }
-
-    public float getRatio() {
-        return this.aqZ;
-    }
-
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.aqZ != 0.0f) {
+        if (this.anQ != 0.0d) {
             int size = View.MeasureSpec.getSize(i);
             Log.d("RatioFrameLayout", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.aqZ), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (((double) size) * this.anQ), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
-    public void setRatio(float f) {
-        this.aqZ = f;
+    public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.anQ = 0.0d;
+    }
+
+    public double getRatio() {
+        return this.anQ;
     }
 }

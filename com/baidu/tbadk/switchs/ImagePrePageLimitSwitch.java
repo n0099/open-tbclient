@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.ja;
+import com.baidu.tieba.ka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0017\u0010\u0007\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/ImagePrePageLimitSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class ImagePrePageLimitSwitch extends ja {
+public final class ImagePrePageLimitSwitch extends ka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String KEY = "12_38_big_image_pre_page_limit";
@@ -44,14 +44,14 @@ public final class ImagePrePageLimitSwitch extends ja {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Companion.pageLimitSize() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     /* renamed from: getCrashKeys */
     public String[] mo131getCrashKeys() {
         InterceptResult invokeV;
@@ -62,7 +62,7 @@ public final class ImagePrePageLimitSwitch extends ja {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class ImagePrePageLimitSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public final class ImagePrePageLimitSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

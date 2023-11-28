@@ -1,157 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AdMixFloor;
-import tbclient.BannerList;
-import tbclient.Error;
-import tbclient.GeneralTabList.DataRes;
-import tbclient.GeneralTabList.GeneralTabListResIdl;
-import tbclient.GeneralTabList.PageData;
-import tbclient.LayoutFactory;
 /* loaded from: classes8.dex */
-public final class vh7 extends sh7<jh7> {
+public final class vh7 extends sh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentActivity b;
 
-    public vh7() {
+    public static final void p(HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, hashMap) == null) {
+        }
+    }
+
+    public vh7(FragmentActivity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.nh7
-    public boolean a(Object originData) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            if (!(originData instanceof DataRes) || (num = ((DataRes) originData).has_more) == null || num.intValue() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.b = activity;
     }
 
     @Override // com.baidu.tieba.sh7
-    public List<LayoutFactory> f(Object originData) {
-        InterceptResult invokeL;
-        List<LayoutFactory> list;
+    public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            if (originData instanceof DataRes) {
-                PageData pageData = ((DataRes) originData).page_data;
-                if (pageData != null) {
-                    list = pageData.feed_list;
-                } else {
-                    list = null;
-                }
-                if (list == null) {
-                    return CollectionsKt__CollectionsKt.emptyList();
-                }
-                return list;
-            }
-            return CollectionsKt__CollectionsKt.emptyList();
-        }
-        return (List) invokeL.objValue;
-    }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            super.k(bundle, binding);
+            Uri uri = (Uri) this.b.getIntent().getParcelableExtra(IntentConfig.KEY_URI);
+            if (uri != null) {
+                BdUniDispatchSchemeController.getInstance().parseFrsScheme(uri, new BdUniDispatchSchemeController.OnSchemeParsedCallback() { // from class: com.baidu.tieba.mg7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sh7
-    public rh7 e(Object originData) {
-        InterceptResult invokeL;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            rh7 rh7Var = new rh7();
-            if (originData instanceof DataRes) {
-                BannerList.Builder builder = new BannerList.Builder();
-                DataRes dataRes = (DataRes) originData;
-                builder.app = dataRes.app_list;
-                BannerList build = builder.build(true);
-                Intrinsics.checkNotNullExpressionValue(build, "bannerListBuilder.build(true)");
-                rh7Var.f(build);
-                Integer num = dataRes.ad_show_select;
-                if (num == null) {
-                    intValue = 0;
-                } else {
-                    intValue = num.intValue();
-                }
-                rh7Var.e(intValue);
-                List<AdMixFloor> list = dataRes.ad_mix_list;
-                if (list == null) {
-                    list = CollectionsKt__CollectionsKt.emptyList();
-                }
-                rh7Var.d(list);
+                    @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.OnSchemeParsedCallback
+                    public final void onCallBack(HashMap hashMap) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
+                            vh7.p(hashMap);
+                        }
+                    }
+                });
             }
-            return rh7Var;
         }
-        return (rh7) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nh7
-    /* renamed from: k */
-    public jh7 b(byte[] bArr) {
-        InterceptResult invokeL;
-        Integer num;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            jh7 jh7Var = new jh7();
-            GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            if (generalTabListResIdl == null) {
-                generalTabListResIdl = new GeneralTabListResIdl.Builder().build(false);
-            }
-            Error error = generalTabListResIdl.error;
-            String str = null;
-            if (error != null) {
-                num = error.errorno;
-            } else {
-                num = null;
-            }
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            jh7Var.c(intValue);
-            Error error2 = generalTabListResIdl.error;
-            if (error2 != null) {
-                str = error2.usermsg;
-            }
-            if (str == null) {
-                str = "";
-            }
-            jh7Var.d(str);
-            DataRes dataRes = generalTabListResIdl.data;
-            if (dataRes == null) {
-                dataRes = new DataRes.Builder().build(false);
-                Intrinsics.checkNotNullExpressionValue(dataRes, "Builder().build(false)");
-            }
-            jh7Var.e(dataRes);
-            jh7Var.f(this);
-            return jh7Var;
-        }
-        return (jh7) invokeL.objValue;
     }
 }

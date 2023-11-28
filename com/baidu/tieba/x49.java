@@ -1,76 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.mention.base.NotificationView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public final class x49 {
+public class x49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NotificationView a;
-    public boolean b;
-    public final a c;
 
-    /* loaded from: classes9.dex */
-    public static final class a implements NotificationView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x49 a;
-
-        public a(x49 x49Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x49Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            if (j == 0) {
+                return false;
             }
-            this.a = x49Var;
-        }
-
-        @Override // com.baidu.tieba.immessagecenter.mention.base.NotificationView.b
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NotificationView notificationView = this.a.a;
-                if (notificationView != null) {
-                    notificationView.setVisibility(8);
-                }
-                this.a.b = false;
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            if (!TimeHelper.isSameDay(sharedPrefHelper.getLong("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), 0L), System.currentTimeMillis())) {
+                return false;
             }
+            return true;
         }
+        return invokeJ.booleanValue;
     }
 
-    public x49(NotificationView notificationView) {
+    public static void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {notificationView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = notificationView;
-        a aVar = new a(this);
-        this.c = aVar;
-        NotificationView notificationView2 = this.a;
-        if (notificationView2 != null) {
-            notificationView2.setOnCloseListener(aVar);
+        if ((interceptable == null || interceptable.invokeJ(65537, null, j) == null) && j != 0) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            sharedPrefHelper.putLong("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }
 }

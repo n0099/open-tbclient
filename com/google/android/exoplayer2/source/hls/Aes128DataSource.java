@@ -58,7 +58,7 @@ public final class Aes128DataSource implements DataSource {
     @Override // com.google.android.exoplayer2.upstream.DataSource
     public long open(DataSpec dataSpec) throws IOException {
         try {
-            Cipher cipher = Cipher.getInstance(b.c);
+            Cipher cipher = Cipher.getInstance(b.f);
             try {
                 cipher.init(2, new SecretKeySpec(this.encryptionKey, "AES"), new IvParameterSpec(this.encryptionIv));
                 this.cipherInputStream = new CipherInputStream(new DataSourceInputStream(this.upstream, dataSpec), cipher);

@@ -1,8 +1,8 @@
 package com.kwad.sdk.core.response.model;
 /* loaded from: classes10.dex */
 public final class b {
-    public boolean Kh = true;
-    public boolean adj;
+    public boolean Us = true;
+    public boolean ayY;
     public int mHeight;
     public String mUrl;
     public int mWidth;
@@ -11,7 +11,7 @@ public final class b {
         this.mUrl = str;
         this.mWidth = i;
         this.mHeight = i2;
-        this.adj = z2;
+        this.ayY = z2;
     }
 
     public final int getHeight() {

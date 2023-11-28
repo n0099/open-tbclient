@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
 import android.widget.BaseAdapter;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
-import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
@@ -18,19 +19,19 @@ import java.util.List;
 public class z17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public BdPageContext a;
     public BdTypeListView b;
-    public final List<bi> c;
-    public y17 d;
-    public a27 e;
-    public final List<oi> f;
+    public final List<ci> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<pi> f;
 
-    public z17(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
+    public z17(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +45,10 @@ public class z17 {
         this.f = new ArrayList();
         this.a = tbPageContext;
         this.b = bdTypeListView;
-        c(forumEmotionModel);
+        b();
     }
 
-    public void a(List<oi> list) {
+    public void a(List<pi> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
@@ -56,50 +57,31 @@ public class z17 {
             this.f.addAll(list);
             this.b.setData(this.f);
         }
-        d();
+        c();
     }
 
-    public void f(x17 x17Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, x17Var) == null) {
-            this.d.x(x17Var);
-            this.e.x(x17Var);
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void d() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public final void c(ForumEmotionModel forumEmotionModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
-            y17 y17Var = new y17(this.a, forumEmotionModel.Q(), d27.b);
-            this.d = y17Var;
-            this.c.add(y17Var);
-            a27 a27Var = new a27(this.a, forumEmotionModel.Q(), b27.a);
-            this.e = a27Var;
-            this.c.add(a27Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, a27.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, b27.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
             this.b.addAdapters(this.c);
         }
     }
 
-    public void e(List<oi> list) {
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void d(List<pi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         if (!ListUtils.isEmpty(this.f)) {
@@ -110,20 +92,21 @@ public class z17 {
             bdTypeListView.setData(list);
             this.f.addAll(list);
         }
-        d();
+        c();
     }
 
-    public void g(ForumEmotionPackageData forumEmotionPackageData) {
-        ForumEmotionPackageData forumEmotionPackageData2;
+    public void e(EmotionPackageData emotionPackageData) {
+        b27 b27Var;
+        EmotionPackageData emotionPackageData2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, emotionPackageData) != null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
             return;
         }
-        for (oi oiVar : this.f) {
-            if (oiVar != null && (oiVar instanceof d27) && (forumEmotionPackageData2 = ((d27) oiVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
-                forumEmotionPackageData2.download = forumEmotionPackageData.download;
-                forumEmotionPackageData2.share = forumEmotionPackageData.share;
-                d();
+        for (pi piVar : this.f) {
+            if ((piVar instanceof b27) && (b27Var = (b27) piVar) != null && (emotionPackageData2 = b27Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
                 return;
             }
         }

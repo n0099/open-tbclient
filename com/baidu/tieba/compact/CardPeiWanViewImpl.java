@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.CardPeiWanView;
-import com.baidu.tieba.c47;
-import com.baidu.tieba.tm6;
-import com.baidu.tieba.u27;
+import com.baidu.tieba.en6;
+import com.baidu.tieba.f37;
+import com.baidu.tieba.p47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 import tbclient.Voice;
 @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0002J\u0010\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\fH\u0016J\u0010\u0010\r\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\nH\u0016J\u0010\u0010\u000f\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0002J\u0018\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/compact/CardPeiWanViewImpl;", "Lcom/baidu/tieba/feed/compat/Resolver$ICardPeiWanWrapperView;", "()V", "clickStatistic", "", "state", "Lcom/baidu/tieba/feed/component/uistate/CardPeiWanUiState;", "isVoice", "", "create", "Landroid/view/ViewGroup;", "context", "Landroid/content/Context;", "onSkinChange", "view", "showStat", StickerDataChangeType.UPDATE, "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardPeiWanViewImpl implements u27.f {
+public final class CardPeiWanViewImpl implements f37.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +44,7 @@ public final class CardPeiWanViewImpl implements u27.f {
         }
     }
 
-    @Override // com.baidu.tieba.u27.s
+    @Override // com.baidu.tieba.f37.s
     public void b(ViewGroup view2) {
         CardPeiWanView cardPeiWanView;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public final class CardPeiWanViewImpl implements u27.f {
         }
     }
 
-    @Override // com.baidu.tieba.u27.f
+    @Override // com.baidu.tieba.f37.f
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -73,8 +73,8 @@ public final class CardPeiWanViewImpl implements u27.f {
         return (ViewGroup) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.u27.f
-    public void f(ViewGroup view2, final c47 state) {
+    @Override // com.baidu.tieba.f37.f
+    public void f(ViewGroup view2, final p47 state) {
         CardPeiWanView cardPeiWanView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, state) == null) {
@@ -94,7 +94,7 @@ public final class CardPeiWanViewImpl implements u27.f {
             cardPeiWanView.setData(state.m(), new Function0<Unit>(this, state) { // from class: com.baidu.tieba.compact.CardPeiWanViewImpl$update$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c47 $state;
+                public final /* synthetic */ p47 $state;
                 public final /* synthetic */ CardPeiWanViewImpl this$0;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public final class CardPeiWanViewImpl implements u27.f {
             }, new Function0<Unit>(this, state) { // from class: com.baidu.tieba.compact.CardPeiWanViewImpl$update$3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c47 $state;
+                public final /* synthetic */ p47 $state;
                 public final /* synthetic */ CardPeiWanViewImpl this$0;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -181,14 +181,14 @@ public final class CardPeiWanViewImpl implements u27.f {
         }
     }
 
-    public final void m(c47 c47Var, boolean z) {
+    public final void m(p47 p47Var, boolean z) {
         String str;
         boolean z2;
         Long l;
         Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c47Var, z) == null) {
-            String str2 = c47Var.f().get("feed_social_source");
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, p47Var, z) == null) {
+            String str2 = p47Var.f().get("feed_social_source");
             if (str2 == null) {
                 str2 = "1";
             }
@@ -209,7 +209,7 @@ public final class CardPeiWanViewImpl implements u27.f {
                 }
                 str = "";
             }
-            tm6 m = c47Var.m();
+            en6 m = p47Var.m();
             if (str.length() > 0) {
                 z2 = true;
             } else {
@@ -218,13 +218,13 @@ public final class CardPeiWanViewImpl implements u27.f {
             if (z2) {
                 StatisticItem statisticItem = new StatisticItem(str);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.addParam("obj_locate", c47Var.k() + 1);
+                statisticItem.addParam("obj_locate", p47Var.k() + 1);
                 statisticItem.addParam(TiebaStatic.Params.OBJ_TO, m.e());
                 String str3 = null;
                 if (z) {
-                    Voice i = m.i();
-                    if (i != null) {
-                        l2 = i.uid;
+                    Voice k = m.k();
+                    if (k != null) {
+                        l2 = k.uid;
                     } else {
                         l2 = null;
                     }
@@ -248,12 +248,12 @@ public final class CardPeiWanViewImpl implements u27.f {
         }
     }
 
-    public final void n(c47 c47Var) {
+    public final void n(p47 p47Var) {
         Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c47Var) == null) {
-            tm6 m = c47Var.m();
-            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_FRS_HOT_PEI_WAN_CARD_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", c47Var.k() + 1).addParam(TiebaStatic.Params.OBJ_TO, String.valueOf(m.e())).addParam("obj_param1", 1);
+        if (interceptable == null || interceptable.invokeL(1048580, this, p47Var) == null) {
+            en6 m = p47Var.m();
+            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_FRS_HOT_PEI_WAN_CARD_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", p47Var.k() + 1).addParam(TiebaStatic.Params.OBJ_TO, String.valueOf(m.e())).addParam("obj_param1", 1);
             ThreadData threadData = m.getThreadData();
             String str = null;
             if (threadData != null) {

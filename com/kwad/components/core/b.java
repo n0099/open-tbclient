@@ -1,402 +1,276 @@
 package com.kwad.components.core;
 
-import android.content.Context;
+import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.SdkConfig;
-import com.kwad.sdk.components.DevelopMangerComponents;
-import com.kwad.sdk.core.config.item.m;
-import com.kwad.sdk.core.network.j;
-import com.kwad.sdk.core.network.l;
-import com.kwad.sdk.core.report.k;
-import com.kwad.sdk.core.report.r;
-import com.kwad.sdk.core.response.a.e;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.export.proxy.AdHttpProxy;
-import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.service.kwai.f;
-import com.kwad.sdk.service.kwai.h;
-import java.io.File;
-import java.io.InputStream;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.kwad.components.ad.b.d;
+import com.kwad.components.ad.b.f;
+import com.kwad.components.ad.b.g;
+import com.kwad.components.ad.b.h;
+import com.kwad.sdk.api.KsDrawAd;
+import com.kwad.sdk.api.KsExitInstallListener;
+import com.kwad.sdk.api.KsFeedAd;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsNativeAd;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsSplashScreenAd;
+import com.kwad.sdk.components.c;
+import com.kwad.sdk.core.network.e;
+import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import java.util.List;
-import java.util.Random;
-import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class b {
-
-    /* loaded from: classes10.dex */
-    public static class a implements com.kwad.sdk.core.download.d {
-        public a() {
+public final class b implements KsLoadManager {
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final String getBidRequestToken(KsScene ksScene) {
+        com.kwad.components.ad.b.a aVar = (com.kwad.components.ad.b.a) c.f(com.kwad.components.ad.b.a.class);
+        if (aVar != null) {
+            return aVar.getBidRequestToken(ksScene);
         }
-
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
-        @Override // com.kwad.sdk.core.download.d
-        public final void a(int i, AdTemplate adTemplate) {
-            if (i != 1) {
-                return;
-            }
-            com.kwad.sdk.core.report.a.f(adTemplate, (JSONObject) null);
-        }
+        return "";
     }
 
-    /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0624b implements com.kwad.sdk.service.kwai.b {
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final String getBidRequestTokenV2(KsScene ksScene) {
+        com.kwad.components.ad.b.a aVar = (com.kwad.components.ad.b.a) c.f(com.kwad.components.ad.b.a.class);
+        if (aVar != null) {
+            return aVar.getBidRequestTokenV2(ksScene);
+        }
+        return "";
     }
 
-    /* loaded from: classes10.dex */
-    public static class c implements com.kwad.sdk.service.kwai.d {
-        public c() {
-        }
-
-        public /* synthetic */ c(byte b) {
-            this();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean G(AdTemplate adTemplate) {
-            com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-            return aVar != null && aVar.qn();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final String getApiVersion() {
-            return KsAdSDKImpl.get().getApiVersion();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final int getApiVersionCode() {
-            return KsAdSDKImpl.get().getApiVersionCode();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final String getAppId() {
-            return KsAdSDKImpl.get().getAppId();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final String getAppName() {
-            return KsAdSDKImpl.get().getAppName();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final Context getContext() {
-            return KsAdSDKImpl.get().getContext();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean getIsExternal() {
-            return KsAdSDKImpl.get().getIsExternal();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final String getSDKVersion() {
-            return KsAdSDKImpl.get().getSDKVersion();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final SdkConfig getSdkConfig() {
-            return KsAdSDKImpl.get().getSdkConfig();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean isDebugLogEnable() {
-            return KsAdSDKImpl.get().isDebugLogEnable();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean isPersonalRecommend() {
-            return KsAdSDKImpl.get().isPersonalRecommend();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean isProgrammaticRecommend() {
-            return KsAdSDKImpl.get().isProgrammaticRecommend();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final e lw() {
-            com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-            if (aVar != null) {
-                return aVar.lw();
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes10.dex */
-    public static class d implements f {
-        public d() {
-        }
-
-        public /* synthetic */ d(byte b) {
-            this();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean ae(String str) {
-            return com.kwad.sdk.core.config.a.ae(str);
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final int af(Context context) {
-            return com.kwad.sdk.core.config.item.c.bm(context);
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final String getAppId() {
-            return KsAdSDKImpl.get().getAppId();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final String getUserAgent() {
-            return com.kwad.sdk.core.config.d.getUserAgent();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean i(long j) {
-            return com.kwad.sdk.core.config.d.i(j);
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lA() {
-            return com.kwad.sdk.core.config.d.lA();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final String lB() {
-            return com.kwad.sdk.core.config.d.lB();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final String lC() {
-            return com.kwad.sdk.core.config.d.lC();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final List<String> lD() {
-            return com.kwad.sdk.core.config.d.lD();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lE() {
-            return com.kwad.sdk.core.config.d.lE();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lF() {
-            return com.kwad.sdk.core.config.d.lF();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lG() {
-            return com.kwad.sdk.core.config.d.lG();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lH() {
-            return com.kwad.sdk.core.config.d.se();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final float lI() {
-            return com.kwad.sdk.core.config.d.lI();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final float lJ() {
-            return com.kwad.sdk.core.config.d.lJ();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lK() {
-            return com.kwad.sdk.core.config.d.lK();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lL() {
-            return com.kwad.sdk.core.config.d.lL();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final int lM() {
-            return com.kwad.sdk.core.config.d.lM();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final int lN() {
-            return com.kwad.sdk.core.config.d.lN();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final float lO() {
-            return com.kwad.sdk.core.config.d.lO();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lx() {
-            return com.kwad.sdk.core.config.d.lx();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean ly() {
-            return com.kwad.sdk.core.config.d.ly();
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean lz() {
-            return com.kwad.sdk.core.config.d.lz();
-        }
-    }
-
-    @NonNull
-    public static AdHttpProxy le() {
-        if (com.kwad.components.core.a.aw.booleanValue()) {
-            return lf();
-        }
-        try {
-            return com.kwad.sdk.core.network.kwai.b.tF() != null ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
-        } catch (Throwable unused) {
-            return new com.kwad.sdk.core.network.b.a();
-        }
-    }
-
-    public static AdHttpProxy lf() {
-        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
-        return new Random().nextInt(2) == 0 ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
-    }
-
-    public static void lg() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.e.class, new com.kwad.sdk.service.kwai.e() { // from class: com.kwad.components.core.b.1
-            @Override // com.kwad.sdk.service.kwai.e
-            public final Class<?> getProxyRealClass(Class<?> cls) {
-                return KsAdSDKImpl.getProxyRealClass(cls);
-            }
-
-            @Override // com.kwad.sdk.service.kwai.e
-            public final Object lm() {
-                return KsAdSDKImpl.get().getProxyForHttp();
-            }
-        });
-    }
-
-    public static void lh() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.d.class, new c((byte) 0));
-        ServiceProvider.put(f.class, new d((byte) 0));
-    }
-
-    public static void li() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.a.class, new com.kwad.sdk.service.kwai.a() { // from class: com.kwad.components.core.b.2
-            @Override // com.kwad.sdk.service.kwai.a
-            public final void a(boolean z, String str, String str2, String str3) {
-                com.kwad.sdk.core.diskcache.a.a.sS().bA(str);
-            }
-
-            @Override // com.kwad.sdk.service.kwai.a
-            public final File ad(String str) {
-                return com.kwad.sdk.core.diskcache.a.a.sS().ad(str);
-            }
-        });
-    }
-
-    public static void lj() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0624b());
-    }
-
-    public static void lk() {
-        ServiceProvider.put(h.class, new h() { // from class: com.kwad.components.core.b.3
-            @Override // com.kwad.sdk.service.kwai.h
-            public final boolean ln() {
-                com.kwad.components.core.l.b.or();
-                return com.kwad.components.core.l.b.ln();
-            }
-
-            @Override // com.kwad.sdk.service.kwai.h
-            public final int lo() {
-                com.kwad.components.core.l.b.or();
-                return com.kwad.components.core.l.b.lo();
-            }
-
-            @Override // com.kwad.sdk.service.kwai.h
-            public final int lp() {
-                return com.kwad.components.core.l.b.or().lp();
-            }
-
-            @Override // com.kwad.sdk.service.kwai.h
-            public final InputStream wrapInputStream(InputStream inputStream) {
-                com.kwad.components.core.l.b.or();
-                return com.kwad.components.core.l.b.wrapInputStream(inputStream);
-            }
-        });
-        ServiceProvider.put(l.class, new l() { // from class: com.kwad.components.core.b.4
-            @Override // com.kwad.sdk.core.network.l
-            public final void a(double d2, j jVar) {
-                k.b(d2, jVar);
-            }
-
-            @Override // com.kwad.sdk.core.network.l
-            public final void a(double d2, com.kwad.sdk.core.network.k kVar) {
-                k.b(d2, kVar);
-            }
-
-            @Override // com.kwad.sdk.core.network.l
-            public final com.kwad.sdk.core.b lq() {
-                return com.kwad.components.core.k.kwai.c.oq();
-            }
-        });
-        ll();
-    }
-
-    public static void ll() {
-        ServiceProvider.put(r.class, new r() { // from class: com.kwad.components.core.b.5
-            @Override // com.kwad.sdk.core.report.r
-            public final boolean h(long j) {
-                m mVar = com.kwad.sdk.core.config.c.Ui;
-                return m.h(j);
-            }
-
-            @Override // com.kwad.sdk.core.report.r
-            public final int lr() {
-                return com.kwad.sdk.core.config.d.lr();
-            }
-
-            @Override // com.kwad.sdk.core.report.r
-            public final int ls() {
-                com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-                if (aVar != null) {
-                    return aVar.ls();
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadConfigFeedAd(KsScene ksScene, @NonNull final KsLoadManager.FeedAdListener feedAdListener) {
+        com.kwad.sdk.i.a.ai("feed", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        com.kwad.components.ad.b.c cVar = (com.kwad.components.ad.b.c) c.f(com.kwad.components.ad.b.c.class);
+        if (cVar != null) {
+            cVar.loadConfigFeedAd(ksScene, new KsLoadManager.FeedAdListener() { // from class: com.kwad.components.core.b.4
+                @Override // com.kwad.sdk.api.KsLoadManager.FeedAdListener
+                public final void onError(int i, String str) {
+                    feedAdListener.onError(i, str);
                 }
-                return 0;
-            }
-        });
-        ServiceProvider.put(com.kwad.sdk.core.download.d.class, new a((byte) 0));
-        ServiceProvider.put(com.kwad.sdk.core.video.kwai.f.class, new com.kwad.sdk.core.video.kwai.f() { // from class: com.kwad.components.core.b.6
-            @Override // com.kwad.sdk.core.video.kwai.f
-            public final boolean lt() {
-                return com.kwad.sdk.core.config.d.lt();
-            }
 
-            @Override // com.kwad.sdk.core.video.kwai.f
-            public final boolean lu() {
-                return com.kwad.sdk.core.config.d.lu();
-            }
-
-            @Override // com.kwad.sdk.core.video.kwai.f
-            public final boolean lv() {
-                return ((com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class)).lv();
-            }
-        });
-        ServiceProvider.put(com.kwad.sdk.utils.a.b.class, new com.kwad.sdk.utils.a.b() { // from class: com.kwad.components.core.b.7
-            @Override // com.kwad.sdk.utils.a.b
-            public final void a(com.kwad.sdk.utils.a.a aVar) {
-                if (aVar == null) {
-                    return;
+                @Override // com.kwad.sdk.api.KsLoadManager.FeedAdListener
+                public final void onFeedAdLoad(@Nullable List<KsFeedAd> list) {
+                    feedAdListener.onFeedAdLoad(list);
                 }
-                k.b(aVar);
-            }
-        });
+            });
+            com.kwad.sdk.i.a.aj("feed", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            feedAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadDrawAd(KsScene ksScene, @NonNull final KsLoadManager.DrawAdListener drawAdListener) {
+        com.kwad.sdk.i.a.ai("draw", "request");
+        com.kwad.components.ad.b.b bVar = (com.kwad.components.ad.b.b) c.f(com.kwad.components.ad.b.b.class);
+        if (bVar != null) {
+            bVar.loadDrawAd(ksScene, new KsLoadManager.DrawAdListener() { // from class: com.kwad.components.core.b.5
+                @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+                public final void onError(int i, String str) {
+                    drawAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+                public final void onDrawAdLoad(@Nullable List<KsDrawAd> list) {
+                    drawAdListener.onDrawAdLoad(list);
+                }
+            });
+            com.kwad.sdk.i.a.aj("draw", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            drawAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadFeedAd(KsScene ksScene, @NonNull final KsLoadManager.FeedAdListener feedAdListener) {
+        com.kwad.sdk.i.a.ai("feed", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        com.kwad.components.ad.b.c cVar = (com.kwad.components.ad.b.c) c.f(com.kwad.components.ad.b.c.class);
+        if (cVar != null) {
+            cVar.loadFeedAd(ksScene, new KsLoadManager.FeedAdListener() { // from class: com.kwad.components.core.b.3
+                @Override // com.kwad.sdk.api.KsLoadManager.FeedAdListener
+                public final void onError(int i, String str) {
+                    feedAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.FeedAdListener
+                public final void onFeedAdLoad(@Nullable List<KsFeedAd> list) {
+                    feedAdListener.onFeedAdLoad(list);
+                }
+            });
+            com.kwad.sdk.i.a.aj("feed", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            feedAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadFullScreenVideoAd(KsScene ksScene, @NonNull final KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
+        com.kwad.sdk.i.a.ai("fullscreen", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        d dVar = (d) c.f(d.class);
+        if (dVar != null) {
+            dVar.loadFullScreenVideoAd(ksScene, new KsLoadManager.FullScreenVideoAdListener() { // from class: com.kwad.components.core.b.1
+                @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+                public final void onError(int i, String str) {
+                    fullScreenVideoAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+                public final void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
+                    fullScreenVideoAdListener.onFullScreenVideoAdLoad(list);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+                public final void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list) {
+                    fullScreenVideoAdListener.onFullScreenVideoResult(list);
+                }
+            });
+            com.kwad.sdk.i.a.aj("fullscreen", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            fullScreenVideoAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull final KsLoadManager.InterstitialAdListener interstitialAdListener) {
+        com.kwad.sdk.i.a.ai("interstitial", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        com.kwad.components.ad.b.e eVar = (com.kwad.components.ad.b.e) c.f(com.kwad.components.ad.b.e.class);
+        if (eVar != null) {
+            eVar.loadInterstitialAd(ksScene, new KsLoadManager.InterstitialAdListener() { // from class: com.kwad.components.core.b.8
+                @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+                public final void onError(int i, String str) {
+                    interstitialAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+                public final void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
+                    interstitialAdListener.onInterstitialAdLoad(list);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+                public final void onRequestResult(int i) {
+                    interstitialAdListener.onRequestResult(i);
+                }
+            });
+            com.kwad.sdk.i.a.aj("interstitial", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar2 = e.atp;
+            interstitialAdListener.onError(eVar2.errorCode, eVar2.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadNativeAd(KsScene ksScene, @NonNull final KsLoadManager.NativeAdListener nativeAdListener) {
+        com.kwad.sdk.i.a.ai("native", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        f fVar = (f) c.f(f.class);
+        if (fVar != null) {
+            fVar.loadNativeAd(ksScene, new KsLoadManager.NativeAdListener() { // from class: com.kwad.components.core.b.6
+                @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+                public final void onError(int i, String str) {
+                    nativeAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+                public final void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
+                    nativeAdListener.onNativeAdLoad(list);
+                }
+            });
+            com.kwad.sdk.i.a.aj("native", "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            nativeAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadRewardVideoAd(KsScene ksScene, @NonNull final KsLoadManager.RewardVideoAdListener rewardVideoAdListener) {
+        com.kwad.sdk.i.a.ai("reward", "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        g gVar = (g) c.f(g.class);
+        if (gVar != null) {
+            gVar.loadRewardVideoAd(ksScene, new KsLoadManager.RewardVideoAdListener() { // from class: com.kwad.components.core.b.2
+                @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+                public final void onError(int i, String str) {
+                    rewardVideoAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+                public final void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
+                    rewardVideoAdListener.onRewardVideoAdLoad(list);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+                public final void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
+                    rewardVideoAdListener.onRewardVideoResult(list);
+                }
+            });
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            rewardVideoAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+        com.kwad.sdk.i.a.aj("reward", "request");
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull final KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+        com.kwad.sdk.i.a.ai(SpeedStatsUtils.UBC_VALUE_SPLASH, "request");
+        com.kwad.sdk.commercial.e.c.a(ksScene);
+        h hVar = (h) c.f(h.class);
+        if (hVar != null) {
+            hVar.loadSplashScreenAd(ksScene, new KsLoadManager.SplashScreenAdListener() { // from class: com.kwad.components.core.b.7
+                @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+                public final void onError(int i, String str) {
+                    splashScreenAdListener.onError(i, str);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+                public final void onRequestResult(int i) {
+                    splashScreenAdListener.onRequestResult(i);
+                }
+
+                @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+                public final void onSplashScreenAdLoad(@Nullable KsSplashScreenAd ksSplashScreenAd) {
+                    splashScreenAdListener.onSplashScreenAdLoad(ksSplashScreenAd);
+                }
+            });
+            com.kwad.sdk.i.a.aj(SpeedStatsUtils.UBC_VALUE_SPLASH, "request");
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            splashScreenAdListener.onError(eVar.errorCode, eVar.msg);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final boolean showInstallDialog(Activity activity, KsExitInstallListener ksExitInstallListener) {
+        com.kwad.components.ad.b.a aVar = (com.kwad.components.ad.b.a) c.f(com.kwad.components.ad.b.a.class);
+        if (aVar != null) {
+            return aVar.showInstallDialog(activity, ksExitInstallListener);
+        }
+        return false;
+    }
+
+    @Override // com.kwad.sdk.api.KsLoadManager
+    public final void loadNativeAd(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
+        com.kwad.sdk.commercial.e.c.b(BusinessType.AD_NATIVE, true);
+        f fVar = (f) c.f(f.class);
+        if (fVar != null) {
+            fVar.loadNativeAd(str, nativeAdListener);
+        } else if (com.kwad.components.ad.e.a.mc.booleanValue()) {
+            e eVar = e.atp;
+            nativeAdListener.onError(eVar.errorCode, eVar.msg);
+        }
     }
 }

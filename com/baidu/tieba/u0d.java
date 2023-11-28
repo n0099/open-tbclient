@@ -4,34 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Level;
-import tbclient.ParrProps;
-import tbclient.Props;
+import tbclient.FrsPage.Identify;
 /* loaded from: classes8.dex */
-public class u0d extends qoc {
+public class u0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ParrProps parrProps) {
+    public static JSONObject b(@NonNull Identify identify) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, parrProps)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, identify)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "portrait_time", parrProps.portrait_time);
-            Level level = parrProps.level;
-            if (level != null) {
-                qoc.a(jSONObject, "level", nzc.b(level));
-            }
-            if (parrProps.props != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Props props : parrProps.props) {
-                    jSONArray.put(v1d.b(props));
-                }
-                qoc.a(jSONObject, "props", jSONArray);
-            }
+            ltc.a(jSONObject, "is_identify", identify.is_identify);
+            ltc.a(jSONObject, "id", identify.id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

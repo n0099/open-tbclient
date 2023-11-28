@@ -1,84 +1,178 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class kyb extends pyb {
+public class kyb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kyb(Ssp.Pid pid) {
-        super(pid);
+    public static long a(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[n61.a];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return 0L;
         }
+        return invokeLL.longValue;
     }
 
-    @Override // com.baidu.tieba.pyb
-    public JSONObject c(Object obj) {
+    public static String b(File file) {
         InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
             try {
-                if (obj instanceof dyb) {
-                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
-                    declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(obj);
-                    if (obj2 == null) {
-                        return null;
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused) {
                     }
-                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
-                    declaredField2.setAccessible(true);
-                    Object obj3 = declaredField2.get(obj2);
-                    if (obj3 == null) {
-                        return null;
+                    return c;
+                } catch (FileNotFoundException unused2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused3) {
+                        }
                     }
-                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
-                    declaredField3.setAccessible(true);
-                    Object obj4 = declaredField3.get(obj3);
-                    if (obj4 == null) {
-                        return null;
-                    }
-                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
-                    declaredField4.setAccessible(true);
-                    Object obj5 = declaredField4.get(obj4);
-                    if (obj5 == null) {
-                        return null;
-                    }
-                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
-                    declaredField5.setAccessible(true);
-                    Object obj6 = declaredField5.get(obj5);
-                    if (obj6 instanceof JSONObject) {
-                        return (JSONObject) obj6;
+                    return null;
+                } catch (Throwable unused4) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused5) {
+                        }
                     }
                     return null;
                 }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.d();
-                return null;
+            } catch (FileNotFoundException unused6) {
+                fileInputStream = null;
+            } catch (Throwable unused7) {
+                fileInputStream = null;
             }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String c(@NonNull FileInputStream fileInputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
+            if (fileInputStream != null) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            sb.append(readLine);
+                        } else {
+                            return sb.toString();
+                        }
+                    }
+                } catch (IOException unused) {
+                    return sb.toString();
+                } catch (Throwable unused2) {
+                    return sb.toString();
+                }
+            } else {
+                throw new NullPointerException("inputStream should not be null");
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static boolean d(InputStream inputStream, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) == null) {
+            boolean z2 = false;
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
+                try {
+                    if (a(inputStream, fileOutputStream2) != 0) {
+                        z2 = true;
+                    }
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return z2;
+                } catch (FileNotFoundException unused2) {
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeLLZ.booleanValue;
+        }
+    }
+
+    public static boolean e(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return d(new ByteArrayInputStream(str.getBytes()), file, z);
+        }
+        return invokeLLZ.booleanValue;
     }
 }

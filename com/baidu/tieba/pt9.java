@@ -1,122 +1,106 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class pt9 {
+public class pt9 implements u75 {
     public static /* synthetic */ Interceptable $ic;
+    public static pt9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qt9 a;
-    public final qt9 b;
-    public final qt9 c;
-    public final qt9 d;
-    public final qt9 e;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof pt9) {
-                pt9 pt9Var = (pt9) obj;
-                return Intrinsics.areEqual(this.a, pt9Var.a) && Intrinsics.areEqual(this.b, pt9Var.b) && Intrinsics.areEqual(this.c, pt9Var.c) && Intrinsics.areEqual(this.d, pt9Var.d) && Intrinsics.areEqual(this.e, pt9Var.e);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "AigcFeedbackTypesState(selectPositive=" + this.a + ", selectingPositive=" + this.b + ", selectNegative=" + this.c + ", unselectPositive=" + this.d + ", unselectNegative=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pt9(qt9 selectPositive, qt9 selectingPositive, qt9 selectNegative, qt9 unselectPositive, qt9 unselectNegative) {
+    public pt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {selectPositive, selectingPositive, selectNegative, unselectPositive, unselectNegative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(selectPositive, "selectPositive");
-        Intrinsics.checkNotNullParameter(selectingPositive, "selectingPositive");
-        Intrinsics.checkNotNullParameter(selectNegative, "selectNegative");
-        Intrinsics.checkNotNullParameter(unselectPositive, "unselectPositive");
-        Intrinsics.checkNotNullParameter(unselectNegative, "unselectNegative");
-        this.a = selectPositive;
-        this.b = selectingPositive;
-        this.c = selectNegative;
-        this.d = unselectPositive;
-        this.e = unselectNegative;
     }
 
-    public final qt9 a() {
+    public static synchronized pt9 d() {
         InterceptResult invokeV;
+        pt9 pt9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (pt9.class) {
+                if (a == null) {
+                    a = new pt9();
+                }
+                pt9Var = a;
+            }
+            return pt9Var;
         }
-        return (qt9) invokeV.objValue;
+        return (pt9) invokeV.objValue;
     }
 
-    public final qt9 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u75
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("PassManager", "sapi logout failed, exp=" + e);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", e.getMessage()));
+            }
         }
-        return (qt9) invokeV.objValue;
     }
 
-    public final qt9 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u75
+    public void b(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().validate(sapiAccount);
+                        return;
+                    }
+                }
+            }
         }
-        return (qt9) invokeV.objValue;
     }
 
-    public final qt9 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u75
+    public void c(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                a();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                        return;
+                    }
+                }
+            }
         }
-        return (qt9) invokeV.objValue;
-    }
-
-    public final qt9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (qt9) invokeV.objValue;
     }
 }

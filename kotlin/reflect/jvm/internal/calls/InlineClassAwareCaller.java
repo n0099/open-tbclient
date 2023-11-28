@@ -198,8 +198,8 @@ public final class InlineClassAwareCaller<M extends Member> implements Caller<M>
 
     @Override // kotlin.reflect.jvm.internal.calls.Caller
     /* renamed from: getMember */
-    public M mo2102getMember() {
-        return this.caller.mo2102getMember();
+    public M mo2106getMember() {
+        return this.caller.mo2106getMember();
     }
 
     @Override // kotlin.reflect.jvm.internal.calls.Caller

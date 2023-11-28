@@ -1,51 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fnb;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UrlRequest;
+import java.util.Collection;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class nnb {
+public abstract class nnb extends ExperimentalCronetEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
 
-    /* loaded from: classes7.dex */
-    public class a extends rnb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
-
-        public a(nnb nnbVar, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nnbVar, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lVar;
-        }
-
-        @Override // com.baidu.tieba.rnb
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new xmb().c(this.a);
-            }
-        }
-    }
+    public abstract kob g(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, @Nullable RequestFinishedInfo.Listener listener, int i4);
 
     public nnb() {
         Interceptable interceptable = $ic;
@@ -57,45 +29,17 @@ public final class nnb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedHashMap<>();
-    }
-
-    public final void a(String str) {
-        fnb fnbVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
-            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.a) {
-                Long remove = this.a.remove(str);
-                if (remove == null) {
-                    return;
-                }
-                try {
-                    lVar.setStartTime(String.valueOf(remove));
-                    lVar.t(str);
-                    lVar.z(String.valueOf(System.currentTimeMillis()));
-                    fnbVar = fnb.a.a;
-                    lVar.setPath(fnbVar.b());
-                    lVar.x(onb.e().I());
-                } catch (Exception e) {
-                    xnb.a(e.toString());
-                    pnb.b(e.toString());
-                }
-                qnb.c(new a(this, lVar));
             }
         }
     }
 
-    public final void b(String str) {
+    @Override // com.baidu.turbonet.net.ExperimentalCronetEngine
+    public ExperimentalUrlRequest.Builder f(String str, UrlRequest.Callback callback, Executor executor) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-            synchronized (this.a) {
-                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                String.valueOf(System.currentTimeMillis());
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, callback, executor)) == null) {
+            return new lob(str, callback, executor, this);
         }
+        return (ExperimentalUrlRequest.Builder) invokeLLL.objValue;
     }
 }

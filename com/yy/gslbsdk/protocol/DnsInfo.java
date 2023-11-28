@@ -4,7 +4,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DnsInfo {
     public static final String TAG = "DnsInfo";
     public CmdInfo cmd;
@@ -16,7 +16,7 @@ public class DnsInfo {
     public String uip;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1222view;
+    public String f1223view;
     public LinkedList<String> ips = new LinkedList<>();
     public int source = 0;
     public int status = 0;
@@ -62,13 +62,13 @@ public class DnsInfo {
     }
 
     public String getView() {
-        return this.f1222view;
+        return this.f1223view;
     }
 
     public void cloneDnsInfo(DnsInfo dnsInfo) {
         this.host = dnsInfo.getHost();
         this.uip = dnsInfo.getUip();
-        this.f1222view = dnsInfo.getView();
+        this.f1223view = dnsInfo.getView();
         this.ttl = dnsInfo.getTtl();
         this.probeTime = dnsInfo.getProbeTime();
         this.endTime = dnsInfo.getEndTime();
@@ -172,7 +172,7 @@ public class DnsInfo {
     }
 
     public void setView(String str) {
-        this.f1222view = str;
+        this.f1223view = str;
     }
 
     public void setCmdStr(String str) {

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
-import com.baidu.tieba.r60;
+import com.baidu.tieba.s60;
 /* loaded from: classes3.dex */
 public class TabTextView extends AppCompatTextView {
     public final int a;
@@ -104,7 +104,7 @@ public class TabTextView extends AppCompatTextView {
         super(context, attributeSet, i);
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r60.LiveFeedPageTabTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, s60.LiveFeedPageTabTextView);
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);
@@ -120,7 +120,7 @@ public class TabTextView extends AppCompatTextView {
 
     public final void d(boolean z) {
         if (z) {
-            if (i()) {
+            if (j()) {
                 if (this.o == null) {
                     if (getMeasuredWidth() == 0) {
                         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
@@ -160,7 +160,7 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public void f() {
+    public void g() {
         getPaint().setShader(null);
     }
 
@@ -175,7 +175,7 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public final boolean i() {
+    public final boolean j() {
         if (this.a != -1 && this.b != -1 && this.i) {
             return true;
         }

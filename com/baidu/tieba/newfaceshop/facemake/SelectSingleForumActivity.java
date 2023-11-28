@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo9;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public bo9 f;
+    public rr9 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -75,11 +75,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 return;
             }
             if (view2.getId() == this.a.a.getId()) {
-                if (this.a.Q0() == null) {
+                if (this.a.O0() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.Q0());
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.O0());
                 this.a.setResult(-1, intent);
                 this.a.finish();
             } else if (view2.getId() == this.a.d.getId()) {
@@ -118,10 +118,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092721);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0927a4);
                 if (!checkBox.isChecked()) {
-                    if (this.a.Q0() != null && this.a.Q0().isChecked) {
-                        this.a.Q0().isChecked = false;
+                    if (this.a.O0() != null && this.a.O0().isChecked) {
+                        this.a.O0().isChecked = false;
                     }
                     baInfo.isChecked = true;
                     checkBox.setChecked(!checkBox.isChecked());
@@ -149,7 +149,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         this.l = new b(this);
     }
 
-    public final BazhuInfoData.BaInfo Q0() {
+    public final BazhuInfoData.BaInfo O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -163,10 +163,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         return (BazhuInfoData.BaInfo) invokeV.objValue;
     }
 
-    public final void S0() {
+    public final void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f1390);
+            this.a.setText(R.string.obfuscated_res_0x7f0f13a0);
         }
     }
 
@@ -192,8 +192,8 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08b9);
-            this.h = findViewById(R.id.obfuscated_res_0x7f09200a);
+            setContentView(R.layout.obfuscated_res_0x7f0d08d3);
+            this.h = findViewById(R.id.obfuscated_res_0x7f092081);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -203,14 +203,14 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 layoutParams.leftMargin = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070359);
                 this.d.setLayoutParams(layoutParams);
             }
-            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0658));
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0660));
             this.d.setOnClickListener(this.k);
             this.i = findViewById(R.id.view_divider);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092722);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0927a5);
             this.a = textView;
             textView.setOnClickListener(this.k);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0914ee);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f092726);
+            this.j = findViewById(R.id.obfuscated_res_0x7f09155f);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0927a9);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
@@ -218,11 +218,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            bo9 bo9Var = new bo9(getActivity());
-            this.f = bo9Var;
-            this.b.setAdapter((ListAdapter) bo9Var);
+            rr9 rr9Var = new rr9(getActivity());
+            this.f = rr9Var;
+            this.b.setAdapter((ListAdapter) rr9Var);
             this.f.b(this.g);
-            S0();
+            Q0();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }

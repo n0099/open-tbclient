@@ -1,35 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.RecommendTip;
 /* loaded from: classes7.dex */
-public class p7d {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 4;
-    public static int e = 5;
-    public static int f = 6;
-    public static int g = 7;
-    public static int h = 8;
+public class p7d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948016428, "Lcom/baidu/tieba/p7d;")) == null) {
-            return;
+    @NonNull
+    public static JSONObject b(@NonNull RecommendTip recommendTip) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendTip)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "reason", recommendTip.reason);
+            ltc.a(jSONObject, TiebaStatic.Params.IS_FOLLOW, recommendTip.is_follow);
+            return jSONObject;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948016428, "Lcom/baidu/tieba/p7d;");
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

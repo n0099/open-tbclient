@@ -1,83 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.browser.exception.TbWebViewException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ek6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
-                }
-            }
-            return "";
+        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String mimeTypeFromExtension;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
-            try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647900, "Lcom/baidu/tieba/bk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947647900, "Lcom/baidu/tieba/bk6;");
+                return;
             }
-            return str2;
         }
-        return (String) invokeL.objValue;
+        a = new ek6() { // from class: com.baidu.tieba.ak6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.ek6
+            public final void a(Throwable th) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) {
+                    bk6.b(th);
+                }
+            }
+        };
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeL(65537, null, th) == null) {
+            throw new RuntimeException(th);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static /* synthetic */ void b(Throwable th) {
+        if (!cj6.a()) {
+            c(th);
+        } else {
+            a(th);
+            throw null;
+        }
+    }
+
+    public static void d(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
+            if (!(th instanceof TbWebViewException)) {
+                th = new TbWebViewException(th);
+            }
+            a.a(th);
+        }
     }
 }

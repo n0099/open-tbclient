@@ -4,23 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.RewardMaterial;
+import tbclient.FrsPage.TopLiveDataPostList;
 /* loaded from: classes7.dex */
-public class q2d extends qoc {
+public class q2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RewardMaterial rewardMaterial) {
+    public static JSONObject b(@NonNull TopLiveDataPostList topLiveDataPostList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rewardMaterial)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topLiveDataPostList)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon", rewardMaterial.icon);
-            qoc.a(jSONObject, "unlock_level", rewardMaterial.unlock_level);
-            qoc.a(jSONObject, "is_matched", rewardMaterial.is_matched);
-            qoc.a(jSONObject, "is_newest_matched_level", rewardMaterial.is_newest_matched_level);
+            ltc.a(jSONObject, "nickname", topLiveDataPostList.nickname);
+            ltc.a(jSONObject, "content", topLiveDataPostList.content);
+            ltc.a(jSONObject, PushConstants.SEQ_ID, topLiveDataPostList.seq_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

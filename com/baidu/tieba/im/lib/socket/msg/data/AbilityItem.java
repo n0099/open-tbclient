@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.ns8;
+import com.baidu.tieba.uv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -436,7 +436,7 @@ public final class AbilityItem implements Serializable {
         }
     }
 
-    @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u001e\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001Bk\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\b\u001a\u0004\u0018\u00010\t\u0012\b\u0010\n\u001a\u0004\u0018\u00010\t\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\u0005\u0012\u000e\u0010\f\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\r\u0012\b\u0010\u000e\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010¢\u0006\u0002\u0010\u0011J\t\u0010\"\u001a\u00020\u0003HÆ\u0003J\u000b\u0010#\u001a\u0004\u0018\u00010\u0010HÆ\u0003J\u000b\u0010$\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010%\u001a\u00020\u0005HÆ\u0003J\u000b\u0010&\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010'\u001a\u0004\u0018\u00010\tHÆ\u0003J\u000b\u0010(\u001a\u0004\u0018\u00010\tHÆ\u0003J\u000b\u0010)\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u0011\u0010*\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\rHÆ\u0003J\u0010\u0010+\u001a\u0004\u0018\u00010\u0003HÆ\u0003¢\u0006\u0002\u0010\u001aJ\u0088\u0001\u0010,\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\t2\n\b\u0002\u0010\n\u001a\u0004\u0018\u00010\t2\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\u00052\u0010\b\u0002\u0010\f\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\r2\n\b\u0002\u0010\u000e\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\u0010HÆ\u0001¢\u0006\u0002\u0010-J\u0013\u0010.\u001a\u00020/2\b\u00100\u001a\u0004\u0018\u000101HÖ\u0003J\t\u00102\u001a\u00020\u0003HÖ\u0001J\u0006\u00103\u001a\u00020/J\t\u00104\u001a\u00020\u0005HÖ\u0001R\u0018\u0010\u000f\u001a\u0004\u0018\u00010\u00108\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u0013\u0010\u0007\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0015R\u0013\u0010\n\u001a\u0004\u0018\u00010\t¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0017R\u0013\u0010\b\u001a\u0004\u0018\u00010\t¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0017R\u0018\u0010\u000b\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0015R\u001a\u0010\u000e\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\n\n\u0002\u0010\u001b\u001a\u0004\b\u000e\u0010\u001aR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0015R\u001e\u0010\f\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\r8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u001eR\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010 R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u0015¨\u00065"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$StyleConf;", "Ljava/io/Serializable;", "showType", "", "toUk", "", "scene", "content", "day", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;", "dark", "errorTips", "showMsgType", "", "isFilterBotMsg", "androidExtra", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Ljava/lang/String;Ljava/util/List;Ljava/lang/Integer;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;)V", "getAndroidExtra", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;", "getContent", "()Ljava/lang/String;", "getDark", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;", "getDay", "getErrorTips", "()Ljava/lang/Integer;", "Ljava/lang/Integer;", "getScene", "getShowMsgType", "()Ljava/util/List;", "getShowType", "()I", "getToUk", "component1", "component10", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Ljava/lang/String;Ljava/util/List;Ljava/lang/Integer;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;)Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$StyleConf;", "equals", "", "other", "", "hashCode", "shouldShow", "toString", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b \n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001Bu\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\b\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\t\u001a\u0004\u0018\u00010\n\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\n\u0012\b\u0010\f\u001a\u0004\u0018\u00010\u0005\u0012\u000e\u0010\r\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u000e\u0012\b\u0010\u000f\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011¢\u0006\u0002\u0010\u0012J\t\u0010$\u001a\u00020\u0003HÆ\u0003J\u0010\u0010%\u001a\u0004\u0018\u00010\u0003HÆ\u0003¢\u0006\u0002\u0010\u001bJ\u000b\u0010&\u001a\u0004\u0018\u00010\u0011HÆ\u0003J\u000b\u0010'\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010(\u001a\u00020\u0005HÆ\u0003J\u000b\u0010)\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010*\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010+\u001a\u0004\u0018\u00010\nHÆ\u0003J\u000b\u0010,\u001a\u0004\u0018\u00010\nHÆ\u0003J\u000b\u0010-\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u0011\u0010.\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u000eHÆ\u0003J\u0094\u0001\u0010/\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\n2\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\n2\n\b\u0002\u0010\f\u001a\u0004\u0018\u00010\u00052\u0010\b\u0002\u0010\r\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u000e2\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0010\u001a\u0004\u0018\u00010\u0011HÆ\u0001¢\u0006\u0002\u00100J\u0013\u00101\u001a\u0002022\b\u00103\u001a\u0004\u0018\u000104HÖ\u0003J\t\u00105\u001a\u00020\u0003HÖ\u0001J\u0006\u00106\u001a\u000202J\t\u00107\u001a\u00020\u0005HÖ\u0001R\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u00118\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u0013\u0010\u0007\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R\u0013\u0010\u000b\u001a\u0004\u0018\u00010\n¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0018R\u0013\u0010\t\u001a\u0004\u0018\u00010\n¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0018R\u0018\u0010\f\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u0016R\u001a\u0010\u000f\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\n\n\u0002\u0010\u001c\u001a\u0004\b\u000f\u0010\u001bR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0016R\u001e\u0010\r\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u000e8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b \u0010!R\u0018\u0010\b\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010\u0016R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b#\u0010\u0016¨\u00068"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$StyleConf;", "Ljava/io/Serializable;", "showType", "", "toUk", "", "scene", "content", "subContent", "day", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;", "dark", "errorTips", "showMsgType", "", "isFilterBotMsg", "androidExtra", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Ljava/lang/String;Ljava/util/List;Ljava/lang/Integer;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;)V", "getAndroidExtra", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;", "getContent", "()Ljava/lang/String;", "getDark", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;", "getDay", "getErrorTips", "()Ljava/lang/Integer;", "Ljava/lang/Integer;", "getScene", "getShowMsgType", "()Ljava/util/List;", "getShowType", "()I", "getSubContent", "getToUk", "component1", "component10", "component11", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Style;Ljava/lang/String;Ljava/util/List;Ljava/lang/Integer;Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$Extra;)Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem$StyleConf;", "equals", "", "other", "", "hashCode", "shouldShow", "toString", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class StyleConf implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -455,6 +455,8 @@ public final class AbilityItem implements Serializable {
         public final List<Integer> showMsgType;
         @SerializedName("show_type")
         public final int showType;
+        @SerializedName("sub_content")
+        public final String subContent;
         @SerializedName("to_uk")
         public final String toUk;
 
@@ -464,66 +466,72 @@ public final class AbilityItem implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.showType : invokeV.intValue;
         }
 
-        public final Extra component10() {
+        public final Integer component10() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.androidExtra : (Extra) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isFilterBotMsg : (Integer) invokeV.objValue;
+        }
+
+        public final Extra component11() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.androidExtra : (Extra) invokeV.objValue;
         }
 
         public final String component2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toUk : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.toUk : (String) invokeV.objValue;
         }
 
         public final String component3() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.scene : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.scene : (String) invokeV.objValue;
         }
 
         public final String component4() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.content : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.content : (String) invokeV.objValue;
         }
 
-        public final Style component5() {
+        public final String component5() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.day : (Style) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.subContent : (String) invokeV.objValue;
         }
 
         public final Style component6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dark : (Style) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.day : (Style) invokeV.objValue;
         }
 
-        public final String component7() {
+        public final Style component7() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.errorTips : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dark : (Style) invokeV.objValue;
         }
 
-        public final List<Integer> component8() {
+        public final String component8() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.showMsgType : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.errorTips : (String) invokeV.objValue;
         }
 
-        public final Integer component9() {
+        public final List<Integer> component9() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isFilterBotMsg : (Integer) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.showMsgType : (List) invokeV.objValue;
         }
 
-        public final StyleConf copy(int i, String str, String scene, String str2, Style style, Style style2, String str3, List<Integer> list, Integer num, Extra extra) {
+        public final StyleConf copy(int i, String str, String scene, String str2, String str3, Style style, Style style2, String str4, List<Integer> list, Integer num, Extra extra) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), str, scene, str2, style, style2, str3, list, num, extra})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), str, scene, str2, str3, style, style2, str4, list, num, extra})) == null) {
                 Intrinsics.checkNotNullParameter(scene, "scene");
-                return new StyleConf(i, str, scene, str2, style, style2, str3, list, num, extra);
+                return new StyleConf(i, str, scene, str2, str3, style, style2, str4, list, num, extra);
             }
             return (StyleConf) invokeCommon.objValue;
         }
@@ -531,13 +539,13 @@ public final class AbilityItem implements Serializable {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
                 if (this == obj) {
                     return true;
                 }
                 if (obj instanceof StyleConf) {
                     StyleConf styleConf = (StyleConf) obj;
-                    return this.showType == styleConf.showType && Intrinsics.areEqual(this.toUk, styleConf.toUk) && Intrinsics.areEqual(this.scene, styleConf.scene) && Intrinsics.areEqual(this.content, styleConf.content) && Intrinsics.areEqual(this.day, styleConf.day) && Intrinsics.areEqual(this.dark, styleConf.dark) && Intrinsics.areEqual(this.errorTips, styleConf.errorTips) && Intrinsics.areEqual(this.showMsgType, styleConf.showMsgType) && Intrinsics.areEqual(this.isFilterBotMsg, styleConf.isFilterBotMsg) && Intrinsics.areEqual(this.androidExtra, styleConf.androidExtra);
+                    return this.showType == styleConf.showType && Intrinsics.areEqual(this.toUk, styleConf.toUk) && Intrinsics.areEqual(this.scene, styleConf.scene) && Intrinsics.areEqual(this.content, styleConf.content) && Intrinsics.areEqual(this.subContent, styleConf.subContent) && Intrinsics.areEqual(this.day, styleConf.day) && Intrinsics.areEqual(this.dark, styleConf.dark) && Intrinsics.areEqual(this.errorTips, styleConf.errorTips) && Intrinsics.areEqual(this.showMsgType, styleConf.showMsgType) && Intrinsics.areEqual(this.isFilterBotMsg, styleConf.isFilterBotMsg) && Intrinsics.areEqual(this.androidExtra, styleConf.androidExtra);
                 }
                 return false;
             }
@@ -547,24 +555,26 @@ public final class AbilityItem implements Serializable {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 int i = this.showType * 31;
                 String str = this.toUk;
                 int hashCode = (((i + (str == null ? 0 : str.hashCode())) * 31) + this.scene.hashCode()) * 31;
                 String str2 = this.content;
                 int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
+                String str3 = this.subContent;
+                int hashCode3 = (hashCode2 + (str3 == null ? 0 : str3.hashCode())) * 31;
                 Style style = this.day;
-                int hashCode3 = (hashCode2 + (style == null ? 0 : style.hashCode())) * 31;
+                int hashCode4 = (hashCode3 + (style == null ? 0 : style.hashCode())) * 31;
                 Style style2 = this.dark;
-                int hashCode4 = (hashCode3 + (style2 == null ? 0 : style2.hashCode())) * 31;
-                String str3 = this.errorTips;
-                int hashCode5 = (hashCode4 + (str3 == null ? 0 : str3.hashCode())) * 31;
+                int hashCode5 = (hashCode4 + (style2 == null ? 0 : style2.hashCode())) * 31;
+                String str4 = this.errorTips;
+                int hashCode6 = (hashCode5 + (str4 == null ? 0 : str4.hashCode())) * 31;
                 List<Integer> list = this.showMsgType;
-                int hashCode6 = (hashCode5 + (list == null ? 0 : list.hashCode())) * 31;
+                int hashCode7 = (hashCode6 + (list == null ? 0 : list.hashCode())) * 31;
                 Integer num = this.isFilterBotMsg;
-                int hashCode7 = (hashCode6 + (num == null ? 0 : num.hashCode())) * 31;
+                int hashCode8 = (hashCode7 + (num == null ? 0 : num.hashCode())) * 31;
                 Extra extra = this.androidExtra;
-                return hashCode7 + (extra != null ? extra.hashCode() : 0);
+                return hashCode8 + (extra != null ? extra.hashCode() : 0);
             }
             return invokeV.intValue;
         }
@@ -572,18 +582,18 @@ public final class AbilityItem implements Serializable {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-                return "StyleConf(showType=" + this.showType + ", toUk=" + this.toUk + ", scene=" + this.scene + ", content=" + this.content + ", day=" + this.day + ", dark=" + this.dark + ", errorTips=" + this.errorTips + ", showMsgType=" + this.showMsgType + ", isFilterBotMsg=" + this.isFilterBotMsg + ", androidExtra=" + this.androidExtra + ')';
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                return "StyleConf(showType=" + this.showType + ", toUk=" + this.toUk + ", scene=" + this.scene + ", content=" + this.content + ", subContent=" + this.subContent + ", day=" + this.day + ", dark=" + this.dark + ", errorTips=" + this.errorTips + ", showMsgType=" + this.showMsgType + ", isFilterBotMsg=" + this.isFilterBotMsg + ", androidExtra=" + this.androidExtra + ')';
             }
             return (String) invokeV.objValue;
         }
 
-        public StyleConf(int i, String str, String scene, String str2, Style style, Style style2, String str3, List<Integer> list, Integer num, Extra extra) {
+        public StyleConf(int i, String str, String scene, String str2, String str3, Style style, Style style2, String str4, List<Integer> list, Integer num, Extra extra) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, scene, str2, style, style2, str3, list, num, extra};
+                newInitContext.initArgs = r3;
+                Object[] objArr = {Integer.valueOf(i), str, scene, str2, str3, style, style2, str4, list, num, extra};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -598,9 +608,10 @@ public final class AbilityItem implements Serializable {
             this.toUk = str;
             this.scene = scene;
             this.content = str2;
+            this.subContent = str3;
             this.day = style;
             this.dark = style2;
-            this.errorTips = str3;
+            this.errorTips = str4;
             this.showMsgType = list;
             this.isFilterBotMsg = num;
             this.androidExtra = extra;
@@ -609,7 +620,7 @@ public final class AbilityItem implements Serializable {
         public final Extra getAndroidExtra() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
                 return this.androidExtra;
             }
             return (Extra) invokeV.objValue;
@@ -618,7 +629,7 @@ public final class AbilityItem implements Serializable {
         public final String getContent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
                 return this.content;
             }
             return (String) invokeV.objValue;
@@ -627,7 +638,7 @@ public final class AbilityItem implements Serializable {
         public final Style getDark() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                 return this.dark;
             }
             return (Style) invokeV.objValue;
@@ -636,7 +647,7 @@ public final class AbilityItem implements Serializable {
         public final Style getDay() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 return this.day;
             }
             return (Style) invokeV.objValue;
@@ -645,7 +656,7 @@ public final class AbilityItem implements Serializable {
         public final String getErrorTips() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 return this.errorTips;
             }
             return (String) invokeV.objValue;
@@ -654,7 +665,7 @@ public final class AbilityItem implements Serializable {
         public final String getScene() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.scene;
             }
             return (String) invokeV.objValue;
@@ -663,7 +674,7 @@ public final class AbilityItem implements Serializable {
         public final List<Integer> getShowMsgType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 return this.showMsgType;
             }
             return (List) invokeV.objValue;
@@ -672,16 +683,25 @@ public final class AbilityItem implements Serializable {
         public final int getShowType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 return this.showType;
             }
             return invokeV.intValue;
         }
 
+        public final String getSubContent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return this.subContent;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public final String getToUk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.toUk;
             }
             return (String) invokeV.objValue;
@@ -690,7 +710,7 @@ public final class AbilityItem implements Serializable {
         public final Integer isFilterBotMsg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 return this.isFilterBotMsg;
             }
             return (Integer) invokeV.objValue;
@@ -701,7 +721,7 @@ public final class AbilityItem implements Serializable {
             boolean z;
             boolean e;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                 if (this.showType == 2) {
                     return true;
                 }
@@ -715,7 +735,7 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    e = ns8.e(this.toUk);
+                    e = uv8.e(this.toUk);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }

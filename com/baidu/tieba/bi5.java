@@ -9,10 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class bi5 extends zh5 {
+public class bi5 extends fi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +28,7 @@ public class bi5 extends zh5 {
                 return;
             }
         }
-        c = zh5.a("fdAT");
+        d = fi5.a("acTL");
     }
 
     public bi5() {
@@ -44,11 +45,12 @@ public class bi5 extends zh5 {
         }
     }
 
-    @Override // com.baidu.tieba.zh5
-    public void b(gi5 gi5Var) throws IOException {
+    @Override // com.baidu.tieba.fi5
+    public void b(mi5 mi5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gi5Var) == null) {
-            gi5Var.e();
+        if (interceptable == null || interceptable.invokeL(1048576, this, mi5Var) == null) {
+            mi5Var.e();
+            this.c = mi5Var.e();
         }
     }
 }

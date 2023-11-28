@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.cy7;
+import com.baidu.tieba.n08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes6.dex */
-public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<cy7, ItemPageResIdl> {
+public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<n08, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,9 +51,9 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            cy7 cy7Var = new cy7();
+            n08 n08Var = new n08();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            cy7Var.a(itemPageResIdl.data);
+            n08Var.a(itemPageResIdl.data);
             Error error = itemPageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -62,7 +62,7 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(cy7Var);
+            setData(n08Var);
         }
     }
 }

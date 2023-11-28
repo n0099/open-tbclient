@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.NoticeMask;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes7.dex */
-public class m0d extends qoc {
+public class m0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NoticeMask noticeMask) {
+    public static JSONObject b(@NonNull GconAccount gconAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, noticeMask)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gconAccount)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "attr_type", noticeMask.attr_type);
-            qoc.a(jSONObject, "attr_value", noticeMask.attr_value);
+            ltc.a(jSONObject, "has_account", gconAccount.has_account);
+            ltc.a(jSONObject, "menu_name", gconAccount.menu_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

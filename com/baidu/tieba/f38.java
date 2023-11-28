@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 /* loaded from: classes5.dex */
-public class f38 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f38 {
+    void d(int i, @NonNull String str);
 
-    public static PackageInfo a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (PackageInfo) invokeL.objValue;
-    }
+    void g(boolean z);
+
+    void h(View.OnClickListener onClickListener);
+
+    void i(long j, long j2);
+
+    void j(@Nullable String str, @NonNull String str2);
+
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

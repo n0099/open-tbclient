@@ -4,25 +4,25 @@ import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import java.util.concurrent.ScheduledFuture;
 /* loaded from: classes10.dex */
 public class ab implements Runnable {
-    public final /* synthetic */ MiTinyDataClient.a.C0716a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0756a a;
 
-    public ab(MiTinyDataClient.a.C0716a c0716a) {
-        this.a = c0716a;
+    public ab(MiTinyDataClient.a.C0756a c0756a) {
+        this.a = c0756a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.a.f43a.size() != 0) {
+        if (this.a.f39a.size() != 0) {
             this.a.b();
             return;
         }
-        scheduledFuture = this.a.f44a;
+        scheduledFuture = this.a.f40a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.a.f44a;
+            scheduledFuture2 = this.a.f40a;
             scheduledFuture2.cancel(false);
-            this.a.f44a = null;
+            this.a.f40a = null;
         }
     }
 }

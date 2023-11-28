@@ -1,460 +1,315 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.bu;
-import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.mu;
-import com.baidu.tieba.qs;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashSet;
 /* loaded from: classes7.dex */
-public class ku7 extends qp7<hz4, ThreadCardViewHolder<ThreadData>> implements wl6, d18, t16 {
+public class ku7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> l;
-    public HashSet<String> m;
+    public TbPageContext a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
     public String n;
     public String o;
-    public boolean p;
-    public int q;
-    public b18 r;
-    public yl6<ThreadData> s;
-    public NEGFeedBackView.NEGFeedbackEventCallback t;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
 
-    @Override // com.baidu.tieba.wl6
-    public void a(String str) {
+    public final String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends yl6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 b;
-
-        public a(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ku7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yl6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) && view2 != null && threadData != null) {
-                if ("c13010".equals(this.b.o)) {
-                    TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 3).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
-                }
-                if (view2.getId() != R.id.user_name && view2.getId() != R.id.user_avatar) {
-                    if (view2.getId() == R.id.thread_info_commont_container) {
-                        a18.e(threadData, 5, this.b.mPageId, this.b.r, this.b.u());
-                        if (this.b.b != null && this.b.b.getForum() != null) {
-                            a18.c(threadData, this.b.b.getForum().getId());
-                        }
-                    } else if (view2.getId() == R.id.share_num_container) {
-                        a18.e(threadData, 14, this.b.mPageId, this.b.r, this.b.u());
-                    } else if (view2.getId() == R.id.img_agree) {
-                        a18.e(threadData, 12, this.b.mPageId, this.b.r, this.b.u());
-                    } else if (view2.getId() == R.id.img_disagree) {
-                        a18.e(threadData, 13, this.b.mPageId, this.b.r, this.b.u());
-                    } else {
-                        if (view2 instanceof ThreadGodReplyLayout) {
-                            a18.e(threadData, 15, this.b.mPageId, this.b.r, this.b.u());
-                        } else {
-                            a18.e(threadData, 1, this.b.mPageId, this.b.r, this.b.u());
-                        }
-                        if (this.b.b != null && this.b.b.getForum() != null) {
-                            a18.c(threadData, this.b.b.getForum().getId());
-                        }
-                    }
-                } else {
-                    a18.e(threadData, 2, this.b.mPageId, this.b.r, this.b.u());
-                }
-                if (view2.getId() != R.id.user_name && view2.getId() != R.id.user_avatar) {
-                    if (view2.getId() == R.id.card_home_page_normal_thread_user_icon) {
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
-                    } else {
-                        c18.k().h(this.b.r, threadData, 1);
-                    }
-                } else {
-                    c18.k().h(this.b.r, threadData, 2);
-                }
-                if (view2.getId() != R.id.user_name && view2.getId() != R.id.user_avatar) {
-                    if (view2 instanceof OriginalThreadCardView) {
-                        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
-                        statisticItem.param("obj_type", "3");
-                        statisticItem.param("tid", threadData.getTid());
-                        TiebaStatic.log(statisticItem);
-                        return;
-                    }
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
-                statisticItem2.param("obj_type", "1");
-                statisticItem2.param("tid", threadData.getTid());
-                TiebaStatic.log(statisticItem2);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements NEGFeedBackView.NEGFeedbackEventCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onCheckedChanged(NegativeFeedBackData negativeFeedBackData, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, negativeFeedBackData, compoundButton, z) == null) {
-            }
-        }
-
-        public b(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, negativeFeedBackData) == null) && arrayList != null && negativeFeedBackData != null) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append(arrayList.get(i) + ",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                TiebaStatic.log(new StatisticItem("c11974").param("obj_locate", sb.toString()).param("fid", negativeFeedBackData.getFid()).param("tid", negativeFeedBackData.getTid()).param("nid", negativeFeedBackData.getNid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("source", negativeFeedBackData.source).param("weight", negativeFeedBackData.weight).param("ab_tag", negativeFeedBackData.abTag).param("extra", negativeFeedBackData.extra).param("card_type", negativeFeedBackData.cardType).param(TiebaStatic.Params.OBJ_FLOOR, negativeFeedBackData.statFloor));
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackWindowShow(NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, negativeFeedBackData) == null) {
-                TiebaStatic.log(new StatisticItem("c11973").param("fid", negativeFeedBackData.getFid()).param("tid", negativeFeedBackData.getTid()).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements qs.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.qs.b
-        public void a(bw4 bw4Var, View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bw4Var, view2) == null) && bw4Var != null) {
-                if (view2.getId() == R.id.user_name) {
-                    bw4Var.objType = 3;
-                } else if (view2.getId() == R.id.user_avatar) {
-                    bw4Var.objType = 4;
-                } else {
-                    bw4Var.objType = 1;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements yi {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 a;
-
-        public d(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ku7Var;
-        }
-
-        @Override // com.baidu.tieba.yi
-        public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (oiVar instanceof hz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((hz4) oiVar).t;
-                threadData.objType = 1;
-                if (this.a.s != null) {
-                    this.a.s.a(threadCardViewHolder.getView(), threadData);
-                }
-                ThreadCardUtils.jumpToPB((bw4) threadData, view2.getContext(), this.a.q, false);
-                threadCardViewHolder.a().q(new mu.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ku7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public ku7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = true;
-        this.q = 3;
-        this.r = new b18();
-        this.s = new a(this);
-        this.t = new b(this);
-        this.l = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.a = tbPageContext;
     }
 
-    public final void Y(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            if (this.m == null) {
-                this.m = new HashSet<>();
-            }
-            c18.k().d(threadData, this.m);
-        }
-    }
-
-    @Override // com.baidu.tieba.t16
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.wl6
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.q = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.qp7
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.qp7
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.p = z;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: Z */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+    public final SpannableString d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            bu.b bVar = new bu.b(this.l.getPageActivity());
-            qs qsVar = new qs(this.l.getPageActivity());
-            qsVar.b(4280);
-            qsVar.o(this.mPageId);
-            qsVar.x(new c(this));
-            bVar.o(qsVar);
-            gu guVar = new gu(this.l.getPageActivity());
-            bVar.n(guVar);
-            guVar.y(true);
-            guVar.z(3);
-            ct ctVar = new ct(this.l.getPageActivity());
-            ctVar.C(this.p);
-            ctVar.B("frs");
-            bVar.h(ctVar);
-            du duVar = new du(this.l.getPageActivity());
-            hw4 hw4Var = new hw4();
-            if (100 == u().tabType) {
-                hw4Var.b = 25;
-                duVar.E(19);
-            } else {
-                hw4Var.b = 2;
-                duVar.E(2);
-            }
-            hw4Var.h = 2;
-            FrsViewData frsViewData = this.b;
-            if (frsViewData != null && frsViewData.getForum() != null && !qd.isEmpty(this.b.getForum().getId())) {
-                hw4Var.j = this.b.getForum().getId();
-            }
-            duVar.C(hw4Var);
-            duVar.J(3);
-            duVar.F(2);
-            duVar.b(16);
-            bVar.m(duVar);
-            bVar.l().i(BdUtilHelper.getDimens(this.mContext, R.dimen.tbds28));
-            bu i = bVar.i();
-            i.t(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(i);
-            threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(new d(this));
-            threadCardViewHolder.p();
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 0, spannableString.length(), 33);
+            return spannableString;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (SpannableString) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qp7, com.baidu.tieba.bi
-    /* renamed from: a0 */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hz4 hz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public final SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hz4Var, threadCardViewHolder})) == null) {
-            if (hz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                if (threadCardViewHolder.a() instanceof s16) {
-                    threadCardViewHolder.a().b(this.n);
-                }
-                super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) hz4Var, (hz4) threadCardViewHolder);
-                pp7.i(threadCardViewHolder.a().f(), this.b);
-                FrsViewData frsViewData = this.b;
-                if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.b.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.b.getForum().getTopic_special_icon_right())) {
-                    hz4Var.t.setSpecUrl(this.b.getForum().getTopic_special_icon(), this.b.getForum().getTopic_special_icon_right());
-                }
-                int i2 = 0;
-                if (hz4Var.t.getAuthor() != null && hz4Var.t.getAuthor().getUserId() != null && hz4Var.t.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (hz4Var.t.isSmartFrsThread() && hz4Var.t.getFeedBackReasonMap() != null && !z) {
-                    threadCardViewHolder.r(true).setNegEventCallback(this.t);
-                }
-                threadCardViewHolder.u();
-                if (threadCardViewHolder.a().f() != null) {
-                    threadCardViewHolder.a().f().b(32);
-                }
-                threadCardViewHolder.e(hz4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.s);
-                if (this.r != null) {
-                    FrsViewData frsViewData2 = this.b;
-                    if (frsViewData2 != null) {
-                        i2 = frsViewData2.getTopThreadSize();
-                    }
-                    hz4Var.t.statFloor = (hz4Var.position + 1) - i2;
-                }
-                c18.k().c(this.r, hz4Var.t);
-                Y(hz4Var.t);
-                hz4Var.t.updateShowStatus();
-                a18.p(hz4Var.t, this.mPageId, this.r, u());
-                FrsViewData frsViewData3 = this.b;
-                if (frsViewData3 != null && frsViewData3.getForum() != null) {
-                    a18.n(hz4Var.t, u());
-                    a18.o(hz4Var.t, this.b.getForum().getId());
-                }
-                ThreadData threadData = hz4Var.t;
-                if (threadData != null) {
-                    threadData.updateShowStatus();
-                }
-                return threadCardViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) ("忍不住想告诉你个好消息，" + str + "吧的成员数量突破了"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("人");
+            spannableStringBuilder.append((CharSequence) d(sb.toString()));
+            spannableStringBuilder.append((CharSequence) ("！作为吧主，我邀请你加入" + str + "吧！\n\n"));
+            spannableStringBuilder.append((CharSequence) "在我担任吧主的这");
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) ("，为" + str + "吧创造了良好的社区氛围，近期发现了"));
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇优质贴子，最火热的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "竟然盖了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
+            spannableStringBuilder.append((CharSequence) "楼。\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
         }
-        return (View) invokeCommon.objValue;
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.d18
-    public b18 i() {
+    public final SpannableStringBuilder g(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) ("恭喜！" + str + "吧成员数突破"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("人");
+            spannableStringBuilder.append((CharSequence) d(sb.toString()));
+            spannableStringBuilder.append((CharSequence) "！\n\n");
+            spannableStringBuilder.append((CharSequence) "感谢你在过去");
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "的辛勤付出，火眼金睛的你最近挑选出了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇精品贴子，处理了大量违规内容。\n\n衷心感谢你为吧友提供了和谐快乐的社区氛围。截止目前");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧共有");
+            spannableStringBuilder.append((CharSequence) d(str5 + "篇"));
+            spannableStringBuilder.append((CharSequence) "贴子，最火热的一篇贴子");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "竟然盖了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
+            spannableStringBuilder.append((CharSequence) "楼。\n\n继续加油吧！期望你能带领");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧走得更远！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
+            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "了！\n\n");
+            spannableStringBuilder.append((CharSequence) "我加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期发表了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "收到了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
+            spannableStringBuilder.append((CharSequence) "回复、");
+            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
+            spannableStringBuilder.append((CharSequence) "赞！\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder c(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
+            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "了！\n\n");
+            spannableStringBuilder.append((CharSequence) "我加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期参与了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "主题贴的讨论，写了");
+            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
+            spannableStringBuilder.append((CharSequence) "评论。\n\n");
+            spannableStringBuilder.append((CharSequence) "我很喜欢");
+            spannableStringBuilder.append((CharSequence) i(str));
+            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder f(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，近期参与了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "个主题贴的讨论，写了");
+            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
+            spannableStringBuilder.append((CharSequence) "评论。近一个月累计签到了");
+            spannableStringBuilder.append((CharSequence) (str6 + "天。\n\n"));
+            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public final SpannableStringBuilder e(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
+            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
+            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
+            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
+            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
+            spannableStringBuilder.append((CharSequence) "了，最近发表了");
+            spannableStringBuilder.append((CharSequence) i(str4));
+            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
+            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
+            spannableStringBuilder.append((CharSequence) "收到了");
+            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
+            spannableStringBuilder.append((CharSequence) "回复、");
+            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
+            spannableStringBuilder.append((CharSequence) "赞！近一个月累计签到了");
+            spannableStringBuilder.append((CharSequence) (str9 + "天"));
+            spannableStringBuilder.append((CharSequence) "。\n\n");
+            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public SpannableStringBuilder h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.r;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.m;
+            if (str == null) {
+                return null;
+            }
+            if (str.equals("bazhu")) {
+                return a(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
+            }
+            if (this.m.equals("active-a")) {
+                return b(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
+            }
+            if (!this.m.equals("active-b")) {
+                return null;
+            }
+            return c(this.f, this.g, this.n, this.s, this.t, this.r);
         }
-        return (b18) invokeV.objValue;
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public SpannableStringBuilder j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String str = this.m;
+            if (str == null) {
+                return null;
+            }
+            if (str.equals("bazhu")) {
+                return g(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
+            }
+            if (this.m.equals("active-a")) {
+                return e(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
+            }
+            if (!this.m.equals("active-b")) {
+                return null;
+            }
+            return f(this.f, this.g, this.n, this.s, this.t, this.r);
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void k() {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.getPageActivity() != null && this.a.getPageActivity().getIntent() != null) {
+            this.b = this.a.getPageActivity().getIntent().getStringExtra("key_url");
+            this.c = this.a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
+            if (TextUtils.isEmpty(this.b) || (parse = Uri.parse(this.b)) == null) {
+                return;
+            }
+            this.d = parse.getQueryParameter("nickname");
+            this.e = parse.getQueryParameter("fid");
+            this.f = parse.getQueryParameter("fname");
+            this.g = parse.getQueryParameter("subcribe-num");
+            this.h = parse.getQueryParameter("bazhu-days");
+            this.i = parse.getQueryParameter("goods-num");
+            this.j = parse.getQueryParameter("tid-num");
+            String queryParameter = parse.getQueryParameter("most-hot-name");
+            this.k = queryParameter;
+            this.k = StringHelper.cutStringWithSuffix(queryParameter, 20, "...");
+            this.l = parse.getQueryParameter("most-hot-floors");
+            this.m = parse.getQueryParameter("achievement");
+            this.n = parse.getQueryParameter("join-days");
+            this.o = parse.getQueryParameter("send-tids");
+            this.p = parse.getQueryParameter("reply-num");
+            this.q = parse.getQueryParameter("zan-num");
+            this.r = parse.getQueryParameter("sign-days");
+            this.s = parse.getQueryParameter("join-topicnum");
+            this.t = parse.getQueryParameter("write-num");
+        }
     }
 }

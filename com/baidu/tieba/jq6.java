@@ -1,57 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public interface jq6 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a();
-
-        void b();
-
-        void c();
+        void callback(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
     }
 
-    boolean a(QmFilterItem qmFilterItem);
+    void a(a aVar);
 
-    void b(a aVar);
-
-    void c(TbMultiMediaData tbMultiMediaData);
-
-    long d();
-
-    void e();
-
-    void f(int i, int i2);
-
-    void g(float f);
-
-    long getCurrentPlayTime();
-
-    long getFrom();
-
-    TbMediaTrackConfig getMediaTrackConfig();
-
-    float getRatio();
-
-    void h();
-
-    boolean i();
-
-    boolean isPlaying();
-
-    void j(boolean z);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void start();
+    void b();
 }

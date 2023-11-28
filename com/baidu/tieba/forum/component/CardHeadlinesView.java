@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.switchs.HeadlinesPreRenderSwitch;
 import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bj6;
+import com.baidu.tieba.fj6;
 import com.baidu.tieba.forum.component.CardHeadlinesView;
 import com.baidu.tieba.forum.view.InterviewLiveView;
-import com.baidu.tieba.fz4;
+import com.baidu.tieba.gb7;
+import com.baidu.tieba.gj6;
+import com.baidu.tieba.hb7;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.si6;
-import com.baidu.tieba.ta7;
-import com.baidu.tieba.ua7;
 import com.baidu.tieba.view.CustomFitFrameCard;
-import com.baidu.tieba.wi6;
-import com.baidu.tieba.xi6;
-import com.baidu.tieba.ze7;
+import com.baidu.tieba.wf7;
+import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,7 +44,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\b\u0010\u0016\u001a\u00020\u0013H\u0002J\b\u0010\u0017\u001a\u00020\u0013H\u0016J\u000e\u0010\u0018\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u001aR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/forum/component/CardHeadlinesView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "headlinesAgreeView", "Lcom/baidu/card/view/HeadlinesAgreeCardView;", "headlinesFitView", "Lcom/baidu/tieba/view/CustomFitFrameCard;", "headlinesView", "Lcom/baidu/card/view/HeadlinesCardView;", "interViewLiveLayout", "Lcom/baidu/tieba/forum/view/InterviewLiveView;", "headlinesPerFetchOrRender", "", "taskData", "Lcom/baidu/tbadk/core/data/TaskInfoData;", "headlinesViewAllGone", "onChangeSkin", "updateState", "state", "Lcom/baidu/tieba/forum/component/uistate/CardHeadlinesUiState;", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class CardHeadlinesView extends LinearLayout implements ta7 {
+public final class CardHeadlinesView extends LinearLayout implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final InterviewLiveView a;
@@ -174,49 +174,49 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void e(ze7 state, CardHeadlinesView this$0, View view2) {
+    public static final void e(wf7 state, CardHeadlinesView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            nq6.b().c(new HeadlinesAgreeCardView.c(state.p(), new a(this$0)));
+            xq6.b().c(new HeadlinesAgreeCardView.c(state.p(), new a(this$0)));
         }
     }
 
-    public static final void f(ze7 state, CardHeadlinesView this$0, View view2) {
+    public static final void g(wf7 state, CardHeadlinesView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, ze7, Unit> m = state.m();
+            Function2<Context, wf7, Unit> m = state.m();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             m.invoke(context, state);
         }
     }
 
-    public final void b(fz4 fz4Var) {
+    public final void b(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fz4Var) == null) {
-            String r = fz4Var.r();
+        if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
+            String r = hz4Var.r();
             if (StringUtils.isNotNull(r)) {
                 if (HeadlinesPreRenderSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PRE_RENDER_A)) {
-                    Activity a2 = si6.a(getContext());
+                    Activity a2 = bj6.a(getContext());
                     if (a2 != null) {
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i("CardHeadlinesView", "头条卡，frs的onFillViewHolder中开始预渲染, url: " + r);
-                        wi6.a(a2, r, true, true);
+                        fj6.a(a2, r, true, true);
                     }
                 } else if (HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A)) {
                     TbLog defaultLog2 = DefaultLog.getInstance();
                     defaultLog2.i("CardHeadlinesView", "头条卡，frs的onFillViewHolder中开始预取, url: " + r);
-                    xi6.c(r);
+                    gj6.c(r);
                 }
             }
         }
     }
 
-    public final void d(final ze7 state) {
+    public final void d(final wf7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -228,7 +228,7 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
                         if (j == 4) {
                             this.d.e(state.o());
                             this.d.setVisibility(0);
-                            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ye7
+                            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uf7
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,7 +236,7 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
                                 public final void onClick(View view2) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                        CardHeadlinesView.f(ze7.this, this, view2);
+                                        CardHeadlinesView.g(wf7.this, this, view2);
                                     }
                                 }
                             });
@@ -244,7 +244,7 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
                         }
                     } else {
                         this.c.e(state.o());
-                        this.c.setItemBtnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xe7
+                        this.c.setItemBtnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pf7
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
                             public final void onClick(View view2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                    CardHeadlinesView.e(ze7.this, this, view2);
+                                    CardHeadlinesView.e(wf7.this, this, view2);
                                 }
                             }
                         });
@@ -266,7 +266,7 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
                 this.a.a(state.o());
                 this.a.setVisibility(0);
             }
-            r();
+            f();
         }
     }
 
@@ -280,15 +280,15 @@ public final class CardHeadlinesView extends LinearLayout implements ta7 {
         }
     }
 
-    @Override // com.baidu.tieba.ta7
-    public void r() {
+    @Override // com.baidu.tieba.gb7
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ua7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || hb7.a(this)) {
             return;
         }
         this.a.d();
         this.b.i(TbadkApplication.getInst().getSkinType());
         this.c.j();
-        this.d.r();
+        this.d.f();
     }
 }

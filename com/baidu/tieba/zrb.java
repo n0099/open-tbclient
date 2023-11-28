@@ -1,55 +1,53 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.content.Context;
+import com.baidu.tieba.yrb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
+import java.util.Date;
 /* loaded from: classes9.dex */
-public class zrb {
+public final class zrb {
     public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
+    public static boolean a;
+    public static yrb.a b;
+    public static yrb.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948370975, "Lcom/baidu/tieba/zrb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948370975, "Lcom/baidu/tieba/zrb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948370975, "Lcom/baidu/tieba/zrb;")) == null) {
+            return;
         }
-        a = new DecimalFormat("0.00");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948370975, "Lcom/baidu/tieba/zrb;");
+        }
     }
 
-    public static String a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (zrb.class) {
+                if (!a) {
+                    lsb.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new asb();
+                    c = new ksb();
+                    yrb.a().c();
+                    yrb.a().d(c);
+                    yrb.a().d(b);
+                    yrb.a().e(context);
+                    a = true;
+                    return;
+                }
+                lsb.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
         }
-        return invokeLL.intValue;
     }
 }

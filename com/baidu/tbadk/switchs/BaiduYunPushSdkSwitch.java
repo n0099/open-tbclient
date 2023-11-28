@@ -3,21 +3,21 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ja;
+import com.baidu.tieba.ka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class BaiduYunPushSdkSwitch extends ja {
+public class BaiduYunPushSdkSwitch extends ka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_YUN_PUSH_SDK_KEY = "android_baiduyun_push";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     /* renamed from: getCrashKeys */
     public String[] mo131getCrashKeys() {
         InterceptResult invokeV;
@@ -28,7 +28,7 @@ public class BaiduYunPushSdkSwitch extends ja {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class BaiduYunPushSdkSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class BaiduYunPushSdkSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BAIDU_YUN_PUSH_SDK_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class BaiduYunPushSdkSwitch extends ja {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

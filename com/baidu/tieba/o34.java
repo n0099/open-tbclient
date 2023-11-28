@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.rz3;
 /* loaded from: classes7.dex */
 public interface o34 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(rz3.d dVar);
 }

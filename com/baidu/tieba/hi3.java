@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ac3;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,41 +19,125 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hi3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static int b;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String f = "%s/%s";
+        public static String g = "%s-%s/%s";
+        public static String h = "(Baidu; P1 %s)";
+        public static String i = "%s/%s";
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
 
-        public a(int i, int i2) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-746289702, "Lcom/baidu/tieba/hi3$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-746289702, "Lcom/baidu/tieba/hi3$a;");
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = i;
-            this.b = i2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final boolean e() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hi3.b(this.a, this.b);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, this.c);
             }
+            return invokeV.booleanValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String format = String.format(f, this.a, this.b);
+                String format2 = String.format(g, this.a, this.c, this.d);
+                String format3 = String.format(i, this.c, this.d);
+                String format4 = String.format(h, this.e);
+                if (e()) {
+                    return String.format("%s %s %s %s", format, format2, format3, format4);
+                }
+                return String.format("%s %s %s", format, format2, format4);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -65,52 +154,84 @@ public class hi3 {
                 return;
             }
         }
-        a = rm1.a;
-        b = 0;
+        a = sm1.a;
     }
 
-    public static int c() {
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return op2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return com.baidu.mobads.sdk.internal.cj.d;
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
+            return e(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void d(int i, int i2) {
-        boolean z;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
-            if (i != 0 && np2.g0().l()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                aj3.k(new a(i, i2), "onUpgradeOperation");
-            } else {
-                b(i, i2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return e("swan");
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void b(int i, int i2) {
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            if (i == 0) {
-                b = 2;
-            } else if (i2 > i) {
-                b = 1;
-                tg2.d().e(i, i2);
-                ti3.h();
-                op2.m().i();
-                ac3.a.a();
-                gc2.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String a2 = op2.n().a();
+            a aVar = new a();
+            aVar.b(str);
+            aVar.g(tm1.a());
+            aVar.c(a2);
+            aVar.d(f());
+            aVar.f(b());
+            return aVar.a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
-            if (a) {
-                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
+            try {
+                String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
+                b = str;
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return "0.8";
+                }
+                return "0.8";
             }
         }
+        return (String) invokeV.objValue;
     }
 }

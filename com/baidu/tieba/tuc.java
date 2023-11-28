@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.ColorEgg;
+import tbclient.AppInfo;
 /* loaded from: classes8.dex */
-public class tuc extends qoc {
+public class tuc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ColorEgg colorEgg) {
+    public static JSONObject b(@NonNull AppInfo appInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, colorEgg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, appInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (colorEgg.holiday_words != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : colorEgg.holiday_words) {
-                    jSONArray.put(str);
-                }
-                qoc.a(jSONObject, "holiday_words", jSONArray);
-            }
-            qoc.a(jSONObject, "style_flag", colorEgg.style_flag);
+            ltc.a(jSONObject, LegoListActivityConfig.AD_ID, appInfo.ad_id);
+            ltc.a(jSONObject, "ad_name", appInfo.ad_name);
+            ltc.a(jSONObject, "apk_url", appInfo.apk_url);
+            ltc.a(jSONObject, "ad_apk_package_name", appInfo.ad_apk_package_name);
+            ltc.a(jSONObject, "app_size", appInfo.app_size);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

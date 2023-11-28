@@ -23,13 +23,13 @@ import com.baidu.tbadk.editortools.meme.view.AigcGenerateImageView;
 import com.baidu.tbadk.editortools.meme.view.AigcImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.rf5;
-import com.baidu.tieba.sf5;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wd;
+import com.baidu.tieba.wf5;
+import com.baidu.tieba.xd;
+import com.baidu.tieba.xf5;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.yf5;
+import com.baidu.tieba.zq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         this.d = "";
     }
 
-    public static final void m(MemeListAdapter this$0, View view2) {
+    public static final void n(MemeListAdapter this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -81,7 +81,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    public static final void n(MemeListAdapter this$0, View view2) {
+    public static final void o(MemeListAdapter this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -91,7 +91,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    public static final void o(RecyclerView.ViewHolder holder, MemeListAdapter this$0, MemeData memeData, View view2) {
+    public static final void p(RecyclerView.ViewHolder holder, MemeListAdapter this$0, MemeData memeData, View view2) {
         String str;
         Bitmap rawBitmap;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 if (this$0.l().startRequestPermission(activity)) {
                     return;
                 }
-                str = FileHelper.saveBitmapByRelativelyPath(TbConfig.LOCAL_PIC_DIR, wd.c(memeData.getImgUrl()), rawBitmap, 100);
+                str = FileHelper.saveBitmapByRelativelyPath(TbConfig.LOCAL_PIC_DIR, xd.c(memeData.getImgUrl()), rawBitmap, 100);
                 Intrinsics.checkNotNullExpressionValue(str, "saveBitmapByRelativelyPa…                        )");
             } else {
                 str = "";
@@ -121,10 +121,10 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             BdPageContext<?> a = a5.a(view2.getContext());
             if (!StringsKt__StringsJVMKt.isBlank(str)) {
                 if (a != null) {
-                    pq6 b = nq6.b();
+                    zq6 b = xq6.b();
                     BdUniqueId uniqueId = a.getUniqueId();
                     Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-                    b.c(new sf5(memeData, str, uniqueId));
+                    b.c(new yf5(memeData, str, uniqueId));
                 }
                 this$0.t(2, memeData);
             }
@@ -160,7 +160,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return invokeI.intValue;
     }
 
-    public final void p(String str) {
+    public final void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
@@ -168,7 +168,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    public final void q(String str) {
+    public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
@@ -194,18 +194,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 final MemeData memeData = this.b.get(i);
                 MemeViewHolder memeViewHolder = (MemeViewHolder) holder;
                 memeViewHolder.a().h(memeData);
-                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            MemeListAdapter.m(MemeListAdapter.this, view2);
-                        }
-                    }
-                }, new View.OnClickListener() { // from class: com.baidu.tieba.uf5
+                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bg5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -216,8 +205,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             MemeListAdapter.n(MemeListAdapter.this, view2);
                         }
                     }
-                });
-                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tf5
+                }, new View.OnClickListener() { // from class: com.baidu.tieba.ag5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +213,19 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            MemeListAdapter.o(RecyclerView.ViewHolder.this, this, memeData, view2);
+                            MemeListAdapter.o(MemeListAdapter.this, view2);
+                        }
+                    }
+                });
+                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnClickListener
+                    public final void onClick(View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                            MemeListAdapter.p(RecyclerView.ViewHolder.this, this, memeData, view2);
                         }
                     }
                 });
@@ -313,14 +313,14 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public final void t(int i, MemeData memeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, memeData) == null) {
-            rf5 rf5Var = new rf5();
-            rf5Var.l(i);
-            rf5Var.h(memeData.getId());
-            rf5Var.i(memeData.getRequestQuery());
-            rf5Var.j(memeData.getObjSource());
-            rf5Var.g(this.c);
-            rf5Var.k(this.d);
-            qf5.a.b(rf5Var);
+            xf5 xf5Var = new xf5();
+            xf5Var.l(i);
+            xf5Var.h(memeData.getId());
+            xf5Var.i(memeData.getRequestQuery());
+            xf5Var.j(memeData.getObjSource());
+            xf5Var.g(this.c);
+            xf5Var.k(this.d);
+            wf5.a.b(xf5Var);
         }
     }
 }

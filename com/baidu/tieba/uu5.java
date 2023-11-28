@@ -1,62 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SelectImageHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.VideoMuxerData;
-import com.baidu.ugc.editvideo.muxer.VideoMuxer;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class uu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final Activity a;
+    @NonNull
+    public final ViewGroup b;
+    @NonNull
+    public int[] c;
+    @Nullable
+    public c d;
+    @Nullable
+    public d e;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(int i);
-
-        void b();
-
-        void c();
-
-        void d(String str);
+    public interface c {
+        void a(@NonNull MotionEvent motionEvent);
     }
 
     /* loaded from: classes8.dex */
-    public class a implements eob {
+    public interface d {
+        boolean a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public final /* synthetic */ uu5 a;
 
-        @Override // com.baidu.tieba.eob
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public a(b bVar) {
+        public a(uu5 uu5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {uu5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,192 +64,160 @@ public class uu5 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.a = uu5Var;
         }
 
-        @Override // com.baidu.tieba.eob
-        public void a(int i) {
-            b bVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bVar = this.a) != null) {
-                bVar.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.eob
-        public void e(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bVar = this.a) != null) {
-                bVar.d(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.eob
-        public void f(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (bVar = this.a) != null) {
-                bVar.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.eob
-        public void b() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.eob
-        public void d() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.a) != null) {
-                bVar.c();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h();
             }
         }
     }
 
-    public static Bitmap a(Context context, Uri uri, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
-            try {
-                return BitmapHelper.subSampleBitmap(context, uri, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public final List<Rect> a;
+        public final /* synthetic */ uu5 b;
 
-    public static Bitmap b(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
-            try {
-                return BitmapHelper.loadResizedBitmap(str, i, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
-            if (i == 12001) {
-                return e(i2);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                return b(context, str, i2);
-            }
-            return a(context, uri, i2);
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static VideoMuxer d(r8b r8bVar, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, r8bVar, bVar)) == null) {
-            if (r8bVar == null) {
-                return null;
-            }
-            int f = r8bVar.f();
-            int e = r8bVar.e();
-            VideoMuxerData videoMuxerData = new VideoMuxerData();
-            videoMuxerData.setCompat(true);
-            videoMuxerData.setRecordConfigEncodeHevcVideo(true);
-            videoMuxerData.setCurrentEncodeHevcVideo(true);
-            ArrayList arrayList = new ArrayList();
-            if (r8bVar.c() != null) {
-                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) r8bVar.c().clone();
-                tbMultiMediaData.textureId = 0;
-                arrayList.add(tbMultiMediaData);
-                videoMuxerData.setPhotoDataList(arrayList);
-                videoMuxerData.setVideoPath(tbMultiMediaData.path);
-                videoMuxerData.setPreviewWidth(f);
-                videoMuxerData.setPreviewHeight(e);
-                videoMuxerData.setVideoRatio(r8bVar.g());
-                videoMuxerData.setOutWidth(f);
-                videoMuxerData.setOutHeight(e);
-                videoMuxerData.setOutBitRate(f * e * 6);
-            }
-            if (r8bVar.a() != null) {
-                videoMuxerData.setFilterValue(r8bVar.a());
-            }
-            if (r8bVar.b() != null) {
-                videoMuxerData.setCurrThemeEffect(r8bVar.b());
-            }
-            videoMuxerData.setUserNewAudioMixture(true);
-            if (r8bVar.d() != null) {
-                videoMuxerData.setMusicData(r8bVar.d());
-                ArrayList arrayList2 = new ArrayList();
-                AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(r8bVar.d().localPath, 0, isb.f(r8bVar.d().localPath), 1.0f);
-                ArrayList arrayList3 = new ArrayList();
-                audioPlayTrackData.mAudioPlayDataList = arrayList3;
-                arrayList3.add(audioPlayData);
-                arrayList2.add(audioPlayTrackData);
-                videoMuxerData.setAudioPlayTrackDataList(arrayList2);
-            }
-            videoMuxerData.setComposeNecessary(true);
-            VideoMuxer videoMuxer = new VideoMuxer();
-            videoMuxer.setListener(new a(bVar));
-            videoMuxer.startMuxer(videoMuxerData);
-            return videoMuxer;
-        }
-        return (VideoMuxer) invokeLL.objValue;
-    }
-
-    public static Bitmap e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            try {
-                int f = f(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
-                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
-                if (f != 0 && subSampleBitmap != null) {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, f);
+        public b(uu5 uu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return subSampleBitmap;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
             }
+            this.b = uu5Var;
+            this.a = new ArrayList();
         }
-        return (Bitmap) invokeI.objValue;
+
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.b.e != null && !this.b.e.a()) {
+                    return false;
+                }
+                this.a.clear();
+                int[] iArr = new int[2];
+                int[] iArr2 = this.b.c;
+                int length = iArr2.length;
+                int i = 0;
+                while (true) {
+                    z = true;
+                    if (i >= length) {
+                        break;
+                    }
+                    View findViewById = this.b.a.findViewById(iArr2[i]);
+                    if (findViewById != null) {
+                        findViewById.getLocationOnScreen(iArr);
+                        this.a.add(new Rect(iArr[0], iArr[1], iArr[0] + findViewById.getWidth(), iArr[1] + findViewById.getHeight()));
+                    }
+                    i++;
+                }
+                if (motionEvent.getAction() == 0) {
+                    int rawX = (int) motionEvent.getRawX();
+                    int rawY = (int) motionEvent.getRawY();
+                    Iterator<Rect> it = this.a.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().contains(rawX, rawY)) {
+                                break;
+                            }
+                        } else {
+                            z = false;
+                            break;
+                        }
+                    }
+                    if (!z && this.b.d != null) {
+                        this.b.d.a(motionEvent);
+                    }
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
     }
 
-    public static int f(String str) {
+    public uu5(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new int[0];
+        this.a = activity;
+        this.b = (ViewGroup) activity.findViewById(16908290);
+    }
+
+    public static uu5 g(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt != 8) {
-                            return 0;
-                        }
-                        return 270;
-                    }
-                    return 90;
-                }
-                return 180;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            return new uu5(activity);
         }
-        return invokeL.intValue;
+        return (uu5) invokeL.objValue;
+    }
+
+    @NonNull
+    public uu5 i(@Nullable c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+            this.d = cVar;
+            return this;
+        }
+        return (uu5) invokeL.objValue;
+    }
+
+    @NonNull
+    public uu5 j(@IdRes int... iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
+            this.c = iArr;
+            return this;
+        }
+        return (uu5) invokeL.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new a(this));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View view2 = new View(this.a);
+            view2.setOnTouchListener(new b(this));
+            this.b.addView(view2, new ViewGroup.LayoutParams(-1, -1));
+        }
     }
 }

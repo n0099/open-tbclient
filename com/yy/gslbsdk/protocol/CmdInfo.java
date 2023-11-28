@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.protocol;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CmdInfo {
     public boolean pe = false;
     public boolean re = false;

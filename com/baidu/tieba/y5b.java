@@ -1,132 +1,46 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class y5b extends BaseAdapter {
+public class y5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public List<CloudMusicData.MusicTagList.MusicList> b;
-    public c c;
-    public String d;
+    public Context a;
+    public VlogEditManager b;
+    public int c;
+    public int d;
+    public TextWordsEntity.TextStyleEntity e;
+    public TextWordsEntity.TextFontEntity f;
+    public int g;
+    public String h;
 
-    /* loaded from: classes9.dex */
-    public interface c {
-        void h2(View view2, String str, int i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ y5b c;
-
-        public a(y5b y5bVar, CloudMusicData.MusicTagList.MusicList musicList, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y5bVar, musicList, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = y5bVar;
-            this.a = musicList;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
-                this.c.c.h2(view2, this.a.resource, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public View h;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08032a);
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.b, R.drawable.btn_icon_play_video_n);
-            }
-        }
-    }
-
-    public y5b(BdPageContext bdPageContext) {
+    public y5b(Context context, VlogEditManager vlogEditManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
+            Object[] objArr = {context, vlogEditManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -136,130 +50,175 @@ public class y5b extends BaseAdapter {
                 return;
             }
         }
-        this.d = "";
-        this.a = bdPageContext;
-        this.b = new ArrayList();
+        this.g = -1;
+        this.h = "";
+        this.a = context;
+        this.b = vlogEditManager;
     }
 
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
+    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        TextWordsEntity.TextStyleEntity textStyleEntity2;
+        TextWordsEntity.TextFontEntity textFontEntity2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) != null) || multiMediaData == null) {
             return;
         }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.b.contains(musicList)) {
-                this.b.add(musicList);
+        if (108 == i && TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", kxb.l(R.string.obfuscated_res_0x7f0f1798));
+        }
+        if (this.g != -1 && !TextUtils.isEmpty(str)) {
+            multiMediaData.setExt("text", str);
+        }
+        if (textStyleEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
+        } else {
+            try {
+                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
+                if (!TextUtils.isEmpty(ext)) {
+                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
+                } else {
+                    textStyleEntity2 = this.e;
+                }
+                textStyleEntity = textStyleEntity2;
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
         }
-        notifyDataSetChanged();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.b.get(i);
+        if (textFontEntity != null) {
+            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
+        } else {
+            try {
+                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
+                if (!TextUtils.isEmpty(ext2)) {
+                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
+                } else {
+                    textFontEntity2 = this.f;
+                }
+                textFontEntity = textFontEntity2;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
         }
-        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
+        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
+        String videoTmpDir = FileHelper.getVideoTmpDir();
+        String str2 = System.currentTimeMillis() + ".jpg";
+        Bitmap i2 = u5b.e().i(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
+        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
+            FileUtils.delete(new File(multiMediaData.path));
         }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void f(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            getItem(i).isLoading = z;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0212, viewGroup, false);
-                bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918aa);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918a7);
-                bVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                bVar.a.setIsRound(true);
-                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08037a);
-                bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0918a8);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918ab);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a4);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a6);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a5);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091578);
-                view2.setTag(bVar);
+        FileUtils.saveBitmap2PNG(videoTmpDir, str2, i2, 100);
+        multiMediaData.path = videoTmpDir + File.separator + str2;
+        int i3 = multiMediaData.width;
+        int i4 = multiMediaData.height;
+        multiMediaData.width = i2.getWidth();
+        int height = i2.getHeight();
+        multiMediaData.height = height;
+        if (this.g == -1) {
+            multiMediaData.scaleType = "adaptive";
+            multiMediaData.type = 0;
+            multiMediaData.start = this.b.getCurrentPlayTime();
+            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
+            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
+            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.addCoverStickerData(multiMediaData);
             } else {
-                bVar = (b) view2.getTag();
+                this.b.addStickerData(multiMediaData, this.h);
             }
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
-            if (musicList != null) {
-                bVar.d.setText(musicList.name);
-                bVar.a.startLoad(musicList.image, 10, false);
-                bVar.e.setText(musicList.author);
-                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-                if (musicList.isLoading) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(4);
-                }
-                if (musicList.equals(z5b.b().a())) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08041e);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(0);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                    bVar.g.setOnClickListener(new a(this, musicList, i));
-                } else if (z5b.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
-                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(8);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                } else {
-                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
-                    bVar.a.setDrawBorder(false);
-                    bVar.g.setVisibility(8);
-                }
+        } else {
+            float f = multiMediaData.x + (i3 / 2.0f);
+            float f2 = multiMediaData.y + (i4 / 2.0f);
+            multiMediaData.x = f - (multiMediaData.width / 2.0f);
+            multiMediaData.y = f2 - (height / 2.0f);
+            if (TextUtils.equals(this.h, "cover_sticker")) {
+                this.b.replaceCoverStickerData(multiMediaData);
+            } else {
+                this.b.replaceStickerData(this.g, multiMediaData, this.h);
             }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+        i2.recycle();
+    }
+
+    public void b(MultiMediaData multiMediaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) && multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+            FileUtils.delete(new File(multiMediaData.path));
+        }
+    }
+
+    public boolean d(MultiMediaData multiMediaData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
+            if (multiMediaData == null) {
+                return false;
+            }
+            String ext = multiMediaData.getExt("text");
+            if (TextUtils.isEmpty(ext)) {
+                return false;
+            }
+            return ext.equals(kxb.l(R.string.obfuscated_res_0x7f0f1798));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void g(TextWordsEntity.TextFontEntity textFontEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, textFontEntity) == null) {
+            this.f = textFontEntity;
+        }
+    }
+
+    public void h(TextWordsEntity.TextStyleEntity textStyleEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, textStyleEntity) == null) {
+            this.e = textStyleEntity;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void c(@NonNull List<MultiMediaData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setUpEditLayer("cover_sticker");
+            this.b.addCoverStickerDataList(list);
+            for (MultiMediaData multiMediaData : list) {
+                f(0);
+                a(116, null, multiMediaData, null, null);
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context d = u5b.e().d();
+            Context context = this.a;
+            if (d == context && context != null) {
+                u5b.e().j(null);
+                this.a = null;
+            }
+        }
+    }
+
+    public void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            this.c = i;
+            this.d = i2;
+        }
     }
 }

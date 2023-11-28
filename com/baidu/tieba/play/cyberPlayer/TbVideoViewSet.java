@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.play.TbVideoViewContainer;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +162,7 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!qd.isEmpty(str) && this.a.containsKey(str)) {
+            if (!rd.isEmpty(str) && this.a.containsKey(str)) {
                 return this.a.get(str);
             }
             return null;
@@ -215,7 +215,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.b && !qd.isEmpty(str2)) {
+                if (!this.b && !rd.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

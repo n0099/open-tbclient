@@ -16,7 +16,6 @@ import com.baidu.tbadk.core.view.PublishProgressView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tbadk.widget.FRSRefreshButton;
 import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.view.BottomWebView;
 import com.baidu.tieba.forum.view.FrsMultiDeleteBottomView;
@@ -73,18 +72,14 @@ public final class ActivityForumBinding implements ViewBinding {
     @NonNull
     public final TbBottomSheetView t;
     @NonNull
-    public final TbImageView u;
-    @NonNull
-    public final TbImageView v;
-    @NonNull
-    public final CustomViewPager w;
+    public final CustomViewPager u;
 
-    public ActivityForumBinding(@NonNull FrameLayout frameLayout, @NonNull Space space, @NonNull FrameLayout frameLayout2, @NonNull BottomWebView bottomWebView, @NonNull FrameLayout frameLayout3, @NonNull View view2, @NonNull ImageView imageView, @NonNull LinearLayout linearLayout, @NonNull PublishProgressView publishProgressView, @NonNull FrameLayout frameLayout4, @NonNull OvalActionButton ovalActionButton, @NonNull FRSRefreshButton fRSRefreshButton, @NonNull TbLinkageScrollView tbLinkageScrollView, @NonNull FrsMultiDeleteBottomView frsMultiDeleteBottomView, @NonNull FrsMultiMoveBottomView frsMultiMoveBottomView, @NonNull NavigationBar navigationBar, @NonNull FrameLayout frameLayout5, @NonNull FrameLayout frameLayout6, @NonNull DslTabLayout dslTabLayout, @NonNull TbBottomSheetView tbBottomSheetView, @NonNull TbImageView tbImageView, @NonNull TbImageView tbImageView2, @NonNull CustomViewPager customViewPager) {
+    public ActivityForumBinding(@NonNull FrameLayout frameLayout, @NonNull Space space, @NonNull FrameLayout frameLayout2, @NonNull BottomWebView bottomWebView, @NonNull FrameLayout frameLayout3, @NonNull View view2, @NonNull ImageView imageView, @NonNull LinearLayout linearLayout, @NonNull PublishProgressView publishProgressView, @NonNull FrameLayout frameLayout4, @NonNull OvalActionButton ovalActionButton, @NonNull FRSRefreshButton fRSRefreshButton, @NonNull TbLinkageScrollView tbLinkageScrollView, @NonNull FrsMultiDeleteBottomView frsMultiDeleteBottomView, @NonNull FrsMultiMoveBottomView frsMultiMoveBottomView, @NonNull NavigationBar navigationBar, @NonNull FrameLayout frameLayout5, @NonNull FrameLayout frameLayout6, @NonNull DslTabLayout dslTabLayout, @NonNull TbBottomSheetView tbBottomSheetView, @NonNull CustomViewPager customViewPager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameLayout, space, frameLayout2, bottomWebView, frameLayout3, view2, imageView, linearLayout, publishProgressView, frameLayout4, ovalActionButton, fRSRefreshButton, tbLinkageScrollView, frsMultiDeleteBottomView, frsMultiMoveBottomView, navigationBar, frameLayout5, frameLayout6, dslTabLayout, tbBottomSheetView, tbImageView, tbImageView2, customViewPager};
+            Object[] objArr = {frameLayout, space, frameLayout2, bottomWebView, frameLayout3, view2, imageView, linearLayout, publishProgressView, frameLayout4, ovalActionButton, fRSRefreshButton, tbLinkageScrollView, frsMultiDeleteBottomView, frsMultiMoveBottomView, navigationBar, frameLayout5, frameLayout6, dslTabLayout, tbBottomSheetView, customViewPager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -114,9 +109,7 @@ public final class ActivityForumBinding implements ViewBinding {
         this.r = frameLayout6;
         this.s = dslTabLayout;
         this.t = tbBottomSheetView;
-        this.u = tbImageView;
-        this.v = tbImageView2;
-        this.w = customViewPager;
+        this.u = customViewPager;
     }
 
     @NonNull
@@ -124,73 +117,65 @@ public final class ActivityForumBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090476;
-            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f090476);
+            int i = R.id.obfuscated_res_0x7f090490;
+            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f090490);
             if (space != null) {
-                i = R.id.obfuscated_res_0x7f090478;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090478);
+                i = R.id.obfuscated_res_0x7f090492;
+                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090492);
                 if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f0904a7;
-                    BottomWebView bottomWebView = (BottomWebView) view2.findViewById(R.id.obfuscated_res_0x7f0904a7);
+                    i = R.id.obfuscated_res_0x7f0904c1;
+                    BottomWebView bottomWebView = (BottomWebView) view2.findViewById(R.id.obfuscated_res_0x7f0904c1);
                     if (bottomWebView != null) {
-                        i = R.id.obfuscated_res_0x7f09052b;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09052b);
+                        i = R.id.obfuscated_res_0x7f090546;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090546);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f09053b;
-                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09053b);
+                            i = R.id.obfuscated_res_0x7f090556;
+                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090556);
                             if (findViewById != null) {
-                                i = R.id.obfuscated_res_0x7f0907f6;
-                                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907f6);
+                                i = R.id.obfuscated_res_0x7f090812;
+                                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090812);
                                 if (imageView != null) {
                                     i = R.id.content_container;
                                     LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.content_container);
                                     if (linearLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f090c42;
-                                        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
+                                        i = R.id.obfuscated_res_0x7f090c62;
+                                        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f090c62);
                                         if (publishProgressView != null) {
-                                            i = R.id.obfuscated_res_0x7f090cd9;
-                                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cd9);
+                                            i = R.id.obfuscated_res_0x7f090cf9;
+                                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cf9);
                                             if (frameLayout3 != null) {
-                                                i = R.id.obfuscated_res_0x7f090d8b;
-                                                OvalActionButton ovalActionButton = (OvalActionButton) view2.findViewById(R.id.obfuscated_res_0x7f090d8b);
+                                                i = R.id.obfuscated_res_0x7f090dab;
+                                                OvalActionButton ovalActionButton = (OvalActionButton) view2.findViewById(R.id.obfuscated_res_0x7f090dab);
                                                 if (ovalActionButton != null) {
-                                                    i = R.id.obfuscated_res_0x7f090da8;
-                                                    FRSRefreshButton fRSRefreshButton = (FRSRefreshButton) view2.findViewById(R.id.obfuscated_res_0x7f090da8);
+                                                    i = R.id.obfuscated_res_0x7f090dc8;
+                                                    FRSRefreshButton fRSRefreshButton = (FRSRefreshButton) view2.findViewById(R.id.obfuscated_res_0x7f090dc8);
                                                     if (fRSRefreshButton != null) {
-                                                        i = R.id.obfuscated_res_0x7f091594;
-                                                        TbLinkageScrollView tbLinkageScrollView = (TbLinkageScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091594);
+                                                        i = R.id.obfuscated_res_0x7f091605;
+                                                        TbLinkageScrollView tbLinkageScrollView = (TbLinkageScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091605);
                                                         if (tbLinkageScrollView != null) {
-                                                            i = R.id.obfuscated_res_0x7f09189f;
-                                                            FrsMultiDeleteBottomView frsMultiDeleteBottomView = (FrsMultiDeleteBottomView) view2.findViewById(R.id.obfuscated_res_0x7f09189f);
+                                                            i = R.id.obfuscated_res_0x7f091910;
+                                                            FrsMultiDeleteBottomView frsMultiDeleteBottomView = (FrsMultiDeleteBottomView) view2.findViewById(R.id.obfuscated_res_0x7f091910);
                                                             if (frsMultiDeleteBottomView != null) {
-                                                                i = R.id.obfuscated_res_0x7f0918a0;
-                                                                FrsMultiMoveBottomView frsMultiMoveBottomView = (FrsMultiMoveBottomView) view2.findViewById(R.id.obfuscated_res_0x7f0918a0);
+                                                                i = R.id.obfuscated_res_0x7f091911;
+                                                                FrsMultiMoveBottomView frsMultiMoveBottomView = (FrsMultiMoveBottomView) view2.findViewById(R.id.obfuscated_res_0x7f091911);
                                                                 if (frsMultiMoveBottomView != null) {
-                                                                    i = R.id.obfuscated_res_0x7f091939;
-                                                                    NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091939);
+                                                                    i = R.id.obfuscated_res_0x7f0919aa;
+                                                                    NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0919aa);
                                                                     if (navigationBar != null) {
-                                                                        i = R.id.obfuscated_res_0x7f091ffb;
-                                                                        FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ffb);
+                                                                        i = R.id.obfuscated_res_0x7f092072;
+                                                                        FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092072);
                                                                         if (frameLayout4 != null) {
                                                                             FrameLayout frameLayout5 = (FrameLayout) view2;
-                                                                            i = R.id.obfuscated_res_0x7f0923ed;
-                                                                            DslTabLayout dslTabLayout = (DslTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
+                                                                            i = R.id.obfuscated_res_0x7f09246f;
+                                                                            DslTabLayout dslTabLayout = (DslTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f09246f);
                                                                             if (dslTabLayout != null) {
-                                                                                i = R.id.obfuscated_res_0x7f09268d;
-                                                                                TbBottomSheetView tbBottomSheetView = (TbBottomSheetView) view2.findViewById(R.id.obfuscated_res_0x7f09268d);
+                                                                                i = R.id.obfuscated_res_0x7f092712;
+                                                                                TbBottomSheetView tbBottomSheetView = (TbBottomSheetView) view2.findViewById(R.id.obfuscated_res_0x7f092712);
                                                                                 if (tbBottomSheetView != null) {
-                                                                                    i = R.id.obfuscated_res_0x7f092694;
-                                                                                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092694);
-                                                                                    if (tbImageView != null) {
-                                                                                        i = R.id.obfuscated_res_0x7f092695;
-                                                                                        TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092695);
-                                                                                        if (tbImageView2 != null) {
-                                                                                            i = R.id.obfuscated_res_0x7f0929db;
-                                                                                            CustomViewPager customViewPager = (CustomViewPager) view2.findViewById(R.id.obfuscated_res_0x7f0929db);
-                                                                                            if (customViewPager != null) {
-                                                                                                return new ActivityForumBinding(frameLayout5, space, frameLayout, bottomWebView, frameLayout2, findViewById, imageView, linearLayout, publishProgressView, frameLayout3, ovalActionButton, fRSRefreshButton, tbLinkageScrollView, frsMultiDeleteBottomView, frsMultiMoveBottomView, navigationBar, frameLayout4, frameLayout5, dslTabLayout, tbBottomSheetView, tbImageView, tbImageView2, customViewPager);
-                                                                                            }
-                                                                                        }
+                                                                                    i = R.id.obfuscated_res_0x7f092a61;
+                                                                                    CustomViewPager customViewPager = (CustomViewPager) view2.findViewById(R.id.obfuscated_res_0x7f092a61);
+                                                                                    if (customViewPager != null) {
+                                                                                        return new ActivityForumBinding(frameLayout5, space, frameLayout, bottomWebView, frameLayout2, findViewById, imageView, linearLayout, publishProgressView, frameLayout3, ovalActionButton, fRSRefreshButton, tbLinkageScrollView, frsMultiDeleteBottomView, frsMultiMoveBottomView, navigationBar, frameLayout4, frameLayout5, dslTabLayout, tbBottomSheetView, customViewPager);
                                                                                     }
                                                                                 }
                                                                             }

@@ -4,47 +4,39 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RewardCard;
-import tbclient.TaskInfo;
-import tbclient.VoteSchema;
+import tbclient.ItemPlot;
+import tbclient.ItemPoint;
+import tbclient.ItemTable;
 /* loaded from: classes6.dex */
-public class i4d extends qoc {
+public class i4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TaskInfo taskInfo) {
+    public static JSONObject b(@NonNull ItemTable itemTable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, taskInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemTable)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "task_id", taskInfo.task_id);
-            qoc.a(jSONObject, "thread_id", taskInfo.thread_id);
-            qoc.a(jSONObject, "bgimg", taskInfo.bgimg);
-            qoc.a(jSONObject, "thread_img", taskInfo.thread_img);
-            qoc.a(jSONObject, "start_time", taskInfo.start_time);
-            qoc.a(jSONObject, "end_time", taskInfo.end_time);
-            qoc.a(jSONObject, "thread_img_size", taskInfo.thread_img_size);
-            qoc.a(jSONObject, "forum_id", taskInfo.forum_id);
-            qoc.a(jSONObject, "forum_name", taskInfo.forum_name);
-            qoc.a(jSONObject, "obj_id", taskInfo.obj_id);
-            VoteSchema voteSchema = taskInfo.vote_schema;
-            if (voteSchema != null) {
-                qoc.a(jSONObject, "vote_schema", h6d.b(voteSchema));
+            ltc.a(jSONObject, "is_commented", itemTable.is_commented);
+            ltc.a(jSONObject, "comment_star", itemTable.comment_star);
+            ltc.a(jSONObject, "total_point_num", itemTable.total_point_num);
+            if (itemTable.item_point != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ItemPoint itemPoint : itemTable.item_point) {
+                    jSONArray.put(g4d.b(itemPoint));
+                }
+                ltc.a(jSONObject, "item_point", jSONArray);
             }
-            RewardCard rewardCard = taskInfo.reward_card;
-            if (rewardCard != null) {
-                qoc.a(jSONObject, "reward_card", p2d.b(rewardCard));
+            if (itemTable.item_plot != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (ItemPlot itemPlot : itemTable.item_plot) {
+                    jSONArray2.put(f4d.b(itemPlot));
+                }
+                ltc.a(jSONObject, "item_plot", jSONArray2);
             }
-            qoc.a(jSONObject, "is_god_reply", taskInfo.is_god_reply);
-            qoc.a(jSONObject, "floor_god_reply", taskInfo.floor_god_reply);
-            qoc.a(jSONObject, "card_type", taskInfo.card_type);
-            qoc.a(jSONObject, "wh_rate", taskInfo.wh_rate);
-            qoc.a(jSONObject, "webview_url", taskInfo.webview_url);
-            qoc.a(jSONObject, "top_background_img", taskInfo.top_background_img);
-            qoc.a(jSONObject, "theme_color", taskInfo.theme_color);
-            qoc.a(jSONObject, "webview_data", taskInfo.webview_data);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

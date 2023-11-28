@@ -1,110 +1,61 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class eta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<eta> e;
 
-    public static void a() {
-        c5 mainDBDatabaseManager;
+    public eta() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
-            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            BdLog.e("deleteVieoChunkUploadData Called");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                return;
-            }
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static fta c(String str) {
-        InterceptResult invokeL;
-        fta ftaVar;
-        Exception e;
-        Cursor cursor;
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Cursor cursor2 = null;
-            fta ftaVar2 = null;
-            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
             }
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.i("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            ftaVar = new fta();
-                            try {
-                                ftaVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                                ftaVar.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
-                                ftaVar2 = ftaVar;
-                            } catch (Exception e2) {
-                                e = e2;
-                                mainDBDatabaseManager.h(e, "getChunkUploadDataByMd5");
-                                BdCloseHelper.close(cursor);
-                                return ftaVar;
-                            }
-                        }
-                        BdCloseHelper.close(cursor);
-                        return ftaVar2;
-                    } catch (Exception e3) {
-                        ftaVar = null;
-                        e = e3;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    BdCloseHelper.close(cursor2);
-                    throw th;
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<eta> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    eta etaVar = new eta();
+                    etaVar.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(etaVar);
                 }
-            } catch (Exception e4) {
-                ftaVar = null;
-                e = e4;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                BdCloseHelper.close(cursor2);
-                throw th;
+                this.e = arrayList;
             }
-        } else {
-            return (fta) invokeL.objValue;
         }
-    }
-
-    public static boolean d(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        c5 mainDBDatabaseManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
-                return false;
-            }
-            Date date = new Date();
-            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
-        }
-        return invokeLLI.booleanValue;
     }
 }

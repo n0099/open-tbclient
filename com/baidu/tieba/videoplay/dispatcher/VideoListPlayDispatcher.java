@@ -5,10 +5,9 @@ import android.text.TextUtils;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.kma;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rha;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,13 +17,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0007\u0018\u0000 \t2\u00020\u0001:\u0001\tB\u0005¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016¨\u0006\n"}, d2 = {"Lcom/baidu/tieba/videoplay/dispatcher/VideoListPlayDispatcher;", "Lcom/baidu/tieba/schema/SchemaDispatcher;", "()V", "dispatch", "", "jsonObject", "Lorg/json/JSONObject;", "context", "Landroid/content/Context;", "Companion", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class VideoListPlayDispatcher implements rha {
+public final class VideoListPlayDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
     public static final String TAG = "VideoImmersivePlayDispatcher";
@@ -84,8 +85,9 @@ public final class VideoListPlayDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
+        VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
             if (jSONObject != null && context != null) {
@@ -94,21 +96,28 @@ public final class VideoListPlayDispatcher implements rha {
                     DefaultLog.getInstance().e(TAG, "dispatch videoData is empty");
                     return;
                 }
-                VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams = null;
+                List<Map<String, Object>> list = null;
                 try {
                     Intrinsics.checkNotNullExpressionValue(videoData, "videoData");
                     personalPageParams = (VideoRecommentPlayActivityConfig.PersonalPageParams) DataExt.toEntity(videoData, VideoRecommentPlayActivityConfig.PersonalPageParams.class);
                 } catch (Exception e) {
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.e(TAG, "dispatch videoData entity parse failed. ex=" + e.getMessage());
+                    personalPageParams = null;
                 }
-                if (personalPageParams != null && !ListUtils.isEmpty(personalPageParams.getDataList())) {
+                if (personalPageParams != null) {
+                    list = personalPageParams.getDataList();
+                }
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                if (personalPageParams != null && !list.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
-                    int size = personalPageParams.getDataList().size();
+                    int size = list.size();
                     int i = 0;
                     for (int i2 = 0; i2 < size; i2++) {
                         VideoItemData videoItemData = new VideoItemData();
-                        videoItemData.buildWithFlutterMap(personalPageParams.getDataList().get(i2));
+                        videoItemData.buildWithFlutterMap(list.get(i2));
                         arrayList.add(videoItemData);
                         if (TextUtils.equals(personalPageParams.getThreadId(), videoItemData.getThreadId())) {
                             i = i2;

@@ -2,7 +2,6 @@ package com.kwai.adclient.kscommerciallogger;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,27 +14,27 @@ import org.json.JSONObject;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwai.adclient.kscommerciallogger.kwai.a ars;
-    public com.kwai.adclient.kscommerciallogger.kwai.b art;
-    public JSONObject aru;
-    public boolean arv;
-    public boolean arw;
+    public com.kwai.adclient.kscommerciallogger.a.a aRP;
+    public com.kwai.adclient.kscommerciallogger.a.b aRQ;
+    public JSONObject aRR;
+    public boolean aRS;
+    public boolean isDebug;
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0675a {
+    public static final class C0731a {
         public static /* synthetic */ Interceptable $ic;
-        public static a arx;
+        public static a aRT;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static a BE() {
+        public static a MB() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (arx == null) {
-                    arx = new a((byte) 0);
+                if (aRT == null) {
+                    aRT = new a((byte) 0);
                 }
-                return arx;
+                return aRT;
             }
             return (a) invokeV.objValue;
         }
@@ -54,88 +53,97 @@ public final class a {
                 return;
             }
         }
-        this.arv = false;
-        this.arw = false;
+        this.isDebug = false;
+        this.aRS = false;
+    }
+
+    public static a MB() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return C0731a.MB();
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final JSONObject MC() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.aRR;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final boolean MD() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.aRS;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isDebug;
+        }
+        return invokeV.booleanValue;
     }
 
     public /* synthetic */ a(byte b) {
         this();
     }
 
-    public static a BE() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0675a.BE() : (a) invokeV.objValue;
-    }
-
-    private void a(@NonNull com.kwai.adclient.kscommerciallogger.kwai.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.kwai.b bVar, @Nullable JSONObject jSONObject, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.ars = aVar;
-            this.art = bVar;
-            this.aru = jSONObject;
-            this.arv = z;
-            this.arw = true;
-        }
-    }
-
-    private void b(@NonNull c cVar) {
-        com.kwai.adclient.kscommerciallogger.kwai.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) || (aVar = this.ars) == null) {
-            return;
-        }
-        String tag = cVar.getTag();
-        String str = cVar.BI() == null ? "" : cVar.BI().value;
-        if (cVar.BJ() != null) {
-            String str2 = cVar.BJ().value;
-        }
-        if (cVar.BK() != null) {
-            cVar.BK().getValue();
-        }
-        cVar.BN();
-        b.k(cVar.BL());
-        b.k(cVar.BM());
-        aVar.I(tag, str);
-    }
-
-    public final JSONObject BF() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.aru : (JSONObject) invokeV.objValue;
-    }
-
-    public final boolean BG() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.arw : invokeV.booleanValue;
-    }
-
-    public final void a(@NonNull com.kwai.adclient.kscommerciallogger.kwai.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.kwai.b bVar, @Nullable JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z)}) == null) {
-            a(aVar, bVar, null, z, true);
-        }
-    }
-
     public final void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             if (cVar == null) {
-                this.ars.J("KSCommercialLogger", "rl rtLog is null please check it");
+                this.aRP.I("KSCommercialLogger", "rl rtLog is null please check it");
                 return;
             }
             b(cVar);
-            com.kwai.adclient.kscommerciallogger.kwai.b bVar = this.art;
+            com.kwai.adclient.kscommerciallogger.a.b bVar = this.aRQ;
             if (bVar != null) {
-                bVar.K(cVar.BH(), cVar.toString());
+                bVar.J(cVar.ME(), cVar.toString());
             }
         }
     }
 
-    public final boolean isDebug() {
-        InterceptResult invokeV;
+    private void b(@NonNull c cVar) {
+        com.kwai.adclient.kscommerciallogger.a.a aVar;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.arv : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeL(65539, this, cVar) == null) && (aVar = this.aRP) != null) {
+            String tag = cVar.getTag();
+            if (cVar.MF() == null) {
+                str = "";
+            } else {
+                str = cVar.MF().value;
+            }
+            if (cVar.MG() != null) {
+                String str2 = cVar.MG().value;
+            }
+            if (cVar.MH() != null) {
+                cVar.MH().getValue();
+            }
+            cVar.MK();
+            b.x(cVar.MI());
+            b.x(cVar.MJ());
+            aVar.H(tag, str);
+        }
+    }
+
+    public final void a(@NonNull com.kwai.adclient.kscommerciallogger.a.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.a.b bVar, @Nullable JSONObject jSONObject, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.aRP = aVar;
+            this.aRQ = bVar;
+            this.aRR = jSONObject;
+            this.isDebug = z;
+            this.aRS = z2;
+        }
     }
 }

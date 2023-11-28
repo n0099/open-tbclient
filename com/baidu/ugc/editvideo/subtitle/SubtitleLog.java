@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.subtitle;
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.csb;
+import com.baidu.tieba.ywb;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import java.util.List;
 /* loaded from: classes9.dex */
@@ -37,7 +37,7 @@ public final class SubtitleLog {
     }
 
     public static <T extends RichStickerBaseUnit> void d(List<T> list) {
-        if (csb.e(list)) {
+        if (ywb.e(list)) {
             d("list empty");
             return;
         }

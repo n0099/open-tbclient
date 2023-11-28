@@ -1,63 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ef2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ef2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ef2() {
+    @SuppressLint({"SwitchIntDef"})
+    public static pf2 a(@NonNull nf2 nf2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static ef2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ef2.class) {
-                    if (a == null) {
-                        a = new ef2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nf2Var)) == null) {
+            int i = nf2Var.a;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return new of2(nf2Var);
+                        }
+                        return new sf2(nf2Var);
                     }
+                    return new qf2(nf2Var);
                 }
+                return new tf2(nf2Var);
             }
-            return a;
+            return new rf2(nf2Var);
         }
-        return (ef2) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g32.k("SwanRecoveryManager", "RecoverPlatform");
-            mf2 mf2Var = new mf2();
-            mf2Var.a = 1;
-            cf2.c(mf2Var);
-        }
-    }
-
-    public int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return kf2.c(i);
-        }
-        return invokeI.intValue;
+        return (pf2) invokeL.objValue;
     }
 }

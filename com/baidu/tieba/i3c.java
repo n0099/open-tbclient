@@ -1,168 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i3c extends b3c {
+public class i3c extends l3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public StringBuffer d;
-    public int e;
-    public long f;
-    public long g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i3c(long j) {
-        super(j);
+    public i3c(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new StringBuffer();
-        this.e = 0;
-        this.f = 0L;
-        this.g = 0L;
     }
 
-    @Override // com.baidu.tieba.b3c
-    public void b() {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        String readLine;
-        String str;
+    @Override // com.baidu.tieba.l3c
+    public JSONObject c(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setLength(0);
-            BufferedReader bufferedReader3 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                try {
-                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
-                    try {
-                        readLine = bufferedReader2.readLine();
-                        str = "";
-                        if (readLine == null) {
-                            readLine = "";
-                        }
-                        if (this.e == 0) {
-                            this.e = Process.myPid();
-                        }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedReader = null;
+                if (obj instanceof b3c) {
+                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
+                    declaredField.setAccessible(true);
+                    Object obj2 = declaredField.get(obj);
+                    if (obj2 == null) {
+                        return null;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = null;
+                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
+                    declaredField2.setAccessible(true);
+                    Object obj3 = declaredField2.get(obj2);
+                    if (obj3 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
+                    declaredField3.setAccessible(true);
+                    Object obj4 = declaredField3.get(obj3);
+                    if (obj4 == null) {
+                        return null;
+                    }
+                    Field declaredField4 = obj4.getClass().getDeclaredField("f");
+                    declaredField4.setAccessible(true);
+                    Object obj5 = declaredField4.get(obj4);
+                    if (obj5 == null) {
+                        return null;
+                    }
+                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
+                    declaredField5.setAccessible(true);
+                    Object obj6 = declaredField5.get(obj5);
+                    if (obj6 instanceof JSONObject) {
+                        return (JSONObject) obj6;
+                    }
+                    return null;
                 }
-                try {
-                    String readLine2 = bufferedReader.readLine();
-                    if (readLine2 != null) {
-                        str = readLine2;
-                    }
-                    f(readLine, str);
-                    bufferedReader2.close();
-                    bufferedReader.close();
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader3 = bufferedReader2;
-                    try {
-                        Log.e("SampleCpuSampler", "doSample: ", th);
-                        if (bufferedReader3 != null) {
-                            bufferedReader3.close();
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                    } catch (Throwable th4) {
-                        if (bufferedReader3 != null) {
-                            try {
-                                bufferedReader3.close();
-                            } catch (IOException e) {
-                                Log.e("SampleCpuSampler", "doSample: ", e);
-                                throw th4;
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        throw th4;
-                    }
-                }
-            } catch (IOException e2) {
-                Log.e("SampleCpuSampler", "doSample: ", e2);
+                return null;
+            } catch (Exception unused) {
+                LogPrinter.d();
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.b3c
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
-            g();
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = 0L;
-            this.g = 0L;
-        }
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            String[] split = str.split(" ");
-            if (split.length < 9) {
-                return;
-            }
-            long parseLong = Long.parseLong(split[2]);
-            long parseLong2 = Long.parseLong(split[3]);
-            long parseLong3 = Long.parseLong(split[4]);
-            long parseLong4 = Long.parseLong(split[5]);
-            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-            if (str2.split(" ").length < 17) {
-                return;
-            }
-            if (parseLong5 != 0) {
-                long j = parseLong5 - this.g;
-                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
-            }
-            this.f = parseLong4;
-            this.g = parseLong5;
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

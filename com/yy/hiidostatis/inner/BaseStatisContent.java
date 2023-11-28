@@ -7,7 +7,7 @@ import java.net.URLEncoder;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BaseStatisContent {
     public static final String ACT = "act";
     public static final String APPID = "app";

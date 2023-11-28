@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UDPMgr {
     public static final String TAG = "UDPMgr";
     public static LinkedBlockingQueue<Integer> portQueue = new LinkedBlockingQueue<>();

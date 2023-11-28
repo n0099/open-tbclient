@@ -12,7 +12,7 @@ import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public dn8 n;
+    public gq8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -62,19 +62,19 @@ public class DirectChatSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908ff);
+                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09091b);
                 return aVar;
             }
             return (a) invokeL.objValue;
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull dn8 dn8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull gq8 gq8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dn8Var};
+            Object[] objArr = {tbPageContext, gq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = dn8Var;
+        this.n = gq8Var;
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
@@ -108,7 +108,7 @@ public class DirectChatSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e1, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08fb, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

@@ -1,336 +1,461 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
+import com.bumptech.glide.load.resource.bitmap.Downsampler;
+import com.fun.ad.sdk.FunAdSdk;
+import com.google.android.exoplayer2.util.ColorParser;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
-public class x11 {
+public final class x11 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
+    public static HashMap<String, Integer> b;
+    public static HashMap<String, String> c;
+    public static HashMap<String, String> d;
+    public static HashMap<String, Integer> e;
+    public static final Pattern f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948247409, "Lcom/baidu/tieba/x11;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247409, "Lcom/baidu/tieba/x11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948247409, "Lcom/baidu/tieba/x11;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948247409, "Lcom/baidu/tieba/x11;");
+        a = new HashMap<>();
+        b = new HashMap<>();
+        c = new HashMap<>();
+        d = new HashMap<>();
+        e = new HashMap<>();
+        a("application/andrew-inset", "ez", 5);
+        a("application/dsptype", "tsp", 5);
+        a("application/futuresplash", "spl", 5);
+        a("application/hta", "hta", 5);
+        a("application/mac-binhex40", "hqx", 5);
+        a("application/mac-compactpro", "cpt", 5);
+        a("application/mathematica", BaseContentUploader.NB, 5);
+        a("application/msaccess", "mdb", 5);
+        a("application/oda", "oda", 5);
+        a("application/ogg", "ogg", 1);
+        a(DocumentOpenUtil.PDF_TYPE, "pdf", 4);
+        a("application/pgp-keys", "key", 5);
+        a("application/pgp-signature", "pgp", 5);
+        a("application/pics-rules", "prf", 5);
+        a("application/rar", "rar", 8);
+        a("application/x-rar-compressed", "rar", 8);
+        a("application/rdf+xml", "rdf", 5);
+        a("application/rss+xml", "rss", 5);
+        a("application/zip", "zip", 8);
+        a("application/x-zip-compressed", "zip", 8);
+        a("application/vnd.android.package-archive", "apk", 3);
+        a("application/vnd.cinderella", "cdy", 5);
+        a("application/vnd.ms-pki.stl", "stl", 5);
+        a("application/vnd.oasis.opendocument.database", "odb", 5);
+        a("application/vnd.oasis.opendocument.formula", "odf", 5);
+        a("application/vnd.oasis.opendocument.graphics", "odg", 5);
+        a("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
+        a("application/vnd.oasis.opendocument.image", "odi", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
+        a("application/vnd.oasis.opendocument.text", "odt", 5);
+        a("application/vnd.oasis.opendocument.text-master", "odm", 5);
+        a("application/vnd.oasis.opendocument.text-template", "ott", 5);
+        a("application/vnd.oasis.opendocument.text-web", "oth", 5);
+        a("application/vnd.google-earth.kml+xml", "kml", 5);
+        a("application/vnd.google-earth.kmz", "kmz", 5);
+        a(DocumentOpenUtil.WORD_TYPE, "doc", 4);
+        a(DocumentOpenUtil.WORD_TYPE, "dot", 4);
+        a(DocumentOpenUtil.DOCUMENT_TYPE, DocumentOpenUtil.DOCX, 4);
+        a("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, "xls", 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, "xlt", 4);
+        a(DocumentOpenUtil.SHEET_TYPE, DocumentOpenUtil.XLSX, 4);
+        a("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
+        a(DocumentOpenUtil.PPT_TYPE, "ppt", 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pot", 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pps", 4);
+        a(DocumentOpenUtil.PRESENT_TYPE, DocumentOpenUtil.PPTX, 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
+        a("application/vnd.rim.cod", "cod", 5);
+        a("application/vnd.smaf", "mmf", 5);
+        a("application/vnd.stardivision.calc", "sdc", 5);
+        a("application/vnd.stardivision.draw", "sda", 5);
+        a("application/vnd.stardivision.impress", "sdd", 5);
+        a("application/vnd.stardivision.impress", "sdp", 5);
+        a("application/vnd.stardivision.math", "smf", 5);
+        a("application/vnd.stardivision.writer", "sdw", 5);
+        a("application/vnd.stardivision.writer", "vor", 5);
+        a("application/vnd.stardivision.writer-global", "sgl", 5);
+        a("application/vnd.sun.xml.calc", "sxc", 5);
+        a("application/vnd.sun.xml.calc.template", "stc", 5);
+        a("application/vnd.sun.xml.draw", "sxd", 5);
+        a("application/vnd.sun.xml.draw.template", "std", 5);
+        a("application/vnd.sun.xml.impress", "sxi", 5);
+        a("application/vnd.sun.xml.impress.template", "sti", 5);
+        a("application/vnd.sun.xml.math", "sxm", 5);
+        a("application/vnd.sun.xml.writer", "sxw", 5);
+        a("application/vnd.sun.xml.writer.global", "sxg", 5);
+        a("application/vnd.sun.xml.writer.template", "stw", 5);
+        a("application/vnd.visio", "vsd", 5);
+        a("application/x-abiword", "abw", 5);
+        a("application/x-apple-diskimage", "dmg", 5);
+        a("application/x-bcpio", "bcpio", 5);
+        a("application/x-bittorrent", "torrent", 5);
+        a("application/x-cdf", "cdf", 5);
+        a("application/x-cdlink", "vcd", 5);
+        a("application/x-chess-pgn", "pgn", 5);
+        a("application/x-cpio", "cpio", 5);
+        a("application/x-debian-package", "deb", 5);
+        a("application/x-debian-package", "udeb", 5);
+        a("application/x-director", "dcr", 5);
+        a("application/x-director", MapBundleKey.MapObjKey.OBJ_DIR, 5);
+        a("application/x-director", "dxr", 5);
+        a("application/x-dms", "dms", 5);
+        a("application/x-doom", "wad", 5);
+        a("application/x-dvi", "dvi", 5);
+        a("application/x-flac", "flac", 1);
+        a("application/x-font", "pfa", 5);
+        a("application/x-font", "pfb", 5);
+        a("application/x-font", "gsf", 5);
+        a("application/x-font", "pcf", 5);
+        a("application/x-font", "pcf.Z", 5);
+        a("application/x-freemind", FunAdSdk.PLATFORM_MM, 5);
+        a("application/x-futuresplash", "spl", 5);
+        a("application/x-gnumeric", "gnumeric", 5);
+        a("application/x-go-sgf", "sgf", 5);
+        a("application/x-graphing-calculator", "gcf", 5);
+        a("application/x-gtar", "gtar", 5);
+        a("application/x-gtar", "tgz", 5);
+        a("application/x-gtar", "taz", 5);
+        a("application/x-hdf", "hdf", 5);
+        a("application/x-ica", "ica", 5);
+        a("application/x-internet-signup", "ins", 5);
+        a("application/x-internet-signup", "isp", 5);
+        a("application/x-iphone", "iii", 5);
+        a("application/x-iso9660-image", "iso", 5);
+        a("application/x-jmol", "jmz", 5);
+        a("application/x-kchart", "chrt", 5);
+        a("application/x-killustrator", "kil", 5);
+        a("application/x-koan", "skp", 5);
+        a("application/x-koan", "skd", 5);
+        a("application/x-koan", "skt", 5);
+        a("application/x-koan", "skm", 5);
+        a("application/x-kpresenter", "kpr", 5);
+        a("application/x-kpresenter", "kpt", 5);
+        a("application/x-kspread", "ksp", 5);
+        a("application/x-kword", "kwd", 5);
+        a("application/x-kword", "kwt", 5);
+        a("application/x-latex", "latex", 5);
+        a("application/x-lha", "lha", 5);
+        a("application/x-lzh", "lzh", 5);
+        a("application/x-lzx", "lzx", 5);
+        a("application/x-maker", "frm", 5);
+        a("application/x-maker", "maker", 5);
+        a("application/x-maker", "frame", 5);
+        a("application/x-maker", "fb", 5);
+        a("application/x-maker", "book", 5);
+        a("application/x-maker", "fbdoc", 5);
+        a("application/x-mif", "mif", 5);
+        a("application/x-ms-wmd", "wmd", 5);
+        a("application/x-ms-wmz", "wmz", 5);
+        a("application/x-msi", "msi", 5);
+        a("application/x-ns-proxy-autoconfig", "pac", 5);
+        a("application/x-nwc", "nwc", 5);
+        a("application/x-object", "o", 5);
+        a("application/x-oz-application", "oza", 5);
+        a("application/x-pkcs12", "p12", 5);
+        a("application/x-pkcs12", "pfx", 5);
+        a("application/x-pkcs7-certreqresp", "p7r", 5);
+        a("application/x-pkcs7-crl", "crl", 5);
+        a("application/x-quicktimeplayer", "qtl", 5);
+        a("application/x-shar", "shar", 5);
+        a("application/x-shockwave-flash", "swf", 5);
+        a("application/x-stuffit", "sit", 5);
+        a("application/x-sv4cpio", "sv4cpio", 5);
+        a("application/x-sv4crc", "sv4crc", 5);
+        a("application/x-tar", "tar", 8);
+        a("application/x-texinfo", "texinfo", 5);
+        a("application/x-texinfo", "texi", 5);
+        a("application/x-troff", "t", 5);
+        a("application/x-troff", "roff", 5);
+        a("application/x-troff-man", "man", 5);
+        a("application/x-ustar", "ustar", 5);
+        a("application/x-wais-source", "src", 5);
+        a("application/x-wingz", "wz", 5);
+        a("application/x-webarchive", "webarchive", 5);
+        a("application/x-webarchive-xml", "webarchivexml", 5);
+        a("application/x-x509-ca-cert", "crt", 5);
+        a("application/x-x509-user-cert", "crt", 5);
+        a("application/x-xcf", "xcf", 5);
+        a("application/x-xfig", "fig", 5);
+        a("application/xhtml+xml", "xhtml", 5);
+        a("application/font-sfnt", "ttf", 5);
+        a(MimeTypes.AUDIO_AMR_NB, "3gpp", 1);
+        a("audio/amr", "amr", 1);
+        a("audio/basic", "snd", 1);
+        a("audio/midi", "mid", 1);
+        a("audio/midi", "midi", 1);
+        a("audio/midi", "kar", 1);
+        a("audio/midi", "xmf", 1);
+        a("audio/mobile-xmf", "mxmf", 1);
+        a(MimeTypes.AUDIO_MPEG, "mp3", 1);
+        a(MimeTypes.AUDIO_MPEG, "mpga", 1);
+        a(MimeTypes.AUDIO_MPEG, "mpega", 1);
+        a(MimeTypes.AUDIO_MPEG, "mp2", 1);
+        a(MimeTypes.AUDIO_MPEG, "m4a", 1);
+        a("audio/mpegurl", "m3u", 1);
+        a("audio/prs.sid", "sid", 1);
+        a("audio/x-aiff", "aif", 1);
+        a("audio/x-aiff", "aiff", 1);
+        a("audio/x-aiff", "aifc", 1);
+        a("audio/x-gsm", "gsm", 1);
+        a("audio/x-mpegurl", "m3u", 1);
+        a("audio/x-ms-wma", "wma", 1);
+        a("audio/x-ms-wax", "wax", 1);
+        a("audio/x-pn-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
+        a("audio/x-pn-realaudio", com.kuaishou.weapon.p0.t.w, 1);
+        a("audio/x-pn-realaudio", "ram", 1);
+        a("audio/x-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
+        a("audio/x-scpls", "pls", 1);
+        a("audio/x-sd2", "sd2", 1);
+        a("audio/x-wav", "wav", 1);
+        a("image/bmp", "bmp", 2);
+        a("image/gif", "gif", 2);
+        a("image/ico", "cur", 5);
+        a("image/ico", "ico", 2);
+        a("image/ief", "ief", 5);
+        a("image/jpeg", "jpeg", 2);
+        a("image/jpeg", "jpg", 2);
+        a("image/jpeg", "jpe", 2);
+        a("image/pcx", "pcx", 5);
+        a(WordCommandManager.IMAGE_PNG, "png", 2);
+        a("image/svg+xml", "svg", 5);
+        a("image/svg+xml", "svgz", 5);
+        a("image/tiff", "tiff", 5);
+        a("image/tiff", "tif", 5);
+        a("image/vnd.djvu", "djvu", 5);
+        a("image/vnd.djvu", "djv", 5);
+        a(Downsampler.WBMP_MIME_TYPE, "wbmp", 2);
+        a("image/webp", WebpUtils.TYPE_IMG_WEBP, 2);
+        a("image/x-cmu-raster", "ras", 5);
+        a("image/x-coreldraw", "cdr", 5);
+        a("image/x-coreldrawpattern", "pat", 5);
+        a("image/x-coreldrawtemplate", "cdt", 5);
+        a("image/x-corelphotopaint", "cpt", 5);
+        a("image/x-icon", "ico", 2);
+        a("image/x-jg", "art", 5);
+        a("image/x-jng", "jng", 5);
+        a("image/x-ms-bmp", "bmp", 2);
+        a("image/x-photoshop", "psd", 5);
+        a("image/x-portable-anymap", "pnm", 5);
+        a("image/x-portable-bitmap", "pbm", 5);
+        a("image/x-portable-graymap", "pgm", 5);
+        a("image/x-portable-pixmap", "ppm", 5);
+        a("image/x-rgb", ColorParser.RGB, 5);
+        a("image/x-xbitmap", "xbm", 5);
+        a("image/x-xpixmap", "xpm", 5);
+        a("image/x-xwindowdump", "xwd", 5);
+        a("model/iges", "igs", 5);
+        a("model/iges", "iges", 5);
+        a("model/mesh", "msh", 5);
+        a("model/mesh", "mesh", 5);
+        a("model/mesh", "silo", 5);
+        a("text/calendar", "ics", 5);
+        a("text/calendar", "icz", 5);
+        a("text/comma-separated-values", "csv", 5);
+        a("text/css", "css", 5);
+        a(SapiWebView.DATA_MIME_TYPE, "htm", 11);
+        a(SapiWebView.DATA_MIME_TYPE, "html", 11);
+        a("text/h323", "323", 5);
+        a("text/iuls", "uls", 5);
+        a("text/mathml", "mml", 5);
+        a(DownloadConstants.STORY_MIMETYPE, "txt", 6);
+        a("text/plain", "dat", 5);
+        a("text/plain", "txt", 4);
+        a("text/plain", "asc", 5);
+        a("text/plain", "text", 4);
+        a("text/plain", "diff", 5);
+        a("text/plain", "po", 5);
+        a("text/richtext", "rtx", 5);
+        a("text/rtf", "rtf", 5);
+        a("text/texmacs", "ts", 5);
+        a("text/text", "phps", 5);
+        a("text/tab-separated-values", "tsv", 5);
+        a("text/xml", "xml", 5);
+        a("text/x-bibtex", "bib", 5);
+        a("text/x-boo", "boo", 5);
+        a("text/x-c++hdr", "h++", 5);
+        a("text/x-c++hdr", "hpp", 5);
+        a("text/x-c++hdr", "hxx", 5);
+        a("text/x-c++hdr", "hh", 5);
+        a("text/x-c++src", "c++", 5);
+        a("text/x-c++src", "cpp", 5);
+        a("text/x-c++src", "cxx", 5);
+        a("text/x-chdr", "h", 5);
+        a("text/x-component", "htc", 5);
+        a("text/x-csh", "csh", 5);
+        a("text/x-csrc", "c", 5);
+        a("text/x-dsrc", "d", 5);
+        a("text/x-haskell", "hs", 5);
+        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
+        a("text/x-literate-haskell", "lhs", 5);
+        a("text/x-moc", "moc", 5);
+        a("text/x-pascal", "p", 5);
+        a("text/x-pascal", "pas", 5);
+        a("text/x-pcs-gcd", "gcd", 5);
+        a("text/x-setext", "etx", 5);
+        a("text/x-tcl", "tcl", 5);
+        a("text/x-tex", "tex", 5);
+        a("text/x-tex", "ltx", 5);
+        a("text/x-tex", "sty", 5);
+        a("text/x-tex", "cls", 5);
+        a("text/x-vcalendar", "vcs", 5);
+        a("text/x-vcard", "vcf", 5);
+        a("video/mkv", "mkv", 0);
+        a(MimeTypes.VIDEO_H263, "3gpp", 0);
+        a(MimeTypes.VIDEO_H263, "3gp", 0);
+        a(MimeTypes.VIDEO_H263, "3g2", 0);
+        a("video/dl", "dl", 0);
+        a("video/dv", "dif", 0);
+        a("video/dv", "dv", 0);
+        a("video/fli", "fli", 0);
+        a("video/m4v", "m4v", 0);
+        a("video/mpeg", "mpeg", 0);
+        a("video/mpeg", "mpg", 0);
+        a("video/mpeg", "mpe", 0);
+        a("video/mp4", DownloadStatisticConstants.UBC_TYPE_MP4, 0);
+        a("video/mpeg", "vob", 0);
+        a("video/quicktime", "qt", 0);
+        a("video/quicktime", "mov", 0);
+        a("video/vnd.mpegurl", "mxu", 0);
+        a("video/x-la-asf", "lsf", 0);
+        a("video/x-la-asf", "lsx", 0);
+        a("video/x-mng", "mng", 0);
+        a("video/x-ms-asf", "asf", 0);
+        a("video/x-ms-asf", "asx", 0);
+        a("video/x-ms-wm", "wm", 0);
+        a("video/x-ms-wmv", "wmv", 0);
+        a("video/x-ms-wmx", "wmx", 0);
+        a("video/x-ms-wvx", "wvx", 0);
+        a("video/x-msvideo", "avi", 0);
+        a("video/x-sgi-movie", "movie", 0);
+        a("video/x-webex", "wrf", 0);
+        a("x-conference/x-cooltalk", "ice", 5);
+        a("x-epoc/x-sisx-app", "sisx", 5);
+        a("video/vnd.rn-realvideo", "rmvb", 0);
+        a("video/x-flv", "flv", 0);
+        a("audio/aac", "aac", 1);
+        a("application/vnd.rn-realmedia", com.kuaishou.weapon.p0.t.w, 0);
+        a("message/rfc822", "mht", 11);
+        a("application/x.mpegurl", DownloadStatisticConstants.UBC_TYPE_M3U8, 0);
+        a("application/vnd.apple.mpegurl", DownloadStatisticConstants.UBC_TYPE_M3U8, 0);
+        a("application/x.mpegurl", "m3u", 0);
+        a("application/vnd.apple.mpegurl", "m3u", 0);
+        f = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+    }
+
+    public static void a(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i) == null) {
+            a.put(str2, Integer.valueOf(i));
+            b.put(str, Integer.valueOf(i));
+            HashMap<String, Integer> hashMap = e;
+            hashMap.put(str + "@" + str2, Integer.valueOf(i));
+            c.put(str2, str);
+            if (!d.containsKey(str)) {
+                d.put(str, str2);
+            }
         }
     }
 
-    public static long a(File file, File file2) {
+    public static int b(String str, String str2) {
         InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        FileInputStream fileInputStream;
+        String str3;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
-            long j = 0;
-            if (file == null || file2 == null || !file.exists()) {
-                return 0L;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                str3 = str.toLowerCase(Locale.getDefault());
+            } else {
+                str3 = "";
             }
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                    fileOutputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = null;
+            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str2)) {
+                HashMap<String, Integer> hashMap = e;
+                num = hashMap.get(str2 + "@" + str3);
+                if (num == null) {
+                    num = a.get(str3);
                 }
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream = null;
-            }
-            try {
-                j = b(fileInputStream, fileOutputStream);
-                jf0.a(fileInputStream);
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream2 = fileInputStream;
-                try {
-                    e.printStackTrace();
-                    jf0.a(fileInputStream2);
-                    jf0.a(fileOutputStream);
-                    return j;
-                } catch (Throwable th3) {
-                    th = th3;
-                    jf0.a(fileInputStream2);
-                    jf0.a(fileOutputStream);
-                    throw th;
+                if (num == null) {
+                    num = b.get(str2);
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                fileInputStream2 = fileInputStream;
-                jf0.a(fileInputStream2);
-                jf0.a(fileOutputStream);
-                throw th;
+            } else if (TextUtils.isEmpty(str2)) {
+                num = a.get(str3);
+            } else {
+                num = b.get(str2);
             }
-            jf0.a(fileOutputStream);
-            return j;
+            if (num == null) {
+                num = 5;
+            }
+            return num.intValue();
         }
-        return invokeLL.longValue;
+        return invokeLL.intValue;
     }
 
-    public static boolean i(byte[] bArr, File file) {
-        InterceptResult invokeLL;
-        BufferedOutputStream bufferedOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, file)) == null) {
-            if (file == null) {
-                return false;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (!file.exists() && !file.createNewFile()) {
-                    jf0.a(null);
-                    jf0.a(null);
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
-                } catch (Throwable unused) {
-                    bufferedOutputStream = null;
-                }
-                try {
-                    bufferedOutputStream.write(bArr);
-                    fileOutputStream2.flush();
-                    bufferedOutputStream.flush();
-                    jf0.a(fileOutputStream2);
-                    jf0.a(bufferedOutputStream);
-                    return true;
-                } catch (Throwable unused2) {
-                    fileOutputStream = fileOutputStream2;
-                    jf0.a(fileOutputStream);
-                    jf0.a(bufferedOutputStream);
-                    return false;
-                }
-            } catch (Throwable unused3) {
-                bufferedOutputStream = null;
-            }
-        } else {
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static boolean j(String str, String str2) {
-        InterceptResult invokeLL;
-        BufferedWriter bufferedWriter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                FileOutputStream fileOutputStream = null;
-                try {
-                    FileOutputStream openFileOutput = gf0.b().openFileOutput(str2, 0);
-                    try {
-                        bufferedWriter = new BufferedWriter(new OutputStreamWriter(openFileOutput));
-                    } catch (IOException unused) {
-                        bufferedWriter = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedWriter = null;
-                    }
-                    try {
-                        bufferedWriter.write(str);
-                        bufferedWriter.flush();
-                        h(openFileOutput);
-                        h(bufferedWriter);
-                        return true;
-                    } catch (IOException unused2) {
-                        fileOutputStream = openFileOutput;
-                        h(fileOutputStream);
-                        h(bufferedWriter);
-                        return false;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream = openFileOutput;
-                        h(fileOutputStream);
-                        h(bufferedWriter);
-                        throw th;
-                    }
-                } catch (IOException unused3) {
-                    bufferedWriter = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedWriter = null;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static long b(InputStream inputStream, FileOutputStream fileOutputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, fileOutputStream)) == null) {
-            if (inputStream != null && fileOutputStream != null) {
-                try {
-                    byte[] bArr = new byte[m61.a];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            fileOutputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            fileOutputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0026 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v2, types: [int] */
-    /* JADX WARN: Type inference failed for: r4v4, types: [boolean] */
-    public static int c(@NonNull File file) {
-        InterceptResult invokeL;
-        int c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            int i = 0;
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    int length = listFiles.length;
-                    int i2 = 0;
-                    while (i < length) {
-                        File file2 = listFiles[i];
-                        if (file2.isFile()) {
-                            c = file2.delete();
-                        } else {
-                            c = c(file2);
-                        }
-                        i2 += c;
-                        i++;
-                    }
-                    i = i2;
-                }
-                file.delete();
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    @Nullable
-    public static String d(String str) {
+    public static String c(String str) {
         InterceptResult invokeL;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String decode = Uri.decode(str);
-            if (decode != null) {
-                int indexOf = decode.indexOf(63);
-                if (indexOf > 0) {
-                    decode = decode.substring(0, indexOf);
-                }
-                if (!decode.endsWith("/") && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
-                    return decode.substring(lastIndexOf);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
+                return "";
             }
-            return null;
+            return str.substring(lastIndexOf + 1);
         }
         return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static String e(File file) {
+    public static String d(String str) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Throwable th;
-        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            String str = null;
-            if (file == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            System.currentTimeMillis();
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                    try {
-                        StringBuilder sb = new StringBuilder();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                            sb.append("\n");
-                        }
-                        str = sb.toString();
-                    } catch (IOException unused) {
-                    } catch (Throwable th2) {
-                        th = th2;
-                        h(fileInputStream);
-                        h(bufferedReader);
-                        throw th;
-                    }
-                } catch (IOException unused2) {
-                    bufferedReader = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = null;
-                }
-            } catch (IOException unused3) {
-                bufferedReader = null;
-                fileInputStream = null;
-            } catch (Throwable th4) {
-                fileInputStream = null;
-                th = th4;
-                bufferedReader = null;
-            }
-            h(fileInputStream);
-            h(bufferedReader);
-            System.currentTimeMillis();
-            return str;
+            return d.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    @Nullable
     public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -338,79 +463,153 @@ public class x11 {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return e(gf0.b().getFileStreamPath(str));
+            return c.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public static void h(Closeable closeable) {
+    public static String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, closeable) == null) && closeable != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             try {
-                closeable.close();
-            } catch (IOException unused) {
+                Matcher matcher = f.matcher(str);
+                if (matcher.find()) {
+                    return matcher.group(2);
+                }
+                return null;
+            } catch (IllegalStateException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static byte[] g(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
+    public static String e(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        int lastIndexOf;
+        int lastIndexOf2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            if (file == null) {
-                return new byte[0];
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
+            String str11 = null;
+            if (str2 != null) {
+                str4 = g(str2);
+                if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
+                    str4 = str4.substring(lastIndexOf2);
+                }
+            } else {
+                str4 = null;
             }
-            ByteArrayOutputStream byteArrayOutputStream2 = null;
-            try {
-                if (!file.exists()) {
-                    byte[] bArr = new byte[0];
-                    jf0.a(null);
-                    jf0.a(null);
-                    return bArr;
+            if (TextUtils.isEmpty(str4)) {
+                str4 = y11.d(str);
+            }
+            if (TextUtils.isEmpty(str4)) {
+                str4 = "downloadfile";
+            }
+            int lastIndexOf3 = str4.lastIndexOf(".");
+            if (lastIndexOf3 < 0) {
+                if (str3 != null) {
+                    str10 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
+                    if (TextUtils.isEmpty(str10)) {
+                        if (str3.toLowerCase(Locale.getDefault()).startsWith("image/")) {
+                            str10 = ".jpg";
+                        }
+                    } else {
+                        str10 = "." + str10;
+                    }
+                } else {
+                    str10 = null;
                 }
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                } catch (IOException | OutOfMemoryError unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    byte[] bArr2 = new byte[32768];
-                    while (true) {
-                        int read = fileInputStream.read(bArr2);
-                        if (read != -1) {
-                            byteArrayOutputStream.write(bArr2, 0, read);
+                if (str10 == null) {
+                    if (str3 != null && str3.toLowerCase(Locale.getDefault()).startsWith("text/")) {
+                        if (str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE)) {
+                            str10 = ".html";
                         } else {
-                            byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            jf0.a(byteArrayOutputStream);
-                            jf0.a(fileInputStream);
-                            return byteArray;
+                            str10 = ".txt";
+                        }
+                    } else {
+                        String d2 = y11.d(str);
+                        if (!TextUtils.isEmpty(d2) && (lastIndexOf = d2.lastIndexOf(".")) != -1) {
+                            str11 = d2.substring(lastIndexOf + 1);
+                        }
+                        if (!TextUtils.isEmpty(str11)) {
+                            str5 = "." + str11;
+                        } else {
+                            str5 = ".bin";
                         }
                     }
-                } catch (IOException | OutOfMemoryError unused2) {
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    jf0.a(byteArrayOutputStream2);
-                    jf0.a(fileInputStream);
-                    return new byte[0];
-                } catch (Throwable th2) {
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    th = th2;
-                    jf0.a(byteArrayOutputStream2);
-                    jf0.a(fileInputStream);
-                    throw th;
                 }
-            } catch (IOException | OutOfMemoryError unused3) {
-                fileInputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileInputStream = null;
+                if (str4 != null && str4.length() > 50) {
+                    str4 = str4.substring(0, 50);
+                }
+                return str4 + str10;
             }
-        } else {
-            return (byte[]) invokeL.objValue;
+            if (str3 != null) {
+                String substring = str4.substring(str4.lastIndexOf(".") + 1);
+                String d3 = d(str3);
+                String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
+                String str12 = "";
+                if (TextUtils.isEmpty(substring)) {
+                    str6 = "";
+                } else {
+                    str6 = substring.toLowerCase(Locale.getDefault());
+                }
+                if (TextUtils.isEmpty(d3)) {
+                    str7 = "";
+                } else {
+                    str7 = d3.toLowerCase(Locale.getDefault());
+                }
+                if (TextUtils.isEmpty(extensionFromMimeType)) {
+                    str8 = "";
+                } else {
+                    str8 = extensionFromMimeType.toLowerCase(Locale.getDefault());
+                }
+                String f2 = f(str6);
+                String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(str6);
+                if (TextUtils.isEmpty(f2)) {
+                    str9 = "";
+                } else {
+                    str9 = f2.toLowerCase(Locale.getDefault());
+                }
+                if (!TextUtils.isEmpty(mimeTypeFromExtension)) {
+                    str12 = mimeTypeFromExtension.toLowerCase(Locale.getDefault());
+                }
+                if (TextUtils.equals(str9, str12)) {
+                    if (!TextUtils.isEmpty(str7) && TextUtils.equals(str7, str8)) {
+                        str11 = "." + str7;
+                    }
+                } else if (TextUtils.isEmpty(str9)) {
+                    if (!TextUtils.isEmpty(str8)) {
+                        str11 = "." + str8;
+                    }
+                } else if (TextUtils.isEmpty(str12)) {
+                    if (!TextUtils.isEmpty(str9)) {
+                        str11 = "." + str6;
+                    } else if (!TextUtils.isEmpty(str7)) {
+                        str11 = "." + str7;
+                    }
+                }
+            }
+            if (str11 == null) {
+                str5 = str4.substring(lastIndexOf3);
+            } else {
+                str5 = str11;
+            }
+            str4 = str4.substring(0, lastIndexOf3);
+            str10 = str5;
+            if (str4 != null) {
+                str4 = str4.substring(0, 50);
+            }
+            return str4 + str10;
         }
+        return (String) invokeLLL.objValue;
     }
 }

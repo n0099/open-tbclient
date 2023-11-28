@@ -60,8 +60,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092760);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0927a6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927e3);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092829);
         }
     }
 
@@ -130,7 +130,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.a = context;
     }
 
-    public String m(int i) {
+    public String n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -139,7 +139,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (String) invokeI.objValue;
     }
 
-    public int n(String str) {
+    public int o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -177,11 +177,11 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return invokeV.intValue;
     }
 
-    public String o() {
+    public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return m(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return n(this.d);
         }
         return (String) invokeV.objValue;
     }
@@ -189,12 +189,12 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: q */
+    /* renamed from: r */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05bf, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05d8, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }
@@ -210,7 +210,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
+    /* renamed from: q */
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
@@ -227,7 +227,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                 SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(viewHolder.a, (int) R.color.CAM_X0107);
             }
-            if ("推荐".equals(o())) {
+            if ("推荐".equals(p())) {
                 StatisticItem statisticItem = new StatisticItem("c13641");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 3);

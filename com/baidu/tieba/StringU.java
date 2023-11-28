@@ -32,7 +32,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = od.d().h("stringu", 2);
+            boolean h = pd.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);

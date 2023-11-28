@@ -1,28 +1,28 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ja;
+import com.baidu.tieba.ka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AdSdkSwitch extends ja {
+public class AdSdkSwitch extends ka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD_SDK_SWITCH = "ad_baichuan_open";
     public static final int TYPE_OFF = 0;
     public static final int TYPE_OPEN = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     /* renamed from: getCrashKeys */
     public String[] mo131getCrashKeys() {
         InterceptResult invokeV;
@@ -33,7 +33,7 @@ public class AdSdkSwitch extends ja {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class AdSdkSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class AdSdkSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_AD_SDK_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class x {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f1011a = new HashMap();
+    public static final Map<String, byte[]> f1007a = new HashMap();
     public static ArrayList<Pair<String, byte[]>> a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f1011a) {
-            for (String str2 : f1011a.keySet()) {
-                com.xiaomi.channel.commonutils.logger.b.m186a("notify registration error. " + str2);
-                a(context, str2, f1011a.get(str2), i, str);
+        synchronized (f1007a) {
+            for (String str2 : f1007a.keySet()) {
+                com.xiaomi.channel.commonutils.logger.b.m190a("notify registration error. " + str2);
+                a(context, str2, f1007a.get(str2), i, str);
             }
-            f1011a.clear();
+            f1007a.clear();
         }
     }
 
@@ -61,10 +61,10 @@ public class x {
 
     public static void a(XMPushService xMPushService, boolean z) {
         try {
-            synchronized (f1011a) {
-                for (String str : f1011a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m186a("processing pending registration request. " + str);
-                    ah.a(xMPushService, str, f1011a.get(str));
+            synchronized (f1007a) {
+                for (String str : f1007a.keySet()) {
+                    com.xiaomi.channel.commonutils.logger.b.m190a("processing pending registration request. " + str);
+                    ah.a(xMPushService, str, f1007a.get(str));
                     if (z && !com.xiaomi.push.t.a()) {
                         try {
                             Thread.sleep(200L);
@@ -72,7 +72,7 @@ public class x {
                         }
                     }
                 }
-                f1011a.clear();
+                f1007a.clear();
             }
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e);
@@ -81,9 +81,9 @@ public class x {
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f1011a) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("pending registration request. " + str);
-            f1011a.put(str, bArr);
+        synchronized (f1007a) {
+            com.xiaomi.channel.commonutils.logger.b.m190a("pending registration request. " + str);
+            f1007a.put(str, bArr);
         }
     }
 

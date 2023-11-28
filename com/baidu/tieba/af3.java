@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,13 +9,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class af3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, ze3> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AshmemFileDescriptor a;
+    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,57 +29,32 @@ public class af3 {
                 return;
             }
         }
-        a = rm1.a;
-        b = new ArrayMap();
+        ye3.d();
     }
 
-    @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public AshmemFileDescriptor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        ze3 ze3Var = b.get(str);
-                        if (ze3Var != null && ze3Var.a() != null) {
-                            return ze3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            we3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
-                }
-                return ve3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (AshmemFileDescriptor) invokeLI.objValue;
+        return (AshmemFileDescriptor) invokeV.objValue;
     }
 
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @NonNull
+    public SwanKV b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (af3.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
-                }
-                ze3 ze3Var = b.get(ashmemFileDescriptor.getName());
-                if (ze3Var != null && ze3Var.a() != null && ze3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = ze3Var.b();
-                    ze3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (SwanKV) invokeV.objValue;
+    }
+
+    public void c(@NonNull SwanKV swanKV) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
+            this.b = swanKV;
         }
     }
 }

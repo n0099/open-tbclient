@@ -2,7 +2,7 @@ package com.yy.transvod.player.common;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ConcurrentLinkedQueueX<E> extends ConcurrentLinkedQueue<E> {
     public final String tag = ConcurrentLinkedQueueX.class.getSimpleName();
     public Object mLock = new Object();

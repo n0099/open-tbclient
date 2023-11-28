@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RevenueConfig {
     public int appId;
     public String appName;
@@ -19,7 +19,7 @@ public class RevenueConfig {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class RevenueConfigBuilder {
         public IRevenueDataSender dataSender;
         public Context mContext;

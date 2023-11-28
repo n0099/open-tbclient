@@ -8,7 +8,7 @@ import com.yy.hiidostatis.defs.listener.ActListener;
 import com.yy.hiidostatis.defs.listener.HiidoSdkAdditionDelegate;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MessageConfig {
     public static final int MIN_INTERVAL = 5;
     public static final String SDK_VER = "4.0.23";

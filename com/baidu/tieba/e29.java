@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes5.dex */
-public class e29 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e29 {
+    void a(@NonNull z29 z29Var);
 
-    public e29() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        new HashMap();
-    }
+    @NonNull
+    HeadImageView b();
+
+    @NonNull
+    TextView c();
+
+    TextView d();
+
+    @Nullable
+    TextView e();
+
+    @NonNull
+    TextView f();
+
+    FrameLayout g();
+
+    void h(@NonNull z29 z29Var);
+
+    int i();
+
+    void j();
 }

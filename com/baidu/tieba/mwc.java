@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.DeletedReasonInfo;
 /* loaded from: classes7.dex */
-public class mwc extends qoc {
+public class mwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PrivateForumShareinfo privateForumShareinfo) {
+    public static JSONObject b(@NonNull DeletedReasonInfo deletedReasonInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privateForumShareinfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, deletedReasonInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "create_time", privateForumShareinfo.create_time);
-            qoc.a(jSONObject, "share_url", privateForumShareinfo.share_url);
-            qoc.a(jSONObject, "manager_user_name", privateForumShareinfo.manager_user_name);
-            qoc.a(jSONObject, "manager_portrait", privateForumShareinfo.manager_portrait);
+            ltc.a(jSONObject, "is_grays_cale_forum", deletedReasonInfo.is_grays_cale_forum);
+            ltc.a(jSONObject, "is_boomgrow", deletedReasonInfo.is_boomgrow);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

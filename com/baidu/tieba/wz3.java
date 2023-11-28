@@ -12,8 +12,6 @@ public class wz3 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public long d;
 
     public wz3() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,6 @@ public class wz3 {
             wz3 wz3Var = new wz3();
             wz3Var.a = jSONObject.optInt("state");
             wz3Var.b = jSONObject.optString("msg");
-            wz3Var.c = jSONObject.optInt("switch_open");
-            wz3Var.d = jSONObject.optLong("heartbeat_time");
             return wz3Var;
         }
         return (wz3) invokeL.objValue;
@@ -47,7 +43,7 @@ public class wz3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

@@ -12,7 +12,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MetricsHandler {
     public String appkey;
     public long defaultMetricsExpire;
@@ -22,7 +22,7 @@ public class MetricsHandler {
     public Map<String, TimeWorker> timers = new ConcurrentHashMap();
     public String ver;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class TimeWorker {
         public long interval;
         public volatile SharedTimerTask timerTask;

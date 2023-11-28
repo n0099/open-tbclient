@@ -1,189 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class ula {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final List<re8> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216223, "Lcom/baidu/tieba/ula;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216223, "Lcom/baidu/tieba/ula;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
-
-    public /* synthetic */ ula(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final ula a() {
-        InterceptResult invokeV;
+    public static final ThreadData a(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a() : (ula) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            ThreadData threadData = new ThreadData();
+            threadData.tid = map.get("thread_id");
+            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
+            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
+            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                WorksInfoData worksInfoData = new WorksInfoData();
+                worksInfoData.isWorks = true;
+                threadData.worksInfoData = worksInfoData;
+            }
+            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
+            return threadData;
+        }
+        return (ThreadData) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public static final void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            di8.f("c15195", a(map));
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static final void c(Map<String, String> map) {
+        int i;
+        int i2;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            String str = map.get("tie_plus_info");
+            if (str != null) {
+                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                    i = 3;
+                } else if (!Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                    i = 1;
+                } else {
+                    i = 2;
                 }
-            }
-        }
-
-        @JvmStatic
-        public final ula a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (ula) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final ula b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-369969759, "Lcom/baidu/tieba/ula$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+                int i3 = 0;
+                try {
+                    jSONObject = new JSONObject(str);
+                    i2 = jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE);
+                } catch (Exception e) {
+                    e = e;
+                    i2 = 0;
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-369969759, "Lcom/baidu/tieba/ula$b;");
-                    return;
+                try {
+                    i3 = jSONObject.optInt("jump_type");
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
                 }
-            }
-            a = new b();
-            b = new ula(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
             }
         }
+    }
 
-        public final ula a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+    public static final void d(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            ThreadData threadData = new ThreadData();
+            threadData.tiePlusShowUrl = map.get("tie_plus_show_url");
+            threadData.tid = map.get("thread_id");
+            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
+            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
+            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                WorksInfoData worksInfoData = new WorksInfoData();
+                worksInfoData.isWorks = true;
+                threadData.worksInfoData = worksInfoData;
             }
-            return (ula) invokeV.objValue;
-        }
-    }
-
-    public ula() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = new ArrayList();
-    }
-
-    public final List<re8> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+            threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_show_url");
+            threadData.isTiebaPlusAdThread = true;
+            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
+            threadData.tiebaPlusToken = map.get("tie_plus_token");
+            threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
+            di8.o(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
         }
     }
 }

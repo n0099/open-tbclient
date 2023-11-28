@@ -11,6 +11,7 @@ import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.download.DownloadCall;
+import com.baidu.tieba.ms;
 import java.io.File;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class DownloadDispatcher {
             filterCanceledCalls(identifiedTask, arrayList, arrayList2);
         }
         handleCanceledCalls(arrayList, arrayList2);
-        Util.d(TAG, "finish cancel bunch task manually: " + identifiedTaskArr.length + " consume " + (SystemClock.uptimeMillis() - uptimeMillis) + "ms");
+        Util.d(TAG, "finish cancel bunch task manually: " + identifiedTaskArr.length + " consume " + (SystemClock.uptimeMillis() - uptimeMillis) + ms.c);
     }
 
     @Nullable
@@ -270,7 +271,7 @@ public class DownloadDispatcher {
         if (size != this.readyAsyncCalls.size()) {
             Collections.sort(this.readyAsyncCalls);
         }
-        Util.d(TAG, "end enqueueLocked for bunch task: " + downloadTaskArr.length + " consume " + (SystemClock.uptimeMillis() - uptimeMillis) + "ms");
+        Util.d(TAG, "end enqueueLocked for bunch task: " + downloadTaskArr.length + " consume " + (SystemClock.uptimeMillis() - uptimeMillis) + ms.c);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0046 A[Catch: all -> 0x0090, TryCatch #0 {, blocks: (B:3:0x0001, B:4:0x0007, B:6:0x000d, B:8:0x0017, B:10:0x0023, B:12:0x0029, B:15:0x0030, B:20:0x003a, B:21:0x0040, B:23:0x0046, B:25:0x0050, B:27:0x005c, B:30:0x0064, B:31:0x006a, B:33:0x0070, B:35:0x007a, B:37:0x0086), top: B:45:0x0001 }] */

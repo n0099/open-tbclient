@@ -2,8 +2,8 @@ package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.dm;
-import com.baidu.tieba.xk;
+import com.baidu.tieba.em;
+import com.baidu.tieba.yk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,17 +19,17 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implem
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $rawTaskStr;
-    public final /* synthetic */ xk $taskCallback;
-    public final /* synthetic */ dm $taskInterceptor;
+    public final /* synthetic */ yk $taskCallback;
+    public final /* synthetic */ em $taskInterceptor;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, xk xkVar, dm dmVar) {
+    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, yk ykVar, em emVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, xkVar, dmVar};
+            Object[] objArr = {str, ykVar, emVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,8 +41,8 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implem
             }
         }
         this.$rawTaskStr = str;
-        this.$taskCallback = xkVar;
-        this.$taskInterceptor = dmVar;
+        this.$taskCallback = ykVar;
+        this.$taskInterceptor = emVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

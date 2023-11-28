@@ -5,33 +5,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CardFreq;
-import tbclient.FrsPage.HeadCardCover;
-import tbclient.FrsPage.MatchCardInfo;
-import tbclient.ThemeColorInfo;
+import tbclient.AbilityConf;
+import tbclient.CallRobotEntrance;
+import tbclient.StyleConf;
 /* loaded from: classes8.dex */
-public class qvc extends qoc {
+public class qvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HeadCardCover headCardCover) {
+    public static JSONObject b(@NonNull CallRobotEntrance callRobotEntrance) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headCardCover)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, callRobotEntrance)) == null) {
             JSONObject jSONObject = new JSONObject();
-            CardFreq cardFreq = headCardCover.freq;
-            if (cardFreq != null) {
-                qoc.a(jSONObject, "freq", puc.b(cardFreq));
+            ltc.a(jSONObject, "ability_type", callRobotEntrance.ability_type);
+            AbilityConf abilityConf = callRobotEntrance.ability_conf;
+            if (abilityConf != null) {
+                ltc.a(jSONObject, "ability_conf", mtc.b(abilityConf));
             }
-            ThemeColorInfo themeColorInfo = headCardCover.card_background;
-            if (themeColorInfo != null) {
-                qoc.a(jSONObject, "card_background", q4d.b(themeColorInfo));
+            StyleConf styleConf = callRobotEntrance.style_conf;
+            if (styleConf != null) {
+                ltc.a(jSONObject, "style_conf", x8d.b(styleConf));
             }
-            MatchCardInfo matchCardInfo = headCardCover.match_info;
-            if (matchCardInfo != null) {
-                qoc.a(jSONObject, "match_info", yvc.b(matchCardInfo));
-            }
+            ltc.a(jSONObject, "skill_id", callRobotEntrance.skill_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaFieldsInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes8.dex */
 public class tx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public MetaData c;
-    public long d;
-    public String e;
-    public TiebaFieldsInfo f;
+    public ArrayList<sx6> a;
 
     public tx6() {
         Interceptable interceptable = $ic;
@@ -27,6 +24,24 @@ public class tx6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(List<FrsTabInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (list == null) {
+                return;
+            }
+            for (FrsTabInfo frsTabInfo : list) {
+                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                    this.a.add(new sx6(frsTabInfo));
+                }
             }
         }
     }

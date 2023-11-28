@@ -12,12 +12,15 @@ public class LruHashMap<K, V> extends LinkedHashMap<K, V> {
         this.maxSize = j;
     }
 
-    public long getMaxSize() {
-        return this.maxSize;
-    }
-
     @Override // java.util.LinkedHashMap
     public boolean removeEldestEntry(Map.Entry<K, V> entry) {
-        return ((long) size()) > this.maxSize;
+        if (size() > this.maxSize) {
+            return true;
+        }
+        return false;
+    }
+
+    public long getMaxSize() {
+        return this.maxSize;
     }
 }

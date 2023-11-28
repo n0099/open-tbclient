@@ -34,7 +34,7 @@ public final class ToastRightAreaStyle {
                 return;
             }
         }
-        BUTTON = new ToastRightAreaStyle("BUTTON", 0, R.drawable.obfuscated_res_0x7f081511, R.color.obfuscated_res_0x7f0601e3);
+        BUTTON = new ToastRightAreaStyle("BUTTON", 0, R.drawable.obfuscated_res_0x7f081534, R.color.obfuscated_res_0x7f0601e5);
         ToastRightAreaStyle toastRightAreaStyle = new ToastRightAreaStyle("JUMP", 1, -1, -1);
         JUMP = toastRightAreaStyle;
         $VALUES = new ToastRightAreaStyle[]{BUTTON, toastRightAreaStyle};
@@ -85,8 +85,8 @@ public final class ToastRightAreaStyle {
     public void resetButtonStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.btnBgDrawableResId = R.drawable.obfuscated_res_0x7f081511;
-            this.btnTextColorResId = R.color.obfuscated_res_0x7f0601e3;
+            this.btnBgDrawableResId = R.drawable.obfuscated_res_0x7f081534;
+            this.btnTextColorResId = R.color.obfuscated_res_0x7f0601e5;
         }
     }
 }

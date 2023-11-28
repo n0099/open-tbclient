@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import com.yy.hiidostatis.defs.interf.IAct;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum Act implements IAct {
     MBSDK_INSTALL { // from class: com.yy.hiidostatis.defs.obj.Act.1
         @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.mt8;
-import com.baidu.tieba.ot8;
+import com.baidu.tieba.tw8;
+import com.baidu.tieba.vw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,10 +26,10 @@ public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void O1(String str, ot8 ot8Var) {
+    public void K1(String str, vw8 vw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ot8Var) == null) {
-            mt8.k().o(str, ot8Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, vw8Var) == null) {
+            tw8.k().o(str, vw8Var);
         }
     }
 }

@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.f37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class fp6 implements hb7 {
+public final class fp6 implements f37.q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13565" : (String) invokeV.objValue;
-    }
 
     public fp6() {
         Interceptable interceptable = $ic;
@@ -32,31 +26,35 @@ public final class fp6 implements hb7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f37.q
+    public void a(f37.r holder, x47 state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            businessInfo.a();
-            hashMap.put("obj_source", this.a);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, state) == null) {
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            Intrinsics.checkNotNullParameter(state, "state");
+            holder.j(state);
         }
-        return (Map) invokeL.objValue;
     }
 
-    public final void b(String str) {
+    @Override // com.baidu.tieba.f37.q
+    public f37.r b(Context context, ViewGroup rootView) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rootView)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(rootView, "rootView");
+            if (context instanceof TbadkCoreApplication) {
+                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
+                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
+                }
+            }
+            return new ep6(context, rootView);
         }
+        return (f37.r) invokeLL.objValue;
     }
 }

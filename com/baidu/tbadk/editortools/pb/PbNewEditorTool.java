@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.le5;
-import com.baidu.tieba.me5;
+import com.baidu.tieba.re5;
+import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbNewEditorTool extends le5 {
+public class PbNewEditorTool extends re5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText t;
@@ -121,7 +121,7 @@ public class PbNewEditorTool extends le5 {
         ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
         this.t = ((PbNewInputContainer) this.m).getInputView();
         ((PbNewInputContainer) this.m).setHint(context.getString(R.string.say_your_point));
-        ((PbNewInputContainer) this.m).j0(z2);
+        ((PbNewInputContainer) this.m).g0(z2);
         this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45, 70};
     }
 
@@ -133,10 +133,10 @@ public class PbNewEditorTool extends le5 {
     }
 
     public void j(int i) {
-        me5 me5Var;
+        se5 se5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (me5Var = this.m) != null) {
-            ((PbNewInputContainer) me5Var).P(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (se5Var = this.m) != null) {
+            ((PbNewInputContainer) se5Var).O(i);
         }
     }
 
@@ -157,9 +157,9 @@ public class PbNewEditorTool extends le5 {
     public void o(InputShowType inputShowType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, inputShowType) == null) {
-            me5 me5Var = this.m;
-            if (me5Var instanceof PbNewInputContainer) {
-                ((PbNewInputContainer) me5Var).setFromType(inputShowType);
+            se5 se5Var = this.m;
+            if (se5Var instanceof PbNewInputContainer) {
+                ((PbNewInputContainer) se5Var).setFromType(inputShowType);
             }
         }
     }
@@ -172,10 +172,10 @@ public class PbNewEditorTool extends le5 {
     }
 
     public void q(int i) {
-        me5 me5Var;
+        se5 se5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (me5Var = this.m) != null) {
-            ((PbNewInputContainer) me5Var).setType(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (se5Var = this.m) != null) {
+            ((PbNewInputContainer) se5Var).setType(i);
         }
     }
 
@@ -189,10 +189,10 @@ public class PbNewEditorTool extends le5 {
     }
 
     public void l() {
-        me5 me5Var;
+        se5 se5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (me5Var = this.m) != null) {
-            ((PbNewInputContainer) me5Var).f0();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (se5Var = this.m) != null) {
+            ((PbNewInputContainer) se5Var).d0();
         }
     }
 }

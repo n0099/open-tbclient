@@ -1,13 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.pq6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,127 +32,190 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class nq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static pq6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public ImageView d;
+    public MessageRedDotView e;
+    @Nullable
+    public MessageRedDotView f;
+    public boolean g;
+    public ba5 h;
+    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948011158, "Lcom/baidu/tieba/nq6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948011158, "Lcom/baidu/tieba/nq6;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements pq6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.pq6
-        public void a(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.pq6
-        public <T extends oq6> void c(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pq6
-        public <T extends oq6> void b(@NonNull Object obj, @NonNull qq6<T> qq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, qq6Var) == null) {
-                throw new IllegalStateException("Unable to find eventbus service!");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final pq6.a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-567037224, "Lcom/baidu/tieba/nq6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-567037224, "Lcom/baidu/tieba/nq6$b;");
-                    return;
-                }
-            }
-            a = (pq6.a) ServiceManager.getService(pq6.a.a);
-        }
-    }
-
-    public nq6() {
+    public nq6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = false;
+        this.i = 0;
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
+        this.d = (ImageView) this.b.findViewById(R.id.img_message);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
+        this.e = messageRedDotView;
+        messageRedDotView.setShadowEnabled(false);
+        this.h = (ba5) ServiceManager.getService(ba5.a);
     }
 
-    public static void a(@NonNull BdUniqueId bdUniqueId) {
-        pq6.a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
-            aVar.a(bdUniqueId);
-        }
-    }
-
-    public static pq6 b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (nq6.class) {
-                    if (a == null) {
-                        a = (pq6) ServiceManager.getService(pq6.a);
-                    }
-                    if (a == null) {
-                        a = new a();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
-        return (pq6) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public MessageRedDotView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (MessageRedDotView) invokeV.objValue;
+    }
+
+    public ImageView c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f == null) {
+                this.h.e();
+            }
+            MessageRedDotView messageRedDotView = this.f;
+            if (messageRedDotView != null) {
+                messageRedDotView.setVisibility(8);
+                TbSingleton.MsgUpgradeTips.markHasShown();
+                this.f = null;
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_CLICK);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+            if (this.g && this.e != null && !this.h.d()) {
+                this.e.setVisibility(0);
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e.onChangeSkinType();
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        }
+    }
+
+    public void i(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (view2 = this.b) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    public void j(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        MessageRedDotView messageRedDotView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048585, this, f) == null) && (messageRedDotView = this.f) != null) {
+            messageRedDotView.setAlpha(f);
+        }
+    }
+
+    public void k(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, navigationBar) == null) {
+            l(navigationBar, false);
+        }
+    }
+
+    public void g(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.e.refresh(i);
+                this.g = true;
+                if (this.h.d() && i <= 0) {
+                    this.e.setVisibility(8);
+                } else if (this.f == null) {
+                    this.e.setVisibility(0);
+                }
+            } else {
+                this.e.setVisibility(8);
+                this.g = false;
+            }
+            this.i = i;
+        }
+    }
+
+    public void h(NavigationBar.ControlAlign controlAlign, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048583, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            this.c.getLayoutParams().width = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070420);
+        }
+    }
+
+    public void l(@NonNull NavigationBar navigationBar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048587, this, navigationBar, z) != null) || !TbSingleton.MsgUpgradeTips.shouldShow()) {
+            return;
+        }
+        MessageRedDotView messageRedDotView = this.e;
+        if (messageRedDotView != null) {
+            messageRedDotView.setVisibility(8);
+        }
+        Context context = navigationBar.getContext();
+        MessageRedDotView messageRedDotView2 = new MessageRedDotView(context);
+        this.f = messageRedDotView2;
+        messageRedDotView2.refresh(context.getString(R.string.message_notify_upgrade), false);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds90);
+        if (z) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            frameLayout.addView(this.f, new FrameLayout.LayoutParams(-2, -2));
+            frameLayout.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds72));
+            layoutParams.addRule(12);
+            navigationBar.addView(frameLayout, layoutParams);
+        } else {
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds20);
+            navigationBar.addView(this.f, layoutParams);
+        }
+        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_SHOW);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
     }
 }

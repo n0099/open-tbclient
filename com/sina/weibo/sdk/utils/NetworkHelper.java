@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 /* loaded from: classes10.dex */
 public class NetworkHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -52,7 +52,7 @@ public class NetworkHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context.getPackageManager().checkPermission(h.a, context.getPackageName()) == 0) {
+            if (context.getPackageManager().checkPermission(g.a, context.getPackageName()) == 0) {
                 return true;
             }
             return false;

@@ -7,17 +7,17 @@ public class cw extends cq {
     public cq a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cu f200a;
+    public final /* synthetic */ cu f196a;
     public final /* synthetic */ cq b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cw(cu cuVar, String str, cq cqVar) {
         super(str);
-        this.f200a = cuVar;
+        this.f196a = cuVar;
         this.b = cqVar;
         cq cqVar2 = this.b;
         this.a = cqVar2;
-        ((cq) this).f186b = ((cq) this).f186b;
+        ((cq) this).f182b = ((cq) this).f182b;
         if (cqVar2 != null) {
             this.f = cqVar2.f;
         }
@@ -31,7 +31,7 @@ public class cw extends cq {
             arrayList.addAll(this.a.a(true));
         }
         synchronized (cu.b) {
-            cq cqVar = cu.b.get(((cq) this).f186b);
+            cq cqVar = cu.b.get(((cq) this).f182b);
             if (cqVar != null) {
                 Iterator<String> it = cqVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -40,8 +40,8 @@ public class cw extends cq {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(((cq) this).f186b);
-                arrayList.add(((cq) this).f186b);
+                arrayList.remove(((cq) this).f182b);
+                arrayList.add(((cq) this).f182b);
             }
         }
         return arrayList;

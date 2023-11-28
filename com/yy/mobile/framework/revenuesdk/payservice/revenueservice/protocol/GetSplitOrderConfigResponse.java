@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GetSplitOrderConfigResponse implements IBaseJsonResponse {
     public int appId;
     public String bottomGuideMsg;

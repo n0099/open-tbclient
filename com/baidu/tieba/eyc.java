@@ -6,27 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPageUserExtend;
-import tbclient.User;
+import tbclient.FeedKV;
+import tbclient.FeedToutiao;
 /* loaded from: classes5.dex */
-public class eyc extends qoc {
+public class eyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsPageUserExtend frsPageUserExtend) {
+    public static JSONObject b(@NonNull FeedToutiao feedToutiao) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsPageUserExtend)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedToutiao)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "user_extend_storey", frsPageUserExtend.user_extend_storey);
-            qoc.a(jSONObject, "tips", frsPageUserExtend.tips);
-            if (frsPageUserExtend.data != null) {
+            if (feedToutiao.business_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (User user : frsPageUserExtend.data) {
-                    jSONArray.put(n5d.b(user));
+                for (FeedKV feedKV : feedToutiao.business_info) {
+                    jSONArray.put(sxc.b(feedKV));
                 }
-                qoc.a(jSONObject, "data", jSONArray);
+                ltc.a(jSONObject, "business_info", jSONArray);
             }
             return jSONObject;
         }

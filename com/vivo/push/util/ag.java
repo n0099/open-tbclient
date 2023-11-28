@@ -52,7 +52,7 @@ public final class ag {
             }
         }
         a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-        b = new String[]{com.kuaishou.weapon.p0.h.a, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", com.kuaishou.weapon.p0.h.d, "android.permission.WAKE_LOCK", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.h.e};
+        b = new String[]{com.kuaishou.weapon.p0.g.a, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", com.kuaishou.weapon.p0.g.d, "android.permission.WAKE_LOCK", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.g.e};
         c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
         d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
         e = new String[0];
@@ -428,7 +428,7 @@ public final class ag {
             boolean c2 = aa.c(context, context.getPackageName());
             if (e2) {
                 a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-                b = new String[]{com.kuaishou.weapon.p0.h.a, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", com.kuaishou.weapon.p0.h.d, "android.permission.WAKE_LOCK", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.h.e};
+                b = new String[]{com.kuaishou.weapon.p0.g.a, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", com.kuaishou.weapon.p0.g.d, "android.permission.WAKE_LOCK", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.g.e};
                 c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
                 d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
             } else if (!c2 && !d2) {
@@ -442,9 +442,9 @@ public final class ag {
                 d = new String[0];
                 a = new String[0];
                 if (d2) {
-                    b = new String[]{com.kuaishou.weapon.p0.h.a, "android.permission.WRITE_SETTINGS"};
+                    b = new String[]{com.kuaishou.weapon.p0.g.a, "android.permission.WRITE_SETTINGS"};
                 } else {
-                    b = new String[]{com.kuaishou.weapon.p0.h.a};
+                    b = new String[]{com.kuaishou.weapon.p0.g.a};
                 }
             }
             if (d2) {

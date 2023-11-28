@@ -1,17 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tla {
+public final class tla implements ub7, b77, rb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public boolean a;
+
+    @Override // com.baidu.tieba.rb7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a implements z77 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tla a;
+
+        public a(tla tlaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tlaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tlaVar;
+        }
+
+        @Override // com.baidu.tieba.z77
+        public void a(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("is_tie_plus_ad_thread"), "1")) {
+                    return;
+                }
+                ThreadData threadData = new ThreadData();
+                threadData.tiePlusCostUrl = map.get("tie_plus_cost_url");
+                threadData.tid = map.get("thread_id");
+                threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
+                threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_click_url");
+                int i = 1;
+                threadData.isTiebaPlusAdThread = true;
+                threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
+                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                    WorksInfoData worksInfoData = new WorksInfoData();
+                    worksInfoData.isWorks = true;
+                    threadData.worksInfoData = worksInfoData;
+                }
+                threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
+                threadData.tiebaPlusToken = map.get("tie_plus_token");
+                threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
+                if (this.a.a) {
+                    i = 2;
+                }
+                di8.c(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0), i);
+            }
+        }
+    }
 
     public tla() {
         Interceptable interceptable = $ic;
@@ -27,16 +102,36 @@ public class tla {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.b77
+    public z77 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        try {
-            this.a = jSONObject.optString("banner");
-            this.b = jSONObject.optString("link");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        return (z77) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub7
+    public Map<String, String> a(r57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
+    }
+
+    public final tla f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.a = z;
+            return this;
+        }
+        return (tla) invokeZ.objValue;
     }
 }

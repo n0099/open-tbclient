@@ -15,7 +15,7 @@ public class HWPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m253a(context);
+        return i.m257a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -132,6 +132,6 @@ public class HWPushHelper {
     }
 
     public static void uploadToken(Context context, String str) {
-        i.m252a(context, e.ASSEMBLE_PUSH_HUAWEI, str);
+        i.m256a(context, e.ASSEMBLE_PUSH_HUAWEI, str);
     }
 }

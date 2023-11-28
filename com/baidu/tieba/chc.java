@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class chc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface chc {
+    @Deprecated
+    void onDSEMixAudioExtraInfoV1(vhc vhcVar, ArrayList<MixAudioExtraInfo> arrayList);
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 12) {
-                return (i - 12) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+    void onSEIAlphaChannelInfo(vhc vhcVar, int i, ArrayList<AlphaChannelData> arrayList);
 
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i <= 9) {
-                return (i - 1) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+    @Deprecated
+    void onSEIAudioExtraInfoV0(vhc vhcVar, ArrayList<Long> arrayList);
+
+    void onSEIAudioOriginalData(vhc vhcVar, byte[] bArr, int i);
+
+    void onSEIMixVideoExtraInfo(vhc vhcVar, int i, ArrayList<MixVideoExtraInfo> arrayList);
+
+    void onSEIVideoExtraInfo(vhc vhcVar, int i, ArrayList<VideoExtraInfo> arrayList);
+
+    void onSEIVideoOriginalData(vhc vhcVar, byte[] bArr, int i);
 }

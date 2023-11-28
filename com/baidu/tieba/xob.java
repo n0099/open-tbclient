@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes9.dex */
-public class xob implements fpb {
+public abstract class xob extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kob a;
-    public float b;
+    public IOException a;
+    public boolean b;
     public boolean c;
+
+    public abstract void e() throws IOException;
+
+    public abstract UploadDataProvider f();
+
+    public abstract void g() throws IOException;
 
     public xob() {
         Interceptable interceptable = $ic;
@@ -25,107 +32,46 @@ public class xob implements fpb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 1.0f;
-        this.c = true;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            kob kobVar = this.a;
-            if (kobVar == null || !kobVar.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (kob) nsb.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            kob kobVar = this.a;
-            if (kobVar != null) {
-                kobVar.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            kob kobVar = this.a;
-            return kobVar != null ? kobVar.getOutPutBytes() : new byte[0];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            kob kobVar = this.a;
-            if (kobVar != null) {
-                kobVar.setSpeed(f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.fpb
-    public boolean b() {
-        InterceptResult invokeV;
+    public void a() throws IOException {
+        IOException iOException;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public void c() {
-        kob kobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (kobVar = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
             return;
         }
-        kobVar.flush();
+        throw iOException;
     }
 
-    @Override // com.baidu.tieba.fpb
-    public void d() {
-        kob kobVar;
+    public void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (kobVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (!this.b) {
+                    return;
+                }
+                throw new IOException("Stream has been closed.");
+            }
+            a();
+            throw new IOException("Writing after request completed.");
         }
-        kobVar.close();
-        this.a = null;
     }
 
-    @Override // com.baidu.tieba.fpb
-    public void e() {
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void h(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
         }
     }
 }

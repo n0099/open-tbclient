@@ -42,9 +42,9 @@ public final class UtilsKt {
         function1.invoke("type: " + typeConstructor);
         function1.invoke("hashCode: " + typeConstructor.hashCode());
         function1.invoke("javaClass: " + typeConstructor.getClass().getCanonicalName());
-        for (DeclarationDescriptor mo2110getDeclarationDescriptor = typeConstructor.mo2110getDeclarationDescriptor(); mo2110getDeclarationDescriptor != null; mo2110getDeclarationDescriptor = mo2110getDeclarationDescriptor.getContainingDeclaration()) {
-            function1.invoke("fqName: " + DescriptorRenderer.FQ_NAMES_IN_TYPES.render(mo2110getDeclarationDescriptor));
-            function1.invoke("javaClass: " + mo2110getDeclarationDescriptor.getClass().getCanonicalName());
+        for (DeclarationDescriptor mo2114getDeclarationDescriptor = typeConstructor.mo2114getDeclarationDescriptor(); mo2114getDeclarationDescriptor != null; mo2114getDeclarationDescriptor = mo2114getDeclarationDescriptor.getContainingDeclaration()) {
+            function1.invoke("fqName: " + DescriptorRenderer.FQ_NAMES_IN_TYPES.render(mo2114getDeclarationDescriptor));
+            function1.invoke("javaClass: " + mo2114getDeclarationDescriptor.getClass().getCanonicalName());
         }
         String sb2 = sb.toString();
         Intrinsics.checkExpressionValueIsNotNull(sb2, "StringBuilder().apply(builderAction).toString()");
@@ -102,7 +102,7 @@ public final class UtilsKt {
                 }
                 throw new AssertionError("Type constructors should be equals!\nsubstitutedSuperType: " + debugInfo(constructor3) + ", \n\nsupertype: " + debugInfo(constructor) + " \n" + typeCheckingProcedureCallbacks.assertEqualTypeConstructors(constructor3, constructor));
             }
-            for (KotlinType immediateSupertype : constructor2.mo2111getSupertypes()) {
+            for (KotlinType immediateSupertype : constructor2.mo2115getSupertypes()) {
                 Intrinsics.checkExpressionValueIsNotNull(immediateSupertype, "immediateSupertype");
                 arrayDeque.add(new SubtypePathNode(immediateSupertype, subtypePathNode));
             }

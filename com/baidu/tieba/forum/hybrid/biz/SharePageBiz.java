@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.cu9;
-import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.hybrid.biz.SharePageBiz;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
+import com.baidu.tieba.ki7;
+import com.baidu.tieba.lk7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.share.AddExperiencedModel;
-import com.baidu.tieba.ti7;
+import com.baidu.tieba.sx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public final class SharePageBiz extends BizBase {
     public final ShareSuccessReplyToServerModel g;
     public final AddExperiencedModel h;
 
-    @Override // com.baidu.tieba.ui7
+    @Override // com.baidu.tieba.mk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class SharePageBiz extends BizBase {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
                 SafeHandler inst = SafeHandler.getInst();
                 final SharePageBiz sharePageBiz = this.a;
-                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.si7
+                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.kk7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public final class SharePageBiz extends BizBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, this$0, customDialogData) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                cu9.a(this$0.f(), customDialogData).show();
+                sx9.a(this$0.f(), customDialogData).show();
             }
         }
     }
@@ -163,13 +163,13 @@ public final class SharePageBiz extends BizBase {
             @Override // kotlin.jvm.functions.Function0
             public final String invoke() {
                 InterceptResult invokeV;
-                ForumInfo e;
+                ForumInfo d;
                 Long l;
                 String valueOf;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    fh7 c = this.this$0.c();
-                    if (c == null || (e = c.e()) == null || (l = e.id) == null || (valueOf = String.valueOf(l)) == null) {
+                    ki7 c = this.this$0.c();
+                    if (c == null || (d = c.d()) == null || (l = d.id) == null || (valueOf = String.valueOf(l)) == null) {
                         return "";
                     }
                     return valueOf;
@@ -181,14 +181,14 @@ public final class SharePageBiz extends BizBase {
         this.h = new AddExperiencedModel(pageContext);
     }
 
-    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.ui7
-    public ti7[] b() {
+    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.mk7
+    public lk7[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ti7[]{h(24007, new SharePageBiz$requestCodeHandlers$1(this))} : (ti7[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new lk7[]{h(24007, new SharePageBiz$requestCodeHandlers$1(this))} : (lk7[]) invokeV.objValue;
     }
 
-    public final String n() {
+    public final String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -197,7 +197,7 @@ public final class SharePageBiz extends BizBase {
         return (String) invokeV.objValue;
     }
 
-    public final void o(Intent intent) {
+    public final void m(Intent intent) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, intent) != null) || intent == null) {
@@ -213,7 +213,7 @@ public final class SharePageBiz extends BizBase {
             if (shareItem != null && (str = shareItem.linkUrl) != null) {
                 this.g.O(str, intExtra2, new a(this));
             }
-            this.h.S(n(), stringExtra);
+            this.h.S(l(), stringExtra);
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
             statisticItem.param("obj_locate", 4);
             statisticItem.param("tid", stringExtra);

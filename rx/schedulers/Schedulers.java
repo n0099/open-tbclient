@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.coc;
-import com.baidu.tieba.doc;
-import com.baidu.tieba.mjc;
-import com.baidu.tieba.olc;
-import com.baidu.tieba.plc;
-import com.baidu.tieba.qlc;
-import com.baidu.tieba.tlc;
-import com.baidu.tieba.vlc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.hoc;
+import com.baidu.tieba.jqc;
+import com.baidu.tieba.kqc;
+import com.baidu.tieba.lqc;
+import com.baidu.tieba.oqc;
+import com.baidu.tieba.qqc;
+import com.baidu.tieba.usc;
+import com.baidu.tieba.xsc;
+import com.baidu.tieba.ysc;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final mjc a;
-    public final mjc b;
-    public final mjc c;
+    public final hoc a;
+    public final hoc b;
+    public final hoc c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static mjc computation() {
-        return znc.f(a().a);
+    public static hoc computation() {
+        return usc.f(a().a);
     }
 
-    public static mjc immediate() {
-        return qlc.a;
+    public static hoc immediate() {
+        return lqc.a;
     }
 
-    public static mjc io() {
-        return znc.k(a().b);
+    public static hoc io() {
+        return usc.k(a().b);
     }
 
-    public static mjc newThread() {
-        return znc.l(a().c);
+    public static hoc newThread() {
+        return usc.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            plc.d.shutdown();
+            kqc.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            plc.d.start();
+            kqc.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static mjc trampoline() {
-        return vlc.a;
+    public static hoc trampoline() {
+        return qqc.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof tlc) {
-            ((tlc) this.a).shutdown();
+        if (this.a instanceof oqc) {
+            ((oqc) this.a).shutdown();
         }
-        if (this.b instanceof tlc) {
-            ((tlc) this.b).shutdown();
+        if (this.b instanceof oqc) {
+            ((oqc) this.b).shutdown();
         }
-        if (this.c instanceof tlc) {
-            ((tlc) this.c).shutdown();
+        if (this.c instanceof oqc) {
+            ((oqc) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof tlc) {
-            ((tlc) this.a).start();
+        if (this.a instanceof oqc) {
+            ((oqc) this.a).start();
         }
-        if (this.b instanceof tlc) {
-            ((tlc) this.b).start();
+        if (this.b instanceof oqc) {
+            ((oqc) this.b).start();
         }
-        if (this.c instanceof tlc) {
-            ((tlc) this.c).start();
+        if (this.c instanceof oqc) {
+            ((oqc) this.c).start();
         }
     }
 
     public Schedulers() {
-        doc f = coc.c().f();
-        mjc g = f.g();
+        ysc f = xsc.c().f();
+        hoc g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = doc.a();
+            this.a = ysc.a();
         }
-        mjc i = f.i();
+        hoc i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = doc.c();
+            this.b = ysc.c();
         }
-        mjc j = f.j();
+        hoc j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = doc.e();
+            this.c = ysc.e();
         }
     }
 
-    public static mjc from(Executor executor) {
-        return new olc(executor);
+    public static hoc from(Executor executor) {
+        return new jqc(executor);
     }
 }

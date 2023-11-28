@@ -1,64 +1,38 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v73 extends d83 {
+public class v73 extends e83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ os1 a;
-
-        public a(v73 v73Var, os1 os1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v73Var, os1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = os1Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v73(d73 d73Var) {
-        super(d73Var, "/swanAPI/pageScrollTo");
+    public v73(e73 e73Var) {
+        super(e73Var, "/swanAPI/openStatisticFlowJar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
+            Object[] objArr = {e73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,45 +46,107 @@ public class v73 extends d83 {
         }
     }
 
-    @Override // com.baidu.tieba.d83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
-        InterceptResult invokeLLLL;
-        int f;
+    public List<UbcFlowEvent> l(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
-            if (g63Var != null && context != null) {
-                JSONObject a2 = d83.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    g32.i("PageScrollToAction", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                UbcFlowEvent k = k(jSONArray.optJSONObject(i));
+                if (k != null) {
+                    k.e("FE");
+                    arrayList.add(k);
                 }
-                int optInt = a2.optInt("scrollTop", -1);
-                int optInt2 = a2.optInt("duration", -1);
-                if (optInt > -1 && optInt2 > -1) {
-                    os1 i = tr2.V().i();
-                    if (i != null) {
-                        if (i instanceof NgWebView) {
-                            f = ev1.A(i, xj3.f(context, optInt));
-                        } else {
-                            f = xj3.f(context, optInt);
-                        }
-                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
-                        ofInt.setDuration(optInt2);
-                        ofInt.addUpdateListener(new a(this, i));
-                        ofInt.start();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                g32.c("PageScrollToAction", "illegal scrollTop or duration");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
+            if (h63Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            g32.c("PageScrollToAction", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-            return false;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+                return false;
+            }
+            char c = 65535;
+            int hashCode = optString.hashCode();
+            if (hashCode != 53647) {
+                if (hashCode == 55357 && optString.equals("805")) {
+                    c = 1;
+                }
+            } else if (optString.equals("670")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                    return false;
+                }
+                j(optParamsAsJo.optJSONArray("data"));
+            } else {
+                HybridUbcFlow o = mz2.o();
+                o.G(l(optParamsAsJo.optJSONArray("data")));
+                o.n();
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void j(JSONArray jSONArray) {
+        p52 J;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) != null) || (J = ur2.V().J()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = jSONArray.getJSONObject(0);
+            if (jSONObject != null) {
+                String string = jSONObject.getString("eventId");
+                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
+                long j = 0;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        j = Long.valueOf(optString).longValue();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                J.S3(new ld3(string, j));
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public UbcFlowEvent k(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("actionId");
+            long optLong = jSONObject.optLong("timestamp");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+            ubcFlowEvent.h(optLong);
+            return ubcFlowEvent;
+        }
+        return (UbcFlowEvent) invokeL.objValue;
     }
 }

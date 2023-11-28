@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class f4a extends BaseCardInfo implements oi {
+public class f4a {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ApkDownloadInfoData> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,32 +31,56 @@ public class f4a extends BaseCardInfo implements oi {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_count");
+        b = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_timestamp");
     }
 
-    public f4a() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
+            SharedPrefHelper.getInstance().putLong(b, System.currentTimeMillis());
+            SharedPrefHelper.getInstance().putInt(a, 0);
         }
-        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
-    public BdUniqueId getType() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = SharedPrefHelper.getInstance().getLong(b, 0L);
+            if (j >= 0) {
+                return TimeHelper.isSameDay(currentTimeMillis, j);
+            }
+            return false;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(vv9 vv9Var) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vv9Var)) == null) {
+            if (vv9Var == null || vv9Var.R() == null || !TbadkCoreApplication.isLogin() || !vv9Var.R().isExcellentThread() || vv9Var.R().getHasAgree() == 1) {
+                return false;
+            }
+            if (b()) {
+                i = SharedPrefHelper.getInstance().getInt(a, 0);
+            } else {
+                i = 0;
+            }
+            if (i >= 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(Context context, View view2, vv9 vv9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, vv9Var) != null) || xt9.c() || c(vv9Var)) {
+        }
     }
 }

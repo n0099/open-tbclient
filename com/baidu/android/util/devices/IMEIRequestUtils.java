@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 @Deprecated
 /* loaded from: classes.dex */
 public class IMEIRequestUtils {
@@ -41,7 +41,7 @@ public class IMEIRequestUtils {
             if (AppRuntime.getAppContext() == null) {
                 return str;
             }
-            if (DeviceUtil.OSInfo.hasMarshMallow() && AppRuntime.getAppContext().checkSelfPermission(h.c) != 0) {
+            if (DeviceUtil.OSInfo.hasMarshMallow() && AppRuntime.getAppContext().checkSelfPermission(g.c) != 0) {
                 return str;
             }
             try {

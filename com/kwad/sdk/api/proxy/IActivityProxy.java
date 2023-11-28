@@ -21,62 +21,12 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public <T extends View> T findViewById(int i) {
-        return (T) this.mActivity.findViewById(i);
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void finish() {
-        this.mActivity.finish();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    @Deprecated
-    public Activity getActivity() {
-        return this.mActivity;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public Intent getIntent() {
-        return this.mActivity.getIntent();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public Window getWindow() {
-        return this.mActivity.getWindow();
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public void onActivityResult(int i, int i2, Intent intent) {
     }
 
     @KsAdSdkDynamicApi
     @Keep
     public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void onBackPressed() {
-        Activity activity = this.mActivity;
-        if (activity instanceof BaseProxyActivity) {
-            try {
-                ((BaseProxyActivity) activity).superOnBackPressed();
-            } catch (Exception unused) {
-            }
-        } else if (activity instanceof BaseProxyFragmentActivity) {
-            try {
-                ((BaseProxyFragmentActivity) activity).superOnBackPressed();
-            } catch (Exception unused2) {
-            }
-        } else {
-            throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
-        }
     }
 
     @KsAdSdkDynamicApi
@@ -97,45 +47,6 @@ public abstract class IActivityProxy implements IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep
     public void onDestroy() {
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        Activity activity = this.mActivity;
-        if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyDown(i, keyEvent);
-        }
-        if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyDown(i, keyEvent);
-        }
-        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        Activity activity = this.mActivity;
-        if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyLongPress(i, keyEvent);
-        }
-        if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyLongPress(i, keyEvent);
-        }
-        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        Activity activity = this.mActivity;
-        if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyUp(i, keyEvent);
-        }
-        if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyUp(i, keyEvent);
-        }
-        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
 
     @KsAdSdkDynamicApi
@@ -235,8 +146,52 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void overridePendingTransition(int i, int i2) {
-        this.mActivity.overridePendingTransition(i, i2);
+    public void finish() {
+        this.mActivity.finish();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    @Deprecated
+    public Activity getActivity() {
+        return this.mActivity;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public Intent getIntent() {
+        return this.mActivity.getIntent();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public Window getWindow() {
+        return this.mActivity.getWindow();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void onBackPressed() {
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            try {
+                ((BaseProxyActivity) activity).superOnBackPressed();
+            } catch (Exception unused) {
+            }
+        } else if (activity instanceof BaseProxyFragmentActivity) {
+            try {
+                ((BaseProxyFragmentActivity) activity).superOnBackPressed();
+            } catch (Exception unused2) {
+            }
+        } else {
+            throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
+        }
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public <T extends View> T findViewById(int i) {
+        return (T) this.mActivity.findViewById(i);
     }
 
     public void setActivity(Activity activity) {
@@ -251,13 +206,58 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void setContentView(View view2) {
-        this.mActivity.setContentView(view2);
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyDown(i, keyEvent);
+        }
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyDown(i, keyEvent);
+        }
+        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyLongPress(i, keyEvent);
+        }
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyLongPress(i, keyEvent);
+        }
+        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyUp(i, keyEvent);
+        }
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyUp(i, keyEvent);
+        }
+        throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void overridePendingTransition(int i, int i2) {
+        this.mActivity.overridePendingTransition(i, i2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
     public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         this.mActivity.setContentView(view2, layoutParams);
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void setContentView(View view2) {
+        this.mActivity.setContentView(view2);
     }
 }

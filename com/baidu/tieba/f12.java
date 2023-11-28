@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f12 extends e12 {
+public class f12 extends y12 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Class<? extends nz1>> m;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nz1> k;
-    public boolean l;
+    public boolean j;
 
     static {
         InterceptResult invokeClinit;
@@ -36,51 +31,25 @@ public class f12 extends e12 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        m = hashMap;
-        hashMap.put("setFillStyle", k02.class);
-        m.put("fillRect", zz1.class);
-        m.put("setStrokeStyle", t02.class);
-        m.put("strokeStyle", a12.class);
-        m.put("setLineCap", n02.class);
-        m.put("setLineJoin", p02.class);
-        m.put("setLineWidth", q02.class);
-        m.put("setLineDash", o02.class);
-        m.put("setMiterLimit", r02.class);
-        m.put("strokeRect", z02.class);
-        m.put("moveTo", d02.class);
-        m.put("lineTo", c02.class);
-        m.put("stroke", y02.class);
-        m.put("fill", yz1.class);
-        m.put("beginPath", qz1.class);
-        m.put("rect", f02.class);
-        m.put("clearRect", sz1.class);
-        m.put("closePath", uz1.class);
-        m.put("arc", pz1.class);
-        m.put("bezierCurveTo", rz1.class);
-        m.put("quadraticCurveTo", e02.class);
-        m.put("scale", j02.class);
-        m.put("rotate", h02.class);
-        m.put("translate", d12.class);
-        m.put("transform", c12.class);
-        m.put("setTransform", w02.class);
-        m.put("font", b02.class);
-        m.put("setFontSize", l02.class);
-        m.put("setTextAlign", u02.class);
-        m.put("setTextBaseline", v02.class);
-        m.put("fillText", a02.class);
-        m.put("strokeText", b12.class);
-        m.put("clip", tz1.class);
-        m.put("drawImage", xz1.class);
-        m.put("save", i02.class);
-        m.put("restore", g02.class);
-        m.put("setShadow", s02.class);
-        m.put("setGlobalAlpha", m02.class);
+        boolean z = sm1.a;
+    }
+
+    @Override // com.baidu.tieba.y12, com.baidu.tieba.gw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f12(String str) {
-        super(str);
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,62 +59,35 @@ public class f12 extends e12 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = false;
+        this.j = false;
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
-            int length = jSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                String optString = optJSONObject.optString("method");
-                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-                Class<? extends nz1> cls = m.get(optString);
-                if (cls != null) {
-                    nz1 newInstance = cls.newInstance();
-                    newInstance.b(optJSONArray);
-                    this.k.add(newInstance);
-                }
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            h32.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+        }
+    }
+
+    @Override // com.baidu.tieba.y12, com.baidu.tieba.gw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
+            } else {
+                z = true;
             }
-            this.l = jSONObject.optInt("reserve") != 0;
-        } catch (Exception e) {
-            if (rm1.a) {
-                e.printStackTrace();
-            }
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "0");
         }
-    }
-
-    public List<nz1> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e12, com.baidu.tieba.x12, com.baidu.tieba.fw2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.isValid();
-        }
-        return invokeV.booleanValue;
     }
 }

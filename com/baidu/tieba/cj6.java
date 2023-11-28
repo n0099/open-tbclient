@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* compiled from: JsPromptInterface.java */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class cj6 {
+public class cj6 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(dj6 dj6Var) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dj6Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void a(dj6 dj6Var, WebView webView, String str, JSONObject jSONObject) {
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, dj6Var, webView, str, jSONObject) != null) || webView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript 执行成功:");
-        sb.append(str);
-        sb.append(" 耗时：");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        Log.i("newHybrid", sb.toString());
     }
 }

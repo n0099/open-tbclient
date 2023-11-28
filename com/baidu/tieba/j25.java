@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.data.TopNotifyData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j25 implements w15 {
+public final class j25 implements z15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +31,7 @@ public final class j25 implements w15 {
         }
     }
 
-    @Override // com.baidu.tieba.w15
+    @Override // com.baidu.tieba.z15
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -42,7 +40,7 @@ public final class j25 implements w15 {
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userIcon");
+            hashMap.put("dialogName", "topNotify");
             hashMap.putAll(strategyData);
             hashMap.putAll(extraData);
             return hashMap;
@@ -50,21 +48,17 @@ public final class j25 implements w15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.w15
+    @Override // com.baidu.tieba.z15
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
+        TopNotifyData a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (iconPopData != null && PollingModel.checkIconPopHadShow() && iconPopData.getPic160() != null && iconPopData.getTitle() != null) {
-                Long uid = iconPopData.getUid();
-                long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-                if (uid != null && uid.longValue() == currentAccountId) {
-                    return true;
-                }
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || pb5.j() || z95.c() || (a = TopNotifyData.Companion.a()) == null || !xb5.a.d(a)) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }

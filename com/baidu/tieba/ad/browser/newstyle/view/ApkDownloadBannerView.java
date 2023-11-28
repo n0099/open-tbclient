@@ -15,8 +15,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.vg0;
+import com.baidu.tieba.w26;
+import com.baidu.tieba.wg0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ApkDownloadBannerView extends LinearLayout implements p26 {
+public class ApkDownloadBannerView extends LinearLayout implements w26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements p26 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.p26
+    @Override // com.baidu.tieba.w26
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ApkDownloadBannerView extends LinearLayout implements p26 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oh0
+    @Override // com.baidu.tieba.ph0
     public void c(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oh0
+    @Override // com.baidu.tieba.ph0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -61,15 +61,15 @@ public class ApkDownloadBannerView extends LinearLayout implements p26 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p26
+    @Override // com.baidu.tieba.w26
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.p26
-    public void setOnClickInterceptListener(p26.a aVar) {
+    @Override // com.baidu.tieba.w26
+    public void setOnClickInterceptListener(w26.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
         }
@@ -205,12 +205,12 @@ public class ApkDownloadBannerView extends LinearLayout implements p26 {
         setDownloadStateBarPosition(1);
     }
 
-    @Override // com.baidu.tieba.oh0
-    public void b(String str, @NonNull vg0 vg0Var) {
+    @Override // com.baidu.tieba.ph0
+    public void b(String str, @NonNull wg0 wg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, vg0Var) == null) {
-            getActionBar().setState(e(vg0Var.c));
-            this.b.setProgress((int) (Math.max(vg0Var.i, vg0Var.j) * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wg0Var) == null) {
+            getActionBar().setState(e(wg0Var.c));
+            this.b.setProgress((int) (Math.max(wg0Var.i, wg0Var.j) * 100.0f));
         }
     }
 
@@ -223,11 +223,11 @@ public class ApkDownloadBannerView extends LinearLayout implements p26 {
             int dip2px = BdUtilHelper.dip2px(getContext(), 22.0f);
             int dip2px2 = BdUtilHelper.dip2px(getContext(), 11.0f);
             setPadding(dip2px, dip2px2, dip2px, dip2px2);
-            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902b3);
-            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902b5);
-            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902b6);
+            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902c7);
+            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902c9);
+            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902ca);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090980);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09099c);
             this.e = textView;
             if (this.g) {
                 i = 0;

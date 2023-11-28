@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
 @JNINamespace("base::android")
@@ -58,7 +58,7 @@ public class RadioUtils {
     public static boolean haveAccessWifiState() {
         boolean z;
         if (sHaveAccessWifiState == null) {
-            if (ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(), h.d, Process.myPid(), Process.myUid()) == 0) {
+            if (ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(), g.d, Process.myPid(), Process.myUid()) == 0) {
                 z = true;
             } else {
                 z = false;

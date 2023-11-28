@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class rpa {
+public class rpa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qpa a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ppa> a;
 
-    public rpa() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    public final List<ppa> a() {
+    public static synchronized qpa a() {
         InterceptResult invokeV;
+        qpa qpaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (rpa.class) {
+                if (a == null) {
+                    a = new qpa();
+                }
+                qpaVar = a;
+            }
+            return qpaVar;
         }
-        return (List) invokeV.objValue;
+        return (qpa) invokeV.objValue;
     }
 }

@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromotCommentList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
+    public String b;
 
     public hqa() {
         Interceptable interceptable = $ic;
@@ -28,35 +29,20 @@ public class hqa {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            if (jSONObject == null) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
+                return;
             }
-            return false;
+            try {
+                this.a = jSONObject.optString("banner_pic");
+                this.b = jSONObject.optString("banner_url");
+            } catch (Exception e) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
+                BdLog.e(e.getMessage());
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(BusinessPromotCommentList businessPromotCommentList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromotCommentList) != null) || businessPromotCommentList == null) {
-            return;
-        }
-        this.a = businessPromotCommentList.title;
-        String str = businessPromotCommentList.username;
-        businessPromotCommentList.uid.longValue();
-        this.b = businessPromotCommentList.is_lz.intValue();
     }
 }

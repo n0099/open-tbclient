@@ -1,32 +1,95 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.opensource.svgaplayer.proto.ShapeEntity;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class o9c {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
+public class o9c implements Callable<n9c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Intent a;
 
-    static {
-        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
-        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
-        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
+    public o9c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = intent;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.n9c, java.lang.Object] */
+    @Override // java.util.concurrent.Callable
+    public n9c call() throws Exception {
+        InterceptResult invokeV;
+        byte[] bArr;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
+            }
+            long j = 0;
+            try {
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                r9c.b("PassByMsgIntentParser", "parserMsgId", e);
+            }
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                r9c.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
+            }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
+                }
+            }
+            inflater.end();
+            str = byteArrayOutputStream.toString("utf-8");
+            if (str == null) {
+                return null;
+            }
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            n9c n9cVar = new n9c();
+            n9cVar.d(j);
+            n9cVar.c(optString);
+            return n9cVar;
+        }
+        return invokeV.objValue;
     }
 }

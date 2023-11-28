@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ThemeTailInUser;
+import tbclient.LinkInfo;
 /* loaded from: classes8.dex */
-public class t4d extends qoc {
+public class t4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ThemeTailInUser themeTailInUser) {
+    public static JSONObject b(@NonNull LinkInfo linkInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeTailInUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "url", themeTailInUser.url);
-            qoc.a(jSONObject, PraiseUBCHelper.SOURCE_DYNAMIC, themeTailInUser.dynamic);
-            qoc.a(jSONObject, "props_id", themeTailInUser.props_id);
+            ltc.a(jSONObject, "desc", linkInfo.desc);
+            ltc.a(jSONObject, "link", linkInfo.link);
+            ltc.a(jSONObject, "type", linkInfo.type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

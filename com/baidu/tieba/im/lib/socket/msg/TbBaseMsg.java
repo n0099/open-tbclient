@@ -7,8 +7,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ct5;
-import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
@@ -17,8 +15,10 @@ import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.tieba.im.lib.socket.msg.data.ExcellentInfo;
 import com.baidu.tieba.im.lib.socket.msg.data.UserExtraInfo;
 import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
-import com.baidu.tieba.ns8;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.ov8;
+import com.baidu.tieba.uv8;
+import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000®\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0010\u0000\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u001d\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\r\n\u0002\b\n\b&\u0018\u0000 «\u00012\u00020\u00012\b\u0012\u0004\u0012\u00020\u00000\u0002:\u0004«\u0001¬\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0011\u0010\u0096\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u0098\u0001\u001a\u00020\u0013J\u0016\u0010\u0096\u0001\u001a\u00030\u0097\u00012\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u000bJ\u0007\u0010\u0099\u0001\u001a\u000203J\u0015\u0010\u009a\u0001\u001a\u0002032\t\u0010\u009b\u0001\u001a\u0004\u0018\u00010RH\u0096\u0002J\u0011\u0010\u009c\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u009d\u0001\u001a\u00020\u0000J\u0007\u0010\u009e\u0001\u001a\u00020FJ\u0017\u0010\u009f\u0001\u001a\u0005\u0018\u0001H \u0001\"\u0005\b\u0000\u0010 \u0001¢\u0006\u0003\u0010¡\u0001J\n\u0010¢\u0001\u001a\u00030£\u0001H&J\t\u0010¤\u0001\u001a\u00020?H\u0016J\u0007\u0010¥\u0001\u001a\u000203J\u0007\u0010¦\u0001\u001a\u000203J\u0011\u0010§\u0001\u001a\u00030\u0097\u00012\u0007\u0010¨\u0001\u001a\u00020RJ\u000b\u0010©\u0001\u001a\u0004\u0018\u00010\u0000H\u0016J\u0010\u0010ª\u0001\u001a\u00030\u0097\u00012\u0006\u0010E\u001a\u00020FR \u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR&\u0010\n\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R0\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00122\u000e\u0010\u0011\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00128\u0006@BX\u0087\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u000eR\u0012\u0010\u0016\u001a\u00020\u00178\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R \u0010\u0018\u001a\u0004\u0018\u00010\u00198\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR&\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u001f\u0018\u00010\u00128\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\u000e\"\u0004\b!\u0010\u0010R&\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010\u000e\"\u0004\b%\u0010\u0010R \u0010&\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010)\"\u0004\b*\u0010+R \u0010,\u001a\u0004\u0018\u00010-8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u001e\u00102\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00104\"\u0004\b5\u00106R\u001e\u00107\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b7\u00104\"\u0004\b8\u00106R\u001e\u00109\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u00104\"\u0004\b:\u00106R$\u0010<\u001a\u0002032\u0006\u0010;\u001a\u0002038F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b<\u00104\"\u0004\b=\u00106R\u0012\u0010>\u001a\u00020?8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001e\u0010@\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR\u001e\u0010E\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bG\u0010H\"\u0004\bI\u0010JR\u001e\u0010K\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010B\"\u0004\bM\u0010DR \u0010N\u001a\u0004\u0018\u00010\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010B\"\u0004\bP\u0010DR\u0014\u0010Q\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001a\u0010S\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bT\u0010B\"\u0004\bU\u0010DR \u0010V\u001a\u0004\u0018\u00010\u00008\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR&\u0010[\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\\\u0010\u000e\"\u0004\b]\u0010\u0010R \u0010^\u001a\u0004\u0018\u00010_8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b`\u0010a\"\u0004\bb\u0010cR$\u0010d\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\be\u0010\u0003\u001a\u0004\bf\u0010g\"\u0004\bh\u0010iR \u0010j\u001a\u00020?X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bk\u0010\u0003\u001a\u0004\bl\u0010g\"\u0004\bm\u0010iR$\u0010n\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bo\u0010\u0003\u001a\u0004\bp\u0010g\"\u0004\bq\u0010iR&\u0010r\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bs\u0010\u000e\"\u0004\bt\u0010\u0010R$\u0010u\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bv\u0010\u0003\u001a\u0004\bw\u0010B\"\u0004\bx\u0010DR\u001e\u0010y\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bz\u0010H\"\u0004\b{\u0010JR2\u0010|\u001a\u0016\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020R0}\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b~\u0010\u000e\"\u0004\b\u007f\u0010\u0010R&\u0010\u0080\u0001\u001a\u0005\u0018\u00010\u0081\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0082\u0001\u0010\u0083\u0001\"\u0006\b\u0084\u0001\u0010\u0085\u0001R(\u0010\u0086\u0001\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0017\n\u0000\u0012\u0005\b\u0087\u0001\u0010\u0003\u001a\u0005\b\u0088\u0001\u0010g\"\u0005\b\u0089\u0001\u0010iR&\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u008b\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001\"\u0006\b\u008e\u0001\u0010\u008f\u0001R'\u0010\u0090\u0001\u001a\u00020F2\u0006\u0010;\u001a\u00020F8F@FX\u0086\u000e¢\u0006\u000e\u001a\u0005\b\u0091\u0001\u0010H\"\u0005\b\u0092\u0001\u0010JR!\u0010\u0093\u0001\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0094\u0001\u0010B\"\u0005\b\u0095\u0001\u0010D¨\u0006\u00ad\u0001"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "abilityEffectItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "getAbilityEffectItem", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "setAbilityEffectItem", "(Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;)V", "abilityItems", "", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "getAbilityItems", "()Ljava/util/List;", "setAbilityItems", "(Ljava/util/List;)V", "<set-?>", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "atUserInfoList", "getAtUserInfoList", "bdUk", "", "bubbleInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "getBubbleInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "setBubbleInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;)V", "emojiList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EmojiData;", "getEmojiList", "setEmojiList", "enableDegradeUserDataList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EnableDegradeUserData;", "getEnableDegradeUserDataList", "setEnableDegradeUserDataList", "excellentInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "getExcellentInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "setExcellentInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;)V", "forumExt", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "getForumExt", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "setForumExt", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;)V", "isLocalEmojiReply", "", "()Z", "setLocalEmojiReply", "(Z)V", "isLocalMsgId", "setLocalMsgId", "isMockSender", "setMockSender", "value", "isSysMsg", "setSysMsg", "isSysMsgInt", "", "limitVersion", "getLimitVersion", "()Ljava/lang/String;", "setLimitVersion", "(Ljava/lang/String;)V", "msgId", "", "getMsgId", "()J", "setMsgId", "(J)V", "msgKey", "getMsgKey", "setMsgKey", "originMsgKey", "getOriginMsgKey", "setOriginMsgKey", "originSdkMsg", "", "portrait", "getPortrait", "setPortrait", "preTimestampMsg", "getPreTimestampMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "setPreTimestampMsg", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;)V", "quickOperate", "getQuickOperate", "setQuickOperate", "reMsgInfo", "Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "getReMsgInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "setReMsgInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;)V", "robotRole", "getRobotRole$annotations", "getRobotRole", "()I", "setRobotRole", "(I)V", "role", "getRole$annotations", "getRole", "setRole", "sdkMsgStatus", "getSdkMsgStatus$annotations", "getSdkMsgStatus", "setSdkMsgStatus", "secondDegradeUserDataList", "getSecondDegradeUserDataList", "setSecondDegradeUserDataList", "sendClient", "getSendClient$annotations", "getSendClient", "setSendClient", "sessionId", "getSessionId", "setSessionId", "structData", "", "getStructData", "setStructData", NextActive.keyTaskInfo, "Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "getTaskInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "setTaskInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;)V", "type", "getType$annotations", "getType", "setType", "userExtraInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "getUserExtraInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "setUserExtraInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;)V", "userId", "getUserId", "setUserId", TbEnum.SystemMessage.KEY_USER_NAME, "getUserName", "setUserName", "addAtUserInfo", "", "atUserInfo", "compareVersion", "equals", "other", "fillMsg4Base", "baseMsg", "getMsgTime", "getOriginSdkMsg", "SdkMsg", "()Ljava/lang/Object;", "getThumbnailText", "", "hashCode", "isMaster", "isRobot", "setOriginSdkMsg", "oriSdkMsg", "shallowClone", "syncServerMsgId", "Companion", "ForumExt", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000®\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0010\u0000\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010$\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\r\n\u0002\b\n\b&\u0018\u0000 °\u00012\u00020\u00012\b\u0012\u0004\u0012\u00020\u00000\u0002:\u0004°\u0001±\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0011\u0010\u009b\u0001\u001a\u00030\u009c\u00012\u0007\u0010\u009d\u0001\u001a\u00020\u0013J\u0016\u0010\u009b\u0001\u001a\u00030\u009c\u00012\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u000bJ\u0007\u0010\u009e\u0001\u001a\u000203J\u0015\u0010\u009f\u0001\u001a\u0002032\t\u0010 \u0001\u001a\u0004\u0018\u00010RH\u0096\u0002J\u0011\u0010¡\u0001\u001a\u00030\u009c\u00012\u0007\u0010¢\u0001\u001a\u00020\u0000J\u0007\u0010£\u0001\u001a\u00020FJ\u0017\u0010¤\u0001\u001a\u0005\u0018\u0001H¥\u0001\"\u0005\b\u0000\u0010¥\u0001¢\u0006\u0003\u0010¦\u0001J\n\u0010§\u0001\u001a\u00030¨\u0001H&J\t\u0010©\u0001\u001a\u00020?H\u0016J\u0007\u0010ª\u0001\u001a\u000203J\u0007\u0010«\u0001\u001a\u000203J\u0011\u0010¬\u0001\u001a\u00030\u009c\u00012\u0007\u0010\u00ad\u0001\u001a\u00020RJ\u000b\u0010®\u0001\u001a\u0004\u0018\u00010\u0000H\u0016J\u0010\u0010¯\u0001\u001a\u00030\u009c\u00012\u0006\u0010E\u001a\u00020FR \u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR&\u0010\n\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R0\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00122\u000e\u0010\u0011\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00128\u0006@BX\u0087\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u000eR\u0012\u0010\u0016\u001a\u00020\u00178\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R \u0010\u0018\u001a\u0004\u0018\u00010\u00198\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR&\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u001f\u0018\u00010\u00128\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\u000e\"\u0004\b!\u0010\u0010R&\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010\u000e\"\u0004\b%\u0010\u0010R \u0010&\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010)\"\u0004\b*\u0010+R \u0010,\u001a\u0004\u0018\u00010-8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u001e\u00102\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00104\"\u0004\b5\u00106R\u001e\u00107\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b7\u00104\"\u0004\b8\u00106R\u001e\u00109\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u00104\"\u0004\b:\u00106R$\u0010<\u001a\u0002032\u0006\u0010;\u001a\u0002038F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b<\u00104\"\u0004\b=\u00106R\u0012\u0010>\u001a\u00020?8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001e\u0010@\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR\u001e\u0010E\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bG\u0010H\"\u0004\bI\u0010JR\u001e\u0010K\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010B\"\u0004\bM\u0010DR \u0010N\u001a\u0004\u0018\u00010\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010B\"\u0004\bP\u0010DR\u0014\u0010Q\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001a\u0010S\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bT\u0010B\"\u0004\bU\u0010DR \u0010V\u001a\u0004\u0018\u00010\u00008\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR&\u0010[\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\\\u0010\u000e\"\u0004\b]\u0010\u0010R \u0010^\u001a\u0004\u0018\u00010_8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b`\u0010a\"\u0004\bb\u0010cR$\u0010d\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\be\u0010\u0003\u001a\u0004\bf\u0010g\"\u0004\bh\u0010iR \u0010j\u001a\u00020?X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bk\u0010\u0003\u001a\u0004\bl\u0010g\"\u0004\bm\u0010iR,\u0010n\u001a\u0010\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020R\u0018\u00010o8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bp\u0010q\"\u0004\br\u0010sR$\u0010t\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bu\u0010\u0003\u001a\u0004\bv\u0010g\"\u0004\bw\u0010iR&\u0010x\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\by\u0010\u000e\"\u0004\bz\u0010\u0010R$\u0010{\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\b|\u0010\u0003\u001a\u0004\b}\u0010B\"\u0004\b~\u0010DR \u0010\u007f\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0080\u0001\u0010H\"\u0005\b\u0081\u0001\u0010JR5\u0010\u0082\u0001\u001a\u0016\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020R0o\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0083\u0001\u0010\u000e\"\u0005\b\u0084\u0001\u0010\u0010R&\u0010\u0085\u0001\u001a\u0005\u0018\u00010\u0086\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0087\u0001\u0010\u0088\u0001\"\u0006\b\u0089\u0001\u0010\u008a\u0001R(\u0010\u008b\u0001\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0017\n\u0000\u0012\u0005\b\u008c\u0001\u0010\u0003\u001a\u0005\b\u008d\u0001\u0010g\"\u0005\b\u008e\u0001\u0010iR&\u0010\u008f\u0001\u001a\u0005\u0018\u00010\u0090\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0091\u0001\u0010\u0092\u0001\"\u0006\b\u0093\u0001\u0010\u0094\u0001R'\u0010\u0095\u0001\u001a\u00020F2\u0006\u0010;\u001a\u00020F8F@FX\u0086\u000e¢\u0006\u000e\u001a\u0005\b\u0096\u0001\u0010H\"\u0005\b\u0097\u0001\u0010JR!\u0010\u0098\u0001\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0099\u0001\u0010B\"\u0005\b\u009a\u0001\u0010D¨\u0006²\u0001"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "abilityEffectItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "getAbilityEffectItem", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "setAbilityEffectItem", "(Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;)V", "abilityItems", "", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "getAbilityItems", "()Ljava/util/List;", "setAbilityItems", "(Ljava/util/List;)V", "<set-?>", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "atUserInfoList", "getAtUserInfoList", "bdUk", "", "bubbleInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "getBubbleInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "setBubbleInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;)V", "emojiList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EmojiData;", "getEmojiList", "setEmojiList", "enableDegradeUserDataList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EnableDegradeUserData;", "getEnableDegradeUserDataList", "setEnableDegradeUserDataList", "excellentInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "getExcellentInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "setExcellentInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;)V", "forumExt", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "getForumExt", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "setForumExt", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;)V", "isLocalEmojiReply", "", "()Z", "setLocalEmojiReply", "(Z)V", "isLocalMsgId", "setLocalMsgId", "isMockSender", "setMockSender", "value", "isSysMsg", "setSysMsg", "isSysMsgInt", "", "limitVersion", "getLimitVersion", "()Ljava/lang/String;", "setLimitVersion", "(Ljava/lang/String;)V", "msgId", "", "getMsgId", "()J", "setMsgId", "(J)V", "msgKey", "getMsgKey", "setMsgKey", "originMsgKey", "getOriginMsgKey", "setOriginMsgKey", "originSdkMsg", "", "portrait", "getPortrait", "setPortrait", "preTimestampMsg", "getPreTimestampMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "setPreTimestampMsg", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;)V", "quickOperate", "getQuickOperate", "setQuickOperate", "reMsgInfo", "Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "getReMsgInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "setReMsgInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;)V", "robotRole", "getRobotRole$annotations", "getRobotRole", "()I", "setRobotRole", "(I)V", "role", "getRole$annotations", "getRole", "setRole", "sdkExtJson", "", "getSdkExtJson", "()Ljava/util/Map;", "setSdkExtJson", "(Ljava/util/Map;)V", "sdkMsgStatus", "getSdkMsgStatus$annotations", "getSdkMsgStatus", "setSdkMsgStatus", "secondDegradeUserDataList", "getSecondDegradeUserDataList", "setSecondDegradeUserDataList", "sendClient", "getSendClient$annotations", "getSendClient", "setSendClient", "sessionId", "getSessionId", "setSessionId", "structData", "getStructData", "setStructData", NextActive.keyTaskInfo, "Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "getTaskInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "setTaskInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;)V", "type", "getType$annotations", "getType", "setType", "userExtraInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "getUserExtraInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "setUserExtraInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;)V", "userId", "getUserId", "setUserId", TbEnum.SystemMessage.KEY_USER_NAME, "getUserName", "setUserName", "addAtUserInfo", "", "atUserInfo", "compareVersion", "equals", "other", "fillMsg4Base", "baseMsg", "getMsgTime", "getOriginSdkMsg", "SdkMsg", "()Ljava/lang/Object;", "getThumbnailText", "", "hashCode", "isMaster", "isRobot", "setOriginSdkMsg", "oriSdkMsg", "shallowClone", "syncServerMsgId", "Companion", "ForumExt", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,16 +48,16 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public static final String FIELD_FORUM_LEVEL = "level";
     public static final String FIELD_MSG_TYPE = "type";
     public transient /* synthetic */ FieldHolder $fh;
-    @ct5(deserialize = false, serialize = false)
+    @kt5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
     @SerializedName("sug_list")
-    @ct5(serialize = false)
+    @kt5(serialize = false)
     public List<AbilityItem> abilityItems;
+    @ov8
     @SerializedName("at_user_info_list")
-    @hs8
     public List<TbAtUserInfo> atUserInfoList;
+    @ov8
     @SerializedName("uk")
-    @hs8
     public String bdUk;
     @SerializedName("bubble_info")
     public BubbleInfo bubbleInfo;
@@ -69,37 +69,39 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public ExcellentInfo excellentInfo;
     @SerializedName(FIELD_FORUM_EXT)
     public c forumExt;
-    @ct5(deserialize = false, serialize = false)
+    @kt5(deserialize = false, serialize = false)
     public boolean isLocalEmojiReply;
-    @ct5(serialize = false)
+    @kt5(serialize = false)
     public boolean isLocalMsgId;
-    @ct5(serialize = false)
+    @kt5(serialize = false)
     public boolean isMockSender;
     @SerializedName("is_sys_msg")
     public int isSysMsgInt;
     @SerializedName("version")
     public String limitVersion;
+    @ov8
     @SerializedName("msg_id")
-    @hs8
     public long msgId;
+    @ov8
     @SerializedName("msg_key")
-    @hs8
     public String msgKey;
     @SerializedName("origin_msg_key")
     public String originMsgKey;
-    @ct5(serialize = false)
+    @kt5(serialize = false)
     public Object originSdkMsg;
     public String portrait;
-    @ct5(serialize = false)
+    @kt5(serialize = false)
     public TbBaseMsg preTimestampMsg;
     @SerializedName("quick_operate")
     public List<AbilityItem> quickOperate;
+    @ov8
     @SerializedName("re_msg_info")
-    @hs8
     public TbReMsgInfo reMsgInfo;
     @SerializedName(PersonalMsgSettingDispatcher.PERSONAL_ROBOT_ROLE)
     public int robotRole;
     public int role;
+    @SerializedName("tb_msg_ext")
+    public Map<String, ? extends Object> sdkExtJson;
     @SerializedName(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)
     public int sdkMsgStatus;
     @SerializedName("second_data")
@@ -110,8 +112,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public long sessionId;
     @SerializedName("struct_data")
     public List<? extends Map<String, ? extends Object>> structData;
+    @ov8
     @SerializedName("task_info")
-    @hs8
     public TbTaskInfo taskInfo;
     @SerializedName("type")
     public int type;
@@ -533,10 +535,19 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         return invokeV.intValue;
     }
 
-    public final int getSdkMsgStatus() {
+    public final Map<String, Object> getSdkExtJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.sdkExtJson;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final int getSdkMsgStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.sdkMsgStatus;
         }
         return invokeV.intValue;
@@ -545,7 +556,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final List<EnableDegradeUserData> getSecondDegradeUserDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.secondDegradeUserDataList;
         }
         return (List) invokeV.objValue;
@@ -554,7 +565,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final String getSendClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.sendClient;
         }
         return (String) invokeV.objValue;
@@ -563,7 +574,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final long getSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.sessionId;
         }
         return invokeV.longValue;
@@ -573,7 +584,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final List<Map<String, Object>> getStructData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.structData;
         }
         return (List) invokeV.objValue;
@@ -582,7 +593,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final TbTaskInfo getTaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.taskInfo;
         }
         return (TbTaskInfo) invokeV.objValue;
@@ -591,7 +602,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.type;
         }
         return invokeV.intValue;
@@ -600,7 +611,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final UserExtraInfo getUserExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.userExtraInfo;
         }
         return (UserExtraInfo) invokeV.objValue;
@@ -609,8 +620,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return os8.a(this.bdUk);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return vv8.a(this.bdUk);
         }
         return invokeV.longValue;
     }
@@ -618,7 +629,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.userName;
         }
         return (String) invokeV.objValue;
@@ -628,7 +639,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.msgKey.hashCode();
         }
         return invokeV.intValue;
@@ -637,7 +648,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isLocalEmojiReply() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.isLocalEmojiReply;
         }
         return invokeV.booleanValue;
@@ -646,7 +657,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isLocalMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return this.isLocalMsgId;
         }
         return invokeV.booleanValue;
@@ -655,8 +666,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isMaster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return ns8.c(getUserId());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return uv8.c(getUserId());
         }
         return invokeV.booleanValue;
     }
@@ -664,7 +675,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isMockSender() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.isMockSender;
         }
         return invokeV.booleanValue;
@@ -673,7 +684,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isRobot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             if (this.robotRole > 0) {
                 return true;
             }
@@ -685,7 +696,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final boolean isSysMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             if (this.isSysMsgInt == 1) {
                 return true;
             }
@@ -740,56 +751,56 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setAbilityEffectItem(AbilityEffectItem abilityEffectItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, abilityEffectItem) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, abilityEffectItem) == null) {
             this.abilityEffectItem = abilityEffectItem;
         }
     }
 
     public final void setAbilityItems(List<AbilityItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, list) == null) {
             this.abilityItems = list;
         }
     }
 
     public final void setBubbleInfo(BubbleInfo bubbleInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, bubbleInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, bubbleInfo) == null) {
             this.bubbleInfo = bubbleInfo;
         }
     }
 
     public final void setEmojiList(List<EmojiData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, list) == null) {
             this.emojiList = list;
         }
     }
 
     public final void setEnableDegradeUserDataList(List<EnableDegradeUserData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, list) == null) {
             this.enableDegradeUserDataList = list;
         }
     }
 
     public final void setExcellentInfo(ExcellentInfo excellentInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, excellentInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, excellentInfo) == null) {
             this.excellentInfo = excellentInfo;
         }
     }
 
     public final void setForumExt(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, cVar) == null) {
             this.forumExt = cVar;
         }
     }
 
     public final void setLimitVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.limitVersion = str;
         }
@@ -797,35 +808,35 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setLocalEmojiReply(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
             this.isLocalEmojiReply = z;
         }
     }
 
     public final void setLocalMsgId(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
             this.isLocalMsgId = z;
         }
     }
 
     public final void setMockSender(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
             this.isMockSender = z;
         }
     }
 
     public final void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048631, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
             this.msgId = j;
         }
     }
 
     public final void setMsgKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.msgKey = str;
         }
@@ -833,14 +844,14 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setOriginMsgKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
             this.originMsgKey = str;
         }
     }
 
     public final void setOriginSdkMsg(Object oriSdkMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, oriSdkMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, oriSdkMsg) == null) {
             Intrinsics.checkNotNullParameter(oriSdkMsg, "oriSdkMsg");
             this.originSdkMsg = oriSdkMsg;
         }
@@ -848,7 +859,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.portrait = str;
         }
@@ -856,56 +867,63 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setPreTimestampMsg(TbBaseMsg tbBaseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, tbBaseMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, tbBaseMsg) == null) {
             this.preTimestampMsg = tbBaseMsg;
         }
     }
 
     public final void setQuickOperate(List<AbilityItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, list) == null) {
             this.quickOperate = list;
         }
     }
 
     public final void setReMsgInfo(TbReMsgInfo tbReMsgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, tbReMsgInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048639, this, tbReMsgInfo) == null) {
             this.reMsgInfo = tbReMsgInfo;
         }
     }
 
     public final void setRobotRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             this.robotRole = i;
         }
     }
 
     public final void setRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
             this.role = i;
+        }
+    }
+
+    public final void setSdkExtJson(Map<String, ? extends Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, map) == null) {
+            this.sdkExtJson = map;
         }
     }
 
     public final void setSdkMsgStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048643, this, i) == null) {
             this.sdkMsgStatus = i;
         }
     }
 
     public final void setSecondDegradeUserDataList(List<EnableDegradeUserData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, list) == null) {
             this.secondDegradeUserDataList = list;
         }
     }
 
     public final void setSendClient(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.sendClient = str;
         }
@@ -913,50 +931,50 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setSessionId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048646, this, j) == null) {
             this.sessionId = j;
         }
     }
 
     public final void setStructData(List<? extends Map<String, ? extends Object>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, list) == null) {
             this.structData = list;
         }
     }
 
     public final void setSysMsg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048648, this, z) == null) {
             this.isSysMsgInt = z ? 1 : 0;
         }
     }
 
     public final void setTaskInfo(TbTaskInfo tbTaskInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, tbTaskInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, tbTaskInfo) == null) {
             this.taskInfo = tbTaskInfo;
         }
     }
 
     public final void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
             this.type = i;
         }
     }
 
     public final void setUserExtraInfo(UserExtraInfo userExtraInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, userExtraInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048651, this, userExtraInfo) == null) {
             this.userExtraInfo = userExtraInfo;
         }
     }
 
     public final void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
-            String b2 = os8.b(j);
+        if (interceptable == null || interceptable.invokeJ(1048652, this, j) == null) {
+            String b2 = vv8.b(j);
             Intrinsics.checkNotNullExpressionValue(b2, "value.toUk()");
             this.bdUk = b2;
         }
@@ -964,7 +982,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.userName = str;
         }
@@ -972,7 +990,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
 
     public final void syncServerMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048654, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048656, this, j) == null) {
             this.msgId = j;
             this.isLocalMsgId = false;
             TbBaseMsg tbBaseMsg = this.preTimestampMsg;
@@ -1030,11 +1048,11 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public TbBaseMsg m141shallowClone() {
+    public TbBaseMsg m142shallowClone() {
         boolean z;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             try {
                 TbBaseMsg tbBaseMsg = (TbBaseMsg) clone();
                 List<EmojiData> list = tbBaseMsg.emojiList;

@@ -16,7 +16,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.MessageConfigFactory;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StatisAPI implements IStatisAPI {
     public IStatisApi sApi = new StatisAPINull();
 

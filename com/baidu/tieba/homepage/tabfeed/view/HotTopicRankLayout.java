@@ -16,19 +16,19 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag8;
-import com.baidu.tieba.ah8;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
-import com.baidu.tieba.ht;
 import com.baidu.tieba.it;
-import com.baidu.tieba.rb8;
-import com.baidu.tieba.vu4;
+import com.baidu.tieba.jt;
+import com.baidu.tieba.ne8;
+import com.baidu.tieba.xi8;
+import com.baidu.tieba.xj8;
+import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements jt, it<xj8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public vu4<rb8> k;
+    public xu4<ne8> k;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
@@ -51,17 +51,17 @@ public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, Vie
     }
 
     /* loaded from: classes6.dex */
-    public class a implements vu4<rb8> {
+    public class a implements xu4<ne8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vu4
+        @Override // com.baidu.tieba.xu4
         /* renamed from: a */
-        public void d(View view2, rb8 rb8Var, int i, long j) {
+        public void d(View view2, ne8 ne8Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rb8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || rb8Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ne8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || ne8Var == null) {
             }
         }
 
@@ -84,14 +84,14 @@ public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, Vie
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vu4
+        @Override // com.baidu.tieba.xu4
         /* renamed from: c */
-        public void b(View view2, rb8 rb8Var, int i, long j) {
+        public void b(View view2, ne8 ne8Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, rb8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || rb8Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, ne8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || ne8Var == null) {
                 return;
             }
-            ag8.a("c13753", rb8Var, i + 1, this.a.j);
+            xi8.a("c13753", ne8Var, i + 1, this.a.j);
         }
     }
 
@@ -137,7 +137,7 @@ public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, Vie
             this.e = findViewById(R.id.layout_into);
             this.g = findViewById(R.id.divider_line_top);
             this.h = findViewById(R.id.divider_line_bottom);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090807);
             this.c = findViewById(R.id.title_layout);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004);
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004);
@@ -162,26 +162,26 @@ public class HotTopicRankLayout extends LinearLayout implements it, ht<ah8>, Vie
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ht
+    @Override // com.baidu.tieba.it
     /* renamed from: c */
-    public void onBindDataToView(ah8 ah8Var) {
+    public void onBindDataToView(xj8 xj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ah8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj8Var) == null) {
             TextView textView = this.d;
-            String str = ah8Var.b;
+            String str = xj8Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.a(ah8Var);
+            this.b.a(xj8Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            ag8.c("c13753", this.j);
+            xi8.c("c13753", this.j);
         }
     }
 
-    @Override // com.baidu.tieba.it
+    @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.a != i) {

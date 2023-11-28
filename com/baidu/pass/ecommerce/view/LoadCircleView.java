@@ -153,8 +153,8 @@ public class LoadCircleView extends View {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 LoadCircleView.this.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                LoadCircleView.this.mPrimaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a74), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a73), Shader.TileMode.MIRROR));
-                LoadCircleView.this.mSecondaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a76), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a75), Shader.TileMode.MIRROR));
+                LoadCircleView.this.mPrimaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a7b), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a7a), Shader.TileMode.MIRROR));
+                LoadCircleView.this.mSecondaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a7d), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a7c), Shader.TileMode.MIRROR));
             }
         };
         float f = this.mEndRadius;

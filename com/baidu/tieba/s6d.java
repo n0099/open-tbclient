@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.PostExposeHead;
 /* loaded from: classes8.dex */
-public interface s6d {
-    GetBannerConfigReqParams a();
+public class s6d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    QueryCurrencyReqParams b();
-
-    v6d c(PayFlowType payFlowType, Map<String, String> map);
-
-    QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map);
-
-    GetSplitOrderConfigReqParams e(int i, String str, long j);
+    @NonNull
+    public static JSONObject b(@NonNull PostExposeHead postExposeHead) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postExposeHead)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, BigdayActivityConfig.IMG_URL, postExposeHead.img_url);
+            ltc.a(jSONObject, "corner_url", postExposeHead.corner_url);
+            ltc.a(jSONObject, "schema", postExposeHead.schema);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

@@ -1,289 +1,446 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.main.install.IInstallCallback;
-import com.baidu.nps.main.invoke.IInvokeCallback;
-import com.baidu.nps.main.manager.NPSManager;
-import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.PluginCheck;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.sdkcode.ISdkCodePlugin;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.PbAppLegoViewHolder;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
-public final class zha {
+public class zha extends ci<mwa, PbAppLegoViewHolder> implements mha, hha {
     public static /* synthetic */ Interceptable $ic;
-    public static final zha a;
-    public static volatile ISdkCodePlugin b;
-    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361334, "Lcom/baidu/tieba/zha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948361334, "Lcom/baidu/tieba/zha;");
-                return;
-            }
-        }
-        a = new zha();
-    }
+    public BaseFragmentActivity a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
+    public CustomMessageListener g;
+    public WeakReference<PbAppLegoViewHolder> h;
 
     /* loaded from: classes9.dex */
-    public static final class a implements IInvokeCallback {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zha a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.nps.main.invoke.IInvokeCallback
-        public void onResult(int i, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) {
-                TbLog a = pf.a.a();
-                a.i("SdkCodePluginManager", "SdkCodePlugin init() 插件安装完成" + i + WebvttCueParser.CHAR_SPACE + str + WebvttCueParser.CHAR_SPACE + obj);
-                if (i != 14) {
-                    return;
-                }
-                try {
-                    if (zha.b == null) {
-                        zha zhaVar = zha.a;
-                        if (obj != null) {
-                            Object newInstance = ((Class) obj).newInstance();
-                            if (newInstance != null) {
-                                zha.b = (ISdkCodePlugin) newInstance;
-                                ISdkCodePlugin iSdkCodePlugin = zha.b;
-                                if (iSdkCodePlugin != null) {
-                                    iSdkCodePlugin.init(zha.a.g());
-                                }
-                            } else {
-                                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.sdkcode.ISdkCodePlugin");
-                            }
-                        } else {
-                            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<*>");
-                        }
-                    }
-                    r25.a();
-                } catch (Throwable th) {
-                    TbLog a2 = pf.a.a();
-                    a2.e("SdkCodePluginManager", "SdkCodePlugin init() 插件安装异常" + th);
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b implements IInstallCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IInvokeCallback a;
-
-        @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onProgress(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public b(IInvokeCallback iInvokeCallback) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zha zhaVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iInvokeCallback};
+                Object[] objArr = {zhaVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = iInvokeCallback;
+            this.a = zhaVar;
         }
 
-        @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onResult(int i, String s) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, s) == null) {
-                Intrinsics.checkNotNullParameter(s, "s");
-                TbLog a = pf.a.a();
-                a.i("SdkCodePluginManager", "SdkCodePlugin invokePlugin 下载完成 " + i + WebvttCueParser.CHAR_SPACE + s);
-                if (i == 13 && PluginCheck.c("com.baidu.tieba.plugin.sdkcode", this.a, "SdkCodePluginManager", true)) {
-                    NPSManager.getInstance().loadClazz("com.baidu.tieba.plugin.sdkcode", "com.baidu.tieba.sdkcode.SdkCodePluginImpl", ISdkCodePlugin.class, this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.viewholder != null && this.a.c) {
+                int c = ((PbAppLegoViewHolder) this.a.viewholder).c();
+                if (((PbAppLegoViewHolder) this.a.viewholder).b()) {
+                    if (c == -1) {
+                        ((PbAppLegoViewHolder) this.a.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
+                    }
+                } else if (c != -1) {
+                    ((PbAppLegoViewHolder) this.a.viewholder).stopPlay();
                 }
             }
         }
     }
 
-    public zha() {
+    /* loaded from: classes9.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zha a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zha zhaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zhaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zhaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.updateFontSize();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zha a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(zha zhaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zhaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zhaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.viewholder != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
+                ((PbAppLegoViewHolder) this.a.viewholder).stopPlay();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class d implements mf9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdvertAppInfo a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+
+        public d(zha zhaVar, AdvertAppInfo advertAppInfo, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zhaVar, advertAppInfo, Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = advertAppInfo;
+            this.b = i;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.mf9
+        public void a(int i, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
+                return;
+            }
+            if (sha.h(i)) {
+                gja.g(this.a, this.b, hashMap, i);
+            } else {
+                gja.n(this.a, this.b, this.c, null, hashMap);
+            }
+            uf9.c(this.a);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zha(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                pf.a.a().i("SdkCodePluginManager", "SdkCodePlugin init() 触发插件安装");
-                j(new a());
-            }
-        }
-    }
-
-    public final Context g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-            return inst;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final synchronized ISdkCodePlugin h() {
-        InterceptResult invokeV;
-        ISdkCodePlugin iSdkCodePlugin;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    d();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                iSdkCodePlugin = b;
-            }
-            return iSdkCodePlugin;
-        }
-        return (ISdkCodePlugin) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b == null) {
-            if (k()) {
-                pf.a.a().i("SdkCodePluginManager", "SdkCodePlugin init() source");
-                f();
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            pf.a.a().i("SdkCodePluginManager", "SdkCodePlugin init() plugin");
-            e();
+        }
+        this.c = true;
+        this.e = new a(this, 2004013);
+        this.f = new b(this, 2004018);
+        this.g = new c(this, 2004020);
+        this.h = null;
+        this.a = baseFragmentActivity;
+        baseFragmentActivity.registerListener(this.e);
+        this.a.registerListener(this.g);
+        this.a.registerListener(this.f);
+    }
+
+    public PbAppLegoViewHolder F(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            throw new IllegalStateException("onCreateViewHolder(ViewGroup parent) unavailable.");
+        }
+        return (PbAppLegoViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder' to match base method */
+    @Override // com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ PbAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        F(viewGroup);
+        throw null;
+    }
+
+    @Override // com.baidu.tieba.mha
+    public void setIsFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public final synchronized void f() {
+    @Override // com.baidu.tieba.ci
+    public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Object newInstance = Class.forName("com.baidu.tieba.sdkcode.SdkCodePluginImpl").newInstance();
-                if (newInstance != null) {
-                    b = (ISdkCodePlugin) newInstance;
-                    ISdkCodePlugin iSdkCodePlugin = b;
-                    if (iSdkCodePlugin != null) {
-                        iSdkCodePlugin.init(g());
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: D */
+    public View getView(int i, View view2, ViewGroup viewGroup, mwa mwaVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mwaVar})) == null) {
+            if (mwaVar != null && mwaVar.K1() != null) {
+                if (E(view2, mwaVar)) {
+                    PbAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup, mwaVar);
+                    this.viewholder = onCreateViewHolder;
+                    if (onCreateViewHolder != null) {
+                        view2 = onCreateViewHolder.getView();
                     }
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.sdkcode.ISdkCodePlugin");
                 }
-            }
-        }
-    }
-
-    public final synchronized boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                String tiebaNpsPluginMode = GlobalBuildConfig.getTiebaNpsPluginMode();
-                Intrinsics.checkNotNullExpressionValue(tiebaNpsPluginMode, "getTiebaNpsPluginMode()");
-                if (StringsKt__StringsKt.contains$default((CharSequence) tiebaNpsPluginMode, (CharSequence) "Host", false, 2, (Object) null)) {
-                    String tiebaNpsPluginMode2 = GlobalBuildConfig.getTiebaNpsPluginMode();
-                    Intrinsics.checkNotNullExpressionValue(tiebaNpsPluginMode2, "getTiebaNpsPluginMode()");
-                    if (!StringsKt__StringsKt.contains$default((CharSequence) tiebaNpsPluginMode2, (CharSequence) "-SdkCode", false, 2, (Object) null)) {
-                        return true;
+                View view3 = view2;
+                if (view3 != null) {
+                    view3 = onFillViewHolder(i, view3, viewGroup, mwaVar, (PbAppLegoViewHolder) view3.getTag());
+                    if (kha.class.isAssignableFrom(view3.getClass())) {
+                        ((PbAppLegoViewHolder) this.viewholder).e(((kha) view3).getVideoOrVrView());
                     }
                 }
-                return false;
+                return view3;
             }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final synchronized void i() {
+    public final boolean E(View view2, mwa mwaVar) {
+        InterceptResult invokeLL;
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (c) {
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, mwaVar)) == null) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || !((PbAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.viewholder).getClass())) {
+                return true;
+            }
+            AdvertAppInfo.ILegoAdvert K1 = mwaVar.K1();
+            Object tag = view2.getTag(R.id.tag_first);
+            if (tag instanceof AdvertAppInfo.ILegoAdvert) {
+                return !K1.isReusable((AdvertAppInfo.ILegoAdvert) tag);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: G */
+    public PbAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, mwa mwaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, mwaVar)) == null) {
+            View view2 = (View) nf9.h().a(this.a.getPageContext(), mwaVar.K1(), 4);
+            if (view2 != null) {
+                PbAppLegoViewHolder pbAppLegoViewHolder = new PbAppLegoViewHolder((hg9) view2);
+                pbAppLegoViewHolder.setIsRecyclable(false);
+                return pbAppLegoViewHolder;
+            }
+            return null;
+        }
+        return (PbAppLegoViewHolder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mwa mwaVar, PbAppLegoViewHolder pbAppLegoViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mwaVar, pbAppLegoViewHolder})) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            if (mwaVar.K1() instanceof AdCard) {
+                ((AdCard) mwaVar.K1()).isPBBanner = mwaVar.j1;
+            }
+            boolean z = false;
+            pbAppLegoViewHolder.setIsRecyclable(false);
+            AdvertAppInfo.ILegoAdvert K1 = mwaVar.K1();
+            view2.setTag(R.id.tag_first, K1);
+            BDLayoutMode layoutMode = this.a.getLayoutMode();
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            }
+            layoutMode.setNightMode(z);
+            this.a.getLayoutMode().onModeChanged(view2);
+            hw4.g(mwaVar);
+            AdvertAppInfo advertAppInfo = mwaVar.getAdvertAppInfo();
+            if (advertAppInfo.i == null) {
+                advertAppInfo.i = new hw4();
+            }
+            hw4 hw4Var = advertAppInfo.i;
+            hw4Var.b = mwaVar.o1;
+            hw4Var.a = mwaVar.J1();
+            advertAppInfo.position = mwaVar.q1;
+            advertAppInfo.v = 3;
+            int i2 = mwaVar.o1;
+            String str = mwaVar.k1;
+            advertAppInfo.u = str;
+            hg9<?> hg9Var = (hg9) view2;
+            hg9Var.setMulDel(this.d);
+            K1.setAdvertAppInfo(advertAppInfo);
+            hg9Var.setFromCDN(this.b);
+            hg9Var.h(K1);
+            I(mwaVar, hg9Var, str);
+            Context context = this.mContext;
+            if (context instanceof le0) {
+                advertAppInfo.s = ne0.b(advertAppInfo.s, (le0) context, view2);
+            }
+            hg9Var.setAfterClickSchemeListener(new d(this, advertAppInfo, i2, str));
+            WeakReference<PbAppLegoViewHolder> weakReference = this.h;
+            if (weakReference == null || weakReference.get() != pbAppLegoViewHolder) {
+                this.h = new WeakReference<>(pbAppLegoViewHolder);
+            }
+            updateFontSize();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void I(mwa mwaVar, hg9<?> hg9Var, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, mwaVar, hg9Var, str) == null) {
+            if (mwaVar.j1) {
+                i = mwaVar.r1;
+            } else {
+                i = mwaVar.r1;
+                if (j26.k().m()) {
+                    i++;
                 }
-                try {
-                    d();
-                    c = true;
-                } catch (Exception e) {
-                    c = false;
-                    TbLog a2 = pf.a.a();
-                    a2.i("SdkCodePluginManager", "SdkCodePlugin init() 异常" + e.getMessage());
-                    e.printStackTrace();
-                }
+            }
+            zia.e(mwaVar.getAdvertAppInfo(), hg9Var, str, null, 3, i);
+        }
+    }
+
+    @Override // com.baidu.tieba.hha
+    public void onDestroy() {
+        V v;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (v = this.viewholder) != 0) {
+            ((PbAppLegoViewHolder) v).d();
+        }
+    }
+
+    @Override // com.baidu.tieba.hha
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            V v = this.viewholder;
+            if (v != 0) {
+                ((PbAppLegoViewHolder) v).stopPlay();
+            }
+            this.c = false;
+        }
+    }
+
+    public void updateFontSize() {
+        PbAppLegoViewHolder pbAppLegoViewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            WeakReference<PbAppLegoViewHolder> weakReference = this.h;
+            if (weakReference != null) {
+                pbAppLegoViewHolder = weakReference.get();
+            } else {
+                pbAppLegoViewHolder = null;
+            }
+            if (pbAppLegoViewHolder != null) {
+                pbAppLegoViewHolder.f();
             }
         }
     }
 
-    public final synchronized void j(IInvokeCallback iInvokeCallback) {
+    @Override // com.baidu.tieba.hha
+    public void onResume() {
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iInvokeCallback) == null) {
-            synchronized (this) {
-                if (NPSPackageManager.getInstance().getBundleStatus("com.baidu.tieba.plugin.sdkcode") == 43) {
-                    if (PluginCheck.c("com.baidu.tieba.plugin.sdkcode", iInvokeCallback, "SdkCodePluginManager", false)) {
-                        pf.a.a().i("SdkCodePluginManager", "SdkCodePlugin invokePlugin：插件可用，直接加载");
-                        NPSManager.getInstance().loadClazz("com.baidu.tieba.plugin.sdkcode", "com.baidu.tieba.sdkcode.SdkCodePluginImpl", ISdkCodePlugin.class, iInvokeCallback);
-                    }
-                } else {
-                    pf.a.a().i("SdkCodePluginManager", "SdkCodePlugin invokePlugin：开始下载");
-                    NPSPackageManager.getInstance().installBundle("com.baidu.tieba.plugin.sdkcode", new b(iInvokeCallback));
-                }
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (v = this.viewholder) != 0 && ((PbAppLegoViewHolder) v).b()) {
+            if (((PbAppLegoViewHolder) this.viewholder).c() == -1) {
+                ((PbAppLegoViewHolder) this.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
             }
+            this.c = true;
         }
     }
 }

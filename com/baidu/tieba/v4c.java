@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.s4c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes8.dex */
-public final class v4c<TResult> implements b6c<TResult> {
+public class v4c implements s4c.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    public v4c(Executor executor, r5c r5cVar) {
+    public v4c(w4c w4cVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, r5cVar};
+            Object[] objArr = {w4cVar, gdtADStatusChangeListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,14 +27,14 @@ public final class v4c<TResult> implements b6c<TResult> {
                 return;
             }
         }
-        this.a = executor;
+        this.a = gdtADStatusChangeListener;
     }
 
-    @Override // com.baidu.tieba.b6c
-    public final void a(n5c<TResult> n5cVar) {
+    @Override // com.baidu.tieba.s4c.e
+    public void onADStatusChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, n5cVar) == null) {
-            n5cVar.e();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
         }
     }
 }

@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.widget.Button;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.kwad.sdk.api.KsAppDownloadListener;
 /* loaded from: classes5.dex */
-public class b7c implements v6c {
+public class b7c implements KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
+    public Button a;
+    public String b;
 
-    public b7c(Context context, String str) {
+    public b7c(String str, Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {str, button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +30,63 @@ public class b7c implements v6c {
                 return;
             }
         }
-        this.a = context;
         this.b = str;
+        this.a = button;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFailed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "agc_" + q6c.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f08be);
+            } else {
+                this.a.setText(this.b);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFinished() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f08c1);
+        }
     }
 
-    @Override // com.baidu.tieba.v6c
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadStarted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
-                return str2;
-            }
-            try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f08be);
+            } else {
+                this.a.setText(this.b);
             }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onInstalled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f08c2);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onProgressUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            Button button = this.a;
+            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08bf, String.format("%s/100", Integer.valueOf(i))));
+        }
     }
 }

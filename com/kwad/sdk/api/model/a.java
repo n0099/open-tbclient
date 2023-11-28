@@ -1,92 +1,92 @@
 package com.kwad.sdk.api.model;
 /* loaded from: classes10.dex */
 public final class a implements IKsAdLabel {
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public String channel;
+    public long cpmBidFloor;
+    public String historyTitle;
+    public String postTitle;
+    public String prevTitle;
+    public int thirdAge;
+    public int thirdGender;
+    public String thirdInterest;
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final String getChannel() {
-        return this.g;
+        return this.channel;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final long getCpmBidFloor() {
-        return this.h;
+        return this.cpmBidFloor;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final String getHistoryTitle() {
-        return this.f;
+        return this.historyTitle;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final String getPostTitle() {
-        return this.e;
+        return this.postTitle;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final String getPrevTitle() {
-        return this.d;
+        return this.prevTitle;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final int getThirdAge() {
-        return this.a;
+        return this.thirdAge;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final int getThirdGender() {
-        return this.b;
+        return this.thirdGender;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final String getThirdInterest() {
-        return this.c;
+        return this.thirdInterest;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setChannel(String str) {
-        this.g = str;
+        this.channel = str;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setCpmBidFloor(long j) {
-        this.h = j;
+        this.cpmBidFloor = j;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setHistoryTitle(String str) {
-        this.f = str;
+        this.historyTitle = str;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setPostTitle(String str) {
-        this.e = str;
+        this.postTitle = str;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setPrevTitle(String str) {
-        this.d = str;
+        this.prevTitle = str;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setThirdAge(int i) {
-        this.a = i;
+        this.thirdAge = i;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setThirdGender(int i) {
-        this.b = i;
+        this.thirdGender = i;
     }
 
     @Override // com.kwad.sdk.api.model.IKsAdLabel
     public final void setThirdInterest(String str) {
-        this.c = str;
+        this.thirdInterest = str;
     }
 }

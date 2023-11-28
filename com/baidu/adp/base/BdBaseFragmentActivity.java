@@ -20,9 +20,9 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.si;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.ti;
 import com.baidu.tieba.y4;
+import com.baidu.tieba.yf;
 import com.baidu.tieba.z4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,13 +60,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public si onGetPreLoadListView() {
+    public ti onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (si) invokeV.objValue;
+        return (ti) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -97,9 +97,9 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     }
 
     @Override // com.baidu.tieba.z4
-    public void onPreLoad(si siVar) {
+    public void onPreLoad(ti tiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, siVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, tiVar) == null) {
         }
     }
 
@@ -180,8 +180,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof xf) {
-            ((xf) view2).refresh();
+        if (view2 instanceof yf) {
+            ((yf) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -282,7 +282,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
-            si onGetPreLoadListView = onGetPreLoadListView();
+            ti onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }

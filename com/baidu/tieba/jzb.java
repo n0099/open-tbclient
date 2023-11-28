@@ -1,121 +1,184 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigGdt;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes6.dex */
-public class jzb implements PidLoaderCreator {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+/* loaded from: classes7.dex */
+public class jzb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigGdt a;
 
-    public jzb(ModuleConfigGdt moduleConfigGdt) {
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public File a;
+        @NonNull
+        public String b;
+
+        public a(@NonNull File file, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+
+        public a(@NonNull File file, @NonNull String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
+    public static void a(File file, List<a> list) throws IOException {
+        ?? r2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigGdt};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            r2 = interceptable;
+            if (r2.invokeLL(65536, null, file, list) != null) {
                 return;
             }
         }
-        this.a = moduleConfigGdt;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 0;
-                        break;
+        if (file != null && file.exists() && list != null && list.size() != 0) {
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    try {
+                        byte[] bArr = new byte[8192];
+                        r2 = new ZipOutputStream(new FileOutputStream(file));
+                        try {
+                            r2.setComment(file.getName());
+                            for (a aVar : list) {
+                                File file2 = aVar.a;
+                                if (file2.canRead()) {
+                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
+                                    try {
+                                        r2.putNextEntry(new ZipEntry(aVar.b));
+                                        while (true) {
+                                            int read = fileInputStream2.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            r2.write(bArr, 0, read);
+                                        }
+                                        fileInputStream2.close();
+                                        fileInputStream = fileInputStream2;
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
+                                        fileInputStream = fileInputStream2;
+                                        e.printStackTrace();
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e2) {
+                                                e2.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            r2.close();
+                                        }
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        fileInputStream = fileInputStream2;
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            try {
+                                                r2.close();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                            r2.flush();
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            r2.close();
+                        } catch (FileNotFoundException e6) {
+                            e = e6;
+                        }
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return new c0c(pid);
-                case 1:
-                    return new qzb(pid);
-                case 2:
-                    return new d0c(pid);
-                case 3:
-                    return new e0c(pid, this.a);
-                case 4:
-                    return new wzb(pid);
-                case 5:
-                    return new b0c(pid, this.a);
-                case 6:
-                    return new pzb(pid, this.a);
-                default:
-                    return null;
+                } catch (FileNotFoundException e8) {
+                    e = e8;
+                    r2 = 0;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r2 = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
-        return (PidLoader) invokeL.objValue;
     }
 }

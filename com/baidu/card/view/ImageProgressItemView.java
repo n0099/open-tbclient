@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az4;
+import com.baidu.tieba.cz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageProgressItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az4 a;
+    public cz4 a;
     public TbImageView b;
     public RoundTbImageView c;
     public TbImageView d;
@@ -51,15 +51,15 @@ public class ImageProgressItemView extends FrameLayout {
         }
     }
 
-    public void b(az4 az4Var) {
+    public void b(cz4 cz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, az4Var) == null) {
-            this.a = az4Var;
-            if (az4Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cz4Var) == null) {
+            this.a = cz4Var;
+            if (cz4Var == null) {
                 return;
             }
-            this.c.startLoad(az4Var.a(), 10, false);
-            this.e.setText(String.format("%s人", az4Var.b()));
+            this.c.startLoad(cz4Var.a(), 10, false);
+            this.e.setText(String.format("%s人", cz4Var.b()));
             d();
         }
     }
@@ -136,12 +136,12 @@ public class ImageProgressItemView extends FrameLayout {
     }
 
     public final void d() {
-        az4 az4Var;
+        cz4 cz4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (az4Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (cz4Var = this.a) == null) {
             return;
         }
-        if (az4Var.c()) {
+        if (cz4Var.c()) {
             setAlpha(1.0f);
         } else {
             setAlpha(0.4f);

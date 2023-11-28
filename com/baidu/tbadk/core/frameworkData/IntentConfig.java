@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.frameworkData;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -32,11 +34,12 @@ import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.lo5;
+import com.baidu.tieba.j35;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.po5;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.wo5;
+import com.baidu.tieba.xb;
+import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -346,7 +349,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            wb.e(this.a.mContext, this.a.mClientConnection);
+            xb.e(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -379,7 +382,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            to5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -537,7 +540,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            wb.a(this.mContext, intent, this.mClientConnection, 1);
+            xb.a(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -566,7 +569,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForResultForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            wb.a(this.mContext, intent, this.mClientConnection, 1);
+            xb.a(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -575,12 +578,12 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             BdPageContextSupport<?> b2 = a5.b(context);
-            po5 po5Var = null;
-            if (b2 instanceof oo5) {
-                po5Var = ((oo5) b2).getTbPageInfo();
+            xo5 xo5Var = null;
+            if (b2 instanceof wo5) {
+                xo5Var = ((wo5) b2).getTbPageInfo();
             }
-            if (po5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", po5Var.a());
+            if (xo5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", xo5Var.a());
             }
         }
     }
@@ -606,13 +609,16 @@ public class IntentConfig extends OrmObject {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            BdPageContextSupport<?> b2 = a5.b(this.mContext);
+            Context context = this.mContext;
+            if ((context instanceof Application) && j35.a.a()) {
+                context = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            BdPageContextSupport<?> b2 = a5.b(context);
             ArrayList<String> arrayList = null;
             if (b2 instanceof IPageStayDuration) {
                 arrayList = (ArrayList) ((IPageStayDuration) b2).getNextPageSourceKeyList();
             } else if (GlobalBuildConfig.isDebug()) {
-                Context context = this.mContext;
-                BdToast.makeText(context, this.mContext + " 请实现IPageStayDuration接口").show();
+                BdToast.makeText(context, context + " 请实现IPageStayDuration接口").show();
             }
             TbLog defaultLog = DefaultLog.getInstance();
             StringBuilder sb = new StringBuilder();

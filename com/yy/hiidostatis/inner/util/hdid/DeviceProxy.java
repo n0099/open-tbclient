@@ -2,7 +2,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 
 import android.content.Context;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeviceProxy {
     public static String getAndroidId(Context context) {
         return getDevice(context).arid;

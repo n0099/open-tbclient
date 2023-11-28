@@ -13,7 +13,7 @@ public class cq implements bg.a {
     @Override // com.xiaomi.push.service.bg.a
     public void a() {
         this.a.e();
-        if (bg.a().m797a() <= 0) {
+        if (bg.a().m801a() <= 0) {
             XMPushService xMPushService = this.a;
             xMPushService.a(new XMPushService.g(12, null));
         }

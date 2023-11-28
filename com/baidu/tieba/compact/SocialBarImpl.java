@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tieba.e57;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.t47;
+import com.baidu.tieba.f37;
+import com.baidu.tieba.g57;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.r57;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.u27;
-import com.baidu.tieba.wx4;
+import com.baidu.tieba.y77;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import tbclient.VideoInfo;
 import tbclient.VoiceRoom;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nH\u0002J\u0010\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000eH\u0002J\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0004H\u0016J\u0018\u0010\u0012\u001a\u00020\u00102\u0006\u0010\u0013\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\nH\u0016¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/compact/SocialBarImpl;", "Lcom/baidu/tieba/feed/compat/Resolver$ISocialBar;", "()V", "create", "Landroid/view/ViewGroup;", "context", "Landroid/content/Context;", "getIsPraised", "", "state", "Lcom/baidu/tieba/feed/component/uistate/SocialUiState;", "getShareThreadShowType", "", "threadType", "", "onSkinChange", "", "view", StickerDataChangeType.UPDATE, "agreeView", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class SocialBarImpl implements u27.o {
+public final class SocialBarImpl implements f37.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public final class SocialBarImpl implements u27.o {
         }
     }
 
-    @Override // com.baidu.tieba.u27.s
+    @Override // com.baidu.tieba.f37.s
     public void b(ViewGroup view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -85,7 +85,7 @@ public final class SocialBarImpl implements u27.o {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.u27.o
+    @Override // com.baidu.tieba.f37.o
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,14 +106,14 @@ public final class SocialBarImpl implements u27.o {
         return (ViewGroup) invokeL.objValue;
     }
 
-    public final boolean m(t47 t47Var) {
+    public final boolean m(g57 g57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t47Var)) == null) {
-            if (!(t47Var.m().k instanceof ThreadData)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, g57Var)) == null) {
+            if (!(g57Var.m().k instanceof ThreadData)) {
                 return false;
             }
-            Object obj = t47Var.m().k;
+            Object obj = g57Var.m().k;
             if (obj != null) {
                 AgreeData agreeData = ((ThreadData) obj).getAgreeData();
                 if (agreeData == null) {
@@ -138,11 +138,11 @@ public final class SocialBarImpl implements u27.o {
     /* JADX WARN: Code restructure failed: missing block: B:70:0x0183, code lost:
         if (r16 == false) goto L136;
      */
-    @Override // com.baidu.tieba.u27.o
+    @Override // com.baidu.tieba.f37.o
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void h(ViewGroup agreeView, final t47 state) {
+    public void h(ViewGroup agreeView, final g57 state) {
         Map<String, String> linkedHashMap;
         ThreadData threadData;
         boolean z;
@@ -168,10 +168,10 @@ public final class SocialBarImpl implements u27.o {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, agreeView, state) == null) {
             Intrinsics.checkNotNullParameter(agreeView, "agreeView");
             Intrinsics.checkNotNullParameter(state, "state");
-            l77 m = state.m();
+            y77 m = state.m();
             final SocialBarWrapper socialBarWrapper = (SocialBarWrapper) agreeView;
-            e57 e57Var = state.m().l;
-            if (e57Var == null || (linkedHashMap = e57Var.a()) == null) {
+            r57 r57Var = state.m().l;
+            if (r57Var == null || (linkedHashMap = r57Var.a()) == null) {
                 linkedHashMap = new LinkedHashMap<>();
             }
             Object obj = state.m().k;
@@ -340,11 +340,11 @@ public final class SocialBarImpl implements u27.o {
                         }
                     }
                 }
-                wx4 wx4Var = new wx4();
-                wx4Var.k(str11);
-                wx4Var.i(str12);
-                wx4Var.j(str13);
-                threadData.setLinkThreadData(wx4Var);
+                yx4 yx4Var = new yx4();
+                yx4Var.k(str11);
+                yx4Var.i(str12);
+                yx4Var.j(str13);
+                threadData.setLinkThreadData(yx4Var);
                 if (JavaTypesHelper.toInt(linkedHashMap.get("is_link_thread"), 0) == 1) {
                     z9 = true;
                 } else {
@@ -373,11 +373,11 @@ public final class SocialBarImpl implements u27.o {
                         }
                     }
                 }
-                fz4 fz4Var = new fz4();
-                fz4Var.v(JavaTypesHelper.toLong(str14, 0L));
-                fz4Var.u(JavaTypesHelper.toLong(str15, 0L));
-                fz4Var.w(str16);
-                threadData.setTaskInfoData(fz4Var);
+                hz4 hz4Var = new hz4();
+                hz4Var.v(JavaTypesHelper.toLong(str14, 0L));
+                hz4Var.u(JavaTypesHelper.toLong(str15, 0L));
+                hz4Var.w(str16);
+                threadData.setTaskInfoData(hz4Var);
                 threadData.setForum_name(linkedHashMap.get("forum_name"));
                 threadData.setForumAvatar(linkedHashMap.get("forum_avatar"));
                 threadData.setIslive(JavaTypesHelper.toInt(linkedHashMap.get("is_livepost"), 0));
@@ -420,9 +420,9 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(9);
                             socialBarWrapper.setShareReportFrom(4);
                             socialBarWrapper.S = 1;
-                            hw4 hw4Var = new hw4();
-                            hw4Var.b = 9;
-                            socialBarWrapper.setAgreeStatisticData(hw4Var);
+                            iw4 iw4Var = new iw4();
+                            iw4Var.b = 9;
+                            socialBarWrapper.setAgreeStatisticData(iw4Var);
                             break;
                         }
                         break;
@@ -431,9 +431,9 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(1);
                             socialBarWrapper.setShareReportFrom(3);
                             socialBarWrapper.S = 2;
-                            hw4 hw4Var2 = new hw4();
-                            hw4Var2.b = 1;
-                            socialBarWrapper.setAgreeStatisticData(hw4Var2);
+                            iw4 iw4Var2 = new iw4();
+                            iw4Var2.b = 1;
+                            socialBarWrapper.setAgreeStatisticData(iw4Var2);
                             break;
                         }
                         break;
@@ -442,10 +442,10 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(13);
                             socialBarWrapper.setShareReportFrom(15);
                             socialBarWrapper.S = 3;
-                            hw4 hw4Var3 = new hw4();
-                            hw4Var3.b = 2;
-                            hw4Var3.j = String.valueOf(m.d);
-                            socialBarWrapper.setAgreeStatisticData(hw4Var3);
+                            iw4 iw4Var3 = new iw4();
+                            iw4Var3.b = 2;
+                            iw4Var3.j = String.valueOf(m.d);
+                            socialBarWrapper.setAgreeStatisticData(iw4Var3);
                             break;
                         }
                         break;
@@ -454,10 +454,10 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(2);
                             socialBarWrapper.setShareReportFrom(1);
                             socialBarWrapper.S = 3;
-                            hw4 hw4Var4 = new hw4();
-                            hw4Var4.b = 2;
-                            hw4Var4.j = String.valueOf(m.d);
-                            socialBarWrapper.setAgreeStatisticData(hw4Var4);
+                            iw4 iw4Var4 = new iw4();
+                            iw4Var4.b = 2;
+                            iw4Var4.j = String.valueOf(m.d);
+                            socialBarWrapper.setAgreeStatisticData(iw4Var4);
                             break;
                         }
                         break;
@@ -466,10 +466,10 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(19);
                             socialBarWrapper.setShareReportFrom(14);
                             socialBarWrapper.S = 3;
-                            hw4 hw4Var5 = new hw4();
-                            hw4Var5.b = 25;
-                            hw4Var5.j = String.valueOf(m.d);
-                            socialBarWrapper.setAgreeStatisticData(hw4Var5);
+                            iw4 iw4Var5 = new iw4();
+                            iw4Var5.b = 25;
+                            iw4Var5.j = String.valueOf(m.d);
+                            socialBarWrapper.setAgreeStatisticData(iw4Var5);
                             break;
                         }
                         break;
@@ -478,10 +478,10 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(2);
                             socialBarWrapper.setShareReportFrom(1);
                             socialBarWrapper.S = 3;
-                            hw4 hw4Var6 = new hw4();
-                            hw4Var6.b = 10;
-                            hw4Var6.j = String.valueOf(m.d);
-                            socialBarWrapper.setAgreeStatisticData(hw4Var6);
+                            iw4 iw4Var6 = new iw4();
+                            iw4Var6.b = 10;
+                            iw4Var6.j = String.valueOf(m.d);
+                            socialBarWrapper.setAgreeStatisticData(iw4Var6);
                             break;
                         }
                         break;
@@ -490,10 +490,10 @@ public final class SocialBarImpl implements u27.o {
                             socialBarWrapper.setFrom(2);
                             socialBarWrapper.setShareReportFrom(1);
                             socialBarWrapper.S = 3;
-                            hw4 hw4Var7 = new hw4();
-                            hw4Var7.b = 2;
-                            hw4Var7.j = String.valueOf(m.d);
-                            socialBarWrapper.setAgreeStatisticData(hw4Var7);
+                            iw4 iw4Var7 = new iw4();
+                            iw4Var7.b = 2;
+                            iw4Var7.j = String.valueOf(m.d);
+                            socialBarWrapper.setAgreeStatisticData(iw4Var7);
                             break;
                         }
                         break;
@@ -510,7 +510,7 @@ public final class SocialBarImpl implements u27.o {
             socialBarWrapper.setOnShareClick(new Function0<Unit>(state) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ g57 $state;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -552,7 +552,7 @@ public final class SocialBarImpl implements u27.o {
             socialBarWrapper.setOnCommentClick(new Function0<Unit>(state, socialBarWrapper) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ g57 $state;
                 public final /* synthetic */ SocialBarWrapper $v;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -589,7 +589,7 @@ public final class SocialBarImpl implements u27.o {
                 public final void invoke2() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        Function2<Context, t47, Unit> n = this.$state.n();
+                        Function2<Context, g57, Unit> n = this.$state.n();
                         Context context = this.$v.getContext();
                         Intrinsics.checkNotNullExpressionValue(context, "v.context");
                         n.invoke(context, this.$state);
@@ -599,7 +599,7 @@ public final class SocialBarImpl implements u27.o {
             socialBarWrapper.setAfterPraiseClick(new Function0<Unit>(state, this) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ g57 $state;
                 public final /* synthetic */ SocialBarImpl this$0;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -637,17 +637,17 @@ public final class SocialBarImpl implements u27.o {
                     boolean m2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        Function2<t47, Boolean, Unit> p = this.$state.p();
-                        t47 t47Var = this.$state;
-                        m2 = this.this$0.m(t47Var);
-                        p.invoke(t47Var, Boolean.valueOf(m2));
+                        Function2<g57, Boolean, Unit> p = this.$state.p();
+                        g57 g57Var = this.$state;
+                        m2 = this.this$0.m(g57Var);
+                        p.invoke(g57Var, Boolean.valueOf(m2));
                     }
                 }
             });
             socialBarWrapper.setOnAgreeNumUpdateListener(new Function2<Long, Boolean, Unit>(state) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ g57 $state;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -689,7 +689,7 @@ public final class SocialBarImpl implements u27.o {
             socialBarWrapper.setOnManageClick(new Function0<Boolean>(state, socialBarWrapper) { // from class: com.baidu.tieba.compact.SocialBarImpl$update$5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ t47 $state;
+                public final /* synthetic */ g57 $state;
                 public final /* synthetic */ SocialBarWrapper $v;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -721,7 +721,7 @@ public final class SocialBarImpl implements u27.o {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        Function2<Context, l77, Boolean> o = this.$state.o();
+                        Function2<Context, y77, Boolean> o = this.$state.o();
                         Context context = this.$v.getContext();
                         Intrinsics.checkNotNullExpressionValue(context, "v.context");
                         return o.invoke(context, this.$state.m());

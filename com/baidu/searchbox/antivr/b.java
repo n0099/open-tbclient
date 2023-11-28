@@ -6,7 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Pair;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
@@ -74,7 +74,7 @@ public class b {
         this.g.add("chmod");
         this.g.add("netstat");
         this.g.add("ping");
-        this.g.add(u.B);
+        this.g.add(t.w);
     }
 
     private void c() {

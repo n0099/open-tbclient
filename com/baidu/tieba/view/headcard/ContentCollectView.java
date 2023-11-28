@@ -31,9 +31,9 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.view.headcard.ContentCollectListAdapter;
-import com.baidu.tieba.yd;
+import com.baidu.tieba.zd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -249,12 +249,12 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = BdUtilHelper.getDimens(getContext(), R.dimen.tbds115);
             this.m = BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
             u = (((BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 5)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0925fe);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092683);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090807);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
-            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f09035e);
+            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090372);
             this.e = (TbImageView) findViewById(R.id.image_content);
-            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09037d);
+            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f090391);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (TextView) findViewById(R.id.comment_num);
             this.g = (AgreeView) findViewById(R.id.agree_and_disagreeview);
@@ -283,13 +283,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            hw4 hw4Var = new hw4();
-            hw4Var.b = 1;
-            hw4Var.h = 1;
-            hw4Var.g = 1;
-            hw4Var.c = 7;
-            hw4Var.f = this.q;
-            this.g.setStatisticData(hw4Var);
+            iw4 iw4Var = new iw4();
+            iw4Var.b = 1;
+            iw4Var.h = 1;
+            iw4Var.g = 1;
+            iw4Var.c = 7;
+            iw4Var.f = this.q;
+            this.g.setStatisticData(iw4Var);
         }
     }
 
@@ -409,7 +409,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
         } else {
             this.b.setVisibility(0);
             this.b.setText(threadData.getAbstractText());
-            i = (2 - yd.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
+            i = (2 - zd.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
         }
         this.a.setMaxLines(i);
         this.a.setText(threadData.getTitleText());

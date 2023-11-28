@@ -8,11 +8,11 @@ public class cn {
     public static String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static SimpleDateFormat f180a;
+    public static SimpleDateFormat f176a;
 
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        f180a = simpleDateFormat;
+        f176a = simpleDateFormat;
         a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
@@ -27,7 +27,7 @@ public class cn {
         hlVar.b(str);
         hlVar.a(true);
         hlVar.b(System.currentTimeMillis());
-        hlVar.g(bw.a(context).m314a());
+        hlVar.g(bw.a(context).m318a());
         hlVar.e("com.xiaomi.xmsf");
         hlVar.f("");
         hlVar.c("push_stat");

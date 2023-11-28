@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -552,7 +552,7 @@ public final class b {
             if (b == null) {
                 b = C0008b.b(j(f("com.baidu.deviceid.v2")));
             }
-            boolean g = g(h.i);
+            boolean g = g(g.i);
             if (b == null && g) {
                 this.c |= 2;
                 b = e();

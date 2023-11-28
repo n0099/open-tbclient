@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.widget.falling.FallingEventType;
 /* loaded from: classes6.dex */
 public interface fw5 {
-    void a();
-
-    void b(int i, int i2, int i3, int i4);
-
-    Context getContext();
-
-    boolean post(Runnable runnable);
-
-    boolean removeCallbacks(Runnable runnable);
+    void a(FallingEventType fallingEventType, @Nullable Object obj);
 }

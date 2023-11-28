@@ -3,7 +3,7 @@ package com.yy.hiidostatis.message.processor;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LogProcessor implements MessageProcessor {
     @Override // com.yy.hiidostatis.message.MessageProcessor
     public Message process(Message message) {

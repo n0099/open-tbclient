@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -199,14 +199,14 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (isShowing()) {
-                xb.d(this, this.mActivity);
+                yb.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            xb.l(this, view2, this.mShowRightTopXOff, 0);
+            yb.l(this, view2, this.mShowRightTopXOff, 0);
         }
     }
 
@@ -271,14 +271,14 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             if (isShowing()) {
-                xb.d(this, this.mActivity);
+                yb.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            xb.l(this, view2, this.mShowRightTopXOff - i, 0);
+            yb.l(this, view2, this.mShowRightTopXOff - i, 0);
         }
     }
 
@@ -286,14 +286,14 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (isShowing()) {
-                xb.d(this, this.mActivity);
+                yb.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            xb.l(this, view2, i, i2);
+            yb.l(this, view2, i, i2);
         }
     }
 
@@ -304,7 +304,7 @@ public class MorePopupWindow extends PopupWindow {
             setFocusable(z);
             int i = this.mShowLeftCenterXOff;
             int i2 = this.mWindowHeight;
-            xb.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
+            yb.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
         }
     }
 }

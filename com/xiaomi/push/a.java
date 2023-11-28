@@ -4,13 +4,13 @@ public final class a {
     public static final a a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f92a = 0;
+    public volatile int f88a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public final byte[] f93a;
+    public final byte[] f89a;
 
     public a(byte[] bArr) {
-        this.f93a = bArr;
+        this.f89a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -24,12 +24,12 @@ public final class a {
     }
 
     public int a() {
-        return this.f93a.length;
+        return this.f89a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m259a() {
-        byte[] bArr = this.f93a;
+    public byte[] m263a() {
+        byte[] bArr = this.f89a;
         int length = bArr.length;
         byte[] bArr2 = new byte[length];
         System.arraycopy(bArr, 0, bArr2, 0, length);
@@ -41,9 +41,9 @@ public final class a {
             return true;
         }
         if (obj instanceof a) {
-            byte[] bArr = this.f93a;
+            byte[] bArr = this.f89a;
             int length = bArr.length;
-            byte[] bArr2 = ((a) obj).f93a;
+            byte[] bArr2 = ((a) obj).f89a;
             if (length != bArr2.length) {
                 return false;
             }
@@ -58,15 +58,15 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f92a;
+        int i = this.f88a;
         if (i == 0) {
-            byte[] bArr = this.f93a;
+            byte[] bArr = this.f89a;
             int length = bArr.length;
             for (byte b : bArr) {
                 length = (length * 31) + b;
             }
             i = length == 0 ? 1 : length;
-            this.f92a = i;
+            this.f88a = i;
         }
         return i;
     }

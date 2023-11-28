@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.ib7;
+import com.baidu.tieba.pb.pb.push.PbReplyPushGuide;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public final class zfa implements ib7 {
+public class zfa implements mf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,84 +26,30 @@ public final class zfa implements ib7 {
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
+    @Override // com.baidu.tieba.mf1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ib7.a.b(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new j28());
+            arrayList.add(new k28());
+            arrayList.add(new l28());
+            arrayList.add(new ri8());
+            arrayList.add(new q69());
+            arrayList.add(new r69());
+            arrayList.add(new s69());
+            arrayList.add(new t69());
+            arrayList.add(new u69());
+            arrayList.add(new v69());
+            arrayList.add(new a5a());
+            arrayList.add(new PbReplyPushGuide());
+            arrayList.add(new b5a());
+            arrayList.add(new c5a());
+            arrayList.add(new glb());
+            arrayList.add(new hlb());
+            return arrayList;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 e57Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
-            return ib7.a.a(this, e57Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0029, code lost:
-        if (r5.equals("video_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r5.equals("live_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
-        if (r5.equals("live_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0044, code lost:
-        if (r5.equals("common_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0047, code lost:
-        return "enter_forum_btn_click";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0051, code lost:
-        if (r5.equals("video_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0058, code lost:
-        if (r5.equals("common_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x005b, code lost:
-        return "user_head_click";
-     */
-    @Override // com.baidu.tieba.ib7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(e57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    break;
-                case -1617812209:
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (!GlobalBuildConfig.isDebug()) {
-                        return "";
-                    }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
+        return invokeV.objValue;
     }
 }

@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class zba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
-    public String c;
-    public ArrayList<String> d;
-    public boolean e;
-    public boolean f;
+    public c9a a;
+    public Bundle b;
 
     public zba() {
         Interceptable interceptable = $ic;

@@ -16,7 +16,7 @@ public final class AnnotationsImpl implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2105findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2109findAnnotation(FqName fqName) {
         return Annotations.DefaultImpls.findAnnotation(this, fqName);
     }
 

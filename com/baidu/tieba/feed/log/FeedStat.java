@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cb7;
-import com.baidu.tieba.db7;
+import com.baidu.tieba.pb7;
+import com.baidu.tieba.qb7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -242,7 +242,7 @@ public final class FeedStat {
             return invokeL.booleanValue;
         }
 
-        public final void i(cb7 item) {
+        public final void i(pb7 item) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
@@ -298,7 +298,7 @@ public final class FeedStat {
                                         if (optJSONObject2 == null) {
                                             optJSONObject2 = new JSONObject();
                                         }
-                                        db7.a(optJSONObject, optJSONObject2);
+                                        qb7.a(optJSONObject, optJSONObject2);
                                         jSONObject2.put("base_info", optJSONObject);
                                         continue;
                                     }
@@ -320,7 +320,7 @@ public final class FeedStat {
                                         if (optJSONObject4 == null) {
                                             optJSONObject4 = new JSONObject();
                                         }
-                                        db7.a(optJSONObject3, optJSONObject4);
+                                        qb7.a(optJSONObject3, optJSONObject4);
                                         jSONObject2.put("run_info", optJSONObject3);
                                         continue;
                                     }
@@ -336,7 +336,7 @@ public final class FeedStat {
                                         if (optJSONObject6 == null) {
                                             optJSONObject6 = new JSONObject();
                                         }
-                                        db7.a(optJSONObject5, optJSONObject6);
+                                        qb7.a(optJSONObject5, optJSONObject6);
                                         jSONObject2.put("local_info", optJSONObject5);
                                         continue;
                                     }
@@ -356,7 +356,7 @@ public final class FeedStat {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public final void j(cb7 item, a callback) {
+        public final void j(pb7 item, a callback) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, item, callback) == null) {

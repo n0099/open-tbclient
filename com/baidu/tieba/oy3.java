@@ -1,74 +1,121 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oy3 implements cs1 {
+public class oy3 implements ds1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oy3 c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public jy3 a;
-    public ny3 b;
+    public HashMap<String, ny3> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048544, "Lcom/baidu/tieba/oy3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948048544, "Lcom/baidu/tieba/oy3;");
+                return;
+            }
+        }
+        b = sm1.a;
+    }
 
     public oy3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
         c();
     }
 
-    public static oy3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ds1
+    public iy1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (oy3.class) {
-                    if (c == null) {
-                        c = new oy3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, lj2Var)) == null) {
+            return b(str, jSONObject, lj2Var);
         }
-        return (oy3) invokeV.objValue;
+        return (iy1) invokeLLL.objValue;
+    }
+
+    public final iy1 b(String str, JSONObject jSONObject, lj2 lj2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, lj2Var)) == null) {
+            ny3 ny3Var = this.a.get(str);
+            if (ny3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
+                }
+                return ny3Var.a(jSONObject, lj2Var);
+            }
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new iy1(10002, "no such api.");
+        }
+        return (iy1) invokeLLL.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new jy3();
-            this.b = new ny3();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new ly3());
+            d(new my3());
+            d(new jx3());
+            d(new nx3());
+            d(new kx3());
+            d(new cz3());
+            d(new lx3());
+            d(new sy3());
+            d(new zy3());
+            d(new ix3());
+            d(new px3());
+            d(new mx3());
+            d(new ox3());
+            d(new vy3());
+            d(new bz3());
+            d(new wy3());
+            d(new yy3());
+            d(new xy3());
         }
     }
 
-    @Override // com.baidu.tieba.cs1
-    public hy1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
-        InterceptResult invokeLLL;
+    public void d(ny3 ny3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, kj2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, kj2Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, ny3Var) == null) {
+            if (b && TextUtils.isEmpty(ny3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
             }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, kj2Var);
+            if (b && this.a.containsKey(ny3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + ny3Var);
             }
-            return new hy1(10001, "authorize fail.");
+            this.a.put(ny3Var.a, ny3Var);
         }
-        return (hy1) invokeLLL.objValue;
     }
 }

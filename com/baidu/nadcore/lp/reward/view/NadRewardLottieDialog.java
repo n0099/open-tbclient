@@ -16,17 +16,17 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al0;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.nk0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.bl0;
+import com.baidu.tieba.gl0;
 import com.baidu.tieba.ok0;
-import com.baidu.tieba.p11;
-import com.baidu.tieba.si0;
-import com.baidu.tieba.t11;
-import com.baidu.tieba.tn0;
-import com.baidu.tieba.wi0;
-import com.baidu.tieba.wk0;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.pk0;
+import com.baidu.tieba.q11;
+import com.baidu.tieba.ti0;
+import com.baidu.tieba.u11;
+import com.baidu.tieba.un0;
+import com.baidu.tieba.xi0;
+import com.baidu.tieba.xk0;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -38,42 +38,42 @@ import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes3.dex */
 public final class NadRewardLottieDialog extends NadRewardVideoDialog {
     public TextView s;
-    public fl0 t;
+    public gl0 t;
     public HashMap u;
 
-    @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public /* synthetic */ void onDestroyView() {
-        super.onDestroyView();
-        u2();
-    }
-
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog
-    public void u2() {
+    public void G2() {
         HashMap hashMap = this.u;
         if (hashMap != null) {
             hashMap.clear();
         }
     }
 
+    @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public /* synthetic */ void onDestroyView() {
+        super.onDestroyView();
+        G2();
+    }
+
     /* loaded from: classes3.dex */
-    public static final class a extends wi0<zi0> {
+    public static final class a extends xi0<aj0> {
         public a(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wi0
-        public void onEvent(zi0 event) {
-            fl0 fl0Var;
+        @Override // com.baidu.tieba.xi0
+        public void onEvent(aj0 event) {
+            gl0 gl0Var;
             Intrinsics.checkNotNullParameter(event, "event");
-            if (event.a && (fl0Var = NadRewardLottieDialog.this.t) != null) {
-                fl0Var.i();
+            if (event.a && (gl0Var = NadRewardLottieDialog.this.t) != null) {
+                gl0Var.i();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends fl0 {
+    public static final class b extends gl0 {
         public final /* synthetic */ Ref.IntRef k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,7 +82,7 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
             this.k = intRef;
         }
 
-        @Override // com.baidu.tieba.fl0
+        @Override // com.baidu.tieba.gl0
         public void m(long j) {
             String str;
             String l;
@@ -95,9 +95,9 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
             intRef.element = i - 1;
             TextView textView = NadRewardLottieDialog.this.s;
             if (textView != null) {
-                ok0 E2 = NadRewardLottieDialog.this.E2();
-                if (E2 != null && (l = E2.l()) != null) {
-                    str = StringsKt__StringsJVMKt.replace$default(l, "__REMAININGTIME__", NadRewardLottieDialog.this.f3(Integer.valueOf(this.k.element)), false, 4, (Object) null);
+                pk0 Q2 = NadRewardLottieDialog.this.Q2();
+                if (Q2 != null && (l = Q2.l()) != null) {
+                    str = StringsKt__StringsJVMKt.replace$default(l, "__REMAININGTIME__", NadRewardLottieDialog.this.r3(Integer.valueOf(this.k.element)), false, 4, (Object) null);
                 } else {
                     str = null;
                 }
@@ -113,73 +113,51 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
 
         @Override // java.lang.Runnable
         public final void run() {
-            fl0 fl0Var = NadRewardLottieDialog.this.t;
-            if (fl0Var != null) {
-                fl0Var.n();
+            gl0 gl0Var = NadRewardLottieDialog.this.t;
+            if (gl0Var != null) {
+                gl0Var.n();
             }
         }
     }
 
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog
-    public void L2() {
-        super.L2();
-        ViewGroup.LayoutParams layoutParams = I2().getLayoutParams();
+    public void X2() {
+        super.X2();
+        ViewGroup.LayoutParams layoutParams = U2().getLayoutParams();
         Intrinsics.checkNotNullExpressionValue(layoutParams, "topImg.layoutParams");
-        layoutParams.height = t11.c.a(getContext(), 83.0f);
-        I2().setLayoutParams(layoutParams);
-    }
-
-    public final void g3() {
-        si0.a().c(this, new a(zi0.class));
+        layoutParams.height = u11.c.a(getContext(), 83.0f);
+        U2().setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onDetach() {
-        tn0 r;
+        un0 r;
         int i;
         super.onDetach();
-        ok0 E2 = E2();
-        if (E2 != null && (r = E2.r()) != null) {
-            fl0 fl0Var = this.t;
-            if (fl0Var != null) {
-                i = (int) (fl0Var.k() / 1000);
+        pk0 Q2 = Q2();
+        if (Q2 != null && (r = Q2.r()) != null) {
+            gl0 gl0Var = this.t;
+            if (gl0Var != null) {
+                i = (int) (gl0Var.k() / 1000);
             } else {
                 i = 0;
             }
             r.g(i);
         }
-        si0.a().a(this);
+        ti0.a().a(this);
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        fl0 fl0Var = this.t;
-        if (fl0Var != null) {
-            fl0Var.h();
+        gl0 gl0Var = this.t;
+        if (gl0Var != null) {
+            gl0Var.h();
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : ?: SGET   com.huawei.hms.common.internal.TransactionIdCreater.FILL_BYTE char), (r3v0 java.lang.Integer)] */
-    public final String f3(Integer num) {
-        if (num != null) {
-            num.intValue();
-            if (num.intValue() < 10) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(TransactionIdCreater.FILL_BYTE);
-                sb.append(num);
-                return sb.toString();
-            }
-            return String.valueOf(num.intValue());
-        }
-        return "";
-    }
-
-    public final void i3(tn0 tn0Var) {
-        ok0 E2 = E2();
-        if (E2 != null) {
-            E2.H(tn0Var);
-        }
+    public final void s3() {
+        ti0.a().c(this, new a(aj0.class));
     }
 
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
@@ -193,9 +171,9 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
         String str;
         Window window;
         Dialog onCreateDialog = super.onCreateDialog(bundle);
-        ok0 E2 = E2();
-        if (E2 != null) {
-            str = E2.m();
+        pk0 Q2 = Q2();
+        if (Q2 != null) {
+            str = Q2.m();
         } else {
             str = null;
         }
@@ -205,8 +183,30 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
         return onCreateDialog;
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : ?: SGET   com.huawei.hms.common.internal.TransactionIdCreater.FILL_BYTE char), (r3v0 java.lang.Integer)] */
+    public final String r3(Integer num) {
+        if (num != null) {
+            num.intValue();
+            if (num.intValue() < 10) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(TransactionIdCreater.FILL_BYTE);
+                sb.append(num);
+                return sb.toString();
+            }
+            return String.valueOf(num.intValue());
+        }
+        return "";
+    }
+
+    public final void u3(un0 un0Var) {
+        pk0 Q2 = Q2();
+        if (Q2 != null) {
+            Q2.H(un0Var);
+        }
+    }
+
     @Override // com.baidu.nadcore.lp.reward.view.NadRewardVideoDialog
-    public void V2() {
+    public void h3() {
         AdImageView adImageView;
         LinearLayout linearLayout;
         TextView textView;
@@ -216,64 +216,64 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
         String str3;
         String str4;
         String str5;
-        tn0 r;
+        un0 r;
         String str6;
         String l;
         Integer num;
-        tn0 r2;
-        tn0 r3;
-        nk0 s;
-        ViewStub F2 = F2();
-        wk0 a2 = al0.a();
+        un0 r2;
+        un0 r3;
+        ok0 s;
+        ViewStub R2 = R2();
+        xk0 a2 = bl0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
-        F2.setLayoutResource(a2.y());
-        View inflate = F2().inflate();
+        R2.setLayoutResource(a2.y());
+        View inflate = R2().inflate();
         Intrinsics.checkNotNullExpressionValue(inflate, "dialogStub.inflate()");
-        U2(inflate);
+        g3(inflate);
         Resources resources = getResources();
-        wk0 a3 = al0.a();
+        xk0 a3 = bl0.a();
         Intrinsics.checkNotNullExpressionValue(a3, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a3.j());
-        View findViewById = D2().findViewById(R.id.close_img);
+        View findViewById = P2().findViewById(R.id.close_img);
         Intrinsics.checkNotNullExpressionValue(findViewById, "dialogContent.findViewById(R.id.close_img)");
         AdImageView adImageView2 = (AdImageView) findViewById;
-        View findViewById2 = D2().findViewById(R.id.obfuscated_res_0x7f0925fe);
+        View findViewById2 = P2().findViewById(R.id.obfuscated_res_0x7f092683);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.title)");
         TextView textView2 = (TextView) findViewById2;
-        View findViewById3 = D2().findViewById(R.id.coin_count);
+        View findViewById3 = P2().findViewById(R.id.coin_count);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "dialogContent.findViewById(R.id.coin_count)");
         TextView textView3 = (TextView) findViewById3;
-        View findViewById4 = D2().findViewById(R.id.coin_desc);
+        View findViewById4 = P2().findViewById(R.id.coin_desc);
         Intrinsics.checkNotNullExpressionValue(findViewById4, "dialogContent.findViewById(R.id.coin_desc)");
         TextView textView4 = (TextView) findViewById4;
-        View findViewById5 = D2().findViewById(R.id.button_container);
+        View findViewById5 = P2().findViewById(R.id.button_container);
         Intrinsics.checkNotNullExpressionValue(findViewById5, "dialogContent.findViewById(R.id.button_container)");
         LinearLayout linearLayout2 = (LinearLayout) findViewById5;
-        this.s = (TextView) D2().findViewById(R.id.dialog_lottie_count_down);
-        ok0 E2 = E2();
+        this.s = (TextView) P2().findViewById(R.id.dialog_lottie_count_down);
+        pk0 Q2 = Q2();
         Integer num2 = null;
-        if (E2 != null && (s = E2.s()) != null) {
+        if (Q2 != null && (s = Q2.s()) != null) {
             String str7 = ClogBuilder.LogType.CLICK.type;
             Intrinsics.checkNotNullExpressionValue(str7, "ClogBuilder.LogType.CLICK.type");
             String str8 = ClogBuilder.Area.AD_BTN_DETAIL.type;
             Intrinsics.checkNotNullExpressionValue(str8, "ClogBuilder.Area.AD_BTN_DETAIL.type");
             adImageView = adImageView2;
             linearLayout = linearLayout2;
-            textView = NadRewardVideoDialog.B2(this, s, str7, str8, "1", true, false, true, 32, null);
+            textView = NadRewardVideoDialog.N2(this, s, str7, str8, "1", true, false, true, 32, null);
         } else {
             adImageView = adImageView2;
             linearLayout = linearLayout2;
             textView = null;
         }
-        ViewGroup.LayoutParams layoutParams = C2().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = O2().getLayoutParams();
         if (layoutParams != null) {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-            layoutParams2.height = t11.c.c(getContext());
-            layoutParams2.bottomMargin = ((t11.c.e(getContext()) / 2) + t11.c.a(getContext(), 42.0f)) * (-1);
-            C2().setLayoutParams(layoutParams2);
-            ok0 E22 = E2();
-            if (E22 != null) {
-                str = E22.v();
+            layoutParams2.height = u11.c.c(getContext());
+            layoutParams2.bottomMargin = ((u11.c.e(getContext()) / 2) + u11.c.a(getContext(), 42.0f)) * (-1);
+            O2().setLayoutParams(layoutParams2);
+            pk0 Q22 = Q2();
+            if (Q22 != null) {
+                str = Q22.v();
             } else {
                 str = null;
             }
@@ -286,63 +286,63 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
                 textView2.setVisibility(8);
             } else {
                 textView2.setVisibility(0);
-                ok0 E23 = E2();
-                if (E23 != null) {
-                    str2 = E23.v();
+                pk0 Q23 = Q2();
+                if (Q23 != null) {
+                    str2 = Q23.v();
                 } else {
                     str2 = null;
                 }
                 textView2.setText(str2);
-                ok0 E24 = E2();
-                if (E24 != null) {
-                    str3 = E24.y();
+                pk0 Q24 = Q2();
+                if (Q24 != null) {
+                    str3 = Q24.y();
                 } else {
                     str3 = null;
                 }
-                textView2.setTextColor(p11.a(str3, R.color.nad_lottie_dialog_text_default));
+                textView2.setTextColor(q11.a(str3, R.color.nad_lottie_dialog_text_default));
             }
-            ok0 E25 = E2();
+            pk0 Q25 = Q2();
             String str9 = "";
-            textView3.setText((E25 == null || (r3 = E25.r()) == null || (r1 = r3.c()) == null) ? "" : "");
-            ok0 E26 = E2();
-            if (E26 != null) {
-                str4 = E26.y();
+            textView3.setText((Q25 == null || (r3 = Q25.r()) == null || (r1 = r3.c()) == null) ? "" : "");
+            pk0 Q26 = Q2();
+            if (Q26 != null) {
+                str4 = Q26.y();
             } else {
                 str4 = null;
             }
-            textView3.setTextColor(p11.a(str4, R.color.nad_lottie_dialog_text_default));
-            ok0 E27 = E2();
-            textView4.setText((E27 == null || (r1 = E27.i()) == null) ? "" : "");
-            ok0 E28 = E2();
-            if (E28 != null) {
-                str5 = E28.y();
+            textView3.setTextColor(q11.a(str4, R.color.nad_lottie_dialog_text_default));
+            pk0 Q27 = Q2();
+            textView4.setText((Q27 == null || (r1 = Q27.i()) == null) ? "" : "");
+            pk0 Q28 = Q2();
+            if (Q28 != null) {
+                str5 = Q28.y();
             } else {
                 str5 = null;
             }
-            textView4.setTextColor(p11.a(str5, R.color.nad_lottie_dialog_text_default));
+            textView4.setTextColor(q11.a(str5, R.color.nad_lottie_dialog_text_default));
             TextView textView5 = this.s;
             if (textView5 != null) {
-                ok0 E29 = E2();
-                if (E29 != null && (l = E29.l()) != null) {
-                    ok0 E210 = E2();
-                    if (E210 != null && (r2 = E210.r()) != null) {
+                pk0 Q29 = Q2();
+                if (Q29 != null && (l = Q29.l()) != null) {
+                    pk0 Q210 = Q2();
+                    if (Q210 != null && (r2 = Q210.r()) != null) {
                         num = Integer.valueOf(r2.e());
                     } else {
                         num = null;
                     }
-                    String replace$default = StringsKt__StringsJVMKt.replace$default(l, "__REMAININGTIME__", f3(num), false, 4, (Object) null);
+                    String replace$default = StringsKt__StringsJVMKt.replace$default(l, "__REMAININGTIME__", r3(num), false, 4, (Object) null);
                     if (replace$default != null) {
                         str9 = replace$default;
                     }
                 }
                 textView5.setText(str9);
-                ok0 E211 = E2();
-                if (E211 != null) {
-                    str6 = E211.y();
+                pk0 Q211 = Q2();
+                if (Q211 != null) {
+                    str6 = Q211.y();
                 } else {
                     str6 = null;
                 }
-                textView5.setTextColor(p11.a(str6, R.color.nad_lottie_dialog_text_default));
+                textView5.setTextColor(q11.a(str6, R.color.nad_lottie_dialog_text_default));
             }
             if (textView != null) {
                 textView.setTypeface(Typeface.defaultFromStyle(1));
@@ -350,27 +350,16 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
                 textView.setGravity(17);
                 linearLayout.addView(textView, 0, new LinearLayout.LayoutParams(-1, -1));
             }
-            K2(adImageView);
-            ok0 E212 = E2();
-            if (E212 != null && (r = E212.r()) != null) {
+            W2(adImageView);
+            pk0 Q212 = Q2();
+            if (Q212 != null && (r = Q212.r()) != null) {
                 num2 = Integer.valueOf(r.e());
             }
-            h3(num2);
-            g3();
+            t3(num2);
+            s3();
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-    }
-
-    public final void h3(Integer num) {
-        Ref.IntRef intRef = new Ref.IntRef();
-        if (num != null) {
-            int intValue = num.intValue();
-            intRef.element = intValue;
-            this.t = new b(intRef, TimeUnit.SECONDS.toMillis(intValue), 1000L);
-            G2().removeCallbacksAndMessages(null);
-            G2().postDelayed(new c(), 1000L);
-        }
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
@@ -398,6 +387,17 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
         if (dialog2 != null && (window = dialog2.getWindow()) != null) {
             window.setAttributes(layoutParams);
         }
-        a3(getContext());
+        m3(getContext());
+    }
+
+    public final void t3(Integer num) {
+        Ref.IntRef intRef = new Ref.IntRef();
+        if (num != null) {
+            int intValue = num.intValue();
+            intRef.element = intValue;
+            this.t = new b(intRef, TimeUnit.SECONDS.toMillis(intValue), 1000L);
+            S2().removeCallbacksAndMessages(null);
+            S2().postDelayed(new c(), 1000L);
+        }
     }
 }

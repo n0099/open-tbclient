@@ -48,13 +48,13 @@ public class SizeLimitActivity extends BaseActivity implements DialogInterface.O
 
     private void showDialog(Cursor cursor) {
         String formatFileSize = Formatter.formatFileSize(this, cursor.getInt(cursor.getColumnIndexOrThrow("total_bytes")));
-        String string = getString(R.string.obfuscated_res_0x7f0f05c5);
+        String string = getString(R.string.obfuscated_res_0x7f0f05cd);
         boolean z = this.mCurrentIntent.getExtras().getBoolean(DownloadInfo.EXTRA_IS_WIFI_REQUIRED);
         BoxAlertDialog.Builder builder = new BoxAlertDialog.Builder(this);
         if (z) {
-            builder.setTitle(R.string.obfuscated_res_0x7f0f0603).setMessage(getString(R.string.obfuscated_res_0x7f0f0602, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05c5, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05c4, this);
+            builder.setTitle(R.string.obfuscated_res_0x7f0f060b).setMessage(getString(R.string.obfuscated_res_0x7f0f060a, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05cd, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05cc, this);
         } else {
-            builder.setTitle(R.string.obfuscated_res_0x7f0f0601).setMessage(getString(R.string.obfuscated_res_0x7f0f0600, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05c6, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05c5, this);
+            builder.setTitle(R.string.obfuscated_res_0x7f0f0609).setMessage(getString(R.string.obfuscated_res_0x7f0f0608, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05ce, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05cd, this);
         }
         this.mDialog = builder.setOnCancelListener(this).show(true);
     }

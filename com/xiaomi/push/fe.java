@@ -9,11 +9,11 @@ public final class fe {
         public ey a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f360a;
+        public String f356a;
     }
 
     public static a a(Exception exc) {
-        m479a(exc);
+        m483a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -37,13 +37,13 @@ public final class fe {
             aVar.a = ey.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == ey.GSLB_TCP_ERR_OTHER) {
-            aVar.f360a = str;
+            aVar.f356a = str;
         }
         return aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m479a(Exception exc) {
+    public static void m483a(Exception exc) {
         if (exc == null) {
             throw null;
         }
@@ -53,7 +53,7 @@ public final class fe {
         ey eyVar;
         ey eyVar2;
         Throwable cause;
-        m479a(exc);
+        m483a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -78,7 +78,7 @@ public final class fe {
             }
             eyVar2 = aVar.a;
             if (eyVar2 != ey.CONN_TCP_ERR_OTHER || eyVar2 == ey.CONN_XMPP_ERR || eyVar2 == ey.CONN_BOSH_ERR) {
-                aVar.f360a = str;
+                aVar.f356a = str;
             }
             return aVar;
         }
@@ -87,14 +87,14 @@ public final class fe {
         eyVar2 = aVar.a;
         if (eyVar2 != ey.CONN_TCP_ERR_OTHER) {
         }
-        aVar.f360a = str;
+        aVar.f356a = str;
         return aVar;
     }
 
     public static a c(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m479a(exc);
+        m483a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -122,7 +122,7 @@ public final class fe {
             }
             eyVar2 = aVar.a;
             if (eyVar2 != ey.BIND_TCP_ERR || eyVar2 == ey.BIND_XMPP_ERR || eyVar2 == ey.BIND_BOSH_ERR) {
-                aVar.f360a = str;
+                aVar.f356a = str;
             }
             return aVar;
         } else {
@@ -132,14 +132,14 @@ public final class fe {
         eyVar2 = aVar.a;
         if (eyVar2 != ey.BIND_TCP_ERR) {
         }
-        aVar.f360a = str;
+        aVar.f356a = str;
         return aVar;
     }
 
     public static a d(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m479a(exc);
+        m483a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -164,7 +164,7 @@ public final class fe {
             }
             eyVar2 = aVar.a;
             if (eyVar2 != ey.CHANNEL_TCP_ERR || eyVar2 == ey.CHANNEL_XMPPEXCEPTION || eyVar2 == ey.CHANNEL_BOSH_EXCEPTION) {
-                aVar.f360a = str;
+                aVar.f356a = str;
             }
             return aVar;
         } else {
@@ -174,7 +174,7 @@ public final class fe {
         eyVar2 = aVar.a;
         if (eyVar2 != ey.CHANNEL_TCP_ERR) {
         }
-        aVar.f360a = str;
+        aVar.f356a = str;
         return aVar;
     }
 }

@@ -1,53 +1,43 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.AwardInfo;
-import tbclient.AwardUser;
-import tbclient.LotteryRegular;
-import tbclient.LotteryTheme;
-import tbclient.SeniorLottery;
+import tbclient.FrsPage.WorldCup;
+import tbclient.FrsPage.WorldCupGame;
+import tbclient.FrsPage.WorldCupLottery;
+import tbclient.FrsPage.WorldCupNews;
+import tbclient.FrsPage.WorldCupPk;
 /* loaded from: classes9.dex */
-public class x2d extends qoc {
+public class x2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SeniorLottery seniorLottery) {
+    public static JSONObject b(@NonNull WorldCup worldCup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, seniorLottery)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCup)) == null) {
             JSONObject jSONObject = new JSONObject();
-            LotteryTheme lotteryTheme = seniorLottery.theme;
-            if (lotteryTheme != null) {
-                qoc.a(jSONObject, "theme", wzc.b(lotteryTheme));
+            WorldCupNews worldCupNews = worldCup.news;
+            if (worldCupNews != null) {
+                ltc.a(jSONObject, CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER, b3d.b(worldCupNews));
             }
-            if (seniorLottery.award_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (AwardInfo awardInfo : seniorLottery.award_info) {
-                    jSONArray.put(aqc.b(awardInfo));
-                }
-                qoc.a(jSONObject, "award_info", jSONArray);
+            WorldCupPk worldCupPk = worldCup.pk;
+            if (worldCupPk != null) {
+                ltc.a(jSONObject, PushConstants.URI_PACKAGE_NAME, c3d.b(worldCupPk));
             }
-            qoc.a(jSONObject, "myaward", seniorLottery.myaward);
-            if (seniorLottery.luck_users != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (AwardUser awardUser : seniorLottery.luck_users) {
-                    jSONArray2.put(bqc.b(awardUser));
-                }
-                qoc.a(jSONObject, "luck_users", jSONArray2);
+            WorldCupLottery worldCupLottery = worldCup.lottery;
+            if (worldCupLottery != null) {
+                ltc.a(jSONObject, "lottery", a3d.b(worldCupLottery));
             }
-            qoc.a(jSONObject, "act_desc", seniorLottery.act_desc);
-            if (seniorLottery.act_regular != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (LotteryRegular lotteryRegular : seniorLottery.act_regular) {
-                    jSONArray3.put(vzc.b(lotteryRegular));
-                }
-                qoc.a(jSONObject, "act_regular", jSONArray3);
+            WorldCupGame worldCupGame = worldCup.game;
+            if (worldCupGame != null) {
+                ltc.a(jSONObject, "game", y2d.b(worldCupGame));
             }
             return jSONObject;
         }

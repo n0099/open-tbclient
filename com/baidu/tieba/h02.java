@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class h02 extends nz1 {
+public class h02 extends oz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+
+    @Override // com.baidu.tieba.oz1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public h02() {
         Interceptable interceptable = $ic;
@@ -27,24 +33,16 @@ public class h02 extends nz1 {
         }
     }
 
-    @Override // com.baidu.tieba.nz1
-    public void a(oz1 oz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.oz1
+    public void a(pz1 pz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) {
-            if (oz1Var.a() == 0) {
-                oz1Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
+            pz1Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                h32.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
             }
-            canvas.rotate(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.nz1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            float optDouble = (float) jSONArray.optDouble(0);
-            this.a = optDouble;
-            this.a = (float) Math.toDegrees(optDouble);
         }
     }
 }

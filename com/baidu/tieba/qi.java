@@ -1,16 +1,9 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import android.view.ViewGroup;
 /* loaded from: classes7.dex */
-public interface qi<V extends ViewGroup> {
-    int getContentViewsCount();
+public interface qi<T> {
+    int getCount();
 
-    int getFooterViewsCount();
+    T getItem(int i);
 
-    int getHeaderViewsCount();
-
-    V getListView();
-
-    boolean removeHeaderView(View view2);
+    void notifyDataSetChanged();
 }

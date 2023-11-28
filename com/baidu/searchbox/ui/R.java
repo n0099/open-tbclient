@@ -4,42 +4,42 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class dimen {
-        public static final int progressbar_height = 0x7f070785;
-        public static final int progressbar_img_height = 0x7f070786;
-        public static final int progressbar_img_margin_right = 0x7f070787;
-        public static final int progressbar_img_width = 0x7f070788;
-        public static final int progressbar_margin_left = 0x7f070789;
-        public static final int progressbar_msg_margin_left = 0x7f07078a;
-        public static final int progressbar_msg_margin_right = 0x7f07078b;
-        public static final int progressbar_msg_margin_top_btm = 0x7f07078c;
-        public static final int progressbar_msg_max_width = 0x7f07078d;
-        public static final int progressbar_msg_text_size = 0x7f07078e;
-        public static final int progressbar_width = 0x7f07078f;
+        public static final int progressbar_height = 0x7f070798;
+        public static final int progressbar_img_height = 0x7f070799;
+        public static final int progressbar_img_margin_right = 0x7f07079a;
+        public static final int progressbar_img_width = 0x7f07079b;
+        public static final int progressbar_margin_left = 0x7f07079c;
+        public static final int progressbar_msg_margin_left = 0x7f07079d;
+        public static final int progressbar_msg_margin_right = 0x7f07079e;
+        public static final int progressbar_msg_margin_top_btm = 0x7f07079f;
+        public static final int progressbar_msg_max_width = 0x7f0707a0;
+        public static final int progressbar_msg_text_size = 0x7f0707a1;
+        public static final int progressbar_width = 0x7f0707a2;
     }
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int d20_close = 0x7f08057c;
-        public static final int d20_close_pressed = 0x7f08057d;
-        public static final int d20_loading = 0x7f08057e;
-        public static final int d20_loading_animation = 0x7f08057f;
-        public static final int d20_loading_bg = 0x7f080580;
-        public static final int d20_selector_close = 0x7f080581;
-        public static final int loading_progress = 0x7f080fa1;
-        public static final int loading_progress_animation = 0x7f080fa2;
+        public static final int d20_close = 0x7f08057f;
+        public static final int d20_close_pressed = 0x7f080580;
+        public static final int d20_loading = 0x7f080581;
+        public static final int d20_loading_animation = 0x7f080582;
+        public static final int d20_loading_bg = 0x7f080583;
+        public static final int d20_selector_close = 0x7f080584;
+        public static final int loading_progress = 0x7f080fc1;
+        public static final int loading_progress_animation = 0x7f080fc2;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int close = 0x7f09075a;
-        public static final int loading_bar = 0x7f091694;
-        public static final int message = 0x7f0917a9;
-        public static final int root_container = 0x7f091ffb;
+        public static final int close = 0x7f090776;
+        public static final int loading_bar = 0x7f091705;
+        public static final int message = 0x7f09181a;
+        public static final int root_container = 0x7f092072;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int d20_loading_dialog = 0x7f0d024c;
+        public static final int d20_loading_dialog = 0x7f0d0252;
     }
 
     /* loaded from: classes4.dex */

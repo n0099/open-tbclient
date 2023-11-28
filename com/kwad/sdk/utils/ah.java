@@ -1,32 +1,31 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import java.util.List;
 /* loaded from: classes10.dex */
 public final class ah {
-    @RequiresApi(api = 26)
-    public static boolean cD(Context context) {
-        try {
-            return context.getPackageManager().canRequestPackageInstalls();
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
-            return false;
+    public static boolean L(@Nullable List<?> list) {
+        if (list != null && !list.isEmpty()) {
+            return true;
         }
+        return false;
     }
 
-    @Nullable
-    public static String[] cE(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096);
-            if (packageInfo != null) {
-                return packageInfo.requestedPermissions;
-            }
-            return null;
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
-            return null;
+    public static boolean M(@Nullable List<?> list) {
+        if (list != null && !list.isEmpty()) {
+            return false;
         }
+        return true;
+    }
+
+    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
+        if (obj != null && obj.equals(obj2)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void checkUiThread() {
+        SystemUtil.checkUiThread();
     }
 }

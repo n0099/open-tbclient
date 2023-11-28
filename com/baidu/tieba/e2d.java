@@ -5,25 +5,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.QuizOption;
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes5.dex */
-public class e2d extends qoc {
+public class e2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull QuizOption quizOption) {
+    public static JSONObject b(@NonNull StarEnter starEnter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, quizOption)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starEnter)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "quiz_option_id", quizOption.quiz_option_id);
-            qoc.a(jSONObject, "quiz_option", quizOption.quiz_option);
-            qoc.a(jSONObject, "icon", quizOption.icon);
-            qoc.a(jSONObject, "total_user_count", quizOption.total_user_count);
-            qoc.a(jSONObject, "button_img", quizOption.button_img);
-            qoc.a(jSONObject, "button_text_sup", quizOption.button_text_sup);
-            qoc.a(jSONObject, "button_text_no", quizOption.button_text_no);
+            ltc.a(jSONObject, "icon", starEnter.icon);
+            ltc.a(jSONObject, "title", starEnter.title);
+            ltc.a(jSONObject, "weight", starEnter.weight);
+            ltc.a(jSONObject, "type", starEnter.type);
+            ltc.a(jSONObject, "url", starEnter.url);
+            ltc.a(jSONObject, "time", starEnter.time);
+            ltc.a(jSONObject, "obj_id", starEnter.obj_id);
+            ltc.a(jSONObject, "text", starEnter.text);
+            ltc.a(jSONObject, "rank_num", starEnter.rank_num);
+            ltc.a(jSONObject, "bazhu_mark", starEnter.bazhu_mark);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

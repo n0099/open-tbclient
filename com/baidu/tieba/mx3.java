@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,73 +8,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mx3 extends my3 {
+public class mx3 extends ny3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947988001, "Lcom/baidu/tieba/mx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947988001, "Lcom/baidu/tieba/mx3;");
-                return;
-            }
-        }
-        c = rm1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mx3() {
-        super("openApp");
+        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.my3
-    public hy1 a(@NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
+    @Override // com.baidu.tieba.ny3
+    public iy1 a(@NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, kj2Var)) == null) {
-            if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", vj3.c());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                kj2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            hy3.a(optString, "openApp", null, null, null);
-            if (!vx3.h(AppRuntime.getAppContext(), optString)) {
-                kj2Var.onFail(31011, "app is not installed");
-                hy3.a(optString, "openApp", "fail", String.valueOf(31011), null);
-                return null;
-            }
-            if (vx3.l(AppRuntime.getAppContext(), optString)) {
-                kj2Var.onSuccess(null);
-                hy3.a(optString, "openApp", "success", null, null);
-            } else {
-                kj2Var.onFail(31019, "open app fail");
-                hy3.a(optString, "openApp", "fail", String.valueOf(31019), null);
-            }
+            lj2Var.onSuccess(jSONObject2);
             return null;
         }
-        return (hy1) invokeLL.objValue;
+        return (iy1) invokeLL.objValue;
     }
 }

@@ -1,19 +1,19 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.uec;
+import com.baidu.tieba.pjc;
 import com.yy.transvod.player.common.MixAudioExtraInfo;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
-public final class NativeFfmpeg extends uec {
+/* loaded from: classes2.dex */
+public final class NativeFfmpeg extends pjc {
     public static final Integer d = 1;
     public static final Integer e = 2;
     public long c = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface a {
     }
 

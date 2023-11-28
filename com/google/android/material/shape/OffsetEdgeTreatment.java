@@ -1,7 +1,7 @@
 package com.google.android.material.shape;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class OffsetEdgeTreatment extends EdgeTreatment {
     public final float offset;
     public final EdgeTreatment other;

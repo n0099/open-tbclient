@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b&\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u0005\u001a\u00020\u0006H\u0017J\"\u0010\u0007\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u000bH\u0015J\u0010\u0010\f\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u0004H\u0015J\u0018\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u0012H\u0017J+\u0010\u0013\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00042\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00160\u00152\u0006\u0010\u0017\u001a\u00020\u0018H\u0017¢\u0006\u0002\u0010\u0019J \u0010\u001a\u001a\u00020\u0006*\u00020\u001b2\u0012\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\u00060\u001dH\u0002J \u0010\u001f\u001a\u00020\u000f*\u00020\u001b2\u0012\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\u000f0\u001dH\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/tieba/im/base/core/slice/SliceActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "()V", "lastSkinType", "", "finish", "", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onKeyDown", "", "keyCode", "event", "Landroid/view/KeyEvent;", "onRequestPermissionsResult", "permissions", "", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "recursiveEachFragment", "Landroidx/fragment/app/FragmentManager;", "action", "Lkotlin/Function1;", "Landroidx/fragment/app/Fragment;", "recursiveEachFragmentWithStop", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b&\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u0005\u001a\u00020\u0006H\u0017J\"\u0010\u0007\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u000bH\u0015J\u0010\u0010\f\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\u0004H\u0015J\u0018\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u0012H\u0017J+\u0010\u0013\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00042\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00160\u00152\u0006\u0010\u0017\u001a\u00020\u0018H\u0017¢\u0006\u0002\u0010\u0019J \u0010\u001a\u001a\u00020\u0006*\u00020\u001b2\u0012\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\u00060\u001dH\u0002J \u0010\u001f\u001a\u00020\u000f*\u00020\u001b2\u0012\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\u000f0\u001dH\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/tieba/im/base/core/slice/SliceActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "()V", "lastSkinType", "", "finish", "", "onActivityResult", AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onKeyDown", "", "keyCode", "event", "Landroid/view/KeyEvent;", "onRequestPermissionsResult", "permissions", "", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "recursiveEachFragment", "Landroidx/fragment/app/FragmentManager;", "action", "Lkotlin/Function1;", "Landroidx/fragment/app/Fragment;", "recursiveEachFragmentWithStop", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public abstract class SliceActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -49,11 +50,11 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.finish();
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            m1(supportFragmentManager, SliceActivity$finish$1.INSTANCE);
+            l1(supportFragmentManager, SliceActivity$finish$1.INSTANCE);
         }
     }
 
-    public final void m1(FragmentManager fragmentManager, Function1<? super Fragment, Unit> function1) {
+    public final void l1(FragmentManager fragmentManager, Function1<? super Fragment, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, function1) == null) {
             for (Fragment it : fragmentManager.getFragments()) {
@@ -61,12 +62,12 @@ public abstract class SliceActivity extends BaseFragmentActivity {
                 function1.invoke(it);
                 FragmentManager childFragmentManager = it.getChildFragmentManager();
                 Intrinsics.checkNotNullExpressionValue(childFragmentManager, "it.childFragmentManager");
-                m1(childFragmentManager, function1);
+                l1(childFragmentManager, function1);
             }
         }
     }
 
-    public final boolean n1(FragmentManager fragmentManager, Function1<? super Fragment, Boolean> function1) {
+    public final boolean m1(FragmentManager fragmentManager, Function1<? super Fragment, Boolean> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fragmentManager, function1)) == null) {
@@ -77,7 +78,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
                 }
                 FragmentManager childFragmentManager = it.getChildFragmentManager();
                 Intrinsics.checkNotNullExpressionValue(childFragmentManager, "it.childFragmentManager");
-                if (n1(childFragmentManager, function1)) {
+                if (m1(childFragmentManager, function1)) {
                     return true;
                 }
             }
@@ -94,7 +95,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.onActivityResult(i, i2, intent);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            m1(supportFragmentManager, new Function1<Fragment, Unit>(i, i2, intent) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onActivityResult$1
+            l1(supportFragmentManager, new Function1<Fragment, Unit>(i, i2, intent) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onActivityResult$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ Intent $data;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +163,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.onRequestPermissionsResult(i, permissions, grantResults);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            m1(supportFragmentManager, new Function1<Fragment, Unit>(i, permissions, grantResults) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onRequestPermissionsResult$1
+            l1(supportFragmentManager, new Function1<Fragment, Unit>(i, permissions, grantResults) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onRequestPermissionsResult$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int[] $grantResults;
@@ -230,7 +231,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
         this.a = i;
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-        m1(supportFragmentManager, new Function1<Fragment, Unit>(i) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onChangeSkinType$1
+        l1(supportFragmentManager, new Function1<Fragment, Unit>(i) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onChangeSkinType$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int $skinType;
@@ -292,7 +293,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             Intrinsics.checkNotNullParameter(event, "event");
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            if (n1(supportFragmentManager, new Function1<Fragment, Boolean>(i, event) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onKeyDown$isConsumed$1
+            if (m1(supportFragmentManager, new Function1<Fragment, Boolean>(i, event) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onKeyDown$isConsumed$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ KeyEvent $event;
                 public transient /* synthetic */ FieldHolder $fh;

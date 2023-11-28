@@ -1,35 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ebd;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONObject;
+import tbclient.UniversalLabel;
 /* loaded from: classes7.dex */
-public class pad {
+public class pad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ebd.b a(n9d n9dVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeLLLL;
+    @NonNull
+    public static JSONObject b(@NonNull UniversalLabel universalLabel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, n9dVar, list, str, viewParams)) == null) {
-            ebd.b bVar = new ebd.b();
-            bVar.c = n9dVar;
-            bVar.a = list;
-            bVar.b = str;
-            if (viewParams != null) {
-                bVar.d = viewParams.appCustomExpand;
-                bVar.f = viewParams.viewEventListener;
-                bVar.e = viewParams.clientInfoExpand;
-                bVar.h = viewParams.windowParams;
-                bVar.i = viewParams.showFaqPage;
-                bVar.j = viewParams.splitOrderPayScene;
-            }
-            return bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, universalLabel)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "label_id", universalLabel.label_id);
+            ltc.a(jSONObject, "label_text", universalLabel.label_text);
+            ltc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, universalLabel.text_color);
+            ltc.a(jSONObject, "text_color_black", universalLabel.text_color_black);
+            ltc.a(jSONObject, "background_color", universalLabel.background_color);
+            ltc.a(jSONObject, "background_color_black", universalLabel.background_color_black);
+            ltc.a(jSONObject, "round_radius", universalLabel.round_radius);
+            return jSONObject;
         }
-        return (ebd.b) invokeLLLL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

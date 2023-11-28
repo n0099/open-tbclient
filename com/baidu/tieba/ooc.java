@@ -1,60 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.subscriptions.SequentialSubscription;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ooc implements qjc {
+public final class ooc {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<ooc> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SequentialSubscription a;
+    public final hoc a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040422, "Lcom/baidu/tieba/ooc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948040422, "Lcom/baidu/tieba/ooc;");
+                return;
+            }
+        }
+        b = new AtomicReference<>();
+    }
+
+    public static ooc a() {
+        ooc oocVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                ooc oocVar2 = b.get();
+                if (oocVar2 != null) {
+                    return oocVar2;
+                }
+                oocVar = new ooc();
+            } while (!b.compareAndSet(null, oocVar));
+            return oocVar;
+        }
+        return (ooc) invokeV.objValue;
+    }
+
+    public static hoc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (hoc) invokeV.objValue;
+    }
 
     public ooc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new SequentialSubscription();
-    }
-
-    @Override // com.baidu.tieba.qjc
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qjc
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    public void a(qjc qjcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qjcVar) == null) {
-            if (qjcVar != null) {
-                this.a.update(qjcVar);
-                return;
-            }
-            throw new IllegalArgumentException("Subscription can not be null");
+        hoc b2 = moc.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new poc(Looper.getMainLooper());
         }
     }
 }

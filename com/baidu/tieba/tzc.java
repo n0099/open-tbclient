@@ -4,21 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.LiveCoverStatus;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes8.dex */
-public class tzc extends qoc {
+public class tzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LiveCoverStatus liveCoverStatus) {
+    public static JSONObject b(@NonNull ColorEgg colorEgg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveCoverStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, colorEgg)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "status_num", liveCoverStatus.status_num);
-            qoc.a(jSONObject, "status", liveCoverStatus.status);
+            if (colorEgg.holiday_words != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : colorEgg.holiday_words) {
+                    jSONArray.put(str);
+                }
+                ltc.a(jSONObject, "holiday_words", jSONArray);
+            }
+            ltc.a(jSONObject, "style_flag", colorEgg.style_flag);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

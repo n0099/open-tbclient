@@ -9,9 +9,17 @@ public final class d extends a<Boolean> {
         super(str, Boolean.valueOf(z));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: By */
+    public final Boolean getValue() {
+        return (Boolean) super.getValue();
+    }
+
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        setValue(Boolean.valueOf(sharedPreferences.getBoolean(getKey(), sx().booleanValue())));
+        setValue(Boolean.valueOf(sharedPreferences.getBoolean(getKey(), Bx().booleanValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -20,15 +28,11 @@ public final class d extends a<Boolean> {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
-        setValue(jSONObject != null ? Boolean.valueOf(jSONObject.optBoolean(getKey(), sx().booleanValue())) : sx());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.config.item.b
-    @NonNull
-    /* renamed from: sy */
-    public final Boolean getValue() {
-        return (Boolean) super.getValue();
+    public final void j(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            setValue(Boolean.valueOf(jSONObject.optBoolean(getKey(), Bx().booleanValue())));
+        } else {
+            setValue(Bx());
+        }
     }
 }

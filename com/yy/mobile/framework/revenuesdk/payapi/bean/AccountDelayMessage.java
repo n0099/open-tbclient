@@ -1,6 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AccountDelayMessage {
     public long amount;
     public int appid;

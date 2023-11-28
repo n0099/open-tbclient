@@ -6,14 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class nf1<T> implements pf1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public lf1<List<T>> b;
-    public lf1<List<T>> c;
+    public T a;
+    public mf1<T> b;
+    public mf1<T> c;
 
     public nf1() {
         Interceptable interceptable = $ic;
@@ -39,34 +38,34 @@ public class nf1<T> implements pf1<T> {
     }
 
     @Override // com.baidu.tieba.pf1
-    public List<T> getList() {
+    public T get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.a;
-            if (list != null) {
-                return list;
+            T t = this.a;
+            if (t != null) {
+                return t;
             }
-            lf1<List<T>> lf1Var = this.b;
-            if (lf1Var != null) {
-                List<T> list2 = lf1Var.get();
-                this.a = list2;
-                return list2;
+            mf1<T> mf1Var = this.b;
+            if (mf1Var != null) {
+                T t2 = mf1Var.get();
+                this.a = t2;
+                return t2;
             }
-            lf1<List<T>> lf1Var2 = this.c;
-            if (lf1Var2 != null) {
-                return lf1Var2.get();
+            mf1<T> mf1Var2 = this.c;
+            if (mf1Var2 != null) {
+                return mf1Var2.get();
             }
             return null;
         }
-        return (List) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.pf1
-    public void a(lf1<List<T>> lf1Var) {
+    public void a(mf1<T> mf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lf1Var) == null) {
-            this.b = lf1Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mf1Var) == null) {
+            this.b = mf1Var;
             this.a = null;
         }
     }

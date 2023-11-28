@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ja;
+import com.baidu.tieba.ka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PageCountSwitch extends ja {
+public class PageCountSwitch extends ka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PAGE_COUNT_SWITCH_KEY = "background_page_count_switch";
     public static final int TYPE_OFF = 0;
@@ -34,14 +34,14 @@ public class PageCountSwitch extends ja {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     /* renamed from: getCrashKeys */
     public String[] mo131getCrashKeys() {
         InterceptResult invokeV;
@@ -52,7 +52,7 @@ public class PageCountSwitch extends ja {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class PageCountSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class PageCountSwitch extends ja {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? PAGE_COUNT_SWITCH_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ja
+    @Override // com.baidu.tieba.ka
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

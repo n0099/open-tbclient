@@ -68,15 +68,15 @@ public final class PermissionInAppWindow extends PopupWindow {
             return;
         }
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07db, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07f5, (ViewGroup) null);
         setContentView(inflate);
         setWidth(-1);
         setHeight(-2);
         setBackgroundDrawable(new ColorDrawable(0));
         setAnimationStyle(R.style.obfuscated_res_0x7f1003fa);
-        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c08);
-        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c01);
-        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c07);
+        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c7d);
+        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c76);
+        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c7c);
         updateUI(context);
     }
 
@@ -96,15 +96,15 @@ public final class PermissionInAppWindow extends PopupWindow {
         }
         TextView textView = this.mTitleView;
         if (textView != null) {
-            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601ff, null));
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f060201, null));
         }
         TextView textView2 = this.mContentView;
         if (textView2 != null) {
-            textView2.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601ff, null));
+            textView2.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f060201, null));
         }
         LinearLayout linearLayout = this.mPermissionRootView;
         if (linearLayout != null) {
-            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f0813eb, null));
+            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f08140e, null));
         }
     }
 

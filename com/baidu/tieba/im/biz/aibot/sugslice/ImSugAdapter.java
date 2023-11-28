@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
@@ -19,10 +18,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.databinding.ImSugItemLayoutBinding;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,12 +37,12 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public final dn8 b;
+    public final gq8 b;
     public List<AbilityItem> c;
 
     public abstract SugSourceType A();
 
-    public boolean m(View container) {
+    public boolean n(View container) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, container)) == null) {
@@ -53,7 +52,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         return invokeL.booleanValue;
     }
 
-    public boolean n(TextView container) {
+    public boolean o(TextView container) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, container)) == null) {
@@ -89,7 +88,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         }
     }
 
-    public ImSugAdapter(Context context, dn8 processor) {
+    public ImSugAdapter(Context context, gq8 processor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,10 +112,10 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
     public final void u(ImageView imageView, AbilityItem.StyleConf styleConf) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, imageView, styleConf) == null) {
-            Uri q = q(styleConf);
-            if (q != null) {
+            Uri r = r(styleConf);
+            if (r != null) {
                 imageView.setVisibility(0);
-                Glide.with(this.a).load(q).placeholder((int) R.drawable.pic_use_header_40_n).into(imageView);
+                Glide.with(this.a).load(r).placeholder((int) R.drawable.pic_use_header_40_n).into(imageView);
                 return;
             }
             imageView.setVisibility(8);
@@ -171,18 +170,18 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                     return;
                 }
             }
-            if (!n(textView)) {
+            if (!o(textView)) {
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             }
         }
     }
 
-    public final void o(View view2, AbilityItem.StyleConf styleConf) {
+    public final void p(View view2, AbilityItem.StyleConf styleConf) {
         boolean z;
         String backgroundColor;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, styleConf) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, styleConf) == null) {
             boolean z3 = false;
             if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (styleConf.getDark() != null) {
@@ -226,8 +225,8 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                     return;
                 }
             }
-            if (!m(view2)) {
-                corner.setBackGroundRealColor(bqa.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
+            if (!n(view2)) {
+                corner.setBackGroundRealColor(uua.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
             }
         }
     }
@@ -255,7 +254,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         }
     }
 
-    public final void p(TextView textView, AbilityItem.StyleConf styleConf) {
+    public final void q(TextView textView, AbilityItem.StyleConf styleConf) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, textView, styleConf) == null) {
             if (!TextUtils.isEmpty(styleConf.getContent())) {
@@ -286,13 +285,13 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
             return;
         }
-        Object tag = view2.getTag(R.id.obfuscated_res_0x7f09237e);
+        Object tag = view2.getTag(R.id.obfuscated_res_0x7f092400);
         if (tag != null) {
             AbilityItem abilityItem = (AbilityItem) tag;
-            Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f092380);
+            Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f092402);
             if (tag2 != null) {
                 int intValue = ((Integer) tag2).intValue();
                 z(abilityItem);
@@ -305,7 +304,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.im.lib.socket.msg.data.AbilityItem");
     }
 
-    public final Uri q(AbilityItem.StyleConf styleConf) {
+    public final Uri r(AbilityItem.StyleConf styleConf) {
         InterceptResult invokeL;
         boolean z;
         String icon;
@@ -384,16 +383,16 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                 return;
             }
             ViewSingleClickCompat.setOnClickListener(holder.itemView, this);
-            holder.itemView.setTag(R.id.obfuscated_res_0x7f092380, Integer.valueOf(i));
-            holder.itemView.setTag(R.id.obfuscated_res_0x7f09237e, item);
+            holder.itemView.setTag(R.id.obfuscated_res_0x7f092402, Integer.valueOf(i));
+            holder.itemView.setTag(R.id.obfuscated_res_0x7f092400, item);
             AbilityItem.StyleConf styleConf2 = item.getStyleConf();
             ImageView a = holder.a();
             Intrinsics.checkNotNull(styleConf2);
             u(a, styleConf2);
-            p(holder.b(), styleConf2);
+            q(holder.b(), styleConf2);
             View view2 = holder.itemView;
             Intrinsics.checkNotNullExpressionValue(view2, "holder.itemView");
-            o(view2, styleConf2);
+            p(view2, styleConf2);
             Intrinsics.checkNotNullExpressionValue(item, "item");
             if (t(item)) {
                 holder.c().setVisibility(0);

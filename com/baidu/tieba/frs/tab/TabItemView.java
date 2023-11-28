@@ -11,9 +11,9 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qr7;
-import com.baidu.tieba.r28;
-import com.baidu.tieba.rr7;
+import com.baidu.tieba.bu7;
+import com.baidu.tieba.cu7;
+import com.baidu.tieba.h58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,19 +25,19 @@ import java.util.List;
 public class TabItemView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r28 a;
+    public h58 a;
     public int b;
     public boolean c;
     public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabItemView(Context context, r28 r28Var, int i, boolean z) {
+    public TabItemView(Context context, h58 h58Var, int i, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, r28Var, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {context, h58Var, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,7 +50,7 @@ public class TabItemView extends TextView {
         }
         this.b = 0;
         this.d = 0;
-        this.a = r28Var;
+        this.a = h58Var;
         this.c = z;
         b(context, i);
     }
@@ -104,11 +104,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            r28 r28Var = this.a;
-            if (r28Var == null) {
+            h58 h58Var = this.a;
+            if (h58Var == null) {
                 return -1;
             }
-            return r28Var.b;
+            return h58Var.b;
         }
         return invokeV.intValue;
     }
@@ -117,11 +117,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            r28 r28Var = this.a;
-            if (r28Var == null) {
+            h58 h58Var = this.a;
+            if (h58Var == null) {
                 return null;
             }
-            return r28Var.d;
+            return h58Var.d;
         }
         return (String) invokeV.objValue;
     }
@@ -137,9 +137,9 @@ public class TabItemView extends TextView {
             }
             setSingleLine();
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-            r28 r28Var = this.a;
-            if (r28Var != null) {
-                setText(r28Var.a);
+            h58 h58Var = this.a;
+            if (h58Var != null) {
+                setText(h58Var.a);
             }
             a();
         }
@@ -188,12 +188,12 @@ public class TabItemView extends TextView {
     }
 
     public void setState(int i) {
-        rr7 rr7Var;
-        List<qr7> list;
+        cu7 cu7Var;
+        List<bu7> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            r28 r28Var = this.a;
-            if (r28Var != null && (rr7Var = r28Var.c) != null && (list = rr7Var.b) != null && list.size() > 0) {
+            h58 h58Var = this.a;
+            if (h58Var != null && (cu7Var = h58Var.c) != null && (list = cu7Var.b) != null && list.size() > 0) {
                 int i2 = -BdUtilHelper.getDimens(getContext(), R.dimen.tbds20);
                 if (!this.c) {
                     i2 = 0;

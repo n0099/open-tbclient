@@ -1,69 +1,52 @@
 package com.kwad.components.core.webview.jshandler;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
-import com.ksad.json.annotation.KsJson;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.KsAdSDKImpl;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class ag implements com.kwad.sdk.core.webview.kwai.a {
-    public static Handler MX;
-    public com.kwad.components.core.c.a.c DV;
-    public com.kwad.sdk.core.webview.b MW;
-    public b MY;
+public final class ag implements com.kwad.sdk.core.webview.c.a {
+    public final com.kwad.sdk.core.webview.b VP;
 
-    @KsJson
-    /* loaded from: classes10.dex */
-    public static class a extends com.kwad.sdk.core.response.kwai.a {
-        public int gJ;
-    }
-
-    /* loaded from: classes10.dex */
-    public interface b {
-        @MainThread
-        void al(int i);
-    }
-
-    public ag(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, b bVar2) {
-        this.MW = bVar;
-        this.DV = cVar;
-        this.MY = bVar2;
-        if (MX == null) {
-            MX = new Handler(Looper.getMainLooper());
-        }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        try {
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            a aVar = new a();
-            aVar.parseJson(new JSONObject(str));
-            final int i = aVar.gJ;
-            MX.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.ag.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    if (ag.this.MY != null) {
-                        ag.this.MY.al(i);
-                    }
-                }
-            });
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
-        }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     @NonNull
     public final String getKey() {
-        return "playableConvert";
+        return "getScreenOrientation";
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     public final void onDestroy() {
+    }
+
+    /* loaded from: classes10.dex */
+    public static final class a implements com.kwad.sdk.core.b {
+        public int screenOrientation;
+
+        @Override // com.kwad.sdk.core.b
+        public final void parseJson(@Nullable JSONObject jSONObject) {
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public final JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            com.kwad.sdk.utils.t.putValue(jSONObject, "screenOrientation", this.screenOrientation);
+            return jSONObject;
+        }
+    }
+
+    public ag(com.kwad.sdk.core.webview.b bVar) {
+        this.VP = bVar;
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        if (this.VP.FE()) {
+            cVar.onError(-1, "native adTemplate is null");
+            return;
+        }
+        a aVar = new a();
+        KsAdSDKImpl.get().getContext();
+        aVar.screenOrientation = !com.kwad.sdk.utils.ai.Kx() ? 1 : 0;
+        cVar.a(aVar);
     }
 }

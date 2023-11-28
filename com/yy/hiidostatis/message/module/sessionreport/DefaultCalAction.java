@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.message.module.sessionreport;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DefaultCalAction {
     public static final CalAction SUM = new CalAction() { // from class: com.yy.hiidostatis.message.module.sessionreport.DefaultCalAction.1
         @Override // com.yy.hiidostatis.message.module.sessionreport.CalAction

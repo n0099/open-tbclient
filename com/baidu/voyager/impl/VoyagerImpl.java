@@ -6,11 +6,11 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.lub;
-import com.baidu.tieba.mub;
-import com.baidu.tieba.qf1;
-import com.baidu.tieba.vtb;
-import com.baidu.tieba.xtb;
+import com.baidu.tieba.hzb;
+import com.baidu.tieba.izb;
+import com.baidu.tieba.rf1;
+import com.baidu.tieba.ryb;
+import com.baidu.tieba.tyb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class VoyagerImpl implements mub {
+public class VoyagerImpl implements izb {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,15 +59,15 @@ public class VoyagerImpl implements mub {
         }
     }
 
-    @Override // com.baidu.tieba.mub
+    @Override // com.baidu.tieba.izb
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && qf1.g()) {
-            vtb.n().l();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && rf1.g()) {
+            ryb.n().l();
         }
     }
 
-    @Override // com.baidu.tieba.mub
+    @Override // com.baidu.tieba.izb
     public void retry() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -75,29 +75,29 @@ public class VoyagerImpl implements mub {
         }
     }
 
-    @Override // com.baidu.tieba.mub
-    public void a(String str, String str2, int i, lub lubVar) {
+    @Override // com.baidu.tieba.izb
+    public void a(String str, String str2, int i, hzb hzbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, lubVar) == null) {
-            if (qf1.g()) {
-                vtb.n().t(str, str2, lubVar);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, hzbVar) == null) {
+            if (rf1.g()) {
+                ryb.n().t(str, str2, hzbVar);
                 return;
             }
             try {
                 IVoyagerService c = VoyagerIPCManager.c();
                 if (c != null) {
-                    c.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, lubVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
+                    c.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, hzbVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ lub val$uploadListener;
+                        public final /* synthetic */ hzb val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, lubVar};
+                                Object[] objArr = {this, hzbVar};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -108,7 +108,7 @@ public class VoyagerImpl implements mub {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = lubVar;
+                            this.val$uploadListener = hzbVar;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -125,7 +125,7 @@ public class VoyagerImpl implements mub {
                                         e.printStackTrace();
                                     }
                                 }
-                                vtb.n().j(true, str3, jSONObject, this.val$uploadListener);
+                                ryb.n().j(true, str3, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -143,7 +143,7 @@ public class VoyagerImpl implements mub {
                                         e.printStackTrace();
                                     }
                                 }
-                                vtb.n().j(false, str3, jSONObject, this.val$uploadListener);
+                                ryb.n().j(false, str3, jSONObject, this.val$uploadListener);
                             }
                         }
                     });
@@ -158,45 +158,45 @@ public class VoyagerImpl implements mub {
         }
     }
 
-    @Override // com.baidu.tieba.mub
+    @Override // com.baidu.tieba.izb
     public void b(List<String> list, String str, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), jSONObject}) == null) {
-            j(list, str, j, 0, xtb.f().c(str), jSONObject);
+            j(list, str, j, 0, tyb.f().c(str), jSONObject);
         }
     }
 
-    @Override // com.baidu.tieba.mub
-    public void g(List<String> list, String str, long j, lub lubVar) {
+    @Override // com.baidu.tieba.izb
+    public void g(List<String> list, String str, long j, hzb hzbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), lubVar}) == null) {
-            k(list, str, j, xtb.f().c(str), lubVar);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), hzbVar}) == null) {
+            k(list, str, j, tyb.f().c(str), hzbVar);
         }
     }
 
-    @Override // com.baidu.tieba.mub
+    @Override // com.baidu.tieba.izb
     public void c(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, jSONObject) == null) {
-            l(str, str2, 0, xtb.f().c(str2), jSONObject);
+            l(str, str2, 0, tyb.f().c(str2), jSONObject);
         }
     }
 
-    @Override // com.baidu.tieba.mub
-    public void e(String str, String str2, lub lubVar) {
+    @Override // com.baidu.tieba.izb
+    public void e(String str, String str2, hzb hzbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, lubVar) == null) {
-            a(str, str2, xtb.f().c(str2), lubVar);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, hzbVar) == null) {
+            a(str, str2, tyb.f().c(str2), hzbVar);
         }
     }
 
-    @Override // com.baidu.tieba.mub
+    @Override // com.baidu.tieba.izb
     public boolean d(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            if (qf1.g()) {
-                return xtb.f().C(jSONObject);
+            if (rf1.g()) {
+                return tyb.f().C(jSONObject);
             }
             return false;
         }
@@ -205,16 +205,16 @@ public class VoyagerImpl implements mub {
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && qf1.g()) {
-            vtb.n().p(z);
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && rf1.g()) {
+            ryb.n().p(z);
         }
     }
 
     public void j(List<String> list, String str, long j, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (qf1.g()) {
-                vtb.n().q(list, str, j, i, i2, jSONObject);
+            if (rf1.g()) {
+                ryb.n().q(list, str, j, i, i2, jSONObject);
                 return;
             }
             try {
@@ -232,28 +232,28 @@ public class VoyagerImpl implements mub {
         }
     }
 
-    public void k(List<String> list, String str, long j, int i, lub lubVar) {
+    public void k(List<String> list, String str, long j, int i, hzb hzbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), lubVar}) == null) {
-            if (qf1.g()) {
-                vtb.n().r(list, str, j, i, lubVar);
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), hzbVar}) == null) {
+            if (rf1.g()) {
+                ryb.n().r(list, str, j, i, hzbVar);
                 return;
             }
             try {
                 IVoyagerService c = VoyagerIPCManager.c();
                 if (c != null) {
-                    c.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, lubVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
+                    c.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, hzbVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ lub val$uploadListener;
+                        public final /* synthetic */ hzb val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, lubVar};
+                                Object[] objArr = {this, hzbVar};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -264,7 +264,7 @@ public class VoyagerImpl implements mub {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = lubVar;
+                            this.val$uploadListener = hzbVar;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -281,7 +281,7 @@ public class VoyagerImpl implements mub {
                                         e.printStackTrace();
                                     }
                                 }
-                                vtb.n().j(true, str2, jSONObject, this.val$uploadListener);
+                                ryb.n().j(true, str2, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -299,7 +299,7 @@ public class VoyagerImpl implements mub {
                                         e.printStackTrace();
                                     }
                                 }
-                                vtb.n().j(false, str2, jSONObject, this.val$uploadListener);
+                                ryb.n().j(false, str2, jSONObject, this.val$uploadListener);
                             }
                         }
                     });
@@ -317,8 +317,8 @@ public class VoyagerImpl implements mub {
     public void l(String str, String str2, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (qf1.g()) {
-                vtb.n().s(str, str2, i, i2, jSONObject);
+            if (rf1.g()) {
+                ryb.n().s(str, str2, i, i2, jSONObject);
                 return;
             }
             try {

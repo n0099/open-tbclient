@@ -1,168 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.c05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hq6 extends InputStream {
+public class hq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final iq6<byte[]> a;
-    public ByteArrayInputStream b;
 
-    public hq6(iq6<byte[]> future) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {future};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public class a implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int b;
+
+        public a(TbPageContext tbPageContext, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = tbPageContext;
+            this.b = i;
         }
-        Intrinsics.checkNotNullParameter(future, "future");
-        this.a = future;
-    }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null) {
-            byte[] a = this.a.a();
-            if (a == null) {
-                a = new byte[0];
-            }
-            this.b = new ByteArrayInputStream(a);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            return byteArrayInputStream.available();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            byteArrayInputStream.close();
-        }
-    }
-
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            if (byteArrayInputStream != null) {
-                return byteArrayInputStream.markSupported();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            return byteArrayInputStream.read();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                a();
-                ByteArrayInputStream byteArrayInputStream = this.b;
-                Intrinsics.checkNotNull(byteArrayInputStream);
-                byteArrayInputStream.reset();
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
             }
         }
     }
 
-    @Override // java.io.InputStream
-    public synchronized void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (this) {
-                ByteArrayInputStream byteArrayInputStream = this.b;
-                if (byteArrayInputStream != null) {
-                    byteArrayInputStream.mark(i);
+    /* loaded from: classes6.dex */
+    public class b implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+            }
+        }
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] b) throws IOException {
-        InterceptResult invokeL;
+    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, b)) == null) {
-            Intrinsics.checkNotNullParameter(b, "b");
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            return byteArrayInputStream.read(b);
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+            return;
         }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            return byteArrayInputStream.skip(j);
+        String queryParameter = uri.getQueryParameter("portrait");
+        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
+            c05 c05Var = new c05(tbPageContext.getPageActivity());
+            c05Var.setContentViewSize(1);
+            c05Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+            c05Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
+            c05Var.setNegativeButton(R.string.not_change_account, new b());
+            c05Var.create(tbPageContext).show();
         }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] b, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, b, i, i2)) == null) {
-            Intrinsics.checkNotNullParameter(b, "b");
-            a();
-            ByteArrayInputStream byteArrayInputStream = this.b;
-            Intrinsics.checkNotNull(byteArrayInputStream);
-            return byteArrayInputStream.read(b, i, i2);
-        }
-        return invokeLII.intValue;
     }
 }

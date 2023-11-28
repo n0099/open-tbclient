@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bta;
+import com.baidu.tieba.uxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class ThemeAndStarView extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(new String[]{bta.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(new String[]{uxa.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.getContext(), this.a.getCardId())));

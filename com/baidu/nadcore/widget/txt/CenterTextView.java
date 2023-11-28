@@ -7,7 +7,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tieba.t11;
+import com.baidu.tieba.u11;
 /* loaded from: classes3.dex */
 public class CenterTextView extends TextView {
     public StaticLayout a;
@@ -49,7 +49,7 @@ public class CenterTextView extends TextView {
         textPaint.setTextSize(getTextSize());
         this.b.setFakeBoldText(this.c);
         this.b.setColor(getCurrentTextColor());
-        this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, t11.c.a(getContext(), 6.0f), false);
+        this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, u11.c.a(getContext(), 6.0f), false);
     }
 
     @Override // android.view.View

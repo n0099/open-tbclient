@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fb6;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.nb6;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<oi> liveList;
-    public List<oi> recommandList;
+    public List<pi> liveList;
+    public List<pi> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveThreadsRespMessage() {
@@ -66,11 +66,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        fb6 fb6Var = new fb6();
+                        nb6 nb6Var = new nb6();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        fb6Var.a = threadData;
-                        this.liveList.add(fb6Var);
+                        nb6Var.a = threadData;
+                        this.liveList.add(nb6Var);
                     }
                 }
             }
@@ -80,11 +80,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        fb6 fb6Var2 = new fb6();
+                        nb6 nb6Var2 = new nb6();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        fb6Var2.a = threadData2;
-                        this.recommandList.add(fb6Var2);
+                        nb6Var2.a = threadData2;
+                        this.recommandList.add(nb6Var2);
                     }
                 }
             }
@@ -100,7 +100,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<oi> getLiveList() {
+    public List<pi> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -109,7 +109,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<oi> getRecommandList() {
+    public List<pi> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

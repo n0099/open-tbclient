@@ -12,18 +12,18 @@ import com.baidu.tieba.R;
 import java.math.BigDecimal;
 /* loaded from: classes10.dex */
 public class KSRatingBar extends LinearLayout {
-    public boolean aqM;
-    public int aqN;
-    public int aqO;
-    public a aqP;
-    public float aqQ;
-    public float aqR;
-    public float aqS;
-    public Drawable aqT;
-    public Drawable aqU;
-    public Drawable aqV;
-    public boolean aqW;
-    public boolean xE;
+    public boolean aQX;
+    public boolean aQY;
+    public int aQZ;
+    public int aRa;
+    public a aRb;
+    public float aRc;
+    public float aRd;
+    public float aRe;
+    public Drawable aRf;
+    public Drawable aRg;
+    public Drawable aRh;
+    public boolean aRi;
     public int y;
 
     /* loaded from: classes10.dex */
@@ -33,56 +33,61 @@ public class KSRatingBar extends LinearLayout {
     public KSRatingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.y = 1;
-        this.aqW = false;
+        this.aRi = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eb2));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ebc));
         setShowDividers(2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_KSRatingBar);
-        this.aqV = obtainStyledAttributes.getDrawable(5);
-        this.aqT = obtainStyledAttributes.getDrawable(3);
-        this.aqU = obtainStyledAttributes.getDrawable(4);
-        this.aqQ = obtainStyledAttributes.getDimension(8, 60.0f);
-        this.aqR = obtainStyledAttributes.getDimension(6, 120.0f);
-        this.aqS = obtainStyledAttributes.getDimension(7, 15.0f);
-        this.aqN = obtainStyledAttributes.getInteger(9, 5);
-        this.aqO = obtainStyledAttributes.getInteger(2, 5);
-        this.xE = obtainStyledAttributes.getBoolean(0, true);
-        this.aqM = obtainStyledAttributes.getBoolean(1, false);
-        for (int i = 0; i < this.aqN; i++) {
-            ImageView v = v(context, this.aqW);
-            v.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.KSRatingBar.1
+        this.aRh = obtainStyledAttributes.getDrawable(5);
+        this.aRf = obtainStyledAttributes.getDrawable(3);
+        this.aRg = obtainStyledAttributes.getDrawable(4);
+        this.aRc = obtainStyledAttributes.getDimension(8, 60.0f);
+        this.aRd = obtainStyledAttributes.getDimension(6, 120.0f);
+        this.aRe = obtainStyledAttributes.getDimension(7, 15.0f);
+        this.aQZ = obtainStyledAttributes.getInteger(9, 5);
+        this.aRa = obtainStyledAttributes.getInteger(2, 5);
+        this.aQX = obtainStyledAttributes.getBoolean(0, true);
+        this.aQY = obtainStyledAttributes.getBoolean(1, false);
+        for (int i = 0; i < this.aQZ; i++) {
+            ImageView w = w(context, this.aRi);
+            w.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.KSRatingBar.1
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
-                    if (KSRatingBar.this.xE) {
-                        if (!KSRatingBar.this.aqM) {
-                            KSRatingBar kSRatingBar = KSRatingBar.this;
-                            kSRatingBar.setStar(kSRatingBar.indexOfChild(view2) + 1.0f);
-                            if (KSRatingBar.this.aqP != null) {
-                                a unused = KSRatingBar.this.aqP;
+                    if (KSRatingBar.this.aQX) {
+                        if (KSRatingBar.this.aQY) {
+                            if (KSRatingBar.this.y % 2 == 0) {
+                                KSRatingBar kSRatingBar = KSRatingBar.this;
+                                kSRatingBar.setStar(kSRatingBar.indexOfChild(view2) + 1.0f);
+                            } else {
+                                KSRatingBar kSRatingBar2 = KSRatingBar.this;
+                                kSRatingBar2.setStar(kSRatingBar2.indexOfChild(view2) + 0.5f);
+                            }
+                            if (KSRatingBar.this.aRb != null) {
+                                if (KSRatingBar.this.y % 2 == 0) {
+                                    a unused = KSRatingBar.this.aRb;
+                                    KSRatingBar.this.indexOfChild(view2);
+                                    KSRatingBar.e(KSRatingBar.this);
+                                    return;
+                                }
+                                a unused2 = KSRatingBar.this.aRb;
                                 KSRatingBar.this.indexOfChild(view2);
+                                KSRatingBar.e(KSRatingBar.this);
                                 return;
                             }
                             return;
                         }
-                        if (KSRatingBar.this.y % 2 == 0) {
-                            KSRatingBar kSRatingBar2 = KSRatingBar.this;
-                            kSRatingBar2.setStar(kSRatingBar2.indexOfChild(view2) + 1.0f);
-                        } else {
-                            KSRatingBar kSRatingBar3 = KSRatingBar.this;
-                            kSRatingBar3.setStar(kSRatingBar3.indexOfChild(view2) + 0.5f);
-                        }
-                        if (KSRatingBar.this.aqP != null) {
-                            int i2 = KSRatingBar.this.y % 2;
-                            a unused2 = KSRatingBar.this.aqP;
+                        KSRatingBar kSRatingBar3 = KSRatingBar.this;
+                        kSRatingBar3.setStar(kSRatingBar3.indexOfChild(view2) + 1.0f);
+                        if (KSRatingBar.this.aRb != null) {
+                            a unused3 = KSRatingBar.this.aRb;
                             KSRatingBar.this.indexOfChild(view2);
-                            KSRatingBar.e(KSRatingBar.this);
                         }
                     }
                 }
             });
-            addView(v);
+            addView(w);
         }
-        setStar(this.aqO);
+        setStar(this.aRa);
     }
 
     public static /* synthetic */ int e(KSRatingBar kSRatingBar) {
@@ -91,80 +96,86 @@ public class KSRatingBar extends LinearLayout {
         return i;
     }
 
-    private ImageView v(Context context, boolean z) {
-        ImageView imageView = new ImageView(context);
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.aqQ), Math.round(this.aqR)));
-        imageView.setPadding(0, 0, Math.round(this.aqS), 0);
-        imageView.setImageDrawable(z ? this.aqT : this.aqU);
-        return imageView;
-    }
-
     public void setImagePadding(float f) {
-        this.aqS = f;
+        this.aRe = f;
     }
 
     public void setOnRatingChangeListener(a aVar) {
-        this.aqP = aVar;
+        this.aRb = aVar;
+    }
+
+    public void setStarEmptyDrawable(Drawable drawable) {
+        this.aRf = drawable;
+    }
+
+    public void setStarFillDrawable(Drawable drawable) {
+        this.aRg = drawable;
+    }
+
+    public void setStarHalfDrawable(Drawable drawable) {
+        this.aRh = drawable;
+    }
+
+    public void setStarImageHeight(float f) {
+        this.aRd = f;
+    }
+
+    public void setStarImageWidth(float f) {
+        this.aRc = f;
+    }
+
+    public void setTotalStarCount(int i) {
+        this.aQZ = i;
+    }
+
+    public void setmClickable(boolean z) {
+        this.aQX = z;
+    }
+
+    private ImageView w(Context context, boolean z) {
+        ImageView imageView = new ImageView(context);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.aRc), Math.round(this.aRd)));
+        imageView.setPadding(0, 0, Math.round(this.aRe), 0);
+        if (z) {
+            imageView.setImageDrawable(this.aRf);
+        } else {
+            imageView.setImageDrawable(this.aRg);
+        }
+        return imageView;
     }
 
     public void setStar(float f) {
         int i = (int) f;
         float floatValue = new BigDecimal(Float.toString(f)).subtract(new BigDecimal(Integer.toString(i))).floatValue();
-        int i2 = this.aqN;
+        int i2 = this.aQZ;
         float f2 = i > i2 ? i2 : i;
         if (f2 < 0.0f) {
             f2 = 0.0f;
         }
         for (int i3 = 0; i3 < f2; i3++) {
-            ((ImageView) getChildAt(i3)).setImageDrawable(this.aqU);
+            ((ImageView) getChildAt(i3)).setImageDrawable(this.aRg);
         }
         if (floatValue > 0.0f) {
-            ((ImageView) getChildAt(i)).setImageDrawable(this.aqV);
-            int i4 = this.aqN;
+            ((ImageView) getChildAt(i)).setImageDrawable(this.aRh);
+            int i4 = this.aQZ;
             while (true) {
                 i4--;
-                if (i4 < 1.0f + f2) {
+                if (i4 >= 1.0f + f2) {
+                    ((ImageView) getChildAt(i4)).setImageDrawable(this.aRf);
+                } else {
                     return;
                 }
-                ((ImageView) getChildAt(i4)).setImageDrawable(this.aqT);
             }
         } else {
-            int i5 = this.aqN;
+            int i5 = this.aQZ;
             while (true) {
                 i5--;
-                if (i5 < f2) {
+                if (i5 >= f2) {
+                    ((ImageView) getChildAt(i5)).setImageDrawable(this.aRf);
+                } else {
                     return;
                 }
-                ((ImageView) getChildAt(i5)).setImageDrawable(this.aqT);
             }
         }
-    }
-
-    public void setStarEmptyDrawable(Drawable drawable) {
-        this.aqT = drawable;
-    }
-
-    public void setStarFillDrawable(Drawable drawable) {
-        this.aqU = drawable;
-    }
-
-    public void setStarHalfDrawable(Drawable drawable) {
-        this.aqV = drawable;
-    }
-
-    public void setStarImageHeight(float f) {
-        this.aqR = f;
-    }
-
-    public void setStarImageWidth(float f) {
-        this.aqQ = f;
-    }
-
-    public void setTotalStarCount(int i) {
-        this.aqN = i;
-    }
-
-    public void setmClickable(boolean z) {
-        this.xE = z;
     }
 }

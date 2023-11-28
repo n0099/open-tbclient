@@ -25,7 +25,7 @@ public class UCollectionsKt___UCollectionsKt {
         Intrinsics.checkNotNullParameter(iterable, "<this>");
         int i = 0;
         for (UByte uByte : iterable) {
-            i = UInt.m949constructorimpl(i + UInt.m949constructorimpl(uByte.m922unboximpl() & 255));
+            i = UInt.m953constructorimpl(i + UInt.m953constructorimpl(uByte.m926unboximpl() & 255));
         }
         return i;
     }
@@ -37,7 +37,7 @@ public class UCollectionsKt___UCollectionsKt {
         Intrinsics.checkNotNullParameter(iterable, "<this>");
         int i = 0;
         for (UInt uInt : iterable) {
-            i = UInt.m949constructorimpl(i + uInt.m1000unboximpl());
+            i = UInt.m953constructorimpl(i + uInt.m1004unboximpl());
         }
         return i;
     }
@@ -49,7 +49,7 @@ public class UCollectionsKt___UCollectionsKt {
         Intrinsics.checkNotNullParameter(iterable, "<this>");
         long j = 0;
         for (ULong uLong : iterable) {
-            j = ULong.m1027constructorimpl(j + uLong.m1078unboximpl());
+            j = ULong.m1031constructorimpl(j + uLong.m1082unboximpl());
         }
         return j;
     }
@@ -61,7 +61,7 @@ public class UCollectionsKt___UCollectionsKt {
         Intrinsics.checkNotNullParameter(iterable, "<this>");
         int i = 0;
         for (UShort uShort : iterable) {
-            i = UInt.m949constructorimpl(i + UInt.m949constructorimpl(uShort.m1182unboximpl() & UShort.MAX_VALUE));
+            i = UInt.m953constructorimpl(i + UInt.m953constructorimpl(uShort.m1186unboximpl() & UShort.MAX_VALUE));
         }
         return i;
     }
@@ -70,51 +70,51 @@ public class UCollectionsKt___UCollectionsKt {
     @ExperimentalUnsignedTypes
     public static final byte[] toUByteArray(Collection<UByte> collection) {
         Intrinsics.checkNotNullParameter(collection, "<this>");
-        byte[] m924constructorimpl = UByteArray.m924constructorimpl(collection.size());
+        byte[] m928constructorimpl = UByteArray.m928constructorimpl(collection.size());
         int i = 0;
         for (UByte uByte : collection) {
-            UByteArray.m935setVurrAj0(m924constructorimpl, i, uByte.m922unboximpl());
+            UByteArray.m939setVurrAj0(m928constructorimpl, i, uByte.m926unboximpl());
             i++;
         }
-        return m924constructorimpl;
+        return m928constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final int[] toUIntArray(Collection<UInt> collection) {
         Intrinsics.checkNotNullParameter(collection, "<this>");
-        int[] m1002constructorimpl = UIntArray.m1002constructorimpl(collection.size());
+        int[] m1006constructorimpl = UIntArray.m1006constructorimpl(collection.size());
         int i = 0;
         for (UInt uInt : collection) {
-            UIntArray.m1013setVXSXFK8(m1002constructorimpl, i, uInt.m1000unboximpl());
+            UIntArray.m1017setVXSXFK8(m1006constructorimpl, i, uInt.m1004unboximpl());
             i++;
         }
-        return m1002constructorimpl;
+        return m1006constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final long[] toULongArray(Collection<ULong> collection) {
         Intrinsics.checkNotNullParameter(collection, "<this>");
-        long[] m1080constructorimpl = ULongArray.m1080constructorimpl(collection.size());
+        long[] m1084constructorimpl = ULongArray.m1084constructorimpl(collection.size());
         int i = 0;
         for (ULong uLong : collection) {
-            ULongArray.m1091setk8EXiF4(m1080constructorimpl, i, uLong.m1078unboximpl());
+            ULongArray.m1095setk8EXiF4(m1084constructorimpl, i, uLong.m1082unboximpl());
             i++;
         }
-        return m1080constructorimpl;
+        return m1084constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final short[] toUShortArray(Collection<UShort> collection) {
         Intrinsics.checkNotNullParameter(collection, "<this>");
-        short[] m1184constructorimpl = UShortArray.m1184constructorimpl(collection.size());
+        short[] m1188constructorimpl = UShortArray.m1188constructorimpl(collection.size());
         int i = 0;
         for (UShort uShort : collection) {
-            UShortArray.m1195set01HTLdE(m1184constructorimpl, i, uShort.m1182unboximpl());
+            UShortArray.m1199set01HTLdE(m1188constructorimpl, i, uShort.m1186unboximpl());
             i++;
         }
-        return m1184constructorimpl;
+        return m1188constructorimpl;
     }
 }

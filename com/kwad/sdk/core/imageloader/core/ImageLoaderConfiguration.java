@@ -98,53 +98,23 @@ public final class ImageLoaderConfiguration {
         public DisplayImageOptions defaultDisplayImageOptions = null;
         public boolean writeLogs = false;
 
-        public Builder(Context context) {
-            this.context = context.getApplicationContext();
-        }
-
-        private void initEmptyFieldsWithDefaultValues() {
-            if (this.taskExecutor == null) {
-                this.taskExecutor = DefaultConfigurationFactory.createExecutor(this.threadPoolSize, this.threadPriority, this.tasksProcessingType);
-            } else {
-                this.customExecutor = true;
-            }
-            if (this.taskExecutorForCachedImages == null) {
-                this.taskExecutorForCachedImages = DefaultConfigurationFactory.createExecutor(this.threadPoolSize, this.threadPriority, this.tasksProcessingType);
-            } else {
-                this.customExecutorForCachedImages = true;
-            }
-            if (this.taskDistributor == null) {
-                this.taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
-            }
-            if (this.diskCache == null) {
-                if (this.diskCacheFileNameGenerator == null) {
-                    this.diskCacheFileNameGenerator = DefaultConfigurationFactory.createFileNameGenerator();
-                }
-                if (this.cacheParentDir == null) {
-                    this.cacheParentDir = this.context.getExternalCacheDir().getPath();
-                }
-                this.diskCache = DefaultConfigurationFactory.createDiskCache(this.context, this.diskCacheFileNameGenerator, this.diskCacheSize, this.diskCacheFileCount, this.cacheParentDir);
-            }
-            if (this.memoryCache == null) {
-                this.memoryCache = DefaultConfigurationFactory.createMemoryCache(this.context, this.memoryCacheSize);
-            }
-            if (this.denyCacheImageMultipleSizesInMemory) {
-                this.memoryCache = new FuzzyKeyMemoryCache(this.memoryCache, MemoryCacheUtils.createFuzzyKeyComparator());
-            }
-            if (this.downloader == null) {
-                this.downloader = DefaultConfigurationFactory.createImageDownloader(this.context);
-            }
-            if (this.decoder == null) {
-                this.decoder = DefaultConfigurationFactory.createImageDecoder(this.writeLogs);
-            }
-            if (this.defaultDisplayImageOptions == null) {
-                this.defaultDisplayImageOptions = DisplayImageOptions.createSimple();
-            }
-        }
-
         public ImageLoaderConfiguration build() {
             initEmptyFieldsWithDefaultValues();
             return new ImageLoaderConfiguration(this, null);
+        }
+
+        public Builder denyCacheImageMultipleSizesInMemory() {
+            this.denyCacheImageMultipleSizesInMemory = true;
+            return this;
+        }
+
+        public Builder writeDebugLogs() {
+            this.writeLogs = true;
+            return this;
+        }
+
+        public Builder(Context context) {
+            this.context = context.getApplicationContext();
         }
 
         public Builder cacheParentDir(String str) {
@@ -162,19 +132,9 @@ public final class ImageLoaderConfiguration {
             return this;
         }
 
-        public Builder denyCacheImageMultipleSizesInMemory() {
-            this.denyCacheImageMultipleSizesInMemory = true;
-            return this;
-        }
-
         @Deprecated
         public Builder discCache(DiskCache diskCache) {
             return diskCache(diskCache);
-        }
-
-        @Deprecated
-        public Builder discCacheExtraOptions(int i, int i2, BitmapProcessor bitmapProcessor) {
-            return diskCacheExtraOptions(i, i2, bitmapProcessor);
         }
 
         @Deprecated
@@ -200,13 +160,6 @@ public final class ImageLoaderConfiguration {
                 L.w(WARNING_OVERLAP_DISK_CACHE_NAME_GENERATOR, new Object[0]);
             }
             this.diskCache = diskCache;
-            return this;
-        }
-
-        public Builder diskCacheExtraOptions(int i, int i2, BitmapProcessor bitmapProcessor) {
-            this.maxImageWidthForDiskCache = i;
-            this.maxImageHeightForDiskCache = i2;
-            this.processorForDiskCache = bitmapProcessor;
             return this;
         }
 
@@ -258,12 +211,6 @@ public final class ImageLoaderConfiguration {
             return this;
         }
 
-        public Builder memoryCacheExtraOptions(int i, int i2) {
-            this.maxImageWidthForMemoryCache = i;
-            this.maxImageHeightForMemoryCache = i2;
-            return this;
-        }
-
         public Builder memoryCacheSize(int i) {
             if (i > 0) {
                 if (this.memoryCache != null) {
@@ -276,14 +223,14 @@ public final class ImageLoaderConfiguration {
         }
 
         public Builder memoryCacheSizePercentage(int i) {
-            if (i <= 0 || i >= 100) {
-                throw new IllegalArgumentException("availableMemoryPercent must be in range (0 < % < 100)");
+            if (i > 0 && i < 100) {
+                if (this.memoryCache != null) {
+                    L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
+                }
+                this.memoryCacheSize = (int) (((float) Runtime.getRuntime().maxMemory()) * (i / 100.0f));
+                return this;
             }
-            if (this.memoryCache != null) {
-                L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
-            }
-            this.memoryCacheSize = (int) (((float) Runtime.getRuntime().maxMemory()) * (i / 100.0f));
-            return this;
+            throw new IllegalArgumentException("availableMemoryPercent must be in range (0 < % < 100)");
         }
 
         public Builder setTaskDistributor(Executor executor) {
@@ -328,17 +275,70 @@ public final class ImageLoaderConfiguration {
                 L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
             }
             if (i <= 0) {
-                i = 1;
+                this.threadPriority = 1;
             } else if (i > 10) {
                 this.threadPriority = 10;
-                return this;
+            } else {
+                this.threadPriority = i;
             }
-            this.threadPriority = i;
             return this;
         }
 
-        public Builder writeDebugLogs() {
-            this.writeLogs = true;
+        private void initEmptyFieldsWithDefaultValues() {
+            if (this.taskExecutor == null) {
+                this.taskExecutor = DefaultConfigurationFactory.createExecutor(this.threadPoolSize, this.threadPriority, this.tasksProcessingType);
+            } else {
+                this.customExecutor = true;
+            }
+            if (this.taskExecutorForCachedImages == null) {
+                this.taskExecutorForCachedImages = DefaultConfigurationFactory.createExecutor(this.threadPoolSize, this.threadPriority, this.tasksProcessingType);
+            } else {
+                this.customExecutorForCachedImages = true;
+            }
+            if (this.taskDistributor == null) {
+                this.taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
+            }
+            if (this.diskCache == null) {
+                if (this.diskCacheFileNameGenerator == null) {
+                    this.diskCacheFileNameGenerator = DefaultConfigurationFactory.createFileNameGenerator();
+                }
+                if (this.cacheParentDir == null) {
+                    this.cacheParentDir = this.context.getExternalCacheDir().getPath();
+                }
+                this.diskCache = DefaultConfigurationFactory.createDiskCache(this.context, this.diskCacheFileNameGenerator, this.diskCacheSize, this.diskCacheFileCount, this.cacheParentDir);
+            }
+            if (this.memoryCache == null) {
+                this.memoryCache = DefaultConfigurationFactory.createMemoryCache(this.context, this.memoryCacheSize);
+            }
+            if (this.denyCacheImageMultipleSizesInMemory) {
+                this.memoryCache = new FuzzyKeyMemoryCache(this.memoryCache, MemoryCacheUtils.createFuzzyKeyComparator());
+            }
+            if (this.downloader == null) {
+                this.downloader = DefaultConfigurationFactory.createImageDownloader(this.context);
+            }
+            if (this.decoder == null) {
+                this.decoder = DefaultConfigurationFactory.createImageDecoder(this.writeLogs);
+            }
+            if (this.defaultDisplayImageOptions == null) {
+                this.defaultDisplayImageOptions = DisplayImageOptions.createSimple();
+            }
+        }
+
+        @Deprecated
+        public Builder discCacheExtraOptions(int i, int i2, BitmapProcessor bitmapProcessor) {
+            return diskCacheExtraOptions(i, i2, bitmapProcessor);
+        }
+
+        public Builder diskCacheExtraOptions(int i, int i2, BitmapProcessor bitmapProcessor) {
+            this.maxImageWidthForDiskCache = i;
+            this.maxImageHeightForDiskCache = i2;
+            this.processorForDiskCache = bitmapProcessor;
+            return this;
+        }
+
+        public Builder memoryCacheExtraOptions(int i, int i2) {
+            this.maxImageWidthForMemoryCache = i;
+            this.maxImageHeightForMemoryCache = i2;
             return this;
         }
     }
@@ -354,10 +354,10 @@ public final class ImageLoaderConfiguration {
         @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
         public InputStream getStream(String str, Object obj) {
             int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.ofUri(str).ordinal()];
-            if (i == 1 || i == 2) {
-                throw new IllegalStateException();
+            if (i != 1 && i != 2) {
+                return this.wrappedDownloader.getStream(str, obj);
             }
-            return this.wrappedDownloader.getStream(str, obj);
+            throw new IllegalStateException();
         }
     }
 
@@ -373,7 +373,10 @@ public final class ImageLoaderConfiguration {
         public InputStream getStream(String str, Object obj) {
             InputStream stream = this.wrappedDownloader.getStream(str, obj);
             int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.ofUri(str).ordinal()];
-            return (i == 1 || i == 2) ? new FlushedInputStream(stream) : stream;
+            if (i != 1 && i != 2) {
+                return stream;
+            }
+            return new FlushedInputStream(stream);
         }
     }
 

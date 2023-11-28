@@ -3,7 +3,7 @@ package com.google.android.material.shape;
 import android.graphics.RectF;
 import androidx.annotation.NonNull;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AbsoluteCornerSize implements CornerSize {
     public final float size;
 

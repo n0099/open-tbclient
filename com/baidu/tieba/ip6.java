@@ -1,29 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ib7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes6.dex */
-public final class ip6 implements ib7 {
+public class ip6 implements w87<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ib7
-    public String c(e57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            return "user_head_click1";
-        }
-        return (String) invokeL.objValue;
-    }
 
     public ip6() {
         Interceptable interceptable = $ic;
@@ -39,23 +26,22 @@ public final class ip6 implements ib7 {
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ib7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 e57Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.w87
+    /* renamed from: a */
+    public nb7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
-            return ib7.a.a(this, e57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof LiveAnswer)) {
+                return null;
+            }
+            nh8 nh8Var = new nh8();
+            nh8Var.c((LiveAnswer) message);
+            q77 q77Var = new q77();
+            q77Var.a = nh8Var;
+            return new ob7(new e37(q77Var), "recommend_banner");
         }
-        return (Map) invokeL.objValue;
+        return (nb7) invokeL.objValue;
     }
 }

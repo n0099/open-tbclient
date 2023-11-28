@@ -1,117 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.ib7;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class xfa implements ib7 {
+public class xfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xfa() {
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String getKey() {
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ib7.a.b(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 e57Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
-            return ib7.a.a(this, e57Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x002b, code lost:
-        if (r5.equals("video_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0034, code lost:
-        if (r5.equals("live_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0049, code lost:
-        if (r5.equals("common_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004c, code lost:
-        return "forum_head_click";
-     */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x006a  */
-    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.ib7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(e57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    if (str.equals("common_user")) {
-                        return "";
-                    }
-                    if (GlobalBuildConfig.isDebug()) {
-                        return "";
-                    }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
-                case -1617812209:
-                    if (str.equals("video_user")) {
-                        return "video_user_head_click";
-                    }
-                    if (GlobalBuildConfig.isDebug()) {
-                    }
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    if (str.equals("live_user")) {
-                        return "live_user_head_click";
-                    }
-                    if (GlobalBuildConfig.isDebug()) {
-                    }
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (GlobalBuildConfig.isDebug()) {
-                    }
-                    break;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
+        return (Ringtone) invokeV.objValue;
     }
 }

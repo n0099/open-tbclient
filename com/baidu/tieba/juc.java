@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Bottle;
+import tbclient.AlaLiveNotify;
 /* loaded from: classes6.dex */
-public class juc extends qoc {
+public class juc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Bottle bottle) {
+    public static JSONObject b(@NonNull AlaLiveNotify alaLiveNotify) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bottle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveNotify)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "has_enter_display", bottle.has_enter_display);
-            qoc.a(jSONObject, "tid", bottle.tid);
+            ltc.a(jSONObject, "noti_content", alaLiveNotify.noti_content);
+            ltc.a(jSONObject, "noti_url", alaLiveNotify.noti_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

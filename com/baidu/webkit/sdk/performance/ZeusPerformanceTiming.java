@@ -220,7 +220,7 @@ public class ZeusPerformanceTiming {
             makeTimingFormat(sb, "shouldUseSystemWebView   ", getTimeStampFromMap(sStartTimeStamps, KEY_CHECK_USE_T7), getTimeStampFromMap(sEndTimeStamps, KEY_CHECK_USE_T7), longValue);
             makeTimingFormat(sb, "fetchDefaultPackageInfo   ", getTimeStampFromMap(sStartTimeStamps, KEY_FETCH_PACKAGE_INFO), getTimeStampFromMap(sEndTimeStamps, KEY_FETCH_PACKAGE_INFO), longValue);
             makeTimingFormat(sb, ZeusClassLoader.TAG, getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL), getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL), longValue);
-            makeTimingFormat(sb, "unzip          ", getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP), getTimeStampFromMap(sEndTimeStamps, KEY_UNZIP), longValue);
+            makeTimingFormat(sb, "unzip          ", getTimeStampFromMap(sStartTimeStamps, "unzip"), getTimeStampFromMap(sEndTimeStamps, "unzip"), longValue);
             makeTimingFormat(sb, "newWebViewChromiumFactoryProviderInstance   ", getTimeStampFromMap(sStartTimeStamps, KEY_T7_CHROMIUM_PROVIDER_INIT), getTimeStampFromMap(sEndTimeStamps, KEY_T7_CHROMIUM_PROVIDER_INIT), longValue);
             makeTimingFormat(sb, "initProvider   ", getTimeStampFromMap(sStartTimeStamps, KEY_GET_PROVIDER), getTimeStampFromMap(sEndTimeStamps, KEY_GET_PROVIDER), longValue);
         }
@@ -278,7 +278,7 @@ public class ZeusPerformanceTiming {
             String str4 = str;
             jSONObject.putOpt(str4, Long.valueOf(getRecordedTime(str)));
             jSONObject.putOpt(KEY_ZEUS_WEBVIEW_LOAD_CLASS, Long.valueOf(zeusWebViewLoadClassTime()));
-            jSONObject.putOpt(KEY_UNZIP, Long.valueOf(getRecordedTime(KEY_UNZIP)));
+            jSONObject.putOpt("unzip", Long.valueOf(getRecordedTime("unzip")));
             jSONObject.putOpt(KEY_UNZIP_START_DIFF, Long.valueOf(unzipStartDiff()));
             jSONObject.putOpt(KEY_UNZIP_END_DIFF, Long.valueOf(unzipEndDiff()));
             jSONObject.putOpt(KEY_IS_PROCESS_MAIN, Boolean.valueOf(WebKitFactory.getNeedDownloadCloudResource()));
@@ -291,7 +291,7 @@ public class ZeusPerformanceTiming {
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP1, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP2, Long.valueOf(getRecordedThreadTime(str3)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3, Long.valueOf(getRecordedThreadTime(str4)));
-            jSONObject.putOpt(KEY_UNZIP_THREAD, Long.valueOf(getRecordedThreadTime(KEY_UNZIP)));
+            jSONObject.putOpt(KEY_UNZIP_THREAD, Long.valueOf(getRecordedThreadTime("unzip")));
             if (CommonUtils.getSysMemoryInfo() != null) {
                 jSONObject.putOpt("memory", CommonUtils.getSysMemoryInfo().get("MemTotal:"));
             }
@@ -507,11 +507,11 @@ public class ZeusPerformanceTiming {
     }
 
     public static long unzipEndDiff() {
-        return getTimeStampFromMap(sEndTimeStamps, KEY_UNZIP) - getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL);
+        return getTimeStampFromMap(sEndTimeStamps, "unzip") - getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL);
     }
 
     public static long unzipStartDiff() {
-        return getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL) - getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP);
+        return getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL) - getTimeStampFromMap(sStartTimeStamps, "unzip");
     }
 
     public static void upload() {

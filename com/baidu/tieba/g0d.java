@@ -4,29 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.NaGuide;
-import tbclient.RecGuide;
+import tbclient.FrsPage.ForumHeadIcon;
 /* loaded from: classes6.dex */
-public class g0d extends qoc {
+public class g0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NaGuide naGuide) {
+    public static JSONObject b(@NonNull ForumHeadIcon forumHeadIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, naGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumHeadIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "dwnl_url", naGuide.dwnl_url);
-            if (naGuide.rec_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecGuide recGuide : naGuide.rec_info) {
-                    jSONArray.put(h2d.b(recGuide));
-                }
-                qoc.a(jSONObject, "rec_info", jSONArray);
-            }
+            ltc.a(jSONObject, "grade", forumHeadIcon.grade);
+            ltc.a(jSONObject, "url", forumHeadIcon.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

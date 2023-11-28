@@ -5,22 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import tbclient.FrsPage.ForumButton;
 /* loaded from: classes5.dex */
-public class d0d extends qoc {
+public class d0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MultiForumPerm multiForumPerm) {
+    public static JSONObject b(@NonNull ForumButton forumButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, multiForumPerm)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumButton)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "is_bawu", multiForumPerm.is_bawu);
-            qoc.a(jSONObject, "bawu_type", multiForumPerm.bawu_type);
-            qoc.a(jSONObject, "is_deleted", multiForumPerm.is_deleted);
-            qoc.a(jSONObject, "is_block_bawu_delete", multiForumPerm.is_block_bawu_delete);
+            ltc.a(jSONObject, "is_blueV", forumButton.is_blueV);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

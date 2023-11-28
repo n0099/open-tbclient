@@ -12,6 +12,6 @@ public class ServiceProxyRemote extends BaseProxyService {
     @Override // com.kwad.sdk.api.proxy.BaseProxyService
     @NonNull
     public IServiceProxy getDelegate(Context context) {
-        return (IServiceProxy) Loader.get().newComponentProxyNewProcess(context, ServiceProxyRemote.class, this);
+        return (IServiceProxy) Loader.get().newComponentProxy(context, ServiceProxyRemote.class, this);
     }
 }

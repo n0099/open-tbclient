@@ -6,10 +6,10 @@ import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.doa;
-import com.baidu.tieba.noa;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.da;
+import com.baidu.tieba.gta;
+import com.baidu.tieba.wsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class SquareModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public noa b;
+    public gta b;
     public a c;
     public long d;
     public long e;
@@ -30,7 +30,7 @@ public class SquareModel extends BdBaseModel<Object> {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(boolean z, String str, noa noaVar);
+        void a(boolean z, String str, gta gtaVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,12 +44,12 @@ public class SquareModel extends BdBaseModel<Object> {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, noa, noa> {
+    public class b extends BdAsyncTask<Object, gta, gta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public doa a;
+        public wsa a;
         public int b;
-        public ca<String> c;
+        public da<String> c;
         public final /* synthetic */ SquareModel d;
 
         public b(SquareModel squareModel, int i) {
@@ -78,35 +78,35 @@ public class SquareModel extends BdBaseModel<Object> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public noa doInBackground(Object... objArr) {
+        public gta doInBackground(Object... objArr) {
             InterceptResult invokeL;
-            noa noaVar;
+            gta gtaVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                this.a = new doa();
-                yz4.l();
-                ca<String> m = yz4.m("tb.square");
-                this.c = m;
+                this.a = new wsa();
+                b05.k();
+                da<String> l = b05.l("tb.square");
+                this.c = l;
                 String str = null;
                 if (this.b == 0) {
-                    String str2 = m.get("square_cache_key");
+                    String str2 = l.get("square_cache_key");
                     if (str2 == null) {
                         return null;
                     }
-                    noa noaVar2 = new noa();
-                    noaVar2.j(str2);
-                    this.d.h = noaVar2.f();
-                    if (noaVar2.g()) {
+                    gta gtaVar2 = new gta();
+                    gtaVar2.j(str2);
+                    this.d.h = gtaVar2.f();
+                    if (gtaVar2.g()) {
                         this.d.h = 0L;
                     }
-                    if (noaVar2.c()) {
-                        return noaVar2;
+                    if (gtaVar2.c()) {
+                        return gtaVar2;
                     }
                     this.b = 1;
                     str = str2;
-                    noaVar = noaVar2;
+                    gtaVar = gtaVar2;
                 } else {
-                    noaVar = null;
+                    gtaVar = null;
                 }
                 if (this.b == 1) {
                     this.d.d = System.currentTimeMillis();
@@ -117,45 +117,45 @@ public class SquareModel extends BdBaseModel<Object> {
                     this.d.g = System.currentTimeMillis();
                 }
                 if (this.a.e()) {
-                    noaVar = new noa();
-                    noaVar.j(str);
-                    Long valueOf = Long.valueOf(noaVar.f());
+                    gtaVar = new gta();
+                    gtaVar.j(str);
+                    Long valueOf = Long.valueOf(gtaVar.f());
                     if (valueOf.longValue() > this.d.h) {
                         this.c.e("square_cache_key", str, 86400000L);
                     } else {
                         String str3 = this.c.get("square_cache_key");
                         if (str3 != null) {
-                            noa noaVar3 = new noa();
-                            noaVar3.j(str3);
-                            noaVar3.m(noaVar.e());
-                            noaVar3.n(valueOf.longValue());
-                            this.c.e("square_cache_key", noaVar3.d(), 86400000L);
-                            noaVar = noaVar3;
+                            gta gtaVar3 = new gta();
+                            gtaVar3.j(str3);
+                            gtaVar3.m(gtaVar.e());
+                            gtaVar3.n(valueOf.longValue());
+                            this.c.e("square_cache_key", gtaVar3.d(), 86400000L);
+                            gtaVar = gtaVar3;
                         } else {
                             this.c.e("square_cache_key", str, 86400000L);
                         }
                     }
                     this.d.h = valueOf.longValue();
                 }
-                return noaVar;
+                return gtaVar;
             }
-            return (noa) invokeL.objValue;
+            return (gta) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(noa noaVar) {
+        public void onPostExecute(gta gtaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, noaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gtaVar) == null) {
                 this.d.a = null;
-                this.d.b = noaVar;
+                this.d.b = gtaVar;
                 if (this.d.c != null) {
                     if (this.b != 0 && !this.a.e()) {
-                        this.d.c.a(false, this.a.c(), noaVar);
+                        this.d.c.a(false, this.a.c(), gtaVar);
                         return;
                     }
-                    this.d.c.a(true, null, noaVar);
+                    this.d.c.a(true, null, gtaVar);
                 }
             }
         }
@@ -165,9 +165,9 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                doa doaVar = this.a;
-                if (doaVar != null) {
-                    doaVar.b();
+                wsa wsaVar = this.a;
+                if (wsaVar != null) {
+                    wsaVar.b();
                 }
                 this.d.a = null;
             }
@@ -199,7 +199,7 @@ public class SquareModel extends BdBaseModel<Object> {
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.b = new noa();
+        this.b = new gta();
     }
 
     public boolean c0(int i) {
@@ -224,13 +224,13 @@ public class SquareModel extends BdBaseModel<Object> {
         }
     }
 
-    public noa X() {
+    public gta X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (noa) invokeV.objValue;
+        return (gta) invokeV.objValue;
     }
 
     public long Y() {

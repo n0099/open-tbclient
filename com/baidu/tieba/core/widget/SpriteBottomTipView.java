@@ -33,13 +33,13 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.bt5;
+import com.baidu.tieba.b65;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.dw6;
+import com.baidu.tieba.jt5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.nw6;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0019\u0018\u0000 42\u00020\u00012\u00020\u0002:\u0006345678B#\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\b\u0010%\u001a\u00020 H\u0002J\u0010\u0010&\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004H\u0002J\u0010\u0010(\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004H\u0002J\u0006\u0010)\u001a\u00020 J\u0006\u0010*\u001a\u00020\u0017J\u0006\u0010+\u001a\u00020\u0011J\u0006\u0010,\u001a\u00020\u0011J\u000e\u0010-\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004J\u0010\u0010.\u001a\u00020 2\u0006\u0010/\u001a\u00020\u0004H\u0016J\u0010\u00100\u001a\u00020 2\u0006\u00101\u001a\u00020\u001aH\u0002J\b\u00102\u001a\u00020 H\u0002R\u0012\u0010\n\u001a\u00060\u000bR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R7\u0010\u001c\u001a\u001f\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u001e\u0012\b\b\u001f\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020 \u0018\u00010\u001dX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$¨\u00069"}, d2 = {"Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "layoutId", "", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(ILandroid/content/Context;Landroid/util/AttributeSet;)V", "animationHandler", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$ShowAnimationHandler;", "isVisibility", "", "mBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "mDesc", "Landroid/widget/TextView;", "mIconClose", "Landroid/widget/ImageView;", "mIconImg", "Lcom/baidu/tbadk/widget/image/TbImage;", "mRoot", "Landroid/view/View;", "mSkinType", "mTipVieParams", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$TipViewParams;", "mTitle", "onVisibilityChangedListener", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "", "getOnVisibilityChangedListener", "()Lkotlin/jvm/functions/Function1;", "setOnVisibilityChangedListener", "(Lkotlin/jvm/functions/Function1;)V", "changeBtnSkin", "changeDescSkin", WriteMulitImageActivityConfig.SKIN_TYPE, "changeTitleSkin", "dismiss", "getContentView", "getDescView", "getTitleView", "onChangeSkin", "onChangeSkinType", "type", "setData", "params", "show", "Builder", "Companion", "OnClickCallback", "OnDismissCallback", "ShowAnimationHandler", "TipViewParams", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class SpriteBottomTipView extends LinearLayout implements dw6 {
+public final class SpriteBottomTipView extends LinearLayout implements nw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -131,7 +131,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SpriteBottomTipView spriteBottomTipView = new SpriteBottomTipView(this.b.q(), this.a, null, 4, null);
+                SpriteBottomTipView spriteBottomTipView = new SpriteBottomTipView(this.b.r(), this.a, null, 4, null);
                 spriteBottomTipView.setData(this.b);
                 return spriteBottomTipView;
             }
@@ -142,7 +142,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b.F(str);
+                this.b.G(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -152,7 +152,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.b.G(str);
+                this.b.H(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -163,7 +163,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, config)) == null) {
                 Intrinsics.checkNotNullParameter(config, "config");
-                this.b.H(config);
+                this.b.I(config);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -173,7 +173,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.b.J(str);
+                this.b.K(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -183,7 +183,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.b.I(i);
+                this.b.J(i);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -193,7 +193,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.b.O(str);
+                this.b.P(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -203,7 +203,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, num)) == null) {
-                this.b.K(num);
+                this.b.L(num);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -213,7 +213,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-                this.b.L(i);
+                this.b.M(i);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -223,7 +223,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, num)) == null) {
-                this.b.M(num);
+                this.b.N(num);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -233,137 +233,147 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-                this.b.N(i);
+                this.b.O(i);
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a l(@DrawableRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-                this.b.V(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a m(String str) {
+        public final a l(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.b.P(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+                this.b.Q(str);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a n(int i) {
+        public final a m(@DrawableRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                this.b.Q(i);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                this.b.X(i);
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a o(@DrawableRes Integer num) {
+        public final a n(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, num)) == null) {
-                this.b.R(num);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+                this.b.R(str);
                 return this;
             }
             return (a) invokeL.objValue;
+        }
+
+        public final a o(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+                this.b.S(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
 
         public final a p(@DrawableRes Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, num)) == null) {
-                this.b.S(num);
+                this.b.T(num);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a q(b bVar) {
+        public final a q(@DrawableRes Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, bVar)) == null) {
-                this.b.T(bVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, num)) == null) {
+                this.b.U(num);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a r(boolean z) {
+        public final a r(b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bVar)) == null) {
+                this.b.V(bVar);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a s(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-                this.b.W(z);
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+                this.b.Y(z);
                 return this;
             }
             return (a) invokeZ.objValue;
         }
 
-        public final a s(String str) {
+        public final a t(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.b.b0(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+                this.b.d0(str);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a t(@ColorInt Integer num) {
+        public final a u(@ColorInt Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, num)) == null) {
-                this.b.X(num);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a u(@ColorRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-                this.b.Y(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a v(@ColorInt Integer num) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, num)) == null) {
                 this.b.Z(num);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a w(@DimenRes int i) {
+        public final a v(@ColorRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
                 this.b.a0(i);
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a x(@StringRes int i) {
+        public final a w(@ColorInt Integer num) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, num)) == null) {
+                this.b.b0(num);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a x(@DimenRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
                 this.b.c0(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public final a y(@StringRes int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+                this.b.e0(i);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -426,11 +436,12 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Drawable A;
-        public Integer B;
-        public b C;
-        public c D;
-        public int E;
+        public Integer A;
+        public Drawable B;
+        public Integer C;
+        public b D;
+        public c E;
+        public int F;
         public String a;
         public int b;
         public int c;
@@ -450,13 +461,13 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public int q;
         public TBSpecificationButtonConfig r;
         public String s;
-        public int t;
-        public long u;
-        public int v;
-        public boolean w;
-        public String x;
+        public String t;
+        public int u;
+        public long v;
+        public int w;
+        public boolean x;
         public String y;
-        public Integer z;
+        public String z;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -480,52 +491,61 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             UtilHelper.getDimenPixelSize(R.dimen.T_X08);
             this.n = R.dimen.T_X08;
             this.o = R.color.CAM_X0101;
-            this.q = bqa.f("#CC7F47");
-            this.v = R.drawable.pic_use_header_28_n;
-            this.E = R.layout.funny_sprite_bottom_tip_layout;
+            this.q = uua.f("#CC7F47");
+            this.w = R.drawable.pic_use_header_28_n;
+            this.F = R.layout.funny_sprite_bottom_tip_layout;
         }
 
-        public final Integer A() {
+        public final int A() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+
+        public final Integer B() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.e;
             }
             return (Integer) invokeV.objValue;
         }
 
-        public final int B() {
+        public final int C() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return this.b;
             }
             return invokeV.intValue;
         }
 
-        public final String C() {
+        public final String D() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.a;
             }
             return (String) invokeV.objValue;
         }
 
-        public final int D() {
+        public final int E() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.f;
             }
             return invokeV.intValue;
         }
 
-        public final boolean E() {
+        public final boolean F() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.w;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.x;
             }
             return invokeV.booleanValue;
         }
@@ -534,7 +554,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-                return this.y;
+                return this.z;
             }
             return (String) invokeV.objValue;
         }
@@ -543,7 +563,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-                return this.x;
+                return this.y;
             }
             return (String) invokeV.objValue;
         }
@@ -569,7 +589,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
                 return this.q;
             }
             return invokeV.intValue;
@@ -578,7 +598,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final Integer f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
                 return this.p;
             }
             return (Integer) invokeV.objValue;
@@ -587,7 +607,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
                 return this.n;
             }
             return invokeV.intValue;
@@ -596,7 +616,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final String h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
                 return this.m;
             }
             return (String) invokeV.objValue;
@@ -605,7 +625,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final Integer i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
                 return this.j;
             }
             return (Integer) invokeV.objValue;
@@ -614,7 +634,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final int j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
                 return this.i;
             }
             return invokeV.intValue;
@@ -623,7 +643,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final Integer k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
                 return this.k;
             }
             return (Integer) invokeV.objValue;
@@ -632,7 +652,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final int l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
                 return this.h;
             }
             return invokeV.intValue;
@@ -641,7 +661,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final String m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
                 return this.g;
             }
             return (String) invokeV.objValue;
@@ -650,284 +670,291 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         public final int n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
                 return this.l;
             }
             return invokeV.intValue;
         }
 
-        public final int o() {
+        public final String o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
                 return this.t;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final int p() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+                return this.u;
             }
             return invokeV.intValue;
         }
 
-        public final String p() {
+        public final String q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
                 return this.s;
             }
             return (String) invokeV.objValue;
         }
 
-        public final int q() {
+        public final int r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-                return this.E;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+                return this.F;
             }
             return invokeV.intValue;
         }
 
-        public final Drawable r() {
+        public final Drawable s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-                return this.A;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+                return this.B;
             }
             return (Drawable) invokeV.objValue;
-        }
-
-        public final Integer s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-                return this.z;
-            }
-            return (Integer) invokeV.objValue;
         }
 
         public final Integer t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-                return this.B;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+                return this.A;
             }
             return (Integer) invokeV.objValue;
         }
 
-        public final b u() {
+        public final Integer u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
                 return this.C;
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public final b v() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+                return this.D;
             }
             return (b) invokeV.objValue;
         }
 
-        public final c v() {
+        public final c w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-                return this.D;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+                return this.E;
             }
             return (c) invokeV.objValue;
         }
 
-        public final int w() {
+        public final int x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-                return this.v;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+                return this.w;
             }
             return invokeV.intValue;
         }
 
-        public final long x() {
+        public final long y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-                return this.u;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+                return this.v;
             }
             return invokeV.longValue;
         }
 
-        public final Integer y() {
+        public final Integer z() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
                 return this.d;
             }
             return (Integer) invokeV.objValue;
         }
 
-        public final int z() {
-            InterceptResult invokeV;
+        public final void G(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-                return this.c;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.z = str;
             }
-            return invokeV.intValue;
         }
 
-        public final void F(String str) {
+        public final void H(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
                 this.y = str;
             }
         }
 
-        public final void G(String str) {
+        public final void I(TBSpecificationButtonConfig tBSpecificationButtonConfig) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.x = str;
-            }
-        }
-
-        public final void H(TBSpecificationButtonConfig tBSpecificationButtonConfig) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, tBSpecificationButtonConfig) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tBSpecificationButtonConfig) == null) {
                 this.r = tBSpecificationButtonConfig;
             }
         }
 
-        public final void I(int i) {
+        public final void J(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
                 this.n = i;
             }
         }
 
-        public final void J(String str) {
+        public final void K(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
                 this.m = str;
             }
         }
 
-        public final void K(Integer num) {
+        public final void L(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, num) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, num) == null) {
                 this.j = num;
             }
         }
 
-        public final void L(int i) {
+        public final void M(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
                 this.i = i;
             }
         }
 
-        public final void M(Integer num) {
+        public final void N(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, num) == null) {
+            if (interceptable == null || interceptable.invokeL(1048589, this, num) == null) {
                 this.k = num;
             }
         }
 
-        public final void N(int i) {
+        public final void O(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
                 this.h = i;
-            }
-        }
-
-        public final void O(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                this.g = str;
             }
         }
 
         public final void P(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+                this.g = str;
+            }
+        }
+
+        public final void Q(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+                this.t = str;
+            }
+        }
+
+        public final void R(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
                 this.s = str;
             }
         }
 
-        public final void Q(int i) {
+        public final void S(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-                this.E = i;
+            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+                this.F = i;
             }
         }
 
-        public final void R(Integer num) {
+        public final void T(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, num) == null) {
-                this.z = num;
+            if (interceptable == null || interceptable.invokeL(1048595, this, num) == null) {
+                this.A = num;
             }
         }
 
-        public final void S(Integer num) {
+        public final void U(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048594, this, num) == null) {
-                this.B = num;
+            if (interceptable == null || interceptable.invokeL(1048596, this, num) == null) {
+                this.C = num;
             }
         }
 
-        public final void T(b bVar) {
+        public final void V(b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, bVar) == null) {
-                this.C = bVar;
+            if (interceptable == null || interceptable.invokeL(1048597, this, bVar) == null) {
+                this.D = bVar;
             }
         }
 
-        public final void U(c cVar) {
+        public final void W(c cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048596, this, cVar) == null) {
-                this.D = cVar;
+            if (interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) {
+                this.E = cVar;
             }
         }
 
-        public final void V(int i) {
+        public final void X(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-                this.v = i;
+            if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+                this.w = i;
             }
         }
 
-        public final void W(boolean z) {
+        public final void Y(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-                this.w = z;
-            }
-        }
-
-        public final void X(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048599, this, num) == null) {
-                this.d = num;
-            }
-        }
-
-        public final void Y(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-                this.c = i;
+            if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+                this.x = z;
             }
         }
 
         public final void Z(Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048601, this, num) == null) {
-                this.e = num;
+                this.d = num;
             }
         }
 
         public final void a0(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-                this.b = i;
+                this.c = i;
             }
         }
 
-        public final void b0(String str) {
+        public final void b0(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-                this.a = str;
+            if (interceptable == null || interceptable.invokeL(1048605, this, num) == null) {
+                this.e = num;
             }
         }
 
         public final void c0(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+                this.b = i;
+            }
+        }
+
+        public final void d0(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        public final void e0(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
                 this.f = i;
             }
         }
@@ -956,7 +983,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         Intrinsics.checkNotNullParameter(context, "context");
         this.k = 3;
         LayoutInflater.from(context).inflate(i, this);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091ff2);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f092069);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.root)");
         this.a = findViewById;
         View findViewById2 = findViewById(R.id.tip_icon);
@@ -978,7 +1005,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         this.e.setRadiusById(R.string.J_X06);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.h = new d(this, this);
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fr6
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pr6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -990,7 +1017,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 }
             }
         });
-        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dr6
+        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nr6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1002,7 +1029,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 }
             }
         });
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.er6
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.or6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1029,9 +1056,9 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar = null;
             }
-            b u = eVar.u();
-            if (u != null) {
-                u.onBtnClick();
+            b v = eVar.v();
+            if (v != null) {
+                v.onBtnClick();
             }
         }
     }
@@ -1045,9 +1072,9 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar = null;
             }
-            b u = eVar.u();
-            if (u != null) {
-                u.a();
+            b v = eVar.v();
+            if (v != null) {
+                v.a();
             }
         }
     }
@@ -1056,7 +1083,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (bt5.a()) {
+            if (jt5.a()) {
                 return;
             }
             e eVar = this$0.g;
@@ -1064,14 +1091,14 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar = null;
             }
-            b u = eVar.u();
-            if (u != null) {
-                u.onClick();
+            b v = eVar.v();
+            if (v != null) {
+                v.onClick();
             }
         }
     }
 
-    @Override // com.baidu.tieba.dw6
+    @Override // com.baidu.tieba.nw6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -1103,7 +1130,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             eVar = null;
         }
         int i4 = 0;
-        if (!qd.isEmpty(eVar.C())) {
+        if (!rd.isEmpty(eVar.D())) {
             i = 0;
         } else {
             i = 8;
@@ -1115,7 +1142,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar3 = null;
         }
-        if (!qd.isEmpty(eVar3.m())) {
+        if (!rd.isEmpty(eVar3.m())) {
             i2 = 0;
         } else {
             i2 = 8;
@@ -1127,7 +1154,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar4 = null;
         }
-        if (!qd.isEmpty(eVar4.h())) {
+        if (!rd.isEmpty(eVar4.h())) {
             i3 = 0;
         } else {
             i3 = 8;
@@ -1139,7 +1166,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar5 = null;
         }
-        if (!eVar5.E()) {
+        if (!eVar5.F()) {
             i4 = 8;
         }
         imageView.setVisibility(i4);
@@ -1149,7 +1176,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar6 = null;
         }
-        textView3.setText(eVar6.C());
+        textView3.setText(eVar6.D());
         TextView textView4 = this.c;
         e eVar7 = this.g;
         if (eVar7 == null) {
@@ -1172,14 +1199,14 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar9 = null;
         }
-        if (eVar9.x() > 0) {
+        if (eVar9.y() > 0) {
             d dVar = this.h;
             e eVar10 = this.g;
             if (eVar10 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar10 = null;
             }
-            dVar.sendEmptyMessageDelayed(2, eVar10.x());
+            dVar.sendEmptyMessageDelayed(2, eVar10.y());
         }
         j(TbadkCoreApplication.getInst().getSkinType());
         TbLog defaultLog = DefaultLog.getInstance();
@@ -1190,7 +1217,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar11 = null;
         }
-        sb.append(eVar11.C());
+        sb.append(eVar11.D());
         sb.append(',');
         e eVar12 = this.g;
         if (eVar12 == null) {
@@ -1210,49 +1237,52 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
     }
 
     public final void j(int i) {
+        String q;
         String b2;
         BdImage bdImage;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.k == i) {
             return;
         }
-        e eVar = this.g;
-        e eVar2 = null;
-        if (eVar == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
-            eVar = null;
-        }
-        if (eVar.p() != null) {
-            TbImage tbImage = this.e;
+        e eVar = null;
+        if (i == 4) {
+            e eVar2 = this.g;
+            if (eVar2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
+                eVar2 = null;
+            }
+            q = eVar2.o();
+        } else {
             e eVar3 = this.g;
             if (eVar3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar3 = null;
             }
-            tbImage.setPlaceHolderDrawable(SkinManager.getDrawable(eVar3.w()));
-            TbImage tbImage2 = this.e;
+            q = eVar3.q();
+        }
+        if (q != null) {
+            TbImage tbImage = this.e;
             e eVar4 = this.g;
             if (eVar4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar4 = null;
             }
-            String p = eVar4.p();
-            Intrinsics.checkNotNull(p);
-            tbImage2.l(p);
+            tbImage.setPlaceHolderDrawable(SkinManager.getDrawable(eVar4.x()));
+            this.e.l(q);
         } else {
             e eVar5 = this.g;
             if (eVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar5 = null;
             }
-            if (eVar5.o() != 0) {
-                TbImage tbImage3 = this.e;
+            if (eVar5.p() != 0) {
+                TbImage tbImage2 = this.e;
                 e eVar6 = this.g;
                 if (eVar6 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                     eVar6 = null;
                 }
-                tbImage3.setPlaceHolderDrawable(SkinManager.getDrawable(eVar6.o()));
+                tbImage2.setPlaceHolderDrawable(SkinManager.getDrawable(eVar6.p()));
                 this.e.l("");
             } else {
                 this.e.setVisibility(8);
@@ -1273,7 +1303,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             }
             b2 = eVar8.b();
         }
-        if (!qd.isEmpty(b2)) {
+        if (!rd.isEmpty(b2)) {
             Object loadResourceFromMemery = BdResourceLoader.getInstance().loadResourceFromMemery(b2, 59, new Object[0]);
             if (loadResourceFromMemery instanceof BdImage) {
                 bdImage = (BdImage) loadResourceFromMemery;
@@ -1288,16 +1318,16 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                     Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                     eVar9 = null;
                 }
-                if (eVar9.t() != null) {
+                if (eVar9.u() != null) {
                     View view2 = this.a;
                     e eVar10 = this.g;
                     if (eVar10 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                         eVar10 = null;
                     }
-                    Integer t = eVar10.t();
-                    Intrinsics.checkNotNull(t);
-                    SkinManager.setBackgroundResource(view2, t.intValue());
+                    Integer u = eVar10.u();
+                    Intrinsics.checkNotNull(u);
+                    SkinManager.setBackgroundResource(view2, u.intValue());
                 }
                 BdResourceLoader.getInstance().loadResource(b2, 59, null, null);
             }
@@ -1307,32 +1337,32 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar11 = null;
             }
-            if (eVar11.s() != null) {
+            if (eVar11.t() != null) {
                 View view3 = this.a;
                 e eVar12 = this.g;
                 if (eVar12 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 } else {
-                    eVar2 = eVar12;
+                    eVar = eVar12;
                 }
-                Integer s = eVar2.s();
-                Intrinsics.checkNotNull(s);
-                SkinManager.setBackgroundResource(view3, s.intValue());
+                Integer t = eVar.t();
+                Intrinsics.checkNotNull(t);
+                SkinManager.setBackgroundResource(view3, t.intValue());
             } else {
                 e eVar13 = this.g;
                 if (eVar13 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                     eVar13 = null;
                 }
-                if (eVar13.r() != null) {
+                if (eVar13.s() != null) {
                     View view4 = this.a;
                     e eVar14 = this.g;
                     if (eVar14 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                     } else {
-                        eVar2 = eVar14;
+                        eVar = eVar14;
                     }
-                    view4.setBackgroundDrawable(eVar2.r());
+                    view4.setBackgroundDrawable(eVar.s());
                 }
             }
         }
@@ -1371,7 +1401,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 this.d.k();
                 return;
             }
-            v55 v55Var = new v55();
+            b65 b65Var = new b65();
             e eVar5 = this.g;
             if (eVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
@@ -1392,7 +1422,7 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 }
                 Integer f = eVar2.f();
                 Intrinsics.checkNotNull(f);
-                v55Var.s(c2, f.intValue());
+                b65Var.s(c2, f.intValue());
             } else {
                 e eVar8 = this.g;
                 if (eVar8 == null) {
@@ -1406,9 +1436,9 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 } else {
                     eVar2 = eVar9;
                 }
-                v55Var.r(e2, SkinManager.getColor(eVar2.c()));
+                b65Var.r(e2, SkinManager.getColor(eVar2.c()));
             }
-            this.d.setConfig(v55Var);
+            this.d.setConfig(b65Var);
             this.d.k();
         }
     }
@@ -1476,19 +1506,19 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar = null;
             }
-            EMManager textSize = from.setTextSize(eVar.B());
+            EMManager textSize = from.setTextSize(eVar.C());
             e eVar3 = this.g;
             if (eVar3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar3 = null;
             }
-            EMManager textColor = textSize.setTextColor(eVar3.z());
+            EMManager textColor = textSize.setTextColor(eVar3.A());
             e eVar4 = this.g;
             if (eVar4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar4 = null;
             }
-            textColor.setTextStyle(eVar4.D());
+            textColor.setTextStyle(eVar4.E());
             if (i != 0) {
                 if (i == 4) {
                     e eVar5 = this.g;
@@ -1497,9 +1527,9 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
                     } else {
                         eVar2 = eVar5;
                     }
-                    Integer A = eVar2.A();
-                    if (A != null) {
-                        this.b.setTextColor(A.intValue());
+                    Integer B = eVar2.B();
+                    if (B != null) {
+                        this.b.setTextColor(B.intValue());
                         return;
                     }
                     return;
@@ -1512,9 +1542,9 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             } else {
                 eVar2 = eVar6;
             }
-            Integer y = eVar2.y();
-            if (y != null) {
-                this.b.setTextColor(y.intValue());
+            Integer z = eVar2.z();
+            if (z != null) {
+                this.b.setTextColor(z.intValue());
             }
         }
     }
@@ -1579,16 +1609,16 @@ public final class SpriteBottomTipView extends LinearLayout implements dw6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar = null;
         }
-        c v = eVar.v();
-        if (v != null) {
-            v.onDismiss();
+        c w = eVar.w();
+        if (w != null) {
+            w.onDismiss();
         }
         e eVar2 = this.g;
         if (eVar2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar2 = null;
         }
-        eVar2.U(null);
+        eVar2.W(null);
         Function1<? super Boolean, Unit> function1 = this.i;
         if (function1 != null) {
             function1.invoke(Boolean.FALSE);

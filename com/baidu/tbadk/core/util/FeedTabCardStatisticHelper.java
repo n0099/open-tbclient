@@ -223,7 +223,7 @@ public class FeedTabCardStatisticHelper {
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(threadData));
             baseThreadStatisticLog.param("obj_type", threadData.picCount());
             if (threadData.getTopAgreePost() != null) {
-                baseThreadStatisticLog.param("obj_name", threadData.getTopAgreePost().f0 ? 1 : 0);
+                baseThreadStatisticLog.param("obj_name", threadData.getTopAgreePost().g0 ? 1 : 0);
             }
             if (threadData.getBaijiahaoData() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);

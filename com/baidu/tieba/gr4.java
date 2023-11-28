@@ -1,228 +1,79 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.hr4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gr4 {
+public abstract class gr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static hr4 a;
-    public static gr4 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803520, "Lcom/baidu/tieba/gr4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947803520, "Lcom/baidu/tieba/gr4;");
-                return;
-            }
-        }
-        new ArrayList(5);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, boolean z2, String str, @Nullable String str2);
     }
+
+    public abstract void a();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(a aVar);
 
     public gr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.d();
-                c = false;
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.c();
-                c = false;
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.h();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b();
-            i();
-            m();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.m();
-                c = true;
-            }
-        }
-    }
-
-    public static gr4 a(BaseFragmentActivity baseFragmentActivity) {
+    public static gr4 b(BaseActivity baseActivity) {
         InterceptResult invokeL;
-        hr4 hr4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (b == null) {
-                synchronized (gr4.class) {
-                    if (b == null) {
-                        b = new gr4();
-                        a = hr4.a(baseFragmentActivity);
-                    }
-                }
-            } else {
-                hr4 hr4Var2 = a;
-                if (hr4Var2 != null) {
-                    hr4Var2.j(baseFragmentActivity.getPageContext());
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, gr4.class, baseActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (gr4) runTask.getData();
             }
-            if (c && (hr4Var = a) != null) {
-                hr4Var.d();
-                a.c();
-                c = false;
-            }
-            return b;
+            return null;
         }
         return (gr4) invokeL.objValue;
     }
 
-    public static void h() {
+    public static gr4 c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (a != null) {
-                    if (b != null) {
-                        b.j();
-                    }
-                    a.e();
-                    a.i();
-                    a = null;
-                }
-                if (b != null) {
-                    b = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, gr4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (gr4) runTask.getData();
             }
+            return null;
         }
-    }
-
-    public void e(boolean z, boolean z2, boolean z3, hr4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
-            b();
-            if (z) {
-                c();
-            }
-            if (z2) {
-                d();
-            }
-            l(z3);
-            k(aVar);
-        }
-    }
-
-    public void f(hr4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                if (hr4Var.b()) {
-                    a.k(aVar);
-                }
-                a.f();
-            }
-        }
-    }
-
-    public void k(hr4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.k(aVar);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                hr4Var.l(z);
-            }
-        }
-    }
-
-    public void g(int i, hr4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
-            b();
-            hr4 hr4Var = a;
-            if (hr4Var != null) {
-                if (hr4Var.b()) {
-                    a.k(aVar);
-                }
-                a.g(i);
-            }
-        }
+        return (gr4) invokeL.objValue;
     }
 }

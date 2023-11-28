@@ -53,10 +53,10 @@ public class NetErrorElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         if (this.mRootView == null) {
-            this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0174, null);
+            this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0178, null);
         }
-        this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09277f);
-        Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0904bc);
+        this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092802);
+        Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0904d6);
         this.mBtnRetry = button;
         button.setOnClickListener(this.mParent);
     }

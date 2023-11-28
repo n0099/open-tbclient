@@ -1,55 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dv8 extends um8 {
+public final class dv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BaseItem a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718115, "Lcom/baidu/tieba/dv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947718115, "Lcom/baidu/tieba/dv8;");
-                return;
+    public dv8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b = BdUniqueId.gen().getId();
     }
 
-    @Override // com.baidu.tieba.um8
-    public int a() {
-        InterceptResult invokeV;
+    public IChatRoomEnterListener.TaskInfo a(TbTaskInfo tbInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
+            IChatRoomEnterListener.TaskInfo taskInfo = new IChatRoomEnterListener.TaskInfo();
+            taskInfo.taskId = tbInfo.getTaskId();
+            taskInfo.taskType = tbInfo.getTaskType();
+            taskInfo.taskState = tbInfo.getTaskState();
+            taskInfo.taskResult = tbInfo.getTaskResult();
+            taskInfo.taskErrorMsg = tbInfo.getTaskErrorMsg();
+            taskInfo.originMsgId = tbInfo.getOriginMsgId();
+            taskInfo.originMsgKey = tbInfo.getOriginMsgKey();
+            taskInfo.taskProgress = tbInfo.getTaskProgress();
+            return taskInfo;
         }
-        return invokeV.intValue;
+        return (IChatRoomEnterListener.TaskInfo) invokeL.objValue;
     }
 
-    @NonNull
-    public BaseItem b() {
-        InterceptResult invokeV;
+    public TbTaskInfo b(IChatRoomEnterListener.TaskInfo sdkInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
+            TbTaskInfo tbTaskInfo = new TbTaskInfo();
+            String taskId = sdkInfo.taskId;
+            Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
+            tbTaskInfo.setTaskId(taskId);
+            tbTaskInfo.setTaskType(sdkInfo.taskType);
+            tbTaskInfo.setTaskState(sdkInfo.taskState);
+            tbTaskInfo.setTaskResult(sdkInfo.taskResult);
+            String taskErrorMsg = sdkInfo.taskErrorMsg;
+            Intrinsics.checkNotNullExpressionValue(taskErrorMsg, "taskErrorMsg");
+            tbTaskInfo.setTaskErrorMsg(taskErrorMsg);
+            tbTaskInfo.setOriginMsgId(sdkInfo.originMsgId);
+            String originMsgKey = sdkInfo.originMsgKey;
+            Intrinsics.checkNotNullExpressionValue(originMsgKey, "originMsgKey");
+            tbTaskInfo.setOriginMsgKey(originMsgKey);
+            tbTaskInfo.setTaskProgress(sdkInfo.taskProgress);
+            return tbTaskInfo;
         }
-        return (BaseItem) invokeV.objValue;
+        return (TbTaskInfo) invokeL.objValue;
     }
 }

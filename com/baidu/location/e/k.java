@@ -67,7 +67,7 @@ public class k {
     public static float S = 0.0f;
 
     /* renamed from: T  reason: collision with root package name */
-    public static float f1046T = 0.1f;
+    public static float f1042T = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;
@@ -619,7 +619,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
             if (context != null) {
                 try {
-                    i2 = context.checkCallingOrSelfPermission(com.kuaishou.weapon.p0.h.h);
+                    i2 = context.checkCallingOrSelfPermission(com.kuaishou.weapon.p0.g.h);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     i2 = 0;
@@ -663,9 +663,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            int a2 = a(context, com.kuaishou.weapon.p0.h.h);
-            int a3 = a(context, com.kuaishou.weapon.p0.h.g);
-            int a4 = a(context, com.kuaishou.weapon.p0.h.c);
+            int a2 = a(context, com.kuaishou.weapon.p0.g.h);
+            int a3 = a(context, com.kuaishou.weapon.p0.g.g);
+            int a4 = a(context, com.kuaishou.weapon.p0.g.c);
             if (Build.VERSION.SDK_INT < 29) {
                 return "&per=" + a2 + "|" + a3 + "|" + a4;
             }
@@ -746,7 +746,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
-            int a2 = a(context, com.kuaishou.weapon.p0.h.g) | a(context, com.kuaishou.weapon.p0.h.h);
+            int a2 = a(context, com.kuaishou.weapon.p0.g.g) | a(context, com.kuaishou.weapon.p0.g.h);
             if (b(context) == 0 || a2 != 1) {
                 if (b(context) == 0 || a2 == 1) {
                     return (b(context) >= 1 || a2 != 1) ? 0 : -1;

@@ -1,73 +1,42 @@
 package com.kwad.sdk.utils;
 
-import android.app.ActivityManager;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import java.util.List;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes10.dex */
 public final class an {
-    public static String anX = "";
-    public static volatile Boolean anY;
-
-    public static String cG(@NonNull Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (context == null) {
-            return "";
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0010 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0008 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x000c */
+    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
+        r0 = r0;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i) {
+        boolean z7;
+        if (z2) {
+            z7 = (z ? 1 : 0) | true;
         }
-        int myPid = Process.myPid();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
+        if (z3) {
+            z7 = (z7 ? 1 : 0) | true;
         }
-        return "";
-    }
-
-    public static String getProcessName(@NonNull Context context) {
-        if (TextUtils.isEmpty(anX)) {
-            String zN = zN();
-            anX = zN;
-            if (TextUtils.isEmpty(zN)) {
-                String zO = zO();
-                anX = zO;
-                if (TextUtils.isEmpty(zO)) {
-                    String cG = cG(context);
-                    anX = cG;
-                    return cG;
-                }
-                return anX;
-            }
-            return anX;
+        if (z4) {
+            z7 = (z7 ? 1 : 0) | 8;
         }
-        return anX;
-    }
-
-    public static boolean isInMainProcess(Context context) {
-        if (anY == null) {
-            String processName = getProcessName(context);
-            anY = Boolean.valueOf(!TextUtils.isEmpty(processName) && processName.equals(context.getPackageName()));
+        if (z5) {
+            z7 = (z7 == true ? 1 : 0) | 16;
         }
-        return anY.booleanValue();
-    }
-
-    public static String zN() {
-        return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
-    }
-
-    public static String zO() {
-        try {
-            Object b = q.b(Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()), "currentProcessName", new Object[0]);
-            return b instanceof String ? (String) b : "";
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return "";
+        if (z6) {
+            z7 = (z7 == true ? 1 : 0) | WebvttCueParser.CHAR_SPACE;
         }
+        return i == 2 ? z7 | 64 : z7;
     }
 }

@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 /* loaded from: classes7.dex */
-public class qj6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qj6 {
+    void a(WebView webView, String str);
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            HybridLog.getInstance().d(str, str2);
-        }
-    }
+    void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HybridLog.getInstance().e(str, str2);
-        }
-    }
+    void c(WebView webView, String str);
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            HybridLog.getInstance().i(str, str2);
-        }
-    }
+    void onPageFinished(WebView webView, String str);
+
+    void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    boolean shouldOverrideUrlLoading(WebView webView, String str);
 }

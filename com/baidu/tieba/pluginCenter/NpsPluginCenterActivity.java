@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fg;
 import com.baidu.tieba.flutter.FlutterPluginManager;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -90,7 +90,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @NonNull
-    public final TbSettingTextTipView M0() {
+    public final TbSettingTextTipView K0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -101,7 +101,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         return (TbSettingTextTipView) invokeV.objValue;
     }
 
-    public final void J0() {
+    public final void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (getIntent() != null) {
@@ -114,10 +114,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
         }
     }
 
-    public final void L0() {
+    public final void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09215a);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921d2);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
@@ -126,15 +126,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
             this.e.add(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME);
             this.e.add("com.baidu.tieba.plugin.sdkcode");
-            for (BundleInfo bundleInfo : fg.f().c()) {
+            for (BundleInfo bundleInfo : gg.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
-                    TbSettingTextTipView M0 = M0();
-                    M0.setText(bundleInfo.getName());
-                    M0.setTip(String.valueOf(bundleInfo.getVersionCode()));
-                    this.d.add(M0);
-                    linearLayout.addView(M0);
+                    TbSettingTextTipView K0 = K0();
+                    K0.setText(bundleInfo.getName());
+                    K0.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.d.add(K0);
+                    linearLayout.addView(K0);
                     if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        M0.setOnClickListener(new a(this, bundleInfo));
+                        K0.setOnClickListener(new a(this, bundleInfo));
                     }
                 }
             }
@@ -164,9 +164,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d075d);
-            J0();
-            L0();
+            setContentView(R.layout.obfuscated_res_0x7f0d0776);
+            H0();
+            I0();
         }
     }
 }

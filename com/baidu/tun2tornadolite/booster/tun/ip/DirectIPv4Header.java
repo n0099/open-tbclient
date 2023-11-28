@@ -162,7 +162,7 @@ public final class DirectIPv4Header extends DirectIPHeader {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i4)) == null) {
-                    return Integer.valueOf((UByte.m873constructorimpl(this.$buffer[i4]) & 255 & 15) * 4);
+                    return Integer.valueOf((UByte.m877constructorimpl(this.$buffer[i4]) & 255 & 15) * 4);
                 }
                 return (Integer) invokeI.objValue;
             }

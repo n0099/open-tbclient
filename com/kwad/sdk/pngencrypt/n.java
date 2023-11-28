@@ -5,17 +5,17 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 /* loaded from: classes10.dex */
 public final class n {
-    public static Charset alc = Charset.forName("ISO-8859-1");
-    public static Charset ald = Charset.forName("UTF-8");
-    public static ThreadLocal<Boolean> ale = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
-        public static Boolean yy() {
+    public static Charset aJS = Charset.forName("ISO-8859-1");
+    public static Charset aJT = Charset.forName("UTF-8");
+    public static ThreadLocal<Boolean> aJU = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+        public static Boolean IB() {
             return Boolean.FALSE;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // java.lang.ThreadLocal
         public final /* synthetic */ Boolean initialValue() {
-            return yy();
+            return IB();
         }
     };
 
@@ -27,24 +27,20 @@ public final class n {
         return (i5 > i6 || i5 > i7) ? i6 <= i7 ? i2 : i3 : i;
     }
 
-    public static int e(byte[] bArr, int i) {
-        return bArr[i] & 255;
+    public static byte[] IA() {
+        return new byte[]{-119, 80, 78, 71, 13, 10, 26, 10};
     }
 
-    public static int f(InputStream inputStream) {
+    public static int e(InputStream inputStream) {
         try {
             return inputStream.read();
         } catch (IOException e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
+            com.kwad.sdk.core.e.c.printStackTrace(e);
             return -1;
         }
     }
 
-    public static int f(byte[] bArr, int i) {
-        return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
-    }
-
-    public static int g(InputStream inputStream) {
+    public static int f(InputStream inputStream) {
         try {
             int read = inputStream.read();
             int read2 = inputStream.read();
@@ -55,16 +51,20 @@ public final class n {
             }
             return (read << 24) | (read2 << 16) | ((read3 << 8) + read4);
         } catch (IOException e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
+            com.kwad.sdk.core.e.c.printStackTrace(e);
             return -1;
         }
     }
 
-    public static final int g(byte[] bArr, int i) {
-        return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
+    public static int e(byte[] bArr, int i) {
+        return bArr[i] & 255;
     }
 
-    public static byte[] yx() {
-        return new byte[]{-119, 80, 78, 71, 13, 10, 26, 10};
+    public static int f(byte[] bArr, int i) {
+        return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
+    }
+
+    public static final int g(byte[] bArr, int i) {
+        return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 }

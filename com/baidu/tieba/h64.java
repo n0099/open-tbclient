@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.screenrecord.GameRecorderController;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h64 {
+public class h64 extends EventTargetImpl implements v90 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile h64 d;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public GameRecorderController a;
-    public boolean b;
+    public int a;
+    public e64 b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,100 +35,119 @@ public class h64 {
                 return;
             }
         }
-        c = rm1.a;
-        d = null;
+        d = sm1.a;
     }
 
-    public h64() {
+    @Override // com.baidu.tieba.v90
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            w(DownloadStatisticConstants.UBC_TYPE_PAUSE, this.b);
+            jd3 jd3Var = new jd3();
+            jd3Var.b = DownloadStatisticConstants.UBC_TYPE_PAUSE;
+            ad3.h(jd3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.v90
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            w(DownloadStatisticConstants.UBC_TYPE_RESUME, this.b);
+            jd3 jd3Var = new jd3();
+            jd3Var.b = DownloadStatisticConstants.UBC_TYPE_RESUME;
+            ad3.h(jd3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.v90
+    public void onStart() {
+        Object f64Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a;
+            if (i == -1) {
+                f64Var = this.b;
+            } else {
+                f64Var = new f64(i);
+            }
+            w("start", f64Var);
+            jd3 jd3Var = new jd3();
+            jd3Var.b = "start";
+            ad3.h(jd3Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h64(JSRuntime jSRuntime) {
+        super(jSRuntime);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSRuntime};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = new e64();
+        i64.a().b().s(this);
     }
 
-    public static h64 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v90
+    public void onError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (h64.class) {
-                    if (d == null) {
-                        d = new h64();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "onError:" + i);
             }
-            return d;
+            w("error", new d64("internal error"));
         }
-        return (h64) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v90
+    public void v(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (c) {
-                Log.i("GameRecorderManager", "isGamePause:" + this.b);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
             }
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
+            w("stop", new g64(this.c));
+            jd3 jd3Var = new jd3();
+            jd3Var.b = "stop";
+            jd3Var.a("dura", String.valueOf(i / 1000.0f));
+            ad3.h(jd3Var);
         }
     }
 
-    public void e() {
+    public final void w(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = false;
-        }
-    }
-
-    @NonNull
-    public GameRecorderController b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c) {
-                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            if (d) {
+                Log.i("GameRecorderApi", "dispatchEvent:" + str);
             }
-            GameRecorderController gameRecorderController = this.a;
-            if (gameRecorderController == null) {
-                return GameRecorderController.j();
-            }
-            return gameRecorderController;
-        }
-        return (GameRecorderController) invokeV.objValue;
-    }
-
-    public void f(GameRecorderController gameRecorderController) {
-        GameRecorderController gameRecorderController2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
-            gameRecorderController2.p();
-            this.a = null;
+            dispatchEvent(new JSEvent(str, obj));
         }
     }
 
-    public void g(GameRecorderController gameRecorderController) {
+    public void x(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
-            GameRecorderController gameRecorderController2 = this.a;
-            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
-                gameRecorderController2.p();
-            }
-            this.a = gameRecorderController;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
         }
     }
 }

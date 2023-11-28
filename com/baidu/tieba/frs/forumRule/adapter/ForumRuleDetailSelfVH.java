@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu5;
-import com.baidu.tieba.pu5;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.vu5;
+import com.baidu.tieba.xu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,13 +88,13 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nu5 nu5Var = nu5.a;
+                vu5 vu5Var = vu5.a;
                 int i = this.a;
                 String str = this.b.name_show;
                 ForumRuleDetailSelfVH forumRuleDetailSelfVH = this.d;
-                nu5.c(i, str, forumRuleDetailSelfVH.c, forumRuleDetailSelfVH.e, this.c, null);
+                vu5.c(i, str, forumRuleDetailSelfVH.c, forumRuleDetailSelfVH.e, this.c, null);
                 ForumRuleDetailSelfVH forumRuleDetailSelfVH2 = this.d;
-                pu5.a(forumRuleDetailSelfVH2.c, null, null, forumRuleDetailSelfVH2.e, null, 4);
+                xu5.a(forumRuleDetailSelfVH2.c, null, null, forumRuleDetailSelfVH2.e, null, 4);
             }
         }
     }
@@ -191,24 +191,24 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c54);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c74);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c61);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c5f);
-            this.e = (TbLevelView) view2.findViewById(R.id.obfuscated_res_0x7f090c5e);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4f);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c5b);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090c53);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c81);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7f);
+            this.e = (TbLevelView) view2.findViewById(R.id.obfuscated_res_0x7f090c7e);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c6f);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7b);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090c73);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07df));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c52);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07e7));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c72);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07e4));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c59);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c5a);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c58);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07ec));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c79);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7a);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c78);
         }
     }
 

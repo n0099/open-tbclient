@@ -5,7 +5,7 @@ import com.yy.transvod.player.common.AVframe;
 import com.yy.transvod.player.common.AudioSendStamp;
 import com.yy.transvod.player.common.MixAudioExtraInfo;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MediaSample {
     public String a;
     public SurfaceTexture h;

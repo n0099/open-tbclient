@@ -113,7 +113,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         this.f = new b(this);
     }
 
-    public final PollingLifecycleHelper k(a loopCallback) {
+    public final PollingLifecycleHelper j(a loopCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, loopCallback)) == null) {
@@ -124,7 +124,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         return (PollingLifecycleHelper) invokeL.objValue;
     }
 
-    public final PollingLifecycleHelper l(long j) {
+    public final PollingLifecycleHelper k(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {

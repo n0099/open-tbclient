@@ -31,12 +31,12 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.oi;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.y6a;
-import com.baidu.tieba.z6a;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.uba;
+import com.baidu.tieba.vba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public y6a mCardNullPolymericData;
+    public uba mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -82,18 +82,18 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
     public SocketMessageListener pageSocketListener;
-    public final ArrayList<oi> postList;
-    public final ArrayList<oi> threadList;
+    public final ArrayList<pi> postList;
+    public final ArrayList<pi> threadList;
     public int view_card_num;
 
     /* loaded from: classes7.dex */
     public interface c {
-        void Q0(PersonPostModel personPostModel, boolean z);
+        void W0(PersonPostModel personPostModel, boolean z);
     }
 
     /* loaded from: classes7.dex */
     public interface d {
-        void b1(PersonPostModel personPostModel, boolean z);
+        void i1(PersonPostModel personPostModel, boolean z);
     }
 
     static {
@@ -460,7 +460,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes7.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, oi {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, pi {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -511,7 +511,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             POST_INFO = BdUniqueId.gen();
         }
 
-        @Override // com.baidu.tieba.oi
+        @Override // com.baidu.tieba.pi
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -905,12 +905,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.Q0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.W0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                     return;
                 }
                 return;
             }
-            this.a.mOnResult.b1(null, this.a.mIsReset);
+            this.a.mOnResult.i1(null, this.a.mIsReset);
         }
     }
 
@@ -956,12 +956,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.Q0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.W0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                     return;
                 }
                 return;
             }
-            this.a.mOnResult.b1(null, this.a.mIsReset);
+            this.a.mOnResult.i1(null, this.a.mIsReset);
         }
     }
 
@@ -1070,16 +1070,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<oi> mergeDynamicThreadByTime(ArrayList<oi> arrayList) {
+    public static ArrayList<pi> mergeDynamicThreadByTime(ArrayList<pi> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<oi> it = arrayList.iterator();
+            Iterator<pi> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                oi next = it.next();
+                pi next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -1114,15 +1114,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new z6a());
+            this.postList.add(new vba());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            y6a y6aVar = new y6a();
-            this.mCardNullPolymericData = y6aVar;
-            this.postList.add(y6aVar);
+            uba ubaVar = new uba();
+            this.mCardNullPolymericData = ubaVar;
+            this.postList.add(ubaVar);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

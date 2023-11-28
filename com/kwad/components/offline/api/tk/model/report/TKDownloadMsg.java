@@ -7,6 +7,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> implements Serializable {
+    public static final int ENV_SUCCESS = 3;
     public static final int FAIL = 2;
     public static final int INVALID_DOWNLOAD_STATE = -1;
     public static final int START = 0;
@@ -17,8 +18,12 @@ public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> impl
     public String errorDetail;
     public String errorReason;
     public int loadingTimes;
+    public long offlineLoadTime;
+    public int offlineSource;
     public int preload;
     public int retryCount;
+    public long soLoadTime;
+    public int soSource;
     public String templateId;
     public String versionCode;
 
@@ -45,6 +50,10 @@ public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> impl
         }
         tKDownloadMsg.retryCount = jSONObject.optInt("retry_count");
         tKDownloadMsg.loadingTimes = jSONObject.optInt("loading_times");
+        tKDownloadMsg.offlineSource = jSONObject.optInt("offline_source");
+        tKDownloadMsg.soSource = jSONObject.optInt("so_source");
+        tKDownloadMsg.offlineLoadTime = jSONObject.optLong("offline_load_time");
+        tKDownloadMsg.soLoadTime = jSONObject.optLong("so_load_time");
         tKDownloadMsg.errorDetail = jSONObject.optString("error_detail");
         if (jSONObject.opt("error_detail") == JSONObject.NULL) {
             tKDownloadMsg.errorDetail = "";
@@ -76,6 +85,16 @@ public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> impl
         return this;
     }
 
+    public TKDownloadMsg setOfflineLoadTime(long j) {
+        this.offlineLoadTime = j;
+        return this;
+    }
+
+    public TKDownloadMsg setOfflineSource(int i) {
+        this.offlineSource = i;
+        return this;
+    }
+
     public TKDownloadMsg setPreload(int i) {
         this.preload = i;
         return this;
@@ -83,6 +102,16 @@ public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> impl
 
     public TKDownloadMsg setRetryCount(int i) {
         this.retryCount = i;
+        return this;
+    }
+
+    public TKDownloadMsg setSoLoadTime(long j) {
+        this.soLoadTime = j;
+        return this;
+    }
+
+    public TKDownloadMsg setSoSource(int i) {
+        this.soSource = i;
         return this;
     }
 
@@ -136,6 +165,22 @@ public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> impl
         int i3 = tKDownloadMsg.loadingTimes;
         if (i3 != 0) {
             JsonHelper.putValue(jSONObject, "loading_times", i3);
+        }
+        int i4 = tKDownloadMsg.offlineSource;
+        if (i4 != 0) {
+            JsonHelper.putValue(jSONObject, "offline_source", i4);
+        }
+        int i5 = tKDownloadMsg.soSource;
+        if (i5 != 0) {
+            JsonHelper.putValue(jSONObject, "so_source", i5);
+        }
+        long j2 = tKDownloadMsg.offlineLoadTime;
+        if (j2 != 0) {
+            JsonHelper.putValue(jSONObject, "offline_load_time", j2);
+        }
+        long j3 = tKDownloadMsg.soLoadTime;
+        if (j3 != 0) {
+            JsonHelper.putValue(jSONObject, "so_load_time", j3);
         }
         String str4 = tKDownloadMsg.errorDetail;
         if (str4 != null && !str4.equals("")) {

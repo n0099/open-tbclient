@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,7 +92,7 @@ public class BlueCircleProgressDialog {
             AlertDialog create = new AlertDialog.Builder(this.mActivity, R.style.obfuscated_res_0x7f10010d).create();
             this.mWaitingDialog = create;
             GreyUtil.grey(create);
-            xb.i(this.mWaitingDialog, this.mActivity);
+            yb.i(this.mWaitingDialog, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
             this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
             if (!StringUtils.isNull(this.tipString) && (textView = this.mTipView) != null) {
@@ -126,7 +126,7 @@ public class BlueCircleProgressDialog {
             AlertDialog create = new AlertDialog.Builder(this.mActivity).create();
             this.mWaitingDialog = create;
             GreyUtil.grey(create);
-            xb.i(this.mWaitingDialog, this.mActivity);
+            yb.i(this.mWaitingDialog, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
             this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
             if (!StringUtils.isNull(this.tipString) && (textView = this.mTipView) != null) {
@@ -209,7 +209,7 @@ public class BlueCircleProgressDialog {
                     return;
                 }
             }
-            xb.a(this.mWaitingDialog, this.mActivity);
+            yb.a(this.mWaitingDialog, this.mActivity);
         }
     }
 

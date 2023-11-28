@@ -1,62 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forum.data.ForumTabItem;
-import com.baidu.tieba.forum.viewmodel.ForumViewModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class oi7 {
+public class oi7 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
+    public ti7<?> b;
 
-    public static final void a(FragmentActivity fragmentActivity, int i) {
-        hh7 value;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65536, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
-        TiebaStatic.log(new StatisticItem("c15555").param("fid", String.valueOf(value.d())).param("fname", value.e()).param("obj_type", i));
     }
 
-    public static final void b(FragmentActivity fragmentActivity, int i) {
-        hh7 value;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
         }
-        TiebaStatic.log(new StatisticItem("c15554").param("fid", String.valueOf(value.d())).param("fname", value.e()).param("obj_type", i));
     }
 
-    public static final void c(FragmentActivity activity, int i) {
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, activity, i) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            hh7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
-            if (value == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+        }
+    }
+
+    public oi7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            List<ForumTabItem> k = value.k();
-            if (i >= 0 && i < k.size()) {
-                TiebaStatic.log(new StatisticItem("c15550").param("fid", value.d()).param("fname", value.e()).param("obj_type", k.get(i).getTabId()));
-            }
+        }
+        this.a = Unit.INSTANCE;
+        this.b = new mi7();
+    }
+
+    public final Object a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.objValue;
+    }
+
+    public final ti7<?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ti7) invokeV.objValue;
+    }
+
+    public final void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            Intrinsics.checkNotNullParameter(obj, "<set-?>");
+            this.a = obj;
         }
     }
 
-    public static final void d(FragmentActivity activity) {
+    public final void f(ti7<?> ti7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            hh7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
-            if (value == null) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c15549").param("fid", value.d()).param("fname", value.e()));
+        if (interceptable == null || interceptable.invokeL(1048581, this, ti7Var) == null) {
+            Intrinsics.checkNotNullParameter(ti7Var, "<set-?>");
+            this.b = ti7Var;
         }
     }
 }

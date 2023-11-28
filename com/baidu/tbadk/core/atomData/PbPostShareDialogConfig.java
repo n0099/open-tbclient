@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.rs9;
+import com.baidu.tieba.pb.data.PbPostShareData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,20 +13,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rs9 mPbPostData;
+    public PbPostShareData mPbPostData;
+    public int mPostShareSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, rs9 rs9Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, int i, boolean z, PbPostShareData pbPostShareData) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), rs9Var};
+            Object[] objArr = {context, shareItem, Integer.valueOf(i), Boolean.valueOf(z), pbPostShareData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (ShareItem) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -33,15 +35,26 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = rs9Var;
+        this.mPostShareSource = 0;
+        this.mPbPostData = pbPostShareData;
+        this.mPostShareSource = i;
     }
 
-    public rs9 getPbPostData() {
+    public PbPostShareData getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (rs9) invokeV.objValue;
+        return (PbPostShareData) invokeV.objValue;
+    }
+
+    public int getPostShareSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPostShareSource;
+        }
+        return invokeV.intValue;
     }
 }

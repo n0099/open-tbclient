@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class NativeExceptionMessage extends ExceptionMessage {
@@ -15,13 +15,13 @@ public final class NativeExceptionMessage extends ExceptionMessage {
     public String mFaultAddr = "Unknown";
     public String mAbortMsg = "";
 
-    public NativeExceptionMessage() {
-        this.mExceptionType = 4;
-    }
-
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
     public final String getTypePrefix() {
         return "NATIVE_";
+    }
+
+    public NativeExceptionMessage() {
+        this.mExceptionType = 4;
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
@@ -43,14 +43,14 @@ public final class NativeExceptionMessage extends ExceptionMessage {
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.putValue(json, "mFingerprint", this.mFingerprint);
-        r.putValue(json, "mRevision", this.mRevision);
-        r.putValue(json, "mRegister", this.mRegister);
-        r.putValue(json, "mSignal", this.mSignal);
-        r.putValue(json, "mCode", this.mCode);
-        r.putValue(json, "mManuallyKill", this.mManuallyKill);
-        r.putValue(json, "mFaultAddr", this.mFaultAddr);
-        r.putValue(json, "mAbortMsg", this.mAbortMsg);
+        t.putValue(json, "mFingerprint", this.mFingerprint);
+        t.putValue(json, "mRevision", this.mRevision);
+        t.putValue(json, "mRegister", this.mRegister);
+        t.putValue(json, "mSignal", this.mSignal);
+        t.putValue(json, "mCode", this.mCode);
+        t.putValue(json, "mManuallyKill", this.mManuallyKill);
+        t.putValue(json, "mFaultAddr", this.mFaultAddr);
+        t.putValue(json, "mAbortMsg", this.mAbortMsg);
         return json;
     }
 }

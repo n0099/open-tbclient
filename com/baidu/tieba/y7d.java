@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes9.dex */
-public interface y7d {
-    void a(Activity activity, n9d n9dVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public class y7d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    q9d b();
-
-    void c(q9d q9dVar);
-
-    void release();
+    @NonNull
+    public static JSONObject b(@NonNull SchoolRecomUserInfo schoolRecomUserInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, schoolRecomUserInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "uid", schoolRecomUserInfo.uid);
+            ltc.a(jSONObject, "uname", schoolRecomUserInfo.uname);
+            ltc.a(jSONObject, "portrait", schoolRecomUserInfo.portrait);
+            ltc.a(jSONObject, "institute", schoolRecomUserInfo.institute);
+            ltc.a(jSONObject, "is_liked", schoolRecomUserInfo.is_liked);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

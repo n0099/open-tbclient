@@ -1,74 +1,106 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.azb;
+import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class txb<A extends azb> extends AdReporter<A> {
+public class txb {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicBoolean a;
+    public static HashMap<Integer, Boolean> b;
+    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public txb(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197995, "Lcom/baidu/tieba/txb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197995, "Lcom/baidu/tieba/txb;");
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
+        a = new AtomicBoolean(false);
+        b = new HashMap<>();
+        c = new HashMap<>();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            azb azbVar = (azb) obj;
-            if (azbVar == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (c.containsKey(Integer.valueOf(i))) {
+                return c.get(Integer.valueOf(i)).longValue();
             }
-            ArrayList arrayList = new ArrayList();
-            double d = 0.0d;
-            if (!this.e) {
-                d = FunAdSdk.getARPU(this.f);
-            } else {
-                String a = azbVar.a();
-                if (!TextUtils.isEmpty(a)) {
-                    d = (Double.parseDouble(a) / 100.0d) / 1000.0d;
+            return Long.MAX_VALUE;
+        }
+        return invokeI.longValue;
+    }
+
+    public static SharedPreferences b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return context.getSharedPreferences("CONFIG_RUNTIME", 0);
+        }
+        return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (b.containsKey(Integer.valueOf(i))) {
+                return b.get(Integer.valueOf(i)).booleanValue();
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (txb.class) {
+                if (!a.get()) {
+                    SharedPreferences b2 = b(context);
+                    Iterator<Integer> it = uxb.a.iterator();
+                    while (it.hasNext()) {
+                        int intValue = it.next().intValue();
+                        HashMap<Integer, Long> hashMap = c;
+                        Integer valueOf = Integer.valueOf(intValue);
+                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
+                        HashMap<Integer, Boolean> hashMap2 = b;
+                        Integer valueOf2 = Integer.valueOf(intValue);
+                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
+                    }
+                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    a.set(true);
                 }
             }
-            arrayList.add(Pair.create("rvn", Double.valueOf(d)));
-            arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * d)))));
-            arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
     }
 }

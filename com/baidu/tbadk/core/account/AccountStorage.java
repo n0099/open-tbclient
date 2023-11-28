@@ -9,7 +9,7 @@ import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tieba.c5;
+import com.baidu.tieba.d5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,11 +45,11 @@ public class AccountStorage {
         }
     }
 
-    public static boolean addAccountData(AccountData accountData, c5 c5Var) {
+    public static boolean addAccountData(AccountData accountData, d5 d5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, accountData, c5Var)) == null) {
-            return c5Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, accountData, d5Var)) == null) {
+            return d5Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
         }
         return invokeLL.booleanValue;
     }
@@ -67,7 +67,7 @@ public class AccountStorage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             int i = 0;
             Cursor cursor = null;
             try {
@@ -98,7 +98,7 @@ public class AccountStorage {
         Cursor cursor2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             Cursor cursor3 = null;
             try {
                 if (mainDBDatabaseManager != null) {
@@ -163,7 +163,7 @@ public class AccountStorage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             ArrayList<AccountData> arrayList = new ArrayList<>();
             Cursor cursor = null;
             if (mainDBDatabaseManager != null) {
@@ -218,7 +218,7 @@ public class AccountStorage {
             if (accountData.getIsActive() == 1) {
                 clearActiveAccount();
             }
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            d5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (!delAccountData(accountData.getID()) || !addAccountData(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.b();

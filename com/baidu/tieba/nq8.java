@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.settingcache.OfficialSettingCache;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
+import com.baidu.tieba.im.base.core.uilist.MsgSender;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,57 +16,54 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class nq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static nq8 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011220, "Lcom/baidu/tieba/nq8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948011220, "Lcom/baidu/tieba/nq8;");
-                return;
-            }
-        }
-        a = new nq8();
-    }
+    public MsgSender<? extends BaseNormalAdapter, ? extends BaseItem<? extends TbBaseMsg>> a;
 
     public nq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static nq8 a() {
+    @NonNull
+    public <T extends BaseNormalAdapter, Msg extends BaseItem<? extends TbBaseMsg>> MsgSender<T, Msg> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (MsgSender<T, Msg>) this.a;
         }
-        return (nq8) invokeV.objValue;
+        return (MsgSender) invokeV.objValue;
     }
 
-    public synchronized void b() {
+    @Nullable
+    public static nq8 b(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                ut8.a().onAccountChangedInBackground();
-                OfficialSettingCache.getInstance().onAccountChangedInBackground();
-                st8.a().onAccountChangedInBackground();
-                pq8.j().b(TbadkCoreApplication.getCurrentAccount());
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (nq8) view2.getTag(R.id.obfuscated_res_0x7f0924c8);
+        }
+        return (nq8) invokeL.objValue;
+    }
+
+    public <T extends BaseNormalAdapter, Msg extends BaseItem<? extends TbBaseMsg>> void c(@NonNull MsgSender<T, Msg> msgSender) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msgSender) == null) {
+            this.a = msgSender;
+        }
+    }
+
+    public static void d(@NonNull View view2, @NonNull nq8 nq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, nq8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f0924c8, nq8Var);
         }
     }
 }

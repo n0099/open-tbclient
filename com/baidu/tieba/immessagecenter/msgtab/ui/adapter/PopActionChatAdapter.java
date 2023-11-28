@@ -57,13 +57,13 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
                 }
             }
             Intrinsics.checkNotNullParameter(view2, "view");
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091d62);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091dd8);
             Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.pop_item_root)");
             this.a = (ViewGroup) findViewById;
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091d61);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091dd7);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "view.findViewById(R.id.pop_item_image)");
             this.b = (ImageView) findViewById2;
-            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091d60);
+            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091dd6);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "view.findViewById(R.id.pop_item_content)");
             this.c = (TextView) findViewById3;
             EMManager.from(this.a).setBackGroundColor(R.color.CAM_X0208);
@@ -109,13 +109,13 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: n */
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d063e, parent, false);
+            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0657, parent, false);
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new ViewHolder(this, view2);
         }

@@ -1,141 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n27 {
+public class n27 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ForumEmotionPackageData a;
 
-    public static String c() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950646, "Lcom/baidu/tieba/n27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947950646, "Lcom/baidu/tieba/n27;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public n27() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "frs_empty_advert" : (String) invokeV.objValue;
-    }
-
-    public static ICardInfo a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("card_type", i);
-                return xb9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return e(i, 0);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static boolean h(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
-                return true;
-            }
-            return advertAppInfo.b();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ICardInfo b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_style", i2);
-                jSONObject2.put("card_type", i);
-                jSONObject.put("ad_common", jSONObject2);
-                jSONObject.put("card_type", i);
-                return xb9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (ICardInfo) invokeII.objValue;
-    }
-
-    public static String e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            return "ad_card_" + i + "_" + i2;
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public static int f(@NonNull List<ab7<?>> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            int i = 0;
-            if (jc9.e(list)) {
-                return 0;
-            }
-            for (int i2 = jc9.i(list) - 1; i2 >= 0; i2--) {
-                ab7 ab7Var = (ab7) jc9.d(list, i2);
-                if (ab7Var != null) {
-                    if (ab7Var.b() instanceof tx4) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(List<ab7<?>> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !jc9.e(list)) {
-                int i = 0;
-                for (int i2 = jc9.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    ab7 ab7Var = (ab7) jc9.d(list, i2);
-                    if (ab7Var != null && (ab7Var.b() instanceof tx4)) {
-                        tx4 tx4Var = (tx4) ab7Var.b();
-                        if (!h(tx4Var.B())) {
-                            sb.append(tx4Var.m() + 1);
-                            sb.append(",");
-                            i++;
-                        }
-                    }
-                }
-                if (sb.length() <= 1) {
-                    return sb.toString();
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
-            }
-            return sb.toString();
-        }
-        return (String) invokeLZ.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

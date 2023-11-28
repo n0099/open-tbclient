@@ -20,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReq
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.PayFlowType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayOrderResultPoller {
     public final String TAG = "PayResultPoller";
     public Handler mMainHandler = new Handler(Looper.getMainLooper());
@@ -28,7 +28,7 @@ public class PayOrderResultPoller {
     public IAppPayService payService;
     public IPayServiceCallback payServiceCallback;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface PollerListener {
         void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i, String str);
 

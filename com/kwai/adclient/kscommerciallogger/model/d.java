@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public static final d asl;
+    public static final d aSH;
     public transient /* synthetic */ FieldHolder $fh;
     public final String value;
 
@@ -27,7 +27,16 @@ public class d {
                 return;
             }
         }
-        asl = new d("OTHER");
+        aSH = new d("OTHER");
+    }
+
+    public final String getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 
     public d(String str) {
@@ -46,11 +55,5 @@ public class d {
             }
         }
         this.value = str;
-    }
-
-    public final String getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
     }
 }

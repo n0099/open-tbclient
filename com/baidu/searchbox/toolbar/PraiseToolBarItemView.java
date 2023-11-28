@@ -59,21 +59,21 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
         this.mPraiseView = coolPraiseView;
         coolPraiseView.setClickable(true);
         this.mPraiseView.setGravity(17);
-        this.mPraiseView.setId(R.id.obfuscated_res_0x7f091d98);
-        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092931);
+        this.mPraiseView.setId(R.id.obfuscated_res_0x7f091e0e);
+        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0929b6);
         ViewGroup.LayoutParams layoutParams = pressedAlphaImageView.getLayoutParams();
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252);
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = dimensionPixelSize;
         pressedAlphaImageView.setLayoutParams(layoutParams);
-        ((TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092932)).setVisibility(8);
+        ((TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0929b7)).setVisibility(8);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
         layoutParams2.leftMargin = dimensionPixelOffset;
         layoutParams2.rightMargin = dimensionPixelOffset;
         this.mPraiseView.setLayoutParams(layoutParams2);
         addView(this.mPraiseView);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams3.addRule(1, R.id.obfuscated_res_0x7f091d98);
+        layoutParams3.addRule(1, R.id.obfuscated_res_0x7f091e0e);
         layoutParams3.addRule(15);
         layoutParams3.leftMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070264);
         TextView textView = new TextView(getContext());
@@ -82,7 +82,7 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
         this.mPraiseTips.setGravity(17);
         this.mPraiseTips.setTextSize(11, 2.0f);
         this.mPraiseTips.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070265), 0, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070265), 0);
-        this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060650));
+        this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060652));
         this.mPraiseTips.setVisibility(8);
         addView(this.mPraiseTips);
     }
@@ -101,12 +101,12 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
         if (!isResponseFontSize()) {
             return;
         }
-        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092931);
+        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0929b6);
         if (pressedAlphaImageView != null) {
             FontSizeViewExtKt.setScaledWidthRes(pressedAlphaImageView, 0, R.dimen.obfuscated_res_0x7f070252);
             FontSizeViewExtKt.setScaledHeightRes(pressedAlphaImageView, 0, R.dimen.obfuscated_res_0x7f070252);
         }
-        TextView textView = (TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092932);
+        TextView textView = (TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0929b7);
         if (textView != null) {
             FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702e0);
         }
@@ -123,11 +123,11 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
     public void setPraise(boolean z) {
         this.mPraiseView.setPraise(z);
         if (z) {
-            this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0607f4));
+            this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0607fb));
         } else if (this.mIsMiniVideo) {
-            this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
+            this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060651));
         } else {
-            this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060650));
+            this.mPraiseTips.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060652));
         }
     }
 
@@ -140,10 +140,10 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
                     this.mPraiseTips.setText(str);
                     if (this.mIsMiniVideoVerticalLandingStyle) {
                         if (this.mPraiseView.getIsPraisedState()) {
-                            this.mPraiseTips.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0607f4));
+                            this.mPraiseTips.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0607fb));
                             return;
                         } else {
-                            this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
+                            this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060651));
                             return;
                         }
                     }
@@ -184,7 +184,7 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
                     layoutParams.rightMargin = DeviceUtil.ScreenInfo.dp2px(getContext(), 2.0f);
                     view2.setLayoutParams(layoutParams);
                 }
-                this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
+                this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060651));
                 this.mPraiseTips.setBackground(null);
                 this.mPraiseTips.getPaint().setFakeBoldText(false);
                 RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.mPraiseTips.getLayoutParams();
@@ -201,7 +201,7 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
                 this.mPraiseTips.setLayoutParams(layoutParams4);
                 this.mPraiseTips.setPadding(0, DeviceUtil.ScreenInfo.dp2px(getContext(), 1.0f), 0, 0);
             } else {
-                this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06064f));
+                this.mPraiseTips.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060651));
                 this.mPraiseTips.setPadding(dp2px, 0, dp2px, 1);
             }
             this.mPraiseTips.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e));

@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payapi;
 
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum PayStatus {
     OK(1, "请求成功"),
     VALIDATE_FAIL(-1, "账号验证失败"),

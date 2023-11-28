@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg3;
+import com.baidu.tieba.fg3;
 /* loaded from: classes4.dex */
 public final class MediaBrightness extends FrameLayout {
     public View a;
@@ -36,7 +36,7 @@ public final class MediaBrightness extends FrameLayout {
         } else if (f <= 0.0f) {
             f = 0.0f;
         }
-        eg3.c().e((Activity) getContext(), f);
+        fg3.c().e((Activity) getContext(), f);
     }
 
     public void g(int i) {
@@ -66,7 +66,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     public void d() {
-        this.f = eg3.c().a((Activity) getContext());
+        this.f = fg3.c().a((Activity) getContext());
     }
 
     public void e() {
@@ -76,14 +76,14 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     public final void c(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d095b, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0975, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09105f);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914c0);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07086d);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091086);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091531);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070880);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814e1);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081504);
         this.a.setLayoutParams(layoutParams);
     }
 }

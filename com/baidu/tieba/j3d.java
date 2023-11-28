@@ -4,24 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SkinInfo;
+import tbclient.ComponentFactory;
+import tbclient.FrsTopThreadCardLayout;
 /* loaded from: classes6.dex */
-public class j3d extends qoc {
+public class j3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SkinInfo skinInfo) {
+    public static JSONObject b(@NonNull FrsTopThreadCardLayout frsTopThreadCardLayout) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, skinInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTopThreadCardLayout)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "skin", skinInfo.skin);
-            qoc.a(jSONObject, "skin_size", skinInfo.skin_size);
-            qoc.a(jSONObject, "url", skinInfo.url);
-            qoc.a(jSONObject, "obj_id", skinInfo.obj_id);
-            qoc.a(jSONObject, "monitor_id", skinInfo.monitor_id);
+            if (frsTopThreadCardLayout.components != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ComponentFactory componentFactory : frsTopThreadCardLayout.components) {
+                    jSONArray.put(cwc.b(componentFactory));
+                }
+                ltc.a(jSONObject, "components", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

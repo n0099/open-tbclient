@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HostTB implements Serializable {
     public static final String HOST = "host";
     public static final String ID = "_id";

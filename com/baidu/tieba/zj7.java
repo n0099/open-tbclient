@@ -1,114 +1,95 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class zj7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zj7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk7 a;
-    public ek7 b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zj7() {
-        this(null, null, 3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((fk7) objArr[0], (ek7) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361954, "Lcom/baidu/tieba/zj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948361954, "Lcom/baidu/tieba/zj7;");
                 return;
             }
         }
+        a = new zj7();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof zj7) {
-                zj7 zj7Var = (zj7) obj;
-                return Intrinsics.areEqual(this.a, zj7Var.a) && Intrinsics.areEqual(this.b, zj7Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fk7 fk7Var = this.a;
-            int hashCode = (fk7Var == null ? 0 : fk7Var.hashCode()) * 31;
-            ek7 ek7Var = this.b;
-            return hashCode + (ek7Var != null ? ek7Var.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "HeadData(subTabData=" + this.a + ", sortTabData=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public zj7(fk7 fk7Var, ek7 ek7Var) {
+    public zj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fk7Var, ek7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = fk7Var;
-        this.b = ek7Var;
     }
 
-    public /* synthetic */ zj7(fk7 fk7Var, ek7 ek7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : fk7Var, (i & 2) != 0 ? null : ek7Var);
-    }
-
-    public final ek7 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            wh5.h().i(false);
         }
-        return (ek7) invokeV.objValue;
     }
 
-    public final fk7 b() {
-        InterceptResult invokeV;
+    public static final void c(Function1 function1, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, function1, z) == null) {
+            if (z) {
+                wh5.h().o(true);
+            }
+            if (function1 != null) {
+                function1.invoke(Boolean.valueOf(z));
+            }
         }
-        return (fk7) invokeV.objValue;
+    }
+
+    public final void b(vh5 view2, BaseFragmentActivity activity, final Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, activity, function1) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            wh5.h().m(view2);
+            wh5.h().n(85, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds237));
+            if (wh5.h().j()) {
+                activity.getPageContext().getOrignalPage().grantWindowPermission(new fv4() { // from class: com.baidu.tieba.xj7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.fv4
+                    public final void onPermissionResult(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            zj7.c(Function1.this, z);
+                        }
+                    }
+                }, true);
+            }
+        }
     }
 }

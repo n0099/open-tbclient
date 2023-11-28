@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes5.dex */
 public interface as1 {
-    void a(NgWebView ngWebView);
+    void b();
 
-    void b(NgWebView ngWebView, String str);
+    void c();
 
-    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+    as1 create();
 
-    void d(String str, Context context);
+    void d(rv2 rv2Var, boolean z);
 
-    void e(String str, Context context);
+    void e(rv2 rv2Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

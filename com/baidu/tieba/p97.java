@@ -1,45 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.Voice;
 /* loaded from: classes7.dex */
-public final class p97 implements j97 {
+public final class p97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p97() {
+    public static final void a(Voice voice, List<nb7<? extends Object>> mutableList, n67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, voice, mutableList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String voice_md5 = voice.voice_md5;
+            Intrinsics.checkNotNullExpressionValue(voice_md5, "voice_md5");
+            mutableList.add(new ob7(new z47(new j87(CommonStatisticKey.FRS_VOICE_PLAY, voice_md5, voice.during_time.intValue() / 1000), CollectionsKt__CollectionsJVMKt.listOf(o67.e(feedExtraData, "voice_btn_click", null, 2, null))), "feed_voice"));
         }
-    }
-
-    @Override // com.baidu.tieba.j97
-    public SpannableString b(Context context, k77 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = iy5.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
-        }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

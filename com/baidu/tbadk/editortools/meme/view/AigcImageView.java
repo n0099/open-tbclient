@@ -13,7 +13,7 @@ import com.baidu.tbadk.editortools.meme.list.GeneratedLoadedData;
 import com.baidu.tbadk.editortools.meme.list.GeneratedLoadingData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.hu9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
 @Metadata(d1 = {"\u0000w\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004*\u0001\t\b\u0016\u0018\u0000 >2\u00020\u00012\u00020\u0002:\u0001>B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0010\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u001d\u001a\u00020\u001eH\u0016J\b\u0010\u001f\u001a\u00020\u001bH\u0002J\b\u0010 \u001a\u00020\u001bH\u0002J\u000e\u0010!\u001a\u00020\u001b2\u0006\u0010\"\u001a\u00020#J\b\u0010$\u001a\u00020\u001bH\u0002J\b\u0010%\u001a\u00020\u001bH\u0002J\b\u0010&\u001a\u00020\u001bH\u0002J\n\u0010'\u001a\u0004\u0018\u00010(H\u0016J\b\u0010)\u001a\u00020\u001bH\u0002J\b\u0010*\u001a\u00020\u0012H\u0014J\b\u0010+\u001a\u00020\u0012H\u0014J\u0010\u0010,\u001a\u00020\u001b2\u0006\u0010\u0014\u001a\u00020\u0015H\u0014J\u0010\u0010-\u001a\u00020\u001b2\u0006\u0010.\u001a\u00020\u0012H\u0016J\u0012\u0010/\u001a\u00020\u001b2\n\b\u0002\u00100\u001a\u0004\u0018\u000101J\u001e\u00102\u001a\u00020\u001b2\n\b\u0002\u00103\u001a\u0004\u0018\u0001012\n\b\u0002\u00100\u001a\u0004\u0018\u000101J\u0010\u00104\u001a\u00020\u001b2\u0006\u00105\u001a\u00020\u001eH\u0016J\u0012\u00106\u001a\u00020\u001b2\b\u00107\u001a\u0004\u0018\u000108H\u0016J\u0012\u00109\u001a\u00020\u001b2\b\u0010:\u001a\u0004\u0018\u00010;H\u0016J\"\u00109\u001a\u00020\u001b2\b\u0010:\u001a\u0004\u0018\u00010;2\u0006\u0010<\u001a\u00020\u001e2\u0006\u0010=\u001a\u00020\u0012H\u0016R\u0010\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\nR\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\r\u0010\u000eR\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0014\u001a\u00020\u00158BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0010\u001a\u0004\b\u0016\u0010\u0017R\u0014\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u001b0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006?"}, d2 = {"Lcom/baidu/tbadk/editortools/meme/view/AigcImageView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/pb/intercept/IImageView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "delegateEvent", "com/baidu/tbadk/editortools/meme/view/AigcImageView$delegateEvent$1", "Lcom/baidu/tbadk/editortools/meme/view/AigcImageView$delegateEvent$1;", "imageView", "Lcom/baidu/tbadk/widget/TbImageView;", "getImageView", "()Lcom/baidu/tbadk/widget/TbImageView;", "imageView$delegate", "Lkotlin/Lazy;", "isImageLoaded", "", "isLoadingFinished", "loadingView", "Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView;", "getLoadingView", "()Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView;", "loadingView$delegate", "onLoadingFinish", "Lkotlin/Function0;", "", "addCornerFlags", "corner", "", "addImageView", "addLoadingView", "bindData", "memeData", "Lcom/baidu/tbadk/editortools/meme/list/MemeData;", "changeSkin", "displayError", "displayLoading", "getBdImage", "Lcom/baidu/adp/widget/ImageView/BdImage;", "hideLoading", "isHideLoading", "isOnFinishedLoadingHide", "resetTimer", "setDrawCorner", "isDraw", "setOnImageClickListener", "imageClickListener", "Landroid/view/View$OnClickListener;", "setOnLoadingClickListener", "loadingClickListener", "setRadiusById", "radiiStringId", "setScaleType", "scaleType", "Landroid/widget/ImageView$ScaleType;", "startLoad", "url", "", "type", "showLoading", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public class AigcImageView extends FrameLayout implements hu9 {
+public class AigcImageView extends FrameLayout implements xx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
@@ -317,7 +317,7 @@ public class AigcImageView extends FrameLayout implements hu9 {
         if (interceptable == null || interceptable.invokeL(1048587, this, loadingView) == null) {
             Intrinsics.checkNotNullParameter(loadingView, "loadingView");
             long nextLong = Random.Default.nextLong(500L, 1501L);
-            loadingView.i(nextLong, nextLong / 90, 90);
+            loadingView.j(nextLong, nextLong / 90, 90);
         }
     }
 
@@ -342,7 +342,7 @@ public class AigcImageView extends FrameLayout implements hu9 {
         }
     }
 
-    @Override // com.baidu.tieba.hu9
+    @Override // com.baidu.tieba.xx9
     public void setScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, scaleType) == null) {
@@ -350,7 +350,7 @@ public class AigcImageView extends FrameLayout implements hu9 {
         }
     }
 
-    @Override // com.baidu.tieba.hu9
+    @Override // com.baidu.tieba.xx9
     public void startLoad(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
@@ -492,7 +492,7 @@ public class AigcImageView extends FrameLayout implements hu9 {
         }
     }
 
-    @Override // com.baidu.tieba.hu9
+    @Override // com.baidu.tieba.xx9
     public void startLoad(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {

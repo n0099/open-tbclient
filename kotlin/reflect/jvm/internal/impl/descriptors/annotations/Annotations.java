@@ -12,7 +12,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
     public static final Companion Companion = Companion.$$INSTANCE;
 
     /* renamed from: findAnnotation */
-    AnnotationDescriptor mo2105findAnnotation(FqName fqName);
+    AnnotationDescriptor mo2109findAnnotation(FqName fqName);
 
     boolean hasAnnotation(FqName fqName);
 
@@ -43,7 +43,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
 
             @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
             /* renamed from: findAnnotation  reason: collision with other method in class */
-            public /* bridge */ /* synthetic */ AnnotationDescriptor mo2105findAnnotation(FqName fqName) {
+            public /* bridge */ /* synthetic */ AnnotationDescriptor mo2109findAnnotation(FqName fqName) {
                 return (AnnotationDescriptor) findAnnotation(fqName);
             }
 
@@ -85,7 +85,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
         }
 
         public static boolean hasAnnotation(Annotations annotations, FqName fqName) {
-            if (annotations.mo2105findAnnotation(fqName) != null) {
+            if (annotations.mo2109findAnnotation(fqName) != null) {
                 return true;
             }
             return false;

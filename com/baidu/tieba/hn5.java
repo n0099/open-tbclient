@@ -1,24 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tbadk.switchs.PraiseSwitch;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class hn5 implements dm5<SyncDataEvent> {
+public class hn5 implements lm5<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,46 +27,28 @@ public class hn5 implements dm5<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dm5
+    @Override // com.baidu.tieba.lm5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(MissionEvent missionEvent) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            boolean z2 = false;
-            if (syncDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return false;
             }
-            HashMap<String, Integer> hashMap = syncDataEvent.switches;
-            if (hashMap != null && hashMap.size() > 0) {
-                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
-            }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            js5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
-            BdActivityStack inst = BdActivityStack.getInst();
-            if (syncDataEvent.themeIsBlack == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            inst.setActivityIsGrey(z);
-            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
-            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
-            AICapacityApplyHelper c = AICapacityApplyHelper.c();
-            if (syncDataEvent.aiAvailableStatus == 1) {
-                z2 = true;
-            }
-            c.g(z2);
-            if (!TextUtils.isEmpty(syncDataEvent.aiWriteScheme)) {
-                AICapacityApplyHelper.c().h(syncDataEvent.aiWriteScheme);
-            }
-            pf5.a.b(syncDataEvent.spriteMemeInfo);
-            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                lo4.w().J();
+            int i = missionEvent.pageId;
+            int i2 = missionEvent.pageType;
+            long j = missionEvent.tid;
+            String str = missionEvent.actionType;
+            if ("onResume".equals(str)) {
+                mo4.w().L(i, j);
+                mo4.w().Q(i2, j);
+            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                mo4.w().E();
+            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                mo4.w().F();
+            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                mo4.w().L(i, j);
             }
             return true;
         }

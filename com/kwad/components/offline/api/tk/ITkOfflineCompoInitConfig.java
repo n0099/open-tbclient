@@ -11,13 +11,11 @@ public interface ITkOfflineCompoInitConfig extends IOfflineCompoInitConfig {
 
     String getTkJsFileDir(Context context, String str);
 
+    String getTkJsRootDir(Context context);
+
     String getTkVersion();
 
-    boolean isCanUseTk();
-
     boolean isLocalDebugEnable();
-
-    boolean isTkCloseCheck();
 
     ISoLoader soLoader();
 

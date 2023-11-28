@@ -55,17 +55,17 @@ public final class FrsMultiMoveBottomLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f09094d;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09094d);
+            int i = R.id.obfuscated_res_0x7f090969;
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090969);
             if (findViewById != null) {
-                i = R.id.obfuscated_res_0x7f090d72;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d72);
+                i = R.id.obfuscated_res_0x7f090d92;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d92);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f090d73;
-                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d73);
+                    i = R.id.obfuscated_res_0x7f090d93;
+                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d93);
                     if (textView2 != null) {
-                        i = R.id.obfuscated_res_0x7f09189e;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189e);
+                        i = R.id.obfuscated_res_0x7f09190f;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09190f);
                         if (relativeLayout != null) {
                             return new FrsMultiMoveBottomLayoutBinding(view2, findViewById, textView, textView2, relativeLayout);
                         }
@@ -83,7 +83,7 @@ public final class FrsMultiMoveBottomLayoutBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03a8, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d03b1, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

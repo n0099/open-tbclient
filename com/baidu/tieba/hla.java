@@ -1,16 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hla implements ila {
+public final class hla extends ila {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ub7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW : (String) invokeV.objValue;
+    }
 
     public hla() {
         Interceptable interceptable = $ic;
@@ -24,18 +30,5 @@ public class hla implements ila {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ila
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if ((networkStatRecord != null && networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || networkStatRecord == null || networkStatRecord.exception == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

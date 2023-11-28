@@ -1,89 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity;
+import com.baidu.tieba.ad.browser.newstyle.view.ApkDownloadBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class t26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public View a;
+    public View b;
+    public AdBaseWebViewActivity c;
+    public NavigationBar d;
+    public TextView e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public ImageView i;
+    public LinearLayout j;
+    public TextView k;
+    public NoDataView l;
+    public View.OnClickListener m;
+    public View n;
+    public MorePopupWindow o;
+    public ApkDownloadBannerView p;
+    public boolean q;
+    public String r;
+    public v26 s;
+    public wg0 t;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(JSONObject jSONObject);
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class a extends BdRunnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ t26 e;
+        public final /* synthetic */ t26 a;
 
-        /* renamed from: com.baidu.tieba.t26$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0475a extends BdRunnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject c;
-            public final /* synthetic */ a d;
-
-            public C0475a(a aVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.c = jSONObject;
-            }
-
-            @Override // com.baidu.browser.core.async.BdRunnable
-            public void c() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.e.a.a(this.c);
-                }
-            }
-        }
-
-        public a(t26 t26Var, Map map, String str) {
+        public a(t26 t26Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t26Var, map, str};
+                Object[] objArr = {t26Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,232 +89,332 @@ public class t26 {
                     return;
                 }
             }
-            this.e = t26Var;
-            this.c = map;
-            this.d = str;
+            this.a = t26Var;
         }
 
-        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.t26.a(com.baidu.tieba.t26, java.util.Map):java.util.Map
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-            	... 1 more
-            */
-        @Override // com.baidu.browser.core.async.BdRunnable
-        public void c() {
-            /*
-                r4 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.t26.a.$ic
-                if (r0 != 0) goto L74
-            L4:
-                java.lang.String r0 = "application/json; charset=utf-8"
-                okhttp3.MediaType r0 = okhttp3.MediaType.parse(r0)
-                org.json.JSONObject r1 = new org.json.JSONObject
-                r1.<init>()
-                com.baidu.tieba.t26 r2 = r4.e     // Catch: org.json.JSONException -> L1e
-                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.t26.a(r2, r3)     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.t26 r2 = r4.e     // Catch: org.json.JSONException -> L1e
-                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
-                com.baidu.tieba.t26.b(r2, r3, r1)     // Catch: org.json.JSONException -> L1e
-                goto L22
-            L1e:
-                r2 = move-exception
-                r2.printStackTrace()
-            L22:
-                okhttp3.OkHttpClient r2 = new okhttp3.OkHttpClient
-                r2.<init>()
-                java.lang.String r1 = java.lang.String.valueOf(r1)
-                okhttp3.RequestBody r0 = okhttp3.RequestBody.create(r0, r1)
-                okhttp3.Request$Builder r1 = new okhttp3.Request$Builder
-                r1.<init>()
-                java.lang.String r3 = r4.d
-                okhttp3.Request$Builder r1 = r1.url(r3)
-                okhttp3.Request$Builder r0 = r1.post(r0)
-                okhttp3.Request r0 = r0.build()
-                r1 = 0
-                okhttp3.Call r0 = r2.newCall(r0)     // Catch: java.io.IOException -> L4c
-                okhttp3.Response r1 = r0.execute()     // Catch: java.io.IOException -> L4c
-                goto L50
-            L4c:
-                r0 = move-exception
-                r0.printStackTrace()
-            L50:
-                okhttp3.ResponseBody r0 = r1.body()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                java.lang.String r0 = r0.string()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                org.json.JSONObject r1 = new org.json.JSONObject     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r1.<init>(r0)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                com.baidu.tieba.tr r0 = com.baidu.tieba.tr.f()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                com.baidu.tieba.t26$a$a r2 = new com.baidu.tieba.t26$a$a     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r2.<init>(r4, r1)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                r0.h(r2)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
-                goto L73
-            L6a:
-                r0 = move-exception
-                r0.printStackTrace()
-                goto L73
-            L6f:
-                r0 = move-exception
-                r0.printStackTrace()
-            L73:
-                return
-            L74:
-                r2 = r0
-                r3 = 1048576(0x100000, float:1.469368E-39)
-                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeV(r3, r4)
-                if (r0 == 0) goto L4
-                return
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.t26.a.c():void");
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        String str;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129361, "Lcom/baidu/tieba/t26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948129361, "Lcom/baidu/tieba/t26;");
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c == null || this.a.c.webViewGoBack()) {
                 return;
             }
+            this.a.c.finish();
         }
-        if (GlobalBuildConfig.isDebug()) {
-            str = "http://";
-        } else {
-            str = "https://";
-        }
-        b = str;
-        c = b + "afdconf.baidu.com/afd/download";
     }
 
-    public t26(@NonNull b bVar) {
+    public t26(AdBaseWebViewActivity adBaseWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {adBaseWebViewActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bVar;
+        this.a = null;
+        this.q = true;
+        this.c = adBaseWebViewActivity;
+        h();
     }
 
-    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-        */
-    public static /* synthetic */ java.util.Map a(com.baidu.tieba.t26 r0, java.util.Map r1) {
-        /*
-            r0.d(r1)
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.t26.a(com.baidu.tieba.t26, java.util.Map):java.util.Map");
-    }
-
-    public void g(Map<String, String> map, String str) {
+    public void j(wg0 wg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            tr.f().g(new a(this, map, str));
+        if (interceptable == null || interceptable.invokeL(1048585, this, wg0Var) == null) {
+            this.t = wg0Var;
         }
     }
 
-    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-        */
-    public static /* synthetic */ org.json.JSONObject b(com.baidu.tieba.t26 r0, java.util.Map r1, org.json.JSONObject r2) throws org.json.JSONException {
-        /*
-            r0.f(r1, r2)
-            return r2
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.t26.b(com.baidu.tieba.t26, java.util.Map, org.json.JSONObject):org.json.JSONObject");
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.r = str;
+        }
     }
 
-    public static String e() {
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.p.setDownloadWarningVisible(z);
+        }
+    }
+
+    public void s(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && (view2 = this.n) != null) {
+            if (z) {
+                view2.setVisibility(0);
+            } else {
+                view2.setVisibility(8);
+            }
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(0);
+            } else {
+                this.d.setVisibility(8);
+            }
+            this.j.getLayoutParams().height = -1;
+        }
+    }
+
+    public void v(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) {
+            this.m = onClickListener;
+        }
+    }
+
+    public void w(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048598, this, z) != null) || (view2 = this.b) == null) {
+            return;
+        }
+        if (z) {
+            view2.setVisibility(0);
+        } else {
+            view2.setVisibility(8);
+        }
+        this.o.refresh();
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.q = z;
+        }
+    }
+
+    public void A(ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, shareItem) != null) || shareItem == null) {
+            return;
+        }
+        TiebaStatic.eventStat(this.c.getPageContext().getPageActivity(), "share", "click", 1, new Object[0]);
+        StatisticItem statisticItem = new StatisticItem("c10898");
+        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.linkUrl);
+        statisticItem.param("obj_type", 0);
+        TiebaStatic.log(statisticItem);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.c.getPageContext().getPageActivity(), shareItem, true, d())));
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.c.getPageContext(), i);
+            }
+            MorePopupWindow morePopupWindow = this.o;
+            if (morePopupWindow != null) {
+                morePopupWindow.onChangeSkinType(this.c, i, SkinManager.getDrawable(R.drawable.bg_pull_down_right_n));
+            }
+            NoDataView noDataView = this.l;
+            if (noDataView != null) {
+                noDataView.f(this.c.getPageContext(), i);
+            }
+            SkinManager.setNavbarIconSrc(this.g, R.drawable.selector_web_topbar_return_black, R.drawable.selector_web_topbar_return_white, i);
+            SkinManager.setNavbarIconSrc(this.h, R.drawable.selector_web_topbar_close_black, R.drawable.selector_web_topbar_close_white, i);
+            SkinManager.setNavbarIconSrc(this.i, R.drawable.selector_web_topbar_more_black, R.drawable.selector_web_topbar_more_white, i);
+        }
+    }
+
+    public void u(String str) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.e = this.d.setCenterTextTitle(str);
+            ImageView imageView2 = this.g;
+            if (imageView2 != null && imageView2.getVisibility() == 0 && (imageView = this.h) != null && imageView.getVisibility() == 0) {
+                this.e.setMaxWidth(BdUtilHelper.getDimens(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070376) * 2);
+            }
+            SkinManager.setNavbarTitleColor(this.e, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        }
+    }
+
+    public void b() {
+        wg0 wg0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (wg0Var = this.t) == null) {
+            return;
+        }
+        wg0Var.p.c = this.r;
+        if (this.s == null) {
+            this.s = new v26(this.p, wg0Var);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yb.d(this.o, this.c.getPageContext().getPageActivity());
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.k.setVisibility(8);
+        }
+    }
+
+    public void f() {
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (noDataView = this.l) != null) {
+            noDataView.setVisibility(8);
+            this.j.setVisibility(0);
+        }
+    }
+
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null && navigationBar.getVisibility() == 0) {
+                return true;
             }
-            return UtilHelper.getGprsIpAddress();
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    public void m() {
+        v26 v26Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", TbConfig.getVersion());
-            map.put("uid", TbadkCoreApplication.getCurrentAccount());
-            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            map.put("ua", WebviewHelper.getGlobalUserAgent());
-            String e = yf0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
-            }
-            String h = yf0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put(HttpRequest.OS_VERSION, h);
-            }
-            String b2 = yf0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                map.put("imei", b2);
-            }
-            String a2 = yf0.c().a(false);
-            if (!TextUtils.isEmpty(a2)) {
-                map.put(HttpRequest.ANDROID_ID, a2);
-            }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("nt", String.valueOf(BdNetTypeUtil.netType()));
-            map.put("ip", e());
-            map.put("ssl", "1");
-            return map;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (v26Var = this.s) != null) {
+            v26Var.u();
         }
-        return (Map) invokeL.objValue;
     }
 
-    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeLL;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (jc9.f(map)) {
-                return jSONObject;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            LinearLayout linearLayout = this.j;
+            if (linearLayout != null) {
+                linearLayout.removeAllViews();
             }
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.putOpt(entry.getKey(), entry.getValue());
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.release();
             }
-            return jSONObject;
+            MorePopupWindow morePopupWindow = this.o;
+            if (morePopupWindow != null) {
+                yb.d(morePopupWindow, this.c.getPageContext().getPageActivity());
+            }
         }
-        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final SparseArray<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SparseArray<String> sparseArray = new SparseArray<>(8);
+            sparseArray.put(2, "pb_wx_timeline");
+            sparseArray.put(3, "pb_wx_friend");
+            sparseArray.put(4, "pb_qq_zone");
+            sparseArray.put(5, "pb_tencent_weibo");
+            sparseArray.put(6, "pb_sina_weibo");
+            sparseArray.put(7, "pb_renren");
+            return sparseArray;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                this.j.addView(this.c.createWebView());
+                this.k.setVisibility(8);
+                if (!this.q) {
+                    this.d.setStatusBarVisibility(8);
+                    return true;
+                }
+                return true;
+            } catch (Exception e) {
+                this.k.setVisibility(0);
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, R.id.view_navigation_bar);
+            this.j.setLayoutParams(layoutParams);
+            this.g.setBackgroundDrawable(null);
+            this.h.setBackgroundDrawable(null);
+            this.i.setBackgroundDrawable(null);
+            this.d.showBottomLine(true);
+            this.c.getWindow().clearFlags(1024);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0153);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f092081);
+            this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+            u("");
+            this.j = (LinearLayout) this.c.findViewById(R.id.webview_container);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092aee);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, R.id.view_navigation_bar);
+            this.j.setLayoutParams(layoutParams);
+            this.k = (TextView) this.c.findViewById(R.id.webview_crash_tip);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_back, new a(this));
+            this.f = addCustomView;
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
+            this.g = imageView;
+            imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0314));
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.addRule(3, 0);
+            layoutParams.height = -1;
+            this.j.setLayoutParams(layoutParams);
+            this.d.getBackground().mutate().setAlpha(0);
+            this.d.showBottomLine(false);
+            SkinManager.setBackgroundResource(this.g, R.drawable.frs_star_navigation_bg);
+            SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_navigation_bg);
+            SkinManager.setBackgroundResource(this.i, R.drawable.frs_star_navigation_bg);
+            u("");
+            this.c.getWindow().setFlags(1024, 1024);
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            if (this.l == null) {
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1255), this.m)));
+            }
+            this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.j.setVisibility(8);
+            this.l.setVisibility(0);
+        }
     }
 }

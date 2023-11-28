@@ -1,8 +1,8 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.reporter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EventAlias {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PayEventAlias {
         public static final String ENTRANCE_PAGE = "支付入口页面";
         public static final String ORDER_FAIL = "支付下单失败";

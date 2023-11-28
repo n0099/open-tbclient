@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.media.AudioManager;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,88 +13,121 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bx1 implements dx1 {
+public class bx1 extends ow1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager f;
 
-    public abstract hy1 c(@NonNull m52 m52Var);
-
-    public abstract hy1 d(int i);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947660238, "Lcom/baidu/tieba/bx1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947660238, "Lcom/baidu/tieba/bx1;");
-                return;
-            }
-        }
-        a = g63.v;
+    @Override // com.baidu.tieba.lu1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "VolumeApi" : (String) invokeV.objValue;
     }
 
-    public bx1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bx1(@NonNull ju1 ju1Var) {
+        super(ju1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ju1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ju1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public hy1 a() {
+    public iy1 A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            r("#setMediaVolume", false);
+            h63 c0 = h63.c0();
+            if (c0 == null) {
+                return new iy1(1001, "swan app is null");
+            }
+            SwanAppActivity w = c0.w();
+            if (w == null) {
+                h32.c("VolumeApi", "swan activity is null");
+                return new iy1(1001, "swan activity is null");
+            }
+            Pair<iy1, JSONObject> t = t(str);
+            iy1 iy1Var = (iy1) t.first;
+            if (!iy1Var.isSuccess()) {
+                return iy1Var;
+            }
+            try {
+                float parseFloat = Float.parseFloat(((JSONObject) t.second).optString("value"));
+                if (this.f == null) {
+                    this.f = (AudioManager) w.getSystemService("audio");
+                }
+                int streamMaxVolume = this.f.getStreamMaxVolume(3);
+                int z = z(parseFloat, streamMaxVolume);
+                if (z >= 0 && z <= streamMaxVolume) {
+                    try {
+                        this.f.setStreamVolume(3, z, 1);
+                        return iy1.f();
+                    } catch (SecurityException unused) {
+                        return new iy1(1001, "Cannot set volume under silent mode.");
+                    }
+                }
+                return new iy1(202, "value is illegal.");
+            } catch (NumberFormatException unused2) {
+                h32.c("VolumeApi", "illegal argument type");
+                return new iy1(202, "value is illegal.");
+            }
+        }
+        return (iy1) invokeL.objValue;
+    }
+
+    public iy1 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (g63.c0() == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
-                }
-                return d(1001);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            r("#getMediaVolume", false);
+            h63 c0 = h63.c0();
+            if (c0 == null) {
+                return new iy1(1001, "swan app is null");
             }
-            p52 W = tr2.V().W();
-            if (W == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
-                }
-                return d(1001);
+            SwanAppActivity w = c0.w();
+            if (w == null) {
+                h32.c("VolumeApi", "swan activity is null");
+                return new iy1(1001, "swan activity is null");
             }
-            m52 m = W.m();
-            if (m == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
-                }
-                return d(1001);
+            if (this.f == null) {
+                this.f = (AudioManager) w.getSystemService("audio");
             }
-            return c(m);
+            float streamMaxVolume = this.f.getStreamMaxVolume(3);
+            float streamVolume = this.f.getStreamVolume(3);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", streamVolume / streamMaxVolume);
+                return new iy1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new iy1(1001, "make result json error");
+            }
         }
-        return (hy1) invokeV.objValue;
+        return (iy1) invokeV.objValue;
     }
 
-    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
-        InterceptResult invokeIIII;
+    public final int z(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
-            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
-            jSONObject.putOpt("left", Integer.valueOf(i));
-            jSONObject.putOpt("right", Integer.valueOf(i3));
-            jSONObject.putOpt("top", Integer.valueOf(i2));
-            jSONObject.putOpt("bottom", Integer.valueOf(i4));
-            return jSONObject;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int round = Math.round(i * f);
+            if (round == 0 && f > 0.0f) {
+                return 1;
+            }
+            return round;
         }
-        return (JSONObject) invokeIIII.objValue;
+        return invokeCommon.intValue;
     }
 }

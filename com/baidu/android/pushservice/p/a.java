@@ -3,13 +3,20 @@ package com.baidu.android.pushservice.p;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.c;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -17,53 +24,99 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.android.pushservice.z.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context c;
     public i d;
-    public String e = com.baidu.android.pushservice.g.a();
+    public String e;
 
     /* renamed from: com.baidu.android.pushservice.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0034a implements c.d {
-        public C0034a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public C0034a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
         }
 
         @Override // com.baidu.android.pushservice.c.d
         public void a(int i, List<String> list) {
-            String str = a.this.e.startsWith("https://") ? "https://" : "http://";
-            a aVar = a.this;
-            aVar.e = aVar.e.replace(str, "");
-            int indexOf = a.this.e.indexOf("/");
-            if (indexOf > 0) {
-                a aVar2 = a.this;
-                aVar2.e = aVar2.e.substring(indexOf);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
+                String str = this.a.e.startsWith("https://") ? "https://" : "http://";
+                a aVar = this.a;
+                aVar.e = aVar.e.replace(str, "");
+                int indexOf = this.a.e.indexOf("/");
+                if (indexOf > 0) {
+                    a aVar2 = this.a;
+                    aVar2.e = aVar2.e.substring(indexOf);
+                }
+                String a = com.baidu.android.pushservice.g.a(this.a.c);
+                if (list != null && list.size() > 0) {
+                    a = list.get(0);
+                }
+                a aVar3 = this.a;
+                aVar3.e = "https://" + a + this.a.e;
             }
-            String a = com.baidu.android.pushservice.g.a(a.this.c);
-            if (list != null && list.size() > 0) {
-                a = list.get(0);
-            }
-            a aVar3 = a.this;
-            aVar3.e = "https://" + a + a.this.e;
         }
     }
 
     public a(i iVar, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iVar, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.d = iVar;
         this.c = context.getApplicationContext();
+        this.e = com.baidu.android.pushservice.g.a();
         a((short) 100);
         a("http-" + iVar.a);
     }
 
     @Override // com.baidu.android.pushservice.z.c
     public void a() {
-        c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c();
+        }
     }
 
     public void a(int i) {
-        a(i, PushConstants.a(i).getBytes());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            a(i, PushConstants.a(i).getBytes());
+        }
     }
 
     public void a(int i, byte[] bArr) {
-        if (this.d.i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) && this.d.i) {
             Intent intent = new Intent();
             intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
             intent.putExtra("method", this.d.a);
@@ -98,15 +151,26 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
     }
 
     public void a(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+        }
     }
 
     public void a(HashMap<String, String> hashMap) {
-        hashMap.put("Host", com.baidu.android.pushservice.g.b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
+            hashMap.put("Host", com.baidu.android.pushservice.g.b());
+        }
     }
 
     public final int b(int i) {
+        InterceptResult invokeI;
         boolean z;
         int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeI = interceptable.invokeI(1048581, this, i)) != null) {
+            return invokeI.intValue;
+        }
         InputStream inputStream = null;
         try {
             try {
@@ -158,20 +222,26 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
     }
 
     public String b(String str) {
-        return str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? str : (String) invokeL.objValue;
     }
 
     public void b(HashMap<String, String> hashMap) {
-        b.a(this.c, hashMap);
-        if (TextUtils.isEmpty(this.d.f)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            b.a(this.c, hashMap);
+            if (TextUtils.isEmpty(this.d.f)) {
+                return;
+            }
+            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.d.f);
         }
-        hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.d.f);
     }
 
     public void c() {
-        i iVar = this.d;
-        if (iVar == null || TextUtils.isEmpty(iVar.a)) {
+        i iVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (iVar = this.d) == null || TextUtils.isEmpty(iVar.a)) {
             return;
         }
         if (this.d.a.equals("com.baidu.android.pushservice.action.UNBIND") || !TextUtils.isEmpty(this.d.c)) {
@@ -187,7 +257,8 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
     }
 
     public void c(String str) {
-        if (str == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || str == null) {
             return;
         }
         if (!str.startsWith("{\"")) {
@@ -208,28 +279,36 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
     }
 
     public boolean d() {
-        if (TextUtils.isEmpty(this.e)) {
-            com.baidu.android.pushservice.u.a.b("AbstractProcessor", "mUrl is null", this.c);
-            return false;
-        }
-        for (int i = 0; i <= 2; i++) {
-            int b = b(i);
-            if (b == 0) {
-                return true;
-            }
-            if (b != 10002) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                com.baidu.android.pushservice.u.a.b("AbstractProcessor", "mUrl is null", this.c);
                 return false;
             }
-            e();
-            try {
-                Thread.sleep(5000L);
-            } catch (Exception unused) {
+            for (int i = 0; i <= 2; i++) {
+                int b = b(i);
+                if (b == 0) {
+                    return true;
+                }
+                if (b != 10002) {
+                    return false;
+                }
+                e();
+                try {
+                    Thread.sleep(5000L);
+                } catch (Exception unused) {
+                }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public final void e() {
-        com.baidu.android.pushservice.c.a(this.c).a(0, new C0034a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            com.baidu.android.pushservice.c.a(this.c).a(0, new C0034a(this));
+        }
     }
 }

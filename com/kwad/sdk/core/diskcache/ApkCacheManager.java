@@ -2,10 +2,10 @@ package com.kwad.sdk.core.diskcache;
 
 import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
-import com.kwad.sdk.core.threads.b;
+import com.kwad.sdk.core.threads.GlobalThreadPools;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.service.kwai.d;
-import com.kwad.sdk.utils.as;
+import com.kwad.sdk.service.a.f;
+import com.kwad.sdk.utils.aw;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +17,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes10.dex */
 public class ApkCacheManager {
-    public Future VO;
-    public File VP;
-    public final ExecutorService VQ;
-    public final Callable<Void> VR;
+    public Future aiU;
+    public File aru;
+    public final ExecutorService arv;
+    public final Callable<Void> arw;
 
     /* loaded from: classes10.dex */
     public enum Holder {
@@ -28,28 +28,28 @@ public class ApkCacheManager {
         
         public ApkCacheManager mInstance = new ApkCacheManager((byte) 0);
 
-        Holder() {
-        }
-
         public final ApkCacheManager getInstance() {
             return this.mInstance;
+        }
+
+        Holder() {
         }
     }
 
     public ApkCacheManager() {
-        this.VQ = b.vq();
-        this.VR = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.arv = GlobalThreadPools.EB();
+        this.arw = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // java.util.concurrent.Callable
-            /* renamed from: sH */
+            /* renamed from: BI */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.VP != null && ApkCacheManager.this.VP.exists() && !ApkCacheManager.this.sF()) {
-                        for (File file : ApkCacheManager.this.j(ApkCacheManager.this.VP)) {
+                    if (ApkCacheManager.this.aru != null && ApkCacheManager.this.aru.exists() && !ApkCacheManager.this.BG()) {
+                        for (File file : ApkCacheManager.this.n(ApkCacheManager.this.aru)) {
                             if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                                ApkCacheManager.this.i(file);
-                                if (ApkCacheManager.this.sF()) {
+                                ApkCacheManager.this.h(file);
+                                if (ApkCacheManager.this.BG()) {
                                     return null;
                                 }
                             }
@@ -60,12 +60,42 @@ public class ApkCacheManager {
                 }
             }
         };
-        if (((d) ServiceProvider.get(d.class)).getContext() == null) {
+        if (((f) ServiceProvider.get(f.class)).getContext() == null) {
             return;
         }
         try {
-            this.VP = as.cZ(((d) ServiceProvider.get(d.class)).getContext());
+            this.aru = aw.cL(((f) ServiceProvider.get(f.class)).getContext());
         } catch (Throwable unused) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean BG() {
+        File file = this.aru;
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        File[] listFiles = this.aru.listFiles();
+        if (listFiles.length > 5) {
+            if (listFiles.length > 10 || l(this.aru) > 400) {
+                return false;
+            }
+            return true;
+        }
+        return true;
+    }
+
+    public static ApkCacheManager getInstance() {
+        return Holder.INSTANCE.getInstance();
+    }
+
+    public final void BH() {
+        File file = this.aru;
+        if (file != null && file.exists()) {
+            Future future = this.aiU;
+            if (future == null || future.isDone()) {
+                this.aiU = this.arv.submit(this.arw);
+            }
         }
     }
 
@@ -73,33 +103,13 @@ public class ApkCacheManager {
         this();
     }
 
-    private int g(File file) {
-        return (int) ((((float) h(file)) / 1000.0f) / 1000.0f);
-    }
-
-    public static ApkCacheManager getInstance() {
-        return Holder.INSTANCE.getInstance();
-    }
-
-    private long h(File file) {
-        File[] listFiles = file.listFiles();
-        long j = 0;
-        if (listFiles != null) {
-            int length = listFiles.length;
-            for (int i = 0; i < length; i++) {
-                j += listFiles[i].isDirectory() ? h(listFiles[i]) : listFiles[i].length();
-            }
-        }
-        return j;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void i(File file) {
+    public void h(File file) {
         if (file != null && file.exists()) {
             try {
                 if (file.isDirectory()) {
                     for (File file2 : file.listFiles()) {
-                        i(file2);
+                        h(file2);
                     }
                     file.delete();
                 } else if (file.exists()) {
@@ -110,23 +120,48 @@ public class ApkCacheManager {
         }
     }
 
+    private int l(File file) {
+        return (int) ((((float) m(file)) / 1000.0f) / 1000.0f);
+    }
+
+    private long m(File file) {
+        long length;
+        File[] listFiles = file.listFiles();
+        long j = 0;
+        if (listFiles != null) {
+            int length2 = listFiles.length;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = m(listFiles[i]);
+                } else {
+                    length = listFiles[i].length();
+                }
+                j += length;
+            }
+        }
+        return j;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public List<File> j(@NonNull File file) {
+    public List<File> n(@NonNull File file) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return arrayList;
         }
         arrayList.addAll(Arrays.asList(listFiles));
-        n(arrayList);
+        t(arrayList);
         return arrayList;
     }
 
-    private void n(List<File> list) {
+    private void t(List<File> list) {
         Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.2
-            public static int a(File file, File file2) {
+            public static int c(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
-                    return file.lastModified() == file2.lastModified() ? 0 : 1;
+                    if (file.lastModified() == file2.lastModified()) {
+                        return 0;
+                    }
+                    return 1;
                 }
                 return -1;
             }
@@ -134,32 +169,8 @@ public class ApkCacheManager {
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
             @Override // java.util.Comparator
             public final /* synthetic */ int compare(File file, File file2) {
-                return a(file, file2);
+                return c(file, file2);
             }
         });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean sF() {
-        File file = this.VP;
-        if (file == null || !file.exists()) {
-            return false;
-        }
-        File[] listFiles = this.VP.listFiles();
-        if (listFiles.length > 5) {
-            return listFiles.length <= 10 && g(this.VP) <= 400;
-        }
-        return true;
-    }
-
-    public final void sG() {
-        File file = this.VP;
-        if (file == null || !file.exists()) {
-            return;
-        }
-        Future future = this.VO;
-        if (future == null || future.isDone()) {
-            this.VO = this.VQ.submit(this.VR);
-        }
     }
 }

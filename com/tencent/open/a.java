@@ -18,12 +18,12 @@ public class a {
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0710a {
+    public static class C0750a {
         public WeakReference<WebView> a;
         public long b;
         public String c;
 
-        public C0710a(WebView webView, long j, String str) {
+        public C0750a(WebView webView, long j, String str) {
             this.a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
@@ -81,7 +81,7 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C0710a c0710a) {
+        public void call(String str, List<String> list, C0750a c0750a) {
             String str2;
             Method method;
             Object invoke;
@@ -132,21 +132,21 @@ public class a {
                     Class<?> returnType = method.getReturnType();
                     SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                     if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                        if (c0710a != null && customCallback()) {
+                        if (c0750a != null && customCallback()) {
                             if (invoke != null) {
                                 str2 = invoke.toString();
                             }
-                            c0710a.a(str2);
+                            c0750a.a(str2);
                         }
                     }
                 } catch (Exception e) {
                     SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e);
-                    if (c0710a != null) {
-                        c0710a.a();
+                    if (c0750a != null) {
+                        c0750a.a();
                     }
                 }
-            } else if (c0710a != null) {
-                c0710a.a();
+            } else if (c0750a != null) {
+                c0750a.a();
             }
         }
     }
@@ -155,7 +155,7 @@ public class a {
         this.a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0710a c0710a) {
+    public void a(String str, String str2, List<String> list, C0750a c0750a) {
         SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -168,12 +168,12 @@ public class a {
         b bVar = this.a.get(str);
         if (bVar != null) {
             SLog.d("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0710a);
+            bVar.call(str2, list, c0750a);
             return;
         }
         SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0710a != null) {
-            c0710a.a();
+        if (c0750a != null) {
+            c0750a.a();
         }
     }
 
@@ -187,9 +187,9 @@ public class a {
             return false;
         }
         List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-        C0710a c0710a = new C0710a(webView, 4L, str);
+        C0750a c0750a = new C0750a(webView, 4L, str);
         webView.getUrl();
-        a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0710a);
+        a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0750a);
         return true;
     }
 }

@@ -1,92 +1,57 @@
 package com.kwad.components.core.g;
 
-import android.view.View;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import com.kwad.components.core.g.a;
-import com.kwad.sdk.mvp.Presenter;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.core.imageloader.ImageLoaderProxy;
+import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
+import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
-public abstract class b<T extends a> extends com.kwad.components.core.i.a {
-    public T mCallerContext;
-    public Presenter mPresenter;
-    public View mRootView;
+public final class b extends KSFrameLayout {
+    public ImageView Ly;
 
-    private void notifyOnCreate() {
-        T t = this.mCallerContext;
-        if (t == null) {
-            return;
-        }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iK();
+    public b(@NonNull Context context) {
+        super(context);
+    }
+
+    public final void setImageGravity(int i) {
+        FrameLayout.LayoutParams layoutParams;
+        ImageView imageView = this.Ly;
+        if (imageView != null && (layoutParams = (FrameLayout.LayoutParams) imageView.getLayoutParams()) != null) {
+            layoutParams.gravity = i;
+            this.Ly.setLayoutParams(layoutParams);
         }
     }
 
-    private void notifyOnDestroy() {
-        T t = this.mCallerContext;
-        if (t == null) {
-            return;
-        }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iN();
+    public final void setImageScaleType(ImageView.ScaleType scaleType) {
+        ImageView imageView = this.Ly;
+        if (imageView != null && scaleType != null) {
+            imageView.setScaleType(scaleType);
         }
     }
 
-    private void notifyOnPause() {
-        T t = this.mCallerContext;
-        if (t == null) {
-            return;
-        }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iM();
+    private ImageView or() {
+        ImageView imageView = new ImageView(getContext());
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        return imageView;
+    }
+
+    public final void a(String str, ImageLoadingListener imageLoadingListener) {
+        ImageView imageView = this.Ly;
+        if (imageView != null) {
+            ImageLoaderProxy.INSTANCE.load(imageView, str, imageLoadingListener);
         }
     }
 
-    private void notifyOnResume() {
-        T t = this.mCallerContext;
-        if (t == null) {
-            return;
-        }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iL();
-        }
-    }
-
-    public void onActivityCreated(@NonNull View view2) {
-        this.mRootView = view2;
-        this.mCallerContext = onCreateCallerContext();
-        if (this.mPresenter == null) {
-            Presenter onCreatePresenter = onCreatePresenter();
-            this.mPresenter = onCreatePresenter;
-            onCreatePresenter.B(this.mRootView);
-        }
-        this.mPresenter.e(this.mCallerContext);
-        notifyOnCreate();
-    }
-
-    public abstract T onCreateCallerContext();
-
-    public abstract Presenter onCreatePresenter();
-
-    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onDestroy() {
-        notifyOnDestroy();
-        T t = this.mCallerContext;
-        if (t != null) {
-            t.release();
-        }
-        Presenter presenter = this.mPresenter;
-        if (presenter != null) {
-            presenter.destroy();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onPause() {
-        notifyOnPause();
-    }
-
-    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onResume() {
-        super.onResume();
-        notifyOnResume();
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public final void init(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super.init(context, attributeSet);
+        this.Ly = or();
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        layoutParams.gravity = 17;
+        addView(this.Ly, layoutParams);
     }
 }

@@ -101,7 +101,7 @@ public final class ShareChatRoomAdapter extends BaseStyleNormalAdapter<ShareChat
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareChatroomCard chatShareChatroomCard = new ChatShareChatroomCard(context, null, 2, null);
-            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090eff);
+            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090f1f);
             chatShareChatroomCard.setScene(1);
             chatShareChatroomCard.setLayoutParams(new ViewGroup.LayoutParams(m, -2));
             return new BaseViewHolder(chatShareChatroomCard) { // from class: com.baidu.tieba.im.under.common.uiliststyle.group.adapter.ShareChatRoomAdapter$createViewHolder$1

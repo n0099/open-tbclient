@@ -1,28 +1,11 @@
 package com.kwad.sdk.core.videocache.b;
 
-import android.content.Context;
-import com.kwad.sdk.core.videocache.f;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes10.dex */
-public final class a {
-    public static f afa;
-
-    /* renamed from: com.kwad.sdk.core.videocache.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0667a {
-        public String Qd;
-    }
-
-    public static f bC(Context context) {
-        f fVar = afa;
-        if (fVar == null) {
-            f bD = bD(context);
-            afa = bD;
-            return bD;
-        }
-        return fVar;
-    }
-
-    public static f bD(Context context) {
-        return new f.a(context).H(104857600L).vM();
+public final class a implements b {
+    @Override // com.kwad.sdk.core.videocache.b.b
+    public final Map<String, String> Fx() {
+        return new HashMap();
     }
 }

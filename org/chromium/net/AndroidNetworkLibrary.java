@@ -17,7 +17,7 @@ import android.os.Process;
 import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
@@ -241,7 +241,7 @@ public class AndroidNetworkLibrary {
     public static boolean haveAccessWifiState() {
         boolean z;
         if (sHaveAccessWifiState == null) {
-            if (ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(), h.d, Process.myPid(), Process.myUid()) == 0) {
+            if (ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(), g.d, Process.myPid(), Process.myUid()) == 0) {
                 z = true;
             } else {
                 z = false;

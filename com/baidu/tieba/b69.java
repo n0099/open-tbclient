@@ -1,354 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel;
-import com.baidu.tieba.t69;
-import com.baidu.tieba.u69;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mvc.data.IResponseData;
+import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ChooseThreadList;
+import tbclient.ChooseTimeList;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes5.dex */
-public final class b69 extends BaseView<u69, t69, MsgTabInviteAnswerViewModel> implements View.OnClickListener {
+public class b69 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment f;
-    public ImageView g;
-    public RelativeLayout h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public MessageRedDotView l;
-    public ImageView m;
-    public RoundRelativeLayout n;
+    public ArrayList<FeedData> a;
+    public ArrayList<a79> b;
+    public ArrayList<a79> c;
+    public gy4 d;
+    public z59 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b69(BaseFragment mFragment) {
-        super(R.layout.obfuscated_res_0x7f0d0659);
+    public b69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mFragment, "mFragment");
-        this.f = mFragment;
+        this.a = new ArrayList<>();
+        ArrayList<a79> arrayList = new ArrayList<>();
+        this.b = arrayList;
+        arrayList.add(new a79(1, "全部时间", 0L));
+        ArrayList<a79> arrayList2 = new ArrayList<>();
+        this.c = arrayList2;
+        arrayList2.add(new a79(0, "全部贴子", 0L));
+        this.d = new gy4();
+        this.e = new z59();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
-            int i = 1;
-            if (o().getVisibility() == 0 && SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
-                i = 2;
-            }
-            Y(0);
-            Context requireContext = this.f.requireContext();
-            Intrinsics.checkNotNullExpressionValue(requireContext, "mFragment.requireContext()");
-            q().k(new t69.a(requireContext, i));
-        }
-    }
-
-    public final ImageView P() {
+    public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                return imageView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mCardIcon");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (ImageView) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final TextView Q() {
+    public gy4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.j;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mContent");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (TextView) invokeV.objValue;
+        return (gy4) invokeV.objValue;
     }
 
-    public final ImageView R() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ImageView imageView = this.m;
-            if (imageView != null) {
-                return imageView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mEnterBtn");
-            return null;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    public final MessageRedDotView S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            MessageRedDotView messageRedDotView = this.l;
-            if (messageRedDotView != null) {
-                return messageRedDotView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mRedView");
-            return null;
-        }
-        return (MessageRedDotView) invokeV.objValue;
-    }
-
-    public final TextView T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TextView textView = this.k;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mShield");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final RelativeLayout U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RelativeLayout relativeLayout = this.h;
-            if (relativeLayout != null) {
-                return relativeLayout;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mTextContainer");
-            return null;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public final TextView V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            TextView textView = this.i;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mTitle");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: W */
-    public MsgTabInviteAnswerViewModel B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ViewModel viewModel = new ViewModelProvider(this.f).get(MsgTabInviteAnswerViewModel.class);
-            Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(mFragm…werViewModel::class.java)");
-            return (MsgTabInviteAnswerViewModel) viewModel;
-        }
-        return (MsgTabInviteAnswerViewModel) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a0((ImageView) l(R.id.obfuscated_res_0x7f0911e1));
-            f0((RelativeLayout) l(R.id.obfuscated_res_0x7f09260f));
-            g0((TextView) l(R.id.obfuscated_res_0x7f0911e4));
-            b0((TextView) l(R.id.obfuscated_res_0x7f0911e0));
-            e0((TextView) l(R.id.obfuscated_res_0x7f0911e3));
-            d0((MessageRedDotView) l(R.id.obfuscated_res_0x7f0911e2));
-            this.n = (RoundRelativeLayout) l(R.id.obfuscated_res_0x7f0902af);
-            c0((ImageView) l(R.id.obfuscated_res_0x7f090a4e));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: X */
-    public void J(u69 state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-            if (state instanceof u69.b) {
-                Z(((u69.b) state).a());
-            } else if (state instanceof u69.a) {
-                Y(((u69.a) state).a());
-            }
-        }
-    }
-
-    public final void a0(ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, imageView) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.g = imageView;
-        }
-    }
-
-    public final void b0(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, textView) == null) {
-            Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.j = textView;
-        }
-    }
-
-    public final void c0(ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, imageView) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.m = imageView;
-        }
-    }
-
-    public final void d0(MessageRedDotView messageRedDotView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, messageRedDotView) == null) {
-            Intrinsics.checkNotNullParameter(messageRedDotView, "<set-?>");
-            this.l = messageRedDotView;
-        }
-    }
-
-    public final void e0(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, textView) == null) {
-            Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.k = textView;
-        }
-    }
-
-    public final void f0(RelativeLayout relativeLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, relativeLayout) == null) {
-            Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
-            this.h = relativeLayout;
-        }
-    }
-
-    public final void g0(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, textView) == null) {
-            Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.i = textView;
-        }
-    }
-
-    public final void Y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            if (i > 0) {
-                if (SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
-                    i = 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
                 }
-                R().setVisibility(8);
-                S().setThreeDotMode(2);
-                S().refresh(i);
-                S().setVisibility(0);
-                Q().setText(R.string.obfuscated_res_0x7f0f07ff);
-                return;
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("choose_time_list");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                        this.b.add(new a79(1, jSONObject2.optString("title"), jSONObject2.optLong("time")));
+                    }
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("choose_thread_list");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject jSONObject3 = optJSONArray3.getJSONObject(i3);
+                        this.b.add(new a79(0, jSONObject3.optString("title"), jSONObject3.optLong("tid")));
+                    }
+                }
+                this.e.a(jSONObject.optJSONObject("message"));
+                this.d.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            S().setVisibility(8);
-            R().setVisibility(0);
-            Q().setText(R.string.obfuscated_res_0x7f0f07fe);
         }
     }
 
-    public final void Z(boolean z) {
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            if (z) {
-                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X1111, SvgManager.SvgResourceStateType.NORMAL);
-                int dimens = BdUtilHelper.getDimens(this.f.getContext(), R.dimen.tbds34);
-                pureDrawable.setBounds(new Rect(0, 0, dimens, dimens));
-                T().setCompoundDrawables(null, null, pureDrawable, null);
-                T().setVisibility(0);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                List<ChooseTimeList> list2 = dataRes.choose_time_list;
+                if (list2 != null && list2.size() > 0) {
+                    for (ChooseTimeList chooseTimeList : list2) {
+                        this.b.add(new a79(1, chooseTimeList.title, chooseTimeList.time.longValue()));
+                    }
+                }
+                List<ChooseThreadList> list3 = dataRes.choose_thread_list;
+                if (list3 != null && list3.size() > 0) {
+                    for (ChooseThreadList chooseThreadList : list3) {
+                        this.c.add(new a79(0, chooseThreadList.title, chooseThreadList.tid.longValue()));
+                    }
+                }
+                this.d.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            T().setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            P().setOnClickListener(this);
-            U().setOnClickListener(this);
-            V().setOnClickListener(this);
-            Q().setOnClickListener(this);
-            S().setOnClickListener(this);
-            Y(SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer_unread_num"), 0));
-        }
-    }
-
-    @Override // com.baidu.tieba.wx8
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            WebPManager.setMaskDrawable(P(), R.drawable.obfuscated_res_0x7f081238, WebPManager.ResourceStateType.NORMAL);
-            RoundRelativeLayout roundRelativeLayout = this.n;
-            RoundRelativeLayout roundRelativeLayout2 = null;
-            if (roundRelativeLayout == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
-                roundRelativeLayout = null;
-            }
-            roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this.f.getContext(), R.dimen.tbds31));
-            RoundRelativeLayout roundRelativeLayout3 = this.n;
-            if (roundRelativeLayout3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
-            } else {
-                roundRelativeLayout2 = roundRelativeLayout3;
-            }
-            EMManager.from(roundRelativeLayout2).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            WebPManager.setPureDrawable(R(), R.drawable.obfuscated_res_0x7f0808c6, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
-            EMManager.from(V()).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
-            EMManager.from(Q()).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
         }
     }
 }

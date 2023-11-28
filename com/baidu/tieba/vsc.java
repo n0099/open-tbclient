@@ -1,61 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.eoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ComponentFactory;
-import tbclient.FeedFeedback;
-import tbclient.FeedKV;
-import tbclient.FeedLayout;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vsc extends qoc {
+public abstract class vsc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedLayout feedLayout) {
+    @Deprecated
+    public <T> eoc.a<T> a(eoc.a<T> aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLayout)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (feedLayout.components != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ComponentFactory componentFactory : feedLayout.components) {
-                    jSONArray.put(erc.b(componentFactory));
-                }
-                qoc.a(jSONObject, "components", jSONArray);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (eoc.a) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T, R> eoc.b<? extends R, ? super T> b(eoc.b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (eoc.b) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> Throwable c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> loc d(loc locVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, locVar)) == null) ? locVar : (loc) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> eoc.a<T> e(eoc<? extends T> eocVar, eoc.a<T> aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, eocVar, aVar)) == null) ? aVar : (eoc.a) invokeLL.objValue;
+    }
+
+    public vsc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            qoc.a(jSONObject, "schema", feedLayout.schema);
-            if (feedLayout.log_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : feedLayout.log_info) {
-                    jSONArray2.put(usc.b(feedKV));
-                }
-                qoc.a(jSONObject, "log_info", jSONArray2);
-            }
-            FeedFeedback feedFeedback = feedLayout.feedback;
-            if (feedFeedback != null) {
-                qoc.a(jSONObject, "feedback", jsc.b(feedFeedback));
-            }
-            if (feedLayout.business_info != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (FeedKV feedKV2 : feedLayout.business_info) {
-                    jSONArray3.put(usc.b(feedKV2));
-                }
-                qoc.a(jSONObject, "business_info", jSONArray3);
-            }
-            if (feedLayout.appendix != null) {
-                JSONArray jSONArray4 = new JSONArray();
-                for (FeedKV feedKV3 : feedLayout.appendix) {
-                    jSONArray4.put(usc.b(feedKV3));
-                }
-                qoc.a(jSONObject, "appendix", jSONArray4);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

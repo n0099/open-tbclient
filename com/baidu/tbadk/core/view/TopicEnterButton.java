@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.rt5;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,8 +103,8 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !qd.isEmpty(recommendTopicListData.getTopicName()) && (view2.getContext() instanceof BaseActivity)) {
-            rt5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !rd.isEmpty(recommendTopicListData.getTopicName()) && (view2.getContext() instanceof BaseActivity)) {
+            zt5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
         }
     }
 

@@ -8,53 +8,63 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.kwad.components.core.c.a.a;
-import com.kwad.sdk.core.response.a.d;
+import com.kwad.components.core.e.d.a;
+import com.kwad.sdk.core.response.b.d;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.m.l;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
 /* loaded from: classes10.dex */
 public class ActionBarH5 extends FrameLayout implements c {
-    public TextView cE;
+    public TextView Bx;
+    public a By;
+    public View Bz;
+    public TextView dM;
     public AdTemplate mAdTemplate;
-    public TextView wQ;
-    public a wR;
-    public View wS;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void R(boolean z);
+        void N(boolean z);
     }
 
     public ActionBarH5(Context context) {
         super(context);
-        E(context);
+        B(context);
+    }
+
+    private void B(Context context) {
+        l.inflate(context, R.layout.obfuscated_res_0x7f0d0523, this);
+        this.Bx = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
+        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
+        this.Bz = findViewById(R.id.obfuscated_res_0x7f09134c);
+    }
+
+    @Override // com.kwad.sdk.widget.c
+    public final void b(View view2) {
+        if (d.dE(this.mAdTemplate)) {
+            b(view2, false);
+        }
     }
 
     public ActionBarH5(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        E(context);
-    }
-
-    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        E(context);
-    }
-
-    private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d050c, this);
-        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091325);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091329);
-        this.wS = findViewById(R.id.obfuscated_res_0x7f091307);
+        B(context);
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0625a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
-            @Override // com.kwad.components.core.c.a.a.b
+        int i;
+        if (view2 == this.Bz) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        com.kwad.components.core.e.d.a.a(new a.C0644a(view2.getContext()).aq(this.mAdTemplate).an(i).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+            @Override // com.kwad.components.core.e.d.a.b
             public final void onAdClicked() {
-                if (ActionBarH5.this.wR != null) {
-                    ActionBarH5.this.wR.R(z);
+                if (ActionBarH5.this.By != null) {
+                    ActionBarH5.this.By.N(z);
                 }
             }
         }));
@@ -62,25 +72,23 @@ public class ActionBarH5 extends FrameLayout implements c {
 
     public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         this.mAdTemplate = adTemplate;
-        this.wR = aVar;
-        AdInfo bQ = d.bQ(adTemplate);
-        this.wQ.setText(com.kwad.sdk.core.response.a.a.ad(bQ));
-        this.cE.setText(com.kwad.sdk.core.response.a.a.al(bQ));
+        this.By = aVar;
+        AdInfo dP = e.dP(adTemplate);
+        this.Bx.setText(com.kwad.sdk.core.response.b.a.au(dP));
+        this.dM.setText(com.kwad.sdk.core.response.b.a.aE(dP));
         setClickable(true);
-        this.wS.setClickable(true);
-        new f(this.wS, this);
+        this.Bz.setClickable(true);
+        new f(this.Bz, this);
         new f(this, this);
     }
 
-    @Override // com.kwad.sdk.widget.c
-    public final void f(View view2) {
-        b(view2, true);
+    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        B(context);
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void g(View view2) {
-        if (com.kwad.sdk.core.response.a.c.bF(this.mAdTemplate)) {
-            b(view2, false);
-        }
+    public final void a(View view2) {
+        b(view2, true);
     }
 }

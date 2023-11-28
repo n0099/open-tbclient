@@ -1,126 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mfb implements ofb {
+public class mfb extends kfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final qeb b;
+    public View c;
+    public HorizontalListView d;
+    public cib e;
 
-    public mfb(@NonNull TbPageContext<?> tbPageContext, @NonNull qeb qebVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mfb(BdPageContext bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qebVar};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = qebVar;
     }
 
-    @Override // com.baidu.tieba.zd5
-    public void S(yd5 yd5Var) {
+    public void A(bib bibVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yd5Var) == null) {
-            int i = yd5Var.a;
-            if (i != 14 && i != 48) {
-                if (i == 60) {
-                    this.b.u();
-                    return;
-                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
-                    if (i == 21) {
-                        this.b.i();
-                        mdb.b(this.a.getPageActivity(), 5);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
-                        return;
-                    } else if (i == 24) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 3) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 16) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 43) {
-                        mdb.b(this.a.getPageActivity(), 4);
-                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
-                        this.b.C(new yd5(2, 26, null));
-                        this.b.p(true);
-                        this.b.m();
-                        return;
-                    } else if (i == 10) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 11) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 25) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 22) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 59) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 61) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 69) {
-                        this.b.v();
-                        return;
-                    } else if (i == 55) {
-                        Object obj = yd5Var.c;
-                        if (obj instanceof Boolean) {
-                            this.b.k(((Boolean) obj).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 66) {
-                        Object obj2 = yd5Var.c;
-                        if (obj2 instanceof Boolean) {
-                            this.b.y(((Boolean) obj2).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 74) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else if (i == 77) {
-                        this.b.z(yd5Var);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    this.b.x(new int[]{10, 34});
-                    this.b.j();
-                    return;
-                }
-            }
-            mdb.b(this.a.getPageActivity(), 1);
-            this.b.r();
+        if (interceptable == null || interceptable.invokeL(1048576, this, bibVar) == null) {
+            this.e.d(bibVar);
+        }
+    }
+
+    public void z(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.e.c(list);
+        this.e.notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.kfb
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0838, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f091001);
+            cib cibVar = new cib();
+            this.e = cibVar;
+            this.d.setAdapter((ListAdapter) cibVar);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            y();
+        }
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e.notifyDataSetChanged();
         }
     }
 }

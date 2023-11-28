@@ -1,52 +1,68 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.utils.CommonUtils;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import org.json.JSONObject;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes5.dex */
-public class aad {
+public class aad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static n9d a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
+    @NonNull
+    public static JSONObject b(@NonNull ThreadRecommendInfo threadRecommendInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new n9d(productInfo, 4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadRecommendInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "forum_avatar", threadRecommendInfo.forum_avatar);
+            ltc.a(jSONObject, "forum_name", threadRecommendInfo.forum_name);
+            ltc.a(jSONObject, "show_num", threadRecommendInfo.show_num);
+            ltc.a(jSONObject, "show_type", threadRecommendInfo.show_type);
+            ltc.a(jSONObject, "recommend_reason", threadRecommendInfo.recommend_reason);
+            ltc.a(jSONObject, "topic_id", threadRecommendInfo.topic_id);
+            ltc.a(jSONObject, "recommend_type", threadRecommendInfo.recommend_type);
+            ltc.a(jSONObject, "recommend_tail", threadRecommendInfo.recommend_tail);
+            ltc.a(jSONObject, "recommend_icon", threadRecommendInfo.recommend_icon);
+            ThemeColorInfo themeColorInfo = threadRecommendInfo.recommend_type_color;
+            if (themeColorInfo != null) {
+                ltc.a(jSONObject, "recommend_type_color", t9d.b(themeColorInfo));
             }
-            productInfo.destAmount = i;
-            return new n9d(productInfo);
-        }
-        return (n9d) invokeIL.objValue;
-    }
-
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error(CommonUtils.TAG, "getAppPayService null iRevenue", new Object[0]);
-                return null;
+            ThemeColorInfo themeColorInfo2 = threadRecommendInfo.recommend_reason_color;
+            if (themeColorInfo2 != null) {
+                ltc.a(jSONObject, "recommend_reason_color", t9d.b(themeColorInfo2));
             }
-            return revenue.getAppPayService();
+            ThemeColorInfo themeColorInfo3 = threadRecommendInfo.strip_color;
+            if (themeColorInfo3 != null) {
+                ltc.a(jSONObject, "strip_color", t9d.b(themeColorInfo3));
+            }
+            ThemeColorInfo themeColorInfo4 = threadRecommendInfo.background_color;
+            if (themeColorInfo4 != null) {
+                ltc.a(jSONObject, "background_color", t9d.b(themeColorInfo4));
+            }
+            ltc.a(jSONObject, "jump_link", threadRecommendInfo.jump_link);
+            ltc.a(jSONObject, "business_type", threadRecommendInfo.business_type);
+            ltc.a(jSONObject, "business_id", threadRecommendInfo.business_id);
+            ltc.a(jSONObject, "jump_icon", threadRecommendInfo.jump_icon);
+            ltc.a(jSONObject, "jump_text", threadRecommendInfo.jump_text);
+            ThemeColorInfo themeColorInfo5 = threadRecommendInfo.jump_text_color;
+            if (themeColorInfo5 != null) {
+                ltc.a(jSONObject, "jump_text_color", t9d.b(themeColorInfo5));
+            }
+            ThemeColorInfo themeColorInfo6 = threadRecommendInfo.dot_color;
+            if (themeColorInfo6 != null) {
+                ltc.a(jSONObject, "dot_color", t9d.b(themeColorInfo6));
+            }
+            ThemeColorInfo themeColorInfo7 = threadRecommendInfo.tail_color;
+            if (themeColorInfo7 != null) {
+                ltc.a(jSONObject, TailEditActivityConfig.TAIL_COLOR, t9d.b(themeColorInfo7));
+            }
+            return jSONObject;
         }
-        return (IAppPayService) invokeII.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

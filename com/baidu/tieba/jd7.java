@@ -1,57 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.widget.CardLiveLabelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
 public final class jd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jd7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public View a(Context context, Map<String, String> decorationInfo) {
+    public static final String a(String str, String errorMessage) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, decorationInfo)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(decorationInfo, "decorationInfo");
-            CardLiveLabelView cardLiveLabelView = new CardLiveLabelView(context);
-            String str = decorationInfo.get("text");
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, errorMessage)) == null) {
+            Intrinsics.checkNotNullParameter(errorMessage, "errorMessage");
+            if (str != null && str.length() != 0) {
                 z = false;
             } else {
                 z = true;
             }
-            if (z) {
-                return null;
+            if (!z) {
+                return str;
             }
-            cardLiveLabelView.setViewType(2);
-            cardLiveLabelView.h(str);
-            cardLiveLabelView.f();
-            return cardLiveLabelView;
+            throw new IllegalStateException(errorMessage);
         }
-        return (View) invokeLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ String b(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str2 = "string must not empty!";
+        }
+        a(str, str2);
+        return str;
     }
 }

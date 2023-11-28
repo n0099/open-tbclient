@@ -4,29 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RecomTopicInfo;
-import tbclient.RecomTopicList;
+import tbclient.FrsPage.TabSkin;
 /* loaded from: classes6.dex */
-public class j2d extends qoc {
+public class j2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomTopicInfo recomTopicInfo) {
+    public static JSONObject b(@NonNull TabSkin tabSkin) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTopicInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabSkin)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "recom_title", recomTopicInfo.recom_title);
-            if (recomTopicInfo.topic_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
-                    jSONArray.put(k2d.b(recomTopicList));
-                }
-                qoc.a(jSONObject, "topic_list", jSONArray);
-            }
+            ltc.a(jSONObject, "tab_id", tabSkin.tab_id);
+            ltc.a(jSONObject, "icon", tabSkin.icon);
+            ltc.a(jSONObject, "icon_night", tabSkin.icon_night);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

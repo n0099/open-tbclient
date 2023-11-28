@@ -16,6 +16,14 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
     @Keep
     public abstract Bitmap getSdkLogo();
 
+    @KsAdSdkDynamicApi
+    @Keep
+    public abstract View getVideoView2(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public abstract View getVideoView2(Context context, boolean z);
+
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     @KsAdSdkDynamicApi
@@ -31,12 +39,4 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
     public final View getVideoView(Context context, boolean z) {
         return getVideoView2(Wrapper.wrapContextIfNeed(context), z);
     }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public abstract View getVideoView2(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig);
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public abstract View getVideoView2(Context context, boolean z);
 }

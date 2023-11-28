@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.af7;
+import com.baidu.tieba.bf7;
+import com.baidu.tieba.df7;
 import com.baidu.tieba.forum.bubble.ForumFloatBubble;
 import com.baidu.tieba.forum.databinding.LayoutChatMessageBubbleBinding;
-import com.baidu.tieba.ne7;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.qe7;
-import com.baidu.tieba.ue7;
-import com.baidu.tieba.ve7;
+import com.baidu.tieba.hf7;
+import com.baidu.tieba.if7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public final class ForumFloatBubble extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LayoutChatMessageBubbleBinding a;
-    public oe7 b;
+    public bf7 b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -103,7 +103,7 @@ public final class ForumFloatBubble extends ConstraintLayout {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         new LinkedHashMap();
-        this.b = oe7.g.a();
+        this.b = bf7.g.a();
         LayoutChatMessageBubbleBinding b = LayoutChatMessageBubbleBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b, "inflate(LayoutInflater.from(context), this)");
         this.a = b;
@@ -113,14 +113,14 @@ public final class ForumFloatBubble extends ConstraintLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void c(qe7 data, ne7 this_run, View view2) {
+    public static final void c(df7 data, af7 this_run, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, data, this_run, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
             Intrinsics.checkNotNullParameter(this_run, "$this_run");
-            ue7 c = data.c();
+            hf7 c = data.c();
             if (c != null) {
-                ve7.a.a(c);
+                if7.a.a(c);
             }
             this_run.a(data);
         }
@@ -139,7 +139,7 @@ public final class ForumFloatBubble extends ConstraintLayout {
         }
     }
 
-    public final void b(final qe7 data) {
+    public final void b(final df7 data) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -153,9 +153,9 @@ public final class ForumFloatBubble extends ConstraintLayout {
                 i = 0;
             }
             tbImageView.setVisibility(i);
-            final ne7 j = this.b.j();
+            final af7 j = this.b.j();
             if (j != null) {
-                this.a.getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ie7
+                this.a.getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ve7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,14 +163,14 @@ public final class ForumFloatBubble extends ConstraintLayout {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            ForumFloatBubble.c(qe7.this, j, view2);
+                            ForumFloatBubble.c(df7.this, j, view2);
                         }
                     }
                 });
             }
-            ue7 c = data.c();
+            hf7 c = data.c();
             if (c != null) {
-                ve7.a.b(c);
+                if7.a.b(c);
             }
             a();
         }

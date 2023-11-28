@@ -2,7 +2,7 @@ package com.yy.hiidostatis.provider;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum GlobalProvider {
     instance;
     

@@ -1,9 +1,9 @@
 package com.yy.transvod.p2p;
 
 import android.util.Log;
-import com.baidu.tieba.xdc;
+import com.baidu.tieba.sic;
 import com.yy.transvod.player.log.TLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class P2pManager {
     public static native void nativeClassInit();
 
@@ -20,7 +20,7 @@ public class P2pManager {
     private native void nativeUpdateAccountInfo(long j, AccountInfo accountInfo);
 
     static {
-        if (xdc.b()) {
+        if (sic.b()) {
             try {
                 Log.i("P2pManager", "loadLibrary: transvod_p2p");
                 nativeClassInit();

@@ -64,10 +64,10 @@ public enum ey {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f338a;
+    public final int f334a;
 
     ey(int i) {
-        this.f338a = i;
+        this.f334a = i;
     }
 
     public static ey a(int i) {
@@ -211,6 +211,6 @@ public enum ey {
     }
 
     public int a() {
-        return this.f338a;
+        return this.f334a;
     }
 }

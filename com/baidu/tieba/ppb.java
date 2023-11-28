@@ -1,25 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface ppb {
-    void a(DownloadException downloadException);
+    boolean a();
 
-    void b(DownloadException downloadException);
+    int b();
 
-    void onConnectCanceled();
+    boolean c(String str);
 
-    void onConnected(long j, long j2, boolean z);
+    boolean d();
 
-    void onConnecting();
+    int e();
 
-    void onDownloadCanceled();
+    int f();
 
-    void onDownloadCompleted(String str);
+    boolean g();
 
-    void onDownloadPaused();
+    String h();
 
-    void onDownloadProgress(long j, long j2, int i);
+    List<String> i();
 
-    void onStarted();
+    boolean isPeakTime();
+
+    boolean j();
+
+    boolean k();
+
+    boolean l();
+
+    boolean m();
+
+    boolean n();
+
+    boolean o();
+
+    boolean p();
 }

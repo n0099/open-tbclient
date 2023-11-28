@@ -5,34 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.MatchPlayerInfo;
-import tbclient.Post;
+import tbclient.ChatroomSignInfo;
 /* loaded from: classes9.dex */
-public class zvc extends qoc {
+public class zvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MatchPlayerInfo matchPlayerInfo) {
+    public static JSONObject b(@NonNull ChatroomSignInfo chatroomSignInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, matchPlayerInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatroomSignInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "name", matchPlayerInfo.name);
-            qoc.a(jSONObject, "avatar", matchPlayerInfo.avatar);
-            qoc.a(jSONObject, "score", matchPlayerInfo.score);
-            qoc.a(jSONObject, "score_cnt", matchPlayerInfo.score_cnt);
-            Post post = matchPlayerInfo.hot_post;
-            if (post != null) {
-                qoc.a(jSONObject, "hot_post", q1d.b(post));
-            }
-            qoc.a(jSONObject, "sub_avatar", matchPlayerInfo.sub_avatar);
-            qoc.a(jSONObject, "sub_text", matchPlayerInfo.sub_text);
-            qoc.a(jSONObject, "score_self", matchPlayerInfo.score_self);
-            qoc.a(jSONObject, "score_link", matchPlayerInfo.score_link);
-            qoc.a(jSONObject, "match_id", matchPlayerInfo.match_id);
-            qoc.a(jSONObject, "match_index", matchPlayerInfo.match_index);
-            qoc.a(jSONObject, "player_id", matchPlayerInfo.player_id);
+            ltc.a(jSONObject, "chatroom_id", chatroomSignInfo.chatroom_id);
+            ltc.a(jSONObject, "jump_scheme", chatroomSignInfo.jump_scheme);
+            ltc.a(jSONObject, "guide_text", chatroomSignInfo.guide_text);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -51,7 +51,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public float t;
     public int u;
     public boolean v;
-    public SwipeBackLayout.b w;
+    public SwipeBackLayout.c w;
     public boolean x;
     public DataSetObserver y;
     public GestureDetector.OnGestureListener z;
@@ -429,10 +429,10 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public void setSwipeControlInterface(SwipeBackLayout.b bVar) {
+    public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bVar) == null) {
-            this.w = bVar;
+        if (interceptable == null || interceptable.invokeL(1048603, this, cVar) == null) {
+            this.w = cVar;
         }
     }
 
@@ -647,14 +647,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 if (action != 3 && action != 1) {
                     if (action != 0) {
                         if (action != 2) {
-                            SwipeBackLayout.b bVar = this.w;
-                            if (bVar != null) {
-                                bVar.U();
+                            SwipeBackLayout.c cVar = this.w;
+                            if (cVar != null) {
+                                cVar.T();
                             }
                         } else {
-                            SwipeBackLayout.b bVar2 = this.w;
-                            if (bVar2 != null) {
-                                bVar2.C0();
+                            SwipeBackLayout.c cVar2 = this.w;
+                            if (cVar2 != null) {
+                                cVar2.A0();
                             }
                             j(motionEvent);
                             if (this.v) {
@@ -668,18 +668,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         if (pointerId != -1) {
                             this.s = MotionEventCompat.getX(motionEvent, actionIndex);
                             this.t = MotionEventCompat.getY(motionEvent, actionIndex);
-                            SwipeBackLayout.b bVar3 = this.w;
-                            if (bVar3 != null) {
-                                bVar3.C0();
+                            SwipeBackLayout.c cVar3 = this.w;
+                            if (cVar3 != null) {
+                                cVar3.A0();
                             }
                         }
                     }
                     return super.onInterceptTouchEvent(motionEvent);
                 }
                 this.v = false;
-                SwipeBackLayout.b bVar4 = this.w;
-                if (bVar4 != null) {
-                    bVar4.U();
+                SwipeBackLayout.c cVar4 = this.w;
+                if (cVar4 != null) {
+                    cVar4.T();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -702,14 +702,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             if (action != 0) {
                 if (action != 1) {
                     if (action != 2) {
-                        SwipeBackLayout.b bVar = this.w;
-                        if (bVar != null) {
-                            bVar.U();
+                        SwipeBackLayout.c cVar = this.w;
+                        if (cVar != null) {
+                            cVar.T();
                         }
                     } else {
-                        SwipeBackLayout.b bVar2 = this.w;
-                        if (bVar2 != null) {
-                            bVar2.C0();
+                        SwipeBackLayout.c cVar2 = this.w;
+                        if (cVar2 != null) {
+                            cVar2.A0();
                         }
                         if (!this.v) {
                             j(motionEvent);
@@ -720,16 +720,16 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     }
                 } else {
                     this.v = false;
-                    SwipeBackLayout.b bVar3 = this.w;
-                    if (bVar3 != null) {
-                        bVar3.U();
+                    SwipeBackLayout.c cVar3 = this.w;
+                    if (cVar3 != null) {
+                        cVar3.T();
                     }
                 }
             } else {
                 this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                SwipeBackLayout.b bVar4 = this.w;
-                if (bVar4 != null) {
-                    bVar4.C0();
+                SwipeBackLayout.c cVar4 = this.w;
+                if (cVar4 != null) {
+                    cVar4.A0();
                 }
             }
             return super.onTouchEvent(motionEvent);

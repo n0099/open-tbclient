@@ -1,17 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class fo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static um1 a;
+    public static final um1 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements um1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.um1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,25 +54,33 @@ public class fo3 {
                 return;
             }
         }
-        a = rm1.a;
+        b = new a();
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public static um1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            jd3 jd3Var = new jd3();
-            jd3Var.a = "swan";
-            jd3Var.b = str;
-            jd3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                jd3Var.e = str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            um1 um1Var = a;
+            if (um1Var == null) {
+                return b;
             }
-            jd3Var.f = str5;
-            jd3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + jd3Var.f());
-            }
-            zc3.x("1372", jd3Var);
+            return um1Var;
+        }
+        return (um1) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = null;
+        }
+    }
+
+    public static void c(um1 um1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, um1Var) == null) && a != um1Var) {
+            a = um1Var;
         }
     }
 }

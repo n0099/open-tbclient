@@ -1,12 +1,12 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.bg1;
+import com.baidu.tieba.cg1;
 /* loaded from: classes3.dex */
-public class AbTestServiceFetcher extends bg1<AbTestService> {
+public class AbTestServiceFetcher extends cg1<AbTestService> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.bg1
+    @Override // com.baidu.tieba.cg1
     public AbTestService createService() throws ServiceNotFoundException {
         return new AbTestServiceManager();
     }

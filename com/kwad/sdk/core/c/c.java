@@ -1,16 +1,15 @@
 package com.kwad.sdk.core.c;
 
-import android.app.Activity;
 import android.os.Bundle;
 /* loaded from: classes10.dex */
-public interface c {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public interface c<T> {
+    void a(T t, Bundle bundle);
 
-    void onActivityDestroyed(Activity activity);
+    void b(T t);
 
-    void onActivityPaused(Activity activity);
+    void c(T t);
 
-    void onActivityResumed(Activity activity);
+    void d(T t);
 
     void onBackToBackground();
 

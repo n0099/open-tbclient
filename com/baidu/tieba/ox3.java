@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,63 +11,62 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ox3 extends my3 {
+public class ox3 extends ny3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047583, "Lcom/baidu/tieba/ox3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948047583, "Lcom/baidu/tieba/ox3;");
-                return;
-            }
-        }
-        boolean z = rm1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ox3() {
-        super("resumeAllDownloadWhileWifi");
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.my3
-    public hy1 a(JSONObject jSONObject, kj2 kj2Var) {
+    @Override // com.baidu.tieba.ny3
+    public iy1 a(@NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, kj2Var)) == null) {
-            if (jSONObject == null) {
-                kj2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
+            if (qj3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (qj3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (qj3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (qj3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
             }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
+            if (!z) {
+                Toast.makeText(op2.c(), (int) R.string.obfuscated_res_0x7f0f01c7, 0).show();
             }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-            np2.c().registerReceiver(this.c, intentFilter);
-            kj2Var.onSuccess(null);
+            lj2Var.onSuccess(null);
             return null;
         }
-        return (hy1) invokeLL.objValue;
+        return (iy1) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return qi3.i(op2.c(), intent, true, false);
+        }
+        return invokeLL.booleanValue;
     }
 }

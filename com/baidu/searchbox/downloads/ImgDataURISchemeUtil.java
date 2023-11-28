@@ -250,10 +250,10 @@ public class ImgDataURISchemeUtil {
         }
         insertDownload(str, str2, context, str3);
         if (z) {
-            UniversalToast.makeText(context, context.getResources().getString(R.string.obfuscated_res_0x7f0f10f4)).showToast();
+            UniversalToast.makeText(context, context.getResources().getString(R.string.obfuscated_res_0x7f0f1104)).showToast();
             return true;
         }
-        UniversalToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f05db)).setLeftIcon(R.drawable.obfuscated_res_0x7f0805cf).setButtonText(context.getString(R.string.obfuscated_res_0x7f0f05dc)).setDuration(3).setToastCallback(new UniversalToast.ToastCallback() { // from class: com.baidu.searchbox.downloads.ImgDataURISchemeUtil.2
+        UniversalToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f05e3)).setLeftIcon(R.drawable.obfuscated_res_0x7f0805d2).setButtonText(context.getString(R.string.obfuscated_res_0x7f0f05e4)).setDuration(3).setToastCallback(new UniversalToast.ToastCallback() { // from class: com.baidu.searchbox.downloads.ImgDataURISchemeUtil.2
             @Override // com.baidu.android.ext.widget.toast.UniversalToast.ToastCallback
             public void onToastClick() {
                 Intent buildDownloadActivityIntent = IDownloadApp.Impl.get().buildDownloadActivityIntent(context);

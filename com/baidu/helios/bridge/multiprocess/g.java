@@ -16,29 +16,29 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
 import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.iy;
-import com.baidu.tieba.n00;
+import com.baidu.tieba.fy;
+import com.baidu.tieba.jy;
+import com.baidu.tieba.o00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class g extends ey implements IBinder.DeathRecipient {
+public class g extends fy implements IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ContentProviderClient c;
     public e d;
-    public iy e;
+    public jy e;
     public String f;
 
-    public g(iy iyVar, String str) {
+    public g(jy jyVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iyVar, str};
+            Object[] objArr = {jyVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,11 +48,11 @@ public class g extends ey implements IBinder.DeathRecipient {
                 return;
             }
         }
-        this.e = iyVar;
+        this.e = jyVar;
         this.f = str;
     }
 
-    public static Bundle k(ey.d dVar) {
+    public static Bundle k(fy.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
@@ -64,10 +64,10 @@ public class g extends ey implements IBinder.DeathRecipient {
         return (Bundle) invokeL.objValue;
     }
 
-    public static ey.d l(Bundle bundle) {
+    public static fy.d l(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new ey.d(bundle.getInt(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE), bundle.getString("id"), null) : (ey.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new fy.d(bundle.getInt(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE), bundle.getString("id"), null) : (fy.d) invokeL.objValue;
     }
 
     public static void n(Bundle bundle, IBinder iBinder) {
@@ -99,15 +99,15 @@ public class g extends ey implements IBinder.DeathRecipient {
         return (IBinder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ey
-    public void a(String str, Bundle bundle, ey.c<String> cVar) {
+    @Override // com.baidu.tieba.fy
+    public void a(String str, Bundle bundle, fy.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
                 this.d.a(str, bundle, new f.b(this, cVar) { // from class: com.baidu.helios.bridge.multiprocess.g.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ey.c c;
+                    public final /* synthetic */ fy.c c;
                     public final /* synthetic */ g d;
 
                     {
@@ -159,7 +159,7 @@ public class g extends ey implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.fy
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -172,7 +172,7 @@ public class g extends ey implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.fy
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -186,16 +186,16 @@ public class g extends ey implements IBinder.DeathRecipient {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey
-    public void f(ey.b bVar) {
+    @Override // com.baidu.tieba.fy
+    public void f(fy.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.d = q(this.a.c);
         }
     }
 
-    @Override // com.baidu.tieba.ey
-    public ey.d g(String str, Bundle bundle) {
+    @Override // com.baidu.tieba.fy
+    public fy.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
@@ -206,9 +206,9 @@ public class g extends ey implements IBinder.DeathRecipient {
                 }
             } catch (RemoteException unused) {
             }
-            return ey.d.a(-1, null);
+            return fy.d.a(-1, null);
         }
-        return (ey.d) invokeLL.objValue;
+        return (fy.d) invokeLL.objValue;
     }
 
     public final Bundle h(ContentProviderClient contentProviderClient, Uri uri) {
@@ -223,15 +223,15 @@ public class g extends ey implements IBinder.DeathRecipient {
             cursor = contentProviderClient.query(Uri.withAppendedPath(uri, "ipc/method/get_bridge"), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
-                n00.a(cursor);
+                o00.a(cursor);
                 return extras;
             } catch (Exception unused) {
-                n00.a(cursor);
+                o00.a(cursor);
                 return null;
             } catch (Throwable th) {
                 th = th;
                 cursor2 = cursor;
-                n00.a(cursor2);
+                o00.a(cursor2);
                 throw th;
             }
         } catch (Exception unused2) {

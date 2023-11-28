@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.tieba.n7;
-import com.baidu.tieba.p7;
+import com.baidu.tieba.o7;
+import com.baidu.tieba.q7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,12 +34,12 @@ public class FixedNinePatchLoaderProc extends NinePatchLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc, com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public n7 createDiskPicOperate(String str) {
+    public o7 createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new p7("images", str, DiskFileOperate.Action.READ);
+            return new q7("images", str, DiskFileOperate.Action.READ);
         }
-        return (n7) invokeL.objValue;
+        return (o7) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.yy.hiidostatis.inner.util.http.HttpUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     public String lastRemoteIp;
     public int lastTryTimes;

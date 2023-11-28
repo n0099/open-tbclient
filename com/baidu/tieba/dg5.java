@@ -1,102 +1,145 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.meme.list.GeneratedLoadedData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
-import com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData;
-import com.baidu.tbadk.editortools.meme.pan.SpriteMemePanStateType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class dg5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpriteMemePanStateType a;
-    public final SpriteMemeReplyData b;
-    public final List<MemeData> c;
+    public final int a;
+    public final List<MemeData> b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947703607, "Lcom/baidu/tieba/dg5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (obj instanceof dg5) {
-                dg5 dg5Var = (dg5) obj;
-                return this.a == dg5Var.a && Intrinsics.areEqual(this.b, dg5Var.b) && Intrinsics.areEqual(this.c, dg5Var.c);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947703607, "Lcom/baidu/tieba/dg5;");
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        c = new a(null);
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "SpriteMemePanState(type=" + this.a + ", bubbleData=" + this.b + ", memeDataList=" + this.c + ')';
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (String) invokeV.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final dg5 a(JSONObject jsonObject) {
+            InterceptResult invokeL;
+            JSONArray jSONArray;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                int optInt = jsonObject.optInt("status");
+                JSONArray optJSONArray = jsonObject.optJSONArray("meme_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int i = 0;
+                    int length = optJSONArray.length();
+                    if (length >= 0) {
+                        while (true) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Intrinsics.checkNotNullExpressionValue(optJSONObject, "optJSONObject(i)");
+                                long optLong = optJSONObject.optLong("id");
+                                int optInt2 = optJSONObject.optInt("type");
+                                String src = optJSONObject.optString("src");
+                                int optInt3 = optJSONObject.optInt("obj_source");
+                                GeneratedLoadedData generatedLoadedData = new GeneratedLoadedData();
+                                Intrinsics.checkNotNullExpressionValue(src, "src");
+                                jSONArray = optJSONArray;
+                                arrayList.add(generatedLoadedData.copyWithoutType(new MemeData(optLong, optInt2, src, optInt3, null, 16, null)));
+                            } else {
+                                jSONArray = optJSONArray;
+                            }
+                            if (i == length) {
+                                break;
+                            }
+                            i++;
+                            optJSONArray = jSONArray;
+                        }
+                    }
+                }
+                return new dg5(optInt, arrayList);
+            }
+            return (dg5) invokeL.objValue;
+        }
     }
 
-    public dg5(SpriteMemePanStateType type, SpriteMemeReplyData bubbleData, List<? extends MemeData> memeDataList) {
+    public dg5(int i, List<? extends MemeData> memeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, bubbleData, memeDataList};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), memeList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        Intrinsics.checkNotNullParameter(bubbleData, "bubbleData");
-        Intrinsics.checkNotNullParameter(memeDataList, "memeDataList");
-        this.a = type;
-        this.b = bubbleData;
-        this.c = memeDataList;
+        Intrinsics.checkNotNullParameter(memeList, "memeList");
+        this.a = i;
+        this.b = memeList;
     }
 
-    public final SpriteMemeReplyData a() {
+    public final List<MemeData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (SpriteMemeReplyData) invokeV.objValue;
-    }
-
-    public final List<MemeData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
         return (List) invokeV.objValue;
     }
 
-    public final SpriteMemePanStateType c() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (SpriteMemePanStateType) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

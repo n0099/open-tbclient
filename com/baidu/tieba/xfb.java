@@ -1,41 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.net.Uri;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes9.dex */
-public class xfb {
+public final class xfb implements rk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @NonNull
-    public NavigationBar b;
-    @NonNull
-    public LinearLayout c;
-    @NonNull
-    public LinearLayout d;
-    @NonNull
-    public neb e;
-    public EditorTools f;
+    public final HashMap<String, String> a;
+    public final WriteData b;
+    public yfb c;
 
-    public xfb(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull neb nebVar) {
+    public xfb(HashMap<String, String> pathInfo, WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, nebVar};
+            Object[] objArr = {pathInfo, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,83 +39,67 @@ public class xfb {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = navigationBar;
-        this.c = linearLayout;
-        this.d = linearLayout2;
-        this.e = nebVar;
+        Intrinsics.checkNotNullParameter(pathInfo, "pathInfo");
+        Intrinsics.checkNotNullParameter(writeData, "writeData");
+        this.a = pathInfo;
+        this.b = writeData;
     }
 
-    @Nullable
-    public qeb a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.rk6
+    public WebResourceResponse a(WebView view2, WebResourceRequest request) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return c(i, z);
-        }
-        return (qeb) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0035, code lost:
-        if (r6.getBooleanExtra(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
-        if (r6.getBoolean(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
-     */
-    @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public qeb b(Bundle bundle) {
-        InterceptResult invokeL;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            int i = 9;
-            boolean z = false;
-            if (bundle != null) {
-                i = bundle.getInt("type", 9);
-            } else {
-                if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
-                    i = intent.getIntExtra("type", 9);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, request)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(request, "request");
+            Uri u = request.getUrl();
+            String scheme = u.getScheme();
+            if (scheme != null) {
+                int hashCode = scheme.hashCode();
+                if (hashCode != -787290468) {
+                    if (hashCode != 1366925564) {
+                        if (hashCode == 1378998483 && scheme.equals("com.baidu.tieba.voice")) {
+                            Intrinsics.checkNotNullExpressionValue(u, "u");
+                            return LocalFileInterceptorKt.c(u, request);
+                        }
+                        return null;
+                    } else if (scheme.equals("com.baidu.tieba.image")) {
+                        HashMap<String, String> hashMap = this.a;
+                        WriteData writeData = this.b;
+                        yfb yfbVar = this.c;
+                        Intrinsics.checkNotNullExpressionValue(u, "u");
+                        return LocalFileInterceptorKt.b(hashMap, writeData, yfbVar, u, request);
+                    } else {
+                        return null;
+                    }
+                } else if (scheme.equals("com.baidu.tieba.face")) {
+                    Intrinsics.checkNotNullExpressionValue(u, "u");
+                    return LocalFileInterceptorKt.a(u, request);
+                } else {
+                    return null;
                 }
-                z = true;
-                return c(i, z);
             }
-        } else {
-            return (qeb) invokeL.objValue;
+            return null;
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public final void b(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo) == null) && imageFileInfo != null) {
+            String b = udb.b(imageFileInfo);
+            if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?t=", false, 2, (Object) null)) {
+                b = b.substring(0, StringsKt__StringsKt.lastIndexOf$default((CharSequence) b, "?t=", 0, false, 6, (Object) null));
+                Intrinsics.checkNotNullExpressionValue(b, "this as java.lang.String…ing(startIndex, endIndex)");
+            }
+            this.a.put(b, udb.a(imageFileInfo));
         }
     }
 
-    public final qeb c(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public final void c(yfb yfbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (this.a.getPageActivity() == null) {
-                return null;
-            }
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-            this.c.removeAllViews();
-            this.d.removeAllViews();
-            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
-            this.f = editorTools;
-            this.d.addView(editorTools);
-            switch (i) {
-                case 11:
-                    return new igb(this.a, this.b, this.c, this.f, this.e, z);
-                case 12:
-                    return new egb(this.a, this.b, this.c, this.f, this.e, z);
-                case 13:
-                    return new fgb(this.a, this.b, this.c, this.f, this.e, z);
-                case 14:
-                    return new hgb(this.a, this.b, this.c, this.f, this.e, z);
-                case 15:
-                    return new dgb(this.a, this.b, this.c, this.f, this.e, z);
-                default:
-                    return new ggb(this.a, this.b, this.c, this.f, this.e, z);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yfbVar) == null) {
+            this.c = yfbVar;
         }
-        return (qeb) invokeCommon.objValue;
     }
 }

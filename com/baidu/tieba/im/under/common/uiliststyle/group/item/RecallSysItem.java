@@ -12,14 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \b2\b\u0012\u0004\u0012\u00020\u00020\u0001:\u0001\bB\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u0004\u001a\u00020\u0005H\u0016J\b\u0010\u0006\u001a\u00020\u0007H\u0016¨\u0006\t"}, d2 = {"Lcom/baidu/tieba/im/under/common/uiliststyle/group/item/RecallSysItem;", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbRecallSysMsg;", "()V", "getType", "Lcom/baidu/adp/BdUniqueId;", "provideAction", "Lcom/baidu/tieba/im/base/core/uilist/Action;", "Companion", "im-under-common_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0002\u0018\u0000 \n2\b\u0012\u0004\u0012\u00020\u00020\u0001:\u0001\nB\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u0004\u001a\u00020\u0005H\u0016J\n\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0016J\u000e\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00070\tH\u0016¨\u0006\u000b"}, d2 = {"Lcom/baidu/tieba/im/under/common/uiliststyle/group/item/RecallSysItem;", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbRecallSysMsg;", "()V", "getType", "Lcom/baidu/adp/BdUniqueId;", "provideAction", "Lcom/baidu/tieba/im/base/core/uilist/Action;", "provideActionList", "", "Companion", "im-under-common_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class RecallSysItem extends BaseItem<TbRecallSysMsg> {
     public static /* synthetic */ Interceptable $ic;
@@ -112,7 +114,7 @@ public final class RecallSysItem extends BaseItem<TbRecallSysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.oi
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,10 +130,45 @@ public final class RecallSysItem extends BaseItem<TbRecallSysMsg> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             TbRecallSysMsg tbMsg = getTbMsg();
-            Action a2 = Action.a(tbMsg.getRecallMsgId(), tbMsg.getRecallMsgKey(), Action.Op.DELETE, null);
-            Intrinsics.checkNotNullExpressionValue(a2, "create(tbMsg.recallMsgId…, Action.Op.DELETE, null)");
-            return a2;
+            if (tbMsg.getType() == 7023) {
+                return null;
+            }
+            return Action.a(tbMsg.getRecallMsgId(), tbMsg.getRecallMsgKey(), Action.Op.DELETE, null);
         }
         return (Action) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem
+    public List<Action> provideActionList() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<Action> provideActionList = super.provideActionList();
+            TbRecallSysMsg tbMsg = getTbMsg();
+            if (tbMsg.getType() == 7023) {
+                List<Map<Long, String>> recallMsg = tbMsg.getRecallMsg();
+                if (recallMsg != null && !recallMsg.isEmpty()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    for (Map<Long, String> recallMsg2 : tbMsg.getRecallMsg()) {
+                        Intrinsics.checkNotNullExpressionValue(recallMsg2, "recallMsg");
+                        ArrayList arrayList = new ArrayList(recallMsg2.size());
+                        for (Map.Entry<Long, String> entry : recallMsg2.entrySet()) {
+                            Long key = entry.getKey();
+                            Intrinsics.checkNotNullExpressionValue(key, "it.key");
+                            Action a2 = Action.a(key.longValue(), entry.getValue(), Action.Op.DELETE, null);
+                            Intrinsics.checkNotNullExpressionValue(a2, "create(it.key, it.value, Action.Op.DELETE, null)");
+                            arrayList.add(Boolean.valueOf(provideActionList.add(a2)));
+                        }
+                    }
+                }
+            }
+            return provideActionList;
+        }
+        return (List) invokeV.objValue;
     }
 }

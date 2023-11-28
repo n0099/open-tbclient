@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MonthAdapter extends BaseAdapter {
     public static final int MAXIMUM_WEEKS = UtcDates.getUtcCalendar().getMaximum(4);
     public final CalendarConstraints calendarConstraints;
@@ -105,7 +105,7 @@ public class MonthAdapter extends BaseAdapter {
         initializeStyles(viewGroup.getContext());
         TextView textView = (TextView) view2;
         if (view2 == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0668, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0681, viewGroup, false);
         }
         int firstPositionInMonth = i - firstPositionInMonth();
         if (firstPositionInMonth >= 0) {

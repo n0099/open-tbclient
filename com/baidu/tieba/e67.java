@@ -11,7 +11,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class e67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final int a;
     public final String b;
 
     public boolean equals(Object obj) {
@@ -23,7 +23,7 @@ public final class e67 {
             }
             if (obj instanceof e67) {
                 e67 e67Var = (e67) obj;
-                return Intrinsics.areEqual(this.a, e67Var.a) && Intrinsics.areEqual(this.b, e67Var.b);
+                return this.a == e67Var.a && Intrinsics.areEqual(this.b, e67Var.b);
             }
             return false;
         }
@@ -33,57 +33,52 @@ public final class e67 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+            return "DeleteThreadReason(id=" + this.a + ", info=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public e67(String str, String str2) {
+    public e67(int i, String info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {Integer.valueOf(i), info};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        Intrinsics.checkNotNullParameter(info, "info");
+        this.a = i;
+        this.b = info;
     }
 
-    public final String a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

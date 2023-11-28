@@ -1,5 +1,5 @@
 package com.google.android.material.math;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MathUtils {
     public static final float DEFAULT_EPSILON = 1.0E-4f;
 

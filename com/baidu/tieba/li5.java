@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.HandlerThread;
-import android.os.Looper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,21 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class li5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 4;
+public class li5 extends oi5<mi5, ni5> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<HandlerThread> a;
-    public final AtomicInteger b;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,92 +33,65 @@ public class li5 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final li5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-631713485, "Lcom/baidu/tieba/li5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-631713485, "Lcom/baidu/tieba/li5$b;");
-                    return;
-                }
-            }
-            a = new li5(null);
-        }
-    }
-
-    public li5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public li5(mi5 mi5Var) {
+        super(mi5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mi5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ui5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new AtomicInteger(0);
     }
 
-    public static li5 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oi5
+    /* renamed from: b */
+    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, ni5 ni5Var) {
+        InterceptResult invokeCommon;
+        Bitmap decodeStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (li5) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.getAndIncrement();
-        }
-        return invokeV.intValue;
-    }
-
-    public /* synthetic */ li5(a aVar) {
-        this();
-    }
-
-    public Looper c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = i % c;
-            if (i2 >= this.a.size()) {
-                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
-                handlerThread.start();
-                this.a.add(handlerThread);
-                Looper looper = handlerThread.getLooper();
-                if (looper == null) {
-                    return Looper.getMainLooper();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, ni5Var})) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = i;
+            options.inMutable = true;
+            options.inBitmap = bitmap;
+            Bitmap bitmap2 = null;
+            try {
+                ((mi5) this.a).reset();
+                try {
+                    decodeStream = BitmapFactory.decodeStream(((mi5) this.a).a(), null, options);
+                } catch (IllegalArgumentException unused) {
+                    BitmapFactory.Options options2 = new BitmapFactory.Options();
+                    options2.inJustDecodeBounds = false;
+                    options2.inSampleSize = i;
+                    options2.inMutable = true;
+                    decodeStream = BitmapFactory.decodeStream(((mi5) this.a).a(), null, options2);
                 }
-                return looper;
-            } else if (this.a.get(i2) != null) {
-                Looper looper2 = this.a.get(i2).getLooper();
-                if (looper2 == null) {
-                    return Looper.getMainLooper();
-                }
-                return looper2;
-            } else {
-                return Looper.getMainLooper();
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                paint.setXfermode(null);
+                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
+                return decodeStream;
+            } catch (IOException e2) {
+                e = e2;
+                bitmap2 = decodeStream;
+                e.printStackTrace();
+                return bitmap2;
             }
         }
-        return (Looper) invokeI.objValue;
+        return (Bitmap) invokeCommon.objValue;
     }
 }

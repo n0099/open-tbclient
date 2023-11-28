@@ -16,12 +16,6 @@ public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
         this.queue = Collections.synchronizedList(new LinkedList());
     }
 
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public void clear() {
-        this.queue.clear();
-        super.clear();
-    }
-
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
     public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
@@ -33,15 +27,6 @@ public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public boolean put(String str, DecodedResult decodedResult) {
-        if (super.put(str, decodedResult)) {
-            this.queue.add(decodedResult);
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult remove(String str) {
         DecodedResult decodedResult = super.get(str);
         if (decodedResult != null) {
@@ -50,8 +35,23 @@ public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
         return super.remove(str);
     }
 
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public void clear() {
+        this.queue.clear();
+        super.clear();
+    }
+
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
     public DecodedResult removeNext() {
         return this.queue.remove(0);
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public boolean put(String str, DecodedResult decodedResult) {
+        if (super.put(str, decodedResult)) {
+            this.queue.add(decodedResult);
+            return true;
+        }
+        return false;
     }
 }

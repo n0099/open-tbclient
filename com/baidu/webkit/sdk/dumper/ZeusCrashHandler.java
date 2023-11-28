@@ -16,7 +16,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -446,7 +446,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             writer.write("Operating system: Android\n");
             writeFile(writer, file);
         }
-        File file2 = new File(k1.a);
+        File file2 = new File(bk.a);
         if (file2.exists() && file2.canRead()) {
             writer.write(String.format("\nCPU: %s\n", Build.CPU_ABI));
             writeFile(writer, file2);

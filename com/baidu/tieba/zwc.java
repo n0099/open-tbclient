@@ -1,38 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ChatroomSignInfo;
-import tbclient.FrsPage.SignForum;
-import tbclient.FrsPage.SignInfo;
-import tbclient.FrsPage.SignUser;
+import tbclient.Agree;
+import tbclient.FeedAuthorSocial;
+import tbclient.FeedHeadImg;
+import tbclient.FeedHeadSymbol;
+import tbclient.LayoutManageInfo;
 /* loaded from: classes9.dex */
-public class zwc extends qoc {
+public class zwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SignInfo signInfo) {
+    public static JSONObject b(@NonNull FeedAuthorSocial feedAuthorSocial) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedAuthorSocial)) == null) {
             JSONObject jSONObject = new JSONObject();
-            SignUser signUser = signInfo.user_info;
-            if (signUser != null) {
-                qoc.a(jSONObject, SourceConstant.SOURCE_USER_INFO, axc.b(signUser));
+            FeedHeadImg feedHeadImg = feedAuthorSocial.image_data;
+            if (feedHeadImg != null) {
+                ltc.a(jSONObject, "image_data", oxc.b(feedHeadImg));
             }
-            SignForum signForum = signInfo.forum_info;
-            if (signForum != null) {
-                qoc.a(jSONObject, "forum_info", ywc.b(signForum));
+            if (feedAuthorSocial.main_data != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedHeadSymbol feedHeadSymbol : feedAuthorSocial.main_data) {
+                    jSONArray.put(pxc.b(feedHeadSymbol));
+                }
+                ltc.a(jSONObject, "main_data", jSONArray);
             }
-            qoc.a(jSONObject, "has_chatroom_sign", signInfo.has_chatroom_sign);
-            ChatroomSignInfo chatroomSignInfo = signInfo.chatroom_sign_info;
-            if (chatroomSignInfo != null) {
-                qoc.a(jSONObject, "chatroom_sign_info", brc.b(chatroomSignInfo));
+            Agree agree = feedAuthorSocial.agree;
+            if (agree != null) {
+                ltc.a(jSONObject, "agree", cuc.b(agree));
+            }
+            ltc.a(jSONObject, "comment_num", feedAuthorSocial.comment_num);
+            ltc.a(jSONObject, "share_num", feedAuthorSocial.share_num);
+            ltc.a(jSONObject, "tid", feedAuthorSocial.tid);
+            ltc.a(jSONObject, "fid", feedAuthorSocial.fid);
+            if (feedAuthorSocial.manage_list != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (LayoutManageInfo layoutManageInfo : feedAuthorSocial.manage_list) {
+                    jSONArray2.put(o4d.b(layoutManageInfo));
+                }
+                ltc.a(jSONObject, "manage_list", jSONArray2);
             }
             return jSONObject;
         }

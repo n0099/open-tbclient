@@ -5,24 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import tbclient.PollOption;
 /* loaded from: classes7.dex */
-public class o6d extends qoc {
+public class o6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull YulePostActivity yulePostActivity) {
+    public static JSONObject b(@NonNull PollOption pollOption) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yulePostActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pollOption)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "start_time", yulePostActivity.start_time);
-            qoc.a(jSONObject, "end_time", yulePostActivity.end_time);
-            qoc.a(jSONObject, "activity_banner", yulePostActivity.activity_banner);
-            qoc.a(jSONObject, "activity_url", yulePostActivity.activity_url);
-            qoc.a(jSONObject, "activity_desc", yulePostActivity.activity_desc);
-            qoc.a(jSONObject, "activity_button", yulePostActivity.activity_button);
+            ltc.a(jSONObject, "id", pollOption.id);
+            ltc.a(jSONObject, "num", pollOption.num);
+            ltc.a(jSONObject, "text", pollOption.text);
+            ltc.a(jSONObject, "image", pollOption.image);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

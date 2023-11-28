@@ -11,8 +11,21 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
 public abstract class b extends KSFrameLayout {
-    public Animator Ag;
-    public boolean Ah;
+    public Animator FP;
+    public boolean FQ;
+
+    public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    }
+
+    public abstract int getAnimationDelayTime();
+
+    public abstract View getInteractionView();
+
+    public abstract void lK();
+
+    public abstract Animator lL();
+
+    public abstract void lM();
 
     public b(@NonNull Context context) {
         this(context, null, 0);
@@ -24,73 +37,60 @@ public abstract class b extends KSFrameLayout {
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Ah = false;
+        this.FQ = false;
         a(context, attributeSet, i);
-        kp();
-    }
-
-    public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        lK();
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void an() {
-        super.an();
-        Animator animator = this.Ag;
+    public final void ad() {
+        super.ad();
+        Animator animator = this.FP;
         if (animator != null) {
             animator.cancel();
         }
     }
 
-    public abstract int getAnimationDelayTime();
-
-    public abstract View getInteractionView();
-
-    public abstract Animator kD();
-
-    public abstract void kE();
-
-    public final void kF() {
-        this.Ah = true;
-        Animator animator = this.Ag;
+    public final void lN() {
+        this.FQ = true;
+        Animator animator = this.FP;
         if (animator != null) {
             animator.cancel();
         }
     }
 
     @MainThread
-    public final void kk() {
-        Animator animator = this.Ag;
+    public final void lh() {
+        Animator animator = this.FP;
         if (animator != null) {
             animator.cancel();
-            this.Ag = null;
+            this.FP = null;
         }
-        Animator kD = kD();
-        this.Ag = kD;
-        if (kD != null) {
-            kD.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.b.1
+        Animator lL = lL();
+        this.FP = lL;
+        if (lL != null) {
+            lL.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.splashscreen.widget.b.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public final void onAnimationCancel(Animator animator2) {
                     super.onAnimationCancel(animator2);
-                    b.this.kE();
+                    b.this.lM();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public final void onAnimationEnd(Animator animator2) {
                     super.onAnimationEnd(animator2);
-                    if (b.this.Ah) {
+                    if (b.this.FQ) {
                         return;
                     }
                     b.this.getInteractionView().postDelayed(new Runnable() { // from class: com.kwad.components.ad.splashscreen.widget.b.1.1
                         @Override // java.lang.Runnable
                         public final void run() {
-                            b.this.Ag.start();
+                            b.this.FP.start();
                         }
                     }, b.this.getAnimationDelayTime());
                 }
             });
-            this.Ag.start();
+            this.FP.start();
         }
     }
-
-    public abstract void kp();
 }

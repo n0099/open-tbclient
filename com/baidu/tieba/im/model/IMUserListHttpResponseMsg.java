@@ -6,10 +6,10 @@ import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.aw8;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.immessagecenter.service.ImAiBotDbService;
-import com.baidu.tieba.ts8;
-import com.baidu.tieba.wq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
             this.changedList = new HashMap<>();
             for (UserData userData : list) {
-                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = wq8.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
+                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = du8.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
                     boolean z2 = false;
                     boolean z3 = true;
                     if (!TextUtils.isEmpty(userData.getName_show()) && !userData.getName_show().equals(g.getNameShow())) {
@@ -96,8 +96,8 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                     }
                     if (z2) {
                         this.changedList.put(userData.getUserId(), g);
-                        wq8.f().k(g);
-                        ImMessageCenterPojo h = ts8.n().h(g.getGid(), 2);
+                        du8.f().k(g);
+                        ImMessageCenterPojo h = aw8.n().h(g.getGid(), 2);
                         if (h != null) {
                             h.setNameShow(g.getNameShow());
                             h.setGroup_head(g.getGroup_head());

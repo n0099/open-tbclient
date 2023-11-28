@@ -1,90 +1,175 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsScene;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class s6c extends j6c {
+public class s6c extends w5c<d6c> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, j6c> a;
-    public static final Object b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104809, "Lcom/baidu/tieba/s6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104809, "Lcom/baidu/tieba/s6c;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public s6c(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s6c(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        o6c.d(context, str);
     }
 
-    public static j6c a(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
-        }
-        return (j6c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new h6c(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public static j6c b(Context context, String str) {
-        InterceptResult invokeLL;
-        j6c j6cVar;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            d6c d6cVar = (d6c) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            HashMap hashMap = new HashMap();
+            hashMap.put("thirdUserId", FunAdSdk.getFunAdConfig().userId);
+            hashMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, buildExtra);
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).rewardCallbackExtraData(hashMap).build();
+            onLoadStart(funAdSlot, tid);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadRewardVideoAd(build, new a(this, tid));
             }
-            synchronized (b) {
-                j6cVar = a.get(str);
-                if (j6cVar == null) {
-                    a.put(str, new s6c(context, str));
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements KsLoadManager.RewardVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ s6c b;
+
+        public a(s6c s6cVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s6cVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return j6cVar;
+            this.b = s6cVar;
+            this.a = str;
         }
-        return (j6c) invokeLL.objValue;
+
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str, this.a);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    KsRewardVideoAd ksRewardVideoAd = list.get(0);
+                    if (ksRewardVideoAd == null) {
+                        LogPrinter.e("onNativeAdLoad error: ad is null or empty", new Object[0]);
+                        this.b.onError(0, "No Fill", this.a);
+                        return;
+                    }
+                    d6c d6cVar = new d6c(ksRewardVideoAd);
+                    s6c s6cVar = this.b;
+                    String str = this.a;
+                    s6cVar.getClass();
+                    ksRewardVideoAd.setRewardAdInteractionListener(new t6c(s6cVar, d6cVar, str));
+                    this.b.onAdLoaded(d6cVar, this.a);
+                    return;
+                }
+                LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "No Fill", this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            d6c d6cVar = (d6c) obj;
+            onShowStart(d6cVar);
+            if (!((KsRewardVideoAd) d6cVar.a).isAdEnable()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                onAdError(d6cVar, 0, "F:ad disable");
+                return false;
+            }
+            ((KsRewardVideoAd) d6cVar.a).showRewardVideoAd(activity, e());
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

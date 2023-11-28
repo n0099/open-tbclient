@@ -1,128 +1,305 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.preference.Preference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ahc {
+public class ahc {
     public static /* synthetic */ Interceptable $ic;
-    public static final ahc[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
+    public String a;
+    public long b;
+    public int c;
+    public int d;
+    public long e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public ArrayList<String> j;
+    public String k;
+    public eic l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616621, "Lcom/baidu/tieba/ahc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947616621, "Lcom/baidu/tieba/ahc;");
-                return;
-            }
-        }
-        d = new ahc[]{new ahc("", 0, ""), new ahc("", 0, " "), new ahc(" ", 0, " "), new ahc("", 12, ""), new ahc("", 10, " "), new ahc("", 0, " the "), new ahc(" ", 0, ""), new ahc("s ", 0, " "), new ahc("", 0, " of "), new ahc("", 10, ""), new ahc("", 0, " and "), new ahc("", 13, ""), new ahc("", 1, ""), new ahc(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new ahc("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc(" ", 10, " "), new ahc("", 0, " in "), new ahc("", 0, " to "), new ahc("e ", 0, " "), new ahc("", 0, "\""), new ahc("", 0, "."), new ahc("", 0, "\">"), new ahc("", 0, "\n"), new ahc("", 3, ""), new ahc("", 0, PreferencesUtil.RIGHT_MOUNT), new ahc("", 0, " for "), new ahc("", 14, ""), new ahc("", 2, ""), new ahc("", 0, " a "), new ahc("", 0, " that "), new ahc(" ", 10, ""), new ahc("", 0, ". "), new ahc(".", 0, ""), new ahc(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc("", 15, ""), new ahc("", 0, " with "), new ahc("", 0, "'"), new ahc("", 0, " from "), new ahc("", 0, " by "), new ahc("", 16, ""), new ahc("", 17, ""), new ahc(" the ", 0, ""), new ahc("", 4, ""), new ahc("", 0, ". The "), new ahc("", 11, ""), new ahc("", 0, " on "), new ahc("", 0, " as "), new ahc("", 0, " is "), new ahc("", 7, ""), new ahc("", 1, "ing "), new ahc("", 0, "\n\t"), new ahc("", 0, ":"), new ahc(" ", 0, ". "), new ahc("", 0, "ed "), new ahc("", 20, ""), new ahc("", 18, ""), new ahc("", 6, ""), new ahc("", 0, "("), new ahc("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc("", 8, ""), new ahc("", 0, " at "), new ahc("", 0, "ly "), new ahc(" the ", 0, " of "), new ahc("", 5, ""), new ahc("", 9, ""), new ahc(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc("", 10, "\""), new ahc(".", 0, "("), new ahc("", 11, " "), new ahc("", 10, "\">"), new ahc("", 0, "=\""), new ahc(" ", 0, "."), new ahc(".com/", 0, ""), new ahc(" the ", 0, " of the "), new ahc("", 10, "'"), new ahc("", 0, ". This "), new ahc("", 0, ","), new ahc(".", 0, " "), new ahc("", 10, "("), new ahc("", 10, "."), new ahc("", 0, " not "), new ahc(" ", 0, "=\""), new ahc("", 0, "er "), new ahc(" ", 11, " "), new ahc("", 0, "al "), new ahc(" ", 11, ""), new ahc("", 0, "='"), new ahc("", 11, "\""), new ahc("", 10, ". "), new ahc(" ", 0, "("), new ahc("", 0, "ful "), new ahc(" ", 10, ". "), new ahc("", 0, "ive "), new ahc("", 0, "less "), new ahc("", 11, "'"), new ahc("", 0, "est "), new ahc(" ", 10, "."), new ahc("", 11, "\">"), new ahc(" ", 0, "='"), new ahc("", 10, ","), new ahc("", 0, "ize "), new ahc("", 11, "."), new ahc("Â ", 0, ""), new ahc(" ", 0, ","), new ahc("", 10, "=\""), new ahc("", 11, "=\""), new ahc("", 0, "ous "), new ahc("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc("", 10, "='"), new ahc(" ", 10, ","), new ahc(" ", 11, "=\""), new ahc(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new ahc("", 11, ","), new ahc("", 11, "("), new ahc("", 11, ". "), new ahc(" ", 11, "."), new ahc("", 11, "='"), new ahc(" ", 11, ". "), new ahc(" ", 10, "=\""), new ahc(" ", 11, "='"), new ahc(" ", 10, "='")};
-    }
-
-    public ahc(String str, int i, String str2) {
+    public ahc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = new eic();
+        this.a = str;
+        this.c = 0;
+        this.f = 1;
+        this.g = 1;
+        this.h = false;
+        this.i = true;
+        this.b = Preference.e();
+    }
+
+    public ahc(String str, int i, int i2, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
+        this.l = new eic();
+        this.a = str;
+        this.c = i;
+        this.f = i2;
+        this.g = i3;
+        this.h = z;
+        this.i = true;
+        this.b = Preference.e();
+        TLog.g(this, "liveMode " + this.h + " fastAccess " + this.i + "taskId " + this.b);
     }
 
-    public static byte[] a(String str) {
+    public static ahc a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, ahc ahcVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), ahcVar})) == null) {
-            int i4 = i;
-            for (byte b : ahcVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = ahcVar.b;
-            int a = chc.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - chc.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
+            ahc ahcVar = new ahc("");
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                ahcVar.a = jSONObject.optString("mUrl");
+                ahcVar.c = jSONObject.optInt("mProtocol");
+                ahcVar.f = jSONObject.optInt("mSourceFormat");
+                ahcVar.g = jSONObject.optInt("mCachePolicy");
+                ahcVar.h = jSONObject.optBoolean("mIsLiveMode");
+                ahcVar.i = jSONObject.optBoolean("mIsFastAccess");
+                ahcVar.d = jSONObject.optInt("mMaxPreloadBufferSize");
+                ahcVar.b = jSONObject.optLong("mTaskId");
+                ahcVar.e = jSONObject.optLong("mCurrentMs");
+                ahcVar.k = jSONObject.optString("mPcdnManufacturer");
+                String optString = jSONObject.optString("mProperties");
+                if (!optString.isEmpty()) {
+                    ahcVar.l.a(optString);
                 }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
+                JSONArray optJSONArray = jSONObject.optJSONArray("mPcdnUrls");
+                if (optJSONArray != null) {
+                    ahcVar.j = new ArrayList<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ahcVar.j.add(optJSONArray.optString(i));
                     }
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            for (byte b3 : ahcVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+            return ahcVar;
         }
-        return invokeCommon.intValue;
+        return (ahc) invokeL.objValue;
+    }
+
+    public static String r(ahc ahcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ahcVar)) == null) {
+            if (ahcVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mUrl", ahcVar.a);
+                jSONObject.put("mProtocol", ahcVar.c);
+                jSONObject.put("mSourceFormat", ahcVar.f);
+                jSONObject.put("mCachePolicy", ahcVar.g);
+                jSONObject.put("mIsLiveMode", ahcVar.h);
+                jSONObject.put("mIsFastAccess", ahcVar.i);
+                jSONObject.put("mMaxPreloadBufferSize", ahcVar.d);
+                jSONObject.put("mProperties", ahcVar.l.c());
+                jSONObject.put("mTaskId", ahcVar.b);
+                jSONObject.put("mCurrentMs", ahcVar.e);
+                jSONObject.put("mPcdnManufacturer", ahcVar.k);
+                if (ahcVar.j != null && !ahcVar.j.isEmpty()) {
+                    JSONArray jSONArray = new JSONArray();
+                    Iterator<String> it = ahcVar.j.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next());
+                    }
+                    jSONObject.put("mPcdnUrls", jSONArray);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public eic g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
+        }
+        return (eic) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public boolean o(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (this.l.a.put(str, str2) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return "DataSource [mUrl=" + this.a + ", mProtocol=" + this.c + ", mSourceFormat=" + this.f + ", mCachePolicy=" + this.g + ", mIsLiveMode=" + this.h + ", mIsFastAccess=" + this.i + ", mMaxPreloadBufferSize=" + this.d + ", mProperties=" + this.l.c() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

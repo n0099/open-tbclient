@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,7 +178,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
             this.a = view2.findViewById(R.id.top_container);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c22);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
             this.d = barImageView;
             barImageView.setShowOval(true);
             this.d.setShowOuterBorder(false);
@@ -187,11 +187,11 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
             this.b = (TextView) view2.findViewById(R.id.forum_name);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091f09);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091f7f);
             this.c = (TextView) view2.findViewById(R.id.forum_follow);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908a8);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.f = imageView;
             imageView.setOnClickListener(new c(this, recentlyVisitedForumListAdapter));
         }
@@ -215,7 +215,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         this.a = tbPageContext;
     }
 
-    public void q(LinkedList<VisitedForumData> linkedList) {
+    public void r(LinkedList<VisitedForumData> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, linkedList) == null) {
             this.b = linkedList;
@@ -278,12 +278,12 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
+    /* renamed from: q */
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0861, (ViewGroup) null));
+            return new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d087b, (ViewGroup) null));
         }
         return (ForumViewHolder) invokeLI.objValue;
     }
@@ -292,7 +292,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048589, this, visitedForumData, forumViewHolder) == null) && visitedForumData != null && forumViewHolder != null) {
             String forumName = visitedForumData.getForumName();
-            if (qd.isEmpty(forumName)) {
+            if (rd.isEmpty(forumName)) {
                 forumName = "";
             }
             forumViewHolder.b.setText(forumName);
@@ -315,11 +315,11 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: o */
+    /* renamed from: p */
     public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
         LinkedList<VisitedForumData> linkedList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, forumViewHolder, i) == null) && forumViewHolder != null && (linkedList = this.b) != null && linkedList.get(i) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, forumViewHolder, i) == null) && forumViewHolder != null && (linkedList = this.b) != null && linkedList.get(i) != null) {
             VisitedForumData visitedForumData = this.b.get(i);
             forumViewHolder.itemView.setTag(visitedForumData);
             z(visitedForumData, forumViewHolder);

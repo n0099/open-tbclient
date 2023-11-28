@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dua;
+import com.baidu.tieba.wya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -159,10 +159,10 @@ public class TbSettingTextTipView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907db);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d1);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902e3);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907f7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09257a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092656);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902f7);
         }
     }
 
@@ -193,7 +193,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, dua.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, wya.TbSettingView);
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);

@@ -2,15 +2,15 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.bg1;
-import com.baidu.tieba.la;
+import com.baidu.tieba.cg1;
+import com.baidu.tieba.ma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class UniKVTestFetcher extends bg1<la> {
+public class UniKVTestFetcher extends cg1<ma> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,12 +30,12 @@ public class UniKVTestFetcher extends bg1<la> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.bg1
-    public la createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.cg1
+    public ma createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new la(this) { // from class: com.baidu.tbadk.switchs.UniKVTestFetcher.1
+            return new ma(this) { // from class: com.baidu.tbadk.switchs.UniKVTestFetcher.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UniKVTestFetcher this$0;
@@ -58,7 +58,7 @@ public class UniKVTestFetcher extends bg1<la> {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.la
+                @Override // com.baidu.tieba.ma
                 public boolean isTypeDoubleKv() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
@@ -68,7 +68,7 @@ public class UniKVTestFetcher extends bg1<la> {
                     return invokeV2.booleanValue;
                 }
 
-                @Override // com.baidu.tieba.la
+                @Override // com.baidu.tieba.ma
                 public boolean isTypeDoubleSp() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
@@ -78,7 +78,7 @@ public class UniKVTestFetcher extends bg1<la> {
                     return invokeV2.booleanValue;
                 }
 
-                @Override // com.baidu.tieba.la
+                @Override // com.baidu.tieba.ma
                 public boolean isTypeSp() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
@@ -89,6 +89,6 @@ public class UniKVTestFetcher extends bg1<la> {
                 }
             };
         }
-        return (la) invokeV.objValue;
+        return (ma) invokeV.objValue;
     }
 }

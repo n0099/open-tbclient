@@ -29,6 +29,7 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
+import com.baidu.tieba.ms;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -298,7 +299,7 @@ public final class DownloadManager {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
-                        LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
+                        LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + ms.c);
                         download.b = currentTimeMillis;
                     }
                 }
@@ -420,7 +421,7 @@ public final class DownloadManager {
             long currentTimeMillis = System.currentTimeMillis();
             this.mDbHelper.b(download);
             long currentTimeMillis2 = System.currentTimeMillis();
-            LogUtil.logE("DownloadManager", "2新的更新数据库用时time:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
+            LogUtil.logE("DownloadManager", "2新的更新数据库用时time:" + (currentTimeMillis2 - currentTimeMillis) + ms.c);
             StringBuilder sb = new StringBuilder();
             sb.append("downloadmanger notification :");
             sb.append(download);

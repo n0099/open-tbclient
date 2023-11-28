@@ -1,78 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.forum.component.CardStaggeredVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes9.dex */
-public class yn7 {
+public class yn7 extends wa7<CardStaggeredVideoView, xf7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bi> a;
-    public BdTypeListView b;
-    public un7 c;
-    public wn7 d;
 
-    public yn7(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn7() {
+        super("staggered_video");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        this.b = bdTypeListView;
-        arrayList.add(new qn7(baseActivity.getPageContext(), rn7.d));
-        this.a.add(new sn7(baseActivity.getPageContext(), tn7.c));
-        this.a.add(new pn7(baseActivity.getPageContext(), tp7.c));
-        this.a.add(new gn7(baseActivity.getPageContext(), hn7.b));
-        this.a.add(new in7(baseActivity.getPageContext(), jn7.g));
-        this.a.add(new kn7(baseActivity.getPageContext()));
-        un7 un7Var = new un7(baseActivity.getPageContext(), vn7.e);
-        this.c = un7Var;
-        this.a.add(un7Var);
-        wn7 wn7Var = new wn7(baseActivity.getPageContext(), xn7.d);
-        this.d = wn7Var;
-        this.a.add(wn7Var);
     }
 
-    public List<bi> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull CardStaggeredVideoView cardStaggeredVideoView, @NonNull xf7 xf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof fi)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.onDestroy();
-            this.d.onDestroy();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardStaggeredVideoView, xf7Var) == null) {
+            cardStaggeredVideoView.b(xf7Var);
         }
     }
 }

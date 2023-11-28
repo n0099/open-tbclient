@@ -22,7 +22,7 @@ import androidx.core.graphics.ColorUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BorderDrawable extends Drawable {
     public static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
     @Nullable
@@ -50,7 +50,7 @@ public class BorderDrawable extends Drawable {
     public final BorderState state = new BorderState();
     public boolean invalidateShader = true;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class BorderState extends Drawable.ConstantState {
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {

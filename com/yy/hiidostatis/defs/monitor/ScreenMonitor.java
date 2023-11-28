@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.defs.monitor;
 
 import android.view.MotionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum ScreenMonitor {
     instance;
     

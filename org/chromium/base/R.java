@@ -1,102 +1,102 @@
 package org.chromium.base;
 
-import com.baidu.tieba.igc;
+import com.baidu.tieba.dlc;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends igc.a {
+    public static final class anim extends dlc.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends igc.b {
+    public static final class animator extends dlc.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends igc.c {
+    public static final class array extends dlc.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends igc.d {
+    public static final class attr extends dlc.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends igc.e {
+    public static final class bool extends dlc.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends igc.f {
+    public static final class color extends dlc.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends igc.g {
+    public static final class dimen extends dlc.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends igc.h {
+    public static final class drawable extends dlc.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends igc.i {
+    public static final class font extends dlc.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends igc.j {
+    public static final class fraction extends dlc.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends igc.k {
+    public static final class id extends dlc.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends igc.l {
+    public static final class integer extends dlc.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends igc.m {
+    public static final class interpolator extends dlc.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends igc.n {
+    public static final class layout extends dlc.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends igc.o {
+    public static final class menu extends dlc.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends igc.p {
+    public static final class mipmap extends dlc.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends igc.q {
+    public static final class plurals extends dlc.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends igc.r {
+    public static final class raw extends dlc.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends igc.s {
+    public static final class string extends dlc.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends igc.t {
+    public static final class style extends dlc.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends igc.u {
+    public static final class styleable extends dlc.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends igc.v {
+    public static final class transition extends dlc.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends igc.w {
+    public static final class xml extends dlc.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        igc.a(i);
+        dlc.a(i);
     }
 }

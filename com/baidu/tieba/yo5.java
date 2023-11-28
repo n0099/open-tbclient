@@ -1,113 +1,238 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContextSupport;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class yo5 {
     public static /* synthetic */ Interceptable $ic;
-    public static yo5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948336906, "Lcom/baidu/tieba/yo5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948336906, "Lcom/baidu/tieba/yo5;");
-        }
-    }
-
-    public yo5() {
+    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized yo5 c() {
-        InterceptResult invokeV;
-        yo5 yo5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (yo5.class) {
-                if (a == null) {
-                    a = new yo5();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
+            if (tbPageTag != null && statisticItem != null) {
+                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
                 }
-                yo5Var = a;
+                statisticItem.param("sort_tab", tbPageTag.sortType);
+                return statisticItem;
             }
-            return yo5Var;
+            return null;
         }
-        return (yo5) invokeV.objValue;
+        return (StatisticItem) invokeLL.objValue;
     }
 
-    public void a(PayConfig payConfig, Context context) {
+    public static StatisticItem h(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
-            if (payConfig != null && context != null) {
-                if (!d()) {
-                    e(R.string.plugin_pay_wallet_not_found);
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                TbPageTag l = l(context);
+                if (l != null) {
+                    if (!TextUtils.isEmpty(l.locatePage)) {
+                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                        }
+                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
+                    }
+                    statisticItem.param("sort_tab", l.sortType);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
-                return;
+                return statisticItem;
             }
-            e(R.string.plugin_pay_error);
+            return null;
         }
+        return (StatisticItem) invokeLL.objValue;
     }
 
-    public void b(String str, TbPageContext<?> tbPageContext) {
+    public static StatisticItem b(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) != null) || tbPageContext == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TbadkCoreApplication.getInst().appResponseToCmd(2001351) || !TbadkCoreApplication.getInst().isWalletShouldOpen() || Build.VERSION.SDK_INT < 8) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                return c(statisticItem, j(context));
             }
-            return true;
+            return statisticItem;
         }
-        return invokeV.booleanValue;
+        return (StatisticItem) invokeLL.objValue;
     }
 
-    public final void e(int i) {
+    public static StatisticItem c(StatisticItem statisticItem, xo5 xo5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, xo5Var)) == null) {
+            if (xo5Var != null && statisticItem != null) {
+                return d(statisticItem, xo5Var.b(), xo5Var.a());
+            }
+            return statisticItem;
         }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem e(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                return f(statisticItem, j(context));
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem f(StatisticItem statisticItem, xo5 xo5Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, xo5Var)) == null) {
+            if (xo5Var != null && statisticItem != null) {
+                return g(statisticItem, xo5Var.b(), xo5Var.a());
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
+                return null;
+            }
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
+                }
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
+            }
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
+                return null;
+            }
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
+                }
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
+            }
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem i(Context context, ThreadData threadData, String str) {
+        InterceptResult invokeLLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
+            if (context != null && threadData != null && !StringUtils.isNull(str)) {
+                StatisticItem statisticItem = new StatisticItem(str);
+                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
+                if (threadData.getBaijiahaoData() != null && !rd.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
+                if (threadData.isSubPb) {
+                    str2 = "2";
+                } else {
+                    str2 = "1";
+                }
+                param.param("obj_type", str2).param("source", threadData.mRecomSource);
+                h(context, statisticItem);
+                return statisticItem;
+            }
+            return null;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static xo5 j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            BdPageContextSupport<?> b = a5.b(context);
+            if (!(b instanceof wo5)) {
+                return null;
+            }
+            return ((wo5) b).getTbPageInfo();
+        }
+        return (xo5) invokeL.objValue;
+    }
+
+    public static TbPageTag k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            xo5 j = j(context);
+            if (j == null) {
+                return null;
+            }
+            return j.a();
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag m(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
+            if (intent != null) {
+                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            }
+            return null;
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag l(Context context) {
+        InterceptResult invokeL;
+        BdPageContextSupport<?> b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            if (context != null && (b = a5.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
+                return m(b.getPageContext().getPageActivity().getIntent());
+            }
+            return null;
+        }
+        return (TbPageTag) invokeL.objValue;
     }
 }

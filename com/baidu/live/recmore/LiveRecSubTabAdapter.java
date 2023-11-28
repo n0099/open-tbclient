@@ -27,7 +27,7 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
     public void addNew(List<LiveRoomEntity> list) {
         LiveSubTabAdapter liveSubTabAdapter = this.adapter;
         if (liveSubTabAdapter != null) {
-            LiveSubTabAdapter.n(liveSubTabAdapter, list, null, 2, null);
+            LiveSubTabAdapter.o(liveSubTabAdapter, list, null, 2, null);
         }
     }
 

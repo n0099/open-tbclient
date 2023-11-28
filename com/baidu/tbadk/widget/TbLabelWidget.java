@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.d1b;
-import com.baidu.tieba.rt5;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.z5b;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -185,24 +185,24 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void m(@Nullable ThemeColorInfo themeColorInfo) {
+    public final void n(@Nullable ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048587, this, themeColorInfo) != null) || themeColorInfo == null) {
             return;
         }
         int color = SkinManager.getColor(R.color.CAM_X0108);
-        int f = bqa.f(d1b.c(themeColorInfo));
-        if (!bqa.e(f)) {
+        int f = uua.f(z5b.c(themeColorInfo));
+        if (!uua.e(f)) {
             color = f;
         }
         this.s.setCorner(R.string.J_X03).setBackGroundRealColor(color);
     }
 
-    public void setData(bw4 bw4Var) {
+    public void setData(cw4 cw4Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, bw4Var) == null) && bw4Var != null && bw4Var.getThreadData() != null) {
-            ThreadData threadData = bw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048592, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null) {
+            ThreadData threadData = cw4Var.getThreadData();
             if (threadData.getThreadRecommendInfoDataList() == null || threadData.getThreadRecommendInfoDataList().size() <= 0 || (threadRecommendInfoData = threadData.getThreadRecommendInfoDataList().get(0)) == null) {
                 return;
             }
@@ -253,46 +253,46 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         this.a = 24;
         this.b = 16;
         this.t = -1;
-        f();
+        g();
+        j();
         i();
         h();
-        g();
     }
 
-    public void n(@Nullable ThemeColorInfo themeColorInfo) {
+    public void o(@Nullable ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048588, this, themeColorInfo) != null) || themeColorInfo == null) {
             return;
         }
-        int f = bqa.f(d1b.c(themeColorInfo));
-        if (!bqa.e(f)) {
+        int f = uua.f(z5b.c(themeColorInfo));
+        if (!uua.e(f)) {
             this.n.setTextColor(f);
         }
-    }
-
-    public final void o(@Nullable ThemeColorInfo themeColorInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, themeColorInfo) != null) || themeColorInfo == null) {
-            return;
-        }
-        int color = SkinManager.getColor(R.color.CAM_X0108);
-        int f = bqa.f(d1b.c(themeColorInfo));
-        if (!bqa.e(f)) {
-            color = f;
-        }
-        this.k.setTextColor(color);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             e();
             b bVar = this.q;
             if (bVar != null) {
                 bVar.a(view2, 0, this.d);
             }
         }
+    }
+
+    public final void p(@Nullable ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, themeColorInfo) != null) || themeColorInfo == null) {
+            return;
+        }
+        int color = SkinManager.getColor(R.color.CAM_X0108);
+        int f = uua.f(z5b.c(themeColorInfo));
+        if (!uua.e(f)) {
+            color = f;
+        }
+        this.k.setTextColor(color);
     }
 
     public void setEventCallback(b bVar) {
@@ -366,7 +366,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0787) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f078f) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             } else if (!TextUtils.isEmpty(this.d.e)) {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             }
@@ -389,7 +389,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
         TbPageContext tbPageContext = this.v;
         if (tbPageContext != null) {
-            rt5.f(tbPageContext, String.valueOf(j), null);
+            zt5.f(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -405,9 +405,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                     this.t = skinType;
                     d dVar = this.c;
                     l(dVar.b, dVar.c, dVar.d, dVar.a);
-                    n(this.c.e);
-                    m(this.c.f);
-                    o(this.c.g);
+                    o(this.c.e);
+                    n(this.c.f);
+                    p(this.c.g);
                     return;
                 }
                 return;
@@ -417,7 +417,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void f() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.c = new d();
@@ -425,18 +425,10 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void g() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.n) != null) {
-            textView.setOnClickListener(new a(this));
-        }
-    }
-
     public c getContentStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return (c) invokeV.objValue;
@@ -445,7 +437,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public TbPageContext getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.v;
         }
         return (TbPageContext) invokeV.objValue;
@@ -454,13 +446,21 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public d getStyleStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.c;
         }
         return (d) invokeV.objValue;
     }
 
     public final void h() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (textView = this.n) != null) {
+            textView.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.r = EMManager.from(this.e);
@@ -478,7 +478,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_tb_label_widget, (ViewGroup) this, false);
@@ -504,26 +504,26 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048586, this, themeColorInfo, themeColorInfo2, themeColorInfo3, themeColorInfo4) == null) {
             if (themeColorInfo != null) {
-                int f = bqa.f(d1b.c(themeColorInfo));
-                if (!bqa.e(f)) {
+                int f = uua.f(z5b.c(themeColorInfo));
+                if (!uua.e(f)) {
                     this.g.setTextColor(f);
                 }
             }
             if (themeColorInfo2 != null) {
-                int f2 = bqa.f(d1b.c(themeColorInfo2));
-                if (!bqa.e(f2)) {
+                int f2 = uua.f(z5b.c(themeColorInfo2));
+                if (!uua.e(f2)) {
                     this.h.setBackgroundColor(f2);
                 }
             }
             if (themeColorInfo3 != null) {
-                int f3 = bqa.f(d1b.c(themeColorInfo3));
-                if (!bqa.e(f3)) {
+                int f3 = uua.f(z5b.c(themeColorInfo3));
+                if (!uua.e(f3)) {
                     this.i.setTextColor(f3);
                 }
             }
             if (themeColorInfo4 != null) {
-                int f4 = bqa.f(d1b.c(themeColorInfo4));
-                if (!bqa.e(f4)) {
+                int f4 = uua.f(z5b.c(themeColorInfo4));
+                if (!uua.e(f4)) {
                     this.r.setBackGroundRealColor(f4);
                 }
             }

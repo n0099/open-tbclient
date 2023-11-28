@@ -7,12 +7,12 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IPaySignServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.PaySignProxy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PaySignMethodProxyFactory {
     public final String TAG = "PaySignMethodProxyFactory";
     public Map<String, IPaySdkServiceProxy> payMethodProxyMap = new HashMap(5);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Holder {
         public static final PaySignMethodProxyFactory instance = new PaySignMethodProxyFactory();
     }

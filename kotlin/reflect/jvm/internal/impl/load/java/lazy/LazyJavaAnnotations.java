@@ -41,7 +41,7 @@ public final class LazyJavaAnnotations implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2105findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2109findAnnotation(FqName fqName) {
         AnnotationDescriptor invoke;
         JavaAnnotation findAnnotation = this.annotationOwner.findAnnotation(fqName);
         if (findAnnotation == null || (invoke = this.annotationDescriptors.invoke(findAnnotation)) == null) {

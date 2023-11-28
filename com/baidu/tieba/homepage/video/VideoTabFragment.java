@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.rh8;
-import com.baidu.tieba.wq7;
+import com.baidu.tieba.hk5;
+import com.baidu.tieba.it7;
+import com.baidu.tieba.ok8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,21 +27,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class VideoTabFragment extends BaseFragment implements wq7 {
+public class VideoTabFragment extends BaseFragment implements it7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rh8 a;
+    public ok8 a;
     public boolean b;
 
-    @Override // com.baidu.tieba.wq7
-    public void A0() {
+    @Override // com.baidu.tieba.it7
+    public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void c0() {
+    @Override // com.baidu.tieba.it7
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -70,29 +70,29 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         this.b = false;
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void G0() {
+    @Override // com.baidu.tieba.it7
+    public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void R() {
-        rh8 rh8Var;
+    @Override // com.baidu.tieba.it7
+    public void T() {
+        ok8 ok8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (rh8Var = this.a) != null) {
-            rh8Var.p();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ok8Var = this.a) != null) {
+            ok8Var.p();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        rh8 rh8Var;
+        ok8 ok8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (rh8Var = this.a) != null) {
-            rh8Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ok8Var = this.a) != null) {
+            ok8Var.m();
         }
     }
 
@@ -101,11 +101,11 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            rh8 rh8Var = this.a;
-            if (rh8Var != null) {
-                rh8Var.n();
+            ok8 ok8Var = this.a;
+            if (ok8Var != null) {
+                ok8Var.n();
             }
-            bk5.e().b();
+            hk5.e().b();
         }
     }
 
@@ -114,9 +114,9 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLazyLoad();
-            rh8 rh8Var = this.a;
-            if (rh8Var != null) {
-                rh8Var.l();
+            ok8 ok8Var = this.a;
+            if (ok8Var != null) {
+                ok8Var.l();
             }
         }
     }
@@ -126,9 +126,9 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            rh8 rh8Var = this.a;
-            if (rh8Var != null) {
-                rh8Var.o();
+            ok8 ok8Var = this.a;
+            if (ok8Var != null) {
+                ok8Var.o();
             }
         }
     }
@@ -164,9 +164,9 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            rh8 rh8Var = this.a;
-            if (rh8Var != null) {
-                rh8Var.q(isPrimary());
+            ok8 ok8Var = this.a;
+            if (ok8Var != null) {
+                ok8Var.q(isPrimary());
             }
         }
     }
@@ -176,9 +176,9 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            rh8 rh8Var = this.a;
-            if (rh8Var != null) {
-                rh8Var.g();
+            ok8 ok8Var = this.a;
+            if (ok8Var != null) {
+                ok8Var.g();
             }
         }
     }
@@ -190,7 +190,7 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new rh8(this, getPageContext(), getUniqueId());
+                this.a = new ok8(this, getPageContext(), getUniqueId());
             }
             this.a.k();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY);
@@ -204,8 +204,8 @@ public class VideoTabFragment extends BaseFragment implements wq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            rh8 rh8Var = this.a;
-            if (rh8Var != null && rh8Var.j() != null) {
+            ok8 ok8Var = this.a;
+            if (ok8Var != null && ok8Var.j() != null) {
                 if (this.a.j().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.j().getParent()).removeView(this.a.j());
                 }

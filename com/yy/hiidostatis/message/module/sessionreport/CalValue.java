@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.message.module.sessionreport;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CalValue {
     public volatile Object tempStorage;
     public AtomicInteger times = new AtomicInteger(0);

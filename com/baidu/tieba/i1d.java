@@ -4,29 +4,35 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PkItem;
-import tbclient.PkModule;
+import tbclient.FeedLayout;
+import tbclient.FrsPage.PageData;
+import tbclient.LayoutFactory;
 /* loaded from: classes6.dex */
-public class i1d extends qoc {
+public class i1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PkModule pkModule) {
+    public static JSONObject b(@NonNull PageData pageData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pkModule)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pageData)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "pk_id", pkModule.pk_id);
-            qoc.a(jSONObject, "user_pk_id", pkModule.user_pk_id);
-            PkItem pkItem = pkModule.agree;
-            if (pkItem != null) {
-                qoc.a(jSONObject, "agree", h1d.b(pkItem));
+            if (pageData.test_drop != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedLayout feedLayout : pageData.test_drop) {
+                    jSONArray.put(txc.b(feedLayout));
+                }
+                ltc.a(jSONObject, "test_drop", jSONArray);
             }
-            PkItem pkItem2 = pkModule.disagree;
-            if (pkItem2 != null) {
-                qoc.a(jSONObject, "disagree", h1d.b(pkItem2));
+            if (pageData.feed_list != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (LayoutFactory layoutFactory : pageData.feed_list) {
+                    jSONArray2.put(n4d.b(layoutFactory));
+                }
+                ltc.a(jSONObject, "feed_list", jSONArray2);
             }
             return jSONObject;
         }

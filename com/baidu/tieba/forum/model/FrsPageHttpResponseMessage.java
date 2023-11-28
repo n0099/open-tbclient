@@ -3,9 +3,9 @@ package com.baidu.tieba.forum.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gh7;
-import com.baidu.tieba.kh7;
-import com.baidu.tieba.nh7;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.qi7;
+import com.baidu.tieba.ti7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +21,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class FrsPageHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
-    public static nh7<kh7> dataParser;
+    public static ti7<qi7> dataParser;
     public transient /* synthetic */ FieldHolder $fh;
-    public kh7 frsPageData;
+    public qi7 frsPageData;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -48,11 +48,11 @@ public final class FrsPageHttpResponseMessage extends HttpResponsedMessage {
             }
         }
 
-        public final void a(nh7<kh7> nh7Var) {
+        public final void a(ti7<qi7> ti7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nh7Var) == null) {
-                Intrinsics.checkNotNullParameter(nh7Var, "<set-?>");
-                FrsPageHttpResponseMessage.dataParser = nh7Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ti7Var) == null) {
+                Intrinsics.checkNotNullParameter(ti7Var, "<set-?>");
+                FrsPageHttpResponseMessage.dataParser = ti7Var;
             }
         }
     }
@@ -71,16 +71,16 @@ public final class FrsPageHttpResponseMessage extends HttpResponsedMessage {
             }
         }
         Companion = new a(null);
-        dataParser = new gh7();
+        dataParser = new mi7();
     }
 
-    public final kh7 getFrsPageData() {
+    public final qi7 getFrsPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.frsPageData;
         }
-        return (kh7) invokeV.objValue;
+        return (qi7) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,14 +99,14 @@ public final class FrsPageHttpResponseMessage extends HttpResponsedMessage {
                 return;
             }
         }
-        this.frsPageData = new kh7();
+        this.frsPageData = new qi7();
     }
 
-    public final void setFrsPageData(kh7 kh7Var) {
+    public final void setFrsPageData(qi7 qi7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kh7Var) == null) {
-            Intrinsics.checkNotNullParameter(kh7Var, "<set-?>");
-            this.frsPageData = kh7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qi7Var) == null) {
+            Intrinsics.checkNotNullParameter(qi7Var, "<set-?>");
+            this.frsPageData = qi7Var;
         }
     }
 
@@ -115,9 +115,9 @@ public final class FrsPageHttpResponseMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            kh7 b = dataParser.b(bArr);
+            qi7 b = dataParser.b(bArr);
             if (b == null) {
-                b = new kh7();
+                b = new qi7();
             }
             this.frsPageData = b;
         }

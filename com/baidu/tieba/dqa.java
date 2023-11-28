@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dqa {
+public class dqa extends fqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public long e;
+    public String n;
 
-    public dqa() {
+    public dqa(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,31 +26,15 @@ public class dqa {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0;
-        this.d = "";
-        this.e = 0L;
+        this.n = str;
     }
 
-    public static dqa a(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        boolean z;
+    public String x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
-            dqa dqaVar = new dqa();
-            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            dqaVar.a = z;
-            dqaVar.b = !responsedMessage.hasError();
-            dqaVar.c = responsedMessage.getError();
-            dqaVar.d = responsedMessage.getErrorString();
-            dqaVar.e = responsedMessage.getDownSize();
-            return dqaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
         }
-        return (dqa) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

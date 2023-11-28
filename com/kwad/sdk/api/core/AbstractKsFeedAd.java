@@ -10,6 +10,11 @@ import com.kwad.sdk.api.loader.Wrapper;
 @Keep
 /* loaded from: classes10.dex */
 public abstract class AbstractKsFeedAd implements KsFeedAd {
+    @Nullable
+    @KsAdSdkDynamicApi
+    @Keep
+    public abstract View getFeedView2(Context context);
+
     @Override // com.kwad.sdk.api.KsFeedAd
     @Nullable
     @KsAdSdkDynamicApi
@@ -17,9 +22,4 @@ public abstract class AbstractKsFeedAd implements KsFeedAd {
     public final View getFeedView(Context context) {
         return getFeedView2(Wrapper.wrapContextIfNeed(context));
     }
-
-    @Nullable
-    @KsAdSdkDynamicApi
-    @Keep
-    public abstract View getFeedView2(Context context);
 }

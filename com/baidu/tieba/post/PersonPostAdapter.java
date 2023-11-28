@@ -50,16 +50,16 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString("key_uid", personPostActivity.r1());
         bundle.putString("key_portrait_url", personPostActivity.q1());
         bundle.putString("key_empty_view_text", personPostActivity.p1());
-        bundle.putBoolean("key_is_has_tab", !personPostActivity.x1());
+        bundle.putBoolean("key_is_has_tab", !personPostActivity.v1());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.c.L2(personPostActivity);
+        this.c.X2(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
         this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.b.L2(personPostActivity);
-        this.b.K2(personPostActivity);
+        this.b.X2(personPostActivity);
+        this.b.W2(personPostActivity);
         this.a = new int[]{0, 1};
     }
 

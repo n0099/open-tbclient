@@ -16,10 +16,10 @@ public class al extends aj.b {
     public void b() {
         Object obj;
         Map map;
-        obj = this.a.f98a;
+        obj = this.a.f94a;
         synchronized (obj) {
-            map = this.a.f99a;
-            map.remove(super.a.mo306a());
+            map = this.a.f95a;
+            map.remove(super.a.mo310a());
         }
     }
 }

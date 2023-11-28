@@ -1,44 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PeiwanInfo;
-import tbclient.ThreadRecommendTag;
-import tbclient.Voice;
+import tbclient.FrsPage.NavTabInfo;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
-public class d1d extends qoc {
+public class d1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PeiwanInfo peiwanInfo) {
+    public static JSONObject b(@NonNull NavTabInfo navTabInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, peiwanInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, navTabInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "room_status", peiwanInfo.room_status);
-            qoc.a(jSONObject, "room_status_text", peiwanInfo.room_status_text);
-            Voice voice = peiwanInfo.voice;
-            if (voice != null) {
-                qoc.a(jSONObject, "voice", f6d.b(voice));
-            }
-            if (peiwanInfo.tag_list != null) {
+            if (navTabInfo.tab != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ThreadRecommendTag threadRecommendTag : peiwanInfo.tag_list) {
-                    jSONArray.put(y4d.b(threadRecommendTag));
+                for (FrsTabInfo frsTabInfo : navTabInfo.tab) {
+                    jSONArray.put(i3d.b(frsTabInfo));
                 }
-                qoc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_LIST, jSONArray);
+                ltc.a(jSONObject, "tab", jSONArray);
             }
-            qoc.a(jSONObject, "scheme", peiwanInfo.scheme);
-            qoc.a(jSONObject, "extension_info", peiwanInfo.extension_info);
-            qoc.a(jSONObject, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, peiwanInfo.cover);
-            qoc.a(jSONObject, "room_id", peiwanInfo.room_id);
+            if (navTabInfo.menu != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (FrsTabInfo frsTabInfo2 : navTabInfo.menu) {
+                    jSONArray2.put(i3d.b(frsTabInfo2));
+                }
+                ltc.a(jSONObject, "menu", jSONArray2);
+            }
+            if (navTabInfo.head != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (FrsTabInfo frsTabInfo3 : navTabInfo.head) {
+                    jSONArray3.put(i3d.b(frsTabInfo3));
+                }
+                ltc.a(jSONObject, "head", jSONArray3);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

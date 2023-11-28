@@ -49,7 +49,7 @@ public class AndroidTelephonyManagerBridge {
 
     public static AndroidTelephonyManagerBridge create() {
         final AndroidTelephonyManagerBridge androidTelephonyManagerBridge = new AndroidTelephonyManagerBridge();
-        ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.yhc
+        ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.tmc
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

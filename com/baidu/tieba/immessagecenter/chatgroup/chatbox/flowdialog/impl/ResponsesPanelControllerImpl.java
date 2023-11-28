@@ -7,19 +7,19 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.dn8;
-import com.baidu.tieba.hz8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.iz8;
-import com.baidu.tieba.jz8;
-import com.baidu.tieba.kz8;
-import com.baidu.tieba.lz8;
-import com.baidu.tieba.mz8;
+import com.baidu.tieba.p29;
+import com.baidu.tieba.q29;
+import com.baidu.tieba.r29;
+import com.baidu.tieba.s29;
+import com.baidu.tieba.t29;
+import com.baidu.tieba.u29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,8 +30,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kz8 a;
-    public final jz8 b;
+    public final s29 a;
+    public final r29 b;
     @NonNull
     public GroupChatFragment c;
 
@@ -51,8 +51,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             }
         }
         this.c = groupChatFragment;
-        this.b = new lz8(groupChatFragment.getPageContext());
-        this.a = new mz8(groupChatFragment.getPageContext(), this);
+        this.b = new t29(groupChatFragment.getPageContext());
+        this.a = new u29(groupChatFragment.getPageContext(), this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -79,12 +79,12 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             if (!this.b.r()) {
                 this.b.h();
             } else {
-                o(this.b.p());
+                n(this.b.o());
             }
         }
     }
 
-    public void l() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.b.q();
@@ -100,57 +100,57 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void a(@NonNull iz8 iz8Var) {
+    public void a(@NonNull q29 q29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iz8Var) == null) {
-            this.a.a(iz8Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, q29Var) == null) {
+            this.a.a(q29Var);
         }
     }
 
     public void b(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.b.o(obj);
+            this.b.n(obj);
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void f(@NonNull dn8 dn8Var) {
+    public void f(@NonNull List<Reaction> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dn8Var) == null) {
-            this.a.f(dn8Var);
-        }
-    }
-
-    public void g(@NonNull List<Reaction> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.b.d(list);
         }
     }
 
-    public void o(@Nullable FastRequest.b<mz8.e> bVar) {
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
+    public void g(@NonNull gq8 gq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gq8Var) == null) {
+            this.a.g(gq8Var);
+        }
+    }
+
+    public void n(@Nullable FastRequest.b<u29.e> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.a.d(bVar);
         }
     }
 
-    public void q(@NonNull hz8 hz8Var) {
+    public void q(@NonNull p29 p29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, hz8Var) == null) {
-            this.b.n(hz8Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, p29Var) == null) {
+            this.b.l(p29Var);
+        }
+    }
+
+    public void u(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.b.j(str);
         }
     }
 
     public void v(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.b.k(str);
-        }
-    }
-
-    public void w(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.b.a(str);
@@ -173,10 +173,10 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
         }
     }
 
-    public void j(@NonNull String str, CharSequence charSequence) {
+    public void i(@NonNull String str, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, charSequence) == null) {
-            this.b.l(str, charSequence);
+            this.b.k(str, charSequence);
         }
     }
 
@@ -187,7 +187,7 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
         }
     }
 
-    public void k(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, int i3, long j, long j2) {
+    public void j(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, int i3, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), map, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.b.i(z, i, i2, map, z2, i3, j, j2);

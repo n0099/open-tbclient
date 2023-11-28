@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class hl2 extends ak2<rm2> {
+public class hl2 extends bk2<rm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onZoom" : (String) invokeV.objValue;
     }
 
     public hl2() {
@@ -36,7 +36,7 @@ public class hl2 extends ak2<rm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak2
+    @Override // com.baidu.tieba.bk2
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull rm2 rm2Var) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class hl2 extends ak2<rm2> {
             String str = command.what;
             d(rm2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                rm2Var.l0(((Boolean) obj).booleanValue());
+            if (obj instanceof Integer) {
+                rm2Var.z(((Integer) obj).intValue());
             }
         }
     }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -229,7 +229,7 @@ public class WebViewActivityConfig extends IntentConfig {
             if (!UrlUtils.isBaiduDomain(str)) {
                 return str;
             }
-            if (qd.isEmpty(str)) {
+            if (rd.isEmpty(str)) {
                 return str;
             }
             if (!str.contains("_client_version=")) {

@@ -1,41 +1,77 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.AdOperator;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class wg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
+    public int b;
+    public AdDownloadStatus c;
     public String d;
-    public long e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public String n;
+    public boolean e;
+    public String f;
+    public String g;
+    public File h;
+    public float i;
+    public float j;
+    public Uri k;
+    public long l;
+    public long m;
+    public int n;
     public String o;
-    public long p;
-    public long q;
-    public boolean r;
-    public boolean s;
-    public int t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
+    @NonNull
+    public ah0 p;
+    @NonNull
+    public xg0 q;
+    @NonNull
+    public zg0 r;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-318788852, "Lcom/baidu/tieba/wg0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-318788852, "Lcom/baidu/tieba/wg0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.COMPLETED.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
     public wg0() {
         Interceptable interceptable = $ic;
@@ -50,156 +86,178 @@ public class wg0 {
                 return;
             }
         }
-        this.d = "";
-        this.e = 0L;
-        this.f = false;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.p = -1L;
-        this.q = -1L;
-        this.s = false;
-        this.t = 0;
-        this.u = true;
-        this.v = false;
-        this.w = hj0.b().a().a("uad_notification_progress_switch", 1) == 1;
+        this.a = "";
+        this.b = -1;
+        this.c = AdDownloadStatus.NONE;
+        this.i = 0.0f;
+        this.j = 0.0f;
+        this.n = -1;
+        this.p = new ah0();
+        this.q = new xg0();
+        this.r = new zg0();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (f() || !this.q.s) {
+                return false;
+            }
+            if (TextUtils.isEmpty(this.p.c)) {
+                str = lg0.a(this.d);
+            } else {
+                str = this.p.c;
+            }
+            if (TextUtils.isEmpty(str) && (!this.q.u || TextUtils.isEmpty(this.d))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @NonNull
-    public static wg0 a(String str) {
+    public static wg0 c(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
+        tm0 tm0Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
             wg0 wg0Var = new wg0();
-            JSONObject c = ly0.c(str);
-            wg0Var.a = c.optString("page");
-            wg0Var.b = c.optString("business");
-            wg0Var.c = c.optString("source");
-            wg0Var.d = c.optString("content_type");
-            wg0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
-            boolean z6 = false;
-            if (c.optInt("is_dirty", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            wg0Var.f = z;
-            wg0Var.g = c.optInt("close_v_download", 0);
-            wg0Var.h = c.optInt("no_click_opt");
-            wg0Var.i = c.optInt("open_after_install");
-            wg0Var.j = c.optString("action_area");
-            wg0Var.k = c.optInt("notification_show_count");
-            wg0Var.l = c.optInt("tips_show_count");
-            wg0Var.p = c.optLong("als_app_save_day");
-            wg0Var.q = c.optLong("finished_install_time", -1L);
-            if (c.optInt("lazy_launch_switch", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            wg0Var.s = z2;
-            wg0Var.t = c.optInt("lazy_launch_internal", 0);
-            if (c.optInt("is_start_download", 0) == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            wg0Var.v = z3;
-            int optInt = c.optInt("need_notification_progress", Integer.MIN_VALUE);
-            if (optInt == Integer.MIN_VALUE) {
-                if (hj0.b().a().a("uad_notification_progress_switch", 1) == 1) {
-                    z5 = true;
+            if (adBaseModel != null && (tm0Var = adBaseModel.l) != null && tm0Var.e) {
+                wg0Var.g = tm0Var.c;
+                wg0Var.h(tm0Var.d);
+                wg0Var.d = adBaseModel.l.a;
+                AdOperator adOperator = adBaseModel.h;
+                if (adOperator == null) {
+                    str = null;
                 } else {
-                    z5 = false;
+                    str = adOperator.b;
                 }
-                wg0Var.w = z5;
-            } else {
-                if (optInt == 1) {
-                    z4 = true;
-                } else {
-                    z4 = false;
-                }
-                wg0Var.w = z4;
-            }
-            int optInt2 = c.optInt("package_launch_switch", Integer.MIN_VALUE);
-            if (optInt2 == Integer.MIN_VALUE) {
-                if (hj0.b().a().a("package_launch_switch", 1) == 1) {
-                    z6 = true;
-                }
-                wg0Var.u = z6;
-            } else {
-                if (optInt2 == 1) {
-                    z6 = true;
-                }
-                wg0Var.u = z6;
+                wg0Var.f = str;
+                wg0Var.p.a = adBaseModel.f.d;
             }
             return wg0Var;
         }
         return (wg0) invokeL.objValue;
     }
 
-    public static String b(@NonNull wg0 wg0Var) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
-        int i3;
-        int i4;
+    @NonNull
+    public static wg0 d(tm0 tm0Var, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, wg0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", wg0Var.a);
-                jSONObject.put("business", wg0Var.b);
-                jSONObject.put("source", wg0Var.c);
-                jSONObject.put("content_type", wg0Var.d);
-                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, wg0Var.e);
-                int i5 = 1;
-                if (wg0Var.f) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                jSONObject.put("is_dirty", i);
-                jSONObject.put("close_v_download", wg0Var.g);
-                jSONObject.put("no_click_opt", wg0Var.h);
-                jSONObject.put("open_after_install", wg0Var.i);
-                jSONObject.put("action_area", wg0Var.j);
-                jSONObject.put("notification_show_count", wg0Var.k);
-                jSONObject.put("tips_show_count", wg0Var.l);
-                jSONObject.put("als_app_save_day", wg0Var.p);
-                jSONObject.put("finished_install_time", wg0Var.q);
-                if (wg0Var.s) {
-                    i2 = 1;
-                } else {
-                    i2 = 0;
-                }
-                jSONObject.put("lazy_launch_switch", i2);
-                jSONObject.put("lazy_launch_internal", wg0Var.t);
-                if (wg0Var.u) {
-                    i3 = 1;
-                } else {
-                    i3 = 0;
-                }
-                jSONObject.put("package_launch_switch", i3);
-                if (wg0Var.v) {
-                    i4 = 1;
-                } else {
-                    i4 = 0;
-                }
-                jSONObject.put("is_start_download", i4);
-                if (!wg0Var.w) {
-                    i5 = 0;
-                }
-                jSONObject.put("need_notification_progress", i5);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, tm0Var, str, str2)) == null) {
+            wg0 wg0Var = new wg0();
+            if (tm0Var != null && tm0Var.e) {
+                wg0Var.g = tm0Var.c;
+                wg0Var.h(tm0Var.d);
+                wg0Var.d = tm0Var.a;
+                ah0 ah0Var = wg0Var.p;
+                ah0Var.a = str;
+                wg0Var.f = str2;
+                ah0Var.k = yg0.a(my0.c(tm0Var.f));
             }
-            return jSONObject.toString();
+            return wg0Var;
         }
-        return (String) invokeL.objValue;
+        return (wg0) invokeLLL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.q.g != 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.g)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = AdDownloadStatus.NONE;
+            this.i = 0.0f;
+            this.j = 0.0f;
+            this.h = null;
+            this.q.v = false;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || str == null) {
+            return;
+        }
+        this.a = str;
+    }
+
+    public void i(wg0 wg0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, wg0Var) == null) {
+            if (wg0Var != null && TextUtils.equals(e(), wg0Var.e())) {
+                int i = a.a[wg0Var.c.ordinal()];
+                if (i != 1) {
+                    if (i == 2 && !gi0.c(wg0Var.d)) {
+                        File file = wg0Var.h;
+                        if (file != null && file.exists()) {
+                            wg0Var.c = AdDownloadStatus.COMPLETED;
+                        } else {
+                            wg0Var.g();
+                        }
+                    }
+                } else if (gi0.c(wg0Var.d)) {
+                    wg0Var.c = AdDownloadStatus.INSTALLED;
+                } else if (!gi0.g(wg0Var.h)) {
+                    jg0.c().a(wg0Var);
+                    wg0Var.g();
+                }
+                if (TextUtils.isEmpty(this.d)) {
+                    this.d = wg0Var.d;
+                }
+                this.b = wg0Var.b;
+                this.c = wg0Var.c;
+                this.i = wg0Var.i;
+                this.j = wg0Var.j;
+                this.h = wg0Var.h;
+                this.d = wg0Var.d;
+                this.l = wg0Var.l;
+                this.m = wg0Var.m;
+                xg0 xg0Var = this.q;
+                xg0 xg0Var2 = wg0Var.q;
+                xg0Var.k = xg0Var2.k;
+                xg0Var.l = xg0Var2.l;
+                xg0Var.v = xg0Var2.v;
+                xg0Var.w = xg0Var2.w;
+                this.p.h = wg0Var.p.h;
+                this.k = wg0Var.k;
+            } else if (gi0.c(this.d)) {
+                this.c = AdDownloadStatus.INSTALLED;
+            }
+        }
     }
 }

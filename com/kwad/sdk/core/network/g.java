@@ -1,19 +1,17 @@
 package com.kwad.sdk.core.network;
 
-import androidx.annotation.Nullable;
-import com.kwad.sdk.internal.api.SceneImpl;
-import java.util.Map;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.kwad.sdk.core.network.f;
+import com.kwad.sdk.core.response.model.BaseResultData;
 /* loaded from: classes10.dex */
-public interface g {
-    JSONObject getBody();
+public interface g<R extends f, T extends BaseResultData> {
+    @WorkerThread
+    void onError(@NonNull R r, int i, String str);
 
-    Map<String, String> getBodyMap();
+    @WorkerThread
+    void onStartRequest(@NonNull R r);
 
-    Map<String, String> getHeader();
-
-    @Nullable
-    SceneImpl getScene();
-
-    String getUrl();
+    @WorkerThread
+    void onSuccess(@NonNull R r, @NonNull T t);
 }

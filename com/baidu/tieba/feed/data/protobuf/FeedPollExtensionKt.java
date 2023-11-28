@@ -1,16 +1,16 @@
 package com.baidu.tieba.feed.data.protobuf;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a67;
-import com.baidu.tieba.ab7;
-import com.baidu.tieba.bb7;
+import com.baidu.tieba.a57;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.ea7;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.n47;
-import com.baidu.tieba.rz4;
-import com.baidu.tieba.x77;
-import com.baidu.tieba.y77;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.k87;
+import com.baidu.tieba.l87;
+import com.baidu.tieba.n67;
+import com.baidu.tieba.nb7;
+import com.baidu.tieba.ob7;
+import com.baidu.tieba.ra7;
+import com.baidu.tieba.uz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,9 +38,9 @@ public final class FeedPollExtensionKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(PollInfo pollInfo, List<ab7<?>> dataList, a67 feedExtraData, String schema) {
+    public static final void a(PollInfo pollInfo, List<nb7<?>> dataList, n67 feedExtraData, String schema) {
         long j;
-        rz4 rz4Var;
+        uz4 uz4Var;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65536, null, pollInfo, dataList, feedExtraData, schema) == null) {
@@ -59,7 +59,7 @@ public final class FeedPollExtensionKt {
                 long longValue = l.longValue();
                 String str = pollOption.text;
                 Intrinsics.checkNotNullExpressionValue(str, "option.text");
-                arrayList.add(new y77(intValue, longValue, str));
+                arrayList.add(new l87(intValue, longValue, str));
             }
             String str2 = a.get("thread_id");
             if (str2 == null) {
@@ -97,8 +97,8 @@ public final class FeedPollExtensionKt {
             int intValue6 = last_time.intValue();
             Long total_poll = pollInfo.total_poll;
             Intrinsics.checkNotNullExpressionValue(total_poll, "total_poll");
-            x77 x77Var = new x77(str3, j2, title, intValue2, longValue2, intValue3, intValue4, polled_value, intValue5, intValue6, total_poll.longValue(), arrayList, schema);
-            String str5 = ea7.a.a(pollInfo.business_info).get("task_info");
+            k87 k87Var = new k87(str3, j2, title, intValue2, longValue2, intValue3, intValue4, polled_value, intValue5, intValue6, total_poll.longValue(), arrayList, schema);
+            String str5 = ra7.a.a(pollInfo.business_info).get("task_info");
             final Ref.ObjectRef objectRef = new Ref.ObjectRef();
             boolean z2 = true;
             if (str5 != null) {
@@ -113,7 +113,7 @@ public final class FeedPollExtensionKt {
                 JSONKt.a(str5, new Function1<JSONObject, Unit>(objectRef) { // from class: com.baidu.tieba.feed.data.protobuf.FeedPollExtensionKt$insertTemplateList$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Ref.ObjectRef<fz4> $taskInfo;
+                    public final /* synthetic */ Ref.ObjectRef<hz4> $taskInfo;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -144,27 +144,27 @@ public final class FeedPollExtensionKt {
                         return Unit.INSTANCE;
                     }
 
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, com.baidu.tieba.fz4] */
+                    /* JADX WARN: Type inference failed for: r1v0, types: [T, com.baidu.tieba.hz4] */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2(JSONObject it) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            Ref.ObjectRef<fz4> objectRef2 = this.$taskInfo;
-                            ?? fz4Var = new fz4();
-                            fz4Var.s(it);
-                            objectRef2.element = fz4Var;
+                            Ref.ObjectRef<hz4> objectRef2 = this.$taskInfo;
+                            ?? hz4Var = new hz4();
+                            hz4Var.s(it);
+                            objectRef2.element = hz4Var;
                         }
                     }
                 });
             }
-            fz4 fz4Var = (fz4) objectRef.element;
-            if (fz4Var != null) {
-                rz4Var = fz4Var.p();
+            hz4 hz4Var = (hz4) objectRef.element;
+            if (hz4Var != null) {
+                uz4Var = hz4Var.p();
             } else {
-                rz4Var = null;
+                uz4Var = null;
             }
-            dataList.add(new bb7(new n47(x77Var, rz4Var), "card_vote"));
+            dataList.add(new ob7(new a57(k87Var, uz4Var), "card_vote"));
         }
     }
 }

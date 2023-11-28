@@ -4,31 +4,25 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.AgreeBanner;
-import tbclient.SimpleUser;
+import tbclient.AiChatBotInfo;
 /* loaded from: classes5.dex */
-public class duc extends qoc {
+public class duc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AgreeBanner agreeBanner) {
+    public static JSONObject b(@NonNull AiChatBotInfo aiChatBotInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agreeBanner)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aiChatBotInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "text", agreeBanner.text);
-            qoc.a(jSONObject, "icon_url", agreeBanner.icon_url);
-            qoc.a(jSONObject, "url", agreeBanner.url);
-            if (agreeBanner.top_agree_user != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SimpleUser simpleUser : agreeBanner.top_agree_user) {
-                    jSONArray.put(i3d.b(simpleUser));
-                }
-                qoc.a(jSONObject, "top_agree_user", jSONArray);
-            }
+            ltc.a(jSONObject, "uk", aiChatBotInfo.uk);
+            ltc.a(jSONObject, "pa", aiChatBotInfo.pa);
+            ltc.a(jSONObject, "name", aiChatBotInfo.name);
+            ltc.a(jSONObject, "portrait", aiChatBotInfo.portrait);
+            ltc.a(jSONObject, "background_url", aiChatBotInfo.background_url);
+            ltc.a(jSONObject, "prologue", aiChatBotInfo.prologue);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

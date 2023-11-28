@@ -7,24 +7,24 @@ public final class j implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ e f84a;
+    public final /* synthetic */ e f80a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f85a;
+    public final /* synthetic */ String f81a;
 
     public j(String str, Context context, e eVar) {
-        this.f85a = str;
+        this.f81a = str;
         this.a = context;
-        this.f84a = eVar;
+        this.f80a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
-        if (TextUtils.isEmpty(this.f85a)) {
+        if (TextUtils.isEmpty(this.f81a)) {
             return;
         }
-        String[] split = this.f85a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f81a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i = 0;
         while (true) {
@@ -40,11 +40,11 @@ public final class j implements Runnable {
             i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.a, this.f84a, str);
-        i.m250a(this.a);
+        com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH : receive correct token");
+        i.d(this.a, this.f80a, str);
+        i.m254a(this.a);
     }
 }

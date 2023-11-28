@@ -15,12 +15,12 @@ import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.view.FrsSortSwitchButton;
+import com.baidu.tieba.forum.widget.ForumTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.tabs.TabLayout;
 /* loaded from: classes6.dex */
 public final class FragmentFrsFeedBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
@@ -48,14 +48,14 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
     @NonNull
     public final FrsSortSwitchButton k;
     @NonNull
-    public final TabLayout l;
+    public final ForumTabLayout l;
 
-    public FragmentFrsFeedBinding(@NonNull RelativeLayout relativeLayout, @NonNull FrameLayout frameLayout, @NonNull FrameLayout frameLayout2, @NonNull FrameLayout frameLayout3, @NonNull NestedScrollView nestedScrollView, @NonNull LinearLayout linearLayout, @NonNull BdRecyclerView bdRecyclerView, @NonNull BdSwipeRefreshLayout bdSwipeRefreshLayout, @NonNull RelativeLayout relativeLayout2, @NonNull TextView textView, @NonNull FrsSortSwitchButton frsSortSwitchButton, @NonNull TabLayout tabLayout) {
+    public FragmentFrsFeedBinding(@NonNull RelativeLayout relativeLayout, @NonNull FrameLayout frameLayout, @NonNull FrameLayout frameLayout2, @NonNull FrameLayout frameLayout3, @NonNull NestedScrollView nestedScrollView, @NonNull LinearLayout linearLayout, @NonNull BdRecyclerView bdRecyclerView, @NonNull BdSwipeRefreshLayout bdSwipeRefreshLayout, @NonNull RelativeLayout relativeLayout2, @NonNull TextView textView, @NonNull FrsSortSwitchButton frsSortSwitchButton, @NonNull ForumTabLayout forumTabLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {relativeLayout, frameLayout, frameLayout2, frameLayout3, nestedScrollView, linearLayout, bdRecyclerView, bdSwipeRefreshLayout, relativeLayout2, textView, frsSortSwitchButton, tabLayout};
+            Object[] objArr = {relativeLayout, frameLayout, frameLayout2, frameLayout3, nestedScrollView, linearLayout, bdRecyclerView, bdSwipeRefreshLayout, relativeLayout2, textView, frsSortSwitchButton, forumTabLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,7 +76,7 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
         this.i = relativeLayout2;
         this.j = textView;
         this.k = frsSortSwitchButton;
-        this.l = tabLayout;
+        this.l = forumTabLayout;
     }
 
     @NonNull
@@ -84,20 +84,20 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090b15;
-            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b15);
+            int i = R.id.obfuscated_res_0x7f090b34;
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b34);
             if (frameLayout != null) {
-                i = R.id.obfuscated_res_0x7f090da9;
-                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da9);
+                i = R.id.obfuscated_res_0x7f090dc9;
+                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dc9);
                 if (frameLayout2 != null) {
-                    i = R.id.obfuscated_res_0x7f090ded;
-                    FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ded);
+                    i = R.id.obfuscated_res_0x7f090e0d;
+                    FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e0d);
                     if (frameLayout3 != null) {
-                        i = R.id.obfuscated_res_0x7f090dee;
-                        NestedScrollView nestedScrollView = (NestedScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090dee);
+                        i = R.id.obfuscated_res_0x7f090e0e;
+                        NestedScrollView nestedScrollView = (NestedScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090e0e);
                         if (nestedScrollView != null) {
-                            i = R.id.obfuscated_res_0x7f090f4c;
-                            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
+                            i = R.id.obfuscated_res_0x7f090f73;
+                            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f73);
                             if (linearLayout != null) {
                                 i = R.id.recycler_view;
                                 BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.recycler_view);
@@ -105,19 +105,19 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
                                     i = R.id.refresh_layout;
                                     BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) view2.findViewById(R.id.refresh_layout);
                                     if (bdSwipeRefreshLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f0922bf;
-                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922bf);
+                                        i = R.id.obfuscated_res_0x7f09233b;
+                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09233b);
                                         if (relativeLayout != null) {
-                                            i = R.id.obfuscated_res_0x7f0922c0;
-                                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c0);
+                                            i = R.id.obfuscated_res_0x7f09233c;
+                                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233c);
                                             if (textView != null) {
-                                                i = R.id.obfuscated_res_0x7f0922c1;
-                                                FrsSortSwitchButton frsSortSwitchButton = (FrsSortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f0922c1);
+                                                i = R.id.obfuscated_res_0x7f09233d;
+                                                FrsSortSwitchButton frsSortSwitchButton = (FrsSortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
                                                 if (frsSortSwitchButton != null) {
-                                                    i = R.id.obfuscated_res_0x7f092366;
-                                                    TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092366);
-                                                    if (tabLayout != null) {
-                                                        return new FragmentFrsFeedBinding((RelativeLayout) view2, frameLayout, frameLayout2, frameLayout3, nestedScrollView, linearLayout, bdRecyclerView, bdSwipeRefreshLayout, relativeLayout, textView, frsSortSwitchButton, tabLayout);
+                                                    i = R.id.obfuscated_res_0x7f0923e8;
+                                                    ForumTabLayout forumTabLayout = (ForumTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923e8);
+                                                    if (forumTabLayout != null) {
+                                                        return new FragmentFrsFeedBinding((RelativeLayout) view2, frameLayout, frameLayout2, frameLayout3, nestedScrollView, linearLayout, bdRecyclerView, bdSwipeRefreshLayout, relativeLayout, textView, frsSortSwitchButton, forumTabLayout);
                                                     }
                                                 }
                                             }
@@ -139,7 +139,7 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d033c, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0345, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

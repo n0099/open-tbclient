@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mi0;
+import com.baidu.tieba.ni0;
 /* loaded from: classes3.dex */
-public class CountDownTextView extends LinearLayout implements mi0 {
+public class CountDownTextView extends LinearLayout implements ni0 {
     public TextView a;
     public TextView b;
     public String c;

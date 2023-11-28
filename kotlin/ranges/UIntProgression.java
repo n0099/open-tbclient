@@ -38,7 +38,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         }
 
         /* renamed from: fromClosedRange-Nkh28Cs  reason: not valid java name */
-        public final UIntProgression m2062fromClosedRangeNkh28Cs(int i, int i2, int i3) {
+        public final UIntProgression m2066fromClosedRangeNkh28Cs(int i, int i2, int i3) {
             return new UIntProgression(i, i2, i3, null);
         }
     }
@@ -47,7 +47,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         if (i3 != 0) {
             if (i3 != Integer.MIN_VALUE) {
                 this.first = i;
-                this.last = UProgressionUtilKt.m2046getProgressionLastElementNkh28Cs(i, i2, i3);
+                this.last = UProgressionUtilKt.m2050getProgressionLastElementNkh28Cs(i, i2, i3);
                 this.step = i3;
                 return;
             }
@@ -60,7 +60,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         if (obj instanceof UIntProgression) {
             if (!isEmpty() || !((UIntProgression) obj).isEmpty()) {
                 UIntProgression uIntProgression = (UIntProgression) obj;
-                if (m2060getFirstpVg5ArA() != uIntProgression.m2060getFirstpVg5ArA() || m2061getLastpVg5ArA() != uIntProgression.m2061getLastpVg5ArA() || this.step != uIntProgression.step) {
+                if (m2064getFirstpVg5ArA() != uIntProgression.m2064getFirstpVg5ArA() || m2065getLastpVg5ArA() != uIntProgression.m2065getLastpVg5ArA() || this.step != uIntProgression.step) {
                 }
             }
             return true;
@@ -69,12 +69,12 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
     }
 
     /* renamed from: getFirst-pVg5ArA  reason: not valid java name */
-    public final int m2060getFirstpVg5ArA() {
+    public final int m2064getFirstpVg5ArA() {
         return this.first;
     }
 
     /* renamed from: getLast-pVg5ArA  reason: not valid java name */
-    public final int m2061getLastpVg5ArA() {
+    public final int m2065getLastpVg5ArA() {
         return this.last;
     }
 
@@ -86,15 +86,15 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         if (isEmpty()) {
             return -1;
         }
-        return (((m2060getFirstpVg5ArA() * 31) + m2061getLastpVg5ArA()) * 31) + this.step;
+        return (((m2064getFirstpVg5ArA() * 31) + m2065getLastpVg5ArA()) * 31) + this.step;
     }
 
     public boolean isEmpty() {
         if (this.step > 0) {
-            if (UnsignedKt.uintCompare(m2060getFirstpVg5ArA(), m2061getLastpVg5ArA()) > 0) {
+            if (UnsignedKt.uintCompare(m2064getFirstpVg5ArA(), m2065getLastpVg5ArA()) > 0) {
                 return true;
             }
-        } else if (UnsignedKt.uintCompare(m2060getFirstpVg5ArA(), m2061getLastpVg5ArA()) < 0) {
+        } else if (UnsignedKt.uintCompare(m2064getFirstpVg5ArA(), m2065getLastpVg5ArA()) < 0) {
             return true;
         }
         return false;
@@ -102,7 +102,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
 
     @Override // java.lang.Iterable
     public final Iterator<UInt> iterator() {
-        return new UIntProgressionIterator(m2060getFirstpVg5ArA(), m2061getLastpVg5ArA(), this.step, null);
+        return new UIntProgressionIterator(m2064getFirstpVg5ArA(), m2065getLastpVg5ArA(), this.step, null);
     }
 
     public String toString() {
@@ -110,16 +110,16 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         int i;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append((Object) UInt.m994toStringimpl(m2060getFirstpVg5ArA()));
+            sb.append((Object) UInt.m998toStringimpl(m2064getFirstpVg5ArA()));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append((Object) UInt.m994toStringimpl(m2061getLastpVg5ArA()));
+            sb.append((Object) UInt.m998toStringimpl(m2065getLastpVg5ArA()));
             sb.append(" step ");
             i = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append((Object) UInt.m994toStringimpl(m2060getFirstpVg5ArA()));
+            sb.append((Object) UInt.m998toStringimpl(m2064getFirstpVg5ArA()));
             sb.append(" downTo ");
-            sb.append((Object) UInt.m994toStringimpl(m2061getLastpVg5ArA()));
+            sb.append((Object) UInt.m998toStringimpl(m2065getLastpVg5ArA()));
             sb.append(" step ");
             i = -this.step;
         }

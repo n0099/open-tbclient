@@ -1,38 +1,70 @@
 package com.kwad.sdk.api.loader;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.kwad.sdk.api.core.IKsAdSDK;
-import com.kwad.sdk.api.loader.n;
+import com.kwad.sdk.api.loader.m;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes10.dex */
 public final class u {
-    public static final AtomicBoolean SJ = new AtomicBoolean();
+    public static final AtomicBoolean amH = new AtomicBoolean();
 
-    public static void a(Context context, IKsAdSDK iKsAdSDK) {
-        if (Math.abs(System.currentTimeMillis() - t.r(context, "lastUpdateTime")) >= t.r(context, "interval") * 1000 && !SJ.get()) {
-            SJ.set(true);
-            try {
-                Object dM = iKsAdSDK.dM("TRANSFORM_API_HOST", "https://open.e.kuaishou.com/rest/e/v3/open/sdk2");
-                String obj = dM != null ? dM.toString() : "https://open.e.kuaishou.com/rest/e/v3/open/sdk2";
-                Context context2 = Loader.get().getContext();
-                new n.e(new n.g(new n.d(new n.h(new n.b(obj, iKsAdSDK), context2), context2), context2), context2).a(new n.c<Boolean>() { // from class: com.kwad.sdk.api.loader.u.1
-                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                    @Override // com.kwad.sdk.api.loader.n.c
-                    public final /* synthetic */ void c(Boolean bool) {
-                        u.SJ.set(false);
-                        new StringBuilder("checkAndUpdate onNewResult: ").append(bool);
-                    }
+    public static /* synthetic */ String access$000() {
+        return zq();
+    }
 
-                    @Override // com.kwad.sdk.api.loader.n.c
-                    public final void g(Throwable th) {
-                        u.SJ.set(false);
-                        m.a("DynamicMonitor", "onFailure", th);
-                    }
-                });
-            } catch (Throwable th) {
-                SJ.set(false);
-                m.a("DynamicMonitor", "onFailure", th);
-            }
+    public static String zq() {
+        String bR = com.kwad.sdk.api.c.bR("https://open.e.kuaishou.com/rest/e/v3/open/sdk2");
+        if (TextUtils.isEmpty(bR)) {
+            return "https://open.e.kuaishou.com/rest/e/v3/open/sdk2";
         }
+        return bR;
+    }
+
+    public static void a(final Context context, final IKsAdSDK iKsAdSDK) {
+        if (!com.kwad.sdk.api.c.zd() && !amH.get() && context != null && iKsAdSDK != null) {
+            amH.set(true);
+            com.kwad.sdk.api.a.a.submit(new Runnable() { // from class: com.kwad.sdk.api.loader.u.1
+                @Override // java.lang.Runnable
+                public final void run() {
+                    try {
+                        if (Math.abs(System.currentTimeMillis() - t.x(context, "lastUpdateTime")) < t.x(context, "interval") * 1000) {
+                            return;
+                        }
+                        m.zo().a(new v() { // from class: com.kwad.sdk.api.loader.u.1.1
+                            @Override // com.kwad.sdk.api.loader.v
+                            public final Context getContext() {
+                                return context;
+                            }
+
+                            @Override // com.kwad.sdk.api.loader.v
+                            public final String zr() {
+                                return u.access$000();
+                            }
+
+                            @Override // com.kwad.sdk.api.loader.v
+                            public final IKsAdSDK zs() {
+                                return iKsAdSDK;
+                            }
+                        }, new m.c<Boolean>() { // from class: com.kwad.sdk.api.loader.u.1.2
+                            public static void c(Boolean bool) {
+                                new StringBuilder("onNewResult: ").append(bool);
+                            }
+
+                            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                            @Override // com.kwad.sdk.api.loader.m.c
+                            public final /* synthetic */ void g(Boolean bool) {
+                                c(bool);
+                            }
+                        });
+                    } catch (Throwable unused) {
+                    }
+                }
+            });
+        }
+    }
+
+    public static void aE(Context context) {
+        g.m(context, "");
     }
 }

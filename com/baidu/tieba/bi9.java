@@ -1,16 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,17 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bi9 implements ThirdPartWxRechargeService {
+public final class bi9 extends zh9<Boolean> {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,138 +29,72 @@ public class bi9 implements ThirdPartWxRechargeService {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bi9 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
-
-        public a(bi9 bi9Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bi9Var, wxPayType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = bi9Var;
-            this.val$wxPayType = wxPayType;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                    str = "wx_pay_result";
-                } else {
-                    str = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
-                }
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt(CloudStabilityUBCUtils.KEY_ERROR_CODE, -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-                h68.i().g(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-            }
-        }
-    }
-
-    public bi9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi9(String key) {
+        super(key);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(key, "key");
+        e(c() + "_tips_disappear");
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-            }
-            return this.a.isWXAppInstalled();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a(Boolean.FALSE).booleanValue();
         }
         return invokeV.booleanValue;
     }
 
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Boolean bool = Boolean.FALSE;
+            d(bool);
+            return bool.booleanValue();
         }
-        return (PayReq) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
-        String str2;
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                        str2 = "wx_pay_result";
-                    } else {
-                        str2 = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
-                    }
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                    h68.i().g(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            boolean booleanValue = a(Boolean.FALSE).booleanValue();
+            if (!booleanValue) {
+                Boolean bool = Boolean.TRUE;
+                d(bool);
+                return bool.booleanValue();
             }
+            return booleanValue;
         }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            if (z) {
+                return h();
+            }
+            return f();
+        }
+        return invokeZ.booleanValue;
     }
 }

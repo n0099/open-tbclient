@@ -57,7 +57,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
-        this(toolbar, z, R.string.obfuscated_res_0x7f0f003c, R.drawable.obfuscated_res_0x7f080078);
+        this(toolbar, z, R.string.obfuscated_res_0x7f0f003d, R.drawable.obfuscated_res_0x7f080078);
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar

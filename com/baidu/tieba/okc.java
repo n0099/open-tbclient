@@ -1,119 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jjc;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
-public final class okc<T, R> implements jjc.a<R> {
+public class okc {
     public static /* synthetic */ Interceptable $ic;
+    public static Charset a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jjc<T> a;
-    public final ckc<? super T, ? extends R> b;
 
-    /* loaded from: classes7.dex */
-    public static final class a<T, R> extends pjc<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final pjc<? super R> e;
-        public final ckc<? super T, ? extends R> f;
-        public boolean g;
+    public static void a(ykc ykcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, ykcVar) == null) {
+        }
+    }
 
-        public a(pjc<? super R> pjcVar, ckc<? super T, ? extends R> ckcVar) {
-            Interceptable interceptable = $ic;
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+        }
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+        }
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948036578, "Lcom/baidu/tieba/okc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pjcVar, ckcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = pjcVar;
-            this.f = ckcVar;
-        }
-
-        @Override // com.baidu.tieba.pjc
-        public void f(ljc ljcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ljcVar) == null) {
-                this.e.f(ljcVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.g) {
-                    znc.j(th);
-                    return;
-                }
-                this.g = true;
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    vjc.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-    }
-
-    public okc(jjc<T> jjcVar, ckc<? super T, ? extends R> ckcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jjcVar, ckcVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948036578, "Lcom/baidu/tieba/okc;");
                 return;
             }
         }
-        this.a = jjcVar;
-        this.b = ckcVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xjc
-    /* renamed from: a */
-    public void call(pjc<? super R> pjcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pjcVar) == null) {
-            a aVar = new a(pjcVar, this.b);
-            pjcVar.b(aVar);
-            this.a.O(aVar);
-        }
+        Charset forName = Charset.forName("UTF-8");
+        a = forName;
+        forName.newDecoder();
     }
 }

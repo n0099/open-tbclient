@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TwAnchorProfitItem;
+import tbclient.NativeApp;
 /* loaded from: classes7.dex */
-public class k5d extends qoc {
+public class k5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TwAnchorProfitItem twAnchorProfitItem) {
+    public static JSONObject b(@NonNull NativeApp nativeApp) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, twAnchorProfitItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nativeApp)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "id", twAnchorProfitItem.id);
-            qoc.a(jSONObject, "available_anchor_level", twAnchorProfitItem.available_anchor_level);
-            qoc.a(jSONObject, "name", twAnchorProfitItem.name);
-            qoc.a(jSONObject, "icon_unlock_url", twAnchorProfitItem.icon_unlock_url);
-            qoc.a(jSONObject, "icon_lock_url", twAnchorProfitItem.icon_lock_url);
+            ltc.a(jSONObject, "jump_and", nativeApp.jump_and);
+            ltc.a(jSONObject, "jump_ios", nativeApp.jump_ios);
+            ltc.a(jSONObject, "download_and", nativeApp.download_and);
+            ltc.a(jSONObject, "download_ios", nativeApp.download_ios);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

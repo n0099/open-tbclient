@@ -1,12 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
 public interface bub {
-    public static final ServiceReference a = new ServiceReference("voyager", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM);
+    int a(byte[] bArr, int i);
 
-    void a();
+    boolean a();
 
-    void b();
+    boolean a(int i, int i2, int i3, int i4);
+
+    byte[] a(int i);
+
+    boolean b();
+
+    void c();
+
+    void d();
+
+    void e();
 }

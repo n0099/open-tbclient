@@ -1,47 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.FeedAuthorSocial;
-import tbclient.FeedHeadImg;
-import tbclient.FeedHeadSymbol;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bsc extends qoc {
+public abstract class bsc<E> extends yrc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedAuthorSocial feedAuthorSocial) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bsc(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedAuthorSocial)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            FeedHeadImg feedHeadImg = feedAuthorSocial.image_data;
-            if (feedHeadImg != null) {
-                qoc.a(jSONObject, "image_data", qsc.b(feedHeadImg));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (feedAuthorSocial.main_data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol : feedAuthorSocial.main_data) {
-                    jSONArray.put(rsc.b(feedHeadSymbol));
-                }
-                qoc.a(jSONObject, "main_data", jSONArray);
-            }
-            Agree agree = feedAuthorSocial.agree;
-            if (agree != null) {
-                qoc.a(jSONObject, "agree", hpc.b(agree));
-            }
-            qoc.a(jSONObject, "comment_num", feedAuthorSocial.comment_num);
-            qoc.a(jSONObject, "share_num", feedAuthorSocial.share_num);
-            qoc.a(jSONObject, "tid", feedAuthorSocial.tid);
-            qoc.a(jSONObject, "fid", feedAuthorSocial.fid);
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

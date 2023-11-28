@@ -1,133 +1,108 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webpanel.PanelScrollView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class d41 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public k41 a;
-    public PanelScrollView b;
-    public final Activity c;
-    public final ViewGroup d;
 
-    public d41(Activity activity, ViewGroup rootView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, rootView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654472, "Lcom/baidu/tieba/d41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654472, "Lcom/baidu/tieba/d41;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.c = activity;
-        this.d = rootView;
-        this.a = e41.a().a(this.c);
-        this.b = new PanelScrollView(this.c);
+        b = new a(null);
     }
 
-    public final void a(m41 listener) {
-        PanelScrollView panelScrollView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            k41 k41Var = this.a;
-            if (k41Var != null && (panelScrollView = this.b) != null) {
-                panelScrollView.k(k41Var, listener);
-            }
-            PanelScrollView panelScrollView2 = this.b;
-            if (panelScrollView2 != null) {
-                this.d.setClipChildren(false);
-                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
-            }
-        }
+    public static final /* synthetic */ void b(boolean z) {
     }
 
-    public final PanelScrollView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (PanelScrollView) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final View.OnTouchListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.r();
-            }
-            k41 k41Var = this.a;
-            if (k41Var != null) {
-                k41Var.onDestroy();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k41 k41Var = this.a;
-            if (k41Var != null) {
-                return k41Var.f();
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return d41.a;
             }
-            return false;
+            return invokeV.booleanValue;
         }
-        return invokeV.booleanValue;
-    }
 
-    public final void d(String javaScript) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
-            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
-            k41 k41Var = this.a;
-            if (k41Var != null) {
-                k41Var.q(javaScript);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                d41.b(z);
             }
         }
-    }
 
-    public final void f(o41 nadWebPanelModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
-            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
-            k41 k41Var = this.a;
-            if (k41Var != null) {
-                k41Var.j(nadWebPanelModel);
+        public final void c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                d41.a = z;
             }
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.setPanelData(nadWebPanelModel);
+        }
+
+        @JvmStatic
+        public final void d(Context context, p41 p41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, context, p41Var) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                if (v41.a() || a()) {
+                    return;
+                }
+                if (p41Var == null) {
+                    n61.d(new IllegalArgumentException("Error, WebPanel Data Model is NUll."));
+                }
+                if (context instanceof Activity) {
+                    h41 h41Var = new h41(context);
+                    h41Var.i(p41Var);
+                    h41Var.k();
+                    return;
+                }
+                n61.d(new IllegalArgumentException("Error, WebPanel need context is Activity."));
             }
         }
     }

@@ -1,23 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.tbadk.core.data.AbstractData;
-import com.baidu.tbadk.data.MetaData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wra {
+public final class wra extends cg1<ol5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
-    public List<AbstractData> b;
+
+    /* loaded from: classes8.dex */
+    public static final class a implements ol5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ol5
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return HomeSpriteEdgeFloatManager.l.c().S();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ol5
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return era.a.a();
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     public wra() {
         Interceptable interceptable = $ic;
@@ -29,33 +62,19 @@ public class wra {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public ol5 createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("id");
-                MetaData metaData = new MetaData();
-                this.a = metaData;
-                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
-                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.b = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        AbstractData abstractData = new AbstractData();
-                        abstractData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(abstractData);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
+        return (ol5) invokeV.objValue;
     }
 }

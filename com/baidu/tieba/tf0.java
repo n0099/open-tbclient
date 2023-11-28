@@ -8,25 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface tf0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cyber");
+    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
     public static final tf0 b = new a();
 
-    boolean a();
+    String a(String str);
 
     /* loaded from: classes8.dex */
     public class a implements tf0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.tf0
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,6 +30,16 @@ public interface tf0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.tf0
+        public String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
+            }
+            return (String) invokeL.objValue;
         }
     }
 }

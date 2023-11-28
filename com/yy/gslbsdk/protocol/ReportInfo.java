@@ -3,7 +3,7 @@ package com.yy.gslbsdk.protocol;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ReportInfo {
     public LinkedList<HijackInfo> hijack;
     public HashMap<String, StatsInfo> stats1;
@@ -11,7 +11,7 @@ public class ReportInfo {
     public String host = null;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1223view = null;
+    public String f1224view = null;
     public NetStatusInfo netInfo = null;
     public StatsInfo stats0 = null;
     public int ct = -1;
@@ -69,7 +69,7 @@ public class ReportInfo {
     }
 
     public String getView() {
-        return this.f1223view;
+        return this.f1224view;
     }
 
     public void setCt(int i) {
@@ -113,6 +113,6 @@ public class ReportInfo {
     }
 
     public void setView(String str) {
-        this.f1223view = str;
+        this.f1224view = str;
     }
 }

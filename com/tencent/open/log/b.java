@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 /* loaded from: classes10.dex */
 public class b {
-    public static SimpleDateFormat a = d.C0713d.a("yy.MM.dd.HH");
+    public static SimpleDateFormat a = d.C0753d.a("yy.MM.dd.HH");
     public File g;
     public String b = "Tracer.File";
     public int c = Integer.MAX_VALUE;

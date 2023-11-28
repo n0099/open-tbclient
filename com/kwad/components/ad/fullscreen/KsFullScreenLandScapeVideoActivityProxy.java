@@ -2,15 +2,14 @@ package com.kwad.components.ad.fullscreen;
 
 import androidx.annotation.Keep;
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.KsFullScreenLandScapeVideoActivity;
 @KsAdSdkDynamicImpl(KsFullScreenLandScapeVideoActivity.class)
 @Keep
 /* loaded from: classes10.dex */
 public class KsFullScreenLandScapeVideoActivityProxy extends KsFullScreenVideoActivityProxy {
-    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
+    @InvokeBy(invokerClass = com.kwad.sdk.service.b.class, methodId = "initComponentProxyForInvoker")
     public static void register() {
-        KsAdSDKImpl.putComponentProxy(KsFullScreenLandScapeVideoActivity.class, KsFullScreenLandScapeVideoActivityProxy.class);
+        com.kwad.sdk.service.b.a(KsFullScreenLandScapeVideoActivity.class, KsFullScreenLandScapeVideoActivityProxy.class);
     }
 }

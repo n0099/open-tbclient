@@ -1,162 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLevelInfo.DataRes;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ComponentFactory;
+import tbclient.FeedAuthorSocial;
+import tbclient.FeedContentResource;
+import tbclient.FeedVideoComponent;
+import tbclient.LayoutFactory;
+import tbclient.TitleComponent;
+import tbclient.VideoDoubleRowLayout;
+import tbclient.VideoField;
 /* loaded from: classes5.dex */
-public class ao7<T> {
+public final class ao7 implements w87<LayoutFactory> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public BaseActivity<T> b;
-    public NetMessageListener c;
-    public CustomMessageListener d;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(DataRes dataRes, boolean z, int i, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ao7 ao7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao7Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
-                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
-                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
-                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ao7 ao7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
-                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public ao7(c cVar, BaseActivity<T> baseActivity) {
+    public ao7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
-        this.d = new b(this, 2003007);
-        this.a = cVar;
-        this.b = baseActivity;
-        b();
     }
 
-    public void c(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.w87
+    /* renamed from: a */
+    public nb7<?> b(LayoutFactory layoutFactory) {
+        InterceptResult invokeL;
+        VideoDoubleRowLayout videoDoubleRowLayout;
+        boolean z;
+        String str;
+        VideoField videoField;
+        boolean z2;
+        List<FeedContentResource> list;
+        wi7 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
-            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
-            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutFactory)) == null) {
+            if (layoutFactory != null) {
+                videoDoubleRowLayout = layoutFactory.double_row_video;
+            } else {
+                videoDoubleRowLayout = null;
+            }
+            if (videoDoubleRowLayout != null) {
+                List<ComponentFactory> list2 = layoutFactory.double_row_video.components;
+                if (list2 != null && !list2.isEmpty()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                    n67 n67Var = new n67();
+                    VideoDoubleRowLayout videoDoubleRowLayout2 = layoutFactory.double_row_video;
+                    Intrinsics.checkNotNullExpressionValue(videoDoubleRowLayout2, "originData.double_row_video");
+                    o67.c(n67Var, videoDoubleRowLayout2);
+                    i87 i87Var = new i87();
+                    x47 x47Var = null;
+                    u47 u47Var = null;
+                    wi7 wi7Var = null;
+                    for (ComponentFactory componentFactory : layoutFactory.double_row_video.components) {
+                        String str2 = componentFactory.component;
+                        if (str2 != null) {
+                            int hashCode = str2.hashCode();
+                            if (hashCode != -1611940928) {
+                                if (hashCode != 582564983) {
+                                    if (hashCode == 584396442 && str2.equals("feed_video")) {
+                                        FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
+                                        if (feedVideoComponent != null) {
+                                            str = feedVideoComponent.schema;
+                                        } else {
+                                            str = null;
+                                        }
+                                        if (str == null) {
+                                            str = "";
+                                        }
+                                        i87Var.j(o97.a(str, n67Var));
+                                        FeedVideoComponent feedVideoComponent2 = componentFactory.feed_video;
+                                        if (feedVideoComponent2 != null && (videoField = feedVideoComponent2.video_info) != null) {
+                                            x47Var = o97.b(videoField, i87Var, n67Var);
+                                        }
+                                    }
+                                } else if (str2.equals("feed_title")) {
+                                    List<ComponentFactory> list3 = layoutFactory.double_row_video.components;
+                                    Intrinsics.checkNotNullExpressionValue(list3, "originData.double_row_video.components");
+                                    u47 u47Var2 = new u47(spannableStringBuilder, sa7.a(list3), m97.a(n67Var.a()));
+                                    TitleComponent titleComponent = componentFactory.feed_title;
+                                    if (titleComponent != null && (list = titleComponent.data) != null) {
+                                        l97.a(list, spannableStringBuilder, n67Var, u47Var2);
+                                    }
+                                    if (spannableStringBuilder.length() > 0) {
+                                        z2 = true;
+                                    } else {
+                                        z2 = false;
+                                    }
+                                    if (z2) {
+                                        u47Var = u47Var2;
+                                    }
+                                }
+                            } else if (str2.equals("feed_author_social")) {
+                                FeedAuthorSocial feedAuthorSocial = componentFactory.feed_author_social;
+                                if (feedAuthorSocial != null) {
+                                    b = bo7.b(feedAuthorSocial, i87Var);
+                                    wi7Var = b;
+                                } else {
+                                    wi7Var = null;
+                                }
+                            }
+                        }
+                    }
+                    if (x47Var != null && wi7Var != null) {
+                        ob7 ob7Var = new ob7(new xf7(x47Var, u47Var, wi7Var, Intrinsics.areEqual(n67Var.a().a().get("is_grey_mode"), "1"), Intrinsics.areEqual(n67Var.a().a().get("can_multi_manage"), "1"), n67Var.a().a().get("thread_id"), n67Var.a().a().get("user_id"), null, null, n67Var.a().a(), n67Var.c().a(), null, null, 6528, null), "staggered_video");
+                        ob7Var.b = n67Var.a();
+                        ob7Var.a = n67Var.c();
+                        return ob7Var;
+                    }
+                    do7.a("瀑布流视频item数据，缺少必须数据：视频数据和人信息数据");
+                }
+            }
+            return null;
         }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
-            getLevelInfoRequestMessage.setForumId(i);
-            this.b.sendMessage(getLevelInfoRequestMessage);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.registerListener(this.d);
-            this.b.registerListener(this.c);
-        }
+        return (nb7) invokeL.objValue;
     }
 }

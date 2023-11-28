@@ -1,28 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wi7 implements ti7 {
+public final class wi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Integer[] a;
-    public final Function2<Integer, Intent, Unit> b;
+    public final String a;
+    public final String b;
+    public final List<h67> c;
+    public final long d;
+    public final i87 e;
+    public final List<d87> f;
 
-    public wi7(Integer[] codes, Function2<? super Integer, ? super Intent, Unit> onActivityResult) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof wi7) {
+                wi7 wi7Var = (wi7) obj;
+                return Intrinsics.areEqual(this.a, wi7Var.a) && Intrinsics.areEqual(this.b, wi7Var.b) && Intrinsics.areEqual(this.c, wi7Var.c) && this.d == wi7Var.d && Intrinsics.areEqual(this.e, wi7Var.e) && Intrinsics.areEqual(this.f, wi7Var.f);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
+            List<h67> list = this.c;
+            int hashCode3 = (((((hashCode2 + (list == null ? 0 : list.hashCode())) * 31) + c.a(this.d)) * 31) + this.e.hashCode()) * 31;
+            List<d87> list2 = this.f;
+            return hashCode3 + (list2 != null ? list2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "StaggeredVideoAuthorData(imgUrl=" + this.a + ", imgSchema=" + this.b + ", mainData=" + this.c + ", commentNum=" + this.d + ", videoSchemaData=" + this.e + ", manageItemList=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public wi7(String str, String str2, List<? extends h67> list, long j, i87 videoSchemaData, List<d87> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {codes, onActivityResult};
+            Object[] objArr = {str, str2, list, Long.valueOf(j), videoSchemaData, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,27 +75,57 @@ public final class wi7 implements ti7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(codes, "codes");
-        Intrinsics.checkNotNullParameter(onActivityResult, "onActivityResult");
-        this.a = codes;
-        this.b = onActivityResult;
+        Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+        this.a = str;
+        this.b = str2;
+        this.c = list;
+        this.d = j;
+        this.e = videoSchemaData;
+        this.f = list2;
     }
 
-    @Override // com.baidu.tieba.ti7
-    public void a(int i, Intent intent) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intent) == null) {
-            this.b.invoke(Integer.valueOf(i), intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.ti7
-    public Integer[] b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (Integer[]) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final List<h67> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<d87> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (List) invokeV.objValue;
     }
 }

@@ -1,11 +1,21 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes7.dex */
-public interface lda<T> {
-    void a(int i, int i2);
+public interface lda {
+    int getCurrentPosition();
 
-    void c(int i, int i2, kda kdaVar, T t);
+    String getPlayUrl();
 
-    void d(int i, int i2, int i3, kda kdaVar, T t);
+    View getVideoContainer();
 
-    void e(int i, int i2, T t, kda kdaVar, T t2);
+    boolean isFullScreen();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void startPlay();
+
+    void stopPlay();
 }

@@ -5,7 +5,7 @@ import com.yy.hiidostatis.message.module.sessionreport.EventValue;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface SessionReportWrapper {
     void beginSession(String str, String str2, long j, Map<String, Long> map);
 

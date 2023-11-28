@@ -1,40 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.tieba.j20;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.tieba.g20;
+import com.baidu.tieba.t20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public final class e20 {
+public class e20 implements g20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @Nullable
-    public Runnable c;
-    @Nullable
-    public Executor d;
-    public final Deque<j20.a> e;
-    public final Deque<j20.a> f;
-    public final Deque<j20> g;
+    public final q20 a;
+    public n20 b;
+    public boolean c;
 
-    public e20() {
+    public e20(l20 l20Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l20Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,155 +35,62 @@ public final class e20 {
                 return;
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
+        t20.b b = t20.b();
+        b.c(l20Var);
+        this.a = b.b();
     }
 
-    public synchronized Executor c() {
-        InterceptResult invokeV;
-        Executor executor;
+    @Override // com.baidu.tieba.g20
+    public Response a(g20.a aVar) throws IOException {
+        InterceptResult invokeL;
+        long contentLength;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
-                }
-                executor = this.d;
-            }
-            return executor;
-        }
-        return (Executor) invokeV.objValue;
-    }
-
-    public e20(Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
-        this.d = executor;
-    }
-
-    public synchronized void a(j20.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (this.f.size() < this.a && i(aVar) < this.b) {
-                    this.f.add(aVar);
-                    c().execute(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            if (!this.c) {
+                w20 w20Var = (w20) aVar;
+                Request request = aVar.request();
+                NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+                if (request.body() == null) {
+                    contentLength = 0;
                 } else {
-                    this.e.add(aVar);
+                    contentLength = request.body().contentLength();
                 }
+                networkStatRecord.requestBodyLength = contentLength;
+                n20 c = c(request);
+                this.b = c;
+                return w20Var.b(request, c);
+            }
+            throw new IOException("The request has been cancelled.");
+        }
+        return (Response) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+            n20 n20Var = this.b;
+            if (n20Var != null) {
+                n20Var.disconnect();
             }
         }
     }
 
-    public final int i(j20.a aVar) {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final n20 c(Request request) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
-            int i = 0;
-            for (j20.a aVar2 : this.f) {
-                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
-                    i++;
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
+            return this.a.a(request);
         }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(j20 j20Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j20Var) == null) {
-            synchronized (this) {
-                this.g.add(j20Var);
-            }
-        }
-    }
-
-    public void d(j20.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            f(this.f, aVar, true);
-        }
-    }
-
-    public void e(j20 j20Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, j20Var) == null) {
-            f(this.g, j20Var, false);
-        }
-    }
-
-    public final <T> void f(Deque<T> deque, T t, boolean z) {
-        int h;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
-            synchronized (this) {
-                if (deque.remove(t)) {
-                    if (z) {
-                        g();
-                    }
-                    h = h();
-                    runnable = this.c;
-                } else {
-                    throw new AssertionError("Call wasn't in-flight!");
-                }
-            }
-            if (h == 0 && runnable != null) {
-                runnable.run();
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
-            return;
-        }
-        Iterator<j20.a> it = this.e.iterator();
-        while (it.hasNext()) {
-            j20.a next = it.next();
-            if (i(next) < this.b) {
-                it.remove();
-                this.f.add(next);
-                c().execute(next);
-            }
-            if (this.f.size() >= this.a) {
-                return;
-            }
-        }
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.f.size() + this.g.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+        return (n20) invokeL.objValue;
     }
 }

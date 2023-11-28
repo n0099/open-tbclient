@@ -1,42 +1,106 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.os.Bundle;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.forum.model.FrsPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ul7 implements j87<Object> {
+public final class ul7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ul7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.j87
-    public ab7<?> b(Object obj) {
+    public static final FrsPageRequestMessage a(Bundle bundle) {
         InterceptResult invokeL;
+        String str;
+        boolean z;
+        int i;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ThreadData)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            String string = bundle.getString("name");
+            String str2 = "";
+            if (string == null) {
+                string = "";
             }
-            d77 d77Var = new d77();
-            d77Var.a = obj;
-            return new bb7(new t27(d77Var), "fake_wall");
+            Uri uri = (Uri) bundle.getParcelable(IntentConfig.KEY_URI);
+            String str3 = (uri == null || (str3 = uri.toString()) == null) ? "" : "";
+            if (uri == null || (str = uri.getQueryParameter("name")) == null) {
+                if (uri != null) {
+                    str = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
+                } else {
+                    str = null;
+                }
+            }
+            if (string.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                if (str != null && str.length() != 0) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    string = str.toString();
+                }
+            }
+            FrsPageRequestMessage frsPageRequestMessage = new FrsPageRequestMessage();
+            frsPageRequestMessage.setSortType(-1);
+            frsPageRequestMessage.setDefaultSortType(0);
+            frsPageRequestMessage.setPn(1);
+            frsPageRequestMessage.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
+            frsPageRequestMessage.setHotThreadId(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
+            frsPageRequestMessage.setObjLocate("2");
+            frsPageRequestMessage.setObjSource("-2");
+            String urlEncode = rd.getUrlEncode(string);
+            Intrinsics.checkNotNullExpressionValue(urlEncode, "getUrlEncode(forumName)");
+            frsPageRequestMessage.setKw(urlEncode);
+            frsPageRequestMessage.setWithGroup(1);
+            frsPageRequestMessage.setCid(0);
+            frsPageRequestMessage.setScrW(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            frsPageRequestMessage.setScrH(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            frsPageRequestMessage.setScrDip(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            frsPageRequestMessage.setQType(i);
+            frsPageRequestMessage.setUpSchema(str3);
+            String string2 = bundle.getString("yuelaou_locate");
+            if (string2 == null) {
+                string2 = "";
+            }
+            frsPageRequestMessage.setYuelaoLocate(string2);
+            frsPageRequestMessage.setLastClickTid(JavaTypesHelper.toLong(fu5.a(), 0L));
+            String string3 = bundle.getString("from");
+            if (string3 != null) {
+                str2 = string3;
+            }
+            frsPageRequestMessage.setStType(str2);
+            frsPageRequestMessage.setDefaultNavTab(1);
+            frsPageRequestMessage.setLoadType(1);
+            if (ThreadData.isRecAppLoaded.get() && rha.m().b() != null) {
+                frsPageRequestMessage.setRefreshCount(rha.m().b().d(string, false) + 1);
+                frsPageRequestMessage.setLoadCount(rha.m().b().e(string, false));
+            }
+            frsPageRequestMessage.setNewFrs(1);
+            return frsPageRequestMessage;
         }
-        return (ab7) invokeL.objValue;
+        return (FrsPageRequestMessage) invokeL.objValue;
     }
 }

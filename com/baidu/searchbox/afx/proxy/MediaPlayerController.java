@@ -141,7 +141,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     long j = 1000;
                     final String valueOf = String.valueOf(System.currentTimeMillis() / j);
                     final String valueOf2 = String.valueOf(mediaPlayerController.mPrepareTime / j);
-                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.oh1
+                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.ph1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,7 +209,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
             final String str4 = str3;
             final String str5 = str;
             final String str6 = str2;
-            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.ph1
+            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.qh1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -256,7 +256,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                 return true;
             }
             if (i == 3) {
-                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.nh1
+                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.oh1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -596,7 +596,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     LogUtilKt.logD(TAG, "prepareAsync-IllegalStateException:" + e.getLocalizedMessage());
                     LogUtilKt.printException(e);
                     final String valueOf = String.valueOf(System.currentTimeMillis() / ((long) 1000));
-                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.qh1
+                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.rh1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

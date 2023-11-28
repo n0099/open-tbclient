@@ -3,130 +3,174 @@ package com.kwad.sdk.core.request.model;
 import android.content.Context;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.service.a.h;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-import com.kwad.sdk.utils.ac;
-import com.kwad.sdk.utils.ar;
-import com.kwad.sdk.utils.az;
-import com.kwad.sdk.utils.j;
-import com.kwad.sdk.utils.w;
+import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.aq;
+import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.bi;
+import com.kwad.sdk.utils.k;
+import com.kwad.sdk.utils.y;
 import org.json.JSONArray;
 @KsJson
 /* loaded from: classes10.dex */
-public class b extends com.kwad.sdk.core.response.kwai.a {
-    public String Ig;
-    public String LM;
-    public int LN;
-    public int LP;
-    public String LQ;
-    public int LS;
-    public int LT;
-    public String VB;
-    public String VC;
-    public String acA;
-    public String acB;
-    public JSONArray acC;
-    public String acD;
-    public String acF;
-    public String acG;
-    public String acH;
-    public String acJ;
-    public String acK;
-    public String acn;
-    public String aco;
-    public String acp;
-    public String acq;
-    public String acr;
-    public String acs;
-    public int act;
-    public int acu;
-    public String acv;
-    public String acw;
-    public String acx;
-    public int acy;
-    public String acz;
-    public int acE = 0;
-    public long acI = 0;
+public class b extends com.kwad.sdk.core.response.a.a {
+    public static boolean ayb;
+    public static JSONArray ayc;
+    public String RD;
+    public String WE;
+    public int WF;
+    public int WH;
+    public String WI;
+    public int WK;
+    public int WL;
+    public String arh;
+    public String ari;
+    public String ayA;
+    public String ayd;
+    public String aye;
+    public String ayf;
+    public String ayg;
+    public String ayh;
+    public String ayi;
+    public int ayj;
+    public int ayk;
+    public String ayl;
+    public String aym;
+    public String ayn;
+    public int ayo;
+    public String ayp;
+    public String ayq;
+    public String ayr;
+    public JSONArray ays;
+    public String ayt;
+    public String ayv;
+    public String ayw;
+    public String ayx;
+    public String ayz;
+    public int ayu = 0;
+    public long ayy = 0;
 
-    public static b f(boolean z, int i) {
+    public static boolean yr() {
+        return ((h) ServiceProvider.get(h.class)).yr();
+    }
+
+    public static b DR() {
         b bVar = new b();
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
-        Context context = dVar.getContext();
-        bVar.VB = ar.cI(context);
-        bVar.acn = ar.cL(context);
-        bVar.aco = ar.cM(context);
-        bVar.acp = az.dp(context);
-        bVar.VC = ar.getOaid();
-        bVar.acz = az.AE();
-        bVar.LM = az.AG();
-        bVar.LN = 1;
-        bVar.LP = az.AQ();
-        bVar.acs = az.getOsVersion();
-        bVar.LQ = j.getLanguage();
-        bVar.LT = j.getScreenHeight(context);
-        bVar.LS = j.getScreenWidth(context);
-        bVar.act = j.cd(context);
-        bVar.acu = j.ce(context);
-        bVar.acv = ar.cJ(context);
-        if (z) {
-            bVar.acC = InstalledAppInfoManager.ch(context);
-        }
-        bVar.acw = ar.getDeviceId();
-        bVar.acI = az.AF();
-        bVar.acx = az.AN();
-        bVar.acB = w.zE();
+        bVar.ari = av.getOaid();
+        bVar.aym = av.getDeviceId();
+        bVar.ayp = bi.Lu();
+        bVar.WF = 1;
+        bVar.WH = bi.LG();
+        bVar.ayi = bi.getOsVersion();
+        bVar.ayr = y.Kj();
         com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
         if (fVar != null) {
-            bVar.acA = fVar.nb();
+            bVar.ayq = fVar.om();
         }
-        bVar.acy = az.AO();
-        StringBuilder sb = new StringBuilder("DeviceInfo i=");
-        sb.append(dVar.getAppId());
-        sb.append(",n=");
-        sb.append(dVar.getAppName());
-        sb.append(",external:");
-        sb.append(dVar.getIsExternal());
-        sb.append(",v1:");
-        sb.append(dVar.getApiVersion());
-        sb.append(",v2:3.3.26");
-        sb.append(",d:");
-        sb.append(bVar.acw);
-        sb.append(",dh:");
-        String str = bVar.acw;
-        sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
-        sb.append(",o:");
-        sb.append(bVar.VC);
-        com.kwad.sdk.core.e.b.bT(sb.toString());
-        bVar.acD = az.AP();
-        bVar.acE = i;
-        if (lE()) {
-            bVar.acF = j.y(context, "com.smile.gifmaker");
-            bVar.acG = j.y(context, "com.kuaishou.nebula");
-            bVar.acH = j.y(context, "com.tencent.mm");
+        com.kwad.sdk.service.a.f fVar2 = (com.kwad.sdk.service.a.f) ServiceProvider.get(com.kwad.sdk.service.a.f.class);
+        if (fVar2 != null) {
+            bVar.arh = av.cv(fVar2.getContext());
         }
-        bVar.Ig = az.AL();
-        bVar.acr = ac.cu(context);
-        bVar.acJ = az.AU();
-        bVar.acK = az.ea(com.baidu.searchbox.antivr.b.a);
         return bVar;
     }
 
-    public static boolean lE() {
-        return ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lE();
+    public static synchronized JSONArray bh(Context context) {
+        synchronized (b.class) {
+            if (!ayb) {
+                ayb = true;
+                InstalledAppInfoManager.a(context, new com.kwad.sdk.g.a<JSONArray>() { // from class: com.kwad.sdk.core.request.model.b.1
+                    public static void g(JSONArray jSONArray) {
+                        JSONArray unused = b.ayc = jSONArray;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    @Override // com.kwad.sdk.g.a
+                    public final /* synthetic */ void accept(JSONArray jSONArray) {
+                        g(jSONArray);
+                    }
+                });
+            }
+            JSONArray jSONArray = ayc;
+            if (jSONArray == null) {
+                return null;
+            }
+            ayc = null;
+            return jSONArray;
+        }
     }
 
-    public static b uO() {
+    public static b h(boolean z, int i) {
+        Object obj;
         b bVar = new b();
-        bVar.VC = ar.getOaid();
-        bVar.acw = ar.getDeviceId();
-        bVar.acz = az.AE();
-        bVar.LN = 1;
-        bVar.LP = az.AQ();
-        bVar.acs = az.getOsVersion();
-        bVar.acB = w.zE();
+        Context Jn = ServiceProvider.Jn();
+        bVar.arh = av.cv(Jn);
+        bVar.ayd = av.cy(Jn);
+        bVar.aye = av.cz(Jn);
+        bVar.ayf = bi.cZ(Jn);
+        bVar.ari = av.getOaid();
+        bVar.ayp = bi.Lu();
+        bVar.WE = bi.Lw();
+        bVar.WF = 1;
+        bVar.WH = bi.LG();
+        bVar.ayi = bi.getOsVersion();
+        bVar.WI = k.getLanguage();
+        bVar.WL = k.getScreenHeight(Jn);
+        bVar.WK = k.getScreenWidth(Jn);
+        bVar.ayj = k.bT(Jn);
+        bVar.ayk = k.bU(Jn);
+        bVar.ayl = av.cw(Jn);
+        if (z) {
+            bVar.ays = bh(Jn);
+        }
+        bVar.aym = av.getDeviceId();
+        bVar.ayy = bi.Lv();
+        bVar.ayn = bi.LD();
+        bVar.ayr = y.Kj();
         com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
         if (fVar != null) {
-            bVar.acA = fVar.nb();
+            bVar.ayq = fVar.om();
         }
+        bVar.ayo = bi.LE();
+        com.kwad.sdk.service.a.f fVar2 = (com.kwad.sdk.service.a.f) ServiceProvider.get(com.kwad.sdk.service.a.f.class);
+        StringBuilder sb = new StringBuilder("DeviceInfo i=");
+        sb.append(fVar2.getAppId());
+        sb.append(",n=");
+        sb.append(fVar2.getAppName());
+        sb.append(",external:");
+        sb.append(fVar2.getIsExternal());
+        sb.append(",v1:");
+        sb.append(fVar2.getApiVersion());
+        sb.append(",v2:3.3.55");
+        sb.append(",d:");
+        sb.append(bVar.aym);
+        sb.append(",dh:");
+        String str = bVar.aym;
+        if (str != null) {
+            obj = Integer.valueOf(str.hashCode());
+        } else {
+            obj = "";
+        }
+        sb.append(obj);
+        sb.append(",o:");
+        sb.append(bVar.ari);
+        sb.append(",b:562");
+        sb.append(",p:");
+        sb.append(aq.isInMainProcess(Jn));
+        sb.append(",dy:");
+        sb.append(com.kwad.framework.a.a.ads);
+        com.kwad.sdk.core.e.c.m181do(sb.toString());
+        bVar.ayt = bi.LF();
+        bVar.ayu = i;
+        if (yr()) {
+            bVar.ayv = com.kwad.sdk.b.b.zt().getVersion(Jn, "com.smile.gifmaker");
+            bVar.ayw = com.kwad.sdk.b.b.zt().getVersion(Jn, "com.kuaishou.nebula");
+            bVar.ayx = com.kwad.sdk.b.b.zt().getVersion(Jn, "com.tencent.mm");
+        }
+        bVar.RD = bi.LB();
+        bVar.ayh = ae.ci(Jn);
+        bVar.ayz = bi.LK();
+        bVar.ayA = bi.gs(com.baidu.searchbox.antivr.b.a);
         return bVar;
     }
 }

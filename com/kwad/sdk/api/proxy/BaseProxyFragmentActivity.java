@@ -19,20 +19,6 @@ import com.kwad.sdk.api.loader.Wrapper;
 public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     public IFragmentActivityProxy mDelegate;
 
-    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
-        super.attachBaseContext(Wrapper.wrapContextIfNeed(context));
-        IFragmentActivityProxy delegate = getDelegate(context);
-        this.mDelegate = delegate;
-        delegate.setProxyFragmentActivity(this);
-        this.mDelegate.setActivity(this);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Context createConfigurationContext(Configuration configuration) {
-        return Wrapper.wrapContextIfNeed(super.createConfigurationContext(configuration));
-    }
-
     @NonNull
     public abstract IFragmentActivityProxy getDelegate(Context context);
 
@@ -57,49 +43,15 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     public Resources getResources() {
         Resources resources = super.getResources();
         Resources externalResource = Loader.get().getExternalResource();
-        return externalResource != null ? externalResource : resources;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.mDelegate.onActivityResult(i, i2, intent);
-    }
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        super.onApplyThemeResource(theme, i, z);
-        this.mDelegate.onApplyThemeResource(theme, i, z);
-    }
-
-    @Override // com.kwad.sdk.api.core.fragment.KsFragmentActivity
-    public void onAttachFragment(KsFragment ksFragment) {
-        super.onAttachFragment(ksFragment);
-        this.mDelegate.onAttachFragment(ksFragment);
+        if (externalResource != null) {
+            return externalResource;
+        }
+        return resources;
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         this.mDelegate.onBackPressed();
-    }
-
-    @Override // android.app.Activity
-    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        super.onChildTitleChanged(activity, charSequence);
-        this.mDelegate.onChildTitleChanged(activity, charSequence);
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        this.mDelegate.onConfigurationChanged(configuration);
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
-        this.mDelegate.onPreCreate(bundle);
-        super.onCreate(bundle);
-        this.mDelegate.onCreate(bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -110,38 +62,11 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         Wrapper.onDestroy(this);
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyDown(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyLongPress(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyUp(i, keyEvent);
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        this.mDelegate.onNewIntent(intent);
-    }
-
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         this.mDelegate.onPrePause();
         super.onPause();
         this.mDelegate.onPause();
-    }
-
-    @Override // android.app.Activity
-    public void onPostCreate(@Nullable Bundle bundle) {
-        super.onPostCreate(bundle);
-        this.mDelegate.onPostCreate(bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -156,24 +81,11 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onRestart();
     }
 
-    @Override // android.app.Activity
-    public void onRestoreInstanceState(@NonNull Bundle bundle) {
-        super.onRestoreInstanceState(bundle);
-        this.mDelegate.onRestoreInstanceState(bundle);
-    }
-
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         this.mDelegate.onPreResume();
         super.onResume();
         this.mDelegate.onResume();
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
-        this.mDelegate.onPreSaveInstanceState(bundle);
-        super.onSaveInstanceState(bundle);
-        this.mDelegate.onSaveInstanceState(bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -191,15 +103,70 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i) {
-        super.onTitleChanged(charSequence, i);
-        this.mDelegate.onTitleChanged(charSequence, i);
-    }
-
-    @Override // android.app.Activity
     public void onUserLeaveHint() {
         super.onUserLeaveHint();
         this.mDelegate.onUserLeaveHint();
+    }
+
+    public void superOnBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        this.mDelegate = getDelegate(context);
+        super.attachBaseContext(Wrapper.wrapContextIfNeed(context));
+        this.mDelegate.setProxyFragmentActivity(this);
+        this.mDelegate.setActivity(this);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Context createConfigurationContext(Configuration configuration) {
+        return Wrapper.wrapContextIfNeed(super.createConfigurationContext(configuration));
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.KsFragmentActivity
+    public void onAttachFragment(KsFragment ksFragment) {
+        super.onAttachFragment(ksFragment);
+        this.mDelegate.onAttachFragment(ksFragment);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        this.mDelegate.onConfigurationChanged(configuration);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(@Nullable Bundle bundle) {
+        this.mDelegate.onPreCreate(bundle);
+        super.onCreate(bundle);
+        this.mDelegate.onCreate(bundle);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.mDelegate.onNewIntent(intent);
+    }
+
+    @Override // android.app.Activity
+    public void onPostCreate(@Nullable Bundle bundle) {
+        super.onPostCreate(bundle);
+        this.mDelegate.onPostCreate(bundle);
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(@NonNull Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        this.mDelegate.onRestoreInstanceState(bundle);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
+        this.mDelegate.onPreSaveInstanceState(bundle);
+        super.onSaveInstanceState(bundle);
+        this.mDelegate.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -210,8 +177,43 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         super.startActivity(intent);
     }
 
-    public void superOnBackPressed() {
-        super.onBackPressed();
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        this.mDelegate.onActivityResult(i, i2, intent);
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+        super.onApplyThemeResource(theme, i, z);
+        this.mDelegate.onApplyThemeResource(theme, i, z);
+    }
+
+    @Override // android.app.Activity
+    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
+        super.onChildTitleChanged(activity, charSequence);
+        this.mDelegate.onChildTitleChanged(activity, charSequence);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyDown(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyLongPress(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyUp(i, keyEvent);
+    }
+
+    @Override // android.app.Activity
+    public void onTitleChanged(CharSequence charSequence, int i) {
+        super.onTitleChanged(charSequence, i);
+        this.mDelegate.onTitleChanged(charSequence, i);
     }
 
     public boolean superOnKeyDown(int i, KeyEvent keyEvent) {

@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,6 +32,8 @@ public class FrsSpriteNewUserGuide implements Serializable {
         @Nullable
         public ButtonInfo buttonInfo;
         public int disappearSeconds;
+        @Nullable
+        public ThemeColorInfo iconTheme;
         public int needSend;
         @Nullable
         public String sendText;
@@ -43,6 +46,7 @@ public class FrsSpriteNewUserGuide implements Serializable {
         public ThemeColorInfo textColor;
         @Nullable
         public String title;
+        public int type;
 
         public BubbleText() {
             Interceptable interceptable = $ic;
@@ -58,12 +62,22 @@ public class FrsSpriteNewUserGuide implements Serializable {
                 }
             }
             this.disappearSeconds = -1;
+            this.type = 1;
+        }
+
+        public boolean isTitleValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return StringUtils.isNotNull(this.title);
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isValid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return StringUtils.isNotNull(this.text);
             }
             return invokeV.booleanValue;
@@ -88,6 +102,8 @@ public class FrsSpriteNewUserGuide implements Serializable {
                 bubbleText.buttonInfo = ButtonInfo.parse(spriteBubble.button_info);
                 bubbleText.speechType = spriteBubble.speech_type.intValue();
                 bubbleText.disappearSeconds = spriteBubble.disappear_seconds.intValue();
+                bubbleText.type = spriteBubble.type.intValue();
+                bubbleText.iconTheme = spriteBubble.img;
                 return bubbleText;
             }
             return (BubbleText) invokeL.objValue;
@@ -158,10 +174,22 @@ public class FrsSpriteNewUserGuide implements Serializable {
         }
     }
 
-    public boolean isValid() {
+    public boolean isTitleAndDescValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (isValid() && this.bubbleText.isTitleValid()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BubbleText bubbleText = this.bubbleText;
             if (bubbleText != null && bubbleText.isValid()) {
                 return true;

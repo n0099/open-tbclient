@@ -2,7 +2,7 @@ package com.yy.gslbsdk.control;
 
 import com.baidu.searchbox.player.model.YYOption;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetworkStatus {
     public static final int IP_V4 = 1;
     public static final int IP_V6 = 2;
@@ -22,7 +22,7 @@ public class NetworkStatus {
     }
 
     public static NetworkStatus getInstanceClone() {
-        return getInstance().m850clone();
+        return getInstance().m854clone();
     }
 
     public boolean canV4() {
@@ -68,7 +68,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m850clone() {
+    public NetworkStatus m854clone() {
         NetworkStatus networkStatus = new NetworkStatus();
         networkStatus.mEnableV6 = this.mEnableV6;
         networkStatus.mStatus = this.mStatus;

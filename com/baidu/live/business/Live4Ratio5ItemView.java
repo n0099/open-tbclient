@@ -21,9 +21,9 @@ import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f60;
-import com.baidu.tieba.s80;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.g60;
+import com.baidu.tieba.t80;
+import com.baidu.tieba.x80;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
@@ -104,56 +104,56 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         setNeedRatio(true);
         setAspectRatio(1.25f);
         this.y = context;
-        View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d05d9, this);
-        this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0915cc);
-        this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0915e9);
-        this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d0);
-        this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d5);
-        this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915c8);
-        this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d2);
-        this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0915c9);
-        this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d1);
-        this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d4);
-        this.t = inflate.findViewById(R.id.obfuscated_res_0x7f0915be);
-        this.u = inflate.findViewById(R.id.obfuscated_res_0x7f091644);
-        this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091645);
-        this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09164c);
+        View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d05f2, this);
+        this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09163d);
+        this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09165a);
+        this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091641);
+        this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091646);
+        this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091639);
+        this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091643);
+        this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09163a);
+        this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091642);
+        this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091645);
+        this.t = inflate.findViewById(R.id.obfuscated_res_0x7f09162f);
+        this.u = inflate.findViewById(R.id.obfuscated_res_0x7f0916b5);
+        this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916b6);
+        this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0916bd);
     }
 
     public void e(String str) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(w80.f().a(getContext(), this.c, "color_white2"));
-        gradientDrawable.setCornerRadius(f60.b(getContext(), 10.0f));
+        gradientDrawable.setColor(x80.f().a(getContext(), this.c, "color_white2"));
+        gradientDrawable.setCornerRadius(g60.b(getContext(), 10.0f));
         setBackgroundDrawable(gradientDrawable);
         SimpleDraweeView simpleDraweeView = this.h;
         if (simpleDraweeView != null) {
-            simpleDraweeView.getHierarchy().setPlaceholderImage(w80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            this.h.getHierarchy().setFailureImage(w80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            simpleDraweeView.getHierarchy().setPlaceholderImage(x80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.h.getHierarchy().setFailureImage(x80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
         }
         SimpleDraweeView simpleDraweeView2 = this.i;
         if (simpleDraweeView2 != null) {
-            simpleDraweeView2.getHierarchy().setPlaceholderImage(w80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            this.i.getHierarchy().setFailureImage(w80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            simpleDraweeView2.getHierarchy().setPlaceholderImage(x80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.i.getHierarchy().setFailureImage(x80.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
         }
         TextView textView = this.k;
         if (textView != null) {
-            textView.setTextColor(w80.f().a(getContext(), this.c, "color_white3"));
+            textView.setTextColor(x80.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView2 = this.n;
         if (textView2 != null) {
-            textView2.setTextColor(w80.f().a(getContext(), this.c, "color_white3"));
+            textView2.setTextColor(x80.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView3 = this.l;
         if (textView3 != null) {
-            textView3.setTextColor(w80.f().a(getContext(), this.c, "color_white3"));
+            textView3.setTextColor(x80.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView4 = this.m;
         if (textView4 != null) {
-            textView4.setTextColor(w80.f().a(getContext(), this.c, "color_white3"));
+            textView4.setTextColor(x80.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView5 = this.v;
         if (textView5 != null) {
-            textView5.setTextColor(w80.f().a(getContext(), this.c, "color_white3"));
+            textView5.setTextColor(x80.f().a(getContext(), this.c, "color_white3"));
         }
     }
 
@@ -183,27 +183,27 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     }
                 }
             }
-            s80.h(this.k, 1, 14.0f);
+            t80.h(this.k, 1, 14.0f);
             this.k.setText(liveRoomEntity.title);
-            s80.h(this.n, 1, 14.0f);
+            t80.h(this.n, 1, 14.0f);
             LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
             if (liveHostInfo != null) {
                 this.n.setText(liveHostInfo.name);
                 this.i.setImageURI(liveRoomEntity.hostInfo.avatar);
             }
-            s80.h(this.l, 1, 10.0f);
-            s80.h(this.m, 1, 10.0f);
+            t80.h(this.l, 1, 10.0f);
+            t80.h(this.m, 1, 10.0f);
             if (liveRoomEntity.liveStatus == 0) {
                 this.l.setVisibility(8);
                 this.m.setVisibility(0);
                 this.m.setText(liveRoomEntity.formatReserveStartTime());
             } else {
-                this.l.setText(f60.a(this.y, liveRoomEntity.audienceCount));
+                this.l.setText(g60.a(this.y, liveRoomEntity.audienceCount));
                 this.l.setVisibility(0);
                 this.m.setVisibility(8);
             }
-            this.t.getLayoutParams().height = f60.b(getContext(), 61.0f);
-            this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f4c));
+            this.t.getLayoutParams().height = g60.b(getContext(), 61.0f);
+            this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f6c));
             LiveFeedConfig liveFeedConfig = this.d;
             if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
                 this.x = true;
@@ -220,8 +220,8 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 this.i.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setTypeface(Typeface.defaultFromStyle(1));
-                this.t.getLayoutParams().height = f60.b(getContext(), 35.0f);
-                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f46));
+                this.t.getLayoutParams().height = g60.b(getContext(), 35.0f);
+                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f66));
             }
             RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
             if (rightLableInfo != null && rightLableInfo.canShowLabel()) {
@@ -267,7 +267,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             if (view2 == null) {
                 View inflate = this.p.inflate();
                 this.q = inflate;
-                LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e8);
+                LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091659);
                 this.r = liveBaseLottieView;
                 liveBaseLottieView.setRepeatCount(-1);
                 this.r.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");

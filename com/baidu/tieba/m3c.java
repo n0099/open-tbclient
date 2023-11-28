@@ -1,71 +1,347 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.app.Activity;
 import android.content.Context;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.BaiduNativeManager;
+import com.baidu.mobads.sdk.api.NativeResponse;
+import com.baidu.mobads.sdk.api.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class m3c {
+public class m3c extends d3c<x2c> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<View, c> e;
+    public final FunNativeAdListenerHelper<x2c, NativeResponse.AdInteractionListener> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923180, "Lcom/baidu/tieba/m3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements BaiduNativeManager.FeedAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m3c a;
+
+        public a(m3c m3cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m3cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923180, "Lcom/baidu/tieba/m3c;");
+            this.a = m3cVar;
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onLpClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onNativeFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onNativeLoad(List<NativeResponse> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                if (list == null || list.isEmpty()) {
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (NativeResponse nativeResponse : list) {
+                    arrayList.add(new x2c(nativeResponse));
+                }
+                this.a.onAdLoaded(arrayList);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onNoAd(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onVideoDownloadFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.FeedAdListener
+        public void onVideoDownloadSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnAttachStateChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NativeResponse a;
+        public final /* synthetic */ m3c b;
+
+        public c(m3c m3cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m3cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m3cVar;
+        }
+
+        @Override // android.view.View.OnAttachStateChangeListener
+        public void onViewAttachedToWindow(View view2) {
+            NativeResponse nativeResponse;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (nativeResponse = this.a) == null) {
+                return;
+            }
+            nativeResponse.recordImpression(view2);
+        }
+
+        @Override // android.view.View.OnAttachStateChangeListener
+        public void onViewDetachedFromWindow(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m3c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new Object();
+        this.e = new HashMap<>();
+        this.f = new FunNativeAdListenerHelper<>(this);
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a != null) {
-                return a;
-            }
-            synchronized (b) {
-                if (a != null) {
-                    return a;
-                }
-                a = b(d3c.d().provideContext());
-                return a;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new a3c(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements NativeResponse.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x2c a;
+        public final /* synthetic */ m3c b;
+
+        public b(m3c m3cVar, x2c x2cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m3cVar, x2cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m3cVar;
+            this.a = x2cVar;
+        }
+
+        @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+        public void onADExposureFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                LogPrinter.e("BaiduFeedAd showNativeAd onADExposureFailed code: " + i, new Object[0]);
+                this.b.onAdError(this.a, i, "F:onADExposureFailed");
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+        public void onADStatusChanged() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+        public void onAdUnionClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+        public void onADExposed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.f.onAdShow(this.a);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.NativeResponse.AdInteractionListener
+        public void onAdClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.b.f.onAdClick(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        x2c x2cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (x2cVar = (x2c) obj) != null) {
+            this.f.destroy(x2cVar);
+            synchronized (this.e) {
+                Iterator<Map.Entry<View, c>> it = this.e.entrySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Map.Entry<View, c> next = it.next();
+                    View key = next.getKey();
+                    c value = next.getValue();
+                    if (value.a == x2cVar.a) {
+                        synchronized (value.b.e) {
+                            value.b.e.remove(key);
+                        }
+                        key.removeOnAttachStateChangeListener(value);
+                        break;
                     }
                 }
+                x2cVar.a = null;
+            }
+        }
+    }
+
+    public void f(x2c x2cVar, String str, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{x2cVar, str, viewGroup, list, list2, funAdInteractionListener}) == null) {
+            if (x2cVar.a == null) {
+                onAdError(x2cVar, "ad is null");
+                return;
+            }
+            b bVar = new b(this, x2cVar);
+            synchronized (this.e) {
+                c cVar = this.e.get(viewGroup);
+                if (cVar == null) {
+                    cVar = new c(this);
+                    viewGroup.addOnAttachStateChangeListener(cVar);
+                    this.e.put(viewGroup, cVar);
+                }
+                cVar.a = x2cVar.a;
+            }
+            this.f.startShow(x2cVar, str, this.mPid, bVar, funAdInteractionListener);
+            x2cVar.a.registerViewForInteraction(viewGroup, list, list2, bVar);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
+            x2c x2cVar = (x2c) obj;
+            NativeResponse nativeResponse = x2cVar.a;
+            if (nativeResponse == null) {
                 return null;
             }
-            return null;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, x2cVar, new s2c(nativeResponse), new p3c(this, this, context, str));
         }
-        return (String) invokeL.objValue;
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            new BaiduNativeManager(context.getApplicationContext(), this.mPid.pid).loadFeedAd(new RequestParameters.Builder().downloadAppConfirmPolicy(1).build(), new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            x2c x2cVar = (x2c) obj;
+            onShowStart(x2cVar);
+            NativeResponse nativeResponse = x2cVar.a;
+            if (nativeResponse == null) {
+                onAdError(x2cVar, "ad is null");
+                return false;
+            }
+            View a2 = k2c.a(activity, nativeResponse, new n3c(this, x2cVar));
+            viewGroup.removeAllViews();
+            viewGroup.addView(a2);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

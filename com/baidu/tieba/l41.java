@@ -1,44 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 /* loaded from: classes7.dex */
 public interface l41 {
-    public static final l41 a = new a();
+    void a();
 
-    k41 a(Activity activity);
+    ViewGroup.LayoutParams b();
 
-    /* loaded from: classes7.dex */
-    public class a implements l41 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void c(View.OnLayoutChangeListener onLayoutChangeListener);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void d();
 
-        @Override // com.baidu.tieba.l41
-        public k41 a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return new f41(activity);
-            }
-            return (k41) invokeL.objValue;
-        }
-    }
+    void e(int i);
+
+    boolean f();
+
+    void g(FrameLayout.LayoutParams layoutParams);
+
+    boolean h();
+
+    void i(int i);
+
+    void j(p41 p41Var);
+
+    void k(boolean z);
+
+    boolean l();
+
+    void m(ViewGroup viewGroup);
+
+    void o(i41 i41Var);
+
+    void onDestroy();
+
+    void q(String str);
+
+    void r(View.OnLayoutChangeListener onLayoutChangeListener);
+
+    void s(int i, boolean z);
+
+    void t(n41 n41Var);
+
+    void u();
 }

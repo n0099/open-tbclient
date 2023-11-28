@@ -119,7 +119,7 @@ public final class BotSkillMenuView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 c = null;
             }
-            c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e2d);
+            c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e37);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), 0, false);
             BotSkillMenuViewBinding botSkillMenuViewBinding2 = this.a;
             if (botSkillMenuViewBinding2 == null) {
@@ -156,7 +156,7 @@ public final class BotSkillMenuView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
-            getAdapter().o(listener);
+            getAdapter().p(listener);
         }
     }
 }

@@ -32,8 +32,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.kuaishou.weapon.p0.h;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
+import com.kuaishou.weapon.p0.g;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedReader;
 import java.io.File;
@@ -230,7 +230,7 @@ public class Utils {
                 if (Build.VERSION.SDK_INT >= 30) {
                     CyberLog.i(TAG, "android 11 no ExternalStorage Permission!");
                     return false;
-                } else if (packageManager.checkPermission(h.i, context.getPackageName()) != 0 || packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) != 0) {
+                } else if (packageManager.checkPermission(g.i, context.getPackageName()) != 0 || packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) != 0) {
                     return false;
                 } else {
                     return true;
@@ -508,7 +508,7 @@ public class Utils {
         String str = "";
         try {
             byte[] bArr = new byte[1024];
-            RandomAccessFile randomAccessFile = new RandomAccessFile(k1.a, "r");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(bk.a, "r");
             randomAccessFile.read(bArr);
             String str2 = new String(bArr);
             int indexOf = str2.indexOf(0);

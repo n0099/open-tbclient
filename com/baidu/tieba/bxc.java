@@ -5,37 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Size;
+import tbclient.FeedContentCustom;
 /* loaded from: classes5.dex */
-public class bxc extends qoc {
+public class bxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static Size b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull FeedContentCustom feedContentCustom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            Size.Builder builder = new Size.Builder();
-            if (jSONObject.has("width")) {
-                builder.width = Integer.valueOf(jSONObject.optInt("width"));
-            }
-            if (jSONObject.has("height")) {
-                builder.height = Integer.valueOf(jSONObject.optInt("height"));
-            }
-            return builder.build(true);
-        }
-        return (Size) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull Size size) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, size)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentCustom)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "width", size.width);
-            qoc.a(jSONObject, "height", size.height);
+            ltc.a(jSONObject, "style", feedContentCustom.style);
+            ltc.a(jSONObject, "data", feedContentCustom.data);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

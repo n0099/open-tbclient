@@ -14,8 +14,8 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wo5;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.ep5;
+import com.baidu.tieba.gp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wo5 a;
+    public ep5 a;
     public final NetMessageListener b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -96,7 +96,7 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
             String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e61);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f);
             if (StringUtils.isNull(errorString)) {
                 errorString = string;
             }
@@ -107,13 +107,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, wo5 wo5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, ep5 ep5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, wo5Var};
+            Object[] objArr = {tbPageContext, ep5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,7 +126,7 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = wo5Var;
+        this.a = ep5Var;
         registerListener(aVar);
     }
 
@@ -148,19 +148,19 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    wo5 wo5Var = this.a;
-                    if (wo5Var != null) {
-                        wo5Var.b();
+                    ep5 ep5Var = this.a;
+                    if (ep5Var != null) {
+                        ep5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    wo5 wo5Var2 = this.a;
-                    if (wo5Var2 != null) {
-                        wo5Var2.a();
+                    ep5 ep5Var2 = this.a;
+                    if (ep5Var2 != null) {
+                        ep5Var2.a();
                     }
                 } else {
-                    wo5 wo5Var3 = this.a;
-                    if (wo5Var3 != null) {
-                        wo5Var3.onError("");
+                    ep5 ep5Var3 = this.a;
+                    if (ep5Var3 != null) {
+                        ep5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
@@ -172,15 +172,15 @@ public class PayConfigModel extends BdBaseModel {
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!yo5.c().d()) {
-                wo5 wo5Var = this.a;
-                if (wo5Var != null) {
-                    wo5Var.a();
+            if (!gp5.c().d()) {
+                ep5 ep5Var = this.a;
+                if (ep5Var != null) {
+                    ep5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                wo5 wo5Var2 = this.a;
-                if (wo5Var2 != null) {
-                    wo5Var2.b();
+                ep5 ep5Var2 = this.a;
+                if (ep5Var2 != null) {
+                    ep5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

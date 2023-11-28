@@ -31,10 +31,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.k26;
-import com.baidu.tieba.m26;
-import com.baidu.tieba.tz5;
+import com.baidu.tieba.a06;
+import com.baidu.tieba.r26;
+import com.baidu.tieba.sha;
+import com.baidu.tieba.t26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public m26 a;
+    public t26 a;
     public String b;
     public final Runnable c;
     public String d;
@@ -247,7 +247,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e61);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
                     return;
                 }
                 this.a.a.f();
@@ -396,9 +396,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            m26 m26Var = this.a;
-            if (m26Var != null) {
-                m26Var.c();
+            t26 t26Var = this.a;
+            if (t26Var != null) {
+                t26Var.c();
             }
         }
     }
@@ -410,7 +410,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             if (URLUtil.isNetworkUrl(this.b)) {
                 showProgressBar();
                 loadUrl(this.b);
-            } else if (!N0(this.b)) {
+            } else if (!L0(this.b)) {
                 loadUrl(this.b);
             }
         }
@@ -529,19 +529,19 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            m26 m26Var = this.a;
-            if (m26Var != null) {
-                m26Var.n();
+            t26 t26Var = this.a;
+            if (t26Var != null) {
+                t26Var.n();
             }
             super.onDestroy();
         }
     }
 
-    public boolean N0(String str) {
+    public boolean L0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return ada.l(str, getApplicationContext());
+            return sha.l(str, getApplicationContext());
         }
         return invokeL.booleanValue;
     }
@@ -588,9 +588,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             super.onUserChanged(z);
-            m26 m26Var = this.a;
-            if (m26Var != null) {
-                m26Var.s(z);
+            t26 t26Var = this.a;
+            if (t26Var != null) {
+                t26Var.s(z);
             }
         }
     }
@@ -608,14 +608,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         return invokeIL.booleanValue;
     }
 
-    public boolean M0(String str) {
+    public boolean K0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (tz5.a().l()) {
+            if (a06.a().l()) {
                 return true;
             }
             for (String str2 : s) {
@@ -631,14 +631,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        m26 m26Var;
+        t26 t26Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
             super.onNewIntent(intent);
             this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
             this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            if (M0(this.b) && (m26Var = this.a) != null) {
-                m26Var.q(false);
+            if (K0(this.b) && (t26Var = this.a) != null) {
+                t26Var.q(false);
             }
             refresh();
         }
@@ -736,7 +736,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (str != null && !str.startsWith("http://") && !this.b.startsWith("https://")) {
             this.b = "http://".concat(this.b);
         }
-        if (M0(this.b)) {
+        if (K0(this.b)) {
             this.a.q(false);
         }
         this.e = intent.getBooleanExtra(WebViewActivityConfig.TAG_COOKIE, false);
@@ -870,7 +870,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 SafeHandler.getInst().post(this.l);
             } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
                 this.a.c();
-                k26.f(getPageContext().getPageActivity(), this.b);
+                r26.f(getPageContext().getPageActivity(), this.b);
             } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
                 this.a.c();
                 AndroidUtils.copyToClipboard(this.b);
@@ -886,7 +886,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.a = new m26(this);
+            this.a = new t26(this);
             initData();
             this.a.i();
             this.a.v(new c(this));

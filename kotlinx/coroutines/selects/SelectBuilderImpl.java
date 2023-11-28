@@ -368,7 +368,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
         Throwable unwrapImpl;
         if (trySelect()) {
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m855constructorimpl(ResultKt.createFailure(th)));
+            resumeWith(Result.m859constructorimpl(ResultKt.createFailure(th)));
         } else if (!(th instanceof CancellationException)) {
             Object result = getResult();
             if (result instanceof CompletedExceptionally) {
@@ -455,7 +455,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
                     Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(this.uCont);
                     Result.Companion companion = Result.Companion;
-                    intercepted.resumeWith(Result.m855constructorimpl(ResultKt.createFailure(th)));
+                    intercepted.resumeWith(Result.m859constructorimpl(ResultKt.createFailure(th)));
                     return;
                 }
             } else {
@@ -477,15 +477,15 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 }
             } else if (obj2 == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
-                    if (Result.m861isFailureimpl(obj)) {
+                    if (Result.m865isFailureimpl(obj)) {
                         Continuation<R> continuation = this.uCont;
-                        Throwable m858exceptionOrNullimpl = Result.m858exceptionOrNullimpl(obj);
-                        Intrinsics.checkNotNull(m858exceptionOrNullimpl);
+                        Throwable m862exceptionOrNullimpl = Result.m862exceptionOrNullimpl(obj);
+                        Intrinsics.checkNotNull(m862exceptionOrNullimpl);
                         Result.Companion companion = Result.Companion;
                         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
-                            m858exceptionOrNullimpl = StackTraceRecoveryKt.recoverFromStackFrame(m858exceptionOrNullimpl, (CoroutineStackFrame) continuation);
+                            m862exceptionOrNullimpl = StackTraceRecoveryKt.recoverFromStackFrame(m862exceptionOrNullimpl, (CoroutineStackFrame) continuation);
                         }
-                        continuation.resumeWith(Result.m855constructorimpl(ResultKt.createFailure(m858exceptionOrNullimpl)));
+                        continuation.resumeWith(Result.m859constructorimpl(ResultKt.createFailure(m862exceptionOrNullimpl)));
                         return;
                     }
                     this.uCont.resumeWith(obj);

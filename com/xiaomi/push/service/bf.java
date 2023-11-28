@@ -12,7 +12,7 @@ public class bf implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo553a() {
+    public void mo557a() {
         a aVar = a;
         if (aVar != null) {
             aVar.a();

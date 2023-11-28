@@ -4,7 +4,7 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PSCIMessageResponse extends ResponsePacket {
     public int appId;
     public int cmd;

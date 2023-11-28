@@ -2,10 +2,21 @@ package com.baidu.android.pushservice.message;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.w.k;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class LocalPushMsg implements Parcelable {
-    public static final Parcelable.Creator<LocalPushMsg> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<LocalPushMsg> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String a;
     public final String b;
     public final int c;
@@ -19,22 +30,73 @@ public class LocalPushMsg implements Parcelable {
 
     /* loaded from: classes.dex */
     public static class a implements Parcelable.Creator<LocalPushMsg> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public LocalPushMsg createFromParcel(Parcel parcel) {
-            return new LocalPushMsg(parcel);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new LocalPushMsg(parcel) : (LocalPushMsg) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public LocalPushMsg[] newArray(int i) {
-            return new LocalPushMsg[i];
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new LocalPushMsg[i] : (LocalPushMsg[]) invokeI.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1968556075, "Lcom/baidu/android/pushservice/message/LocalPushMsg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1968556075, "Lcom/baidu/android/pushservice/message/LocalPushMsg;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public LocalPushMsg(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readInt();
@@ -48,6 +110,20 @@ public class LocalPushMsg implements Parcelable {
     }
 
     public LocalPushMsg(k kVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kVar, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.a = kVar.a();
         this.b = kVar.h();
         this.c = kVar.i();
@@ -61,6 +137,20 @@ public class LocalPushMsg implements Parcelable {
     }
 
     public LocalPushMsg(String str, String str2, int i, int i2, long j, String str3, String str4, long j2, String str5, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str3, str4, Long.valueOf(j2), str5, bArr};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.a = str;
         this.b = str2;
         this.c = i;
@@ -74,65 +164,98 @@ public class LocalPushMsg implements Parcelable {
     }
 
     public String a() {
-        return this.a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public String b() {
-        return this.g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
     public long c() {
-        return this.h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.longValue;
     }
 
     public long d() {
-        return this.e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.longValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String e() {
-        return this.i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
     }
 
     public String f() {
-        return this.b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public int g() {
-        return this.d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public int h() {
-        return this.c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public byte[] i() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (byte[]) invokeV.objValue;
     }
 
     public String j() {
-        return this.f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     public String toString() {
-        return "LocalPushMsg{mAppId='" + this.a + "', mMsgId='" + this.b + "', mNotifyId=" + this.c + ", mMsgType=" + this.d + ", mIntervalTime=" + this.e + ", mStartTime='" + this.f + "', mEndTime='" + this.g + "', mExpireTime=" + this.h + ", mMsgBody='" + this.i + "'}";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "LocalPushMsg{mAppId='" + this.a + "', mMsgId='" + this.b + "', mNotifyId=" + this.c + ", mMsgType=" + this.d + ", mIntervalTime=" + this.e + ", mStartTime='" + this.f + "', mEndTime='" + this.g + "', mExpireTime=" + this.h + ", mMsgBody='" + this.i + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
-        parcel.writeString(this.b);
-        parcel.writeInt(this.c);
-        parcel.writeInt(this.d);
-        parcel.writeLong(this.e);
-        parcel.writeString(this.f);
-        parcel.writeString(this.g);
-        parcel.writeLong(this.h);
-        parcel.writeString(this.i);
-        parcel.writeByteArray(this.j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
+            parcel.writeString(this.a);
+            parcel.writeString(this.b);
+            parcel.writeInt(this.c);
+            parcel.writeInt(this.d);
+            parcel.writeLong(this.e);
+            parcel.writeString(this.f);
+            parcel.writeString(this.g);
+            parcel.writeLong(this.h);
+            parcel.writeString(this.i);
+            parcel.writeByteArray(this.j);
+        }
     }
 }

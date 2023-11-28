@@ -1,224 +1,214 @@
 package com.kwad.sdk.crash;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.storage.swankv.SwanKV;
+import com.kwad.sdk.crash.g;
+import com.kwad.sdk.crash.handler.AnrHandler;
+import com.kwad.sdk.crash.handler.NativeCrashHandler;
+import com.kwad.sdk.crash.model.message.ExceptionMessage;
+import com.kwad.sdk.utils.y;
+import java.io.File;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.aspectj.lang.JoinPoint;
 /* loaded from: classes10.dex */
 public final class b {
-    public final String acw;
-    public final boolean agB;
-    public final boolean agC;
-    public final com.kwad.sdk.crash.model.b agF;
-    public final com.kwad.sdk.crash.model.a agG;
-    public final g agH;
-    public final String[] agI;
-    public final String[] agJ;
-    public final boolean agK;
-    public final e agL;
-    public final String agM;
-    public final String agN;
-    public final String agO;
-    public final String agP;
-    public final String agQ;
-    public final Context context;
-    public final boolean isExternal;
-    public final String platform;
-    public final String version;
+    public static volatile boolean aDY;
+    public static volatile boolean aDZ;
+    public static Handler Wk = new Handler(Looper.getMainLooper());
+    public static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
+    public static final String[] aEa = {SwanKV.LIB_CPP_SHARED, "kscutils", JoinPoint.EXCEPTION_HANDLER};
+    public static boolean aEb = false;
+    public static boolean aEc = false;
 
-    /* loaded from: classes10.dex */
-    public static class a {
-        public String LH;
-        public int LI;
-        public int LJ;
-        public int abn;
-        public String acw;
-        public e agL;
-        public String agM;
-        public String agN;
-        public String agO;
-        public String agR;
-        public g agS;
-        public String[] agT;
-        public String[] agU;
-        public String appId;
-        public String appName;
-        public String appPackageName;
-        public String appVersion;
-        public Context context;
-        public String platform;
-        public String sdkVersion;
-        public String version;
-        public boolean agK = false;
-        public boolean agB = false;
-        public boolean agC = false;
-        public boolean isExternal = false;
-        public String agP = "";
-        public String agQ = "";
-
-        public final a a(e eVar) {
-            this.agL = eVar;
-            return this;
+    public static boolean FU() {
+        if (ISLOADED.get()) {
+            return true;
         }
-
-        public final a a(g gVar) {
-            this.agS = gVar;
-            return this;
-        }
-
-        public final a aR(boolean z) {
-            this.agB = z;
-            return this;
-        }
-
-        public final a aS(boolean z) {
-            this.agC = z;
-            return this;
-        }
-
-        public final a aT(boolean z) {
-            this.isExternal = z;
-            return this;
-        }
-
-        public final a bI(Context context) {
-            this.context = context;
-            return this;
-        }
-
-        public final a bc(int i) {
-            this.abn = i;
-            return this;
-        }
-
-        public final a bd(int i) {
-            this.LI = i;
-            return this;
-        }
-
-        public final a be(int i) {
-            this.LJ = 1;
-            return this;
-        }
-
-        public final a cL(String str) {
-            this.agP = str;
-            return this;
-        }
-
-        public final a cM(String str) {
-            this.agQ = str;
-            return this;
-        }
-
-        public final a cN(String str) {
-            this.platform = str;
-            return this;
-        }
-
-        public final a cO(String str) {
-            this.acw = str;
-            return this;
-        }
-
-        public final a cP(String str) {
-            this.agM = str;
-            return this;
-        }
-
-        public final a cQ(String str) {
-            this.agO = str;
-            return this;
-        }
-
-        public final a cR(String str) {
-            this.agR = str;
-            return this;
-        }
-
-        public final a cS(String str) {
-            this.sdkVersion = str;
-            return this;
-        }
-
-        public final a cT(String str) {
-            this.LH = str;
-            return this;
-        }
-
-        public final a cU(String str) {
-            this.appId = str;
-            return this;
-        }
-
-        public final a cV(String str) {
-            this.appName = str;
-            return this;
-        }
-
-        public final a cW(String str) {
-            this.appPackageName = str;
-            return this;
-        }
-
-        public final a cX(String str) {
-            this.appVersion = str;
-            return this;
-        }
-
-        public final a d(String[] strArr) {
-            this.agT = strArr;
-            return this;
-        }
-
-        public final a e(String[] strArr) {
-            this.agU = strArr;
-            return this;
-        }
-
-        public final b wy() {
-            return new b(this, (byte) 0);
+        try {
+            for (String str : aEa) {
+                System.loadLibrary(str);
+            }
+            ISLOADED.set(true);
+            return true;
+        } catch (Throwable unused) {
+            ISLOADED.set(false);
+            return false;
         }
     }
 
-    public b(a aVar) {
-        this.agF = new com.kwad.sdk.crash.model.b();
-        this.agG = new com.kwad.sdk.crash.model.a();
-        this.agK = aVar.agK;
-        this.agB = aVar.agB;
-        this.agC = aVar.agC;
-        this.isExternal = aVar.isExternal;
-        this.agP = aVar.agP;
-        this.agQ = aVar.agQ;
-        this.context = aVar.context;
-        this.agL = aVar.agL;
-        this.platform = aVar.platform;
-        this.version = aVar.version;
-        this.acw = aVar.acw;
-        this.agM = aVar.agM;
-        this.agN = aVar.agN;
-        this.agO = aVar.agO;
-        this.agG.mAppId = aVar.appId;
-        this.agG.mAppName = aVar.appName;
-        this.agG.ahu = aVar.appVersion;
-        this.agG.aht = aVar.appPackageName;
-        this.agF.ahx = aVar.LH;
-        this.agF.ahy = aVar.LI;
-        this.agF.mSdkVersion = aVar.sdkVersion;
-        this.agF.ahw = aVar.abn;
-        this.agF.ahv = aVar.agR;
-        this.agF.ahz = aVar.LJ;
-        this.agH = aVar.agS;
-        this.agI = aVar.agT;
-        this.agJ = aVar.agU;
+    public static void FV() {
+        AnrHandler.getInstance().init(com.kwad.sdk.crash.a.a.Gx(), new f() { // from class: com.kwad.sdk.crash.b.5
+            @Override // com.kwad.sdk.crash.f
+            public final void a(int i, ExceptionMessage exceptionMessage) {
+                e.Gl().b(i, exceptionMessage);
+            }
+        }, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.b.6
+            @Override // com.kwad.sdk.crash.report.e
+            public final File Gg() {
+                return new File(com.kwad.sdk.crash.a.a.Gv(), "anr_log/upload");
+            }
+
+            @Override // com.kwad.sdk.crash.report.e
+            public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+                com.kwad.sdk.core.e.c.d("AdExceptionCollector", "ANR upload");
+                a(exceptionMessage, 3, countDownLatch);
+            }
+        });
     }
 
-    public /* synthetic */ b(a aVar, byte b) {
-        this(aVar);
+    public static synchronized void FW() {
+        synchronized (b.class) {
+            if (!aDY) {
+                aDY = true;
+                com.kwad.sdk.core.threads.a.Ep().postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.b.8
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        try {
+                            b.FX();
+                        } catch (Throwable unused) {
+                        }
+                    }
+                }, TimeUnit.SECONDS.toMillis(d.aEE));
+            }
+        }
     }
 
-    public final e ww() {
-        return this.agL;
+    public static void FX() {
+        FY();
+        if (aEb) {
+            FZ();
+        }
+        if (aEc) {
+            Ga();
+        }
     }
 
-    public final boolean wx() {
-        return this.agK;
+    public static void FY() {
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", "reportJavaException");
+        com.kwad.sdk.crash.report.f fVar = new com.kwad.sdk.crash.report.f();
+        fVar.a(com.kwad.sdk.crash.handler.c.GB().getUploader());
+        fVar.C(com.kwad.sdk.crash.a.a.Gw());
+    }
+
+    public static void FZ() {
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", "reportAnrException");
+        com.kwad.sdk.crash.report.b bVar = new com.kwad.sdk.crash.report.b();
+        bVar.a(AnrHandler.getInstance().getUploader());
+        bVar.C(com.kwad.sdk.crash.a.a.Gx());
+    }
+
+    public static void Ga() {
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", "reportNativeException");
+        com.kwad.sdk.crash.report.g gVar = new com.kwad.sdk.crash.report.g();
+        gVar.a(NativeCrashHandler.getInstance().getUploader());
+        gVar.C(com.kwad.sdk.crash.a.a.Gy());
+    }
+
+    public static void a(@NonNull c cVar) {
+        if (cVar.context == null || aDZ) {
+            return;
+        }
+        aDZ = true;
+        aEb = cVar.aEb;
+        aEc = cVar.aEc;
+        try {
+            com.kwad.sdk.crash.utils.e.init(cVar.context);
+            com.kwad.sdk.crash.a.a.init(cVar.context, cVar.aEp);
+            e.Gl().a(cVar);
+            bu(cVar.context);
+            if (!bt(cVar.context) && (aEb || aEc)) {
+                g.a(cVar, new g.a() { // from class: com.kwad.sdk.crash.b.1
+                    @Override // com.kwad.sdk.crash.g.a
+                    public final void Ge() {
+                        b.Wk.post(new Runnable() { // from class: com.kwad.sdk.crash.b.1.1
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                com.kwad.sdk.core.e.c.w("AdExceptionCollector", "ExceptionSoLoadHelper.init onLoad");
+                                if (b.aEb) {
+                                    b.FV();
+                                }
+                                if (!b.aEc) {
+                                    return;
+                                }
+                                b.c(false, "/sdcard/");
+                            }
+                        });
+                    }
+
+                    @Override // com.kwad.sdk.crash.g.a
+                    public final void Gf() {
+                        com.kwad.sdk.core.e.c.w("AdExceptionCollector", "ExceptionSoLoadHelper.init fail");
+                    }
+                });
+            }
+            FW();
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static boolean bt(Context context) {
+        if (context == null || y.cb(context) >= 3) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void bu(Context context) {
+        com.kwad.sdk.crash.handler.c.GB().init(com.kwad.sdk.crash.a.a.Gw(), new f() { // from class: com.kwad.sdk.crash.b.3
+            @Override // com.kwad.sdk.crash.f
+            public final void a(int i, ExceptionMessage exceptionMessage) {
+                e.Gl().b(i, exceptionMessage);
+            }
+        }, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.b.4
+            @Override // com.kwad.sdk.crash.report.e
+            public final File Gg() {
+                return new File(com.kwad.sdk.crash.a.a.Gv(), "java_crash/upload");
+            }
+
+            @Override // com.kwad.sdk.crash.report.e
+            public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+                a(exceptionMessage, 1, countDownLatch);
+            }
+        });
+        Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.handler.d(context));
+    }
+
+    public static void m(@NonNull final Throwable th) {
+        com.kwad.sdk.utils.g.execute(new Runnable() { // from class: com.kwad.sdk.crash.b.2
+            @Override // java.lang.Runnable
+            public final void run() {
+                try {
+                    if (com.kwad.sdk.crash.b.a.n(th)) {
+                        com.kwad.sdk.crash.handler.a.o(th);
+                    }
+                } catch (Throwable th2) {
+                    com.kwad.sdk.core.e.c.printStackTrace(th2);
+                }
+            }
+        });
+    }
+
+    public static void c(boolean z, String str) {
+        if (!com.kwad.sdk.crash.a.a.A(com.kwad.sdk.crash.a.a.Gy())) {
+            return;
+        }
+        NativeCrashHandler.getInstance().init(com.kwad.sdk.crash.a.a.Gy(), z, str, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.b.7
+            @Override // com.kwad.sdk.crash.report.e
+            public final File Gg() {
+                return new File(com.kwad.sdk.crash.a.a.Gv(), "native_crash_log/upload");
+            }
+
+            @Override // com.kwad.sdk.crash.report.e
+            public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+                com.kwad.sdk.core.e.c.d("AdExceptionCollector", "Native upload");
+                a(exceptionMessage, 4, countDownLatch);
+            }
+        });
     }
 }

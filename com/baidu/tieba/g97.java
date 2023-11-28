@@ -1,36 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThreadRecommendInfo;
+import tbclient.FeedLiveComponent;
 /* loaded from: classes6.dex */
 public final class g97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<ab7<? extends Object>> mutableList, a67 feedExtraData) {
+    public static final void a(FeedLiveComponent feedLiveComponent, List<nb7<?>> dataList, n67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, threadRecommendInfo, mutableList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            mutableList.add(new bb7(new e47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
+            h77 h77Var = new h77();
+            h77Var.a = feedLiveComponent.top_label;
+            h77Var.b = feedLiveComponent.bottom_label;
+            h77Var.c = feedLiveComponent.audience_label;
+            h77Var.d = feedLiveComponent.cover_url;
+            h77Var.f = feedLiveComponent.schema;
+            h77Var.e = o67.e(feedExtraData, "live_head_show", null, 2, null);
+            dataList.add(new ob7(new l47(h77Var, CollectionsKt__CollectionsKt.listOf((Object[]) new a87[]{o67.e(feedExtraData, "live_click", null, 2, null), o67.e(feedExtraData, "live_click2", null, 2, null), o67.e(feedExtraData, "live_click3", null, 2, null)}), feedExtraData.a().a(), feedExtraData.c().a(), null, 16, null), "live"));
         }
-    }
-
-    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
-            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
-            threadRecommendInfoData.parseProto(threadRecommendInfo);
-            return threadRecommendInfoData;
-        }
-        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

@@ -9,32 +9,32 @@ public class am {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f103a;
+    public Handler f99a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f104a;
+    public a f100a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile b f105a;
+    public volatile b f101a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f106a;
+    public volatile boolean f102a;
     public final boolean b;
 
     /* loaded from: classes10.dex */
     public class a extends Thread {
 
         /* renamed from: a  reason: collision with other field name */
-        public final LinkedBlockingQueue<b> f107a;
+        public final LinkedBlockingQueue<b> f103a;
 
         public a() {
             super("PackageProcessor");
-            this.f107a = new LinkedBlockingQueue<>();
+            this.f103a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i, b bVar) {
             try {
-                am.this.f103a.sendMessage(am.this.f103a.obtainMessage(i, bVar));
+                am.this.f99a.sendMessage(am.this.f99a.obtainMessage(i, bVar));
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
@@ -42,7 +42,7 @@ public class am {
 
         public void a(b bVar) {
             try {
-                this.f107a.add(bVar);
+                this.f103a.add(bVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -51,10 +51,10 @@ public class am {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             long j = am.this.a > 0 ? am.this.a : Long.MAX_VALUE;
-            while (!am.this.f106a) {
+            while (!am.this.f102a) {
                 try {
-                    b poll = this.f107a.poll(j, TimeUnit.SECONDS);
-                    am.this.f105a = poll;
+                    b poll = this.f103a.poll(j, TimeUnit.SECONDS);
+                    am.this.f101a = poll;
                     if (poll != null) {
                         a(0, poll);
                         poll.b();
@@ -77,7 +77,7 @@ public class am {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo365c() {
+        public void mo369c() {
         }
     }
 
@@ -90,32 +90,32 @@ public class am {
     }
 
     public am(boolean z, int i) {
-        this.f103a = null;
-        this.f106a = false;
+        this.f99a = null;
+        this.f102a = false;
         this.a = 0;
-        this.f103a = new an(this, Looper.getMainLooper());
+        this.f99a = new an(this, Looper.getMainLooper());
         this.b = z;
         this.a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
-        this.f104a = null;
-        this.f106a = true;
+        this.f100a = null;
+        this.f102a = true;
     }
 
     public synchronized void a(b bVar) {
-        if (this.f104a == null) {
+        if (this.f100a == null) {
             a aVar = new a();
-            this.f104a = aVar;
+            this.f100a = aVar;
             aVar.setDaemon(this.b);
-            this.f106a = false;
-            this.f104a.start();
+            this.f102a = false;
+            this.f100a.start();
         }
-        this.f104a.a(bVar);
+        this.f100a.a(bVar);
     }
 
     public void a(b bVar, long j) {
-        this.f103a.postDelayed(new ao(this, bVar), j);
+        this.f99a.postDelayed(new ao(this, bVar), j);
     }
 }

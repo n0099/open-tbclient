@@ -50,7 +50,7 @@ public class a {
     public String S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1048T;
+    public String f1044T;
     public String U;
     public String V;
     public String W;
@@ -367,7 +367,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.f1048T;
+            return this.f1044T;
         }
         return (String) invokeV.objValue;
     }
@@ -582,7 +582,7 @@ public class a {
                 aVar.o = jSONObject.optInt("h");
                 aVar.p = jSONObject.optString("appname");
                 aVar.S = jSONObject.optString("adLogo");
-                aVar.f1048T = jSONObject.optString("baiduLogo");
+                aVar.f1044T = jSONObject.optString("baiduLogo");
                 aVar.Z = jSONObject.optInt("region_click", 2);
                 aVar.aa = jSONObject.optInt("dl_dialog", 2);
                 aVar.X = jSONObject.optString("btn");
@@ -718,7 +718,7 @@ public class a {
                                     aVar.M = c;
                                 }
                             }
-                        } else if (aVar.L.equals(com.kuaishou.weapon.p0.u.B)) {
+                        } else if (aVar.L.equals(com.kuaishou.weapon.p0.t.w)) {
                             aVar.M = e;
                         } else if (aVar.L.equals("video")) {
                             aVar.M = "video";
@@ -730,7 +730,7 @@ public class a {
                     aVar.P = jSONObject6.optLong(FileMetaUtil.CREATE_TIME, 0L);
                     aVar.Q = aVar.O.optLong("expireTime", i);
                     aVar.S = aVar.O.optString("adLogo", w.aI);
-                    aVar.f1048T = aVar.O.optString("baiduLogo", w.aJ);
+                    aVar.f1044T = aVar.O.optString("baiduLogo", w.aJ);
                     aVar.R = aVar.O.optString("uniqueId", "");
                 }
                 return aVar;

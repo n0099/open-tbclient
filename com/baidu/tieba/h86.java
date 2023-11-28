@@ -1,57 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h86 {
+public class h86 extends ci<l86, SdkDoubleLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<SdkLiveInfoData> b;
+    public TbPageContext a;
+    public p96 b;
+    public int c;
+    public boolean d;
 
-    public h86() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public h86(TbPageContext tbPageContext, int i, boolean z) {
+        super(r0, r1);
+        BdUniqueId bdUniqueId;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        if (z) {
+            bdUniqueId = l86.d;
+        } else {
+            bdUniqueId = l86.c;
+        }
+        this.a = tbPageContext;
+        this.c = i;
+        this.d = z;
     }
 
-    public void a(JSONObject jSONObject, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: t */
+    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new p96(this.a, viewGroup, this.c, this.d);
+            return new SdkDoubleLiveViewHolder(this.b);
         }
-        boolean z = true;
-        if (jSONObject.optInt("has_more") != 1) {
-            z = false;
-        }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                    sdkLiveInfoData.fromJson(optJSONObject, str);
-                    this.b.add(sdkLiveInfoData);
-                }
+        return (SdkDoubleLiveViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l86 l86Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
+        InterceptResult invokeCommon;
+        p96 p96Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l86Var, sdkDoubleLiveViewHolder})) == null) {
+            if (sdkDoubleLiveViewHolder != null && (p96Var = sdkDoubleLiveViewHolder.a) != null) {
+                p96Var.j(l86Var);
+                sdkDoubleLiveViewHolder.a.k(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return sdkDoubleLiveViewHolder.getView();
             }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

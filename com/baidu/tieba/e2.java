@@ -180,7 +180,7 @@ public final class e2 extends d2 {
                         this.d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.d.mo7getInput().I1();
+                this.d.mo7getInput().U1();
                 this.k++;
                 this.d.getApplicationListener().render();
             }

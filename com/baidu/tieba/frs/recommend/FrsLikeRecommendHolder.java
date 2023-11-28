@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kqa;
+import com.baidu.tieba.dva;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,16 +45,16 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d41);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d61);
         this.a = linearLayout;
         this.b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
-        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c3e);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c39);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c38);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c2c);
+        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5e);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c59);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c58);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c4c);
         BarImageView barImageView = this.b;
         if (barImageView != null) {
-            barImageView.setContentDescription(barImageView.getResources().getString(R.string.obfuscated_res_0x7f0f0324));
+            barImageView.setContentDescription(barImageView.getResources().getString(R.string.obfuscated_res_0x7f0f032c));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             BarImageView barImageView2 = this.b;
             barImageView2.setStrokeWith(BdUtilHelper.getDimens(barImageView2.getContext(), R.dimen.tbds3));
@@ -64,31 +64,31 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(kqa kqaVar) {
+    public void a(dva dvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kqaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, dvaVar) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.startLoad(kqaVar.b, 10, false);
+                barImageView.startLoad(dvaVar.b, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(kqaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0787));
+                symbolEMTextView.setText(dvaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f078f));
             }
             TextView textView = this.e;
             if (textView != null) {
-                textView.setText(kqaVar.e);
+                textView.setText(dvaVar.e);
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                textView2.setText(kqaVar.d);
+                textView2.setText(dvaVar.d);
             }
             TextView textView3 = this.f;
             if (textView3 != null) {
-                if (kqaVar.f) {
-                    textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f0772));
+                if (dvaVar.f) {
+                    textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f077a));
                 } else {
-                    textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f0857));
+                    textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f085f));
                 }
             }
         }

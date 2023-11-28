@@ -132,7 +132,7 @@ public final class LiveFeedFollowView extends FrameLayout {
     public final void g() {
         LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = this.b;
         if (liveFeedPageConcernAdapter != null) {
-            liveFeedPageConcernAdapter.q();
+            liveFeedPageConcernAdapter.r();
         }
     }
 

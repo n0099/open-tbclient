@@ -42,12 +42,12 @@ public class DomainException extends Exception {
         if (internal == null) {
             return false;
         }
-        if ((internal instanceof SocketTimeoutException) || (internal instanceof ConnectTimeoutException) || (internal instanceof SocketException) || (internal instanceof UnknownHostException)) {
-            return true;
+        if (!(internal instanceof SocketTimeoutException) && !(internal instanceof ConnectTimeoutException) && !(internal instanceof SocketException) && !(internal instanceof UnknownHostException)) {
+            if (!internal.getClass().getSimpleName().equalsIgnoreCase("ErrnoException") || (message = internal.getMessage()) == null) {
+                return false;
+            }
+            return this.CONNECT_ERR_PATTERN.matcher(message).find();
         }
-        if (!internal.getClass().getSimpleName().equalsIgnoreCase("ErrnoException") || (message = internal.getMessage()) == null) {
-            return false;
-        }
-        return this.CONNECT_ERR_PATTERN.matcher(message).find();
+        return true;
     }
 }

@@ -1,122 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.PaymentConfirmActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.CallRobotEntrance;
-import tbclient.StyleContentInfo;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes8.dex */
-public final class vw4 {
+public class vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CallRobotEntrance a;
-    public final StyleContentInfo b;
-    public final StyleContentInfo c;
-    public final boolean d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof vw4) {
-                vw4 vw4Var = (vw4) obj;
-                return Intrinsics.areEqual(this.a, vw4Var.a) && Intrinsics.areEqual(this.b, vw4Var.b) && Intrinsics.areEqual(this.c, vw4Var.c) && this.d == vw4Var.d;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            CallRobotEntrance callRobotEntrance = this.a;
-            int hashCode = (((((callRobotEntrance == null ? 0 : callRobotEntrance.hashCode()) * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
-            boolean z = this.d;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode + i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CallRobotEntranceData(robotEntrance=" + this.a + ", robotDayContentInfo=" + this.b + ", robotDarkContentInfo=" + this.c + ", isDefault=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public vw4(CallRobotEntrance callRobotEntrance, StyleContentInfo robotDayContentInfo, StyleContentInfo robotDarkContentInfo, boolean z) {
+    public vw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callRobotEntrance, robotDayContentInfo, robotDarkContentInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(robotDayContentInfo, "robotDayContentInfo");
-        Intrinsics.checkNotNullParameter(robotDarkContentInfo, "robotDarkContentInfo");
-        this.a = callRobotEntrance;
-        this.b = robotDayContentInfo;
-        this.c = robotDarkContentInfo;
-        this.d = z;
     }
 
-    public final StyleContentInfo a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (StyleContentInfo) invokeV.objValue;
+        try {
+            jSONObject.optString("book_id", "0");
+            jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            jSONObject.optInt(PaymentConfirmActivityConfig.BOOK_TYPE, 0);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
     }
 
-    public final StyleContentInfo b() {
-        InterceptResult invokeV;
+    public void b(BookThread bookThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) != null) || bookThread == null) {
+            return;
         }
-        return (StyleContentInfo) invokeV.objValue;
-    }
-
-    public final CallRobotEntrance c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (CallRobotEntrance) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
+        String str = bookThread.book_id;
+        bookThread.chapter_id.longValue();
+        bookThread.book_type.intValue();
     }
 }

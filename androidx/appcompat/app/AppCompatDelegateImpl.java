@@ -729,7 +729,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (i != 0) {
                 newTheme.applyStyle(i, true);
             }
-            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040568, typedValue, true);
+            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04056e, typedValue, true);
             int i2 = typedValue.resourceId;
             if (i2 != 0) {
                 newTheme.applyStyle(i2, true);
@@ -1616,7 +1616,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090894);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b0);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1656,7 +1656,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0925fe);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092683);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                 ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090080);
@@ -2150,9 +2150,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             z = false;
         }
         if (z) {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603c3);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603c5);
         } else {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603c2);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603c4);
         }
         view2.setBackgroundColor(color);
     }

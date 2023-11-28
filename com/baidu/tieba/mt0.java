@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 /* loaded from: classes7.dex */
 public interface mt0 {
-    void a(js0 js0Var);
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
-    int getExpectOrder();
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 /* loaded from: classes9.dex */
 public interface xa {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
+    void a(boolean z);
 
-    boolean netABTest();
+    void b(BdLocationMananger.c cVar);
 
-    boolean netBdABTest();
+    void c();
 
-    boolean qaHttpsTest();
+    void destroy();
 }

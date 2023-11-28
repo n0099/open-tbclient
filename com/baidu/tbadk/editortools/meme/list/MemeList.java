@@ -115,8 +115,8 @@ public final class MemeList extends RecyclerView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             this.a.updateData(data);
-            this.a.p(this.b);
-            this.a.q(this.c);
+            this.a.q(this.b);
+            this.a.r(this.c);
             a();
         }
     }

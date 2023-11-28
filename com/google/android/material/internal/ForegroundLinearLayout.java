@@ -16,7 +16,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     @Nullable
     public Drawable foreground;

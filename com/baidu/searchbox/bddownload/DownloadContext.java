@@ -13,6 +13,7 @@ import com.baidu.searchbox.bddownload.core.listener.DownloadListener;
 import com.baidu.searchbox.bddownload.core.listener.DownloadListenerBunch;
 import com.baidu.searchbox.bddownload.core.listener.DownloadTaskStartEndListener;
 import com.baidu.searchbox.bddownload.core.priority.PriorityStrategy;
+import com.baidu.tieba.ms;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -442,6 +443,6 @@ public class DownloadContext {
         } else {
             DownloadTask.enqueue(this.tasks, downloadListener);
         }
-        Util.d(TAG, "start finish " + z + " " + (SystemClock.uptimeMillis() - uptimeMillis) + "ms");
+        Util.d(TAG, "start finish " + z + " " + (SystemClock.uptimeMillis() - uptimeMillis) + ms.c);
     }
 }

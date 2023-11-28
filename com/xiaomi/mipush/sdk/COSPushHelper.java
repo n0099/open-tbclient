@@ -8,7 +8,7 @@ public class COSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f33a;
+    public static volatile boolean f29a;
 
     public static void convertMessage(Intent intent) {
         i.a(intent);
@@ -26,11 +26,11 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f33a;
+        return f29a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m253a(context);
+        return i.m257a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -42,18 +42,18 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m190a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f33a = z;
+            f29a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
-        i.m252a(context, e.ASSEMBLE_PUSH_COS, str);
+        i.m256a(context, e.ASSEMBLE_PUSH_COS, str);
     }
 }

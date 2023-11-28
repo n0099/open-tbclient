@@ -1,7 +1,2006 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface ajc extends uic, zic {
-    void c(String str);
 
-    void h(short s);
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.view.Surface;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.tieba.vhc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.util.UriUtil;
+import com.google.gson.Gson;
+import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ajc extends egc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public mhc A;
+    public dhc B;
+    public ihc C;
+    public lhc D;
+    public hhc E;
+    public bhc F;
+    public ghc G;
+    public fhc H;
+    public ohc I;
+    public vhc.c J;
+    public chc K;
+    public khc L;
+    public nhc M;
+    public shc N;
+    public rhc O;
+    public RelativeLayout b;
+    public final Handler c;
+    public volatile yic d;
+    public final Object e;
+    public Gson f;
+    public Context g;
+    public final Object h;
+    public Surface i;
+    public final AtomicBoolean j;
+    public nkc k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public int o;
+    public int p;
+    public int q;
+    public String r;
+    public int s;
+    public int t;
+    public boolean u;
+    public long v;
+    public long w;
+    public final ExecutorService x;
+    public phc y;
+    public jhc z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947618543, "Lcom/baidu/tieba/ajc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947618543, "Lcom/baidu/tieba/ajc;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class s implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        /* loaded from: classes5.dex */
+        public class a implements vhc.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ s a;
+
+            public a(s sVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {sVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = sVar;
+            }
+
+            @Override // com.baidu.tieba.vhc.d
+            public void a(Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
+                    TLog.h("[VodPlayerServer]", this.a.a.I() + "sendBitmap2MainProcess");
+                    this.a.a.b(bitmap);
+                }
+            }
+        }
+
+        public s(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.q(this.a.x, new a(this));
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) screenShot");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class t implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ t a;
+
+            public a(t tVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {tVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = tVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.x.shutdown();
+                }
+            }
+        }
+
+        public t(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.a.e) {
+                    if (this.a.d != null) {
+                        this.a.g();
+                        this.a.d.s0();
+                        this.a.d = null;
+                    }
+                }
+                this.a.t = -1;
+                this.a.c.post(new a(this));
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) release");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public a(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                this.b.t = this.a.optInt("taskId");
+                long optLong = this.a.optLong("apiStartTimeMs");
+                if (this.b.u && this.b.w != 0) {
+                    this.b.u = false;
+                    optLong += this.b.w;
+                    TLog.h("[VodPlayerServer]", this.b.I() + "apiStartTimeMs add " + this.b.w + ms.c);
+                }
+                this.b.d.F(this.b.t, optLong);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) startPlay");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public a0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.d != null) {
+                    TLog.m("[VodPlayerServer]", this.b.I() + "Cmd.initPlay#VodPlayer has inited before.");
+                    return;
+                }
+                if (this.b.g == null) {
+                    TLog.m("[VodPlayerServer]", this.b.I() + "Cmd.initPlay#VodPlayer mContext is null.");
+                    synchronized (this.b.h) {
+                        try {
+                            this.b.h.wait(3000L);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if (this.b.g != null) {
+                    uhc a = uhc.a(this.a.optString("opt"));
+                    a.k = new xjc();
+                    TLog.h("[VodPlayerServer]", this.b.I() + "create vodplayer server:" + a.toString());
+                    long currentTimeMillis = System.currentTimeMillis();
+                    ajc ajcVar = this.b;
+                    ajcVar.d = new yic(ajcVar.g, a, null);
+                    this.b.w = System.currentTimeMillis() - currentTimeMillis;
+                    ajc ajcVar2 = this.b;
+                    ajcVar2.s = ajcVar2.d.o0();
+                    this.b.G();
+                    this.b.F();
+                    this.b.J();
+                    ajc ajcVar3 = this.b;
+                    ajcVar3.N(ajcVar3.s);
+                    return;
+                }
+                TLog.d("[VodPlayerServer]", this.b.I() + "initPlay,mContext is null ");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public b(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.m();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlay");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public b0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            jic a;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.d == null || (a = jic.a(this.a.optString(UriUtil.LOCAL_RESOURCE_SCHEME))) == null) {
+                return;
+            }
+            this.b.d.u0(a);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public c(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.G();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) stopPlay");
+                this.a.t = -1;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ugc a;
+        public final /* synthetic */ ajc b;
+
+        public c0(ajc ajcVar, ugc ugcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, ugcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = ugcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.L(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public d(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.o();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlay");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public d0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                this.b.d.n0(zhc.a(this.a.optString(ApsCloudControlProcessor.SERVER_DPM)));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public e(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("p");
+                this.b.d.r(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) seekTo:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public e0(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.l0();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public f(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt(com.kuaishou.weapon.p0.t.v);
+                this.b.d.u(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDisplayMode:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public f0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                ahc a = ahc.a(this.a.optString("source"));
+                this.b.d.s(a);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDataSource:" + a.toString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public g(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                View view2 = (View) this.b.d.i();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
+                if (layoutParams == null) {
+                    return;
+                }
+                layoutParams.width = this.a.optInt("w");
+                layoutParams.height = this.a.optInt("h");
+                layoutParams.addRule(this.a.optInt("r"));
+                view2.setLayoutParams(layoutParams);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setLayoutParams");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public g0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                ahc a = ahc.a(this.a.optString("source"));
+                this.b.d.t(a);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDataSourceAndPrepare:" + a.toString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public h(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("p");
+                this.b.d.v(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setNumberOfLoops:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public h0(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("taskId");
+                ahc a = ahc.a(this.a.optString("source"));
+                this.b.d.K0(optInt, a);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setPcdnUrls:" + a.toString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public i(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.n();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlayWithAudio");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public j(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.p();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlayWithAudio");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class k implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public k(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.r0();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlayWithVideo");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class l implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public l(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.t0();
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlayWithVideo");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class m implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public m(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                boolean optBoolean = this.a.optBoolean("b");
+                this.b.d.I0(optBoolean);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setVideoExtrasInfoEnable:" + optBoolean);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class n implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public n(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("v");
+                this.b.d.J0(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setVolume:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class o implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public o(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                boolean optBoolean = this.a.optBoolean("al");
+                this.b.d.x0(optBoolean);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setIsSpecialMp4WithAlpha:" + optBoolean);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class p implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public p(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("rt");
+                this.b.d.E(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setRotateMode:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class q implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public q(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean optBoolean = this.a.optBoolean("af");
+                kic.h(optBoolean);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) enableAutoControl:" + optBoolean);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class r implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ ajc b;
+
+        public r(ajc ajcVar, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ajcVar;
+            this.a = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
+                int optInt = this.a.optInt("ot");
+                this.b.d.G0(optInt);
+                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setOrientateMode:" + optInt);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class u implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public u(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.a.e) {
+                    if (this.a.d != null && this.a.b != null) {
+                        try {
+                            View view2 = (View) this.a.d.i();
+                            if (this.a.b.indexOfChild(view2) < 0) {
+                                this.a.b.addView(view2);
+                                TLog.h("[VodPlayerServer]", this.a.I() + "add player view");
+                            }
+                        } catch (Exception e) {
+                            TLog.d("[VodPlayerServer]", this.a.I() + "add player view exception:" + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class v implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public v(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.d != null) {
+                    this.a.d.e();
+                }
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) appInBackground");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class w implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public w(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.d != null) {
+                    this.a.O(this.a.d.p0());
+                }
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) getRedirectUrl");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class x implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public x(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.d != null) {
+                    this.a.d.v0(true);
+                }
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) setEnableFirstVideoFrameShow");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class y implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public y(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.d != null) {
+                    this.a.d.w0(true);
+                }
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) setEnableRevDecodeOutputSize");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class z implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ajc a;
+
+        public z(ajc ajcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ajcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ajcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.d != null) {
+                    this.a.d.f();
+                }
+                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) appInFrontground");
+            }
+        }
+    }
+
+    public final void M(ugc ugcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, ugcVar) != null) || ugcVar == null) {
+            return;
+        }
+        K(new c0(this, ugcVar));
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
+            TLog.h("[VodPlayerServer]", I() + "addExternalSurfaceEvent");
+            nkc a2 = ((xjc) this.d.i()).a();
+            this.k = a2;
+            if (this.l) {
+                this.l = false;
+                a2.a(this.i);
+            }
+            if (this.m) {
+                this.m = false;
+                this.k.b(this.o, this.p, this.q);
+            }
+            if (this.n) {
+                this.n = false;
+                this.k.surfaceDestroyed();
+            }
+        }
+    }
+
+    public final String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(PreferencesUtil.LEFT_MOUNT);
+            sb.append("channel:");
+            sb.append(this.r);
+            if (this.s != -1) {
+                sb.append(",context:");
+                sb.append(this.s);
+            }
+            if (this.t != -1) {
+                sb.append(",task:");
+                sb.append(this.t);
+            }
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.egc
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.g();
+            int i2 = 0;
+            if (this.j.compareAndSet(true, false)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(I());
+                sb.append("surfaceDestroyed: ");
+                Surface surface = this.i;
+                if (surface != null) {
+                    i2 = surface.hashCode();
+                }
+                sb.append(i2);
+                TLog.h("[VodPlayerServer]", sb.toString());
+                this.i = null;
+                nkc nkcVar = this.k;
+                if (nkcVar != null) {
+                    nkcVar.surfaceDestroyed();
+                } else {
+                    this.n = true;
+                }
+            }
+        }
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.postAtFrontOfQueue(new u(this));
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final void H(String str) throws Exception {
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("cmd");
+            switch (optString.hashCode()) {
+                case -2129411402:
+                    if (optString.equals("startPlay")) {
+                        c2 = 7;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -2093030610:
+                    if (optString.equals("setEnableRevDecodeOutputSize")) {
+                        c2 = DecodedBitStreamParser.RS;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -1982498572:
+                    if (optString.equals("appInBackground")) {
+                        c2 = 27;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -1617828140:
+                    if (optString.equals("setIsSpecialMp4WithAlpha")) {
+                        c2 = 21;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -1508657702:
+                    if (optString.equals("setEnableFirstVideoFrameShow")) {
+                        c2 = DecodedBitStreamParser.GS;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -1251896589:
+                    if (optString.equals("disableJoyPkPipMode")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -1187347186:
+                    if (optString.equals("enableJoyPkPipMode")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -906224877:
+                    if (optString.equals("seekTo")) {
+                        c2 = 11;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -697872445:
+                    if (optString.equals("setDisplayMode")) {
+                        c2 = '\f';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -557192959:
+                    if (optString.equals("resumePlay")) {
+                        c2 = '\n';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -446053678:
+                    if (optString.equals("setEffectResources")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -417400442:
+                    if (optString.equals("screenShot")) {
+                        c2 = 25;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -336540857:
+                    if (optString.equals("setAudioFocusEnable")) {
+                        c2 = 23;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -28201491:
+                    if (optString.equals("setVideoExtrasInfoEnable")) {
+                        c2 = 19;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 16017901:
+                    if (optString.equals("setNumberOfLoops")) {
+                        c2 = 14;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 25421522:
+                    if (optString.equals("setLayoutParams")) {
+                        c2 = '\r';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 87624170:
+                    if (optString.equals("appInFrontground")) {
+                        c2 = 31;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 251281091:
+                    if (optString.equals("setPcdnUrls")) {
+                        c2 = 6;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 268328036:
+                    if (optString.equals("initPlay")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 347104503:
+                    if (optString.equals("setDataSourceAndPrepare")) {
+                        c2 = 5;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 397437856:
+                    if (optString.equals("setRotateMode")) {
+                        c2 = 22;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 670514716:
+                    if (optString.equals("setVolume")) {
+                        c2 = 20;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 734547631:
+                    if (optString.equals("resumePlayWithAudio")) {
+                        c2 = 16;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 753583956:
+                    if (optString.equals("resumePlayWithVideo")) {
+                        c2 = 18;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 829307466:
+                    if (optString.equals("pausePlay")) {
+                        c2 = '\b';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 960176686:
+                    if (optString.equals("setOrientateMode")) {
+                        c2 = 24;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1090594823:
+                    if (optString.equals("release")) {
+                        c2 = 26;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1598099861:
+                    if (optString.equals("sendRedirectUrlData")) {
+                        c2 = DecodedBitStreamParser.FS;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1714697814:
+                    if (optString.equals("stopPlay")) {
+                        c2 = '\t';
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1748853351:
+                    if (optString.equals("setDataSource")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 2002804614:
+                    if (optString.equals("pausePlayWithAudio")) {
+                        c2 = 15;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 2021840939:
+                    if (optString.equals("pausePlayWithVideo")) {
+                        c2 = 17;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                    this.v = System.currentTimeMillis();
+                    K(new a0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 1:
+                    K(new b0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 2:
+                    K(new d0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 3:
+                    K(new e0(this));
+                    return;
+                case 4:
+                    K(new f0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 5:
+                    K(new g0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 6:
+                    K(new h0(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 7:
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j2 = this.v;
+                    if (j2 != 0 && currentTimeMillis >= j2 && currentTimeMillis - j2 < 20) {
+                        this.u = true;
+                    }
+                    K(new a(this, jSONObject.getJSONObject("data")));
+                    return;
+                case '\b':
+                    K(new b(this));
+                    return;
+                case '\t':
+                    K(new c(this));
+                    return;
+                case '\n':
+                    K(new d(this));
+                    return;
+                case 11:
+                    K(new e(this, jSONObject.getJSONObject("data")));
+                    return;
+                case '\f':
+                    K(new f(this, jSONObject.getJSONObject("data")));
+                    return;
+                case '\r':
+                    K(new g(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 14:
+                    K(new h(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 15:
+                    K(new i(this));
+                    return;
+                case 16:
+                    K(new j(this));
+                    return;
+                case 17:
+                    K(new k(this));
+                    return;
+                case 18:
+                    K(new l(this));
+                    return;
+                case 19:
+                    K(new m(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 20:
+                    K(new n(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 21:
+                    K(new o(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 22:
+                    K(new p(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 23:
+                    K(new q(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 24:
+                    K(new r(this, jSONObject.getJSONObject("data")));
+                    return;
+                case 25:
+                    K(new s(this));
+                    return;
+                case 26:
+                    K(new t(this));
+                    return;
+                case 27:
+                    K(new v(this));
+                    return;
+                case 28:
+                    K(new w(this));
+                    return;
+                case 29:
+                    K(new x(this));
+                    return;
+                case 30:
+                    K(new y(this));
+                    return;
+                case 31:
+                    K(new z(this));
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    public final void J() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d != null) {
+            this.d.D(this.y);
+            this.d.A0(this.z);
+            this.d.D0(this.A);
+            this.d.x(this.B);
+            this.d.A(this.C);
+            this.d.C0(this.D);
+            this.d.z(this.E);
+            this.d.y(this.H);
+            this.d.C(this.I);
+            this.d.w(this.x, this.K);
+            this.d.B0(this.L);
+            this.d.B(this.M);
+            this.d.F0(this.N);
+            this.d.E0(this.O);
+            this.d.y0(this.F);
+            this.d.z0(this.G);
+            this.d.H0(this.J);
+        }
+    }
+
+    public final void K(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
+            try {
+                this.x.execute(runnable);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TLog.d("[VodPlayerServer]", I() + "(postToWorkThread) ex: " + e2.getMessage());
+            }
+        }
+    }
+
+    public final void L(ugc ugcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, ugcVar) != null) || ugcVar == null) {
+            return;
+        }
+        try {
+            c(this.f.toJson(ugcVar));
+        } catch (Exception e2) {
+            TLog.g(this, "sendData " + ugcVar.a + " exception:" + e2.toString());
+            throw e2;
+        }
+    }
+
+    public final void N(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            ugc ugcVar = new ugc();
+            ugcVar.a = "setPlayerUID";
+            ugcVar.b.put("playerUID", Integer.valueOf(i2));
+            TLog.h("[VodPlayerServer]", I() + "onSendPlayerUIDToMainProcess,playerUID=" + i2);
+            M(ugcVar);
+        }
+    }
+
+    public final void O(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            ugc ugcVar = new ugc();
+            ugcVar.a = "setRedirectUrl";
+            ugcVar.b.put("redirectUrl", str);
+            TLog.h("[VodPlayerServer]", I() + "sendRedirectUrlToMainProcess,redirectUrl=" + str);
+            M(ugcVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.dgc
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            try {
+                H(str);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TLog.d("[VodPlayerServer]", I() + "(onDataFromMainThread) ex" + e2.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.egc
+    public void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+            super.d(context);
+            this.g = context;
+            synchronized (this.h) {
+                this.h.notifyAll();
+            }
+            TLog.h("[VodPlayerServer]", I() + "setContext");
+        }
+    }
+
+    @Override // com.baidu.tieba.egc
+    public void e(Context context, Surface surface, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, surface, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.e(context, surface, i2, i3, i4);
+            this.o = i2;
+            this.p = i3;
+            this.q = i4;
+            TLog.h("[VodPlayerServer]", I() + "surfaceChanged,format:" + i2 + ",width:" + i3 + ",height:" + i4);
+            nkc nkcVar = this.k;
+            if (nkcVar != null) {
+                nkcVar.b(i2, i3, i4);
+            } else {
+                this.m = true;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.egc
+    public void f(Context context, Surface surface) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, context, surface) == null) {
+            super.f(context, surface);
+            this.j.set(true);
+            this.g = context;
+            this.i = surface;
+            StringBuilder sb = new StringBuilder();
+            sb.append(I());
+            sb.append("surfaceCreated: ");
+            Surface surface2 = this.i;
+            if (surface2 != null) {
+                i2 = surface2.hashCode();
+            } else {
+                i2 = 0;
+            }
+            sb.append(i2);
+            TLog.h("[VodPlayerServer]", sb.toString());
+            nkc nkcVar = this.k;
+            if (nkcVar != null) {
+                nkcVar.a(surface);
+            } else {
+                this.l = true;
+            }
+        }
+    }
 }

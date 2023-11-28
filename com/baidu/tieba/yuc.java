@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Fans;
+import tbclient.AwardUser;
 /* loaded from: classes9.dex */
-public class yuc extends qoc {
+public class yuc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Fans fans) {
+    public static JSONObject b(@NonNull AwardUser awardUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fans)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, awardUser)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "start_time", fans.start_time);
-            qoc.a(jSONObject, "left_time", fans.left_time);
-            qoc.a(jSONObject, "open", fans.open);
-            qoc.a(jSONObject, "is_get", fans.is_get);
-            qoc.a(jSONObject, "num", fans.num);
+            ltc.a(jSONObject, "user_id", awardUser.user_id);
+            ltc.a(jSONObject, "user_name", awardUser.user_name);
+            ltc.a(jSONObject, "award_name", awardUser.award_name);
+            ltc.a(jSONObject, "award_time", awardUser.award_time);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class l02 extends nz1 {
+public class l02 extends oz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public wz1 a;
 
     public l02() {
         Interceptable interceptable = $ic;
@@ -27,28 +27,26 @@ public class l02 extends nz1 {
         }
     }
 
-    @Override // com.baidu.tieba.nz1
-    public void a(oz1 oz1Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.oz1
+    public void a(pz1 pz1Var, Canvas canvas) {
+        wz1 wz1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, oz1Var, canvas) == null) && (i = this.a) > 0) {
-            oz1Var.e.setTextSize(i);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && (wz1Var = this.a) != null && wz1Var.d()) {
+            if (this.a.c()) {
+                pz1Var.b.setShader(this.a.b());
+                return;
+            }
+            pz1Var.e.setColor(this.a.a());
+            pz1Var.b.setColor(this.a.a());
+            pz1Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.nz1
+    @Override // com.baidu.tieba.oz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    this.a = xj3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (rm1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new wz1(jSONArray);
         }
     }
 }

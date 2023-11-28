@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GiftBagsInfo {
     public List<GiftBagItemInfo> giftbag = new ArrayList();
     public String giftbagTitle;

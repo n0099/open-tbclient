@@ -10,10 +10,10 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.tieba.dy3;
-import com.baidu.tieba.fx3;
-import com.baidu.tieba.hy3;
-import com.baidu.tieba.np2;
+import com.baidu.tieba.ey3;
+import com.baidu.tieba.gx3;
+import com.baidu.tieba.iy3;
+import com.baidu.tieba.op2;
 /* loaded from: classes4.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
@@ -44,14 +44,14 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        fx3.n().q(stringExtra, this.mOpportunity);
+        gx3.n().q(stringExtra, this.mOpportunity);
     }
 
     private void startInstallPage(Intent intent) {
         if (!TextUtils.isEmpty(this.mOpportunity)) {
-            hy3.b("notifyList", this.mOpportunity);
+            iy3.b("notifyList", this.mOpportunity);
         }
-        SchemeRouter.invoke(np2.c(), getInstallPageUrlScheme());
+        SchemeRouter.invoke(op2.c(), getInstallPageUrlScheme());
     }
 
     public static Intent createIntent(String str, String str2, String str3) {
@@ -63,7 +63,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
     }
 
     public static String getInstallPageUrlScheme() {
-        String a = np2.n().a();
+        String a = op2.n().a();
         if (!TextUtils.isEmpty(a)) {
             if (a.equals(BaiduIdentityManager.VALUE_OSNAME)) {
                 return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -106,20 +106,20 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (c != 0) {
                 if (c != 1) {
                     if (c == 2) {
-                        dy3.f().l();
-                        dy3.f().n("todayfirst");
+                        ey3.f().l();
+                        ey3.f().n("todayfirst");
                         return;
                     }
                     return;
                 }
                 if (!TextUtils.isEmpty(this.mOpportunity)) {
-                    hy3.b("notifyClick", this.mOpportunity);
+                    iy3.b("notifyClick", this.mOpportunity);
                 }
                 startInstallPage(intent);
                 return;
             }
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                hy3.c("notifyClick", this.mOpportunity, stringExtra);
+                iy3.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
         }

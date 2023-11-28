@@ -2,79 +2,109 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class qcb extends BaseDraftBiz {
+public class qcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public vcb b;
+    public lcb c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qcb(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, zbb writePageState) {
-        super(pageContext, webView, writeData, writePageState);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public vcb d;
+        public lcb e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = true;
+            this.c = 0;
+            this.d = null;
+            this.e = null;
+        }
+
+        public qcb d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e();
+                return new qcb(this, null);
+            }
+            return (qcb) invokeV.objValue;
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (TextUtils.isEmpty(this.a)) {
+                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+                }
+                if (this.c <= 0) {
+                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                }
+                if (this.d == null) {
+                    this.d = new vcb(this.c);
+                }
+                if (this.e == null) {
+                    this.e = new lcb(this.a);
+                }
+            }
+        }
+    }
+
+    public qcb(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext, webView, writeData, writePageState};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (zbb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        Intrinsics.checkNotNullParameter(writeData, "writeData");
-        Intrinsics.checkNotNullParameter(writePageState, "writePageState");
+        String unused = bVar.a;
+        this.a = bVar.b;
+        int unused2 = bVar.c;
+        this.b = bVar.d;
+        this.c = bVar.e;
     }
 
-    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.s();
-            if (TextUtils.isEmpty(k().getTopicId())) {
-                yqa.v(t(), null);
-            } else {
-                yqa.F(k().getTopicId(), null);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (TextUtils.isEmpty(k().getTopicId())) {
-                yqa.l(t(), this);
-            } else {
-                yqa.u(k().getTopicId(), this);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && 13 != k().getType() && 14 != k().getType() && 12 != k().getType()) {
-            if (TextUtils.isEmpty(k().getTopicId())) {
-                yqa.v(t(), k());
-            } else {
-                yqa.F(k().getTopicId(), k());
-            }
-        }
+    public /* synthetic */ qcb(b bVar, a aVar) {
+        this(bVar);
     }
 }

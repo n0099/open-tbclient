@@ -7,14 +7,14 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.kma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbDispatcher implements rha {
+public class PbDispatcher implements kma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class PbDispatcher implements rha {
         }
     }
 
-    @Override // com.baidu.tieba.rha
+    @Override // com.baidu.tieba.kma
     public void dispatch(JSONObject jSONObject, Context context) {
         int i;
         Interceptable interceptable = $ic;
@@ -52,6 +52,7 @@ public class PbDispatcher implements rha {
             }
             String optString6 = jSONObject.optString("hightlightAnchorPid");
             boolean equals = "1".equals(jSONObject.optString("showComment"));
+            boolean equals2 = "1".equals(jSONObject.optString("checkPreFloor"));
             if (!TextUtils.isEmpty(optString6)) {
                 equals = true;
             }
@@ -64,6 +65,7 @@ public class PbDispatcher implements rha {
             createNormalCfg.setJumpToCommentArea(equals);
             createNormalCfg.setForumName(optString5);
             createNormalCfg.setIsTopThread("1".equals(jSONObject.optString("isTopThread")));
+            createNormalCfg.setIsCheckPreFloor(equals2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
     }

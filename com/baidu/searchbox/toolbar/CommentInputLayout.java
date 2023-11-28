@@ -141,12 +141,12 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
     private void initLayout(Context context) {
         LayoutInflater.from(context).inflate(R.layout.common_comment_intput_layout, (ViewGroup) this, true);
         setIsResponseFontSize(true);
-        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f092675);
+        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f0926fa);
         this.mCommentInputView = selectorTextView;
         selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025c), 0, 0, 0);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentInputView, 0, R.dimen.obfuscated_res_0x7f070259, 2);
-        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081535));
-        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f04a9);
+        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081558));
+        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f04b1);
         this.mCommentInputView.setSingleLine(true);
         this.mCommentInputView.setEllipsize(TextUtils.TruncateAt.END);
         this.mCommentInputView.setGravity(16);
@@ -286,9 +286,9 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
         }
         if (isResponseFontSize()) {
             FontSizeViewExtKt.setScaledHeightRes(this, 0, R.dimen.obfuscated_res_0x7f070257, 2);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081535);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f081558);
             if (drawable instanceof GradientDrawable) {
-                ((GradientDrawable) drawable).setCornerRadius(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070b33));
+                ((GradientDrawable) drawable).setCornerRadius(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070b47));
                 setBackground(drawable);
             }
         }

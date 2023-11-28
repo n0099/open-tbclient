@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.res.TypedArray;
-import android.graphics.Rect;
-import android.widget.ImageView;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,95 +18,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ey5 {
+public class ey5 extends NotificationHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final float N;
+    public static Map<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public boolean I;
-    public int J;
-    public int K;
-    public Rect L;
-    public TbImageView.h M;
-    public float a;
-    public boolean b;
-    public float c;
-    public int d;
-    public int e;
-    public float f;
-    public boolean g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public boolean q;
-    public int r;
-    public ImageView.ScaleType s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public int w;
-    public int x;
-    public int y;
-    public int z;
+    public final SharedPreferences a;
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750696, "Lcom/baidu/tieba/ey5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947750696, "Lcom/baidu/tieba/ey5;");
-                return;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ey5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-817341175, "Lcom/baidu/tieba/ey5$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-817341175, "Lcom/baidu/tieba/ey5$c;");
+                    return;
+                }
             }
-        }
-        N = BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst());
-    }
-
-    public Rect b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.L;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.I;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.t = true;
+            a = new ey5(null);
         }
     }
 
@@ -111,335 +87,146 @@ public class ey5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0.0f;
-        this.b = true;
-        this.c = 0.0f;
-        this.d = 0;
-        this.e = 0;
-        this.f = 15.0f;
-        this.g = false;
-        this.h = -1;
-        this.i = -1;
-        this.j = 0;
-        this.k = 0;
-        this.l = -16777216;
-        this.m = 200;
-        this.n = 200;
-        this.o = 0;
-        this.p = 0;
-        this.q = false;
-        this.r = -9989158;
-        this.s = ImageView.ScaleType.CENTER_CROP;
-        this.t = false;
-        this.w = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701be);
-        this.x = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-        this.z = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004);
-        this.A = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        this.B = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006);
-        this.C = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.D = 0;
-        this.E = -1;
-        this.F = -1;
-        this.G = -1;
-        this.H = 0;
-        this.I = false;
+        b = new HashMap();
+        this.a = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
     }
 
-    public ey5(ey5 ey5Var) {
+    public final PendingIntent e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ey5Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 0.0f;
-        this.b = true;
-        this.c = 0.0f;
-        this.d = 0;
-        this.e = 0;
-        this.f = 15.0f;
-        this.g = false;
-        this.h = -1;
-        this.i = -1;
-        this.j = 0;
-        this.k = 0;
-        this.l = -16777216;
-        this.m = 200;
-        this.n = 200;
-        this.o = 0;
-        this.p = 0;
-        this.q = false;
-        this.r = -9989158;
-        this.s = ImageView.ScaleType.CENTER_CROP;
-        this.t = false;
-        this.w = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701be);
-        this.x = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-        this.z = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004);
-        this.A = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        this.B = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006);
-        this.C = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.D = 0;
-        this.E = -1;
-        this.F = -1;
-        this.G = -1;
-        this.H = 0;
-        this.I = false;
-        if (ey5Var != null) {
-            a(ey5Var);
-        }
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.D = i;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.y = i;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.o = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.H = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.G = i;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.E = i;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.F = i;
-        }
-    }
-
-    public void o(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
-            this.a = f;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.n = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    public void s(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, rect) == null) {
-            this.L = rect;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.C = i;
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.I = z;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public void a(ey5 ey5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ey5Var) == null) {
-            this.a = ey5Var.a;
-            this.c = ey5Var.c;
-            this.d = ey5Var.d;
-            this.e = ey5Var.e;
-            this.f = ey5Var.f;
-            this.h = ey5Var.h;
-            this.i = ey5Var.i;
-            this.j = ey5Var.j;
-            this.k = ey5Var.k;
-            this.l = ey5Var.l;
-            this.m = ey5Var.m;
-            this.n = ey5Var.n;
-            this.o = ey5Var.o;
-            this.p = ey5Var.p;
-            this.q = ey5Var.q;
-            this.u = ey5Var.u;
-            this.r = ey5Var.r;
-            this.t = ey5Var.t;
-            this.v = ey5Var.v;
-            this.w = ey5Var.w;
-            this.x = ey5Var.x;
-            this.C = ey5Var.C;
-            this.D = ey5Var.D;
-            this.E = ey5Var.E;
-            this.F = ey5Var.e;
-            this.G = ey5Var.G;
-            this.z = ey5Var.z;
-            this.A = ey5Var.A;
-            this.B = ey5Var.B;
-            this.I = ey5Var.I;
-            this.L = ey5Var.L;
-        }
-    }
-
-    public void c(TypedArray typedArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, typedArray) == null) {
-            this.e = typedArray.getDimensionPixelSize(7, 0);
-            this.b = typedArray.getBoolean(3, true);
-            this.d = typedArray.getDimensionPixelSize(11, 0);
-            this.a = typedArray.getFloat(9, 1.12f);
-            this.f = typedArray.getDimensionPixelSize(12, (int) this.f);
-            this.l = typedArray.getColor(10, this.l);
-            this.m = typedArray.getDimensionPixelSize(6, this.m);
-            this.n = typedArray.getDimensionPixelSize(5, this.n);
-            this.o = typedArray.getResourceId(0, 0);
-            this.h = typedArray.getDimensionPixelSize(2, this.h);
-            this.i = typedArray.getDimensionPixelSize(1, this.i);
-            this.p = typedArray.getResourceId(13, 0);
-            this.q = typedArray.getBoolean(8, false);
-            this.F = this.e;
-        }
-    }
-
-    public int[] f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048582, this, i, i2, i3, i4)) == null) {
-            int[] imageResize = BdUtilHelper.getImageResize(i, i2, i3, i4);
-            if (imageResize == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.baidu.tieba.downloadmanager.DownloadManagerActivity");
+                Intent intent = new Intent();
+                intent.setClass(c(), cls);
+                intent.putExtra(DownloadManagerActivityConfig.CURRENT_TAB, 3);
+                return PendingIntent.getActivity(c(), 0, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            } catch (Exception unused) {
                 return null;
             }
-            int[] iArr = {imageResize[0], imageResize[1]};
-            int i5 = iArr[0];
-            int i6 = iArr[1];
-            if (this.v && i3 > i5) {
-                float f = N;
-                if (f > 1.0f) {
-                    float f2 = i5;
-                    float f3 = i3;
-                    if (f2 * f <= f3) {
-                        float f4 = f3 * 0.68f;
-                        if (f2 * f > f4) {
-                            i3 = (int) f4;
-                        } else {
-                            i3 = (int) (f2 * f);
+        }
+        return (PendingIntent) invokeV.objValue;
+    }
+
+    public /* synthetic */ ey5(a aVar) {
+        this();
+    }
+
+    public final int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (h(str)) {
+                return b.get(str).a;
+            }
+            return str.hashCode();
+        }
+        return invokeL.intValue;
+    }
+
+    public final boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return b.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && h(str)) {
+            NotificationHelper.cancelNotification(c(), b(str));
+            b.remove(str);
+        }
+    }
+
+    public static ey5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
+        }
+        return (ey5) invokeV.objValue;
+    }
+
+    public final Context c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbadkCoreApplication.getInst().getApplicationContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public synchronized void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this) {
+                if (h(str)) {
+                    return;
+                }
+                b bVar = new b(null);
+                bVar.a = b(str);
+                bVar.b = str2;
+                b.put(str, bVar);
+            }
+        }
+    }
+
+    public final void f(DownloadData downloadData, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, downloadData, z) == null) && downloadData.getId() != null && h(downloadData.getId())) {
+            float length = ((float) downloadData.getLength()) / ((float) downloadData.getSize());
+            if (z) {
+                i = 100;
+            } else {
+                i = (int) (length * 100.0f);
+            }
+            b bVar = b.get(downloadData.getId());
+            if (bVar != null) {
+                NotificationHelper.showProgressNotification(c(), bVar.a, "", i, "", bVar.b, e(), false);
+            }
+            if (!z) {
+                j(downloadData, i);
+            }
+        }
+    }
+
+    public void g(List<DownloadData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && list.size() != 0) {
+            for (DownloadData downloadData : list) {
+                if (downloadData != null) {
+                    int status = downloadData.getStatus();
+                    if (status != 0) {
+                        if (status == 1 || status == 5) {
+                            f(downloadData, false);
                         }
+                    } else {
+                        f(downloadData, true);
                     }
-                    if (iArr[0] > 0) {
-                        i6 = (iArr[1] * i3) / iArr[0];
-                    }
-                    i5 = i3;
                 }
             }
-            return new int[]{i5, i6};
-        }
-        return (int[]) invokeIIII.objValue;
-    }
-
-    public void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            this.h = i;
-            this.i = i2;
         }
     }
 
-    public void p(float f, float f2) {
+    public final void j(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.a = f2;
-            this.c = f;
-        }
-    }
-
-    public void t(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
-            this.w = i;
-            this.x = i2;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData, i) == null) && downloadData != null && h(downloadData.getId())) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putInt(downloadData.getId() + downloadData.getName(), i);
+            edit.apply();
         }
     }
 }

@@ -28,8 +28,8 @@ import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.emjio.view.EmojiReplyView;
-import com.baidu.tieba.kn8;
-import com.baidu.tieba.nv8;
+import com.baidu.tieba.nq8;
+import com.baidu.tieba.uy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,42 +100,42 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
                     return;
                 }
             }
-            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09032e);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919de);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0928a3);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928b1);
+            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090342);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a51);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092928);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092936);
             this.e = (ImageView) view2.findViewById(R.id.btn_msgitem_resend);
-            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091de4);
-            this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09052f);
-            this.h = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f09052e);
-            this.i = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f09052d);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907db);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090af1);
+            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09054a);
+            this.h = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090549);
+            this.i = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090548);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b10);
             this.l = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090037);
-            this.m = (EmojiReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0909d6);
-            this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09090b);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09090a);
+            this.m = (EmojiReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0909f2);
+            this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090927);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090926);
             this.o = tbImageView;
             tbImageView.setPlaceHolder(0);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090909);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090925);
             this.s = (TextView) view2.findViewById(R.id.kaogao_icon);
-            this.t = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e68);
-            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f0928a9);
+            this.t = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e88);
+            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f09292e);
             this.r = autoDegradeTagView;
             if (autoDegradeTagView.getLayoutParams() != null) {
                 this.r.getLayoutParams().height = BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds44);
             }
             this.r.setTagConfig(BdUtilHelper.getDimens(view2.getContext(), R.dimen.T_X08), BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds35), BdUtilHelper.getDimens(view2.getContext(), R.dimen.M_W_X002), R.color.CAM_X0105);
             if (z && view2.getContext() != null) {
-                ReplyContentView f = nv8.f(view2.getContext());
+                ReplyContentView f = uy8.f(view2.getContext());
                 this.q = f;
                 this.j.addView(f);
             }
             Context context = view2.getContext();
             if (context != null) {
-                this.l.addView(nv8.d(context));
+                this.l.addView(uy8.d(context));
             }
-            nv8.e(this.m);
+            uy8.e(this.m);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -167,11 +167,11 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull kn8 kn8Var) {
+        public void d(@NonNull nq8 nq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kn8Var) == null) {
-                super.d(kn8Var);
-                kn8.d(this.e, kn8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nq8Var) == null) {
+                super.d(nq8Var);
+                nq8.d(this.e, nq8Var);
             }
         }
 
@@ -226,7 +226,7 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0477, viewGroup, false), f0());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0480, viewGroup, false), f0());
         }
         return (SelfHolder) invokeL.objValue;
     }
@@ -238,7 +238,7 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0479, viewGroup, false), f0());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0482, viewGroup, false), f0());
         }
         return (SelfHolder) invokeL.objValue;
     }
@@ -247,9 +247,9 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, selfHolder, childitemdata, i) == null) {
             if (i == 1) {
-                nv8.m(this.mContext, childitemdata, selfHolder, C(), B());
+                uy8.m(this.mContext, childitemdata, selfHolder, C(), B());
             } else if (i == 2) {
-                nv8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
+                uy8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
             }
         }
     }
@@ -260,18 +260,18 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
     public void W(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull SelfHolder selfHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, selfHolder, list, Integer.valueOf(i2)}) == null) {
-            nv8.w(selfHolder);
+            uy8.w(selfHolder);
             int e0 = e0(list);
             if (a0(e0)) {
                 Z(selfHolder, childitemdata, e0);
                 return;
             }
-            nv8.j(childitemdata, selfHolder);
-            nv8.i(childitemdata, selfHolder);
-            nv8.n(childitemdata, selfHolder);
-            nv8.k(this.mContext, childitemdata, selfHolder, C(), B());
-            nv8.m(this.mContext, childitemdata, selfHolder, C(), B());
-            nv8.h(G(), childitemdata, viewGroup);
+            uy8.j(childitemdata, selfHolder);
+            uy8.i(childitemdata, selfHolder);
+            uy8.n(childitemdata, selfHolder);
+            uy8.k(this.mContext, childitemdata, selfHolder, C(), B());
+            uy8.m(this.mContext, childitemdata, selfHolder, C(), B());
+            uy8.h(G(), childitemdata, viewGroup);
         }
     }
 

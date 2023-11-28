@@ -1,105 +1,155 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import tbclient.FestivalTipData;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public final class bbb implements ik6 {
+public final class bbb {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-    public final WriteData b;
-    public cbb c;
+    public final ThemeColorInfo a;
+    public final ThemeColorInfo b;
 
-    public bbb(HashMap<String, String> pathInfo, WriteData writeData) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947640615, "Lcom/baidu/tieba/bbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947640615, "Lcom/baidu/tieba/bbb;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
+
+    @JvmStatic
+    public static final bbb a(FestivalTipData festivalTipData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (bbb) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof bbb) {
+                bbb bbbVar = (bbb) obj;
+                return Intrinsics.areEqual(this.a, bbbVar.a) && Intrinsics.areEqual(this.b, bbbVar.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final bbb a(FestivalTipData festivalTipData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
+                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
+                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
+                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
+                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
+                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
+                return new bbb(themeColorInfo, themeColorInfo2);
+            }
+            return (bbb) invokeL.objValue;
+        }
+    }
+
+    public bbb(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pathInfo, writeData};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {backgroundColor, textColor};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pathInfo, "pathInfo");
-        Intrinsics.checkNotNullParameter(writeData, "writeData");
-        this.a = pathInfo;
-        this.b = writeData;
+        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        this.a = backgroundColor;
+        this.b = textColor;
     }
 
-    @Override // com.baidu.tieba.ik6
-    public WebResourceResponse a(WebView view2, WebResourceRequest request) {
-        InterceptResult invokeLL;
+    public final ThemeColorInfo b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, request)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(request, "request");
-            Uri u = request.getUrl();
-            String scheme = u.getScheme();
-            if (scheme != null) {
-                int hashCode = scheme.hashCode();
-                if (hashCode != -787290468) {
-                    if (hashCode != 1366925564) {
-                        if (hashCode == 1378998483 && scheme.equals("com.baidu.tieba.voice")) {
-                            Intrinsics.checkNotNullExpressionValue(u, "u");
-                            return LocalFileInterceptorKt.c(u, request);
-                        }
-                        return null;
-                    } else if (scheme.equals("com.baidu.tieba.image")) {
-                        HashMap<String, String> hashMap = this.a;
-                        WriteData writeData = this.b;
-                        cbb cbbVar = this.c;
-                        Intrinsics.checkNotNullExpressionValue(u, "u");
-                        return LocalFileInterceptorKt.b(hashMap, writeData, cbbVar, u, request);
-                    } else {
-                        return null;
-                    }
-                } else if (scheme.equals("com.baidu.tieba.face")) {
-                    Intrinsics.checkNotNullExpressionValue(u, "u");
-                    return LocalFileInterceptorKt.a(u, request);
-                } else {
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (WebResourceResponse) invokeLL.objValue;
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
-    public final void b(ImageFileInfo imageFileInfo) {
+    public final ThemeColorInfo c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo) == null) && imageFileInfo != null) {
-            String b = y8b.b(imageFileInfo);
-            if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?t=", false, 2, (Object) null)) {
-                b = b.substring(0, StringsKt__StringsKt.lastIndexOf$default((CharSequence) b, "?t=", 0, false, 6, (Object) null));
-                Intrinsics.checkNotNullExpressionValue(b, "this as java.lang.String…ing(startIndex, endIndex)");
-            }
-            this.a.put(b, y8b.a(imageFileInfo));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    public final void c(cbb cbbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cbbVar) == null) {
-            this.c = cbbVar;
-        }
+        return (ThemeColorInfo) invokeV.objValue;
     }
 }

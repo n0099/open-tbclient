@@ -1,30 +1,67 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
+import android.util.SparseArray;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class ws7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class ws7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ws7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<xs7> a;
 
-    public static final void a(TextView textView, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, textView, str) == null) {
-            Intrinsics.checkNotNullParameter(textView, "<this>");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281230, "Lcom/baidu/tieba/ws7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!z) {
-                textView.setText(str);
-                textView.setVisibility(0);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281230, "Lcom/baidu/tieba/ws7;");
                 return;
             }
-            textView.setVisibility(8);
         }
+        b = new ws7();
+    }
+
+    public ws7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new SparseArray<>();
+    }
+
+    public static ws7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ws7) invokeV.objValue;
+    }
+
+    public xs7 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return (xs7) invokeI.objValue;
     }
 }

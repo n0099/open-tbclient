@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ld6 extends rw4 {
+public class ld6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,12 +24,14 @@ public class ld6 extends rw4 {
         }
     }
 
-    @Override // com.baidu.tieba.rw4
-    public void parserJson(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
-            jSONObject.optInt("open_level", 1);
-            jSONObject.optInt("open_status", 2);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optInt("video_count");
+        } catch (Exception unused) {
         }
     }
 }

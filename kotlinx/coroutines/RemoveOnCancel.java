@@ -24,7 +24,7 @@ public final class RemoveOnCancel extends BeforeResumeCancelHandler {
     @Override // kotlinx.coroutines.CancelHandlerBase
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public void invoke2(Throwable th) {
-        this.node.mo2349remove();
+        this.node.mo2353remove();
     }
 
     public String toString() {

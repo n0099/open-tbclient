@@ -331,7 +331,7 @@ public class AndroidApplication extends Activity implements u1 {
             if (configuration.hardKeyboardHidden != 1) {
                 z = false;
             }
-            this.b.G(z);
+            this.b.H(z);
         }
     }
 

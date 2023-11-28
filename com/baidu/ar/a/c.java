@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.h.q;
 import com.baidu.mobstat.Config;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class c {
     public static Map<String, String> ah() {
         try {
             HashMap hashMap = new HashMap();
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(k1.a));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(bk.a));
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {

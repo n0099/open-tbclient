@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -227,8 +227,8 @@ public final class Util {
             if (i >= length) {
                 break;
             } else if (isLocalFileUri(uriArr[i])) {
-                if (activity.checkSelfPermission(h.i) != 0) {
-                    activity.requestPermissions(new String[]{h.i}, 0);
+                if (activity.checkSelfPermission(g.i) != 0) {
+                    activity.requestPermissions(new String[]{g.i}, 0);
                     return true;
                 }
             } else {

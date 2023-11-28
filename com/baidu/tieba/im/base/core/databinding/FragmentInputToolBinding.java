@@ -68,26 +68,26 @@ public final class FragmentInputToolBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0904a5;
-            GroupChatKeyboardLayout groupChatKeyboardLayout = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904a5);
+            int i = R.id.obfuscated_res_0x7f0904bf;
+            GroupChatKeyboardLayout groupChatKeyboardLayout = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904bf);
             if (groupChatKeyboardLayout != null) {
-                i = R.id.obfuscated_res_0x7f091184;
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091184);
+                i = R.id.obfuscated_res_0x7f0911ac;
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911ac);
                 if (relativeLayout != null) {
-                    i = R.id.obfuscated_res_0x7f09118c;
-                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09118c);
+                    i = R.id.obfuscated_res_0x7f0911b5;
+                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911b5);
                     if (relativeLayout2 != null) {
-                        i = R.id.obfuscated_res_0x7f091fda;
-                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f091fda);
+                        i = R.id.obfuscated_res_0x7f092051;
+                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f092051);
                         if (groupChatRobotFloorView != null) {
-                            i = R.id.obfuscated_res_0x7f0922ae;
-                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922ae);
+                            i = R.id.obfuscated_res_0x7f09232a;
+                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232a);
                             if (noSlidingLinearLayout != null) {
-                                i = R.id.obfuscated_res_0x7f0928a0;
-                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0928a0);
+                                i = R.id.obfuscated_res_0x7f092924;
+                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092924);
                                 if (groupChatUserReplyView != null) {
-                                    i = R.id.obfuscated_res_0x7f0928d2;
-                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0928d2);
+                                    i = R.id.obfuscated_res_0x7f092957;
+                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092957);
                                     if (groupChatUserReplyView2 != null) {
                                         return new FragmentInputToolBinding((RelativeLayout) view2, groupChatKeyboardLayout, relativeLayout, relativeLayout2, groupChatRobotFloorView, noSlidingLinearLayout, groupChatUserReplyView, groupChatUserReplyView2);
                                     }
@@ -107,7 +107,7 @@ public final class FragmentInputToolBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0340, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0349, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.os.Message;
+import android.os.CountDownTimer;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +15,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class b13 implements kr2 {
+public class b13 implements d13, lr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Runnable, String> c;
+    public boolean c;
+    public CopyOnWriteArrayList<c> d;
+    public CountDownTimer e;
+
+    @Override // com.baidu.tieba.d13
+    public void c(@NonNull Runnable runnable, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.d13
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b13 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b13 b13Var, long j, long j2) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b13Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b13Var;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (lr2.a) {
+                    Log.d("SwanPerformance", "count down onFinish");
+                }
+                this.a.d(true);
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                Iterator it = this.a.d.iterator();
+                while (it.hasNext()) {
+                    c cVar = (c) it.next();
+                    if (5000 - cVar.e() >= j) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!cVar.g() && z) {
+                        cVar.h(true);
+                        d13 f = cVar.f();
+                        if (lr2.a) {
+                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
+                        }
+                        f.d(true);
+                    }
+                }
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
@@ -49,6 +127,74 @@ public class b13 implements kr2 {
         }
     }
 
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public d13 a;
+        public int b;
+        public boolean c;
+
+        public c(@NonNull b13 b13Var, d13 d13Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b13Var, d13Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = false;
+            this.a = d13Var;
+            this.b = i;
+        }
+
+        public /* synthetic */ c(b13 b13Var, d13 d13Var, int i, a aVar) {
+            this(b13Var, d13Var, i);
+        }
+
+        public final void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.c = z;
+            }
+        }
+
+        public final int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        @NonNull
+        public final d13 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (d13) invokeV.objValue;
+        }
+
+        public final boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
     public b13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,60 +208,170 @@ public class b13 implements kr2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
+        this.c = false;
+        this.d = new CopyOnWriteArrayList<>();
+        this.e = new a(this, 5000L, 500L);
     }
 
-    public static b13 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d13
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.d.isEmpty()) {
+            return;
         }
-        return (b13) invokeV.objValue;
+        if (lr2.a) {
+            Log.e("SwanPerformance", "triggerDestroy");
+        }
+        k();
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            it.next().f().b();
+        }
+        this.c = false;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.e.start();
+            } catch (Throwable th) {
+                if (lr2.a) {
+                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                this.e.cancel();
+            } catch (Throwable th) {
+                if (lr2.a) {
+                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
+                }
+            }
+        }
     }
 
     public /* synthetic */ b13(a aVar) {
         this();
     }
 
-    public void d(String str) {
+    public static b13 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (kr2.a) {
-                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (b13) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d13
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (lr2.a) {
+                Log.e("SwanPerformance", "triggerFcp, url = " + str);
             }
-            System.currentTimeMillis();
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().f().a(str);
+            }
         }
     }
 
-    public final void a() {
+    public boolean h(d13 d13Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
-            return;
-        }
-        if (kr2.a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
-        }
-        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-            if (entry != null) {
-                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d13Var)) == null) {
+            if (d13Var == null) {
+                return false;
             }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                if (d13Var.equals(it.next().f())) {
+                    return true;
+                }
+            }
+            return false;
         }
-        this.c.clear();
+        return invokeL.booleanValue;
     }
 
-    public void c(Message message) {
-        Object obj;
+    @Override // com.baidu.tieba.d13
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.c) {
             return;
         }
-        Bundle bundle = (Bundle) obj;
-        boolean z = bundle.getBoolean("is_timeout", false);
-        String string = bundle.getString("app_id", null);
-        if (kr2.a) {
-            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        this.c = true;
+        k();
+        if (this.d.isEmpty()) {
+            return;
         }
-        a();
+        if (lr2.a) {
+            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
+        }
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (!next.g()) {
+                next.h(true);
+                next.f().d(z);
+            }
+        }
+        ad3.p();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("is_timeout", z);
+        bundle.putString("app_id", g63.K().getAppId());
+        x23 e = x23.e();
+        z23 z23Var = new z23(23, bundle);
+        z23Var.f(true);
+        e.h(z23Var);
+    }
+
+    @Override // com.baidu.tieba.d13
+    @UiThread
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (i03.k()) {
+                ad3.a0(i03.j());
+            }
+            this.c = false;
+            if (this.d.isEmpty()) {
+                return;
+            }
+            if (lr2.a) {
+                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                next.h(false);
+                next.f().e(str);
+            }
+            k();
+            j();
+        }
+    }
+
+    public void i(d13 d13Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, d13Var, i) != null) || this.c || d13Var == null) {
+            return;
+        }
+        if (i > 5000) {
+            i = 5000;
+        }
+        if (!h(d13Var)) {
+            this.d.add(new c(this, d13Var, i, null));
+            if (lr2.a) {
+                Log.e("SwanPerformance", "register, task name = " + d13Var.getName() + " ; timeout = " + i);
+            }
+        }
     }
 }

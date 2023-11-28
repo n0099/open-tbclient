@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import androidx.annotation.Keep;
-import com.baidu.tieba.n9d;
-import com.baidu.tieba.r9d;
-import com.baidu.tieba.wad;
-import com.baidu.tieba.xad;
-import com.baidu.tieba.yad;
+import com.baidu.tieba.agd;
+import com.baidu.tieba.bgd;
+import com.baidu.tieba.cgd;
+import com.baidu.tieba.red;
+import com.baidu.tieba.ved;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
@@ -17,16 +17,16 @@ import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes2.dex */
-public interface IYYPayAmountView extends yad, xad {
+public interface IYYPayAmountView extends cgd, bgd {
 
     @Keep
     /* loaded from: classes2.dex */
     public interface Callback {
         void onRefreshViewFail(int i, String str);
 
-        void onStartPay(r9d r9dVar, n9d n9dVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str);
+        void onStartPay(ved vedVar, red redVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str);
 
-        void onStartSignPay(r9d r9dVar, n9d n9dVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str);
+        void onStartSignPay(ved vedVar, red redVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str);
 
         void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str);
 
@@ -34,26 +34,26 @@ public interface IYYPayAmountView extends yad, xad {
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(n9d n9dVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(red redVar, List<PayWayInfo> list, String str);
     }
 
-    @Override // com.baidu.tieba.yad
+    @Override // com.baidu.tieba.cgd
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.yad
+    @Override // com.baidu.tieba.cgd
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.yad
+    @Override // com.baidu.tieba.cgd
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.yad
+    @Override // com.baidu.tieba.cgd
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void release();
 
     void setCallback(Callback callback);
 
-    @Override // com.baidu.tieba.xad
+    @Override // com.baidu.tieba.bgd
     /* synthetic */ void setViewState(PayViewState payViewState);
 
     @Keep
@@ -64,7 +64,7 @@ public interface IYYPayAmountView extends yad, xad {
         public String payAmountDialogTitle;
         public List<Integer> payFailedRetryCode;
         public PayFlowType payFlowType;
-        public wad payResultViewRetryApi;
+        public agd payResultViewRetryApi;
         public PayScene payScene;
         public int targetAmount;
         public AbsViewEventHandler viewEventListener;

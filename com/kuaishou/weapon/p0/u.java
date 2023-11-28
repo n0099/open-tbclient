@@ -1,615 +1,406 @@
 package com.kuaishou.weapon.p0;
 
-import android.content.ContentValues;
+import android.accounts.NetworkErrorException;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class u {
+public class u implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String A = "dm";
-    public static final String B = "rm";
-    public static final String C = "pc";
-    public static final String D = "cbl";
-    public static u E = null;
-    public static final String f = "k";
-    public static final String g = "p";
-    public static final String h = "v";
-    public static final String i = "l";
-    public static final String j = "i";
-    public static final String k = "a";
-    public static final String l = "s";
-    public static final String m = "n";
-    public static final String n = "u";
-    public static final String o = "c";
-    public static final String p = "r";
-    public static final String q = "b";
-    public static final String r = "m";
-    public static final String s = "el";
-    public static final String t = "ail";
-    public static final String u = "aps";
-    public static final String v = "dp";
-    public static final String w = "pcn";
-    public static final String x = "pst";
-    public static final String y = "d";
-    public static final String z = "at";
+    public static final int a = 1;
+    public static final int b = 2;
+    public static final int c = 4;
+    public static final int d = 0;
+    public static final int e = 8;
+    public static final int f = 1;
+    public static final int g = 3;
+    public static final int h = 4;
+    public static long o;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public a c;
-    public SQLiteDatabase d;
-    public Context e;
+    public List<Integer> i;
+    public Context j;
+    public q k;
+    public t l;
+    public File m;
+    public dp n;
+    public int p;
+    public int q;
+    public boolean r;
+    public Map<Integer, a> s;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1651774390, "Lcom/kuaishou/weapon/p0/u;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1651774390, "Lcom/kuaishou/weapon/p0/u;");
+        }
+    }
 
     /* loaded from: classes10.dex */
-    public class a extends SQLiteOpenHelper {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u a;
+        public int a;
+        public final /* synthetic */ u b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(u uVar, Context context) {
-            super(context, i1.p, (SQLiteDatabase.CursorFactory) null, uVar.a);
+        public a(u uVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uVar, context};
+                Object[] objArr = {uVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = uVar;
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-                try {
-                    sQLiteDatabase.execSQL(this.a.b);
-                } catch (Throwable unused) {
-                }
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) || i >= 3 || i2 < 3) {
-                return;
-            }
-            try {
-                sQLiteDatabase.beginTransaction();
-                sQLiteDatabase.execSQL("ALTER TABLE wp ADD COLUMN pc INTEGER  DEFAULT -1");
-                sQLiteDatabase.setTransactionSuccessful();
-                sQLiteDatabase.endTransaction();
-            } catch (Throwable unused) {
-            }
+            this.b = uVar;
+            this.a = i;
         }
     }
 
-    public u(Context context) {
+    public u(Context context, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 1;
-        this.b = "create table wp(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,el INTEGER,c INTEGER,r INTEGER,aps INTEGER,dp TEXT,pcn TEXT,b TEXT,m TEXT,ail BLOB,pst INTEGER,d INTEGER,at INTEGER,dm TEXT,rm INTEGER,l TEXT,pc INTEGER DEFAULT -1,a TEXT,cbl INTEGER)";
-        this.e = context.getApplicationContext();
-        this.c = new a(this, context.getApplicationContext());
-        try {
-            if (context.getFilesDir().getParentFile().exists()) {
-                this.d = this.c.getWritableDatabase();
-            }
-        } catch (Throwable unused) {
-        }
+        this.p = 0;
+        this.q = 0;
+        this.r = false;
+        this.i = new ArrayList();
+        this.s = new HashMap();
+        this.j = context;
+        this.k = q.a(context);
+        this.l = t.a(context);
+        this.n = dp.a(context);
+        this.m = new File(context.getFilesDir(), ".tmp");
+        this.p = i;
+        this.r = z;
     }
 
-    public static synchronized u a(Context context) {
-        InterceptResult invokeL;
-        u uVar;
+    private void a(s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (u.class) {
-                if (E == null) {
-                    E = new u(context);
-                }
-                uVar = E;
-            }
-            return uVar;
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public int a(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, sVar) == null) {
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("u", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.d;
-                return sQLiteDatabase.update(i1.q, contentValues, "k=" + i2, null);
-            } catch (Throwable unused) {
-                return 0;
-            }
-        }
-        return invokeII.intValue;
-    }
-
-    public long a(t tVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar)) == null) {
-            long j2 = 0;
-            if (tVar == null) {
-                return 0L;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("n", Integer.valueOf(tVar.b));
-            contentValues.put("aps", Integer.valueOf(tVar.p));
-            contentValues.put("p", tVar.c);
-            contentValues.put("a", tVar.e);
-            contentValues.put("l", tVar.h);
-            contentValues.put("v", tVar.d);
-            contentValues.put(v, tVar.n);
-            contentValues.put("a", tVar.e);
-            contentValues.put(w, tVar.o);
-            contentValues.put(x, Long.valueOf(tVar.s));
-            contentValues.put(B, Integer.valueOf(tVar.w));
-            contentValues.put("at", Integer.valueOf(tVar.q));
-            contentValues.put("pc", Integer.valueOf(tVar.x));
-            contentValues.put(D, Integer.valueOf(tVar.y ? 1 : 0));
-            if (!TextUtils.isEmpty(tVar.j)) {
-                contentValues.put(A, tVar.j);
-            }
-            try {
-                if (d(tVar.a)) {
-                    j2 = this.d.update(i1.q, contentValues, "k=" + tVar.a, null);
-                } else {
-                    contentValues.put("k", Integer.valueOf(tVar.a));
-                    j2 = this.d.insert(i1.q, null, contentValues);
-                }
-            } catch (Throwable unused) {
-            }
-            return j2;
-        }
-        return invokeL.longValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x00f4, code lost:
-        if (r1.isClosed() == false) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00fe, code lost:
-        if (r1.isClosed() == false) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0101, code lost:
-        r1.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public t a(int i2) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            t tVar = null;
-            try {
-                cursor = this.d.query(i1.q, null, "k=" + i2, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            t tVar2 = new t();
-                            try {
-                                tVar2.a = i2;
-                                tVar2.b = cursor.getInt(cursor.getColumnIndex("n"));
-                                tVar2.c = cursor.getString(cursor.getColumnIndex("p"));
-                                tVar2.e = cursor.getString(cursor.getColumnIndex("a"));
-                                tVar2.h = cursor.getString(cursor.getColumnIndex("l"));
-                                tVar2.d = cursor.getString(cursor.getColumnIndex("v"));
-                                tVar2.n = cursor.getString(cursor.getColumnIndex(v));
-                                tVar2.p = cursor.getInt(cursor.getColumnIndex("aps"));
-                                tVar2.o = cursor.getString(cursor.getColumnIndex(w));
-                                tVar2.q = cursor.getInt(cursor.getColumnIndex("at"));
-                                tVar2.s = cursor.getLong(cursor.getColumnIndex(x));
-                                tVar2.t = cursor.getInt(cursor.getColumnIndex("d"));
-                                tVar2.w = cursor.getInt(cursor.getColumnIndex(B));
-                                tVar2.j = cursor.getString(cursor.getColumnIndex(A));
-                                tVar2.x = cursor.getInt(cursor.getColumnIndex("pc"));
-                                boolean z2 = true;
-                                if (cursor.getInt(cursor.getColumnIndex(D)) != 1) {
-                                    z2 = false;
-                                }
-                                tVar2.y = z2;
-                                tVar = tVar2;
-                            } catch (Throwable unused) {
-                                tVar = tVar2;
-                                if (cursor != null) {
-                                }
-                                return tVar;
+                if (!TextUtils.isEmpty(sVar.j) && sVar.j.length() >= 10) {
+                    if (!this.m.exists()) {
+                        this.m.mkdir();
+                    }
+                    File file = this.m;
+                    File file2 = new File(file, sVar.a + "-" + sVar.d + ".tmp");
+                    File file3 = this.m;
+                    File file4 = new File(file3, sVar.a + "-" + sVar.d + ".zip");
+                    boolean a2 = l.a(this.j).a(sVar.i, file2);
+                    if (!a2) {
+                        a2 = l.a(this.j).a(sVar.i, file2);
+                    }
+                    if (a2) {
+                        if (file4.exists()) {
+                            file4.delete();
+                        }
+                        int c2 = b.c(file2.getAbsolutePath(), file4.getAbsolutePath(), c.a("a3NyaXNrY3RsYnVzaW5zc3Z4cHprd3NwYWlvcXBrc3M=".getBytes("utf-8"), 2));
+                        if (c2 != 0) {
+                            if (file4.exists()) {
+                                file4.delete();
                             }
+                            a2 = false;
                         }
-                    } catch (Throwable unused2) {
+                        if (c2 == 0 && file2.exists()) {
+                            file2.delete();
+                        }
+                    } else {
+                        this.s.put(Integer.valueOf(sVar.a), new a(this, 3));
                     }
-                }
-                if (cursor != null) {
-                }
-            } catch (Throwable unused3) {
-                cursor = null;
-            }
-            return tVar;
-        }
-        return (t) invokeI.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ArrayList<t> arrayList = new ArrayList();
-            for (t tVar : b()) {
-                if (!n3.a(tVar.e)) {
-                    arrayList.add(tVar);
-                }
-            }
-            try {
-                s b = s.b();
-                for (t tVar2 : arrayList) {
-                    if (b != null) {
-                        b.d(tVar2.e);
+                    String a3 = f.a(file4);
+                    if (a2 && sVar.j.equals(a3)) {
+                        dn.a(file4.getAbsolutePath(), Boolean.TRUE);
+                        sVar.e = file4.getAbsolutePath();
+                        if (this.k.a(sVar, (String) null, (String) null)) {
+                            if (this.s != null && !this.s.containsKey(Integer.valueOf(sVar.a))) {
+                                this.s.put(Integer.valueOf(sVar.a), new a(this, 1));
+                            }
+                            this.n.a(dp.b, System.currentTimeMillis(), true);
+                            return;
+                        }
+                        if (this.s != null && !this.s.containsKey(Integer.valueOf(sVar.a))) {
+                            this.s.put(Integer.valueOf(sVar.a), new a(this, 4));
+                        }
+                        this.k.a(sVar.a, sVar.d, (PackageInfo) null);
+                        return;
                     }
-                    SQLiteDatabase sQLiteDatabase = this.d;
-                    sQLiteDatabase.delete(i1.q, "k=" + tVar2.a, null);
-                    if (s.h != null && !s.h.contains(Integer.valueOf(tVar2.a))) {
-                        n3.b(this.e.getFilesDir().getCanonicalPath() + i1.j + tVar2.a);
+                    if (file2.exists()) {
+                        file2.length();
+                        file2.delete();
                     }
-                    if (b.a() != null && b.a().get(tVar2.c) != null) {
-                        n3.b(this.e.getFileStreamPath(tVar2.c).getAbsolutePath());
-                    }
+                    this.k.a(sVar.a, sVar.d, (PackageInfo) null);
+                    return;
                 }
+                this.k.a(sVar.a, sVar.d, (PackageInfo) null);
             } catch (Throwable unused) {
+                this.k.a(sVar.a, sVar.d, (PackageInfo) null);
             }
         }
     }
 
-    public void a(String str) {
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            this.d.delete(i1.q, "p=?", new String[]{str});
-        } catch (Throwable unused) {
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003f, code lost:
-        if (r11.isClosed() == false) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0049, code lost:
-        if (r11.isClosed() == false) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004c, code lost:
-        r11.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int b(int i2) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            int i3 = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                SQLiteDatabase sQLiteDatabase = this.d;
-                cursor = sQLiteDatabase.query(i1.q, new String[]{"n"}, "k=" + i2, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            i3 = cursor.getInt(cursor.getColumnIndex("n"));
+                String str = cu.a + cu.g;
+                String a2 = cv.a(this.j);
+                if (!TextUtils.isEmpty(a2)) {
+                    str = str + "?" + a2;
+                }
+                JSONObject jSONObject = new JSONObject();
+                JSONObject c2 = cv.c(this.j);
+                if (c2 != null) {
+                    jSONObject.put("data", new bn(this.j).c(c2.toString()));
+                }
+                l a3 = l.a(this.j);
+                m mVar = new m(str, jSONObject);
+                mVar.a(WeaponHI.cookieData);
+                mVar.b(WeaponHI.encryENV);
+                JSONObject jSONObject2 = new JSONObject(a3.a(mVar));
+                int optInt = jSONObject2.optInt("result", 0);
+                if (optInt == 1) {
+                    String a4 = new bn(this.j).a(jSONObject2.getString("antispamPluginManageRsp"));
+                    if (TextUtils.isEmpty(a4)) {
+                        if (this.q == 0) {
+                            this.q = 8;
                         }
-                    } catch (Throwable unused) {
-                        if (cursor != null) {
-                        }
-                        return i3;
+                        throw new NetworkErrorException("kuaishou risk pluginloader response is null");
                     }
+                    JSONObject jSONObject3 = new JSONObject(a4);
+                    if (jSONObject3.optInt("status", 0) == 1) {
+                        return jSONObject3.optJSONObject("plugin");
+                    }
+                    if (this.n != null) {
+                        this.n.a(dp.b, System.currentTimeMillis(), true);
+                        return null;
+                    }
+                    return null;
+                } else if (optInt == -7) {
+                    dp.a(this.j).a(dp.a, 1, false);
+                    return null;
+                } else {
+                    return null;
                 }
-                if (cursor != null) {
-                }
-            } catch (Throwable unused2) {
-                cursor = null;
-            }
-            return i3;
-        }
-        return invokeI.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00fd, code lost:
-        if (r12.isClosed() == false) goto L15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0107, code lost:
-        if (r12.isClosed() == false) goto L15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x010a, code lost:
-        r12.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public t b(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            t tVar = null;
-            if (TextUtils.isEmpty(str)) {
+            } catch (Exception unused) {
                 return null;
             }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Iterator<String> it;
+        JSONObject jSONObject;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                boolean z2 = true;
-                cursor = this.d.query(i1.q, null, "p=?", new String[]{str}, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            t tVar2 = new t();
-                            try {
-                                tVar2.a = cursor.getInt(cursor.getColumnIndex("k"));
-                                tVar2.b = cursor.getInt(cursor.getColumnIndex("n"));
-                                tVar2.c = cursor.getString(cursor.getColumnIndex("p"));
-                                tVar2.e = cursor.getString(cursor.getColumnIndex("a"));
-                                tVar2.h = cursor.getString(cursor.getColumnIndex("l"));
-                                tVar2.d = cursor.getString(cursor.getColumnIndex("v"));
-                                tVar2.n = cursor.getString(cursor.getColumnIndex(v));
-                                tVar2.p = cursor.getInt(cursor.getColumnIndex("aps"));
-                                tVar2.o = cursor.getString(cursor.getColumnIndex(w));
-                                tVar2.q = cursor.getInt(cursor.getColumnIndex("at"));
-                                tVar2.s = cursor.getLong(cursor.getColumnIndex(x));
-                                tVar2.t = cursor.getInt(cursor.getColumnIndex("d"));
-                                tVar2.w = cursor.getInt(cursor.getColumnIndex(B));
-                                tVar2.j = cursor.getString(cursor.getColumnIndex(A));
-                                tVar2.x = cursor.getInt(cursor.getColumnIndex("pc"));
-                                if (cursor.getInt(cursor.getColumnIndex(D)) != 1) {
-                                    z2 = false;
+                try {
+                    synchronized (u.class) {
+                        if (this.p != 1 && this.p != 2 && this.p != 4 && !this.r && System.currentTimeMillis() - o < 300000) {
+                            return;
+                        }
+                        this.l.d();
+                        o = System.currentTimeMillis();
+                        if ((System.currentTimeMillis() - this.n.a(dp.b)) - (this.n.a(dp.c, 6) * 3600000) > 0) {
+                            List<s> a2 = this.l.a();
+                            ArrayList arrayList = new ArrayList();
+                            ArrayList arrayList2 = new ArrayList();
+                            ArrayList<s> arrayList3 = new ArrayList();
+                            ArrayList arrayList4 = new ArrayList();
+                            JSONObject a3 = a();
+                            if (a3 != null) {
+                                boolean z2 = false;
+                                try {
+                                    boolean b2 = dm.b(this.j);
+                                    Iterator<String> keys = a3.keys();
+                                    HashSet<String> hashSet = new HashSet();
+                                    boolean z3 = false;
+                                    while (keys.hasNext()) {
+                                        String next = keys.next();
+                                        if (b2 && next.endsWith("64")) {
+                                            if (next.length() > 3) {
+                                                hashSet.add(next.substring(0, next.length() - 3));
+                                                hashSet.add(next.substring(0, next.length() - 3) + ".32");
+                                                z3 = true;
+                                            } else {
+                                                z3 = true;
+                                            }
+                                        } else if (!b2 && next.endsWith(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK)) {
+                                            if (next.length() <= 3) {
+                                                z3 = true;
+                                            } else {
+                                                hashSet.add(next.substring(0, next.length() - 3));
+                                                hashSet.add(next.substring(0, next.length() - 3) + ".64");
+                                                z3 = true;
+                                            }
+                                        } else {
+                                            if (b2 && next.endsWith(V8Engine.TYPE_V8)) {
+                                                if (next.length() > 3) {
+                                                    hashSet.add(next.substring(0, next.length() - 3));
+                                                    hashSet.add(next.substring(0, next.length() - 3) + ".v7");
+                                                    z3 = true;
+                                                }
+                                            } else if (!b2 && next.endsWith("v7")) {
+                                                if (next.length() > 3) {
+                                                    hashSet.add(next.substring(0, next.length() - 3));
+                                                    hashSet.add(next.substring(0, next.length() - 3) + ".v8");
+                                                }
+                                            }
+                                            z3 = true;
+                                        }
+                                    }
+                                    if (z3) {
+                                        for (String str : hashSet) {
+                                            a3.remove(str);
+                                        }
+                                    }
+                                    z2 = z3;
+                                } catch (Throwable unused) {
                                 }
-                                tVar2.y = z2;
-                                tVar = tVar2;
-                            } catch (Throwable unused) {
-                                tVar = tVar2;
-                                if (cursor != null) {
+                                Iterator<String> keys2 = a3.keys();
+                                while (keys2.hasNext()) {
+                                    String next2 = keys2.next();
+                                    s a4 = o.a(a3.optJSONObject(next2));
+                                    if (a4 != null) {
+                                        if (z2 && !a4.y && (next2.endsWith(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK) || next2.endsWith("64") || next2.endsWith("v7") || next2.endsWith(V8Engine.TYPE_V8))) {
+                                            a4.y = true;
+                                        }
+                                        if (a4.v) {
+                                            arrayList4.add(next2);
+                                        }
+                                        if (!a4.y) {
+                                            arrayList3.add(a4);
+                                        }
+                                        int indexOf = a2.indexOf(a4);
+                                        if (indexOf >= 0 && a4.y) {
+                                            s sVar = a2.get(indexOf);
+                                            if (dn.b(a4.d, sVar.d)) {
+                                                if (a4.x != sVar.x) {
+                                                    this.l.c(a4.a, a4.x);
+                                                }
+                                                if (!this.l.d(a4.a)) {
+                                                    arrayList2.add(a4);
+                                                }
+                                                it = keys2;
+                                                jSONObject = a3;
+                                                z = z2;
+                                            } else {
+                                                jSONObject = a3;
+                                                z = z2;
+                                                it = keys2;
+                                                this.n.a(dp.b, System.currentTimeMillis(), true);
+                                                if (a4.x != sVar.x) {
+                                                    this.l.c(a4.a, a4.x);
+                                                }
+                                                arrayList.add(a4);
+                                            }
+                                            a2.remove(indexOf);
+                                        } else {
+                                            it = keys2;
+                                            jSONObject = a3;
+                                            z = z2;
+                                            if (a4.y) {
+                                                arrayList2.add(a4);
+                                            }
+                                        }
+                                        a3 = jSONObject;
+                                        z2 = z;
+                                        keys2 = it;
+                                    }
                                 }
-                                return tVar;
+                                for (s sVar2 : a2) {
+                                    if (!arrayList4.contains(sVar2.c)) {
+                                        if (this.i != null) {
+                                            this.i.add(Integer.valueOf(sVar2.a));
+                                        }
+                                        this.k.a(sVar2.c);
+                                    }
+                                }
+                                for (s sVar3 : arrayList3) {
+                                    if (!arrayList4.contains(sVar3.c)) {
+                                        if (this.i != null) {
+                                            this.i.add(Integer.valueOf(sVar3.a));
+                                        }
+                                        this.k.a(sVar3.c);
+                                    }
+                                }
+                                ArrayList<s> arrayList5 = new ArrayList();
+                                if (arrayList2.size() != 0) {
+                                    arrayList5.addAll(arrayList2);
+                                }
+                                if (arrayList.size() != 0) {
+                                    arrayList5.addAll(arrayList);
+                                }
+                                for (s sVar4 : arrayList5) {
+                                    if (sVar4 != null) {
+                                        if (arrayList.contains(sVar4)) {
+                                            this.k.a(sVar4.a, sVar4.d, (PackageInfo) null);
+                                        } else if (arrayList2.contains(sVar4)) {
+                                            a(sVar4);
+                                        }
+                                    }
+                                }
+                            } else {
+                                throw new Exception("pluginJsonObject is null ");
                             }
-                        }
-                    } catch (Throwable unused2) {
-                    }
-                }
-                if (cursor != null) {
-                }
-            } catch (Throwable unused3) {
-                cursor = null;
-            }
-            return tVar;
-        }
-        return (t) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x00ae, code lost:
-        if (r1.isClosed() == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00b8, code lost:
-        if (r1.isClosed() == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00ba, code lost:
-        r1.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<t> b() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                cursor = this.d.query(i1.q, null, null, null, null, null, null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        try {
-                            t tVar = new t();
-                            tVar.a = cursor.getInt(cursor.getColumnIndex("k"));
-                            tVar.c = cursor.getString(cursor.getColumnIndex("p"));
-                            tVar.e = cursor.getString(cursor.getColumnIndex("a"));
-                            tVar.h = cursor.getString(cursor.getColumnIndex("l"));
-                            tVar.d = cursor.getString(cursor.getColumnIndex("v"));
-                            tVar.s = cursor.getLong(cursor.getColumnIndex(x));
-                            tVar.t = cursor.getInt(cursor.getColumnIndex("d"));
-                            tVar.w = cursor.getInt(cursor.getColumnIndex(B));
-                            tVar.x = cursor.getInt(cursor.getColumnIndex("pc"));
-                            boolean z2 = true;
-                            if (cursor.getInt(cursor.getColumnIndex(D)) != 1) {
-                                z2 = false;
-                            }
-                            tVar.y = z2;
-                            arrayList.add(tVar);
-                        } catch (Throwable unused) {
-                            if (cursor != null) {
-                            }
-                            return arrayList;
+                        } else {
+                            this.k.c();
+                            this.l.b();
                         }
                     }
-                }
-                if (cursor != null) {
+                } finally {
+                    WeaponHI.iD();
                 }
             } catch (Throwable unused2) {
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("n", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.d;
-                sQLiteDatabase.update(i1.q, contentValues, "k=" + i2, null);
-            } catch (Throwable unused) {
+                this.k.c();
+                this.l.b();
             }
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("n", (Integer) 0);
-            try {
-                this.d.update(i1.q, contentValues, "n=-1", null);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void c(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("pc", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.d;
-                sQLiteDatabase.update(i1.q, contentValues, "k=" + i2, null);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0042, code lost:
-        if (r11.isClosed() == false) goto L13;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004c, code lost:
-        if (r11.isClosed() == false) goto L13;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x004f, code lost:
-        r11.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean c(int i2) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            boolean z2 = false;
-            try {
-                SQLiteDatabase sQLiteDatabase = this.d;
-                cursor = sQLiteDatabase.query(i1.q, new String[]{"s"}, "k=" + i2, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            if (cursor.getInt(cursor.getColumnIndex("s")) == 1) {
-                                z2 = true;
-                            }
-                        }
-                    } catch (Throwable unused) {
-                        if (cursor != null) {
-                        }
-                        return z2;
-                    }
-                }
-                if (cursor != null) {
-                }
-            } catch (Throwable unused2) {
-                cursor = null;
-            }
-            return z2;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("u", (Integer) 0);
-            try {
-                this.d.update(i1.q, contentValues, "u=1", null);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0038, code lost:
-        if (r10.isClosed() == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0042, code lost:
-        if (r10.isClosed() == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0045, code lost:
-        r10.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean d(int i2) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            boolean z2 = false;
-            try {
-                cursor = this.d.query(i1.q, new String[]{"p"}, "k=" + i2, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() > 0) {
-                            z2 = true;
-                        }
-                    } catch (Throwable unused) {
-                        if (cursor != null) {
-                        }
-                        return z2;
-                    }
-                }
-                if (cursor != null) {
-                }
-            } catch (Throwable unused2) {
-                cursor = null;
-            }
-            return z2;
-        }
-        return invokeI.booleanValue;
     }
 }

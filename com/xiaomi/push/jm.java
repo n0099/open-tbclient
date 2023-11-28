@@ -4,7 +4,7 @@ public final class jm extends jn {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f819a;
+    public byte[] f815a;
     public int b;
 
     @Override // com.xiaomi.push.jn
@@ -19,7 +19,7 @@ public final class jm extends jn {
             i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f819a, this.a, bArr, i, i2);
+            System.arraycopy(this.f815a, this.a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -36,14 +36,14 @@ public final class jm extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo724a(byte[] bArr, int i, int i2) {
+    public void mo728a(byte[] bArr, int i, int i2) {
         throw new UnsupportedOperationException("No writing allowed!");
     }
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo725a() {
-        return this.f819a;
+    public byte[] mo729a() {
+        return this.f815a;
     }
 
     @Override // com.xiaomi.push.jn
@@ -52,7 +52,7 @@ public final class jm extends jn {
     }
 
     public void b(byte[] bArr, int i, int i2) {
-        this.f819a = bArr;
+        this.f815a = bArr;
         this.a = i;
         this.b = i + i2;
     }

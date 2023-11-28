@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mvb;
-import com.baidu.tieba.nvb;
+import com.baidu.tieba.i0c;
+import com.baidu.tieba.j0c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class SVGImageView extends ImageView {
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public nvb b;
+    public j0c b;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -224,7 +224,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new nvb();
+        this.b = new j0c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -247,7 +247,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new nvb();
+        this.b = new j0c();
         d(attributeSet, 0);
     }
 
@@ -271,7 +271,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new nvb();
+        this.b = new j0c();
         d(attributeSet, i);
     }
 
@@ -387,7 +387,7 @@ public class SVGImageView extends ImageView {
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) != null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, mvb.SVGImageView, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, i0c.SVGImageView, i, 0);
         try {
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {

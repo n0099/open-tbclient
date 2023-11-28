@@ -1,43 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.mjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
 /* loaded from: classes8.dex */
-public final class rlc extends mjc {
+public final class rlc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    public rlc(ThreadFactory threadFactory) {
+    public rlc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = threadFactory;
     }
 
-    @Override // com.baidu.tieba.mjc
-    public mjc.a createWorker() {
-        InterceptResult invokeV;
+    public static void a(rlc rlcVar, llc llcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new slc(this.a);
+        if (interceptable == null || interceptable.invokeLL(65537, null, rlcVar, llcVar) == null) {
+            int length = rlcVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                rlcVar.c[i2] = i;
+                olc.n(rlcVar.a, rlcVar.b, i, llcVar);
+                i += 1080;
+            }
         }
-        return (mjc.a) invokeV.objValue;
+    }
+
+    public static void b(rlc rlcVar, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, rlcVar, i, i2) == null) {
+            rlcVar.a = i;
+            rlcVar.b = new int[i2 * 1080];
+            rlcVar.c = new int[i2];
+        }
     }
 }

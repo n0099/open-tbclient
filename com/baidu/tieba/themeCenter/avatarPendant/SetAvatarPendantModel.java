@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.nxa;
+import com.baidu.tieba.g2b;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
 
     /* loaded from: classes8.dex */
     public interface b {
-        void u0(boolean z, long j, int i, String str, int i2);
+        void p0(boolean z, long j, int i, String str, int i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -81,12 +81,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
 
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof SetPendantHttpResponse;
-            if (!z && !(responsedMessage instanceof SetPendantSocketResponse)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || !((z = responsedMessage instanceof SetPendantHttpResponse))) {
                 return;
             }
             if (responsedMessage.getError() == 0) {
@@ -98,17 +95,13 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                 this.a.U(setPendantHttpResponse.getPendantId());
                 this.a.b = setPendantHttpResponse.getFreeUseLevel();
-            } else if (responsedMessage instanceof SetPendantSocketResponse) {
-                SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                this.a.U(setPendantSocketResponse.getPendantId());
-                this.a.b = setPendantSocketResponse.getFreeUseLevel();
             }
             if (this.a.d != null) {
-                int i = nxa.b;
-                if (responsedMessage.getError() == nxa.c) {
-                    i = nxa.a;
+                int i = g2b.b;
+                if (responsedMessage.getError() == g2b.c) {
+                    i = g2b.a;
                 }
-                this.a.d.u0(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
+                this.a.d.p0(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
             }
         }
     }
@@ -128,8 +121,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.c = false;
         this.e = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        dra.h(309412, SetPendantSocketResponse.class, false, false);
-        dra.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        wva.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.e);
     }
 

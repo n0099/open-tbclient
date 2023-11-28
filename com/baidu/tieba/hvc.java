@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import tbclient.BirthdayInfo;
 /* loaded from: classes6.dex */
-public class hvc extends qoc {
+public class hvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public static JSONObject b(@NonNull BirthdayInfo birthdayInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumHeadlineImgInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, birthdayInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "thread_id", forumHeadlineImgInfo.thread_id);
-            qoc.a(jSONObject, "thread_user_name", forumHeadlineImgInfo.thread_user_name);
-            qoc.a(jSONObject, "img_user_name", forumHeadlineImgInfo.img_user_name);
-            qoc.a(jSONObject, BigdayActivityConfig.IMG_URL, forumHeadlineImgInfo.img_url);
-            qoc.a(jSONObject, "thread_user_id", forumHeadlineImgInfo.thread_user_id);
-            qoc.a(jSONObject, "img_user_id", forumHeadlineImgInfo.img_user_id);
-            qoc.a(jSONObject, "headline_url", forumHeadlineImgInfo.headline_url);
+            ltc.a(jSONObject, "birthday_time", birthdayInfo.birthday_time);
+            ltc.a(jSONObject, "birthday_show_status", birthdayInfo.birthday_show_status);
+            ltc.a(jSONObject, "constellation", birthdayInfo.constellation);
+            ltc.a(jSONObject, "age", birthdayInfo.age);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

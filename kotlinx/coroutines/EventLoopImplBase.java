@@ -209,7 +209,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
     public final boolean isCompleted() {
         return this._isCompleted;
     }
@@ -484,7 +484,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public final void mo2350dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public final void mo2354dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         enqueue(runnable);
     }
 
@@ -593,7 +593,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo2351scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+    public void mo2355scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         Long valueOf;
         long longValue;
         long delayToNanos = EventLoop_commonKt.delayToNanos(j);

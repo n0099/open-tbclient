@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ara;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.hma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -138,13 +138,13 @@ public final class SpriteNotificationEdgeFloat {
                 c = this.this$0.c();
                 c.addView(this.$view);
                 c2 = this.this$0.c();
-                hma hmaVar = new hma(c2);
-                hmaVar.x(this.$gravity);
-                hmaVar.H(this.$startX);
-                hmaVar.I(this.$startY);
-                hmaVar.d(this.$canDrag);
-                hmaVar.C(this.$pageSupportList);
-                return hmaVar.c();
+                ara araVar = new ara(c2);
+                araVar.x(this.$gravity);
+                araVar.H(this.$startX);
+                araVar.I(this.$startY);
+                araVar.d(this.$canDrag);
+                araVar.C(this.$pageSupportList);
+                return araVar.c();
             }
         });
     }

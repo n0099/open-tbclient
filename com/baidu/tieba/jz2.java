@@ -17,64 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Locale;
 /* loaded from: classes6.dex */
-public class jz2 implements zk3<HybridUbcFlow> {
+public class jz2 implements al3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile long a;
-
-        /* renamed from: com.baidu.tieba.jz2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0357a {
-            public static /* synthetic */ Interceptable $ic;
-            public static a a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1439800685, "Lcom/baidu/tieba/jz2$a$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(1439800685, "Lcom/baidu/tieba/jz2$a$a;");
-                        return;
-                    }
-                }
-                a = new a();
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0357a.a;
-            }
-            return (a) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,7 +35,7 @@ public class jz2 implements zk3<HybridUbcFlow> {
                 return;
             }
         }
-        a = rm1.a;
+        a = sm1.a;
     }
 
     public jz2() {
@@ -107,7 +53,7 @@ public class jz2 implements zk3<HybridUbcFlow> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk3
+    @Override // com.baidu.tieba.al3
     /* renamed from: b */
     public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
@@ -118,200 +64,184 @@ public class jz2 implements zk3<HybridUbcFlow> {
 
     @SuppressLint({"SwanDebugLog", "LogConditional"})
     public void c(HybridUbcFlow hybridUbcFlow) {
+        long f;
         String str;
         String str2;
-        boolean z;
-        boolean z2;
         String str3;
         String str4;
         String str5;
+        boolean z;
+        boolean z2;
+        int i;
+        String str6;
+        String str7;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) && hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
-            long f = hybridUbcFlow.f("slave_first_rendered", "master_dispatch_start");
-            ci3.g.d(Long.valueOf(f));
-            String str6 = "naStart";
-            ci3.b.d(Long.valueOf(hybridUbcFlow.f("slave_first_rendered", "naStart")));
-            String str7 = "aps_start_download";
-            String str8 = "aps_end_req";
-            ci3.c.d(Long.valueOf(hybridUbcFlow.f("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
-            long f2 = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            long j = 1;
-            if (f2 < 1) {
-                f2 = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f2 >= 1) {
-                j = f2;
-            }
-            a.a().a = j;
-            g63 c0 = g63.c0();
-            if (c0 == null) {
-                return;
-            }
-            if (!a && !f23.d("aiapps_startup_reporter", false)) {
-                return;
-            }
-            int i = f23.u().getInt("aiapps_startup_reporter_resolution", 100);
-            String a0 = c0.a0();
-            if (TextUtils.isEmpty(a0)) {
-                a0 = "";
-            }
-            if (TextUtils.isEmpty(c0.b)) {
-                str = "";
-            } else {
-                str = c0.b;
-            }
-            Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + a0 + " appID: " + str + " speedLog\n");
-            StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < i; i2++) {
-                sb.append("&");
-            }
-            boolean z3 = true;
-            Log.i("StartupReporter", String.format(" Cost [%s] Delta Src  Total Action", sb.toString()));
-            long g = hybridUbcFlow.f.get(0).g();
-            Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
-            long j2 = 0;
-            while (it.hasNext()) {
-                UbcFlowEvent next = it.next();
-                if (!next.b() || f23.d("aiapps_startup_reporter_local_report", z3)) {
-                    String[] strArr = new String[2];
-                    Iterator<UbcFlowEvent> it2 = it;
-                    strArr[0] = next.a;
-                    strArr[z3 ? 1 : 0] = str6;
-                    long f3 = hybridUbcFlow.f(strArr);
-                    if (f3 < 0) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            h63 M = h63.M();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty() && a && M != null) {
+                HybridUbcFlow.SubmitStrategy i2 = hybridUbcFlow.i();
+                String str8 = "fe_route_start";
+                if (!hybridUbcFlow.d.contains("fe_route_start")) {
+                    str8 = "na_first_receive_action";
+                }
+                int i3 = 2;
+                char c = 1;
+                char c2 = 0;
+                if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE) {
+                    f = hybridUbcFlow.f("fe_first_render_start", str8);
+                } else if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE_NA) {
+                    f = hybridUbcFlow.f("na_push_page_end", str8);
+                } else {
+                    f = hybridUbcFlow.f("web_widget_first_screen_finish", str8);
+                }
+                if (f < 1) {
+                    f = 1;
+                }
+                String a0 = M.a0();
+                String str9 = "";
+                if (TextUtils.isEmpty(a0)) {
+                    a0 = "";
+                }
+                if (TextUtils.isEmpty(M.b)) {
+                    str = "";
+                } else {
+                    str = M.b;
+                }
+                if (M.Z() == null) {
+                    str2 = "";
+                } else {
+                    str2 = M.Z().W();
+                }
+                Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + a0 + " appID: " + str + " launchId ：" + str2 + " speedLog\n");
+                StringBuilder sb = new StringBuilder();
+                for (int i4 = 0; i4 < 100; i4++) {
+                    sb.append("&");
+                }
+                Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
+                long g = hybridUbcFlow.f.get(0).g();
+                Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
+                long j = 0;
+                long j2 = 0;
+                while (it.hasNext()) {
+                    UbcFlowEvent next = it.next();
+                    String[] strArr = new String[i3];
+                    strArr[c2] = next.a;
+                    strArr[c] = str8;
+                    long f2 = hybridUbcFlow.f(strArr);
+                    if (f2 < j) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    if (f3 > j) {
+                    if (f2 > f) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
                     if (z) {
-                        f3 = 0;
+                        f2 = j;
                     }
                     if (z2) {
-                        f3 = j;
+                        f2 = f;
                     }
-                    long j3 = f3 - j2;
-                    if (j3 < 0) {
-                        str3 = str6;
-                        j3 = 0;
+                    long j3 = f2 - j2;
+                    boolean z3 = z2;
+                    if (j3 < j) {
+                        j3 = j;
+                    }
+                    long j4 = 100;
+                    int round = Math.round((float) ((f2 * j4) / f));
+                    if (round > 100) {
+                        round = 100;
+                    }
+                    int round2 = Math.round((float) ((j3 * j4) / f));
+                    if (round2 > 100) {
+                        i = 100;
                     } else {
-                        str3 = str6;
-                    }
-                    long j4 = i;
-                    String str9 = str7;
-                    String str10 = str8;
-                    int round = Math.round((float) ((f3 * j4) / j));
-                    if (round > i) {
-                        round = i;
-                    }
-                    int round2 = Math.round((float) ((j4 * j3) / j));
-                    if (round2 > i) {
-                        round2 = i;
+                        i = round2;
                     }
                     StringBuilder sb2 = new StringBuilder();
-                    long j5 = j;
-                    sb2.append(String.format(Locale.getDefault(), " %5d ", Long.valueOf(f3)));
+                    Iterator<UbcFlowEvent> it2 = it;
+                    sb2.append(String.format(Locale.getDefault(), "%5d ", Long.valueOf(j3)));
                     if (z) {
-                        str4 = "<";
+                        str6 = "<";
                     } else {
-                        str4 = PreferencesUtil.LEFT_MOUNT;
+                        str6 = PreferencesUtil.LEFT_MOUNT;
                     }
-                    sb2.append(str4);
-                    for (int i3 = 0; i3 < i; i3++) {
-                        if (i3 > round) {
+                    sb2.append(str6);
+                    for (int i5 = 0; i5 < 100; i5++) {
+                        if (i5 > round) {
                             sb2.append(".");
-                        } else if (i3 > round2) {
+                        } else if (i5 > i) {
                             sb2.append("=");
                         } else {
                             sb2.append("#");
                         }
                     }
-                    if (z2) {
-                        str5 = ">";
+                    if (z3) {
+                        str7 = ">";
                     } else {
-                        str5 = PreferencesUtil.RIGHT_MOUNT;
+                        str7 = PreferencesUtil.RIGHT_MOUNT;
                     }
-                    sb2.append(str5);
-                    sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
+                    sb2.append(str7);
+                    c = 1;
+                    sb2.append(String.format(Locale.getDefault(), " %5d", Long.valueOf(f2)));
                     sb2.append(String.format("  %s", next.f()));
                     sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
                     sb2.append(next.a);
                     if (next.b()) {
                         sb2.append("(LocalRecord)");
                     }
-                    Log.i("StartupReporter", sb2.toString());
+                    Log.i("RouteReporter", sb2.toString());
+                    j2 = f2;
                     it = it2;
-                    j2 = f3;
-                    str6 = str3;
-                    j = j5;
-                    str7 = str9;
-                    str8 = str10;
-                    z3 = true;
+                    i3 = 2;
+                    c2 = 0;
+                    j = 0;
                 }
+                Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f.size());
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append("\n\n小程序路由总时长：========> " + f);
+                String optString = hybridUbcFlow.m().optString("type");
+                String h = hybridUbcFlow.h("sub_state");
+                String h2 = hybridUbcFlow.h("preload");
+                String h3 = hybridUbcFlow.h("web_widget_state");
+                StringBuilder sb4 = new StringBuilder();
+                sb4.append("\nsub_state :");
+                if (TextUtils.equals(h, "0")) {
+                    str3 = "无需下载分包";
+                } else {
+                    str3 = "需要下载分包";
+                }
+                sb4.append(str3);
+                sb3.append(sb4.toString());
+                StringBuilder sb5 = new StringBuilder();
+                sb5.append("\npreload :");
+                if (TextUtils.equals(h2, "0")) {
+                    str4 = "未完成";
+                } else {
+                    str4 = "已完成";
+                }
+                sb5.append(str4);
+                sb3.append(sb5.toString());
+                StringBuilder sb6 = new StringBuilder();
+                sb6.append("\nhasWebViewWidget :");
+                if (TextUtils.equals(h3, "0")) {
+                    str5 = "无webview组件";
+                } else {
+                    str5 = "有webview组件";
+                }
+                sb6.append(str5);
+                sb3.append(sb6.toString());
+                StringBuilder sb7 = new StringBuilder();
+                sb7.append("\ntype ：");
+                if (!TextUtils.isEmpty(optString)) {
+                    str9 = optString;
+                }
+                sb7.append(str9);
+                sb3.append(sb7.toString());
+                Log.i("RouteReporter", "Report ： " + sb3.toString());
             }
-            String str11 = str6;
-            String str12 = str7;
-            String str13 = str8;
-            long j6 = j;
-            Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.f.size());
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append("\n========APS下载完成:" + hybridUbcFlow.f("aps_end_download", str11));
-            sb3.append("\n========解压包时长:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start", "aps_end_download"));
-            sb3.append("\n========第一次setData的调用:" + hybridUbcFlow.f("slave_first_loaded", "slave_js_parsed"));
-            sb3.append("\n========master第一次和slave通信:" + hybridUbcFlow.f("slave_first_loaded", "master_first_init_data"));
-            sb3.append("\n========slave第一次收到数据:" + hybridUbcFlow.f("slave_first_recieve_data", "master_first_init_data"));
-            sb3.append("\n========slave第一次渲染完成:" + hybridUbcFlow.f("slave_first_rendered", "slave_first_recieve_data"));
-            sb3.append("\n========第一次动画时长:" + hybridUbcFlow.f("first_anim_end", "first_anim_start"));
-            sb3.append("\n========第二次动画时长:" + hybridUbcFlow.f("second_anim_end", "second_anim_start"));
-            sb3.append("\n\n核心指标--------");
-            sb3.append("\n========aps接口时长:" + hybridUbcFlow.f(str13, "aps_start_req", str11));
-            sb3.append("\n========aps纯下载时长:" + hybridUbcFlow.f("aps_end_download", str12, str13, "aps_start_req", str11));
-            sb3.append("\n========");
-            sb3.append("\n========准备启动时长:" + hybridUbcFlow.f("na_launch_activity", str11));
-            sb3.append("\n========准备查库时长:" + hybridUbcFlow.f("na_query_db", str11));
-            sb3.append("\n========Activity调起时长:" + hybridUbcFlow.f("frame_start_create", "na_launch_activity"));
-            sb3.append("\n========");
-            sb3.append("\n========预加载等待时长:" + hybridUbcFlow.f("na_pre_load_ok", "na_pre_load_check"));
-            sb3.append("\n========主线程阻塞时长:" + hybridUbcFlow.f("na_post_to_main_end", "na_post_to_main_start"));
-            sb3.append("\n========本地小程序包加载及渲染总时长:" + hybridUbcFlow.f("slave_first_rendered", "first_anim_start"));
-            sb3.append("\n\n启动线性跟踪分段指标简报--------");
-            sb3.append("\n========取包（网络开销，从小程序入口，到APS及前置接口等网络交互完成）:" + hybridUbcFlow.f("first_anim_start", str11));
-            sb3.append("\n========安装（IO开销，从下载完成，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start"));
-            sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", str12));
-            sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.f("master_dispatch_start", str11));
-            sb3.append("\n========AppReady派发时长:" + hybridUbcFlow.f("fe_master_dispatch_start", "master_dispatch_start"));
-            sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + f);
-            int optInt = hybridUbcFlow.m().optInt("type", -1);
-            String h = hybridUbcFlow.h("preload_scene");
-            String h2 = hybridUbcFlow.h("app_package_version");
-            String str14 = "-1";
-            if (TextUtils.isEmpty(h)) {
-                h = "-1";
-            }
-            String h3 = hybridUbcFlow.h("package_type");
-            if (!TextUtils.isEmpty(h3)) {
-                str14 = h3;
-            }
-            String h4 = hybridUbcFlow.h("preload");
-            sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.f(str11, "user_action"));
-            if (!hybridUbcFlow.d.contains("package_start_unzip")) {
-                str2 = "(热启动)";
-            } else {
-                str2 = "(冷启动)";
-            }
-            sb3.append(str2);
-            sb3.append("  relaunchType:" + optInt);
-            sb3.append("  preloadType:" + h);
-            sb3.append(" packageType:" + str14);
-            sb3.append(" preload:" + h4);
-            if (!TextUtils.isEmpty(h2)) {
-                sb3.append(" packageVersion:" + h2);
-            }
-            Log.i("StartupReporter", "Report ： " + sb3.toString());
         }
     }
 }

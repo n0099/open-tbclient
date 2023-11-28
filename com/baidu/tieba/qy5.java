@@ -1,275 +1,391 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbListTextView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class qy5 {
+public class qy5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public TiebaPlusInfo b;
-    public TiePlusStat.ThreadType c;
+    public int b;
+    public int c;
     public String d;
     public String e;
-    public TiePlusStat.StatType f;
-    public TiePlusStat.LandingType g;
-    public TiePlusStat.CardBtnType h;
-    public TiePlusStat.RichTextType i;
-    public ThreadData j;
-    public int k;
+    public int f;
+    public int g;
+    public String h;
+    public String i;
+    public int j;
+    public b k;
+    public String l;
+    @Nullable
+    public Map<String, Object> m;
 
-    @NonNull
-    public qy5 a(@Nullable vra vraVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vraVar)) == null) ? this : (qy5) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(qy5 qy5Var);
     }
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public int d;
+        @Nullable
+        public String e;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-473791425, "Lcom/baidu/tieba/qy5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-473791425, "Lcom/baidu/tieba/qy5$a;");
+        public a(int i, String str, String str2, int i2, @Nullable String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[TiePlusStat.Locate.values().length];
-            a = iArr;
-            try {
-                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = i2;
+            this.e = str3;
         }
     }
 
-    public qy5() {
+    public qy5(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = null;
-        this.i = TiePlusStat.RichTextType.LINK;
-        this.k = -1;
+        this.a = -1;
+        this.b = -1;
+        this.j = 0;
+        this.d = str;
+        this.c = i;
     }
 
-    public TiePlusStat.CardBtnType d() {
+    public qy5(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        this.b = -1;
+        this.j = 0;
+        this.d = str;
+        this.c = i;
+        this.g = i2;
+    }
+
+    public static void a(Context context, ty5 ty5Var, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, ty5Var, Integer.valueOf(i), str, str2}) != null) || ty5Var == null) {
+            return;
+        }
+        if (i != 2) {
+            if (i != 16) {
+                if (i != 18) {
+                    if (i != 32) {
+                        if (i != 64) {
+                            if (i != 128) {
+                                if (i != 256) {
+                                    if (i != 1024) {
+                                        if (i == 1282) {
+                                            ty5Var.x0(context, str, true);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    ty5Var.J0(context, str);
+                                    return;
+                                }
+                                ty5Var.D0(context, str, str2);
+                                return;
+                            }
+                            ty5Var.w0(context, str);
+                            return;
+                        }
+                        ty5Var.Y1(context, str);
+                        return;
+                    }
+                    ty5Var.d0(context, str);
+                    return;
+                }
+                ty5Var.x0(context, str, true);
+                return;
+            }
+            ty5Var.b0(context, str);
+            return;
+        }
+        ty5Var.x0(context, str, false);
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65539, null, tbPageContext, i, str, str2) != null) || tbPageContext == null || !(tbPageContext.getOrignalPage() instanceof ty5)) {
+            return;
+        }
+        a(tbPageContext.getPageActivity(), (ty5) tbPageContext.getOrignalPage(), i, str, str2);
+    }
+
+    public static void c(TbPageContext<?> tbPageContext, ty5 ty5Var, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{tbPageContext, ty5Var, Integer.valueOf(i), str, str2}) == null) && tbPageContext != null && ty5Var != null) {
+            a(tbPageContext.getPageActivity(), ty5Var, i, str, str2);
+        }
+    }
+
+    @Nullable
+    public Map<String, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.m;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Nullable
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.h;
         }
-        return (TiePlusStat.CardBtnType) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public String e() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return String.valueOf(this.j.getDispatchedForumId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ut5.d(!TextUtils.isEmpty(this.e));
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.LandingType g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (TiePlusStat.LandingType) invokeV.objValue;
-    }
-
-    public TiePlusStat.RichTextType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (TiePlusStat.RichTextType) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.StatType j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ut5.b(this.f);
-            return this.f;
-        }
-        return (TiePlusStat.StatType) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.ThreadType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (TiePlusStat.ThreadType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public TiebaPlusInfo n() {
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
         }
         return invokeV.intValue;
     }
 
-    @NonNull
-    public static qy5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
-        InterceptResult invokeILL;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            qy5 qy5Var = new qy5();
-            qy5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
-            qy5Var.g = TiePlusStat.LandingType.create(intValue);
-            qy5Var.i = TiePlusStat.RichTextType.create(i);
-            qy5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
-            qy5Var.b = tiebaPlusInfo;
-            qy5Var.c = TiePlusStat.ThreadType.create(threadData);
-            qy5Var.d = threadData.getTid();
-            qy5Var.e = String.valueOf(threadData.getFid());
-            qy5Var.j = threadData;
-            return qy5Var;
-        }
-        return (qy5) invokeILL.objValue;
-    }
-
-    public qy5 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (qy5) invokeI.objValue;
-    }
-
-    public int i(@NonNull TiePlusStat.Locate locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
-            int i = a.a[locate.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i != 3 && i != 4) {
-                    return -1;
-                }
-                return this.k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.c;
+            if (i != 2 && i != 16 && i != 18 && i != 35 && i != 39) {
+                return false;
             }
-            return k().statFloor;
+            return true;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public void p(TiePlusStat.RichTextType richTextType) {
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
-            this.i = richTextType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.c;
+            if (i != 2 && i != 16 && i != 18 && i != 35 && i != 1282 && i != 39 && i != 40) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k(@Nullable Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            this.m = map;
         }
     }
 
-    public void q(@NonNull TiePlusStat.StatType statType) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
-            this.f = statType;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.l = str;
         }
     }
 
-    public void r(TiebaPlusInfo tiebaPlusInfo) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
-            this.b = tiebaPlusInfo;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void o(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            this.k = bVar;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void r(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+            b bVar = this.k;
+            if (bVar != null) {
+                bVar.a(this);
+                return;
+            }
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.c, this.d, this.e, this.g, this.i));
+            int i2 = 2;
+            if (this.c == 2) {
+                int i3 = this.j;
+                if (i3 == 1) {
+                    i = 2;
+                } else if (i3 == 2) {
+                    i = 1;
+                } else {
+                    i = 1;
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
+                }
+                i2 = 1;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
+            }
+            if (view2 instanceof TbListTextView) {
+                ((TbRichTextView) view2.getParent()).setPressed(true);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, textPaint) == null) {
+            int i = this.b;
+            if (i != -1) {
+                textPaint.setColor(SkinManager.getColor(i));
+            } else if (j()) {
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+            } else {
+                textPaint.setColor(textPaint.linkColor);
+            }
+            textPaint.setUnderlineText(false);
+            int i2 = this.a;
+            if (i2 != -1) {
+                textPaint.bgColor = i2;
+            } else if (this.f == 1 && i()) {
+                textPaint.bgColor = SkinManager.getColor(R.color.CAM_X0210);
+            } else if (this.f == 2) {
+                textPaint.bgColor = SkinManager.getColor(R.color.transparent);
+            }
         }
     }
 }

@@ -42,12 +42,12 @@ public final class AbstractChannelKt {
 
     public static final <E> Object toResult(Object obj) {
         if (obj instanceof Closed) {
-            return ChannelResult.Companion.m2322closedJP2dKIU(((Closed) obj).closeCause);
+            return ChannelResult.Companion.m2326closedJP2dKIU(((Closed) obj).closeCause);
         }
-        return ChannelResult.Companion.m2324successJP2dKIU(obj);
+        return ChannelResult.Companion.m2328successJP2dKIU(obj);
     }
 
     public static final <E> Object toResult(Closed<?> closed) {
-        return ChannelResult.Companion.m2322closedJP2dKIU(closed.closeCause);
+        return ChannelResult.Companion.m2326closedJP2dKIU(closed.closeCause);
     }
 }

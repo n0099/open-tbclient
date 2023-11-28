@@ -9,11 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.jgb;
+import com.baidu.tieba.flb;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
-import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jgb a;
+    public flb a;
     public NetMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -57,19 +56,14 @@ public class StickerModel extends BdBaseModel {
 
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof ResponseHttpGetStickerMessage;
-            if (!z && !(responsedMessage instanceof ResponseSocketGetStickerMessage)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || !((z = responsedMessage instanceof ResponseHttpGetStickerMessage))) {
                 return;
             }
             List<String> list = null;
             if (z) {
                 list = ((ResponseHttpGetStickerMessage) responsedMessage).getUrlList();
-            } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
-                list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
             }
             if (this.a.a != null) {
                 this.a.a.callback(list);
@@ -100,10 +94,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void P(jgb jgbVar) {
+    public void P(flb flbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jgbVar) == null) {
-            this.a = jgbVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, flbVar) == null) {
+            this.a = flbVar;
         }
     }
 
@@ -133,8 +127,7 @@ public class StickerModel extends BdBaseModel {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 return false;
             }
-            dra.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-            dra.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            wva.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
             RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
             requestGetStickerMessage.setTag(this.unique_id);
             sendMessage(requestGetStickerMessage);

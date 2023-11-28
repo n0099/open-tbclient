@@ -6,7 +6,7 @@ import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.Util;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PageStateController {
     public volatile Context context;
     public volatile OnStatisListener listener;
@@ -15,7 +15,7 @@ public class PageStateController {
     public volatile ConcurrentLinkedQueue<PageBean> pages = new ConcurrentLinkedQueue<>();
     public volatile StringBuffer record = new StringBuffer(512);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class PageBean {
         public String page;
         public long stime;

@@ -1,194 +1,98 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.exceptions.OnErrorNotImplementedException;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class ujc extends mjc {
+public final class ujc extends mjc implements NativeFfmpeg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
 
-    /* loaded from: classes8.dex */
-    public static class a extends mjc.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final sjc b;
-        public volatile boolean c;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-            this.b = rjc.a().b();
-        }
-
-        @Override // com.baidu.tieba.mjc.a
-        public qjc b(wjc wjcVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wjcVar)) == null) {
-                return c(wjcVar, 0L, TimeUnit.MILLISECONDS);
-            }
-            return (qjc) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.mjc.a
-        public qjc c(wjc wjcVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{wjcVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.c) {
-                    return poc.c();
-                }
-                this.b.c(wjcVar);
-                b bVar = new b(wjcVar, this.a);
-                Message obtain = Message.obtain(this.a, bVar);
-                obtain.obj = this;
-                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.c) {
-                    this.a.removeCallbacks(bVar);
-                    return poc.c();
-                }
-                return bVar;
-            }
-            return (qjc) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.qjc
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.qjc
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c = true;
-                this.a.removeCallbacksAndMessages(this);
-            }
+    @Override // com.baidu.tieba.hjc
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static final class b implements Runnable, qjc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final wjc a;
-        public final Handler b;
-        public volatile boolean c;
-
-        public b(wjc wjcVar, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wjcVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wjcVar;
-            this.b = handler;
-        }
-
-        @Override // com.baidu.tieba.qjc
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.qjc
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.c = true;
-                this.b.removeCallbacks(this);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            IllegalStateException illegalStateException;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a.call();
-                } catch (Throwable th) {
-                    if (th instanceof OnErrorNotImplementedException) {
-                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
-                    } else {
-                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
-                    }
-                    coc.c().b().a(illegalStateException);
-                    Thread currentThread = Thread.currentThread();
-                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
-                }
-            }
-        }
-    }
-
-    public ujc(Looper looper) {
+    public ujc(qic qicVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
+            Object[] objArr = {qicVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(looper);
+        this.l.d(-16);
+        this.s = new WeakReference<>(qicVar);
+        this.w = true;
+        this.b = i;
+        this.A.i(i);
+        this.o = 3;
     }
 
-    @Override // com.baidu.tieba.mjc
-    public mjc.a createWorker() {
-        InterceptResult invokeV;
+    public void M(MediaInfo mediaInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
+            synchronized (this) {
+                if (this.q.e(mediaInfo)) {
+                    this.q.c(mediaInfo);
+                } else {
+                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
+                }
+                if (this.B == null || this.B.capacity() < this.q.i) {
+                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                }
+                int j = ((((int) djc.j(this.q.d, 16L)) * ((int) djc.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.E) {
+                    this.E = j;
+                    this.C = ByteBuffer.allocateDirect(j);
+                }
+            }
         }
-        return (mjc.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hjc
+    public void z(MediaFormat mediaFormat, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
+            this.x = System.currentTimeMillis();
+            this.a = i;
+            this.A.p(this);
+            this.A.h(i);
+            String string = mediaFormat.getString("mime");
+            if (string.compareTo("video/avc") == 0) {
+                i2 = 6;
+            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+                i2 = 7;
+            } else {
+                i2 = 0;
+            }
+            if (this.A.j(i2, mediaFormat) != 0) {
+                m(50);
+            }
+            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
+            this.y = System.currentTimeMillis();
+        }
     }
 }

@@ -6,15 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class ax8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ax8 c;
+    public static volatile ax8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public ArrayList<String> b;
+    public boolean a;
 
     public ax8() {
         Interceptable interceptable = $ic;
@@ -30,67 +27,35 @@ public class ax8 {
         }
     }
 
-    public static ax8 d() {
+    public static ax8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+            if (b == null) {
                 synchronized (ax8.class) {
-                    if (c == null) {
-                        c = new ax8();
+                    if (b == null) {
+                        b = new ax8();
                     }
                 }
             }
-            return c;
+            return b;
         }
         return (ax8) invokeV.objValue;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                map.clear();
-                this.a = null;
-            }
-            ArrayList<String> arrayList = this.b;
-            if (arrayList != null) {
-                arrayList.clear();
-                this.b = null;
-            }
-        }
-    }
-
-    public Map<String, String> b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void e(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.a = map;
-        }
-    }
-
-    public void f(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
     }
 }

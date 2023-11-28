@@ -1,14 +1,25 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes8.dex */
 public class we2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final Map<String, Integer> b;
+    public static final Object c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,30 +35,116 @@ public class we2 {
                 return;
             }
         }
-        boolean z = rm1.a;
-        a = b("swan_clean_pkg_opt", 0);
+        a = sm1.a;
+        b = new HashMap();
+        c = new Object();
+        d = xe2.a();
     }
 
-    public static boolean a() {
+    @NonNull
+    public static Set<String> b() {
         InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!d) {
+                return Collections.emptySet();
+            }
+            synchronized (c) {
+                strArr = (String[]) b.keySet().toArray(new String[0]);
+            }
+            return lk3.a(strArr);
         }
-        return invokeV.booleanValue;
+        return (Set) invokeV.objValue;
     }
 
-    public static boolean b(String str, int i) {
-        InterceptResult invokeLI;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            np2.g0().getSwitch(str, i);
-            g32.k("CleanPkgSwitcher", str + " value from AB : " + i);
-            if (i == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
+            return;
         }
-        return invokeLI.booleanValue;
+        if (a) {
+            Log.d("ExcludeRecorder", "remove all exclude appIds");
+        }
+        synchronized (c) {
+            b.clear();
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!d || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            synchronized (c) {
+                containsKey = b.containsKey(str);
+            }
+            if (a) {
+                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num == null) {
+                b.put(str, 1);
+            } else {
+                b.put(str, Integer.valueOf(num.intValue() + 1));
+            }
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num != null) {
+                int intValue = num.intValue() - 1;
+                if (intValue <= 0) {
+                    b.remove(str);
+                } else {
+                    b.put(str, Integer.valueOf(intValue));
+                }
+            }
+        }
+    }
+
+    public static void e(pj4 pj4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, pj4Var) == null) && d && pj4Var != null) {
+            for (ff4 ff4Var : pj4Var.j()) {
+                if (ff4Var instanceof gf4) {
+                    d(ff4Var.g);
+                } else if (ff4Var instanceof hf4) {
+                    d(((hf4) ff4Var).o);
+                }
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwareDrawable {
     public RippleDrawableCompatState drawableState;
 
@@ -24,7 +24,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
         return true;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class RippleDrawableCompatState extends Drawable.ConstantState {
         @NonNull
         public MaterialShapeDrawable delegate;

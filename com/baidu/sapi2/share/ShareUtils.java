@@ -32,7 +32,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -380,7 +380,7 @@ public final class ShareUtils {
                 callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
                 return;
             }
-            if (SapiUtils.checkRequestPermission(h.i, context)) {
+            if (SapiUtils.checkRequestPermission(g.i, context)) {
                 List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
                 if (shareModelsFromSdCard.size() > 0) {
                     ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
@@ -674,7 +674,7 @@ public final class ShareUtils {
         int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
         int i = 1;
         Log.d(TAG, "current login env is " + ordinal);
-        if (!SapiUtils.checkRequestPermission(h.i, context)) {
+        if (!SapiUtils.checkRequestPermission(g.i, context)) {
             StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
         }
         StringBuilder sb = new StringBuilder();

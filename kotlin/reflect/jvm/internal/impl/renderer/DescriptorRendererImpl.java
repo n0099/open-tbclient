@@ -920,7 +920,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
 
     private final void renderInitializer(VariableDescriptor variableDescriptor, StringBuilder sb) {
         ConstantValue<?> constant;
-        if (getIncludePropertyConstant() && (constant = variableDescriptor.mo2106getCompileTimeInitializer()) != null) {
+        if (getIncludePropertyConstant() && (constant = variableDescriptor.mo2110getCompileTimeInitializer()) != null) {
             sb.append(" = ");
             Intrinsics.checkExpressionValueIsNotNull(constant, "constant");
             sb.append(escape(renderConstant(constant)));
@@ -1166,7 +1166,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
                 CollectionsKt___CollectionsKt.joinTo$default(renderAndSortAnnotationArguments, sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, "(", SmallTailInfo.EMOTION_SUFFIX, 0, null, null, 112, null);
             }
         }
-        if (getVerbose() && (KotlinTypeKt.isError(type) || (type.getConstructor().mo2110getDeclarationDescriptor() instanceof NotFoundClasses.MockClassDescriptor))) {
+        if (getVerbose() && (KotlinTypeKt.isError(type) || (type.getConstructor().mo2114getDeclarationDescriptor() instanceof NotFoundClasses.MockClassDescriptor))) {
             sb.append(" /* annotation class not found */");
         }
         String sb2 = sb.toString();
@@ -1258,13 +1258,13 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
         }
         TypeConstructor typeConstructor = classDescriptor.getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "klass.typeConstructor");
-        Collection<KotlinType> mo2111getSupertypes = typeConstructor.mo2111getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2111getSupertypes, "klass.typeConstructor.supertypes");
-        if (!mo2111getSupertypes.isEmpty()) {
-            if (mo2111getSupertypes.size() != 1 || !KotlinBuiltIns.isAnyOrNullableAny(mo2111getSupertypes.iterator().next())) {
+        Collection<KotlinType> mo2115getSupertypes = typeConstructor.mo2115getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2115getSupertypes, "klass.typeConstructor.supertypes");
+        if (!mo2115getSupertypes.isEmpty()) {
+            if (mo2115getSupertypes.size() != 1 || !KotlinBuiltIns.isAnyOrNullableAny(mo2115getSupertypes.iterator().next())) {
                 renderSpaceIfNeeded(sb);
                 sb.append(": ");
-                CollectionsKt___CollectionsKt.joinTo$default(mo2111getSupertypes, sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, null, null, 0, null, new Function1<KotlinType, String>() { // from class: kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererImpl$renderSuperTypes$1
+                CollectionsKt___CollectionsKt.joinTo$default(mo2115getSupertypes, sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, null, null, 0, null, new Function1<KotlinType, String>() { // from class: kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererImpl$renderSuperTypes$1
                     {
                         super(1);
                     }
@@ -1494,7 +1494,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
     private final List<String> renderAndSortAnnotationArguments(AnnotationDescriptor annotationDescriptor) {
         ClassDescriptor classDescriptor;
         String str;
-        ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor;
+        ClassConstructorDescriptor mo2108getUnsubstitutedPrimaryConstructor;
         List<ValueParameterDescriptor> valueParameters;
         Map<Name, ConstantValue<?>> allValueArguments = annotationDescriptor.getAllValueArguments();
         List list = null;
@@ -1503,7 +1503,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
         } else {
             classDescriptor = null;
         }
-        if (classDescriptor != null && (mo2104getUnsubstitutedPrimaryConstructor = classDescriptor.mo2104getUnsubstitutedPrimaryConstructor()) != null && (valueParameters = mo2104getUnsubstitutedPrimaryConstructor.getValueParameters()) != null) {
+        if (classDescriptor != null && (mo2108getUnsubstitutedPrimaryConstructor = classDescriptor.mo2108getUnsubstitutedPrimaryConstructor()) != null && (valueParameters = mo2108getUnsubstitutedPrimaryConstructor.getValueParameters()) != null) {
             ArrayList<ValueParameterDescriptor> arrayList = new ArrayList();
             for (Object obj : valueParameters) {
                 if (((ValueParameterDescriptor) obj).declaresDefaultValue()) {
@@ -1599,7 +1599,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
     /* JADX INFO: Access modifiers changed from: private */
     public final void renderClass(ClassDescriptor classDescriptor, StringBuilder sb) {
         boolean z;
-        ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor;
+        ClassConstructorDescriptor mo2108getUnsubstitutedPrimaryConstructor;
         boolean z2;
         boolean z3;
         boolean z4;
@@ -1662,16 +1662,16 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
         renderCapturedTypeParametersIfRequired(classDescriptor, sb);
         ClassKind kind2 = classDescriptor.getKind();
         Intrinsics.checkExpressionValueIsNotNull(kind2, "klass.kind");
-        if (!kind2.isSingleton() && getClassWithPrimaryConstructor() && (mo2104getUnsubstitutedPrimaryConstructor = classDescriptor.mo2104getUnsubstitutedPrimaryConstructor()) != null) {
+        if (!kind2.isSingleton() && getClassWithPrimaryConstructor() && (mo2108getUnsubstitutedPrimaryConstructor = classDescriptor.mo2108getUnsubstitutedPrimaryConstructor()) != null) {
             sb.append(" ");
-            renderAnnotations$default(this, sb, mo2104getUnsubstitutedPrimaryConstructor, null, 2, null);
-            Visibility visibility2 = mo2104getUnsubstitutedPrimaryConstructor.getVisibility();
+            renderAnnotations$default(this, sb, mo2108getUnsubstitutedPrimaryConstructor, null, 2, null);
+            Visibility visibility2 = mo2108getUnsubstitutedPrimaryConstructor.getVisibility();
             Intrinsics.checkExpressionValueIsNotNull(visibility2, "primaryConstructor.visibility");
             renderVisibility(visibility2, sb);
             sb.append(renderKeyword("constructor"));
-            List<ValueParameterDescriptor> valueParameters = mo2104getUnsubstitutedPrimaryConstructor.getValueParameters();
+            List<ValueParameterDescriptor> valueParameters = mo2108getUnsubstitutedPrimaryConstructor.getValueParameters();
             Intrinsics.checkExpressionValueIsNotNull(valueParameters, "primaryConstructor.valueParameters");
-            renderValueParameters(valueParameters, mo2104getUnsubstitutedPrimaryConstructor.hasSynthesizedParameterNames(), sb);
+            renderValueParameters(valueParameters, mo2108getUnsubstitutedPrimaryConstructor.hasSynthesizedParameterNames(), sb);
         }
         renderSuperTypes(classDescriptor, sb);
         renderWhereSuffix(declaredTypeParameters, sb);
@@ -1732,7 +1732,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
     public final void renderConstructor(ConstructorDescriptor constructorDescriptor, StringBuilder sb) {
         boolean z;
         boolean z2;
-        ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor;
+        ClassConstructorDescriptor mo2108getUnsubstitutedPrimaryConstructor;
         ArrayList arrayList;
         boolean z3;
         renderAnnotations$default(this, sb, constructorDescriptor, null, 2, null);
@@ -1767,8 +1767,8 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
             List<ValueParameterDescriptor> valueParameters = constructorDescriptor.getValueParameters();
             Intrinsics.checkExpressionValueIsNotNull(valueParameters, "constructor.valueParameters");
             renderValueParameters(valueParameters, constructorDescriptor.hasSynthesizedParameterNames(), sb);
-            if (getRenderConstructorDelegation() && !constructorDescriptor.isPrimary() && (containingDeclaration instanceof ClassDescriptor) && (mo2104getUnsubstitutedPrimaryConstructor = ((ClassDescriptor) containingDeclaration).mo2104getUnsubstitutedPrimaryConstructor()) != null) {
-                List<ValueParameterDescriptor> valueParameters2 = mo2104getUnsubstitutedPrimaryConstructor.getValueParameters();
+            if (getRenderConstructorDelegation() && !constructorDescriptor.isPrimary() && (containingDeclaration instanceof ClassDescriptor) && (mo2108getUnsubstitutedPrimaryConstructor = ((ClassDescriptor) containingDeclaration).mo2108getUnsubstitutedPrimaryConstructor()) != null) {
+                List<ValueParameterDescriptor> valueParameters2 = mo2108getUnsubstitutedPrimaryConstructor.getValueParameters();
                 Intrinsics.checkExpressionValueIsNotNull(valueParameters2, "primaryConstructor.valueParameters");
                 arrayList = new ArrayList();
                 for (Object obj : valueParameters2) {
@@ -1817,7 +1817,7 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
         Intrinsics.checkExpressionValueIsNotNull(valueParameters3, "constructor.valueParameters");
         renderValueParameters(valueParameters3, constructorDescriptor.hasSynthesizedParameterNames(), sb);
         if (getRenderConstructorDelegation()) {
-            List<ValueParameterDescriptor> valueParameters22 = mo2104getUnsubstitutedPrimaryConstructor.getValueParameters();
+            List<ValueParameterDescriptor> valueParameters22 = mo2108getUnsubstitutedPrimaryConstructor.getValueParameters();
             Intrinsics.checkExpressionValueIsNotNull(valueParameters22, "primaryConstructor.valueParameters");
             arrayList = new ArrayList();
             while (r0.hasNext()) {
@@ -1952,14 +1952,14 @@ public final class DescriptorRendererImpl extends DescriptorRenderer implements 
     }
 
     public String renderTypeConstructor(TypeConstructor typeConstructor) {
-        ClassifierDescriptor mo2110getDeclarationDescriptor = typeConstructor.mo2110getDeclarationDescriptor();
-        if ((mo2110getDeclarationDescriptor instanceof TypeParameterDescriptor) || (mo2110getDeclarationDescriptor instanceof ClassDescriptor) || (mo2110getDeclarationDescriptor instanceof TypeAliasDescriptor)) {
-            return renderClassifierName(mo2110getDeclarationDescriptor);
+        ClassifierDescriptor mo2114getDeclarationDescriptor = typeConstructor.mo2114getDeclarationDescriptor();
+        if ((mo2114getDeclarationDescriptor instanceof TypeParameterDescriptor) || (mo2114getDeclarationDescriptor instanceof ClassDescriptor) || (mo2114getDeclarationDescriptor instanceof TypeAliasDescriptor)) {
+            return renderClassifierName(mo2114getDeclarationDescriptor);
         }
-        if (mo2110getDeclarationDescriptor == null) {
+        if (mo2114getDeclarationDescriptor == null) {
             return typeConstructor.toString();
         }
-        throw new IllegalStateException(("Unexpected classifier: " + mo2110getDeclarationDescriptor.getClass()).toString());
+        throw new IllegalStateException(("Unexpected classifier: " + mo2114getDeclarationDescriptor.getClass()).toString());
     }
 
     private final void renderMemberKind(CallableMemberDescriptor callableMemberDescriptor, StringBuilder sb) {

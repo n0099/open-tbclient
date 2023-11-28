@@ -7,7 +7,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -53,7 +53,7 @@ public class ContentModelParser {
         }
         switch (str.hashCode()) {
             case 3239:
-                if (str.equals(u.s)) {
+                if (str.equals(t.n)) {
                     c = 7;
                     break;
                 }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.i1;
+import com.kuaishou.weapon.p0.bi;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -317,7 +317,7 @@ public class a {
                     SQLiteDatabase sQLiteDatabase = this.b;
                     sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
                     String canonicalPath = new File(this.c.getFilesDir(), "sofire_tmp").getCanonicalPath();
-                    com.baidu.sofire.k.b.d(canonicalPath + i1.j + apkInfo2.key);
+                    com.baidu.sofire.k.b.d(canonicalPath + bi.j + apkInfo2.key);
                     Context context = this.c;
                     if (context != null) {
                         com.baidu.sofire.k.b.d(context.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());

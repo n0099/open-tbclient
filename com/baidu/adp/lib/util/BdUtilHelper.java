@@ -39,8 +39,8 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rd;
-import com.baidu.tieba.zd;
+import com.baidu.tieba.ae;
+import com.baidu.tieba.sd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -549,7 +549,7 @@ public class BdUtilHelper {
                     intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
                     intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 }
-                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1403)));
+                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1413)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -602,17 +602,17 @@ public class BdUtilHelper {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     String readLine = bufferedReader.readLine();
-                    rd.g(bufferedReader);
+                    sd.g(bufferedReader);
                     return readLine;
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    rd.g(bufferedReader);
+                    sd.g(bufferedReader);
                     return null;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                rd.g(r2);
+                sd.g(r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -621,7 +621,7 @@ public class BdUtilHelper {
         } catch (Throwable th3) {
             r2 = 0;
             th = th3;
-            rd.g(r2);
+            sd.g(r2);
             throw th;
         }
     }
@@ -648,17 +648,17 @@ public class BdUtilHelper {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     String readLine = bufferedReader.readLine();
-                    rd.g(bufferedReader);
+                    sd.g(bufferedReader);
                     return readLine;
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    rd.g(bufferedReader);
+                    sd.g(bufferedReader);
                     return null;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                rd.g(r2);
+                sd.g(r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -667,7 +667,7 @@ public class BdUtilHelper {
         } catch (Throwable th3) {
             r2 = 0;
             th = th3;
-            rd.g(r2);
+            sd.g(r2);
             throw th;
         }
     }
@@ -896,7 +896,7 @@ public class BdUtilHelper {
             if (str != null) {
                 return ProgressDialog.show(context, "", str, true, false, bVar);
             }
-            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003a), true, false, bVar);
+            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003b), true, false, bVar);
         }
         return (ProgressDialog) invokeLL.objValue;
     }
@@ -966,7 +966,7 @@ public class BdUtilHelper {
             if (str != null) {
                 return ProgressDialog.show(context, "", str, true, true, onCancelListener);
             }
-            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003a), true, true, onCancelListener);
+            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003b), true, true, onCancelListener);
         }
         return (ProgressDialog) invokeLLL.objValue;
     }
@@ -1024,7 +1024,7 @@ public class BdUtilHelper {
                 if (dVar4 != null && dVar4.getToastContentView() != null) {
                     Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
                     mToast = toast2;
-                    zd.a(toast2);
+                    ae.a(toast2);
                     if (i == 3500) {
                         mToast.setDuration(1);
                     } else {
@@ -1036,11 +1036,11 @@ public class BdUtilHelper {
                     if (i == 3500) {
                         Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                         mToast = makeText;
-                        zd.a(makeText);
+                        ae.a(makeText);
                     } else {
                         Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                         mToast = makeText2;
-                        zd.a(makeText2);
+                        ae.a(makeText2);
                     }
                     mToast.setText(str);
                 }

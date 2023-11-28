@@ -1,10 +1,15 @@
 package com.baidu.tieba;
-
-import android.graphics.drawable.Animatable;
-import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes7.dex */
 public interface lw5 {
-    void a(String str, ImageInfo imageInfo, Animatable animatable);
+    String a();
 
-    void b(String str, Throwable th);
+    void b(String str);
+
+    String c();
+
+    String d();
+
+    boolean e();
+
+    boolean isValid();
 }

@@ -1,9 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+import tbclient.ReportInfo;
 /* loaded from: classes8.dex */
-public interface r7d {
-    void a(View view2);
+public class r7d extends ltc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2);
+    @NonNull
+    public static JSONObject b(@NonNull ReportInfo reportInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, reportInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "info", reportInfo.info);
+            ltc.a(jSONObject, "url", reportInfo.url);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
 }

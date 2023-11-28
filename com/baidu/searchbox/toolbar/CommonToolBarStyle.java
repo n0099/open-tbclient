@@ -59,17 +59,17 @@ public class CommonToolBarStyle {
     public static final int TOOL_ITEM_WENDA = 14;
 
     public static List<BaseToolBarItem> getSearchToolBarItemList(Context context) {
-        int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d2);
-        int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d3);
+        int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707e5);
+        int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707e6);
         ArrayList arrayList = new ArrayList();
         RedTipImageView redTipImageView = new RedTipImageView(context);
-        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f08052c);
+        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f08052f);
         redTipImageView.setPadding(dimensionPixelOffset, 0, 0, 0);
         redTipImageView.setLayoutParams(new LinearLayout.LayoutParams(dimensionPixelOffset, -1, 1.0f));
         arrayList.add(new BaseToolBarItem(1, redTipImageView));
         SelectorImageView selectorImageView = new SelectorImageView(context);
         selectorImageView.setScaleType(ImageView.ScaleType.CENTER);
-        selectorImageView.setImageResource(R.drawable.obfuscated_res_0x7f08053d);
+        selectorImageView.setImageResource(R.drawable.obfuscated_res_0x7f080540);
         selectorImageView.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
         arrayList.add(new BaseToolBarItem(17, selectorImageView));
         LinearLayout linearLayout = new LinearLayout(context);
@@ -80,12 +80,12 @@ public class CommonToolBarStyle {
         arrayList.add(new BaseToolBarItem(4, linearLayout));
         SelectorImageView selectorImageView2 = new SelectorImageView(context);
         selectorImageView2.setScaleType(ImageView.ScaleType.CENTER);
-        selectorImageView2.setImageResource(R.drawable.obfuscated_res_0x7f080543);
+        selectorImageView2.setImageResource(R.drawable.obfuscated_res_0x7f080546);
         selectorImageView2.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
         arrayList.add(new BaseToolBarItem(9, selectorImageView2));
         SelectorImageView selectorImageView3 = new SelectorImageView(context);
         selectorImageView3.setScaleType(ImageView.ScaleType.CENTER);
-        selectorImageView3.setImageResource(R.drawable.obfuscated_res_0x7f08053a);
+        selectorImageView3.setImageResource(R.drawable.obfuscated_res_0x7f08053d);
         selectorImageView3.setPadding(0, 0, dimensionPixelOffset, 0);
         selectorImageView3.setLayoutParams(new LinearLayout.LayoutParams(dimensionPixelOffset, -1, 1.0f));
         arrayList.add(new BaseToolBarItem(2, selectorImageView3));

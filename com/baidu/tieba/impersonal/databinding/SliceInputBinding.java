@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -24,16 +25,18 @@ public final class SliceInputBinding implements ViewBinding {
     @NonNull
     public final RelativeLayout b;
     @NonNull
-    public final SpanGroupEditText c;
+    public final TextView c;
     @NonNull
-    public final ImageView d;
+    public final SpanGroupEditText d;
+    @NonNull
+    public final ImageView e;
 
-    public SliceInputBinding(@NonNull RelativeLayout relativeLayout, @NonNull RelativeLayout relativeLayout2, @NonNull SpanGroupEditText spanGroupEditText, @NonNull ImageView imageView) {
+    public SliceInputBinding(@NonNull RelativeLayout relativeLayout, @NonNull RelativeLayout relativeLayout2, @NonNull TextView textView, @NonNull SpanGroupEditText spanGroupEditText, @NonNull ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {relativeLayout, relativeLayout2, spanGroupEditText, imageView};
+            Object[] objArr = {relativeLayout, relativeLayout2, textView, spanGroupEditText, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,8 +48,9 @@ public final class SliceInputBinding implements ViewBinding {
         }
         this.a = relativeLayout;
         this.b = relativeLayout2;
-        this.c = spanGroupEditText;
-        this.d = imageView;
+        this.c = textView;
+        this.d = spanGroupEditText;
+        this.e = imageView;
     }
 
     @NonNull
@@ -54,16 +58,20 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f091184;
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091184);
+            int i = R.id.obfuscated_res_0x7f0911ac;
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911ac);
             if (relativeLayout != null) {
-                i = R.id.obfuscated_res_0x7f091193;
-                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) view2.findViewById(R.id.obfuscated_res_0x7f091193);
-                if (spanGroupEditText != null) {
-                    i = R.id.obfuscated_res_0x7f0921ec;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
-                    if (imageView != null) {
-                        return new SliceInputBinding((RelativeLayout) view2, relativeLayout, spanGroupEditText, imageView);
+                i = R.id.obfuscated_res_0x7f0911b1;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911b1);
+                if (textView != null) {
+                    i = R.id.obfuscated_res_0x7f0911bc;
+                    SpanGroupEditText spanGroupEditText = (SpanGroupEditText) view2.findViewById(R.id.obfuscated_res_0x7f0911bc);
+                    if (spanGroupEditText != null) {
+                        i = R.id.obfuscated_res_0x7f092266;
+                        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092266);
+                        if (imageView != null) {
+                            return new SliceInputBinding((RelativeLayout) view2, relativeLayout, textView, spanGroupEditText, imageView);
+                        }
                     }
                 }
             }
@@ -77,7 +85,7 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e4, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08fe, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

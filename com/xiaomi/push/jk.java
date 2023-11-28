@@ -8,17 +8,17 @@ public class jk extends jn {
     public InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f817a;
+    public OutputStream f813a;
 
     public jk() {
         this.a = null;
-        this.f817a = null;
+        this.f813a = null;
     }
 
     public jk(OutputStream outputStream) {
         this.a = null;
-        this.f817a = null;
-        this.f817a = outputStream;
+        this.f813a = null;
+        this.f813a = outputStream;
     }
 
     @Override // com.xiaomi.push.jn
@@ -40,8 +40,8 @@ public class jk extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public void mo724a(byte[] bArr, int i, int i2) {
-        OutputStream outputStream = this.f817a;
+    public void mo728a(byte[] bArr, int i, int i2) {
+        OutputStream outputStream = this.f813a;
         if (outputStream == null) {
             throw new jo(1, "Cannot write to null outputStream");
         }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CommonLikeButton extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f4);
         d();
     }
 
@@ -67,7 +67,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f4);
         d();
     }
 
@@ -91,7 +91,7 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f4);
         d();
     }
 

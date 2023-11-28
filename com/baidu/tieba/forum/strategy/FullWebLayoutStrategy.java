@@ -5,16 +5,14 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.fi7;
+import com.baidu.tieba.dn7;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
 import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.tieba.forum.widget.ViewExtentionsKt;
-import com.baidu.tieba.wm7;
-import com.baidu.tieba.yk7;
+import com.baidu.tieba.ip7;
+import com.baidu.tieba.uj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,28 +23,26 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000Y\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0011\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u0013\u001a\u00020\u0014H\u0016J\b\u0010\u0015\u001a\u00020\u0014H\u0002J\b\u0010\u0016\u001a\u00020\bH\u0016J\n\u0010\u0017\u001a\u0004\u0018\u00010\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u001aH\u0016J\b\u0010\u001b\u001a\u00020\u0014H\u0002J\b\u0010\u001c\u001a\u00020\bH\u0016J\b\u0010\u001d\u001a\u00020\u001eH\u0016J\u0010\u0010\u001f\u001a\u00020\u00142\u0006\u0010 \u001a\u00020\bH\u0014J\b\u0010!\u001a\u00020\u001eH\u0016J(\u0010\"\u001a\u00020\u00142\u0006\u0010#\u001a\u00020\b2\u0016\b\u0002\u0010$\u001a\u0010\u0012\u0004\u0012\u00020&\u0012\u0004\u0012\u00020\u0014\u0018\u00010%H\u0002J\b\u0010'\u001a\u00020\u001eH\u0016R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0012¨\u0006("}, d2 = {"Lcom/baidu/tieba/forum/strategy/FullWebLayoutStrategy;", "Lcom/baidu/tieba/forum/strategy/BaseLayoutStrategy;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "dataWrapper", "Lcom/baidu/tieba/forum/event/H5HeightEvent$H5HeightWrapper;", "(Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;Lcom/baidu/tieba/forum/event/H5HeightEvent$H5HeightWrapper;)V", "currentContentVisibleHeight", "", "maxTopContentVisibleHeightForWriteBtn", "stateChangeListener", "Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;", "getStateChangeListener", "()Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;", "setStateChangeListener", "(Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;)V", "topScrollChangeListener", "com/baidu/tieba/forum/strategy/FullWebLayoutStrategy$topScrollChangeListener$1", "Lcom/baidu/tieba/forum/strategy/FullWebLayoutStrategy$topScrollChangeListener$1;", "afterInflate", "", "configLinkageTab", "getScrollThreshold", "getSecondFloorTouchTarget", "Landroid/webkit/WebView;", "getWriteBtnOpacity", "", "initLayoutParams", "minVisibleHeightForTopContent", "needHandlerPost", "", "onTopContentVisibleHeightChanged", "visibleHeight", "scrollToBottom", "scrollToPosition", "pos", "onScrollFinish", "Lkotlin/Function1;", "Lcom/baidu/tieba/forum/widget/TbNestedScrollView;", "scrollToTop", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000W\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u000e\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\b\u0010\u0010\u001a\u00020\u0011H\u0016J\b\u0010\u0012\u001a\u00020\u0011H\u0002J\b\u0010\u0013\u001a\u00020\u0014H\u0016J\n\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\b\u0010\u0017\u001a\u00020\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u0011H\u0002J\b\u0010\u001a\u001a\u00020\u0014H\u0016J\b\u0010\u001b\u001a\u00020\u001cH\u0016J\b\u0010\u001d\u001a\u00020\u001cH\u0016J(\u0010\u001e\u001a\u00020\u00112\u0006\u0010\u001f\u001a\u00020\u00142\u0016\b\u0002\u0010 \u001a\u0010\u0012\u0004\u0012\u00020\"\u0012\u0004\u0012\u00020\u0011\u0018\u00010!H\u0002J\b\u0010#\u001a\u00020\u001cH\u0016R\u001c\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u0010\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000f¨\u0006$"}, d2 = {"Lcom/baidu/tieba/forum/strategy/FullWebLayoutStrategy;", "Lcom/baidu/tieba/forum/strategy/BaseLayoutStrategy;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "dataWrapper", "Lcom/baidu/tieba/forum/event/H5HeightEvent$H5HeightWrapper;", "(Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;Lcom/baidu/tieba/forum/event/H5HeightEvent$H5HeightWrapper;)V", "stateChangeListener", "Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;", "getStateChangeListener", "()Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;", "setStateChangeListener", "(Lcom/baidu/tieba/forum/strategy/IContentScrollStateChangeListener;)V", "topScrollChangeListener", "com/baidu/tieba/forum/strategy/FullWebLayoutStrategy$topScrollChangeListener$1", "Lcom/baidu/tieba/forum/strategy/FullWebLayoutStrategy$topScrollChangeListener$1;", "afterInflate", "", "configLinkageTab", "getScrollThreshold", "", "getSecondFloorTouchTarget", "Landroid/webkit/WebView;", "getWriteAndRefreshBtnOpacity", "", "initLayoutParams", "minVisibleHeightForTopContent", "needHandlerPost", "", "scrollToBottom", "scrollToPosition", "pos", "onScrollFinish", "Lkotlin/Function1;", "Lcom/baidu/tieba/forum/widget/TbNestedScrollView;", "scrollToTop", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
-    public yk7 C;
+    public dn7 C;
     public final a D;
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
-    public boolean v() {
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements yk7 {
+    public static final class a implements dn7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullWebLayoutStrategy a;
@@ -71,39 +67,39 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
             this.b = activityForumBinding;
         }
 
-        @Override // com.baidu.tieba.yk7
+        @Override // com.baidu.tieba.dn7
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.E((this.b.m.getHeight() - this.a.o()) - this.a.r());
-                yk7 W = this.a.W();
-                if (W != null) {
-                    W.a();
+                this.a.O((this.b.m.getHeight() - this.a.q()) - this.a.t());
+                dn7 Y = this.a.Y();
+                if (Y != null) {
+                    Y.a();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.yk7
+        @Override // com.baidu.tieba.dn7
         public void b() {
-            yk7 W;
+            dn7 Y;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (W = this.a.W()) != null) {
-                W.b();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (Y = this.a.Y()) != null) {
+                Y.b();
             }
         }
 
-        @Override // com.baidu.tieba.yk7
+        @Override // com.baidu.tieba.dn7
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                yk7.a.a(this, i);
+                dn7.a.a(this, i);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FullWebLayoutStrategy(ActivityForumBinding binding, fi7.a dataWrapper) {
-        super(binding, (int) dataWrapper.e(), (int) dataWrapper.f());
+    public FullWebLayoutStrategy(ActivityForumBinding binding, uj7.a dataWrapper) {
+        super(binding, (int) dataWrapper.c(), (int) dataWrapper.d());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,11 +118,10 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         }
         Intrinsics.checkNotNullParameter(binding, "binding");
         Intrinsics.checkNotNullParameter(dataWrapper, "dataWrapper");
-        this.A = UtilHelper.getDimenPixelSize(R.dimen.tbds400);
         this.D = new a(this, binding);
     }
 
-    public final void Y(int i, Function1<? super TbNestedScrollView, Unit> function1) {
+    public final void a0(int i, Function1<? super TbNestedScrollView, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, function1) == null) {
             TbBottomSheetView tbBottomSheetView = i().t;
@@ -136,9 +131,9 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
             if (!ViewExtentionsKt.f(tbBottomSheetView, linearLayout)) {
                 TbLinkageScrollView tbLinkageScrollView = i().m;
                 Intrinsics.checkNotNullExpressionValue(tbLinkageScrollView, "binding.linkageView");
-                if (!wm7.a(tbLinkageScrollView)) {
+                if (!ip7.a(tbLinkageScrollView)) {
                     g();
-                    i().m.scrollTo(0, (r() - q()) - 1);
+                    i().m.scrollTo(0, (t() - s()) - 1);
                     d();
                     TbBottomSheetView tbBottomSheetView2 = i().t;
                     Intrinsics.checkNotNullExpressionValue(tbBottomSheetView2, "binding.topContentContainer");
@@ -156,54 +151,41 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.forum.strategy.FullWebLayoutStrategy */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ void Z(FullWebLayoutStrategy fullWebLayoutStrategy, int i, Function1 function1, int i2, Object obj) {
+    public static /* synthetic */ void b0(FullWebLayoutStrategy fullWebLayoutStrategy, int i, Function1 function1, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             function1 = null;
         }
-        fullWebLayoutStrategy.Y(i, function1);
+        fullWebLayoutStrategy.a0(i, function1);
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.en7
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.F();
-            if (k() == 1) {
+            if (l() == 1) {
                 return false;
             }
-            Z(this, 0, null, 2, null);
+            b0(this, 0, null, 2, null);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
-    public void K() {
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.en7
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.K();
-            X();
-            B(this.D);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.L();
+            Z();
+            D(this.D);
         }
-    }
-
-    @Override // com.baidu.tieba.zk7
-    public float M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.A <= u()) {
-                return 0.0f;
-            }
-            return ((this.B - u()) * 1.0f) / (this.A - u());
-        }
-        return invokeV.floatValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk7
-    /* renamed from: V */
+    @Override // com.baidu.tieba.en7
+    /* renamed from: X */
     public WebView H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -213,40 +195,67 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         return (WebView) invokeV.objValue;
     }
 
-    public final yk7 W() {
+    public final dn7 Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.C;
         }
-        return (yk7) invokeV.objValue;
+        return (dn7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
-    public int p() {
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return t() - s();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
+    public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return r() - q();
+            return t();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
-    public int u() {
+    @Override // com.baidu.tieba.en7
+    public float I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (p() <= w()) {
+                return 0.0f;
+            }
+            return ((k() - w()) * 1.0f) / (p() - w());
         }
-        return invokeV.intValue;
+        return invokeV.floatValue;
     }
 
-    public final void U() {
+    @Override // com.baidu.tieba.en7
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (l() == 2 || i().t.A()) {
+                return false;
+            }
+            b0(this, i().t.getMinScroll(), null, 2, null);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void W() {
         ViewGroup.MarginLayoutParams marginLayoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            i().c.getLayoutParams().height = i().m.getHeight() - o();
+            i().c.getLayoutParams().height = i().m.getHeight() - q();
             ViewGroup.LayoutParams layoutParams = i().t.getLayoutParams();
             ViewGroup.MarginLayoutParams marginLayoutParams2 = null;
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -255,25 +264,25 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
                 marginLayoutParams = null;
             }
             if (marginLayoutParams != null) {
-                marginLayoutParams.setMargins(0, o(), 0, 0);
+                marginLayoutParams.setMargins(0, q(), 0, 0);
             }
             ViewGroup.LayoutParams layoutParams2 = i().b.getLayoutParams();
             if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
                 marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
             }
             if (marginLayoutParams2 != null) {
-                marginLayoutParams2.setMargins(0, 0, 0, q());
+                marginLayoutParams2.setMargins(0, 0, 0, s());
             }
         }
     }
 
-    public final void X() {
+    public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            N(i().p.getHeight());
+            P(i().p.getHeight());
             TbBottomSheetView tbBottomSheetView = i().t;
             Intrinsics.checkNotNullExpressionValue(tbBottomSheetView, "binding.topContentContainer");
-            TbBottomSheetView.setup$default(tbBottomSheetView, 1, r(), 0, false, 12, null);
+            TbBottomSheetView.setup$default(tbBottomSheetView, 1, t(), 0, false, 12, null);
             i().m.setTopScrollTarget(new Function0<WebView>(this) { // from class: com.baidu.tieba.forum.strategy.FullWebLayoutStrategy$initLayoutParams$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -312,9 +321,9 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
                     return (WebView) invokeV.objValue;
                 }
             });
-            U();
-            R();
-            i().t.L(o() - h(), false, new Function0<Unit>(this) { // from class: com.baidu.tieba.forum.strategy.FullWebLayoutStrategy$initLayoutParams$2
+            W();
+            T();
+            i().t.M(q() - h(), false, new Function0<Unit>(this) { // from class: com.baidu.tieba.forum.strategy.FullWebLayoutStrategy$initLayoutParams$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FullWebLayoutStrategy this$0;
@@ -350,43 +359,14 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    Function0<Unit> m;
+                    Function0<Unit> n;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (m = this.this$0.m()) != null) {
-                        m.invoke();
+                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (n = this.this$0.n()) != null) {
+                        n.invoke();
                     }
                 }
             });
-            E(h() - o());
+            O(h() - q());
         }
-    }
-
-    public final void a0(yk7 yk7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, yk7Var) == null) {
-            this.C = yk7Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.B = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.zk7
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (k() == 2 || i().t.z()) {
-                return false;
-            }
-            Z(this, i().t.getMinScroll(), null, 2, null);
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

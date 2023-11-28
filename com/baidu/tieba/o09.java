@@ -1,102 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
-import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.PicCreateInfoData;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.PicQueryInfoData;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.ml8;
-import com.baidu.tieba.yt5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.concurrent.TimeUnit;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class o09 extends en8 {
+public class o09 extends ge5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatPage b;
-    public FastRequest c;
-    public FastRequest d;
-    public GroupChatFragment e;
-    public final yt5 f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978577, "Lcom/baidu/tieba/o09;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947978577, "Lcom/baidu/tieba/o09;");
-        }
-    }
-
-    @Override // com.baidu.tieba.en8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pic_gen_commit" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
     /* loaded from: classes7.dex */
-    public static final class b extends FastRequest.b<PicQueryInfoData> {
+    public class a implements fe5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o09 d;
-        public final /* synthetic */ ml8.e e;
-        public final /* synthetic */ boolean f;
-        public final /* synthetic */ yt5.c<Void> g;
+        public final /* synthetic */ n09 a;
+        public final /* synthetic */ o09 b;
 
-        /* loaded from: classes7.dex */
-        public static final class a extends TypeToken<AbilityItem> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public b(o09 o09Var, ml8.e eVar, boolean z, yt5.c<Void> cVar) {
+        public a(o09 o09Var, n09 n09Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o09Var, eVar, Boolean.valueOf(z), cVar};
+                Object[] objArr = {o09Var, n09Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -106,239 +61,274 @@ public final class o09 extends en8 {
                     return;
                 }
             }
-            this.d = o09Var;
-            this.e = eVar;
-            this.f = z;
-            this.g = cVar;
+            this.b = o09Var;
+            this.a = n09Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: l */
-        public void f(int i, String errMsg, PicQueryInfoData picQueryInfoData) {
+        @Override // com.baidu.tieba.fe5
+        public void U(ee5 ee5Var) {
+            n09 n09Var;
+            int size;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, picQueryInfoData) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.f(i, errMsg, picQueryInfoData);
-                this.d.l(R.string.obfuscated_res_0x7f0f0518);
-                this.e.onFail();
-                this.d.i().h();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ee5Var) != null) || (n09Var = this.a) == null || n09Var.a() == null || ee5Var == null) {
+                return;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: m */
-        public void i(PicQueryInfoData result) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                super.i(result);
-                Integer status = result.getStatus();
-                if (status != null) {
-                    i = status.intValue();
-                } else {
-                    i = 2;
-                }
-                String str = null;
-                if (i != 1) {
-                    if (i == 2) {
-                        this.d.l(R.string.obfuscated_res_0x7f0f0518);
-                        this.e.onFail();
-                        this.d.i().h();
-                    } else if (i == 3) {
-                        Object abilityItem = result.getAbilityItem();
-                        if (abilityItem != null) {
-                            str = DataExt.toJson(abilityItem);
+            int i = ee5Var.a;
+            if (i != 4) {
+                if (i != 32) {
+                    if (i != 36) {
+                        if (i != 77) {
+                            if (i != 7) {
+                                if (i != 8) {
+                                    if (i != 10) {
+                                        if (i != 11) {
+                                            switch (i) {
+                                                case 14:
+                                                    AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.s().getPageActivity(), this.a.y().toJsonString(), true, true);
+                                                    if (!StringUtils.isNull(this.b.b, true)) {
+                                                        albumFloatActivityConfig.getIntent().putExtra("forum_id", this.b.b);
+                                                    }
+                                                    albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                                                    if (wg5.a().b() == 1) {
+                                                        albumFloatActivityConfig.setRequestFrom(2);
+                                                        if (this.a.y() != null) {
+                                                            this.a.y().setMaxImagesAllowed(1);
+                                                        }
+                                                    } else if (this.a.y() != null) {
+                                                        this.a.y().setMaxImagesAllowed(9);
+                                                    }
+                                                    BdUtilHelper.hideSoftKeyPad(this.a.s().getPageActivity(), this.a.s().getPageActivity().getCurrentFocus());
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+                                                    return;
+                                                case 15:
+                                                    int intValue = ((Integer) ee5Var.c).intValue();
+                                                    if (this.a.y() != null && this.a.y().getChosedFiles() != null && (size = this.a.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.s().getPageActivity(), CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, this.a.y(), intValue)));
+                                                        return;
+                                                    }
+                                                    return;
+                                                case 16:
+                                                    if (this.b.d) {
+                                                        BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.over_limit_tip);
+                                                    }
+                                                    if (!this.b.j(this.a.s(), 11025)) {
+                                                        return;
+                                                    }
+                                                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.s().getPageActivity(), 12004, true);
+                                                    if (this.a.x() != null) {
+                                                        atListActivityConfig.setSelectedAtList(this.a.x().x());
+                                                    }
+                                                    atListActivityConfig.setFromTid(this.b.c);
+                                                    atListActivityConfig.setFromFid(this.b.b);
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                                                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                                                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                                                    statisticItem.addParam("tid", this.b.c);
+                                                    statisticItem.addParam("fid", this.b.b);
+                                                    TiebaStatic.log(statisticItem);
+                                                    return;
+                                                default:
+                                                    return;
+                                            }
+                                        }
+                                        this.a.q0(null);
+                                        return;
+                                    }
+                                    Object obj = ee5Var.c;
+                                    if (obj instanceof VoiceData.VoiceModel) {
+                                        this.a.q0((VoiceData.VoiceModel) obj);
+                                        this.a.z(true, null);
+                                        return;
+                                    }
+                                    return;
+                                } else if (!this.b.j(this.a.s(), 11001)) {
+                                    return;
+                                } else {
+                                    this.a.K(null, null);
+                                    return;
+                                }
+                            }
+                            BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.over_limit_tip);
+                            this.b.d = true;
+                            return;
                         }
-                        Object fromJson = new Gson().fromJson(str, new a().getType());
-                        Intrinsics.checkNotNullExpressionValue(fromJson, "Gson().fromJson(str, type)");
-                        this.e.a((AbilityItem) fromJson);
-                        this.e.onFinish();
-                        this.d.i().h();
+                        this.a.A();
+                        return;
+                    } else if (!this.b.j(this.a.s(), 11040)) {
+                        return;
+                    } else {
+                        this.a.W();
+                        return;
                     }
-                } else if (this.f) {
-                    this.d.l(R.string.obfuscated_res_0x7f0f0519);
-                    this.e.onFail();
-                    this.d.i().h();
-                } else {
-                    this.g.a(false, null);
                 }
+                this.a.a().K(new ee5(1, 11, null));
+                return;
             }
+            this.a.i0(ee5Var.c.toString());
+            Object obj2 = ee5Var.c;
+            if (obj2 instanceof SpanGroupManager) {
+                this.a.n0((SpanGroupManager) obj2);
+            }
+            this.b.d = false;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a extends FastRequest.b<PicCreateInfoData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ml8.e d;
-        public final /* synthetic */ o09 e;
-
-        public a(ml8.e eVar, o09 o09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, o09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = eVar;
-            this.e = o09Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: l */
-        public void f(int i, String errMsg, PicCreateInfoData picCreateInfoData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048579, this, i, errMsg, picCreateInfoData) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.f(i, errMsg, picCreateInfoData);
-                this.e.l(R.string.obfuscated_res_0x7f0f0518);
-                this.d.onFail();
-            }
-        }
-
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        public void h() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.h();
-                this.d.onStart();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: m */
-        public void i(PicCreateInfoData result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                super.i(result);
-                if (result.getRequestId() == null) {
-                    this.e.l(R.string.obfuscated_res_0x7f0f0518);
-                    this.d.onFail();
-                    return;
-                }
-                o09 o09Var = this.e;
-                String requestId = result.getRequestId();
-                Intrinsics.checkNotNull(requestId);
-                o09Var.j(requestId, this.d);
-            }
-        }
-    }
-
-    public o09(ChatPage chatPage) {
+    public o09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatPage};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(chatPage, "chatPage");
-        this.b = chatPage;
-        GroupChatFragment K0 = chatPage.K0();
-        Intrinsics.checkNotNullExpressionValue(K0, "chatPage.groupChatFragment");
-        this.e = K0;
-        this.f = new yt5(15, 2000, TimeUnit.MILLISECONDS);
+        this.d = false;
     }
 
-    public final void h(ml8.e eVar) {
-        InputDelegate P2;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            if (this.c == null) {
-                this.c = new FastRequest(this.e.getPageContext(), CmdConfigHttp.CMD_REQUEST_CREATE_MEME, TbConfig.REQUEST_SPRITE_CREATE_MEME);
-            }
-            InputToolFragment e3 = this.e.e3();
-            String str = (e3 == null || (P2 = e3.P2()) == null || (str = P2.t()) == null) ? "" : "";
-            FastRequest fastRequest = this.c;
-            Intrinsics.checkNotNull(fastRequest);
-            fastRequest.U(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.P("prompt", str);
-            fastRequest.R(new a(eVar, this));
-            fastRequest.Q();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
     }
 
-    @Override // com.baidu.tieba.en8
-    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
+    public void k(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            if (obj instanceof ml8.e) {
-                h((ml8.e) obj);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.a = str;
+            this.b = str2;
         }
     }
 
-    public final void j(final String str, final ml8.e eVar) {
+    @Override // com.baidu.tieba.ge5
+    public ie5 b(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, eVar) == null) {
-            this.f.i(new yt5.c() { // from class: com.baidu.tieba.m09
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarMaxLauCount(5);
+            if (this.e) {
+                i = 2;
+            } else {
+                i = 3;
+            }
+            editorTools.setBarLauncherType(i);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setDeskBackgroundColorId(R.color.CAM_X0207);
+            editorTools.N(false);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setHideBigEmotion(this.e);
+            editorTools.setFid(JavaTypesHelper.toLong(this.b, 0L));
+            editorTools.setFname(this.a);
+            editorTools.setTid(this.c);
+            return new n09(editorTools);
+        }
+        return (ie5) invokeL.objValue;
+    }
 
-                @Override // com.baidu.tieba.yt5.c
-                public final void a(boolean z, Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, obj) == null) {
-                        o09.k(o09.this, str, eVar, z, (yt5.c) obj);
-                    }
+    @Override // com.baidu.tieba.ge5
+    public void c(ie5 ie5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ie5Var) != null) || !(ie5Var instanceof n09)) {
+            return;
+        }
+        EditorTools a2 = ie5Var.a();
+        a aVar = new a(this, (n09) ie5Var);
+        a2.setActionListener(5, aVar);
+        a2.setActionListener(4, aVar);
+        a2.setActionListener(7, aVar);
+        a2.setActionListener(16, aVar);
+        a2.setActionListener(14, aVar);
+        a2.setActionListener(15, aVar);
+        a2.setActionListener(8, aVar);
+        a2.setActionListener(10, aVar);
+        a2.setActionListener(11, aVar);
+        a2.setActionListener(36, aVar);
+        a2.setActionListener(32, aVar);
+        a2.setActionListener(77, aVar);
+    }
+
+    @Override // com.baidu.tieba.ge5
+    public void d(ie5 ie5Var) {
+        CustomResponsedMessage runTask;
+        int i;
+        CustomResponsedMessage runTask2;
+        re5 re5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ie5Var) == null) {
+            EditorTools a2 = ie5Var.a();
+            if (kya.a() && nva.a(this.a, Boolean.TRUE) && (runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), re5.class)) != null && (re5Var = (re5) runTask2.getData()) != null) {
+                re5Var.l = 2;
+                a2.f(re5Var);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            a2.k(arrayList);
+            re5 u = a2.u(5);
+            if (u != null) {
+                u.f(!this.e);
+                u.g(!this.e);
+                if (this.e) {
+                    i = 1;
+                } else {
+                    i = 3;
                 }
-            });
-        }
-    }
-
-    public static final void k(o09 this$0, String requestId, ml8.e callback, boolean z, yt5.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, requestId, callback, Boolean.valueOf(z), cVar}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(requestId, "$requestId");
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            if (this$0.d == null) {
-                this$0.d = new FastRequest(this$0.e.getPageContext(), CmdConfigHttp.CMD_REQUEST_QUERY_MEME, TbConfig.REQUEST_SPRITE_QUERY_MEME);
+                u.l = i;
             }
-            FastRequest fastRequest = this$0.d;
-            Intrinsics.checkNotNull(fastRequest);
-            fastRequest.U(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.P(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, requestId);
-            fastRequest.R(new b(this$0, callback, z, cVar));
-            fastRequest.Q();
+            te5 te5Var = new te5(a2.getContext(), 4);
+            te5Var.i = false;
+            a2.f(te5Var);
+            if (!this.e) {
+                a2.f(new cf5(a2.getContext(), 1));
+                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), re5.class);
+                if (runTask3 != null && runTask3.getData() != null) {
+                    re5 re5Var2 = (re5) runTask3.getData();
+                    re5Var2.l = 6;
+                    a2.f(re5Var2);
+                }
+                PbNewEditorTool pbNewEditorTool = new PbNewEditorTool(a2.getContext(), false, true, 12004);
+                pbNewEditorTool.o(PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE);
+                a2.f(pbNewEditorTool);
+                CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), re5.class);
+                if (runTask4 != null && runTask4.getData() != null) {
+                    re5 re5Var3 = (re5) runTask4.getData();
+                    re5Var3.l = 7;
+                    a2.f(re5Var3);
+                }
+                if (fg5.isOn() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2921824, a2.getContext()), re5.class)) != null && runTask.getData() != null) {
+                    re5 re5Var4 = (re5) runTask.getData();
+                    re5Var4.l = 8;
+                    a2.f(re5Var4);
+                }
+                a2.f(new af5(a2.getContext(), 5));
+            } else {
+                PbNewEditorTool pbNewEditorTool2 = new PbNewEditorTool(a2.getContext(), false, false, 12004);
+                pbNewEditorTool2.o(PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE_FLOOR);
+                a2.f(pbNewEditorTool2);
+            }
+            a2.h();
+            if (jh5.isOn()) {
+                a2.K(new ee5(76, 27, this.b));
+            }
         }
     }
 
-    public final yt5 i() {
-        InterceptResult invokeV;
+    public final boolean j(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            if (pm5.k()) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-        return (yt5) invokeV.objValue;
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b.w1(i);
-        }
+        return invokeLI.booleanValue;
     }
 }

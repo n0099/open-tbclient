@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes8.dex */
-public abstract class u63<T> implements kp2<byte[], T> {
+public abstract class u63<T> implements lp2<T, byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void b(@NonNull T t, @NonNull mp2 mp2Var) throws Exception;
+    public abstract T b(@NonNull mp2 mp2Var) throws Exception;
 
     public u63() {
         Interceptable interceptable = $ic;
@@ -29,23 +29,22 @@ public abstract class u63<T> implements kp2<byte[], T> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kp2
+    @Override // com.baidu.tieba.lp2
     /* renamed from: a */
-    public final byte[] call(T t) throws Exception {
+    public final T call(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr == null) {
                 return null;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            mp2 mp2Var = new mp2(byteArrayOutputStream);
-            b(t, mp2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            mp2 mp2Var = new mp2(byteArrayInputStream);
+            T b = b(mp2Var);
             mp2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
+            byteArrayInputStream.close();
+            return b;
         }
-        return (byte[]) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

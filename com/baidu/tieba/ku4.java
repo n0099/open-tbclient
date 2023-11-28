@@ -1,319 +1,326 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.pga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ku4 {
+public class ku4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public int k;
-    public Bundle l;
-    public HashMap<String, Serializable> m;
 
-    public ku4 i(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? this : (ku4) invokeZ.objValue;
-    }
-
-    public ku4(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file.exists() && file.isFile() && file.canRead()) {
+                return true;
             }
+            return false;
         }
-        this.c = "";
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.l = null;
-        this.m = null;
-        this.a = context;
-        this.b = str;
+        return invokeL.booleanValue;
     }
 
-    public static ku4 j(Context context, String str) {
+    public static pga.g b(String str, String str2) {
         InterceptResult invokeLL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return new ku4(context, str);
-        }
-        return (ku4) invokeLL.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        new PvThread("open_webview", true).start();
-    }
-
-    public TbWebViewActivityConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e(this.a);
-        }
-        return (TbWebViewActivityConfig) invokeV.objValue;
-    }
-
-    public void p() {
-        TbWebViewActivityConfig e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (e = e(this.a)) != null) {
-            e.start();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TbadkCoreApplication.getInst().isDebugMode() && !GlobalBuildConfig.isTiebaDebugTool()) {
-                throw new RuntimeException("can't open debug page in release");
-            }
-            this.b = "http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/na-h5-tool";
-            p();
-        }
-    }
-
-    public ku4 a(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            this.l = bundle;
-            if (bundle != null) {
-                String string = bundle.getString(BdUniDispatchSchemeController.PARAM_INIT_DATA, "");
-                if (!TextUtils.isEmpty(string)) {
-                    if (this.m == null) {
-                        this.m = new HashMap<>();
-                    }
-                    this.m.put(BdUniDispatchSchemeController.PARAM_INIT_DATA, string);
-                }
-            }
-            return this;
-        }
-        return (ku4) invokeL.objValue;
-    }
-
-    public ku4 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 f(HashMap<String, Serializable> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            this.m = hashMap;
-            return this;
-        }
-        return (ku4) invokeL.objValue;
-    }
-
-    public ku4 g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.j = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 m(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (ku4) invokeZ.objValue;
-    }
-
-    public ku4 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (ku4) invokeI.objValue;
-    }
-
-    public ku4 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (ku4) invokeL.objValue;
-    }
-
-    public final TbWebViewActivityConfig e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            n();
-            try {
-                if (StringUtils.isNull(this.b)) {
-                    return null;
-                }
-                boolean z = this.g;
-                if (!UrlUtils.isBaiduDomain(this.b)) {
-                    z = false;
-                }
-                if (this.l != null && !this.l.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) {
-                    z = false;
-                }
-                if (z) {
-                    String appendCuidParam = BrowserHelper.appendCuidParam(this.b);
-                    this.b = appendCuidParam;
-                    String appendVersionCode = BrowserHelper.appendVersionCode(appendCuidParam);
-                    this.b = appendVersionCode;
-                    this.b = BrowserHelper.appendClientType(appendVersionCode);
-                }
-                TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, this.c, this.b, this.d, this.e, this.f, !wj6.b(this.m));
-                activityConfig.setNeedImmerSiveSticky(this.h);
-                activityConfig.setFixTitle(this.i);
-                activityConfig.setAutoPlay(this.j);
-                if (this.k > 0) {
-                    activityConfig.setRequestCode(this.k);
-                    activityConfig.setIntentAction(IntentAction.ActivityForResult);
-                }
-                activityConfig.setBundle(this.l);
-                if (!wj6.b(this.m)) {
-                    activityConfig.setPageData(this.m);
-                }
-                if (this.l != null) {
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TEXT_AUTO_SIZE, false)) {
-                        activityConfig.setTextAutoSize(true);
-                    }
-                    String string = this.l.getString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, "");
-                    if (!TextUtils.isEmpty(string)) {
-                        activityConfig.setPageTranslucent(string);
-                    }
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, false)) {
-                        activityConfig.setTranslucentAutoClose(true);
-                    }
-                    String string2 = this.l.getString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, "");
-                    if (!TextUtils.isEmpty(string2)) {
-                        activityConfig.setWebDialogName(string2);
-                    }
-                    if ("1".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                        activityConfig.setLoadingSwitch(1);
-                        activityConfig.setLoadingStyle(1);
-                    } else if ("2".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                    }
-                }
-                if (n) {
-                    activityConfig.setUseCustomHistoryStack(true);
-                    n = false;
-                }
-                if (this.l != null && this.l.getBoolean(WebViewActivityConfig.FROM_SCHEMA)) {
-                    activityConfig.setIsFromSchema(true);
-                }
-                return activityConfig;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            File file = new File(pga.g + "bdtbNWCache");
+            FileInputStream fileInputStream2 = null;
+            if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
+            pga.g gVar = new pga.g();
+            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
+            gVar.a = file.getAbsolutePath();
+            gVar.c = str2;
+            File file3 = new File(file2, "router.json");
+            try {
+                if (!file3.exists()) {
+                    return null;
+                }
+                try {
+                    fileInputStream = new FileInputStream(file3);
+                } catch (FileNotFoundException e) {
+                    e = e;
+                }
+                try {
+                    gVar.b = f(fileInputStream);
+                    sd.e(fileInputStream);
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileInputStream2 = fileInputStream;
+                    e.printStackTrace();
+                    sd.e(fileInputStream2);
+                    return gVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    sd.e(fileInputStream2);
+                    throw th;
+                }
+                return gVar;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (pga.g) invokeLL.objValue;
         }
-        return (TbWebViewActivityConfig) invokeL.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        rga d;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (QuickWebViewSwitch.getInOn() && !pga.s(str)) {
+                try {
+                    d = qga.a().d(new URL(str).getPath());
+                } catch (MalformedURLException | Exception unused) {
+                }
+                if (d != null && d.e) {
+                    String p = pga.n().p(d.b);
+                    if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
+                        String str2 = pga.n().m() + "/" + d.b + "/" + p + "/";
+                        if (!d.c.endsWith(".html")) {
+                            file = new File(str2, d.c + ".html");
+                        } else {
+                            file = new File(str2, d.c);
+                        }
+                        if (!a(file)) {
+                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：主html文件异常==" + str);
+                            return false;
+                        }
+                        ArrayList<String> arrayList = d.d;
+                        if (ListUtils.isEmpty(arrayList)) {
+                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误==" + str);
+                            return false;
+                        }
+                        for (String str3 : arrayList) {
+                            if (TextUtils.isEmpty(str3)) {
+                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误2==" + str);
+                                return false;
+                            } else if (!a(new File(str2, str3))) {
+                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误3==" + str);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：版本异常==" + str);
+                    return false;
+                }
+                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：离线包未初始化==" + str);
+                return false;
+            }
+            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：开关关闭==" + str);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !fk6.a(set)) {
+            pga.f fVar = new pga.f();
+            fVar.a = new HashMap();
+            fVar.b = new HashMap<>();
+            for (String str : set) {
+                pga.g b = b(str, pga.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !fk6.b(b.b)) {
+                    fVar.a.put(str, b);
+                    fVar.b.putAll(b.b);
+                }
+            }
+            if (!fk6.b(fVar.b)) {
+                qga.a().i(fVar.b);
+            }
+        }
+    }
+
+    public static HashMap<String, rga> f(InputStream inputStream) {
+        InterceptResult invokeL;
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        BufferedReader bufferedReader;
+        HashMap<String, rga> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
+            InputStreamReader inputStreamReader2 = null;
+            if (inputStream == null) {
+                return null;
+            }
+            try {
+                StringBuffer stringBuffer = new StringBuffer();
+                inputStreamReader = new InputStreamReader(inputStream);
+                try {
+                    bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        try {
+                            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                                stringBuffer.append(readLine);
+                            }
+                            bufferedReader.close();
+                            hashMap = new HashMap<>();
+                        } catch (Exception e) {
+                            e = e;
+                            hashMap = null;
+                        }
+                        try {
+                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
+                            e(jSONObject.optJSONObject("proxyConfig"), hashMap);
+                            e(jSONObject.optJSONObject("config"), hashMap);
+                            sd.g(inputStreamReader);
+                        } catch (Exception e2) {
+                            e = e2;
+                            inputStreamReader2 = inputStreamReader;
+                            try {
+                                e.printStackTrace();
+                                sd.g(inputStreamReader2);
+                                sd.g(bufferedReader);
+                                return hashMap;
+                            } catch (Throwable th2) {
+                                inputStreamReader = inputStreamReader2;
+                                th = th2;
+                                sd.g(inputStreamReader);
+                                sd.g(bufferedReader);
+                                throw th;
+                            }
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        sd.g(inputStreamReader);
+                        sd.g(bufferedReader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedReader = null;
+                    hashMap = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                bufferedReader = null;
+                hashMap = null;
+            } catch (Throwable th5) {
+                inputStreamReader = null;
+                th = th5;
+                bufferedReader = null;
+            }
+            sd.g(bufferedReader);
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static void e(JSONObject jSONObject, HashMap<String, rga> hashMap) {
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, hashMap) == null) {
+            JSONObject jSONObject2 = jSONObject;
+            String str4 = "source";
+            String str5 = "path";
+            if (jSONObject2 != null && hashMap != null) {
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!hashMap.containsKey(next)) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
+                            ArrayList<String> arrayList = new ArrayList<>();
+                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
+                                for (int i = 0; i < optJSONArray2.length(); i++) {
+                                    arrayList.add(optJSONArray2.optString(i));
+                                }
+                            }
+                            if (!jSONObject3.has("module")) {
+                                str = "";
+                            } else {
+                                str = jSONObject3.optString("module");
+                            }
+                            if (!jSONObject3.has(str5)) {
+                                str2 = "";
+                            } else {
+                                str2 = jSONObject3.optString(str5);
+                            }
+                            ArrayList<String> arrayList2 = new ArrayList<>();
+                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
+                                str3 = str4;
+                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                    arrayList2.add(optJSONArray.optString(i2));
+                                }
+                            } else {
+                                str3 = str4;
+                            }
+                            String optString = jSONObject3.optString("staticPrePath", "");
+                            int optInt = jSONObject3.optInt("proxyMode");
+                            qga.a().j(next, next);
+                            qga.a().k(next, str2);
+                            Iterator<String> it = arrayList2.iterator();
+                            while (it.hasNext()) {
+                                String next2 = it.next();
+                                if (!TextUtils.isEmpty(next2)) {
+                                    qga a = qga.a();
+                                    String str6 = str5;
+                                    a.j(optString + "/" + next2, next);
+                                    qga a2 = qga.a();
+                                    a2.k(optString + "/" + next2, next2);
+                                    str5 = str6;
+                                }
+                            }
+                            String str7 = str5;
+                            rga rgaVar = new rga();
+                            rgaVar.a = arrayList;
+                            rgaVar.b = str;
+                            rgaVar.c = str2;
+                            rgaVar.d = arrayList2;
+                            if (optInt == 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            rgaVar.f = z;
+                            rgaVar.e = true;
+                            hashMap.put(next, rgaVar);
+                            jSONObject2 = jSONObject;
+                            str4 = str3;
+                            str5 = str7;
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

@@ -1,48 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes9.dex */
 public interface zq6 {
+    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
 
     /* loaded from: classes9.dex */
     public interface a {
-        void onProgress(long j);
+        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
+
+        void a(@NonNull BdUniqueId bdUniqueId);
     }
 
-    /* loaded from: classes9.dex */
-    public interface b {
-        boolean a(String str);
+    void a(@NonNull Object obj);
 
-        boolean b();
-    }
+    <T extends yq6> void b(@NonNull Object obj, @NonNull ar6<T> ar6Var);
 
-    /* loaded from: classes9.dex */
-    public interface c {
-        void a(boolean z, String str);
-    }
-
-    boolean a(QmFilterItem qmFilterItem);
-
-    boolean b(QmStickerItem qmStickerItem);
-
-    boolean c();
-
-    boolean d();
-
-    if6 e();
-
-    ff6 f();
-
-    void g(c cVar);
-
-    boolean onDestroy();
-
-    boolean onPause();
-
-    boolean onResume();
-
-    boolean startRecord();
-
-    boolean stopRecord();
+    <T extends yq6> void c(@Nullable T t);
 }

@@ -1,40 +1,28 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ComponentFactory;
 /* loaded from: classes8.dex */
-public class sa7 implements lf1 {
+public final class sa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sa7() {
+    public static final boolean a(List<ComponentFactory> componentList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, componentList)) == null) {
+            Intrinsics.checkNotNullParameter(componentList, "componentList");
+            for (ComponentFactory componentFactory : componentList) {
+                if (componentFactory.feed_video != null) {
+                    return true;
+                }
             }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.lf1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new no6());
-            arrayList.add(new we7());
-            return arrayList;
-        }
-        return invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

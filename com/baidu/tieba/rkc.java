@@ -1,101 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jjc;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class rkc<T> implements jjc.b<Boolean, T> {
+public class rkc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ckc<? super T, Boolean> a;
-    public final boolean b;
+    public String[] a;
+    public String[] b;
+    public int c;
+    public String d;
+    public boolean e;
 
-    /* loaded from: classes8.dex */
-    public class a extends pjc<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ pjc h;
-        public final /* synthetic */ rkc i;
-
-        public a(rkc rkcVar, SingleDelayedProducer singleDelayedProducer, pjc pjcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rkcVar, singleDelayedProducer, pjcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = rkcVar;
-            this.g = singleDelayedProducer;
-            this.h = pjcVar;
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
-                }
-                znc.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.kjc
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
-                return;
-            }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                vjc.g(th, this, t);
-            }
-        }
-    }
-
-    public rkc(ckc<? super T, Boolean> ckcVar, boolean z) {
+    public rkc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ckcVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,23 +32,74 @@ public final class rkc<T> implements jjc.b<Boolean, T> {
                 return;
             }
         }
-        this.a = ckcVar;
-        this.b = z;
+        this.a = new String[0];
+        this.b = new String[0];
+        this.c = 0;
+        this.d = "";
+        this.e = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ckc
-    /* renamed from: a */
-    public pjc<? super T> call(pjc<? super Boolean> pjcVar) {
+    public static rkc a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pjcVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(pjcVar);
-            a aVar = new a(this, singleDelayedProducer, pjcVar);
-            pjcVar.b(aVar);
-            pjcVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            rkc rkcVar = new rkc();
+            if (str != null && !str.isEmpty()) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    JSONArray optJSONArray = jSONObject.optJSONArray("ipsV4");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        rkcVar.a = new String[optJSONArray.length()];
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            rkcVar.a[i] = optJSONArray.getString(i);
+                        }
+                    }
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("ipsV6");
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        rkcVar.b = new String[optJSONArray2.length()];
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            rkcVar.b[i2] = optJSONArray2.getString(i2);
+                        }
+                    }
+                    rkcVar.c = jSONObject.optInt("dnsResolveType");
+                    rkcVar.d = jSONObject.optString(StatConstants.KEY_EXT_ERR_MSG);
+                    rkcVar.e = jSONObject.optBoolean("success");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return rkcVar;
         }
-        return (pjc) invokeL.objValue;
+        return (rkc) invokeL.objValue;
+    }
+
+    public static String b(rkc rkcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rkcVar)) == null) {
+            if (rkcVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < rkcVar.a.length; i++) {
+                    jSONArray.put(rkcVar.a[i]);
+                }
+                JSONArray jSONArray2 = new JSONArray();
+                for (int i2 = 0; i2 < rkcVar.b.length; i2++) {
+                    jSONArray2.put(rkcVar.b[i2]);
+                }
+                jSONObject.put("ipsV4", jSONArray);
+                jSONObject.put("ipsV6", jSONArray2);
+                jSONObject.put("dnsResolveType", rkcVar.c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, rkcVar.d);
+                jSONObject.put("success", rkcVar.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

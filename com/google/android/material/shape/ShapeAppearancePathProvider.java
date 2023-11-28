@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShapeAppearancePathProvider {
     public final ShapePath[] cornerPaths = new ShapePath[4];
     public final Matrix[] cornerTransforms = new Matrix[4];
@@ -23,7 +23,7 @@ public class ShapeAppearancePathProvider {
     public boolean edgeIntersectionCheckEnabled = true;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PathListener {
         void onCornerPathCreated(ShapePath shapePath, Matrix matrix, int i);
 
@@ -34,7 +34,7 @@ public class ShapeAppearancePathProvider {
         return (i + 1) * 90;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ShapeAppearancePathSpec {
         @NonNull
         public final RectF bounds;

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
 import com.yxcorp.kuaishou.addfp.android.Orange;
 import com.yxcorp.kuaishou.addfp.android.a.c;
 import com.yxcorp.kuaishou.addfp.android.a.d;
@@ -18,7 +17,8 @@ import com.yxcorp.kuaishou.addfp.android.a.e;
 import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class KWEGIDDFP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGID_LENGTH = 64;
@@ -106,7 +106,7 @@ public class KWEGIDDFP {
                 }
                 if (TextUtils.isEmpty(this.mEgid)) {
                     String a2 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.c.a.a.a(this.mParamContext, "k_w_o_d_out_dtt") : null;
-                    String a3 = (TextUtils.isEmpty(a2) && g.a(this.mParamContext, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) ? d.a(this.mParamContext).a("Lm91a2R0ZnQ=") : "";
+                    String a3 = (TextUtils.isEmpty(a2) && g.a(this.mParamContext, new String[]{com.kuaishou.weapon.p0.g.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) ? d.a(this.mParamContext).a("Lm91a2R0ZnQ=") : "";
                     if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(a3)) {
                         return;
                     }
@@ -129,10 +129,17 @@ public class KWEGIDDFP {
         }
     }
 
+    public static void handlePolicy(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, jSONObject) == null) {
+            c.a(jSONObject);
+        }
+    }
+
     public static KWEGIDDFP instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b.a() : (KWEGIDDFP) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b.a() : (KWEGIDDFP) invokeV.objValue;
     }
 
     public void getEGidByCallback(Context context, boolean z, ResponseDfpCallback responseDfpCallback) {

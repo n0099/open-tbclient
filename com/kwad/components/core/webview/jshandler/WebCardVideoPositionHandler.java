@@ -9,14 +9,29 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
-    public a MU;
-    public VideoPosition MT = new VideoPosition();
-    public Handler mHandler = new Handler(Looper.getMainLooper());
+public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.c.a {
+    public a XU;
+    public VideoPosition XT = new VideoPosition();
+    public Handler fS = new Handler(Looper.getMainLooper());
+
+    /* loaded from: classes10.dex */
+    public interface a {
+        void a(VideoPosition videoPosition);
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    @NonNull
+    public final String getKey() {
+        return "videoPosition";
+    }
+
+    public WebCardVideoPositionHandler(a aVar) {
+        this.XU = aVar;
+    }
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = -3445790097441569428L;
         public int borderRadius;
         public KSAdJSCornerModel cornerRadius;
@@ -31,7 +46,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
 
         @KsJson
         /* loaded from: classes10.dex */
-        public static class KSAdJSCornerModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class KSAdJSCornerModel extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static final long serialVersionUID = -1503191931449786332L;
             public double bottomLeft;
             public double bottomRight;
@@ -39,7 +54,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
             public double topRight;
         }
 
-        @Override // com.kwad.sdk.core.response.kwai.a
+        @Override // com.kwad.sdk.core.response.a.a
         public final void afterParseJson(@Nullable JSONObject jSONObject) {
             super.afterParseJson(jSONObject);
             if (jSONObject.has("cornerRadius")) {
@@ -50,24 +65,15 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         }
     }
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void a(VideoPosition videoPosition);
-    }
-
-    public WebCardVideoPositionHandler(a aVar) {
-        this.MU = aVar;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
         try {
-            this.MT.parseJson(new JSONObject(str));
-            if (this.MU != null) {
-                this.mHandler.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler.1
+            this.XT.parseJson(new JSONObject(str));
+            if (this.XU != null) {
+                this.fS.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler.1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        WebCardVideoPositionHandler.this.MU.a(WebCardVideoPositionHandler.this.MT);
+                        WebCardVideoPositionHandler.this.XU.a(WebCardVideoPositionHandler.this.XT);
                     }
                 });
             }
@@ -77,14 +83,8 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         cVar.a(null);
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String getKey() {
-        return "videoPosition";
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     public final void onDestroy() {
-        this.mHandler.removeCallbacksAndMessages(null);
+        this.fS.removeCallbacksAndMessages(null);
     }
 }

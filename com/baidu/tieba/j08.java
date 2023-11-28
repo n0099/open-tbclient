@@ -1,59 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: HeaderViewLogic.java */
+import java.util.List;
+import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class j08 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface j08 {
+    void a(List<LiveFuseForumData> list, i08 i08Var);
 
-    @NonNull
-    public static k08 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new l08();
-        }
-        return (k08) invokeV.objValue;
-    }
+    void f();
 
-    public static View b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            return view2.findViewById(R.id.obfuscated_res_0x7f090d23);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TextView c(@NonNull View view2, boolean z) {
-        InterceptResult invokeLZ;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
-            if (z) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f3d);
-            } else {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
-            }
-            textView.bringToFront();
-            EMManager.from(textView).setTextColor(R.color.CAM_X0619);
-            return textView;
-        }
-        return (TextView) invokeLZ.objValue;
-    }
-
-    public static void d(@NonNull View view2, @NonNull View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            EMManager.from(view2).setCorner(R.string.J_X11).setMaskBackGround(R.array.Mask_X005);
-        }
-    }
+    View getView();
 }

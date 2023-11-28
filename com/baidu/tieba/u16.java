@@ -1,236 +1,154 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.searchbox.download.statistics.ApkStaticNetService;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.webkit.sdk.WebChromeClient;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.Date;
 /* loaded from: classes8.dex */
-public class u16 extends BaseAdapter {
+public class u16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public boolean b;
-    public List<AccountData> c;
-    public View.OnClickListener d;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public b(u16 u16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(u16 u16Var, a aVar) {
-            this(u16Var);
-        }
-    }
-
-    public u16(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = baseActivity;
-        this.c = null;
-        this.b = false;
-        this.d = onClickListener;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.c;
-            if (list != null) {
-                i = list.size();
-            } else {
-                i = 0;
-            }
-            return i + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(List<AccountData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<AccountData> list = this.c;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.c.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
-            }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (getItemId(i) >= 0) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
-                try {
-                    if (view2 == null) {
-                        if (getItemViewType(i) == 0) {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090075);
-                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090095);
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908a2);
-                            bVar.d = textView;
-                            EMManager.from(textView).setTextColor(R.color.CAM_X0105);
-                            bVar.d.setOnClickListener(this.d);
-                            view2.setTag(bVar);
-                            EMManager.from(bVar.a).setTextColor(R.color.CAM_X0105);
-                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
-                        } else {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090151);
-                            view2.setTag(bVar);
-                            EMManager.from(bVar.b).setTextColor(R.color.CAM_X0302);
-                        }
-                    } else {
-                        bVar = (b) view2.getTag();
-                    }
-                    if (getItemViewType(i) == 0) {
-                        AccountData accountData = (AccountData) getItem(i);
-                        bVar.c.setVisibility(8);
-                        bVar.d.setVisibility(8);
-                        bVar.d.setTag(accountData);
-                        if (accountData != null) {
-                            bVar.a.setText(accountData.getAccountNameShow());
-                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                bVar.c.setVisibility(0);
-                            }
-                            if (this.b) {
-                                bVar.d.setVisibility(0);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
+                String versionName = TbadkCoreApplication.getInst().getVersionName();
+                String string = SharedPrefHelper.getInstance().getString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "");
+                if (TextUtils.isEmpty(versionName)) {
+                    return null;
                 }
-                return view2;
-            } finally {
-                EMManager.from(view2).setBackGroundColor(R.color.CAM_X0205);
+                if (versionName.equals(string)) {
+                    return SharedPrefHelper.getInstance().getString("apk_md5", "");
+                }
+                SharedPrefHelper.getInstance().putString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, versionName);
+                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                SharedPrefHelper.getInstance().putString("apk_md5", aPKMd5);
+                return aPKMd5;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static void b(Context context, VersionData versionData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
+            try {
+                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                str = "-1";
+                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent.setFlags(268435488);
+                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent.putExtra("backup", "0");
+                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle = new Bundle();
+                bundle.putInt("versioncode", versionData.getNewVersionCode());
+                bundle.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
+                bundle.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+                bundle.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+                bundle.putString("versionname", versionData.getNewVersion());
+                bundle.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle.putString("updatetime", rd.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle.putString("size", versionData.getSize());
+                bundle.putString("signmd5", str);
+                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent.putExtra("extra_client_downloadinfo", bundle);
+                context.startActivity(intent);
+            } catch (NumberFormatException e2) {
+                BdLog.detailException(e2);
+                str = "-1";
+                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent2.setFlags(268435488);
+                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent2.putExtra("backup", "0");
+                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("versioncode", versionData.getNewVersionCode());
+                bundle2.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
+                bundle2.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+                bundle2.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle2.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+                bundle2.putString("versionname", versionData.getNewVersion());
+                bundle2.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle2.putString("updatetime", rd.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle2.putString("size", versionData.getSize());
+                bundle2.putString("signmd5", str);
+                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent2.putExtra("extra_client_downloadinfo", bundle2);
+                context.startActivity(intent2);
+            }
+            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+            intent22.setFlags(268435488);
+            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+            intent22.putExtra("backup", "0");
+            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+            Bundle bundle22 = new Bundle();
+            bundle22.putInt("versioncode", versionData.getNewVersionCode());
+            bundle22.putLong("patch_size", JavaTypesHelper.toLong(versionData.getPatchSize(), 0L));
+            bundle22.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
+            bundle22.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
+            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+            bundle22.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
+            bundle22.putString("versionname", versionData.getNewVersion());
+            bundle22.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+            bundle22.putString("updatetime", rd.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle22.putString("size", versionData.getSize());
+            bundle22.putString("signmd5", str);
+            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+            intent22.putExtra("extra_client_downloadinfo", bundle22);
+            context.startActivity(intent22);
+        }
+    }
+
+    public static boolean c(Context context, CombineDownload combineDownload) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
+            if (combineDownload == null || sva.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbSingleton.getInstance().getSyncModel() != null) {
+            la5 syncModel = TbSingleton.getInstance().getSyncModel();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().u(), syncModel.j())));
+        }
     }
 }

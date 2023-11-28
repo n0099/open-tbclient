@@ -8,37 +8,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public final class i {
-    public static String a(AppStatusRules.Strategy strategy) {
-        String name = strategy.getName() == null ? "defaultStrategy" : strategy.getName();
-        return "appstatus_strategy_pref_" + name;
-    }
-
     public static void a(Context context, AppStatusRules.Strategy strategy, long j) {
-        if (context == null || strategy == null) {
-            return;
+        if (context != null && strategy != null) {
+            context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(b(strategy), j).apply();
         }
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(a(strategy), j).apply();
     }
 
     public static boolean a(Context context, @NonNull AppStatusRules.Strategy strategy) {
         if (context == null) {
             return false;
         }
-        long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong(a(strategy), -1L);
+        long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong(b(strategy), -1L);
         if (j < 0) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long minLaunchIntervalWithMS = strategy.getMinLaunchIntervalWithMS();
-        return minLaunchIntervalWithMS <= 0 || j + minLaunchIntervalWithMS < currentTimeMillis;
+        if (minLaunchIntervalWithMS > 0 && j + minLaunchIntervalWithMS >= currentTimeMillis) {
+            return false;
+        }
+        return true;
+    }
+
+    public static String b(AppStatusRules.Strategy strategy) {
+        String name;
+        if (strategy.getName() == null) {
+            name = "defaultStrategy";
+        } else {
+            name = strategy.getName();
+        }
+        return "appstatus_strategy_pref_" + name;
     }
 
     public static List<AppStatusRules.Strategy> c(@Nullable AppStatusRules appStatusRules) {
-        return appStatusRules == null ? new ArrayList() : appStatusRules.obtainNamedStrategyList();
+        if (appStatusRules == null) {
+            return new ArrayList();
+        }
+        return appStatusRules.obtainNamedStrategyList();
     }
 
     @NonNull
     public static AppStatusRules.Strategy d(@Nullable AppStatusRules appStatusRules) {
-        return appStatusRules == null ? AppStatusRules.Strategy.LOCAL_DEFAULT : appStatusRules.obtainDefaultStrategy();
+        if (appStatusRules == null) {
+            return AppStatusRules.Strategy.LOCAL_DEFAULT;
+        }
+        return appStatusRules.obtainDefaultStrategy();
     }
 }

@@ -1,79 +1,174 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.data.StatisticInfoField;
+import com.baidu.tieba.ej5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.IOException;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface js8<TbMsg, SdkMsg> {
-    TbMsg a(ks8<SdkMsg> ks8Var, SdkMsg sdkmsg) throws Exception;
+public class js8 extends BdAsyncTask<String, Integer, String> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public String b;
+    public String c;
+    public long d;
+    public long e;
+    public String f;
+    public Context g;
+    public boolean h;
+    public HashMap<String, Boolean> i;
 
-    SdkMsg b(ks8<SdkMsg> ks8Var, TbMsg tbmsg) throws Exception;
+    public js8(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new HashMap<>();
+        this.g = context;
+        this.b = str;
+        this.e = j;
+        this.f = str2;
+        this.d = j2;
+        this.h = z;
+    }
 
-    /* loaded from: classes6.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Class<?>, js8<?, ?>> a;
-        public final Map<Class<?>, js8<?, ?>> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.save_emotion_duplicate);
+            } else if (this.c == null) {
+            } else {
+                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    ej5.b bVar = new ej5.b();
+                    bVar.c = this.c;
+                    String str = this.b;
+                    bVar.a = str;
+                    bVar.b = str;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
                     return;
                 }
-            }
-            this.a = new LinkedHashMap();
-            this.b = new LinkedHashMap();
-        }
-
-        public final js8<?, ?> a(Class<?> sdkMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sdkMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(sdkMsgClass, "sdkMsgClass");
-                return this.b.get(sdkMsgClass);
-            }
-            return (js8) invokeL.objValue;
-        }
-
-        public final void c(Triple<? extends Class<?>, ? extends Class<?>, ? extends js8<?, ?>> triple) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, triple) == null) {
-                Intrinsics.checkNotNullParameter(triple, "triple");
-                this.a.put(triple.getFirst(), triple.getThird());
-                this.b.put(triple.getSecond(), triple.getThird());
+                Intent intent = new Intent(ej5.a);
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra(ej5.b, this.b);
+                intent.putExtra(ej5.c, this.b);
+                intent.putExtra(ej5.d, this.c);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
         }
+    }
 
-        public final js8<?, ?> b(Class<?> tbMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(tbMsgClass, "tbMsgClass");
-                if (this.a.containsKey(tbMsgClass)) {
-                    return this.a.get(tbMsgClass);
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                this.c = new JSONObject(str).getString("pid");
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+            }
+            this.c = null;
+            super.cancel(true);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPreExecute();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
+            this.a = netWork;
+            String str = null;
+            try {
+                netWork.addPostData("pic_url", this.b);
+                str = this.a.postMultiNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    c(str);
                 }
-                Class<? super Object> superclass = tbMsgClass.getSuperclass();
-                if (superclass == null) {
-                    return null;
-                }
-                return b(superclass);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return (js8) invokeL.objValue;
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            super.onPostExecute((js8) str);
+            if (this.h) {
+                b();
+                bs8.a(2, 1, this.e, this.d);
+                return;
+            }
+            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
+            StatisticInfoField statisticInfoField = new StatisticInfoField();
+            String str2 = this.f;
+            if (str2 != null) {
+                statisticInfoField.setForumName(str2);
+            }
+            statisticInfoField.setForumId(String.valueOf(this.e));
+            statisticInfoField.setChatRoomId(String.valueOf(this.d));
+            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
+            personalMsgImageActivityConfig.setFrom(1);
+            personalMsgImageActivityConfig.setPid(this.c);
+            personalMsgImageActivityConfig.isFromGroupChat(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
+            bs8.a(1, 2, this.e, this.d);
         }
     }
 }

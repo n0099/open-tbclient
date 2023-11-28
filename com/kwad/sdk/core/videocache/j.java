@@ -1,189 +1,228 @@
 package com.kwad.sdk.core.videocache;
 
-import android.support.v4.media.session.PlaybackStateCompat;
-import com.kwad.sdk.utils.am;
-import java.lang.Thread;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.text.TextUtils;
+import com.kwad.sdk.utils.ap;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InterruptedIOException;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+import okhttp3.ConnectionSpec;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes10.dex */
-public class j {
-    public final l aeN;
-    public final com.kwad.sdk.core.videocache.a aeO;
-    public volatile Thread aeS;
-    public volatile boolean hx;
-    public final Object aeP = new Object();
-    public final Object aeQ = new Object();
-    public volatile int aeT = -1;
-    public final AtomicInteger aeR = new AtomicInteger();
+public final class j extends p {
+    public final com.kwad.sdk.core.videocache.d.c aAG;
+    public final com.kwad.sdk.core.videocache.b.b aAH;
+    public n aBe;
+    public InputStream aBg;
+    public OkHttpClient aBl = new OkHttpClient();
 
-    /* loaded from: classes10.dex */
-    public class a implements Runnable {
-        public a() {
-        }
-
-        public /* synthetic */ a(j jVar, byte b) {
-            this();
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            j.this.vW();
-        }
+    public j(j jVar) {
+        this.aBe = jVar.aBe;
+        this.aAG = jVar.aAG;
+        this.aAH = jVar.aAH;
     }
 
-    public j(l lVar, com.kwad.sdk.core.videocache.a aVar) {
-        this.aeN = (l) am.checkNotNull(lVar);
-        this.aeO = (com.kwad.sdk.core.videocache.a) am.checkNotNull(aVar);
-    }
-
-    private void d(long j, long j2) {
-        e(j, j2);
-        synchronized (this.aeP) {
-            this.aeP.notifyAll();
+    public static long c(Response response) {
+        String header = response.header("Content-Length");
+        if (header == null) {
+            return -1L;
         }
+        return Long.parseLong(header);
     }
 
-    private void e(long j, long j2) {
-        int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        int i2 = i == 0 ? 100 : (int) ((((float) j) / ((float) j2)) * 100.0f);
-        boolean z = i2 != this.aeT;
-        if ((i >= 0) && z) {
-            aZ(i2);
-        }
-        this.aeT = i2;
+    public j(String str, com.kwad.sdk.core.videocache.d.c cVar, com.kwad.sdk.core.videocache.b.b bVar) {
+        this.aAG = (com.kwad.sdk.core.videocache.d.c) ap.checkNotNull(cVar);
+        this.aAH = (com.kwad.sdk.core.videocache.b.b) ap.checkNotNull(bVar);
+        n eo = cVar.eo(str);
+        this.aBe = eo == null ? new n(str, -2147483648L, l.em(str)) : eo;
     }
 
-    private boolean isStopped() {
-        return Thread.currentThread().isInterrupted() || this.hx;
-    }
-
-    public static void onError(Throwable th) {
-        if (th instanceof InterruptedProxyCacheException) {
-            com.kwad.sdk.core.e.b.d("ProxyCache", "ProxyCache is interrupted");
-        } else {
-            com.kwad.sdk.core.e.b.e("ProxyCache", "ProxyCache error");
-        }
-    }
-
-    private void tryComplete() {
-        synchronized (this.aeQ) {
-            if (!isStopped() && this.aeO.vJ() == this.aeN.length()) {
-                this.aeO.complete();
-            }
-        }
-    }
-
-    private void vT() {
-        int i = this.aeR.get();
-        if (i <= 0) {
-            return;
-        }
-        this.aeR.set(0);
-        throw new ProxyCacheException("Error reading source " + i + " times");
-    }
-
-    private synchronized void vU() {
-        boolean z = (this.aeS == null || this.aeS.getState() == Thread.State.TERMINATED) ? false : true;
-        if (!this.hx && !this.aeO.isCompleted() && !z) {
-            a aVar = new a(this, (byte) 0);
-            this.aeS = new Thread(aVar, "Source reader for " + this.aeN);
-            this.aeS.start();
-        }
-    }
-
-    private void vV() {
-        synchronized (this.aeP) {
-            try {
-                try {
-                    this.aeP.wait(1000L);
-                } catch (InterruptedException e) {
-                    throw new ProxyCacheException("Waiting source data is interrupted!", e);
-                }
-            } catch (Throwable th) {
-                throw th;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0039, code lost:
-        r2 = r2 + r5;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void vW() {
-        long j = -1;
-        long j2 = 0;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, INVOKE] complete} */
+    private void Fo() {
+        Response response = null;
         try {
-            j2 = this.aeO.vJ();
-            this.aeN.I(j2);
-            j = this.aeN.length();
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = this.aeN.read(bArr);
-                if (read == -1) {
-                    tryComplete();
-                    vX();
-                    break;
-                }
-                synchronized (this.aeQ) {
-                    if (!isStopped()) {
-                        this.aeO.d(bArr, read);
-                    }
-                }
-                break;
-                d(j2, j);
-            }
-        } finally {
             try {
-            } finally {
+                response = cX(10000);
+            } catch (IOException unused) {
+                com.kwad.sdk.core.e.c.e("HttpUrlSource", "Error fetching info from " + this.aBe.url);
+                if (0 == 0 || response.body() == null) {
+                    return;
+                }
             }
+            if (response != null && response.isSuccessful()) {
+                n nVar = new n(this.aBe.url, c(response), response.header("Content-Type"));
+                this.aBe = nVar;
+                this.aAG.a(nVar.url, nVar);
+                com.kwad.sdk.core.e.c.d("HttpUrlSource", "Source info fetched: " + this.aBe);
+                if (response == null || response.body() == null) {
+                    return;
+                }
+                com.kwad.sdk.crash.utils.b.closeQuietly(response.body());
+                return;
+            }
+            throw new ProxyCacheException("Fail to fetchContentInfo: " + getUrl());
+        } catch (Throwable th) {
+            if (0 != 0 && response.body() != null) {
+                com.kwad.sdk.crash.utils.b.closeQuietly(response.body());
+            }
+            throw th;
         }
     }
 
-    private void vX() {
-        this.aeT = 100;
-        aZ(this.aeT);
+    private void Fq() {
+        n eo;
+        com.kwad.sdk.core.videocache.d.c cVar = this.aAG;
+        if (cVar != null && (cVar instanceof com.kwad.sdk.core.videocache.d.b) && (eo = cVar.eo(getUrl())) != null && !TextUtils.isEmpty(eo.aBv) && eo.aBu != -2147483648L) {
+            this.aBe = eo;
+        }
     }
 
-    private void vY() {
+    @Override // com.kwad.sdk.core.videocache.p
+    public final synchronized String Fp() {
+        if (TextUtils.isEmpty(this.aBe.aBv)) {
+            Fq();
+        }
+        if (TextUtils.isEmpty(this.aBe.aBv)) {
+            Fo();
+        }
+        return this.aBe.aBv;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
+    public final void close() {
+        com.kwad.sdk.crash.utils.b.closeQuietly(this.aBg);
+    }
+
+    @Override // com.kwad.sdk.core.videocache.p
+    public final String getUrl() {
+        return this.aBe.url;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
+    public final synchronized long length() {
+        if (this.aBe.aBu == -2147483648L) {
+            Fq();
+        }
+        if (this.aBe.aBu == -2147483648L) {
+            Fo();
+        }
+        return this.aBe.aBu;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.p
+    public final String toString() {
+        return "HttpUrlSource{sourceInfo='" + this.aBe + "}";
+    }
+
+    private long a(Response response, long j) {
+        int code = response.code();
+        long contentLength = response.body().contentLength();
+        if (code == 200) {
+            return contentLength;
+        }
+        if (code == 206) {
+            return contentLength + j;
+        }
+        return this.aBe.aBu;
+    }
+
+    private Response cX(int i) {
+        Response execute;
+        OkHttpClient.Builder newBuilder = new OkHttpClient().newBuilder();
+        newBuilder.connectTimeout(10000L, TimeUnit.MILLISECONDS);
+        newBuilder.readTimeout(10000L, TimeUnit.MILLISECONDS);
+        newBuilder.writeTimeout(10000L, TimeUnit.MILLISECONDS);
+        int i2 = 0;
+        newBuilder.connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT));
         try {
-            this.aeN.close();
-        } catch (ProxyCacheException e) {
-            onError(new ProxyCacheException("Error closing source " + this.aeN, e));
+            newBuilder.dns(new com.kwad.sdk.core.network.a.d());
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.c.printStackTrace(th);
+        }
+        this.aBl = newBuilder.build();
+        String url = getUrl();
+        boolean z = false;
+        do {
+            Request.Builder builder = new Request.Builder();
+            builder.head();
+            builder.url(url);
+            execute = this.aBl.newCall(builder.build()).execute();
+            if (execute.isRedirect()) {
+                url = execute.header("Location");
+                z = execute.isRedirect();
+                i2++;
+            }
+            if (i2 > 5) {
+                throw new ProxyCacheException("Too many redirects: " + i2);
+            }
+        } while (z);
+        return execute;
+    }
+
+    private Response d(long j, int i) {
+        Response execute;
+        OkHttpClient.Builder newBuilder = this.aBl.newBuilder();
+        int i2 = 0;
+        newBuilder.connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT));
+        try {
+            newBuilder.dns(new com.kwad.sdk.core.network.a.d());
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.c.printStackTrace(th);
+        }
+        this.aBl = newBuilder.build();
+        String url = getUrl();
+        boolean z = false;
+        do {
+            Request.Builder builder = new Request.Builder();
+            builder.get();
+            builder.url(url);
+            if (j > 0) {
+                builder.addHeader("Range", "bytes=" + j + "-");
+            }
+            execute = this.aBl.newCall(builder.build()).execute();
+            if (execute.isRedirect()) {
+                url = execute.header("Location");
+                z = execute.isRedirect();
+                i2++;
+            }
+            if (i2 > 5) {
+                throw new ProxyCacheException("Too many redirects: " + i2);
+            }
+        } while (z);
+        return execute;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
+    public final void al(long j) {
+        try {
+            Response d = d(j, -1);
+            String mediaType = d.body().contentType().toString();
+            long a = a(d, j);
+            this.aBg = new BufferedInputStream(d.body().byteStream(), 1024);
+            n nVar = new n(this.aBe.url, a, mediaType);
+            this.aBe = nVar;
+            this.aAG.a(nVar.url, nVar);
+        } catch (IOException e) {
+            throw new ProxyCacheException("Error opening connection for " + getUrl() + " with offset " + j, e);
         }
     }
 
-    public final int a(byte[] bArr, long j, int i) {
-        k.b(bArr, j, 8192);
-        while (!this.aeO.isCompleted() && this.aeO.vJ() < PlaybackStateCompat.ACTION_PLAY_FROM_URI + j && !this.hx) {
-            vU();
-            vV();
-            vT();
-        }
-        int a2 = this.aeO.a(bArr, j, 8192);
-        if (this.aeO.isCompleted() && this.aeT != 100) {
-            this.aeT = 100;
-            aZ(100);
-        }
-        return a2;
-    }
-
-    public void aZ(int i) {
-    }
-
-    public final void shutdown() {
-        synchronized (this.aeQ) {
-            com.kwad.sdk.core.e.b.d("ProxyCache", "Shutdown proxy for " + this.aeN);
+    @Override // com.kwad.sdk.core.videocache.m
+    public final int read(byte[] bArr) {
+        InputStream inputStream = this.aBg;
+        if (inputStream != null) {
             try {
-                this.hx = true;
-                if (this.aeS != null) {
-                    this.aeS.interrupt();
-                }
-                this.aeO.close();
-            } catch (ProxyCacheException e) {
-                onError(e);
+                return inputStream.read(bArr, 0, 1024);
+            } catch (InterruptedIOException e) {
+                throw new InterruptedProxyCacheException("Reading source " + this.aBe.url + " is interrupted", e);
+            } catch (IOException e2) {
+                throw new ProxyCacheException("Error reading data from " + this.aBe.url, e2);
             }
         }
+        throw new ProxyCacheException("Error reading data from " + this.aBe.url + ": connection is absent!");
     }
 }

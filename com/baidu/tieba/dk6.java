@@ -1,63 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dk6 {
+public class dk6 extends cg1<ck6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            qj6.b("newHybrid", "基础版本：" + str + ",当前版本：" + str2);
-            if (TextUtils.equals(str, str2)) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    String[] split = str.split("[._]");
-                    String[] split2 = str2.split("[._]");
-                    int min = Math.min(split.length, split2.length);
-                    long j = 0;
-                    for (int i = 0; i < min; i++) {
-                        j = b(split2[i]).longValue() - b(split[i]).longValue();
-                        if (j != 0) {
-                            break;
-                        }
-                    }
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        if (split2.length > split.length) {
-                            return true;
-                        }
-                        return false;
-                    } else if (i2 > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static Long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return Long.valueOf(Long.parseLong(str));
-            } catch (NumberFormatException unused) {
-                return 0L;
+    /* loaded from: classes5.dex */
+    public static final class b implements ck6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (Long) invokeL.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.ck6
+        public void a(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                bk6.d(th);
+            }
+        }
+    }
+
+    public dk6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public ck6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
+        }
+        return (ck6) invokeV.objValue;
     }
 }

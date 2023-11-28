@@ -1,64 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface rm7 {
+public final class rm7 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948126509, "Lcom/baidu/tieba/rm7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948126509, "Lcom/baidu/tieba/rm7;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
     /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static Boolean a(rm7 rm7Var, MotionEvent e) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rm7Var, e)) == null) {
-                Intrinsics.checkNotNullParameter(e, "e");
-                return null;
-            }
-            return (Boolean) invokeLL.objValue;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
-        public static Boolean b(rm7 rm7Var, int i, int i2) {
-            InterceptResult invokeLII;
+        public a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, rm7Var, i, i2)) == null) {
-                return null;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (Boolean) invokeLII.objValue;
         }
 
-        public static Boolean d(rm7 rm7Var, int i, int i2) {
-            InterceptResult invokeLII;
+        public final void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, rm7Var, i, i2)) == null) {
-                return null;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
             }
-            return (Boolean) invokeLII.objValue;
         }
 
-        public static Boolean e(rm7 rm7Var, MotionEvent e) {
-            InterceptResult invokeLL;
+        public final void d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, rm7Var, e)) == null) {
-                Intrinsics.checkNotNullParameter(e, "e");
-                return null;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
             }
-            return (Boolean) invokeLL.objValue;
         }
 
-        public static Boolean c(rm7 rm7Var, int i, int i2) {
-            InterceptResult invokeLII;
+        public final void a(String tid, String fid) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, rm7Var, i, i2)) == null) {
-                return Boolean.FALSE;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tid, fid) == null) {
+                Intrinsics.checkNotNullParameter(tid, "tid");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_MANAGE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid));
             }
-            return (Boolean) invokeLII.objValue;
+        }
+
+        public final void b(String tid, String fid, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tid, fid, i) == null) {
+                Intrinsics.checkNotNullParameter(tid, "tid");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MANAGE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid).param("obj_type", i));
+            }
         }
     }
 }

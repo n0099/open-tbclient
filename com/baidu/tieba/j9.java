@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -19,194 +17,103 @@ public class j9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Object a(ArrayList<Object> arrayList, k9 k9Var) {
-        InterceptResult invokeLL;
-        Object a;
-        Object a2;
-        Object a3;
-        Object a4;
+    public static final List<Object> a(l9 l9Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, k9Var)) == null) {
-            if (arrayList != null && k9Var != null) {
-                Class<?> a5 = k9Var.a();
-                Type[] b = k9Var.b();
-                int i = 0;
-                if (a5.isArray()) {
-                    Object newInstance = Array.newInstance(a5.getComponentType(), arrayList.size());
-                    Iterator<Object> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Object a6 = o9.a(it.next()).a(new k9(a5.getComponentType()));
-                        if (a6 != null) {
-                            Array.set(newInstance, i, a6);
-                        }
-                        i++;
-                    }
-                    return newInstance;
-                } else if (r7.e(a5, List.class)) {
-                    List<Object> a7 = i9.a(k9Var, arrayList.size());
-                    if (a7 != null) {
-                        Iterator<Object> it2 = arrayList.iterator();
-                        while (it2.hasNext()) {
-                            u8 a8 = o9.a(it2.next());
-                            if (b != null && b.length >= 1 && (a4 = a8.a(new k9(b[0]))) != null) {
-                                a7.add(a4);
-                            }
-                        }
-                    }
-                    return a7;
-                } else if (r7.e(a5, Queue.class)) {
-                    Queue<Object> c = i9.c(k9Var, arrayList.size());
-                    if (c != null) {
-                        Iterator<Object> it3 = arrayList.iterator();
-                        while (it3.hasNext()) {
-                            u8 a9 = o9.a(it3.next());
-                            if (b != null && b.length >= 1 && (a3 = a9.a(new k9(b[0]))) != null) {
-                                c.add(a3);
-                            }
-                        }
-                    }
-                    return c;
-                } else if (r7.e(a5, Set.class)) {
-                    Set<Object> d = i9.d(k9Var, arrayList.size());
-                    if (d != null) {
-                        Iterator<Object> it4 = arrayList.iterator();
-                        while (it4.hasNext()) {
-                            u8 a10 = o9.a(it4.next());
-                            if (b != null && b.length >= 1 && (a2 = a10.a(new k9(b[0]))) != null) {
-                                d.add(a2);
-                            }
-                        }
-                    }
-                    return d;
-                } else if (r7.e(a5, Map.class)) {
-                    Map<String, Object> b2 = i9.b(k9Var, arrayList.size());
-                    if (b2 != null) {
-                        Iterator<Object> it5 = arrayList.iterator();
-                        while (it5.hasNext()) {
-                            u8 a11 = o9.a(it5.next());
-                            if (b != null && b.length >= 2) {
-                                a = a11.a(new k9(b[1]));
-                            } else {
-                                a = a11.a(new k9(String.class));
-                            }
-                            if (a != null) {
-                                b2.put(String.valueOf(i), a);
-                            }
-                            i++;
-                        }
-                    }
-                    return b2;
-                } else if (a5 == SparseArray.class) {
-                    SparseArray sparseArray = new SparseArray();
-                    Iterator<Object> it6 = arrayList.iterator();
-                    int i2 = 0;
-                    while (it6.hasNext()) {
-                        Object next = it6.next();
-                        u8 a12 = o9.a(next);
-                        if (b != null && b.length >= 1 && a12.a(new k9(b[0])) != null) {
-                            sparseArray.put(i2, next);
-                        }
-                        i2++;
-                    }
-                    return sparseArray;
-                } else if (a5 == Bundle.class) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, l9Var, i)) == null) {
+            Class<?> a = l9Var.a();
+            if (a != List.class && a != ArrayList.class) {
+                if (a == LinkedList.class) {
+                    return new LinkedList();
                 }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static final Object b(Object obj, k9 k9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, k9Var)) == null) {
-            if (obj == null || k9Var == null || !obj.getClass().isArray()) {
+                Object h = s7.h(a, i);
+                if (h == null) {
+                    h = s7.g(a);
+                }
+                if (h instanceof List) {
+                    return (List) h;
+                }
                 return null;
             }
-            int length = Array.getLength(obj);
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                Object obj2 = Array.get(obj, i);
-                if (obj2 != null) {
-                    arrayList.add(obj2);
-                }
-            }
-            return a(arrayList, k9Var);
+            return new ArrayList(i);
         }
-        return invokeLL.objValue;
+        return (List) invokeLI.objValue;
     }
 
-    public static final Object c(List<Object> list, k9 k9Var) {
-        InterceptResult invokeLL;
+    public static final Queue<Object> c(l9 l9Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, k9Var)) == null) {
-            if (list != null && k9Var != null) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (Object obj : list) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, k9Var);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, l9Var, i)) == null) {
+            Class<?> a = l9Var.a();
+            if (a == Queue.class) {
+                return new LinkedList();
+            }
+            Object h = s7.h(a, i);
+            if (h == null) {
+                h = s7.g(a);
+            }
+            if (h instanceof Queue) {
+                return (Queue) h;
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (Queue) invokeLI.objValue;
     }
 
-    public static final Object d(Queue<Object> queue, k9 k9Var) {
-        InterceptResult invokeLL;
+    public static final Set<Object> d(l9 l9Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, queue, k9Var)) == null) {
-            if (queue != null && k9Var != null) {
-                ArrayList arrayList = new ArrayList(queue.size());
-                for (Object obj : queue) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, k9Var);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, l9Var, i)) == null) {
+            Class<?> a = l9Var.a();
+            if (a == Set.class) {
+                return new HashSet();
+            }
+            Object h = s7.h(a, i);
+            if (h == null) {
+                h = s7.g(a);
+            }
+            if (h instanceof Set) {
+                return (Set) h;
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (Set) invokeLI.objValue;
     }
 
-    public static final Object e(Set<Object> set, k9 k9Var) {
-        InterceptResult invokeLL;
+    public static final Map<String, Object> b(l9 l9Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, set, k9Var)) == null) {
-            if (set != null && k9Var != null) {
-                ArrayList arrayList = new ArrayList(set.size());
-                for (Object obj : set) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, k9Var);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, l9Var, i)) == null) {
+            Class<?> a = l9Var.a();
+            Type[] b = l9Var.b();
+            if (!s7.e(a, Map.class)) {
+                return null;
             }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static final Object f(SparseArray<Object> sparseArray, k9 k9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sparseArray, k9Var)) == null) {
-            if (sparseArray != null && k9Var != null) {
-                ArrayList arrayList = new ArrayList(sparseArray.size());
-                for (int i = 0; i < sparseArray.size(); i++) {
-                    Object obj = sparseArray.get(sparseArray.keyAt(i));
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
+            if (b != null && b.length >= 2 && b[0] == String.class) {
+                if (a == Map.class) {
+                    return new HashMap(i);
                 }
-                return a(arrayList, k9Var);
+                Object h = s7.h(a, i);
+                if (h == null) {
+                    h = s7.g(a);
+                }
+                if (!(h instanceof Map)) {
+                    return null;
+                }
+                return (Map) h;
+            } else if (a == Map.class) {
+                return new HashMap(i);
+            } else {
+                Object h2 = s7.h(a, i);
+                if (h2 == null) {
+                    h2 = s7.g(a);
+                }
+                if (!(h2 instanceof Map)) {
+                    return null;
+                }
+                return (Map) h2;
             }
-            return null;
         }
-        return invokeLL.objValue;
+        return (Map) invokeLI.objValue;
     }
 }

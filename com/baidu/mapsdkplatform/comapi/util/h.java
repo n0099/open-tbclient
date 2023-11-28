@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
@@ -331,7 +331,7 @@ public class h {
                 }
             }
             jsonBuilder.endArrayValue();
-            jsonBuilder.putStringValue(u.w, a.getPackageName());
+            jsonBuilder.putStringValue(t.r, a.getPackageName());
             jsonBuilder.key("screen_x").value(j());
             jsonBuilder.key("screen_y").value(l());
             jsonBuilder.endObject();
@@ -362,7 +362,7 @@ public class h {
             jsonBuilder.key("dpi_y").value(n());
             jsonBuilder.putStringValue("net", q);
             jsonBuilder.putStringValue("cuid", z);
-            jsonBuilder.putStringValue(u.w, a.getPackageName());
+            jsonBuilder.putStringValue(t.r, a.getPackageName());
             jsonBuilder.key("screen_x").value(j());
             jsonBuilder.key("screen_y").value(l());
             jsonBuilder.putStringValue("appid", x);
@@ -404,7 +404,7 @@ public class h {
             A.put("os", AppMD5.encodeUrlParamsValue(m()));
             A.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(n()), Integer.valueOf(n()))));
             A.put("cuid", AppMD5.encodeUrlParamsValue(z));
-            A.put(u.w, AppMD5.encodeUrlParamsValue(a.getPackageName()));
+            A.put(t.r, AppMD5.encodeUrlParamsValue(a.getPackageName()));
             A.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(j()), Integer.valueOf(l()))));
             com.baidu.mapsdkplatform.comjni.util.a aVar = e;
             if (aVar != null) {

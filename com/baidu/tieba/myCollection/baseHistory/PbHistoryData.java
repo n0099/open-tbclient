@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tieba.qn5;
+import com.baidu.tieba.yn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbHistoryData implements qn5 {
+public class PbHistoryData implements yn5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CACHE_KEY_SUFFIX = "_ala";
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class PbHistoryData implements qn5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.on5
+    @Override // com.baidu.tieba.wn5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class PbHistoryData implements qn5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qn5
+    @Override // com.baidu.tieba.yn5
     public String toCacheString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -302,7 +302,7 @@ public class PbHistoryData implements qn5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qn5
+    @Override // com.baidu.tieba.yn5
     public boolean initByString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

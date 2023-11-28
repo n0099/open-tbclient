@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yxcorp.kuaishou.addfp.c.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JNI_CONTROL_COMMAND_DIR_DETECT = 1114128;
@@ -17,7 +17,7 @@ public class Orange {
     public static final int JNI_CONTROL_COMMAND_PROPS_DETECT = 1114131;
     public static final int JNI_CONTROL_COMMAND_SERIAL_DETECT = 1179649;
     public static boolean sLibLoadFail = true;
-    public static final String sdkVersion = "1.3.4.85.ee9555a2";
+    public static final String sdkVersion = "1.4.0.116.5c39a102";
     public static volatile Orange singleton;
     public transient /* synthetic */ FieldHolder $fh;
 

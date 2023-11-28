@@ -12,7 +12,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SdkAnalyzeController {
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
     public static final String PREF_KEY_SDK_ANALYZE_REPORT_DATE = "PREF_KEY_SDK_ANALYZE_REPORT_DATE";
@@ -26,7 +26,7 @@ public class SdkAnalyzeController {
 
     private void startSdkAnalyzeReport(final Context context, final long j) {
         ThreadPool.getPool().execute(new Runnable() { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
-            /* JADX WARN: Removed duplicated region for block: B:18:0x0079  */
+            /* JADX WARN: Removed duplicated region for block: B:18:0x007a  */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.

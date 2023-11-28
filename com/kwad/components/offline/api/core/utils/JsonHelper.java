@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.kwad.components.offline.api.core.model.IOfflineCompoJsonParse;
-import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.core.e.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,9 +23,29 @@ public class JsonHelper {
         try {
             return jsonArrayToList(new JSONArray(str), cls);
         } catch (JSONException e) {
-            b.printStackTraceOnly(e);
+            c.printStackTraceOnly(e);
             return arrayList;
         }
+    }
+
+    public static void merge(JSONObject jSONObject, JSONObject jSONObject2) {
+        if (jSONObject != null && jSONObject2 != null) {
+            Iterator<String> keys = jSONObject2.keys();
+            while (keys.hasNext()) {
+                String obj = keys.next().toString();
+                Object opt = jSONObject2.opt(obj);
+                if (opt != null) {
+                    try {
+                        jSONObject.put(obj, opt);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        }
+    }
+
+    public static void putValue(JSONArray jSONArray, JSONObject jSONObject) {
+        jSONArray.put(jSONObject);
     }
 
     public static <T> List<T> jsonArrayToList(JSONArray jSONArray, Class<T> cls) {
@@ -38,28 +58,11 @@ public class JsonHelper {
                         arrayList.add(obj);
                     }
                 } catch (Exception e) {
-                    b.printStackTraceOnly(e);
+                    c.printStackTraceOnly(e);
                 }
             }
         }
         return arrayList;
-    }
-
-    public static void merge(JSONObject jSONObject, JSONObject jSONObject2) {
-        if (jSONObject == null || jSONObject2 == null) {
-            return;
-        }
-        Iterator<String> keys = jSONObject2.keys();
-        while (keys.hasNext()) {
-            String obj = keys.next().toString();
-            Object opt = jSONObject2.opt(obj);
-            if (opt != null) {
-                try {
-                    jSONObject.put(obj, opt);
-                } catch (JSONException unused) {
-                }
-            }
-        }
     }
 
     public static Map<String, String> parseJSON2MapString(String str) {
@@ -68,21 +71,6 @@ public class JsonHelper {
         } catch (JSONException unused) {
             return new HashMap();
         }
-    }
-
-    public static Map<String, String> parseJSON2MapString(JSONObject jSONObject) {
-        HashMap hashMap = new HashMap();
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String str = "";
-            String optString = jSONObject.optString(next, "");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.equals(StringUtil.NULL_STRING, optString)) {
-                str = optString;
-            }
-            hashMap.put(next, str);
-        }
-        return hashMap;
     }
 
     public static JSONObject parseMap2JSON(Map<String, String> map) {
@@ -98,8 +86,35 @@ public class JsonHelper {
         return jSONObject;
     }
 
-    public static void putValue(JSONArray jSONArray, JSONObject jSONObject) {
-        jSONArray.put(jSONObject);
+    public static JSONArray toJsonArray(@NonNull List<String> list) {
+        JSONArray jSONArray = new JSONArray();
+        for (String str : list) {
+            jSONArray.put(str);
+        }
+        return jSONArray;
+    }
+
+    public static <T extends IOfflineCompoJsonParse> JSONArray toJsonArrayForJsonParseList(@NonNull List<T> list) {
+        JSONArray jSONArray = new JSONArray();
+        for (T t : list) {
+            jSONArray.put(t.toJson());
+        }
+        return jSONArray;
+    }
+
+    public static Map<String, String> parseJSON2MapString(JSONObject jSONObject) {
+        HashMap hashMap = new HashMap();
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            String str = "";
+            String optString = jSONObject.optString(next, "");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.equals(StringUtil.NULL_STRING, optString)) {
+                str = optString;
+            }
+            hashMap.put(next, str);
+        }
+        return hashMap;
     }
 
     public static void putValue(JSONObject jSONObject, String str, byte b) {
@@ -163,9 +178,7 @@ public class JsonHelper {
         for (Object obj : list) {
             if (obj instanceof IOfflineCompoJsonParse) {
                 putValue(jSONArray, ((IOfflineCompoJsonParse) obj).toJson());
-            } else if ((obj instanceof String) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof JSONObject) || (obj instanceof JSONArray) || (obj instanceof Double) || (obj instanceof Boolean)) {
-                jSONArray.put(obj);
-            } else {
+            } else if (!(obj instanceof String) && !(obj instanceof Integer) && !(obj instanceof Long) && !(obj instanceof JSONObject) && !(obj instanceof JSONArray) && !(obj instanceof Double) && !(obj instanceof Boolean)) {
                 if (!(obj instanceof Float)) {
                     break;
                 }
@@ -173,6 +186,8 @@ public class JsonHelper {
                     jSONArray.put(((Float) obj).floatValue());
                 } catch (JSONException unused) {
                 }
+            } else {
+                jSONArray.put(obj);
             }
             z = true;
         }
@@ -206,21 +221,5 @@ public class JsonHelper {
             } catch (JSONException unused) {
             }
         }
-    }
-
-    public static JSONArray toJsonArray(@NonNull List<String> list) {
-        JSONArray jSONArray = new JSONArray();
-        for (String str : list) {
-            jSONArray.put(str);
-        }
-        return jSONArray;
-    }
-
-    public static <T extends IOfflineCompoJsonParse> JSONArray toJsonArrayForJsonParseList(@NonNull List<T> list) {
-        JSONArray jSONArray = new JSONArray();
-        for (T t : list) {
-            jSONArray.put(t.toJson());
-        }
-        return jSONArray;
     }
 }

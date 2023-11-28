@@ -1,20 +1,43 @@
 package com.kwad.sdk.api.loader;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.Resources;
-import android.view.ContextThemeWrapper;
+import androidx.appcompat.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
+@SuppressLint({"RestrictedApi"})
 /* loaded from: classes10.dex */
 public final class o extends ContextThemeWrapper implements ResContext {
-    public final ContextThemeWrapper SE;
-    public Resources.Theme SF;
-    public int c;
+    public Resources.Theme aiA;
+    public int aiB;
+    public final ContextThemeWrapper aiD;
 
     public o(ContextThemeWrapper contextThemeWrapper) {
-        super(contextThemeWrapper, 0);
-        this.SE = contextThemeWrapper;
-        this.c = ((Integer) Reflect.b(contextThemeWrapper).bd("getThemeResId").a).intValue();
+        super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
+        this.aiD = contextThemeWrapper;
+        this.aiB = ((Integer) Reflect.h(contextThemeWrapper).ca("getThemeResId").get()).intValue();
+    }
+
+    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public final Object getSystemService(String str) {
+        return Wrapper.wrapSystemService(this.aiD.getSystemService(str), str, this);
+    }
+
+    @Override // android.content.Context
+    public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.aiD.registerComponentCallbacks(componentCallbacks);
+    }
+
+    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public final void setTheme(int i) {
+        this.aiB = i;
+        super.setTheme(i);
+    }
+
+    @Override // android.content.Context
+    public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.aiD.unregisterComponentCallbacks(componentCallbacks);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -34,20 +57,15 @@ public final class o extends ContextThemeWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public final Context getDelegatedContext() {
-        return this.SE;
+        return this.aiD;
     }
 
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final Resources getResources() {
         return Wrapper.replaceExternalResources(super.getResources());
     }
 
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final Object getSystemService(String str) {
-        return Wrapper.wrapSystemService(this.SE.getSystemService(str), str, this);
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final Resources.Theme getTheme() {
         Resources.Theme theme;
         try {
@@ -56,26 +74,10 @@ public final class o extends ContextThemeWrapper implements ResContext {
             e.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.SF;
+        Resources.Theme theme2 = this.aiA;
         if (theme2 == null || theme2 == theme) {
-            this.SF = Wrapper.replaceTheme(theme, this.SF, this.c);
+            this.aiA = Wrapper.replaceTheme(theme, this.aiA, this.aiB);
         }
-        return this.SF;
-    }
-
-    @Override // android.content.Context
-    public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.SE.registerComponentCallbacks(componentCallbacks);
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final void setTheme(int i) {
-        this.c = i;
-        super.setTheme(i);
-    }
-
-    @Override // android.content.Context
-    public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.SE.unregisterComponentCallbacks(componentCallbacks);
+        return this.aiA;
     }
 }

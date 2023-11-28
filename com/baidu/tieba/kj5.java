@@ -1,109 +1,399 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class kj5 extends ij5 {
+public class kj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public gj5 a;
+    public boolean b;
+    public ImageFileInfo c;
+    public jj5 d;
+    public jj5 e;
+    public jj5 f;
+    public jj5 g;
 
-    @Override // com.baidu.tieba.ij5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public class a implements jj5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj5 a;
+
+        public a(kj5 kj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kj5Var;
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            String m;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                if (this.a.a == null) {
+                    this.a.a = new gj5();
+                }
+                String filePath = imageFileInfo.getFilePath();
+                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
+                imageFileInfo.setPageActionsList(null);
+                if (filePath.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                    File file = new File(ml5.b.d(imageFileInfo.getFilePath(), true));
+                    if (file.exists()) {
+                        return file.getAbsolutePath();
+                    }
+                }
+                BdImage c = this.a.a.c(imageFileInfo, true);
+                if (c == null) {
+                    Bitmap k = this.a.k(imageFileInfo);
+                    if (k == null) {
+                        return null;
+                    }
+                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
+                    if (readPictureDegree != 0) {
+                        k = BitmapHelper.rotateBitmapBydegree(k, readPictureDegree);
+                    }
+                    m = this.a.m(k, 5242880L, 100);
+                } else {
+                    m = this.a.m(c.getRawBitmap(), 5242880L, 100);
+                }
+                imageFileInfo.setPageActionsList(pageActionsList);
+                return m;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements jj5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj5 a;
+
+        public b(kj5 kj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kj5Var;
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                return this.a.g(imageFileInfo.getFilePath());
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements jj5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj5 a;
+
+        public c(kj5 kj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kj5Var;
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                return this.a.m(this.a.i(imageFileInfo.getFilePath()), 5242880L, 100);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915027, "Lcom/baidu/tieba/kj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947915027, "Lcom/baidu/tieba/kj5;");
+                return;
+            }
+        }
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
     }
 
     public kj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.d = new a(this);
+        b bVar = new b(this);
+        this.e = bVar;
+        this.f = bVar;
+        this.g = new c(this);
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public final String h(String str) {
+        InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static ImageOperation g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "resize";
-            imageOperation.actionParam = i + "," + i2;
-            return imageOperation;
-        }
-        return (ImageOperation) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.ij5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ".jpg";
             }
-            TbImageMemoryCache.B().v(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
+            try {
+                substring = str.substring(str.lastIndexOf("."));
+            } catch (Exception unused) {
+            }
+            if (TextUtils.isEmpty(substring)) {
+                return ".jpg";
+            }
+            return substring;
         }
-        return (Bitmap) invokeLZ.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ij5
-    public Bitmap c(String str) throws Exception {
+    public final BitmapFactory.Options l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            return options;
+        }
+        return (BitmapFactory.Options) invokeL.objValue;
+    }
+
+    public final String g(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            long fileSize = FileHelper.getFileSize(str);
+            if (fileSize >= 31457280) {
+                i = 80;
+            } else if (fileSize >= 20971520) {
+                i = 85;
+            } else if (fileSize >= 15728640) {
+                i = 90;
+            } else if (fileSize >= Config.FULL_TRACE_LOG_LIMIT) {
+                i = 95;
+            } else {
+                i = 100;
+            }
+            try {
+                int readPictureDegree = BitmapHelper.readPictureDegree(str);
+                if (readPictureDegree != 0 || i != 100) {
+                    Bitmap i2 = i(str);
+                    if (readPictureDegree != 0 && i2 != null) {
+                        return m(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
+                    }
+                    return m(i2, Config.FULL_TRACE_LOG_LIMIT, i);
+                }
+                return str;
+            } catch (Throwable unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Bitmap i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true);
+            BitmapFactory.Options l = l(str);
+            int i = l.outWidth;
+            int i2 = l.outHeight;
+            if (i != 0 && i2 != 0) {
+                Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
+                if (loadBitmap != null && !loadBitmap.isRecycled()) {
+                    return loadBitmap;
+                }
+                int i3 = 2;
+                for (int i4 = 0; i4 < 3; i4++) {
+                    l.inSampleSize = i3;
+                    Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, l);
+                    if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
+                        return loadBitmap2;
+                    }
+                    i3 *= 2;
+                }
+            }
+            return null;
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ij5
-    public void d(String str) {
+    public String j(WriteData writeData, ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLLZ;
+        jj5 jj5Var;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, writeData, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            this.c = imageFileInfo;
+            String filePath = imageFileInfo.getFilePath();
+            boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
+            boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
+            if (!imageFileInfo.isGif() && (!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
+                if (checkIsLongImage) {
+                    jj5Var = this.g;
+                    str = "正常·长图";
+                } else {
+                    jj5Var = this.d;
+                    str = "正常·图";
+                }
+            } else if (checkIsLongImage) {
+                jj5Var = this.f;
+                str = "原始·长图";
+            } else {
+                jj5Var = this.e;
+                str = "原始·图";
+            }
+            lya.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
+            String a2 = jj5Var.a(imageFileInfo);
+            lya.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
+            return a2;
         }
-        String[] split = str.split(",");
-        if (split.length != 2) {
-            return;
+        return (String) invokeLLZ.objValue;
+    }
+
+    public final String m(Bitmap bitmap, long j, int i) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (this.b) {
+                ImageFileInfo imageFileInfo = this.c;
+                if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
+                    return FileHelper.compressBitmapToFile(h, xd.c(this.c.toCachedKey(false)) + h(this.c.getFilePath()), bitmap, (float) j, i);
+                }
+                return "";
+            }
+            ImageFileInfo imageFileInfo2 = this.c;
+            if (imageFileInfo2 != null && !TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) {
+                str = this.c.getTempUploadFileName();
+            } else {
+                str = "img_upload_temp_file.temp";
+            }
+            return FileHelper.compressBitmapToFile(str, bitmap, (float) j, i);
         }
-        this.a = JavaTypesHelper.toInt(split[0], 0);
-        this.b = JavaTypesHelper.toInt(split[1], 0);
+        return (String) invokeCommon.objValue;
+    }
+
+    public final Bitmap k(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        tb loaderProc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageFileInfo)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            if (this.a == null) {
+                this.a = new gj5();
+            }
+            if (imageFileInfo.getImageType() == 0) {
+                return gj5.g(imageFileInfo, true);
+            }
+            if (imageFileInfo.getImageType() == 1 && (loaderProc = BdResourceLoader.getInstance().getLoaderProc(20)) != null) {
+                try {
+                    Object fromLocal = loaderProc.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
+                    if (fromLocal instanceof BdImage) {
+                        return ((BdImage) fromLocal).getRawBitmap();
+                    }
+                } catch (OutOfMemoryError unused) {
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

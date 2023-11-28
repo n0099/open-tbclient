@@ -1,60 +1,106 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.CustomState;
-import tbclient.FeedHeadFigure;
-import tbclient.FeedHeadFigureComponent;
-import tbclient.FeedHeadSymbol;
-import tbclient.FeedKV;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
 /* loaded from: classes7.dex */
-public class nsc extends qoc {
+public final class nsc implements doc, loc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final doc a;
+    public loc b;
+    public boolean c;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedHeadFigureComponent feedHeadFigureComponent) {
-        InterceptResult invokeL;
+    public nsc(doc docVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadFigureComponent)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            FeedHeadFigure feedHeadFigure = feedHeadFigureComponent.image_data;
-            if (feedHeadFigure != null) {
-                qoc.a(jSONObject, "image_data", osc.b(feedHeadFigure));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {docVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (feedHeadFigureComponent.main_data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol : feedHeadFigureComponent.main_data) {
-                    jSONArray.put(rsc.b(feedHeadSymbol));
-                }
-                qoc.a(jSONObject, "main_data", jSONArray);
-            }
-            if (feedHeadFigureComponent.extra_data != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol2 : feedHeadFigureComponent.extra_data) {
-                    jSONArray2.put(rsc.b(feedHeadSymbol2));
-                }
-                qoc.a(jSONObject, WriteVoteActivityConfig.EXTRA_DATA_KEY, jSONArray2);
-            }
-            qoc.a(jSONObject, "schema", feedHeadFigureComponent.schema);
-            CustomState customState = feedHeadFigureComponent.custom_state;
-            if (customState != null) {
-                qoc.a(jSONObject, "custom_state", irc.b(customState));
-            }
-            if (feedHeadFigureComponent.business_info != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (FeedKV feedKV : feedHeadFigureComponent.business_info) {
-                    jSONArray3.put(usc.b(feedKV));
-                }
-                qoc.a(jSONObject, "business_info", jSONArray3);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        this.a = docVar;
+    }
+
+    @Override // com.baidu.tieba.doc
+    public void onSubscribe(loc locVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, locVar) == null) {
+            this.b = locVar;
+            try {
+                this.a.onSubscribe(this);
+            } catch (Throwable th) {
+                qoc.e(th);
+                locVar.unsubscribe();
+                onError(th);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.loc
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c && !this.b.isUnsubscribed()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.doc
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        try {
+            this.a.onCompleted();
+        } catch (Throwable th) {
+            qoc.e(th);
+            throw new OnCompletedFailedException(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.loc
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
+        }
+    }
+
+    @Override // com.baidu.tieba.doc
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            usc.j(th);
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            try {
+                this.a.onError(th);
+            } catch (Throwable th2) {
+                qoc.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
+            }
+        }
     }
 }

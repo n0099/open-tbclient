@@ -1,32 +1,32 @@
 package com.kwad.sdk.pngencrypt.chunk;
 /* loaded from: classes10.dex */
 public final class s extends p {
-    public int amk;
-    public int aml;
-    public int amm;
-    public int amn;
-    public int[] amo;
+    public int aKZ;
+    public int aLa;
+    public int aLb;
+    public int aLc;
+    public int[] aLd;
 
     public s(com.kwad.sdk.pngencrypt.k kVar) {
         super("tRNS", kVar);
-        this.amo = new int[0];
+        this.aLd = new int[0];
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public final void a(d dVar) {
-        com.kwad.sdk.pngencrypt.k kVar = this.akJ;
-        if (kVar.akQ) {
-            this.amk = com.kwad.sdk.pngencrypt.n.f(dVar.data, 0);
-        } else if (!kVar.akR) {
-            this.aml = com.kwad.sdk.pngencrypt.n.f(dVar.data, 0);
-            this.amm = com.kwad.sdk.pngencrypt.n.f(dVar.data, 2);
-            this.amn = com.kwad.sdk.pngencrypt.n.f(dVar.data, 4);
-        } else {
+        com.kwad.sdk.pngencrypt.k kVar = this.aJz;
+        if (kVar.aJG) {
+            this.aKZ = com.kwad.sdk.pngencrypt.n.f(dVar.data, 0);
+        } else if (kVar.aJH) {
             int length = dVar.data.length;
-            this.amo = new int[length];
+            this.aLd = new int[length];
             for (int i = 0; i < length; i++) {
-                this.amo[i] = dVar.data[i] & 255;
+                this.aLd[i] = dVar.data[i] & 255;
             }
+        } else {
+            this.aLa = com.kwad.sdk.pngencrypt.n.f(dVar.data, 0);
+            this.aLb = com.kwad.sdk.pngencrypt.n.f(dVar.data, 2);
+            this.aLc = com.kwad.sdk.pngencrypt.n.f(dVar.data, 4);
         }
     }
 }

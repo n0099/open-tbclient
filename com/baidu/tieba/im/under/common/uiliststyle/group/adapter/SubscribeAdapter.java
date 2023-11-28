@@ -54,9 +54,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925fa);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092374);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252e);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b3);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -99,7 +99,7 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0928, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0942, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -127,9 +127,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysItem, Holder> {
                 i3 = R.color.CAM_X0304;
             }
             textSize.setTextColor(i3).setTextStyle(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f14cf);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f14df);
             TextView textView = holder.a;
-            textView.setText(subscribeSysItem.getTbMsg().getSubscribeTips() + D().getString(R.string.obfuscated_res_0x7f0f14d0));
+            textView.setText(subscribeSysItem.getTbMsg().getSubscribeTips() + D().getString(R.string.obfuscated_res_0x7f0f14e0));
         }
     }
 }

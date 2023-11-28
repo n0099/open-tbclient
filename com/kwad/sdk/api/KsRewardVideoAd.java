@@ -5,11 +5,13 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.KsInnerAd;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.api.model.KSAdInfoData;
 import com.kwad.sdk.api.model.KsExtraRewardType;
+import java.util.List;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsRewardVideoAd {
+public interface KsRewardVideoAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -62,6 +64,10 @@ public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
+    List<KSAdInfoData> getKSAdInfoDatas();
+
+    @KsAdSdkApi
+    @Keep
     int getMaterialType();
 
     @KsAdSdkApi
@@ -74,7 +80,12 @@ public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 
     @KsAdSdkApi
     @Keep
@@ -83,10 +94,6 @@ public interface KsRewardVideoAd {
     @KsAdSdkApi
     @Keep
     void setRewardAdInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
-
-    @KsAdSdkApi
-    @Keep
-    void setRewardPlayAgainInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
 
     @KsAdSdkApi
     @Keep

@@ -11,36 +11,36 @@ public class ff implements fy {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fv f362a;
+    public fv f358a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f363a;
+    public XMPushService f359a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Exception f364a;
+    public Exception f360a;
     public long e;
     public long f;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f361a = 0;
+    public long f357a = 0;
     public long b = 0;
     public long c = 0;
     public long d = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f365a = "";
+    public String f361a = "";
 
     public ff(XMPushService xMPushService) {
         this.e = 0L;
         this.f = 0L;
-        this.f363a = xMPushService;
+        this.f359a = xMPushService;
         b();
         int myUid = Process.myUid();
         try {
             this.f = TrafficStats.getUidRxBytes(myUid);
             this.e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("Failed to obtain traffic data during initialization: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m190a("Failed to obtain traffic data during initialization: " + e);
             this.f = -1L;
             this.e = -1L;
         }
@@ -49,59 +49,59 @@ public class ff implements fy {
     private void b() {
         this.b = 0L;
         this.d = 0L;
-        this.f361a = 0L;
+        this.f357a = 0L;
         this.c = 0L;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (bi.b(this.f363a)) {
-            this.f361a = elapsedRealtime;
+        if (bi.b(this.f359a)) {
+            this.f357a = elapsedRealtime;
         }
-        if (this.f363a.m759c()) {
+        if (this.f359a.m763c()) {
             this.c = elapsedRealtime;
         }
     }
 
     private synchronized void c() {
-        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f365a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
+        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f361a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
         ez ezVar = new ez();
-        ezVar.f340a = (byte) 0;
+        ezVar.f336a = (byte) 0;
         ezVar.a(ey.CHANNEL_ONLINE_RATE.a());
-        ezVar.a(this.f365a);
+        ezVar.a(this.f361a);
         ezVar.d((int) (System.currentTimeMillis() / 1000));
         ezVar.b((int) (this.b / 1000));
         ezVar.c((int) (this.d / 1000));
-        fg.m481a().a(ezVar);
+        fg.m485a().a(ezVar);
         b();
     }
 
     public Exception a() {
-        return this.f364a;
+        return this.f360a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m480a() {
-        if (this.f363a == null) {
+    public synchronized void m484a() {
+        if (this.f359a == null) {
             return;
         }
-        String m294a = bi.m294a((Context) this.f363a);
-        boolean c = bi.c(this.f363a);
+        String m298a = bi.m298a((Context) this.f359a);
+        boolean c = bi.c(this.f359a);
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (this.f361a > 0) {
-            this.b += elapsedRealtime - this.f361a;
-            this.f361a = 0L;
+        if (this.f357a > 0) {
+            this.b += elapsedRealtime - this.f357a;
+            this.f357a = 0L;
         }
         if (this.c != 0) {
             this.d += elapsedRealtime - this.c;
             this.c = 0L;
         }
         if (c) {
-            if ((!TextUtils.equals(this.f365a, m294a) && this.b > 30000) || this.b > 5400000) {
+            if ((!TextUtils.equals(this.f361a, m298a) && this.b > 30000) || this.b > 5400000) {
                 c();
             }
-            this.f365a = m294a;
-            if (this.f361a == 0) {
-                this.f361a = elapsedRealtime;
+            this.f361a = m298a;
+            if (this.f357a == 0) {
+                this.f357a = elapsedRealtime;
             }
-            if (this.f363a.m759c()) {
+            if (this.f359a.m763c()) {
                 this.c = elapsedRealtime;
             }
         }
@@ -110,36 +110,36 @@ public class ff implements fy {
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar) {
         this.a = 0;
-        this.f364a = null;
-        this.f362a = fvVar;
-        this.f365a = bi.m294a((Context) this.f363a);
+        this.f360a = null;
+        this.f358a = fvVar;
+        this.f361a = bi.m298a((Context) this.f359a);
         fi.a(0, ey.CONN_SUCCESS.a());
     }
 
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar, int i, Exception exc) {
         long j;
-        if (this.a == 0 && this.f364a == null) {
+        if (this.a == 0 && this.f360a == null) {
             this.a = i;
-            this.f364a = exc;
-            fi.b(fvVar.mo510a(), exc);
+            this.f360a = exc;
+            fi.b(fvVar.mo514a(), exc);
         }
         if (i == 22 && this.c != 0) {
-            long m508a = fvVar.m508a() - this.c;
-            if (m508a < 0) {
-                m508a = 0;
+            long m512a = fvVar.m512a() - this.c;
+            if (m512a < 0) {
+                m512a = 0;
             }
-            this.d += m508a + (gb.b() / 2);
+            this.d += m512a + (gb.b() / 2);
             this.c = 0L;
         }
-        m480a();
+        m484a();
         int myUid = Process.myUid();
         long j2 = -1;
         try {
             j2 = TrafficStats.getUidRxBytes(myUid);
             j = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("Failed to obtain traffic data: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m190a("Failed to obtain traffic data: " + e);
             j = -1L;
         }
         com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
@@ -149,14 +149,14 @@ public class ff implements fy {
 
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar, Exception exc) {
-        fi.a(0, ey.CHANNEL_CON_FAIL.a(), 1, fvVar.mo510a(), bi.c(this.f363a) ? 1 : 0);
-        m480a();
+        fi.a(0, ey.CHANNEL_CON_FAIL.a(), 1, fvVar.mo514a(), bi.c(this.f359a) ? 1 : 0);
+        m484a();
     }
 
     @Override // com.xiaomi.push.fy
     public void b(fv fvVar) {
-        m480a();
+        m484a();
         this.c = SystemClock.elapsedRealtime();
-        fi.a(0, ey.CONN_SUCCESS.a(), fvVar.mo510a(), fvVar.a());
+        fi.a(0, ey.CONN_SUCCESS.a(), fvVar.mo514a(), fvVar.a());
     }
 }

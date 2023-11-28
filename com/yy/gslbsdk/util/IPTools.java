@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class IPTools {
     public static String hosts2String(String[] strArr) {
         StringBuilder sb = new StringBuilder();

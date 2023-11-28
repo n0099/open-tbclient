@@ -1,32 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.IntentConstants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.mobads.sdk.api.SplashAd;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BaiduBqtInitSwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tbadk.switchs.KsInitSwitch;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,19 +28,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@ModifyClass
 /* loaded from: classes8.dex */
 public class ss5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean f;
+    public static ss5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<WeakReference<Activity>> a;
-    public ArrayList<WeakReference<Activity>> b;
-    public int c;
-    public final CustomMessageListener d;
-    public final wu4 e;
 
     static {
         InterceptResult invokeClinit;
@@ -63,196 +59,35 @@ public class ss5 {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ss5 ss5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ss5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ss5Var;
+    @Modify(description = "广告-热启动是否开启debug模式", type = 33)
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int skinType;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || this.a.c == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-                return;
-            }
-            this.a.c = skinType;
-            if (ss5.f) {
-                this.a.r();
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends wu4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss5 a;
-
-        public b(ss5 ss5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ss5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ss5Var;
+    public static double i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return 0.0d;
         }
-
-        @Override // com.baidu.tieba.wu4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && ss5.f) {
-                ss5 ss5Var = this.a;
-                if (ss5Var.j(ss5Var.l(activity))) {
-                    this.a.a.add(new WeakReference(activity));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wu4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                this.a.b.add(new WeakReference(activity));
-            }
-        }
-
-        @Override // com.baidu.tieba.wu4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            WeakReference weakReference;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Iterator it = this.a.b.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        weakReference = (WeakReference) it.next();
-                        if (weakReference.get() != null && weakReference.get() == activity) {
-                            break;
-                        }
-                    } else {
-                        weakReference = null;
-                        break;
-                    }
-                }
-                if (weakReference != null) {
-                    this.a.b.remove(weakReference);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wu4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && ss5.f) {
-                ss5 ss5Var = this.a;
-                if (ss5Var.t(ss5Var.l(activity))) {
-                    WeakReference weakReference = null;
-                    Iterator it = this.a.a.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        WeakReference weakReference2 = (WeakReference) it.next();
-                        if (activity != null && activity == weakReference2.get()) {
-                            weakReference = weakReference2;
-                            break;
-                        }
-                    }
-                    if (weakReference != null) {
-                        this.a.a.remove(weakReference);
-                    }
-                }
-            }
-        }
+        return invokeV.doubleValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss5 a;
-
-        public c(ss5 ss5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ss5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static String m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            if (i != -1) {
+                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "PLG_Other" : "PLG_CPC" : "PLG_OperateHighly" : "PLG_OperateNormal" : "PLG_GD";
             }
-            this.a = ss5Var;
+            return null;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.q(view2.getContext());
-                this.a.u(false);
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ss5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-422074156, "Lcom/baidu/tieba/ss5$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-422074156, "Lcom/baidu/tieba/ss5$d;");
-                    return;
-                }
-            }
-            a = new ss5(null);
-        }
+        return (String) invokeI.objValue;
     }
 
     public ss5() {
@@ -265,259 +100,361 @@ public class ss5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = TbadkCoreApplication.getInst().getSkinType();
-        this.d = new a(this, 2001304);
-        this.e = new b(this);
-        MessageManager.getInstance().registerListener(this.d);
-    }
-
-    public final void r() {
-        FrameLayout l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Iterator<WeakReference<Activity>> it = this.a.iterator();
-            while (it.hasNext()) {
-                WeakReference<Activity> next = it.next();
-                if (next != null && next.get() != null && !next.get().isFinishing() && (l = l(next.get())) != null) {
-                    Object tag = l.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-                    if (tag instanceof ViewGroup) {
-                        o((ViewGroup) tag, l.getContext());
-                    }
-                }
             }
         }
     }
 
-    public /* synthetic */ ss5(a aVar) {
-        this();
-    }
-
-    public final ViewGroup n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.layout_baiduboxapp_back_view, (ViewGroup) null);
-            o(viewGroup, context);
-            return viewGroup;
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    public final boolean p(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s(Application application) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, application) != null) || application == null) {
-            return;
-        }
-        try {
-            application.registerActivityLifecycleCallbacks(this.e);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static final ss5 m() {
+    @Modify(description = "广告-禁止初始化百度百青藤", type = 33)
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return !BaiduBqtInitSwitch.isOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-禁止初始化广点通", type = 33)
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return !GdtInitSwitch.isOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-禁止初始化快手", type = 33)
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return !KsInitSwitch.isOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-FRS页面混排广告条数", type = 33)
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_mix_frs_ad_count", 5);
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized ss5 j() {
+        InterceptResult invokeV;
+        ss5 ss5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (ss5.class) {
+                if (a == null) {
+                    a = new ss5();
+                }
+                ss5Var = a;
+            }
+            return ss5Var;
         }
         return (ss5) invokeV.objValue;
     }
 
-    public void k() {
+    public static int k() {
+        InterceptResult invokeV;
+        int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
-            backBaiduBoxViewEvent.isShow = f;
-            MutiProcessManager.publishEvent(backBaiduBoxViewEvent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s == t || (min = Math.min(s, t)) <= 0 || min >= 10000) {
+                return 1000;
+            }
+            return min;
         }
+        return invokeV.intValue;
     }
 
-    public final void v() {
+    public static int l() {
+        InterceptResult invokeV;
+        int max;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.not_install_baidu_box_app_tip);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s == t || (max = Math.max(s, t)) <= 0 || max >= 10000) {
+                return 1400;
+            }
+            return max;
         }
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v1 */
-    public final boolean j(FrameLayout frameLayout) {
-        InterceptResult invokeL;
-        ViewGroup viewGroup;
+    public static boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, frameLayout)) == null) {
-            if (frameLayout == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (w()) {
+                if (xe1.b() && u()) {
+                    return true;
+                }
                 return false;
             }
-            try {
-                Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-                ViewGroup viewGroup2 = 0;
-                if (tag instanceof ViewGroup) {
-                    viewGroup = (ViewGroup) tag;
-                } else {
-                    viewGroup = null;
-                }
-                if (viewGroup != null && viewGroup.getParent() != null) {
-                    if (viewGroup.getParent() == frameLayout) {
-                        return false;
+            return u();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 33)
+    public static int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_splash_new_policy_first_timeout", 1000);
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 33)
+    public static int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_splash_new_policy_second_timeout", 1400);
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示小熊开关(新)", type = 33)
+    public static boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_bear_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 33)
+    public static boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_plg_cpc_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章开关(新)", type = 33)
+    public static boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("key_splash_new_policy_plg_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String h = h();
+            if (!TextUtils.isEmpty(h)) {
+                BdResourceLoader.getInstance().loadResource(h, 10, null, 0, 0, null, new Object[0]);
+            }
+        }
+    }
+
+    public static String g(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            List<k88> j = l88.m().j(str);
+            JSONArray jSONArray = new JSONArray();
+            for (k88 k88Var : j) {
+                for (int i2 = 0; i2 < k88Var.e && jSONArray.length() < i; i2++) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", k88Var.d + i2);
+                        jSONObject.put(SplashAd.KEY_BIDFAIL_ECPM, String.valueOf(k88Var.f));
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
+                }
+            }
+            return kd.j(jSONArray.toString().getBytes(StandardCharsets.UTF_8));
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public long b(File file, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str) || file == null) {
+                return 0L;
+            }
+            InputStream inputStream = null;
+            try {
+                Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200) {
+                    InputStream byteStream = executeSync.body().byteStream();
+                    if (byteStream != null) {
+                        try {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                j = FileUtils.copyStream(byteStream, fileOutputStream);
+                            } catch (Exception e) {
+                                e = e;
+                                inputStream = byteStream;
+                                try {
+                                    TiebaStatic.log(e.toString());
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    return j;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                inputStream = byteStream;
+                                Closeables.closeSafely(inputStream);
+                                Closeables.closeSafely(fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
+                        }
+                    } else {
+                        fileOutputStream = null;
+                    }
+                    inputStream = byteStream;
                 } else {
-                    viewGroup2 = viewGroup;
+                    fileOutputStream = null;
                 }
-                if (viewGroup2 == null) {
-                    viewGroup2 = n(frameLayout.getContext());
-                }
-                if (viewGroup2 == null) {
-                    return false;
-                }
-                frameLayout.addView(viewGroup2);
-                frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, viewGroup2);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds339), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds89));
-                layoutParams.gravity = 83;
-                layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds442) + UtilHelper.getNavigationBarHeight(frameLayout.getContext());
-                viewGroup2.setLayoutParams(layoutParams);
-                c cVar = new c(this);
-                viewGroup2.setClickable(true);
-                viewGroup2.setOnClickListener(cVar);
-                return true;
-            } catch (Exception unused) {
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
+            }
+            Closeables.closeSafely(inputStream);
+            Closeables.closeSafely(fileOutputStream);
+            return j;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
                 return false;
             }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z || o(str) <= 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && f != z) {
-            f = z;
-            if (z) {
-                Iterator<WeakReference<Activity>> it = this.b.iterator();
-                while (it.hasNext()) {
-                    WeakReference<Activity> next = it.next();
-                    if (next.get() != null && !next.get().isFinishing()) {
-                        Activity activity = next.get();
-                        if (j(l(activity))) {
-                            this.a.add(new WeakReference<>(activity));
-                        }
-                    }
-                }
-                return;
-            }
-            Iterator<WeakReference<Activity>> it2 = this.b.iterator();
-            while (it2.hasNext()) {
-                WeakReference<Activity> next2 = it2.next();
-                if (next2.get() != null && !next2.get().isFinishing()) {
-                    t(l(next2.get()));
-                }
-            }
-            this.a.clear();
-        }
-    }
-
-    public final FrameLayout l(Activity activity) {
+    public static boolean p(Object obj) {
         InterceptResult invokeL;
+        lwa lwaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            if (activity != null) {
-                try {
-                    if (!activity.isFinishing() && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-                        View decorView = activity.getWindow().getDecorView();
-                        if (!(decorView instanceof FrameLayout)) {
-                            return null;
-                        }
-                        return (FrameLayout) decorView;
-                    }
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
+            if (obj instanceof vx4) {
+                return true;
             }
-            return null;
-        }
-        return (FrameLayout) invokeL.objValue;
-    }
-
-    public void q(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, context) != null) || context == null) {
-            return;
-        }
-        try {
-            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("baiduboxapp://donothing"));
-            if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
-                context.startActivity(intent);
+            if (obj instanceof jz4) {
+                lwaVar = ((jz4) obj).t.funAdData;
+            } else if (obj instanceof ThreadData) {
+                lwaVar = ((ThreadData) obj).funAdData;
+            } else if (obj instanceof nwa) {
+                lwaVar = ((nwa) obj).A0;
             } else {
-                v();
+                lwaVar = null;
             }
-        } catch (Exception unused) {
-            v();
-        }
-    }
-
-    public final void o(ViewGroup viewGroup, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, context) == null) && viewGroup != null && context != null) {
-            SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.tv_back_shoubai_text), (int) R.color.CAM_X0101);
-            float dimens = BdUtilHelper.getDimens(context, R.dimen.tbds424);
-            TBSelector.makeDrawableSelector().setShape(0).setType(1).trRadius(dimens).brRadius(dimens).defaultColor(R.color.topic_disagree_des_color).into(viewGroup);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    public final boolean t(FrameLayout frameLayout) {
-        InterceptResult invokeL;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, frameLayout)) == null) {
-            if (frameLayout == null) {
-                return false;
-            }
-            try {
-                Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-                if (tag instanceof ViewGroup) {
-                    viewGroup = (ViewGroup) tag;
-                } else {
-                    viewGroup = null;
-                }
-                if (viewGroup != null && viewGroup.getParent() != null && viewGroup.getParent() == frameLayout && p(frameLayout) && p(viewGroup)) {
-                    frameLayout.removeView(viewGroup);
-                    frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
-                    return true;
-                }
-            } catch (Exception unused) {
+            if (lwaVar != null) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static int o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            int i = 0;
+            for (k88 k88Var : l88.m().j(str)) {
+                i += k88Var.e;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    @Modify(description = "广告-是否需要请求frs页面的小熊广告", type = 33)
+    public static boolean r() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("splash_origin_ad_strategy_key", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z && !z2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

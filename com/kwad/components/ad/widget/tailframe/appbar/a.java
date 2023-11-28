@@ -17,31 +17,44 @@ import com.baidu.tieba.R;
 import com.kwad.components.ad.widget.AppScoreView;
 import com.kwad.components.ad.widget.KsAppTagsView;
 import com.kwad.components.core.page.widget.TextProgressBar;
+import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.a.c;
-import com.kwad.sdk.core.response.a.d;
+import com.kwad.sdk.core.response.b.e;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.m.l;
 import java.util.List;
 /* loaded from: classes10.dex */
 public abstract class a extends LinearLayout {
-    public View BA;
-    public TextView CI;
-    public TextView cz;
-    public ImageView hF;
-    public TextView hG;
-    public ValueAnimator ju;
-    public View un;
-    public Button uo;
-    public Button up;
-    public KsAppTagsView uu;
-    public com.kwad.components.ad.g.a ux;
-    public Runnable uy;
-    public AppScoreView wH;
-    public TextProgressBar wZ;
+    public TextProgressBar BG;
+    public AppScoreView Bq;
+    public View Hg;
+    public TextView Iq;
+    public TextView dH;
+    public ValueAnimator jo;
+    public ImageView kS;
+    public TextView kT;
+    public View xZ;
+    public Button ya;
+    public Button yb;
+    public KsAppTagsView yh;
+    public com.kwad.components.ad.i.a yk;
+    public Runnable yl;
+
+    @LayoutRes
+    public abstract int getLayoutId();
 
     public a(Context context) {
         this(context, null);
+    }
+
+    public final void D(@NonNull AdInfo adInfo) {
+        int i = adInfo.status;
+        if (i != 1 && i != 2 && i != 3) {
+            mj();
+        } else {
+            kk();
+        }
     }
 
     public a(Context context, @Nullable AttributeSet attributeSet) {
@@ -49,150 +62,140 @@ public abstract class a extends LinearLayout {
     }
 
     public a(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+        super(l.wrapContextIfNeed(context), attributeSet, i);
         initView();
     }
 
     private void initView() {
-        this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912d0);
-        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d2);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0912d3);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cf);
-        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d1);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091306);
-        this.wZ = textProgressBar;
-        textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
-        this.wZ.setTextColor(-1);
-        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f0913cb);
-        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f0913c5);
-        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f0913c7);
-        this.un = findViewById(R.id.obfuscated_res_0x7f0913c6);
-        this.ux = new com.kwad.components.ad.g.a(this.BA);
+        this.Hg = l.inflate(getContext(), getLayoutId(), this);
+        this.kS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091306);
+        this.kT = (TextView) findViewById(R.id.obfuscated_res_0x7f091308);
+        this.Bq = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091309);
+        this.dH = (TextView) findViewById(R.id.obfuscated_res_0x7f091305);
+        this.Iq = (TextView) findViewById(R.id.obfuscated_res_0x7f091307);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09134b);
+        this.BG = textProgressBar;
+        textProgressBar.setTextDimen(com.kwad.sdk.d.a.a.a(getContext(), 16.0f));
+        this.BG.setTextColor(-1);
+        this.yh = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f09141c);
+        this.ya = (Button) findViewById(R.id.obfuscated_res_0x7f091416);
+        this.yb = (Button) findViewById(R.id.obfuscated_res_0x7f091418);
+        this.xZ = findViewById(R.id.obfuscated_res_0x7f091417);
+        this.yk = new com.kwad.components.ad.i.a(this.Hg);
     }
 
-    private void ld() {
-        ValueAnimator valueAnimator = this.ju;
-        if (valueAnimator == null || !valueAnimator.isRunning()) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.ju = ofFloat;
-            ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.ju.setRepeatCount(-1);
-            this.ju.setRepeatMode(1);
-            this.ju.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.2
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public final void onAnimationUpdate(ValueAnimator valueAnimator2) {
-                    float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    a.this.wZ.setScaleY(floatValue);
-                    a.this.wZ.setScaleX(floatValue);
-                }
-            });
-            this.ju.start();
+    private void mj() {
+        ValueAnimator valueAnimator = this.jo;
+        if (valueAnimator != null && valueAnimator.isRunning()) {
+            return;
         }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
+        this.jo = ofFloat;
+        ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
+        this.jo.setRepeatCount(-1);
+        this.jo.setRepeatMode(1);
+        this.jo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.2
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public final void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
+                a.this.BG.setScaleY(floatValue);
+                a.this.BG.setScaleX(floatValue);
+            }
+        });
+        this.jo.start();
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0091: INVOKE  (r5v0 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.sf():int)] */
-    public void c(@NonNull AdTemplate adTemplate) {
-        ImageView imageView;
-        String bn;
-        AdInfo bQ = d.bQ(adTemplate);
-        if (d.p(adTemplate)) {
-            imageView = this.hF;
-            bn = com.kwad.sdk.core.response.a.a.bI(bQ);
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0094: INVOKE  (r5v0 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.AW():int)] */
+    public void b(@NonNull AdTemplate adTemplate) {
+        boolean z;
+        AdInfo dP = e.dP(adTemplate);
+        if (e.F(adTemplate)) {
+            KSImageLoader.loadAppIcon(this.kS, com.kwad.sdk.core.response.b.a.cG(dP), adTemplate, 12);
         } else {
-            imageView = this.hF;
-            bn = com.kwad.sdk.core.response.a.a.bn(bQ);
+            KSImageLoader.loadAppIcon(this.kS, com.kwad.sdk.core.response.b.a.cf(dP), adTemplate, 12);
         }
-        KSImageLoader.loadAppIcon(imageView, bn, adTemplate, 12);
-        this.hG.setText(com.kwad.sdk.core.response.a.a.bl(bQ));
-        if (!d.p(adTemplate)) {
-            float ai = com.kwad.sdk.core.response.a.a.ai(bQ);
-            if (ai >= 3.0f) {
-                this.wH.setScore(ai);
-                this.wH.setVisibility(0);
+        this.kT.setText(com.kwad.sdk.core.response.b.a.cc(dP));
+        if (!e.F(adTemplate)) {
+            float aA = com.kwad.sdk.core.response.b.a.aA(dP);
+            if (aA >= 3.0f) {
+                z = true;
             } else {
-                this.wH.setVisibility(8);
+                z = false;
             }
-            String ah = com.kwad.sdk.core.response.a.a.ah(bQ);
-            if (TextUtils.isEmpty(ah)) {
-                this.cz.setVisibility(8);
+            if (z) {
+                this.Bq.setScore(aA);
+                this.Bq.setVisibility(0);
             } else {
-                this.cz.setText(ah);
-                this.cz.setVisibility(0);
+                this.Bq.setVisibility(8);
+            }
+            String az = com.kwad.sdk.core.response.b.a.az(dP);
+            if (!TextUtils.isEmpty(az)) {
+                this.dH.setText(az);
+                this.dH.setVisibility(0);
+            } else {
+                this.dH.setVisibility(8);
             }
         }
-        this.CI.setText(com.kwad.sdk.core.response.a.a.ad(bQ));
-        if (d.p(adTemplate)) {
-            this.wZ.setVisibility(8);
-            this.un.setVisibility(0);
-            this.up.setText("查看详情");
-            Button button = this.uo;
+        this.Iq.setText(com.kwad.sdk.core.response.b.a.au(dP));
+        if (e.F(adTemplate)) {
+            this.BG.setVisibility(8);
+            this.xZ.setVisibility(0);
+            this.yb.setText("查看详情");
+            Button button = this.ya;
             StringBuilder sb = new StringBuilder();
-            sb.append(com.kwad.sdk.core.config.d.sf());
+            sb.append(d.AW());
             button.setText(String.format("浏览详情页%s秒，领取奖励", sb.toString()));
             if (!adTemplate.mRewardVerifyCalled) {
-                if (this.uy == null) {
-                    this.uy = new Runnable() { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.1
+                if (this.yl == null) {
+                    this.yl = new Runnable() { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.1
                         @Override // java.lang.Runnable
                         public final void run() {
-                            a.this.ux.kL();
+                            a.this.yk.hR();
                         }
                     };
                 }
-                this.un.postDelayed(this.uy, 1600L);
+                this.xZ.postDelayed(this.yl, 1600L);
             }
         } else {
-            this.wZ.setVisibility(0);
-            this.un.setVisibility(8);
-            Runnable runnable = this.uy;
+            this.BG.setVisibility(0);
+            this.xZ.setVisibility(8);
+            Runnable runnable = this.yl;
             if (runnable != null) {
-                this.un.removeCallbacks(runnable);
-                this.uy = null;
+                this.xZ.removeCallbacks(runnable);
+                this.yl = null;
             }
-            u(d.bQ(adTemplate));
+            D(e.dP(adTemplate));
         }
-        if (d.p(adTemplate)) {
-            List<String> bH = c.bH(adTemplate);
-            if (bH.size() > 0) {
-                this.uu.setVisibility(0);
+        if (e.F(adTemplate)) {
+            List<String> dG = com.kwad.sdk.core.response.b.d.dG(adTemplate);
+            if (dG.size() > 0) {
+                this.yh.setVisibility(0);
             } else {
-                this.uu.setVisibility(8);
+                this.yh.setVisibility(8);
             }
-            this.uu.setAppTags(bH);
+            this.yh.setAppTags(dG);
         }
     }
 
     public View getBtnInstallContainer() {
-        return this.un;
+        return this.xZ;
     }
-
-    @LayoutRes
-    public abstract int getLayoutId();
 
     public TextProgressBar getTextProgressBar() {
-        return this.wZ;
+        return this.BG;
     }
 
-    public final void jl() {
-        ValueAnimator valueAnimator = this.ju;
+    public final void kk() {
+        ValueAnimator valueAnimator = this.jo;
         if (valueAnimator != null && valueAnimator.isRunning()) {
-            this.ju.cancel();
-            this.ju.end();
+            this.jo.cancel();
+            this.jo.end();
         }
-        Runnable runnable = this.uy;
+        Runnable runnable = this.yl;
         if (runnable != null) {
-            this.un.removeCallbacks(runnable);
-            this.uy = null;
+            this.xZ.removeCallbacks(runnable);
+            this.yl = null;
         }
-        this.ux.kM();
-    }
-
-    public final void u(@NonNull AdInfo adInfo) {
-        int i = adInfo.status;
-        if (i == 1 || i == 2 || i == 3) {
-            jl();
-        } else {
-            ld();
-        }
+        this.yk.lU();
     }
 }

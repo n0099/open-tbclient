@@ -1,143 +1,143 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class rsa {
+public class rsa extends ci<tsa, CardViewHolder<kta>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<msa> a;
+    public TbPageContext<?> a;
+    public im6<tsa> b;
 
-    public rsa() {
+    /* loaded from: classes8.dex */
+    public class a extends im6<tsa> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rsa b;
+
+        public a(rsa rsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rsaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.im6
+        /* renamed from: d */
+        public void a(View view2, tsa tsaVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tsaVar) == null) && tsaVar != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
+                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).H0().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", tsaVar.a);
+                    statisticItem.param("resource_id", className);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", tsaVar.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rsa(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), tsa.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public void a(msa msaVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: u */
+    public CardViewHolder<kta> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, msaVar) == null) {
-            this.a.add(msaVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kta ktaVar = new kta(this.a);
+            ktaVar.n(this.mPageId);
+            return new CardViewHolder<>(ktaVar);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void b(WebView webView, String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tsa tsaVar, CardViewHolder<kta> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
-            TbLog hybridLog = HybridLog.getInstance();
-            hybridLog.i("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
-            if (webView != null && !qd.isEmpty(str) && !qd.isEmpty(str2)) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-                    return;
-                }
-                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
-            }
-        }
-    }
-
-    public osa c(qsa qsaVar, osa osaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qsaVar, osaVar)) == null) {
-            if (osaVar == null) {
-                osaVar = new osa();
-            }
-            if ("notification".equals(qsaVar.c()) && "addObserver".equals(qsaVar.a())) {
-                Iterator<msa> it = this.a.iterator();
-                while (it.hasNext()) {
-                    osaVar = it.next().addObserver(qsaVar.d(), osaVar, true);
-                    if (osaVar.j()) {
-                        return osaVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tsaVar, cardViewHolder})) == null) {
+            if (tsaVar != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().j(tsaVar);
+                cardViewHolder.a().l(this.b);
+                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
+                    String className = ((ForumSquareActivity) this.a.getPageActivity()).H0().getClassName();
+                    if (!"推荐".equals(className)) {
+                        StatisticItem statisticItem = new StatisticItem("c13651");
+                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem.param("fid", tsaVar.a);
+                        statisticItem.param("resource_id", className);
+                        TiebaStatic.log(statisticItem);
+                    } else {
+                        StatisticItem statisticItem2 = new StatisticItem("c13642");
+                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem2.param("fid", tsaVar.d());
+                        statisticItem2.param("obj_locate", 3);
+                        TiebaStatic.log(statisticItem2);
                     }
                 }
-                if (!osaVar.j()) {
-                    osaVar.z(202);
-                    osaVar.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                String c = qsaVar.c();
-                if (!qd.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    osaVar.z(201);
-                    return osaVar;
-                }
-                Iterator<msa> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    osaVar = it2.next().dispatch(qsaVar, osaVar);
-                    if (osaVar.i()) {
-                        return osaVar;
-                    }
-                }
-                if (!osaVar.i()) {
-                    osaVar.z(202);
-                }
+                return cardViewHolder.getView();
             }
-            return osaVar;
+            return null;
         }
-        return (osa) invokeLL.objValue;
-    }
-
-    public void d(WebView webView, osa osaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, osaVar) != null) || webView == null || osaVar == null || !osaVar.k()) {
-            return;
-        }
-        b(webView, osaVar.c(), osaVar.d());
-    }
-
-    public void e(WebView webView, List<osa> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (osa osaVar : list) {
-                if (osaVar != null && osaVar.k()) {
-                    b(webView, osaVar.c(), osaVar.d());
-                }
-            }
-        }
-    }
-
-    public List<osa> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<osa> list = null;
-            if (qd.isEmpty(str)) {
-                return null;
-            }
-            Iterator<msa> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
-        }
-        return (List) invokeLLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

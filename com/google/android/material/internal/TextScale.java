@@ -12,12 +12,12 @@ import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TextScale extends Transition {
     public static final String PROPNAME_SCALE = "android:textscale:scale";
 
     private void captureValues(@NonNull TransitionValues transitionValues) {
-        View view2 = transitionValues.f1028view;
+        View view2 = transitionValues.f1024view;
         if (view2 instanceof TextView) {
             transitionValues.values.put(PROPNAME_SCALE, Float.valueOf(((TextView) view2).getScaleX()));
         }
@@ -36,10 +36,10 @@ public class TextScale extends Transition {
     @Override // androidx.transition.Transition
     public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         float f;
-        if (transitionValues == null || transitionValues2 == null || !(transitionValues.f1028view instanceof TextView)) {
+        if (transitionValues == null || transitionValues2 == null || !(transitionValues.f1024view instanceof TextView)) {
             return null;
         }
-        View view2 = transitionValues2.f1028view;
+        View view2 = transitionValues2.f1024view;
         if (!(view2 instanceof TextView)) {
             return null;
         }

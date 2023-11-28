@@ -1,161 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.c05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ona {
+public class ona extends c05 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpriteTipHttpResponseMessage a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039399, "Lcom/baidu/tieba/ona;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948039399, "Lcom/baidu/tieba/ona;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    public /* synthetic */ ona(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
+    public LinearLayout a;
+    public EditText b;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ ona b;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(ona onaVar, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {onaVar, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = onaVar;
+            this.a = activity;
         }
 
-        @JvmStatic
-        public final ona a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                if (!rd.isEmpty(this.b.b.getText().toString())) {
+                    TbSingleton.getInstance().setVisitPreviewServer(true);
+                    String obj = this.b.b.getText().toString();
+                    TbSingleton.getInstance().setPubEnvValue(obj);
+                    BdUtilHelper.showToast(this.a, (int) R.string.obfuscated_res_0x7f0f0401);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+                }
+                this.b.dismiss();
             }
-            return (ona) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class b {
+    public class b implements c05.e {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final ona b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ona a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-539897623, "Lcom/baidu/tieba/ona$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-539897623, "Lcom/baidu/tieba/ona$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new ona(null);
-        }
-
-        public b() {
+        public b(ona onaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {onaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = onaVar;
         }
 
-        public final ona a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                this.a.dismiss();
             }
-            return (ona) invokeV.objValue;
         }
     }
 
-    public ona() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ona(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public final SpriteTipHttpResponseMessage b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (SpriteTipHttpResponseMessage) invokeV.objValue;
-    }
-
-    public final void c(SpriteTipHttpResponseMessage data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            this.a = data;
-        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d027f, (ViewGroup) null);
+        this.a = linearLayout;
+        setContentView(linearLayout);
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090acd);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new a(this, activity));
+        setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new b(this));
     }
 }

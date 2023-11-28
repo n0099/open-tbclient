@@ -54,7 +54,19 @@ public class LiveBaseLottieView extends LottieAnimationView {
         this.e = new b();
     }
 
-    public final void r(String str) {
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void setAnimationFromUrl(String str) {
+        this.b = str;
+        if (!TextUtils.isEmpty(str)) {
+            u(str);
+        }
+    }
+
+    public void setFailBackground(Drawable drawable) {
+        this.c = drawable;
+    }
+
+    public final void u(String str) {
         this.b = str;
         LottieTask<LottieComposition> lottieTask = this.a;
         if (lottieTask != null) {
@@ -64,18 +76,6 @@ public class LiveBaseLottieView extends LottieAnimationView {
         LottieTask<LottieComposition> fromUrl = LottieCompositionFactory.fromUrl(getContext(), str);
         this.a = fromUrl;
         fromUrl.addListener(this.d).addFailureListener(this.e);
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void setAnimationFromUrl(String str) {
-        this.b = str;
-        if (!TextUtils.isEmpty(str)) {
-            r(str);
-        }
-    }
-
-    public void setFailBackground(Drawable drawable) {
-        this.c = drawable;
     }
 
     public LiveBaseLottieView(Context context, AttributeSet attributeSet) {

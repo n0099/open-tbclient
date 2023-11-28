@@ -1,120 +1,193 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class e73 extends d83 {
+public class e73 extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, e83> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e73(d73 d73Var) {
-        super(d73Var, "/swanAPI/abTestConfig");
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public String getDispatcherName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swanAPI" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return null;
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public e73() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
+        a();
     }
 
-    public static String k() {
-        InterceptResult invokeV;
+    public void a() {
+        List<e83> c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File a = vi3.a();
-            if (a == null) {
-                return null;
-            }
-            String path = a.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return null;
-            }
-            return path + "/debug_abtest_config.json";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g63 g63Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g63Var)) == null) {
-            if (!d83.b) {
-                return false;
-            }
-            JSONObject a = d83.a(unitedSchemeEntity, "params");
-            if (a != null && context != null) {
-                JSONObject optJSONObject = a.optJSONObject("abtest");
-                if (optJSONObject != null) {
-                    if (l(optJSONObject)) {
-                        i = R.string.obfuscated_res_0x7f0f1560;
-                    } else {
-                        i = R.string.obfuscated_res_0x7f0f155e;
-                    }
-                    Toast.makeText(context, i, 1).show();
-                } else {
-                    j();
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1561, 1).show();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new y73(this));
+            b(new rx2(this));
+            b(new h83(this));
+            b(new k73(this));
+            b(new kx2(this));
+            b(new t73(this));
+            b(new de3(this));
+            b(new ee3(this));
+            b(new xd3(this));
+            b(new yd3(this));
+            b(new fe3(this));
+            b(new ge3(this));
+            b(new ae3(this));
+            b(new be3(this));
+            b(new sd3(this));
+            b(new td3(this));
+            b(new ya3(this));
+            b(new xa3(this));
+            b(new va3(this));
+            b(new ta3(this));
+            b(new sa3(this));
+            b(new ra3(this));
+            b(new ua3(this));
+            b(new bb3(this));
+            b(new n73(this));
+            b(new c83(this));
+            b(new dd2(this));
+            b(new g83(this));
+            b(new v73(this));
+            b(new u73(this));
+            b(new hg3(this));
+            b(new ig3(this));
+            b(new uf3(this));
+            b(new vf3(this));
+            b(new uu2(this));
+            b(new x73(this));
+            b(new cv2(this));
+            b(new wx2(this));
+            b(new o73(this));
+            b(new e93(this));
+            b(new b93(this));
+            b(new ny1(this));
+            b(new b83(this));
+            b(new SwanAppDownloadAction(this));
+            b(new f83(this));
+            b(new c93(this));
+            b(new z83(this));
+            b(new y83(this));
+            b(new qg3(this));
+            b(new rg3(this));
+            b(new dg3(this));
+            b(new bg3(this));
+            b(new wf3(this));
+            b(new tg3(this));
+            b(new xf3(this));
+            b(new yf3(this));
+            b(new sg3(this));
+            b(new zt1(this));
+            b(new za3(this));
+            b(new an2(this));
+            b(new au1(this));
+            b(new q33(this));
+            b(new o33(this));
+            b(new r33(this));
+            b(new p33(this));
+            nn1 d = pp2.d();
+            if (d != null && (c = d.c(this)) != null && !c.isEmpty()) {
+                for (e83 e83Var : c) {
+                    b(e83Var);
                 }
-                return true;
-            }
-            Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f155f, 1).show();
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return;
-            }
-            File file = new File(k);
-            if (file.exists()) {
-                file.delete();
             }
         }
     }
 
-    public final boolean l(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(e83 e83Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return false;
-            }
-            return jp2.b(k, jSONObject.toString(), false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e83Var) == null) {
+            this.a.put(e83Var.a, e83Var);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty url");
+                return false;
+            } else if (uri.getPathSegments() != null && !uri.getPathSegments().isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("swanAPI");
+                arrayList.addAll(uri.getPathSegments());
+                String str = "/swanAPI" + uri.getPath();
+                if (!TextUtils.isEmpty(str) && str.startsWith("/")) {
+                    for (int size = arrayList.size(); size > 0; size--) {
+                        String str2 = "/" + ((String) arrayList.get(size - 1));
+                        if (!str.isEmpty() && str.length() >= str2.length()) {
+                            e83 e83Var = this.a.get(str);
+                            if (e83Var != null) {
+                                if (unitedSchemeEntity.isOnlyVerify()) {
+                                    return true;
+                                }
+                                return e83Var.h(context, unitedSchemeEntity, callbackHandler, "/swanAPI" + uri.getPath());
+                            }
+                            str = str.substring(0, str.length() - str2.length());
+                        } else {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
+                            return false;
+                        }
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "not support such action ：" + uri.getPath());
+                    return false;
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str);
+                return false;
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty Segment");
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

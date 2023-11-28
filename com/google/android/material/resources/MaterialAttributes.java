@@ -11,7 +11,7 @@ import androidx.annotation.Px;
 import androidx.annotation.RestrictTo;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialAttributes {
     @Nullable
     public static TypedValue resolve(@NonNull Context context, @AttrRes int i) {
@@ -66,6 +66,6 @@ public class MaterialAttributes {
 
     @Px
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
-        return resolveDimension(context, R.attr.obfuscated_res_0x7f040509, R.dimen.obfuscated_res_0x7f070617);
+        return resolveDimension(context, R.attr.obfuscated_res_0x7f04050f, R.dimen.obfuscated_res_0x7f07062a);
     }
 }

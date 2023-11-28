@@ -1,35 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ca;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public abstract class u9<T> implements ba<T> {
+public abstract class u9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final v9 b;
+    public final d5 a;
+    public String b;
+    public w9.b c;
+    public w9.a d;
+    public int e;
+    public LinkedList<String> f;
+    public Object g;
 
-    public abstract x9<T> i(String str);
+    public abstract boolean d(String str);
 
-    public abstract void j(x9<T> x9Var);
+    public abstract int g();
 
-    public abstract void l(String str);
+    public abstract y9<T> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
 
-    public abstract void m(String str);
+    public abstract void k(String str, String str2, int i, int i2);
 
-    public u9(v9 v9Var, boolean z) {
+    public abstract String l(String str);
+
+    public abstract ContentValues p(y9<T> y9Var);
+
+    public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u9 a;
+
+        public a(u9 u9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.m();
+            }
+        }
+    }
+
+    public u9(d5 d5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v9Var, Boolean.valueOf(z)};
+            Object[] objArr = {d5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,110 +88,212 @@ public abstract class u9<T> implements ba<T> {
                 return;
             }
         }
-        this.b = v9Var;
-        this.a = z;
+        this.f = new LinkedList<>();
+        this.g = new Object();
+        this.a = d5Var;
     }
 
-    @Override // com.baidu.tieba.ba
-    public T a(String str, String str2) {
-        InterceptResult invokeLL;
+    public synchronized void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            x9<T> k = k(str, str2);
-            if (k == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            synchronized (this) {
+                synchronized (this.g) {
+                    if (this.f.contains(str)) {
+                        return;
+                    }
+                    this.f.addLast(str);
+                    if (z) {
+                        j();
+                    }
+                }
+            }
+        }
+    }
+
+    public void r(w9 w9Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, w9Var, str) == null) {
+            this.b = str;
+            if (w9Var instanceof w9.b) {
+                this.c = (w9.b) w9Var;
+            }
+            if (w9Var instanceof w9.a) {
+                this.d = (w9.a) w9Var;
+            }
+        }
+    }
+
+    public void b(y9<T> y9Var) {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y9Var) == null) {
+            try {
+                synchronized (this.g) {
+                    this.f.remove(y9Var.a);
+                }
+                ContentValues p = p(y9Var);
+                SQLiteDatabase f = this.a.f();
+                if (f.update(this.b, p, "m_key = ?", new String[]{y9Var.a}) == 0) {
+                    f.insert(this.b, null, p);
+                    if (this.d != null) {
+                        j();
+                    }
+                }
+                if (this.c != null && (d = this.c.d(y9Var)) != null) {
+                    e(d);
+                }
+            } catch (Throwable th) {
+                this.a.h(th, "addOrUpdateTextCacheItem");
+            }
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = 0;
+            synchronized (this.g) {
+                this.f.clear();
+            }
+            if (d(str)) {
+                BdCacheService.o().h().b(str);
+            }
+        }
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return this.a.f().delete(this.b, "m_key = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.h(th, "deleteCacheItem");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public y9<T> f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return i(this.a.f(), str);
+            } catch (Throwable th) {
+                this.a.h(th, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
                 return null;
             }
-            return k.b;
         }
-        return (T) invokeLL.objValue;
+        return (y9) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ba
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            l(h(str, str2));
-        }
-    }
-
-    @Override // com.baidu.tieba.ba
-    public ca.b<T> e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            x9<T> k = k(str, str2);
-            if (k == null) {
-                return null;
-            }
-            ca.b<T> bVar = new ca.b<>();
-            bVar.a = str2;
-            bVar.b = k.b;
-            long j = k.f;
-            bVar.c = k.d;
-            return bVar;
-        }
-        return (ca.b) invokeLL.objValue;
-    }
-
-    public String h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.a) {
-                return str + "@" + str2;
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ba
-    public v9 c() {
+    public d5 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
-        return (v9) invokeV.objValue;
+        return (d5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ba
-    public void f(String str, String str2, T t, long j) {
+    public void j() {
+        w9.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
-            x9<T> x9Var = new x9<>();
-            x9Var.a = h(str, str2);
-            x9Var.c = str;
-            x9Var.f = j;
-            x9Var.b = t;
-            x9Var.e = System.currentTimeMillis();
-            x9Var.d = System.currentTimeMillis();
-            j(x9Var);
-        }
-    }
-
-    public x9<T> k(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            String h = h(str, str2);
-            x9<T> i = i(h);
-            if (i == null) {
-                BdLog.isDebugMode();
-                return null;
-            } else if (i.f < System.currentTimeMillis()) {
-                m(h);
-                BdLog.isDebugMode();
-                return null;
-            } else {
-                if (this.b.a()) {
-                    i.e = System.currentTimeMillis();
-                    j(i);
-                }
-                BdLog.isDebugMode();
-                return i;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (aVar = this.d) != null) {
+            this.e++;
+            if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+                this.e = 0;
+                zb.a().b(new a(this));
             }
         }
-        return (x9) invokeLL.objValue;
+    }
+
+    public void m() {
+        String removeFirst;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.f.isEmpty()) {
+            return;
+        }
+        SQLiteDatabase f = this.a.f();
+        f.beginTransaction();
+        while (true) {
+            try {
+                synchronized (this.g) {
+                    if (this.f.isEmpty()) {
+                        break;
+                    }
+                    removeFirst = this.f.removeFirst();
+                }
+                f.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+            } finally {
+                try {
+                } finally {
+                }
+            }
+        }
+        f.setTransactionSuccessful();
+        this.e = 0;
+    }
+
+    @SuppressLint({"Range"})
+    public void n(String str) {
+        w9.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || (aVar = this.d) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            aVar.c();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                y9<?> y9Var = new y9<>();
+                y9Var.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                y9Var.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                y9Var.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                y9Var.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h = this.d.h(y9Var);
+                if (h != null) {
+                    a(h, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    @SuppressLint({"Range"})
+    public void o(String str) {
+        w9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || (bVar = this.c) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            bVar.e();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                y9<?> y9Var = new y9<>();
+                y9Var.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                y9Var.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                y9Var.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                y9Var.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String g = this.c.g(y9Var);
+                if (g != null) {
+                    a(g, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
     }
 }

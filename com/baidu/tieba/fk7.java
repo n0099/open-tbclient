@@ -1,87 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.data.SubTabItem;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.forum.data.ForumTabItem;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class fk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<SubTabItem> a;
-    public int b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static final void a(FragmentActivity fragmentActivity, int i) {
+        ni7 value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof fk7) {
-                fk7 fk7Var = (fk7) obj;
-                return Intrinsics.areEqual(this.a, fk7Var.a) && this.b == fk7Var.b;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLI(65536, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        TiebaStatic.log(new StatisticItem("c15555").param("fid", String.valueOf(value.e())).param("fname", value.f()).param("obj_type", i));
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static final void b(FragmentActivity fragmentActivity, int i) {
+        ni7 value;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "SubTabData(subTabList=" + this.a + ", selectIndex=" + this.b + ')';
+        if ((interceptable != null && interceptable.invokeLI(65537, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        TiebaStatic.log(new StatisticItem("c15554").param("fid", String.valueOf(value.e())).param("fname", value.f()).param("obj_type", i));
     }
 
-    public fk7(List<SubTabItem> subTabList, int i) {
+    public static final void c(FragmentActivity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {subTabList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLI(65538, null, activity, i) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            ni7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
+            if (value == null) {
                 return;
             }
+            List<ForumTabItem> m = value.m();
+            if (i >= 0 && i < m.size()) {
+                ForumTabItem forumTabItem = m.get(i);
+                TiebaStatic.log(new StatisticItem("c15550").param("fid", value.e()).param("fname", value.f()).param("obj_type", forumTabItem.getTabId()).param("obj_locate", forumTabItem.getTabName()).param("obj_source", forumTabItem.getTabType()));
+            }
         }
-        Intrinsics.checkNotNullParameter(subTabList, "subTabList");
-        this.a = subTabList;
-        this.b = i;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static final void d(FragmentActivity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            ni7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
+            if (value == null) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c15549").param("fid", value.e()).param("fname", value.f()));
         }
-        return invokeV.intValue;
-    }
-
-    public final List<SubTabItem> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
     }
 }

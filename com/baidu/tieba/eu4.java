@@ -1,193 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.view.View;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "H5ShowDialogHelper")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class eu4 {
+public class eu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile eu4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final TBAlertConfig.OperateBtnStyle a(String str) {
-        InterceptResult invokeL;
+    public eu4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -817598092:
-                    if (str.equals("secondary")) {
-                        return TBAlertConfig.OperateBtnStyle.SECONDARY;
-                    }
-                    break;
-                case 3343801:
-                    if (str.equals("main")) {
-                        return TBAlertConfig.OperateBtnStyle.MAIN;
-                    }
-                    break;
-                case 92899676:
-                    if (str.equals("alert")) {
-                        return TBAlertConfig.OperateBtnStyle.ALERT;
-                    }
-                    break;
-                case 97618667:
-                    if (str.equals(UpgradeInfo.KEY_INT_FORCE_UPGRADE)) {
-                        return TBAlertConfig.OperateBtnStyle.FORCE;
-                    }
-                    break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return TBAlertConfig.OperateBtnStyle.SECONDARY;
         }
-        return (TBAlertConfig.OperateBtnStyle) invokeL.objValue;
     }
 
-    public static final TBAlertConfig.OperateBtnConfig b(final String str, String str2, String str3, final String str4, final WebView webView) {
-        InterceptResult invokeLLLLL;
-        boolean z;
-        boolean z2;
+    public static eu4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, webView)) == null) {
-            boolean z3 = true;
-            if (str.length() == 0) {
-                z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (eu4.class) {
+                    if (a == null) {
+                        a = new eu4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (eu4) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
+            if (i > 0) {
+                statisticItem.param("obj_param1", i);
+            }
+            if (StringUtils.isNotNull(str4)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_URL, str4);
+            }
+            if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_A);
+            } else if (UbsABTestHelper.isNonEcomAdDownloaderTestB()) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_B);
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void c(boolean z, DownloadData downloadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), downloadData, Integer.valueOf(i)}) == null) {
+            if (z) {
+                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
             } else {
-                z = false;
+                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
             }
-            if (!z) {
-                if (str2.length() == 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    if (str3.length() != 0) {
-                        z3 = false;
-                    }
-                    if (!z3) {
-                        return new TBAlertConfig.OperateBtnConfig(str2, a(str3), new View.OnClickListener() { // from class: com.baidu.tieba.bu4
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            @Override // android.view.View.OnClickListener
-                            public final void onClick(View view2) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                    eu4.c(str4, str, webView, view2);
-                                }
-                            }
-                        });
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (TBAlertConfig.OperateBtnConfig) invokeLLLLL.objValue;
-    }
-
-    public static final void c(String str, String id, WebView webView, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, str, id, webView, view2) == null) {
-            Intrinsics.checkNotNullParameter(id, "$id");
-            Intrinsics.checkNotNullParameter(webView, "$webView");
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("resultCode", 1);
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("dialogId", str);
-            hashMap.put("btnId", id);
-            ej6.a().d(webView, "showDialog", hashMap);
-        }
-    }
-
-    public static final boolean d(Activity activity, final WebView webView, int i, String str, final String str2) {
-        InterceptResult invokeCommon;
-        JSONObject a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{activity, webView, Integer.valueOf(i), str, str2})) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            if (i == 1 && (a = cn6.a.a(str)) != null) {
-                String optString = a.optString("title");
-                String optString2 = a.optString("desc");
-                JSONArray optJSONArray = a.optJSONArray("btn");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Object opt = optJSONArray.opt(i2);
-                        if (opt instanceof JSONObject) {
-                            JSONObject jSONObject = (JSONObject) opt;
-                            String id = jSONObject.optString("id");
-                            String text = jSONObject.optString("text");
-                            String style = jSONObject.optString("style");
-                            Intrinsics.checkNotNullExpressionValue(id, "id");
-                            Intrinsics.checkNotNullExpressionValue(text, "text");
-                            Intrinsics.checkNotNullExpressionValue(style, "style");
-                            TBAlertConfig.OperateBtnConfig b = b(id, text, style, str2, webView);
-                            if (b != null) {
-                                arrayList.add(b);
-                            }
-                        }
-                    }
-                }
-                int size = arrayList.size();
-                if (size < 1) {
-                    return false;
-                }
-                if (size > 3) {
-                    size = 3;
-                }
-                TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[size];
-                for (int i3 = 0; i3 < size; i3++) {
-                    operateBtnConfigArr[i3] = (TBAlertConfig.OperateBtnConfig) arrayList.get(i3);
-                }
-                new TBAlertBuilder(activity).setTitleStr(optString).setDescStr(optString2).setCancelable(true).setAutoClose().setOperateBtn((TBAlertConfig.OperateBtnConfig[]) Arrays.copyOf(operateBtnConfigArr, size)).show().setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.au4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public final void onCancel(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            eu4.e(str2, webView, dialogInterface);
-                        }
-                    }
-                });
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static final void e(String str, WebView webView, DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, webView, dialogInterface) == null) {
-            Intrinsics.checkNotNullParameter(webView, "$webView");
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("resultCode", 2);
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("dialogId", str);
-            ej6.a().d(webView, "showDialog", hashMap);
         }
     }
 }

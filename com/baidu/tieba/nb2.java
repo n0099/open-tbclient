@@ -1,109 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.dp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class nb2 {
+public class nb2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-581009234, "Lcom/baidu/tieba/nb2$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-581009234, "Lcom/baidu/tieba/nb2$a;");
-            }
-        }
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    np2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                if (b != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (nb2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    np2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (nb2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                if (a != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -118,29 +29,58 @@ public final class nb2 {
                 return;
             }
         }
-        a = rm1.a;
+        a = sm1.a;
     }
 
-    public static void b(f33 f33Var, Bundle bundle) {
+    public static mb2 a(PMSAppInfo pMSAppInfo, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, f33Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
+            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
+                return null;
             }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            y23 y23Var = new y23(122, bundle2);
-            if (!f33Var.T() && a.c()) {
-                f33Var.f0(y23Var.h());
+            File i = dp2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+            if (!i.exists()) {
+                if (a) {
+                    Log.w("PrefetchUtils", "aiapp dir not exist ");
+                }
+                return null;
+            }
+            mb2 mb2Var = new mb2();
+            if (new File(i, "app.json").exists()) {
+                if (a) {
+                    Log.d("PrefetchUtils", "find main pkg's app config file");
+                }
+                mb2Var.a = i;
+                return mb2Var;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
             } else {
-                w23 e = w23.e();
-                y23Var.b(f33Var.b);
-                y23Var.p(true);
-                e.h(y23Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+                String g = zj3.g(str);
+                int lastIndexOf = g.lastIndexOf(File.separator);
+                if (lastIndexOf >= 0) {
+                    g = g.substring(0, lastIndexOf);
+                }
+                if (!new File(i, g).exists()) {
+                    return null;
+                }
+                int lastIndexOf2 = g.lastIndexOf(File.separator);
+                while (lastIndexOf2 >= 0) {
+                    g = g.substring(0, lastIndexOf2);
+                    if (new File(i, g + File.separator + "app.json").exists()) {
+                        if (a) {
+                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
+                        }
+                        mb2Var.b = true;
+                        mb2Var.c = g;
+                        mb2Var.a = new File(i, g);
+                        return mb2Var;
+                    }
+                    lastIndexOf2 = g.lastIndexOf(File.separator);
+                }
+                return null;
             }
         }
+        return (mb2) invokeLL.objValue;
     }
 }

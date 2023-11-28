@@ -1,277 +1,315 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import androidx.annotation.NonNull;
+import android.content.res.Configuration;
+import android.os.Parcelable;
+import android.util.AttributeSet;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.Fragment;
-import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class ak4<E> extends yj4 {
+public class ak4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public final Context b;
-    public final Handler c;
-    public final ck4 d;
-    public rk4<String, fk4> e;
-    public gk4 f;
-    public boolean g;
-    public boolean h;
+    public final bk4<?> a;
 
-    public abstract void m(Fragment fragment);
-
-    public abstract void n(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    public abstract LayoutInflater o();
-
-    public abstract int p();
-
-    public abstract boolean q();
-
-    public abstract void r(@NonNull Fragment fragment, @NonNull String[] strArr, int i);
-
-    public abstract boolean s(Fragment fragment);
-
-    public abstract void t(Fragment fragment, Intent intent, int i);
-
-    public abstract void u();
-
-    public ak4(Activity activity, Context context, Handler handler, int i) {
+    public ak4(bk4<?> bk4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, context, handler, Integer.valueOf(i)};
+            Object[] objArr = {bk4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ck4();
-        this.a = activity;
-        this.b = context;
-        this.c = handler;
+        this.a = bk4Var;
     }
 
-    public void f(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public static final ak4 b(bk4<?> bk4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mLoadersStarted=");
-            printWriter.println(this.h);
-            if (this.f != null) {
-                printWriter.print(str);
-                printWriter.print("Loader Manager ");
-                printWriter.print(Integer.toHexString(System.identityHashCode(this.f)));
-                printWriter.println(":");
-                gk4 gk4Var = this.f;
-                gk4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bk4Var)) == null) {
+            return new ak4(bk4Var);
+        }
+        return (ak4) invokeL.objValue;
+    }
+
+    public void D(sk4<String, gk4> sk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sk4Var) == null) {
+            this.a.w(sk4Var);
+        }
+    }
+
+    public void a(Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
+            bk4<?> bk4Var = this.a;
+            bk4Var.d.j(bk4Var, bk4Var, fragment);
+        }
+    }
+
+    public void d(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
+            this.a.d.o(configuration);
+        }
+    }
+
+    public boolean e(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
+            return this.a.d.p(menuItem);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, menuItem)) == null) {
+            return this.a.d.v(menuItem);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, menu) == null) {
+            this.a.d.w(menu);
+        }
+    }
+
+    public boolean m(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, menu)) == null) {
+            return this.a.d.y(menu);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.a.e(z);
+        }
+    }
+
+    public List<Fragment> w(List<Fragment> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, list)) == null) {
+            if (this.a.d.d == null) {
+                return null;
             }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ak4(FragmentActivity fragmentActivity) {
-        this(fragmentActivity, fragmentActivity, fragmentActivity.a, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (Context) objArr2[1], (Handler) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (list == null) {
+                list = new ArrayList<>(x());
             }
+            list.addAll(this.a.d.d);
+            return list;
         }
+        return (List) invokeL.objValue;
     }
 
-    public void c() {
-        gk4 gk4Var;
+    public View A(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (gk4Var = this.f) == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+            return this.a.d.onCreateView(view2, str, context, attributeSet);
         }
-        gk4Var.b();
+        return (View) invokeLLLL.objValue;
     }
 
-    public Activity g() {
+    public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, fileDescriptor, printWriter, strArr) == null) {
+            this.a.f(str, fileDescriptor, printWriter, strArr);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.v();
+        }
+    }
+
+    public sk4<String, gk4> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+            return this.a.x();
         }
-        return (Activity) invokeV.objValue;
+        return (sk4) invokeV.objValue;
     }
 
-    public Context h() {
+    public List<Fragment> F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+            return this.a.d.c0();
         }
-        return (Context) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public ck4 i() {
+    public Parcelable G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
+            return this.a.d.e0();
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.d.n();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.d.q();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.a.d.s();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.d.u();
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.d.x();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.a.d.z();
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.a.d.A();
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.a.d.B();
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.a.d.C();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.a.c();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.a.d();
+        }
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.a.d.E();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            ArrayList<Fragment> arrayList = this.a.d.d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public ck4 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.a.i();
         }
         return (ck4) invokeV.objValue;
     }
 
-    public Handler j() {
-        InterceptResult invokeV;
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        gk4 gk4Var = this.f;
-        if (gk4Var != null) {
-            gk4Var.f();
-        } else if (!this.g) {
-            gk4 k = k("(root)", true, false);
-            this.f = k;
-            if (k != null && !k.d) {
-                k.f();
-            }
-        }
-        this.g = true;
-    }
-
-    public void v() {
-        rk4<String, fk4> rk4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (rk4Var = this.e) != null) {
-            int size = rk4Var.size();
-            gk4[] gk4VarArr = new gk4[size];
-            for (int i = size - 1; i >= 0; i--) {
-                gk4VarArr[i] = (gk4) this.e.k(i);
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                gk4 gk4Var = gk4VarArr[i2];
-                gk4Var.i();
-                gk4Var.d();
-            }
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            this.a.d.V();
         }
     }
 
-    public void e(boolean z) {
-        gk4 gk4Var;
+    public void C(Parcelable parcelable, List<Fragment> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (gk4Var = this.f) == null || !this.h) {
-            return;
-        }
-        this.h = false;
-        if (z) {
-            gk4Var.e();
-        } else {
-            gk4Var.g();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, parcelable, list) == null) {
+            this.a.d.b0(parcelable, list);
         }
     }
 
-    public void l(String str) {
-        rk4<String, fk4> rk4Var;
-        gk4 gk4Var;
+    public boolean g(Menu menu, MenuInflater menuInflater) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && (rk4Var = this.e) != null && (gk4Var = (gk4) rk4Var.get(str)) != null && !gk4Var.e) {
-            gk4Var.b();
-            this.e.remove(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, menu, menuInflater)) == null) {
+            return this.a.d.r(menu, menuInflater);
         }
-    }
-
-    public void w(rk4<String, fk4> rk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, rk4Var) == null) {
-            this.e = rk4Var;
-        }
-    }
-
-    public gk4 k(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.e == null) {
-                this.e = new rk4<>();
-            }
-            gk4 gk4Var = (gk4) this.e.get(str);
-            if (gk4Var == null) {
-                if (z2) {
-                    gk4 gk4Var2 = new gk4(str, this, z);
-                    this.e.put(str, gk4Var2);
-                    return gk4Var2;
-                }
-                return gk4Var;
-            }
-            gk4Var.k(this);
-            return gk4Var;
-        }
-        return (gk4) invokeCommon.objValue;
-    }
-
-    public rk4<String, fk4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            rk4<String, fk4> rk4Var = this.e;
-            int i = 0;
-            if (rk4Var != null) {
-                int size = rk4Var.size();
-                gk4[] gk4VarArr = new gk4[size];
-                for (int i2 = size - 1; i2 >= 0; i2--) {
-                    gk4VarArr[i2] = (gk4) this.e.k(i2);
-                }
-                int i3 = 0;
-                while (i < size) {
-                    gk4 gk4Var = gk4VarArr[i];
-                    if (gk4Var.e) {
-                        i3 = 1;
-                    } else {
-                        gk4Var.b();
-                        this.e.remove(gk4Var.c);
-                    }
-                    i++;
-                }
-                i = i3;
-            }
-            if (i != 0) {
-                return this.e;
-            }
-            return null;
-        }
-        return (rk4) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

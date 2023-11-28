@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TagsInfo;
-import tbclient.ThemeColorInfo;
+import tbclient.ItemPoint;
 /* loaded from: classes6.dex */
-public class g4d extends qoc {
+public class g4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TagsInfo tagsInfo) {
+    public static JSONObject b(@NonNull ItemPoint itemPoint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tagsInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemPoint)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ThemeColorInfo themeColorInfo = tagsInfo.img_info;
-            if (themeColorInfo != null) {
-                qoc.a(jSONObject, "img_info", q4d.b(themeColorInfo));
-            }
+            ltc.a(jSONObject, "time_intval", itemPoint.time_intval);
+            ltc.a(jSONObject, Config.EVENT_HEAT_POINT, itemPoint.point);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

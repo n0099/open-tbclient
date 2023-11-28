@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsBottomActivity;
-import tbclient.FrsBottomActivityTime;
+import tbclient.ActivityInfo;
 /* loaded from: classes8.dex */
-public class utc extends qoc {
+public class utc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottomActivity frsBottomActivity) {
+    public static JSONObject b(@NonNull ActivityInfo activityInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activityInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "title", frsBottomActivity.title);
-            qoc.a(jSONObject, "abstract", frsBottomActivity._abstract);
-            qoc.a(jSONObject, "image", frsBottomActivity.image);
-            qoc.a(jSONObject, "icon", frsBottomActivity.icon);
-            qoc.a(jSONObject, BigdayActivityConfig.JUMP_URL, frsBottomActivity.jump_url);
-            FrsBottomActivityTime frsBottomActivityTime = frsBottomActivity.activity_time;
-            if (frsBottomActivityTime != null) {
-                qoc.a(jSONObject, "activity_time", vtc.b(frsBottomActivityTime));
-            }
+            ltc.a(jSONObject, "activity_id", activityInfo.activity_id);
+            ltc.a(jSONObject, "main_title", activityInfo.main_title);
+            ltc.a(jSONObject, "sub_title", activityInfo.sub_title);
+            ltc.a(jSONObject, "back_pic", activityInfo.back_pic);
+            ltc.a(jSONObject, "back_pic_width", activityInfo.back_pic_width);
+            ltc.a(jSONObject, "back_pic_height", activityInfo.back_pic_height);
+            ltc.a(jSONObject, "subpage_link", activityInfo.subpage_link);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

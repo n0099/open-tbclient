@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.i1;
+import com.kuaishou.weapon.p0.bi;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.EOFException;
 import java.io.File;
@@ -1097,7 +1097,7 @@ public class i {
                         try {
                             if (!TextUtils.isEmpty(apkInfo.packageName) && !TextUtils.isEmpty(apkInfo.pkgPath)) {
                                 if (a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, apkInfo.pkgPath)) {
-                                    apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + i1.j + apkInfo.key;
+                                    apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + bi.j + apkInfo.key;
                                     String str = apkInfo.dataDir + "/dex";
                                     String str2 = (apkInfo.dataDir + "/lib/" + this.a) + "/" + t.a();
                                     a(str);
@@ -1131,7 +1131,7 @@ public class i {
                                 apkInfo.className = applicationInfo.className;
                                 apkInfo.versionName = packageInfo.versionName;
                                 apkInfo.applicationTheme = applicationInfo.theme;
-                                apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + i1.j + apkInfo.key;
+                                apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + bi.j + apkInfo.key;
                                 String str3 = apkInfo.dataDir + "/dex";
                                 String str4 = (apkInfo.dataDir + "/lib/" + this.a) + "/" + t.a();
                                 a(str3);

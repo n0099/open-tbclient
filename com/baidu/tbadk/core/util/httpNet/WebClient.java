@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
-import com.baidu.tieba.bb;
+import com.baidu.tieba.ab;
 import com.baidu.tieba.cb;
 import com.baidu.tieba.db;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.wd;
-import com.baidu.tieba.za;
+import com.baidu.tieba.eb;
+import com.baidu.tieba.sb;
+import com.baidu.tieba.xd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes4.dex */
-public class WebClient implements rb.a {
+public class WebClient implements sb.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGEGIF = "image/gif";
     public static final String IMAGESECRET = "app:tiebaclient;type:0;";
@@ -50,11 +50,11 @@ public class WebClient implements rb.a {
     public boolean isCrackPic;
     public boolean isGif;
     public boolean isGzip;
-    public volatile za mBdHttpManager2;
-    public bb mContext;
+    public volatile ab mBdHttpManager2;
+    public cb mContext;
     public boolean mIsRequestSuccess;
     public HashMap<String, String> mPostList;
-    public db mResponse;
+    public eb mResponse;
     public BdHttpStat mStat;
     public boolean needCache;
     public int responseCode;
@@ -98,7 +98,7 @@ public class WebClient implements rb.a {
         }
         this.mBdHttpManager2 = null;
         this.mPostList = null;
-        this.mResponse = new db();
+        this.mResponse = new eb();
         this.isGzip = false;
         this.isGif = false;
         this.exception = "";
@@ -192,20 +192,20 @@ public class WebClient implements rb.a {
                         cancel();
                         this.mBdHttpManager2 = null;
                     }
-                    bb bbVar = new bb();
-                    this.mContext = bbVar;
-                    bbVar.b().s(str);
+                    cb cbVar = new cb();
+                    this.mContext = cbVar;
+                    cbVar.b().s(str);
                     this.mContext.b().n(UseHttpAutoRetrySwitch.isOn());
-                    cb b = this.mContext.b();
+                    db b = this.mContext.b();
                     b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.mBdHttpManager2 = new za(this.mContext);
+                    this.mBdHttpManager2 = new ab(this.mContext);
                     this.mBdHttpManager2.d(RETRYCOUNT, 0, 0);
-                    db c = this.mContext.c();
+                    eb c = this.mContext.c();
                     this.mResponse = c;
                     if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                         if (!"no-cache".equals(list.get(0))) {
@@ -315,7 +315,7 @@ public class WebClient implements rb.a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rb.a
+    @Override // com.baidu.tieba.sb.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mBdHttpManager2 != null) {
@@ -323,13 +323,13 @@ public class WebClient implements rb.a {
         }
     }
 
-    public db getResponse() {
+    public eb getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mResponse;
         }
-        return (db) invokeV.objValue;
+        return (eb) invokeV.objValue;
     }
 
     public boolean needCache() {
@@ -432,7 +432,7 @@ public class WebClient implements rb.a {
                 if (this.mIsRequestSuccess && ((z || z2) && new String(downloadBytesInternal, 0, 23).equalsIgnoreCase(IMAGESECRET))) {
                     downloadBytesInternal = copyOfRange(downloadBytesInternal, 23, downloadBytesInternal.length);
                 }
-                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(wd.d(downloadBytesInternal))) {
+                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(xd.d(downloadBytesInternal))) {
                     TiebaStatic.log(new StatisticItem("image_time_err").addParam("obj_source", str).addParam("obj_param1", TbadkCoreApplication.getInst().getCurrentActivity() + "").addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis()));
                 }
                 return downloadBytesInternal;

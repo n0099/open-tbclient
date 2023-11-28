@@ -1,49 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
-import com.baidu.tieba.u27;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes8.dex */
-public final class t97 implements j97 {
+public final class t97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u27.p a;
 
-    public t97() {
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<nb7<? extends Object>> mutableList, n67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, threadRecommendInfo, mutableList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            mutableList.add(new ob7(new r47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
         }
-        this.a = u27.a().f();
     }
 
-    @Override // com.baidu.tieba.j97
-    public SpannableString b(Context context, k77 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
+    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString a = this.a.a(context, richTextData.a());
-            Intrinsics.checkNotNullExpressionValue(a, "resolver.create(context,…ichTextData.businessInfo)");
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
+            threadRecommendInfoData.parseProto(threadRecommendInfo);
+            return threadRecommendInfoData;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

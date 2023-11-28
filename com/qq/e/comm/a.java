@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes10.dex */
@@ -51,7 +51,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {h.a, "android.permission.ACCESS_NETWORK_STATE", h.d};
+                String[] strArr = {g.a, "android.permission.ACCESS_NETWORK_STATE", g.d};
                 int i = 0;
                 while (true) {
                     if (i < 3) {

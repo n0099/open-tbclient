@@ -1,32 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes6.dex */
-public class gad {
+public class gad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
+    @NonNull
+    public static JSONObject b(@NonNull TitleComponent titleComponent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog != null && dialog.isShowing()) {
-                dialog.dismiss();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, titleComponent)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (titleComponent.data != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedContentResource feedContentResource : titleComponent.data) {
+                    jSONArray.put(exc.b(feedContentResource));
+                }
+                ltc.a(jSONObject, "data", jSONArray);
             }
+            return jSONObject;
         }
-    }
-
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog != null && dialog.isShowing()) {
-                dialog.cancel();
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

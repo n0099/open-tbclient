@@ -1,5 +1,6 @@
 package kotlin.time;
 
+import com.baidu.tieba.ms;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
@@ -62,7 +63,7 @@ public class DurationUnitKt__DurationUnitKt extends DurationUnitKt__DurationUnit
                             } else if (shortName.equals(NotificationStyle.NOTIFICATION_STYLE)) {
                                 return DurationUnit.NANOSECONDS;
                             }
-                        } else if (shortName.equals("ms")) {
+                        } else if (shortName.equals(ms.c)) {
                             return DurationUnit.MILLISECONDS;
                         }
                     } else if (shortName.equals("s")) {
@@ -89,7 +90,7 @@ public class DurationUnitKt__DurationUnitKt extends DurationUnitKt__DurationUnit
             case 2:
                 return "us";
             case 3:
-                return "ms";
+                return ms.c;
             case 4:
                 return "s";
             case 5:

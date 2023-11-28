@@ -1,150 +1,97 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.WorkerThread;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
 /* loaded from: classes9.dex */
-public class ys5 {
+public final class ys5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public b h;
-    public Runnable i;
 
-    /* loaded from: classes9.dex */
-    public interface b {
-        void onCountDown(long j, long j2);
-
-        void onCountDownFinish(long j);
-    }
-
-    /* loaded from: classes9.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ys5 a;
-
-        public a(ys5 ys5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ys5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ys5Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948340750, "Lcom/baidu/tieba/ys5;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (this.a.g > this.a.f) {
-                    ys5 ys5Var = this.a;
-                    ys5Var.f = currentTimeMillis - ys5Var.d;
-                    ys5 ys5Var2 = this.a;
-                    ys5Var2.g = ys5Var2.f;
-                }
-                long j = currentTimeMillis - this.a.f;
-                ys5 ys5Var3 = this.a;
-                ys5.h(ys5Var3, ys5Var3.d);
-                if (this.a.c >= this.a.b) {
-                    ys5 ys5Var4 = this.a;
-                    ys5Var4.c = ys5Var4.b;
-                    this.a.n();
-                } else {
-                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
-                    if (this.a.h != null) {
-                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
-                    }
-                }
-                this.a.f = currentTimeMillis;
-            }
-        }
-    }
-
-    public ys5(long j, long j2) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948340750, "Lcom/baidu/tieba/ys5;");
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0031 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x000f */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
+    /* JADX WARN: Type inference failed for: r4v0, types: [android.content.Context, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    /* JADX WARN: Type inference failed for: r4v2 */
+    /* JADX WARN: Type inference failed for: r4v3, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v5, types: [java.io.InputStream] */
+    @JvmStatic
+    @WorkerThread
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final String a(Context context, String fileName) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, fileName)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(fileName, "fileName");
+            InputStream inputStream = null;
+            try {
+                try {
+                    context = context.getAssets().open(fileName);
+                    try {
+                        byte[] bArr = new byte[context.available()];
+                        context.read(bArr);
+                        String str = new String(bArr, Charsets.UTF_8);
+                        if (context != 0) {
+                            context.close();
+                        }
+                        return str;
+                    } catch (Exception e) {
+                        e = e;
+                        BdLog.e(e);
+                        if (context == 0) {
+                            return null;
+                        }
+                        context.close();
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream = context;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                context = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream != null) {
+                }
+                throw th;
             }
-        }
-        this.a = new Handler(Looper.getMainLooper());
-        this.i = new a(this);
-        this.b = j;
-        this.d = j2;
-    }
-
-    public void o(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.h = bVar;
-        }
-    }
-
-    public static /* synthetic */ long h(ys5 ys5Var, long j) {
-        long j2 = ys5Var.c + j;
-        ys5Var.c = j2;
-        return j2;
-    }
-
-    public final void n() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
-            bVar.onCountDownFinish(this.b);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.e = currentTimeMillis;
-            this.f = currentTimeMillis;
-            b bVar = this.h;
-            if (bVar != null) {
-                long j = this.b;
-                bVar.onCountDown(j, j - this.c);
-            }
-            this.a.postDelayed(this.i, this.d);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j = this.e;
-            this.f = j;
-            this.g = j;
-            this.a.removeCallbacks(this.i);
+        } else {
+            return (String) invokeLL.objValue;
         }
     }
 }

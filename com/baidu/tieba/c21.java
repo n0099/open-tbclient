@@ -1,120 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class c21 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final long b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622759, "Lcom/baidu/tieba/c21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622759, "Lcom/baidu/tieba/c21;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947622759, "Lcom/baidu/tieba/c21;")) == null) {
+            return;
         }
-        a = TimeUnit.DAYS.toMillis(1L);
-        TimeUnit.HOURS.toMillis(1L);
-        b = TimeUnit.MINUTES.toMillis(1L);
-        TimeUnit.SECONDS.toMillis(1L);
-    }
-
-    public static int a(@NonNull String str, @NonNull String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
-            String b2 = b(str, str2);
-            if (TextUtils.isEmpty(b2)) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(b2);
-            } catch (NumberFormatException unused) {
-                return i;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeLLI.intValue;
-    }
-
-    public static void e(@NonNull String str, @NonNull String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
-            f(str, str2, String.valueOf(i));
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947622759, "Lcom/baidu/tieba/c21;");
         }
     }
 
-    @Nullable
-    public static String b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        int indexOf;
+    public static double a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            String string = xy0.a().b(str).getString(str2, null);
-            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
-                return null;
-            }
-            return string.substring(indexOf + 1);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1.0d - ((((Color.red(i) * 0.299d) + (Color.green(i) * 0.587d)) + (Color.blue(i) * 0.114d)) / 255.0d);
         }
-        return (String) invokeLL.objValue;
+        return invokeI.doubleValue;
     }
 
-    public static boolean c(long j, long j2, int i) {
-        InterceptResult invokeCommon;
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
-            if (j - j2 > i * b) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a(i) >= 0.3d) {
                 return true;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = xy0.a().b(str).edit();
-            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
-            edit.apply();
-        }
-    }
-
-    public static boolean d(@Nullable String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int i = a;
+            if (i >= 0) {
+                if (i != 1) {
+                    return false;
+                }
+                return true;
             }
-            long j2 = 0;
-            try {
-                j2 = Long.parseLong(str);
-            } catch (NumberFormatException unused) {
+            if ("Xiaomi".equals(zf0.c().g(true))) {
+                a = 1;
             }
-            long j3 = a;
-            if (j2 / j3 != j / j3) {
+            if (a != 1) {
                 return false;
             }
             return true;
         }
-        return invokeLJ.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @TargetApi(21)
+    @Deprecated
+    public static void d(Window window, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i) == null) && window != null) {
+            try {
+                if (c()) {
+                    if (e(window, !b(i))) {
+                        window.setStatusBarColor(i);
+                    }
+                } else {
+                    if (i == -16777216 && window.getNavigationBarColor() == -16777216) {
+                        window.clearFlags(Integer.MIN_VALUE);
+                    } else {
+                        window.addFlags(Integer.MIN_VALUE);
+                        int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+                        if (b(i)) {
+                            i2 = systemUiVisibility & (-8193);
+                        } else {
+                            i2 = systemUiVisibility | 8192;
+                        }
+                        window.getDecorView().setSystemUiVisibility(i2);
+                    }
+                    window.setStatusBarColor(i);
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static boolean e(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i));
+                    }
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

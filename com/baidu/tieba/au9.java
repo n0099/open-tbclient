@@ -1,171 +1,95 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.gu9;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public abstract class au9<V extends gu9, D extends IBaseDialogData> implements fu9 {
+public class au9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewHelper.ViewCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-
-        public a(au9 au9Var, AtomicBoolean atomicBoolean) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au9Var, atomicBoolean};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
             }
-            this.a = atomicBoolean;
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
         }
+        return (SpannableString) invokeLI.objValue;
+    }
 
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
-                }
-                return false;
+    public static void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void c(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
             }
-            return invokeL.booleanValue;
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
         }
     }
 
-    public au9(TbPageContext tbPageContext, V v, D d) {
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
-    }
-
-    public void d(D d) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
-            v.c(d);
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
         }
     }
 
-    @Override // com.baidu.tieba.fu9
-    public void dismiss() {
-        AlertDialog alertDialog;
+    public static void g(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
-            xb.a(alertDialog, this.b.getPageActivity());
-        }
-    }
-
-    @Override // com.baidu.tieba.fu9
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                xb.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f100419).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            GreyUtil.grey(this.a);
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            xb.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.b.getPageActivity());
-            if (screenSize != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = screenSize.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = screenSize.widthPixels - (a2 * 2);
-                }
-            }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
         }
     }
 }

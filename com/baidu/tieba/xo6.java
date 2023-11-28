@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes9.dex */
-public class xo6 implements j87<Object> {
+public class xo6 implements eb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +29,22 @@ public class xo6 implements j87<Object> {
         }
     }
 
-    @Override // com.baidu.tieba.j87
-    public ab7<?> b(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.eb7
+    @NonNull
+    public List<mb7<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ThreadData)) {
-                return null;
-            }
-            d77 d77Var = new d77();
-            d77Var.a = obj;
-            return new bb7(new t27(d77Var), "fake_wall");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new fo6());
+            arrayList.add(new to6());
+            arrayList.add(new ho6());
+            arrayList.add(new vo6());
+            arrayList.add(new uo6());
+            arrayList.add(new ko6());
+            arrayList.add(new yo6());
+            return arrayList;
         }
-        return (ab7) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

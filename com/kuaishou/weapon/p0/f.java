@@ -2,8 +2,6 @@ package com.kuaishou.weapon.p0;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.net.UnknownHostException;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.MessageDigest;
 /* loaded from: classes10.dex */
-public class f {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 0;
-    public static final int b = 1;
-    public static final int c = 2;
-    public static final int d = 3;
-    public static final int e = -1;
-    public static int f = -1;
-    public static int g;
-    public static ThreadLocal<StringBuilder> h;
+public final class f {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +32,7 @@ public class f {
                 return;
             }
         }
-        h = new ThreadLocal<>();
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public f() {
@@ -57,124 +49,152 @@ public class f {
         }
     }
 
-    public static String a(Throwable th) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
+    public static String a(byte b) {
+        InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (th == null) {
-                return "";
+        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
             }
-            for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
-                if (th2 instanceof UnknownHostException) {
-                    return "";
+            return a[b / 16] + a[b % 16];
+        }
+        return (String) invokeB.objValue;
+    }
+
+    public static String a(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        MessageDigest messageDigest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file != null && file.exists()) {
+                try {
+                    messageDigest = MessageDigest.getInstance("MD5");
+                    fileInputStream = new FileInputStream(file);
+                } catch (Throwable unused) {
+                    fileInputStream = null;
+                }
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    String c = c(messageDigest.digest());
+                    try {
+                        fileInputStream.close();
+                    } catch (Throwable unused2) {
+                    }
+                    return c;
+                } catch (Throwable unused3) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Throwable unused4) {
+                        }
+                    }
+                    return null;
                 }
             }
-            StringWriter stringWriter = new StringWriter();
-            th.printStackTrace(new PrintWriter(stringWriter));
-            return stringWriter.toString();
+            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static void a(int i, String str) {
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-        if (stackTrace.length < 3) {
-            return;
-        }
-        String fileName = stackTrace[2].getFileName();
-        int lineNumber = stackTrace[2].getLineNumber();
-        String methodName = stackTrace[2].getMethodName();
-        if (fileName.length() > 5) {
-            fileName = fileName.substring(0, fileName.length() - 5);
-        }
-        StringBuilder sb = h.get();
-        if (sb == null) {
-            sb = new StringBuilder();
-            h.set(sb);
-        }
-        synchronized (sb) {
-            sb.setLength(0);
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            sb.append(g);
-            sb.append("][");
-            sb.append(fileName);
-            sb.append(':');
-            sb.append(lineNumber);
-            sb.append(IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(methodName);
-            sb.append("] ");
-            sb.append(str);
-            g++;
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            int i = f;
-            if (i == -1 || i == 0 || i == 1) {
-                a(1, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+            char[] cArr2 = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                byte b = bArr[i];
+                int i2 = i * 2;
+                cArr2[i2] = cArr[(b >>> 4) & 15];
+                cArr2[i2 + 1] = cArr[b & 15];
             }
+            return new String(cArr2);
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void a(String str, Throwable th) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, th) == null) {
-            int i = f;
-            if (i == -1 || i == 0 || i == 1) {
-                a(1, str + "\n" + a(th));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String str2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            int i = f;
-            if (i == -1 || i == 0 || i == 1 || i == 2) {
-                a(2, str);
+            try {
+                String str3 = new String(str);
+                try {
+                    return a(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+                } catch (Throwable unused) {
+                    str2 = str3;
+                    return str2;
+                }
+            } catch (Throwable unused2) {
             }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    public static void b(String str, Throwable th) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, th) == null) {
-            int i = f;
-            if (i == -1 || i == 0 || i == 1 || i == 2) {
-                a(2, str + "\n" + a(th));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b : bArr) {
+                stringBuffer.append(a(b));
             }
+            return stringBuffer.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void c(String str) {
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            int i = f;
-            if (i == -1 || i == 0) {
-                a(0, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-        }
-    }
-
-    public static void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, th) == null) {
-            int i = f;
-            if (i == -1 || i == 0) {
-                a(0, str + "\n" + a(th));
+            if (bArr.length > 0) {
+                try {
+                } catch (Throwable unused) {
+                    return null;
+                }
             }
+            return a(MessageDigest.getInstance("MD5").digest(bArr));
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            if (bArr.length > 0) {
+                try {
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return MessageDigest.getInstance("MD5").digest(bArr);
         }
+        return (byte[]) invokeL.objValue;
     }
 }

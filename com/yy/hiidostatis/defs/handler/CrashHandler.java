@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static Context mContext;
     public static Thread.UncaughtExceptionHandler mDefaultHandler;
@@ -23,7 +23,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static IOnStatisListener mOnStatisListener;
     public static IStatisAPI mStatisAPI;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface OnHandlerListener {
         void handler(int i, String str, String str2);
     }

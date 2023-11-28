@@ -2,47 +2,53 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v92;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.miniapp.MiniApp;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class u13 {
+public abstract class u13 extends v13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract hy1 b(JSONObject jSONObject);
+    @Override // com.baidu.tieba.v13
+    public q13 f(r13 r13Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r13Var)) == null) {
+            return null;
+        }
+        return (q13) invokeL.objValue;
+    }
 
-    public abstract p13 f(q13 q13Var);
+    @Override // com.baidu.tieba.v13
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    public abstract String g();
-
-    public abstract String h();
-
-    public abstract hy1 j(String str, q13 q13Var);
-
-    public abstract boolean k();
-
-    public abstract hy1 m(q13 q13Var, s72<r13> s72Var);
+    public abstract void p(SwanAppActivity swanAppActivity, String str, r13 r13Var, tb3 tb3Var, t72<s13> t72Var);
 
     /* loaded from: classes8.dex */
-    public class a implements v92.b {
+    public class a implements um1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q13 a;
-        public final /* synthetic */ s72 b;
+        public final /* synthetic */ r13 a;
+        public final /* synthetic */ t72 b;
         public final /* synthetic */ u13 c;
 
-        public a(u13 u13Var, q13 q13Var, s72 s72Var) {
+        public a(u13 u13Var, r13 r13Var, t72 t72Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u13Var, q13Var, s72Var};
+                Object[] objArr = {u13Var, r13Var, t72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,49 +59,41 @@ public abstract class u13 {
                 }
             }
             this.c = u13Var;
-            this.a = q13Var;
-            this.b = s72Var;
+            this.a = r13Var;
+            this.b = t72Var;
         }
 
-        @Override // com.baidu.tieba.v92.b
-        public void a() {
+        @Override // com.baidu.tieba.um1
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                y13.b("payment fun page, your pkg is latest");
-            }
-        }
-
-        @Override // com.baidu.tieba.v92.b
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.c.d(this.a, true, this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.v92.b
-        public void b(zh3 zh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh3Var) == null) {
-                this.c.d(this.a, false, this.b);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.c.o(this.a, this.b);
+                    return;
+                }
+                s13 s13Var = new s13(this.a.f);
+                s13Var.a = this.a.e;
+                this.b.a(s13Var);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements b92 {
+    public class b implements al3<tb3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q13 a;
-        public final /* synthetic */ s72 b;
-        public final /* synthetic */ u13 c;
+        public final /* synthetic */ h63 a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ r13 c;
+        public final /* synthetic */ t72 d;
+        public final /* synthetic */ u13 e;
 
-        public b(u13 u13Var, q13 q13Var, s72 s72Var) {
+        public b(u13 u13Var, h63 h63Var, SwanAppActivity swanAppActivity, r13 r13Var, t72 t72Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u13Var, q13Var, s72Var};
+                Object[] objArr = {u13Var, h63Var, swanAppActivity, r13Var, t72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,24 +103,20 @@ public abstract class u13 {
                     return;
                 }
             }
-            this.c = u13Var;
-            this.a = q13Var;
-            this.b = s72Var;
+            this.e = u13Var;
+            this.a = h63Var;
+            this.b = swanAppActivity;
+            this.c = r13Var;
+            this.d = t72Var;
         }
 
-        @Override // com.baidu.tieba.b92
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.al3
+        /* renamed from: b */
+        public void a(tb3 tb3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a, true, this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.b92
-        public void b(int i, zh3 zh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zh3Var) == null) {
-                this.c.d(this.a, false, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tb3Var) == null) {
+                this.e.p(this.b, this.a.P(), this.c, tb3Var, this.d);
             }
         }
     }
@@ -141,101 +135,49 @@ public abstract class u13 {
         }
     }
 
-    public final void c(q13 q13Var, String str, s72<r13> s72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q13Var, str, s72Var) == null) {
-            y13.b("local has not main pkg, download fun page main pkg");
-            ih4 ih4Var = new ih4(str, f63.K().k());
-            ih4Var.q(0L);
-            ih4Var.t(q13Var.c);
-            ih4Var.d("3");
-            qd4.c(ih4Var, new v92(str, new a(this, q13Var, s72Var)));
-        }
-    }
-
-    public final void e(q13 q13Var, p13 p13Var, s72<r13> s72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, q13Var, p13Var, s72Var) == null) {
-            y13.b("main pkg is exist, download fun page sub pkg");
-            String str = p13Var.a;
-            int i = p13Var.d;
-            qd4.h(new lh4(str, i, e23.e(p13Var.c, p13Var.b), 0), new x92(str, String.valueOf(i), new b(this, q13Var, s72Var)));
-        }
-    }
-
-    public final void d(q13 q13Var, boolean z, s72<r13> s72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{q13Var, Boolean.valueOf(z), s72Var}) == null) {
-            if (z) {
-                p13 f = f(q13Var);
-                if (f != null && f.f) {
-                    y13.b("payment fun page, download success, ready to jump");
-                    j(f.c, q13Var);
-                    return;
-                }
-                y13.b("payment fun page, download success, but not exist");
-                r13 r13Var = new r13(q13Var.f);
-                r13Var.a = q13Var.e;
-                s72Var.a(r13Var);
-                return;
-            }
-            y13.b("payment fun page, download failed");
-            r13 r13Var2 = new r13(q13Var.f);
-            r13Var2.a = q13Var.e;
-            s72Var.a(r13Var2);
-        }
-    }
-
-    public final boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return TextUtils.equals(str, MiniApp.MINIAPP_VERSION_DEVELOP);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final hy1 l(q13 q13Var, s72<r13> s72Var) {
+    @Override // com.baidu.tieba.v13
+    public iy1 j(String str, r13 r13Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, q13Var, s72Var)) == null) {
-            y13.b("open fun page start");
-            if (q13Var != null && q13Var.a()) {
-                hy1 b2 = b(q13Var.g);
-                if (b2 != null) {
-                    y13.b("fun page args params invalid");
-                    return b2;
-                } else if (k()) {
-                    y13.b("open payment fun page");
-                    p13 f = f(q13Var);
-                    if (f == null) {
-                        return new hy1(1001, "fun page not exists");
-                    }
-                    if (!f.f) {
-                        y13.b("payment fun page, " + q13Var.d + " mode");
-                        if (i(q13Var.d)) {
-                            if (f.e) {
-                                e(q13Var, f, s72Var);
-                            } else {
-                                return new hy1(1001, "fun page not exists");
-                            }
-                        } else if (f.e) {
-                            e(q13Var, f, s72Var);
-                        } else {
-                            c(q13Var, f.a, s72Var);
-                        }
-                        y13.b("open fun page end");
-                        return new hy1(0);
-                    }
-                    return j(f.c, q13Var);
-                } else {
-                    y13.b("open user info or choose address fun page");
-                    return m(q13Var, s72Var);
-                }
-            }
-            y13.b("params parse fail");
-            return new hy1(202, "params parse fail");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, r13Var)) == null) {
+            return new iy1(0);
         }
-        return (hy1) invokeLL.objValue;
+        return (iy1) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v13
+    public iy1 m(r13 r13Var, t72<s13> t72Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, r13Var, t72Var)) == null) {
+            if (r13Var != null && !TextUtils.isEmpty(r13Var.a)) {
+                if (t72Var == null) {
+                    return new iy1(1001, "get fun page info, cb is null");
+                }
+                h63 q = g63.K().q();
+                SwanAppActivity w = q.w();
+                if (w != null && !w.isFinishing()) {
+                    if (!q.N().e(q)) {
+                        q.N().f(w, null, new a(this, r13Var, t72Var));
+                        return new iy1(1001, "not login");
+                    }
+                    o(r13Var, t72Var);
+                    return new iy1(0);
+                }
+                return new iy1(1001, "get fun page info, master has dead");
+            }
+            return new iy1(1001, "get fun page info, provider appKey is empty");
+        }
+        return (iy1) invokeLL.objValue;
+    }
+
+    public final void o(r13 r13Var, t72<s13> t72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, r13Var, t72Var) == null) {
+            z13.b("start get open data");
+            h63 q = g63.K().q();
+            SwanAppActivity w = q.w();
+            tb3.B(w, g(), r13Var.a, true, h(), new b(this, q, w, r13Var, t72Var));
+        }
     }
 }

@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import androidx.core.util.Pair;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.u27;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.RecommendBannerCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class to6 implements u27.p {
+public class to6 extends wa7<RecommendBannerCardView, e37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public to6() {
+        super("recommend_banner");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,57 +25,41 @@ public final class to6 implements u27.p {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.u27.p
-    public SpannableString a(Context context, e57 businessInfo) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            ThreadData threadData = new ThreadData();
-            String str = businessInfo.a().get("tiebaplus_ad");
-            if (str != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    threadData.tiePlusAdSource = jSONObject.optString("ad_source");
-                    threadData.tiePlusShowUrl = jSONObject.optString("show_url");
-                    threadData.tiePlusCostUrl = jSONObject.optString("cost_url");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            threadData.tiePlusMonitorShowUrl = businessInfo.a().get("exposure_monitor_url");
-            threadData.tiePlusMonitorClickUrl = businessInfo.a().get("click_monitor_url");
-            String str2 = businessInfo.a().get("works_info");
-            if (str2 != null) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.parseJson(new JSONObject(str2));
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.threadType = JavaTypesHelper.toInt(businessInfo.a().get("thread_type"), 0);
-            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(businessInfo.a().get("is_tiebaplus_ad"), "1");
-            threadData.tiebaPlusOrderId = businessInfo.a().get("tiebaplus_order_id");
-            threadData.tiebaPlusToken = businessInfo.a().get("tiebaplus_token");
-            threadData.tiebaPlusExtraParam = businessInfo.a().get("tiebaplus_extra_param");
-            threadData.tiebaplusCantDelete = Intrinsics.areEqual(businessInfo.a().get("tiebaplus_cant_delete"), "1");
-            Pair<CharSequence, qy5> r = iy5.r(35, threadData, so6.a(businessInfo));
-            if (r != null) {
-                CharSequence charSequence = r.first;
-                if (charSequence instanceof SpannableString) {
-                    if (charSequence != null) {
-                        return (SpannableString) charSequence;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type android.text.SpannableString");
-                }
-            }
-            return new SpannableString("");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
+            recommendBannerCardView.a(viewGroup);
+            fd7.i(recommendBannerCardView, Integer.valueOf(fd7.e() * 2));
+            return recommendBannerCardView;
         }
-        return (SpannableString) invokeLL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull e37 e37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, e37Var) == null) {
+            Object obj = e37Var.a().a;
+            if (obj instanceof nh8) {
+                recommendBannerCardView.setVisibility(0);
+                recommendBannerCardView.c((nh8) obj);
+                return;
+            }
+            recommendBannerCardView.setVisibility(8);
+        }
     }
 }

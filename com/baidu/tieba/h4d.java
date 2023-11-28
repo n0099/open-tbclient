@@ -5,22 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TailInfo;
+import tbclient.ItemService;
 /* loaded from: classes6.dex */
-public class h4d extends qoc {
+public class h4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TailInfo tailInfo) {
+    public static JSONObject b(@NonNull ItemService itemService) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tailInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemService)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "tail_type", tailInfo.tail_type);
-            qoc.a(jSONObject, "icon_url", tailInfo.icon_url);
-            qoc.a(jSONObject, "icon_link", tailInfo.icon_link);
-            qoc.a(jSONObject, "content", tailInfo.content);
+            ltc.a(jSONObject, "icon", itemService.icon);
+            ltc.a(jSONObject, "client_type", itemService.client_type);
+            ltc.a(jSONObject, "type", itemService.type);
+            ltc.a(jSONObject, "name", itemService.name);
+            ltc.a(jSONObject, "url", itemService.url);
+            ltc.a(jSONObject, "app_id", itemService.app_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

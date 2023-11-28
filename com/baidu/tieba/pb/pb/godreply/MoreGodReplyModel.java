@@ -5,12 +5,13 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.es9;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.nwa;
+import com.baidu.tieba.ow9;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.qw9;
-import com.baidu.tieba.vra;
-import com.baidu.tieba.ys9;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.q0a;
+import com.baidu.tieba.vv9;
+import com.baidu.tieba.wv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +27,8 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
     public boolean b;
     public int c;
     public int d;
-    public qw9.b e;
-    public final qw9.b f;
+    public q0a.b e;
+    public final q0a.b f;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -40,7 +41,7 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements qw9.b {
+    public class a implements q0a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreGodReplyModel a;
@@ -63,7 +64,7 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
             this.a = moreGodReplyModel;
         }
 
-        @Override // com.baidu.tieba.qw9.b
+        @Override // com.baidu.tieba.q0a.b
         public void a(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
@@ -74,23 +75,23 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
             }
         }
 
-        @Override // com.baidu.tieba.qw9.b
-        public void onSuccess(List<vra> list) {
-            ys9 T2;
+        @Override // com.baidu.tieba.q0a.b
+        public void onSuccess(List<nwa> list) {
+            ow9 W;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a.b = false;
-                if (this.a.a != null && this.a.a.t1() != null && (T2 = this.a.a.t1().T()) != null) {
-                    List<vra> list2 = T2.a;
+                if (this.a.a != null && this.a.a.s1() != null && (W = this.a.a.s1().W()) != null) {
+                    List<nwa> list2 = W.a;
                     int size = list2.size();
                     if (!ListUtils.isEmpty(list)) {
-                        for (vra vraVar : list) {
-                            if (vraVar != null && !MoreGodReplyModel.U(list2, vraVar)) {
-                                list2.add(vraVar);
+                        for (nwa nwaVar : list) {
+                            if (nwaVar != null && !MoreGodReplyModel.U(list2, nwaVar)) {
+                                list2.add(nwaVar);
                             }
                         }
                     }
-                    this.a.a.I2(this.a.a.t1(), size);
+                    wv9.i(this.a.a.s1(), size);
                 }
                 if (this.a.c > 0) {
                     MoreGodReplyModel moreGodReplyModel = this.a;
@@ -129,23 +130,23 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
             return;
         }
         this.a = pbModel;
-        qw9 p1 = pbModel.p1();
-        if (p1 != null) {
-            p1.f(this.f);
+        q0a o1 = pbModel.o1();
+        if (o1 != null) {
+            o1.f(this.f);
         }
     }
 
-    public static boolean U(List<vra> list, vra vraVar) {
+    public static boolean U(List<nwa> list, nwa nwaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, vraVar)) == null) {
-            if (list != null && vraVar != null) {
-                for (vra vraVar2 : list) {
-                    if (vraVar2 != null) {
-                        if (vraVar2 == vraVar) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, nwaVar)) == null) {
+            if (list != null && nwaVar != null) {
+                for (nwa nwaVar2 : list) {
+                    if (nwaVar2 != null) {
+                        if (nwaVar2 == nwaVar) {
                             return true;
                         }
-                        if (vraVar2.T() != null && vraVar.T() != null && vraVar2.T().equals(vraVar.T())) {
+                        if (nwaVar2.U() != null && nwaVar.U() != null && nwaVar2.U().equals(nwaVar.U())) {
                             return true;
                         }
                     }
@@ -157,14 +158,14 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
         return invokeLL.booleanValue;
     }
 
-    public void a0(qw9.b bVar) {
+    public void a0(q0a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public List<oi> V() {
+    public List<pi> V() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -174,22 +175,22 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
             if (pbModel == null) {
                 return null;
             }
-            es9 t1 = pbModel.t1();
-            if (t1 != null && t1.T() != null && !ListUtils.isEmpty(t1.T().a)) {
-                ys9 T2 = t1.T();
+            vv9 s1 = pbModel.s1();
+            if (s1 != null && s1.W() != null && !ListUtils.isEmpty(s1.W().a)) {
+                ow9 W = s1.W();
                 arrayList = new ArrayList();
-                List<vra> list = T2.a;
+                List<nwa> list = W.a;
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    vra vraVar = list.get(i);
-                    if (vraVar != null) {
-                        arrayList.add(vraVar);
+                    nwa nwaVar = list.get(i);
+                    if (nwaVar != null) {
+                        arrayList.add(nwaVar);
                         if (i < size - 1) {
                             z = true;
                         } else {
                             z = false;
                         }
-                        vraVar.P = z;
+                        nwaVar.P = z;
                     }
                 }
             }
@@ -229,18 +230,18 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
 
     public boolean X() {
         InterceptResult invokeV;
-        es9 t1;
-        ys9 T2;
+        vv9 s1;
+        ow9 W;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel == null || (t1 = pbModel.t1()) == null || (T2 = t1.T()) == null) {
+            if (pbModel == null || (s1 = pbModel.s1()) == null || (W = s1.W()) == null) {
                 return false;
             }
             if (this.d < 0) {
-                this.d = T2.a();
+                this.d = W.a();
             }
-            if (T2.b.size() <= this.d || T2.a.size() >= 100) {
+            if (W.b.size() <= this.d || W.a.size() >= 100) {
                 return false;
             }
             return true;
@@ -250,26 +251,26 @@ public class MoreGodReplyModel extends BdBaseModel<BdPageContext> {
 
     public boolean Z() {
         InterceptResult invokeV;
-        ys9 T2;
+        ow9 W;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            es9 t1 = this.a.t1();
-            if (t1 == null || (T2 = t1.T()) == null) {
+            vv9 s1 = this.a.s1();
+            if (s1 == null || (W = s1.W()) == null) {
                 return false;
             }
             if (this.d < 0) {
-                this.d = T2.a();
+                this.d = W.a();
             }
-            List<Long> list = T2.b;
+            List<Long> list = W.b;
             int size = list.size();
             int i = this.d;
-            if (size <= i || T2.a.size() >= 100) {
+            if (size <= i || W.a.size() >= 100) {
                 return false;
             }
             int min = Math.min(100, Math.min(i + 20, size));
             this.c = min;
             this.b = true;
-            this.a.p1().c(list.subList(i, min));
+            this.a.o1().c(list.subList(i, min));
             Log.d("more_god_reply", "load from " + i + " to " + min);
             return true;
         }

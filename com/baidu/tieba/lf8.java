@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.MoreTreasureTrove.DataRes;
+import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
 public class lf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i, @NonNull List<oi> list, @NonNull String str) {
-        InterceptResult invokeILL;
+    public static List<pi> a(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
-            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
-                while (i < list.size()) {
-                    i++;
-                    if (i >= list.size()) {
-                        return list.size();
-                    }
-                    if (list.get(i) instanceof gm6) {
-                        gm6 gm6Var = (gm6) list.get(i);
-                        if (gm6Var.getThreadData() == null || (!TextUtils.isEmpty(gm6Var.getThreadData().getTid()) && str.equals(gm6Var.getThreadData().getTid()))) {
-                        }
-                    }
-                    return i;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            return -1;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.isFromLowFlowsPage = true;
+                arrayList.add(threadData);
+            }
+            return zd8.a(arrayList);
         }
-        return invokeILL.intValue;
+        return (List) invokeL.objValue;
+    }
+
+    public static List<pi> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
+            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
+                return a(moreTreasureTroveResIdl.data.hot_thread_info);
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
     }
 }

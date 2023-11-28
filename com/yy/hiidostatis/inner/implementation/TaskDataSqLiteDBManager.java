@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 2;
     public SQLiteDatabase db;

@@ -52,8 +52,8 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.h;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -701,7 +701,7 @@ public class SapiUtils implements NoProguard {
         String str;
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission(h.c, context)) {
+                if (checkRequestPermission(g.c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {
@@ -1050,7 +1050,7 @@ public class SapiUtils implements NoProguard {
 
     public static String getCpuName() {
         try {
-            FileReader fileReader = new FileReader(k1.a);
+            FileReader fileReader = new FileReader(bk.a);
             String readLine = new BufferedReader(fileReader).readLine();
             fileReader.close();
             if (!TextUtils.isEmpty(readLine)) {
@@ -1146,7 +1146,7 @@ public class SapiUtils implements NoProguard {
                     str = str.replace(":", "");
                 }
             }
-            if (checkRequestPermission(h.h, context) && checkRequestPermission(h.g, context)) {
+            if (checkRequestPermission(g.h, context) && checkRequestPermission(g.g, context)) {
                 list = wifiManager.getScanResults();
             }
             if (list != null) {

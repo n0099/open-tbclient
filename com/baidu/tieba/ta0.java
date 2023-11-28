@@ -1,296 +1,163 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.DpStatFileWriter;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Process;
+import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes8.dex */
-public final class ta0 {
+public class ta0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ta0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ua0 a;
-    public ua0 b;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ta0 d;
-
-        public a(ta0 ta0Var, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ta0Var, Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ta0Var;
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a == 24) {
-                    this.d.b(this.b, this.c, 24);
-                }
-                this.d.b(this.b, this.c, 1);
-            }
-        }
-    }
-
-    public ta0() {
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            pa0.c(DpNetworkUtils.TAG, "getNetWorkInfo()");
+            if (context == null) {
+                return null;
             }
-        }
-        this.a = new ua0();
-        this.b = new ua0(DpStatFileWriter.PLAY_VIDEO_LIVE_SHOW_SESSION);
-    }
-
-    public static byte[] e(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            if (z) {
-                try {
-                    return qa0.b(bArr);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager != null) {
+                    return connectivityManager.getActiveNetworkInfo();
                 }
+            } catch (Exception unused) {
             }
-            return Base64.encode(bArr, 2);
+            return null;
         }
-        return (byte[]) invokeLZ.objValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public static synchronized ta0 g() {
+    public static boolean b() {
         InterceptResult invokeV;
-        ta0 ta0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (ta0.class) {
-                if (c == null) {
-                    c = new ta0();
-                }
-                ta0Var = c;
-            }
-            return ta0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            pa0.c(DpNetworkUtils.TAG, "shouldCheckPermission()");
+            return Build.VERSION.SDK_INT >= 23;
         }
-        return (ta0) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void b(String str, String str2, int i) {
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
-            String str3 = "https://browserkernel.baidu.com/kw?r_en=true&type=" + str2;
-            boolean z = true;
-            byte[] e = e(str.getBytes(), true);
-            if (e == null) {
-                e = e(str.getBytes(), false);
-                z = false;
-            }
-            if (d(qa0.a(e), str3, z)) {
-                f();
-            } else {
-                c(Base64.encode(qa0.a(e(str.getBytes(), false)), 2), i);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            pa0.c(DpNetworkUtils.TAG, "checkPermissionGranted()");
+            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
         }
+        return invokeLL.booleanValue;
     }
 
-    public final void c(byte[] bArr, int i) {
-        ua0 ua0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            if (i == 24) {
-                ua0Var = this.b;
-                if (ua0Var == null) {
-                    return;
-                }
-            } else {
-                ua0Var = this.a;
-                if (ua0Var == null) {
-                    return;
-                }
-            }
-            ua0Var.e(bArr);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00b2 */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0084, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0086, code lost:
-        r9.disconnect();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00a8, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ab, code lost:
-        r8 = -1;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00b0 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00b1 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x00bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r9v1 */
-    /* JADX WARN: Type inference failed for: r9v4, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean d(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        HttpURLConnection httpURLConnection;
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
+            return invokeL.booleanValue;
+        }
+        pa0.c(DpNetworkUtils.TAG, "checkPhonePermission()");
+        boolean z2 = true;
+        if (!b()) {
+            return true;
+        }
+        if (context == null) {
+            return false;
+        }
+        try {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.g.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
+                        if (!c(context, "android.permission.READ_CALL_LOG")) {
+                            z2 = false;
+                        }
+                    }
+                    return z2;
+                }
+                return z;
+            }
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
         int i;
+        TelephonyManager telephonyManager;
+        String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, bArr, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            pa0.c(DpNetworkUtils.TAG, "getNetworkStatisticsData()");
+            NetworkInfo a = a(context);
+            int i2 = 3;
+            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
+                i = 0;
+            } else if (a.getType() == 0) {
+                switch (a.getSubtype()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        i = 2;
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        i = 3;
+                        break;
+                    case 13:
+                        i = 4;
+                        break;
+                    default:
+                        i = 1;
+                        break;
+                }
+            } else {
+                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
             }
-            OutputStream outputStream = null;
+            int i3 = 99;
             try {
-                try {
-                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    try {
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setRequestMethod("POST");
-                        httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                        httpURLConnection.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                        if (z) {
-                            httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-                        }
-                        outputStream = httpURLConnection.getOutputStream();
-                        outputStream.write(bArr);
-                        outputStream.flush();
-                        i = httpURLConnection.getResponseCode();
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        if (httpURLConnection != null) {
-                            try {
-                                httpURLConnection.disconnect();
-                            } catch (Exception unused) {
-                            }
-                        }
-                    } catch (Error e2) {
-                        e = e2;
-                        oa0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                        oa0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
+                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
+                    i2 = 0;
+                } else {
+                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
+                        if (!subscriberId.startsWith("46001")) {
+                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
                         }
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (str != 0) {
-                        try {
-                            str.disconnect();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    throw th;
+                    i2 = 1;
                 }
-            } catch (Error e7) {
-                e = e7;
-                httpURLConnection = null;
-            } catch (Exception e8) {
-                e = e8;
-                httpURLConnection = null;
-            } catch (Throwable th2) {
-                th = th2;
-                str = 0;
-                if (0 != 0) {
-                }
-                if (str != 0) {
-                }
-                throw th;
+                i3 = i2;
+            } catch (Throwable th) {
+                pa0.e(DpNetworkUtils.TAG, "network changed: " + th);
             }
-            return i != 200;
+            return i + "_" + i3;
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ua0 ua0Var = this.a;
-            if (ua0Var != null) {
-                ua0Var.a();
-            }
-            ua0 ua0Var2 = this.b;
-            if (ua0Var2 != null) {
-                ua0Var2.a();
-            }
-        }
-    }
-
-    public void h(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, str2, i) == null) {
-            ka0.b().a(new a(this, i, str, str2));
-        }
+        return (String) invokeL.objValue;
     }
 }

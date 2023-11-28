@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class ibc {
+public final class ibc {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public abstract void a(String str);
-
-    public final boolean b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                gbc.b.f("sendBitmap2MainProcess channelId is null");
-                return false;
-            }
-            yac a = yac.c.a();
-            String str = this.a;
-            if (str == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.g(str, bitmap);
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        String a(gbc gbcVar);
     }
 
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                gbc.b.f("sendData2MainProcess: error channelId is empty or null");
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947849183, "Lcom/baidu/tieba/ibc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            yac a = yac.c.a();
-            String str2 = this.a;
-            if (str2 == null) {
-                Intrinsics.throwNpe();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947849183, "Lcom/baidu/tieba/ibc;");
+                return;
             }
-            return a.h(str2, str);
         }
-        return invokeL.booleanValue;
+        a = new HashMap();
+    }
+
+    public static Map<String, a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+    }
+
+    public static void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
+        }
     }
 }

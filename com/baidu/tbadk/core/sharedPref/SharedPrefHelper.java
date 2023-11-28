@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.r45;
+import com.baidu.tieba.v45;
+import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,7 +148,7 @@ public class SharedPrefHelper {
             }
         }
         DOWNGRADE_SET = new HashSet();
-        if (r45.a()) {
+        if (w45.a()) {
             DOWNGRADE_SET.add("key_splash_shake_ad_open");
             DOWNGRADE_SET.add("video_auto_play_new");
         }
@@ -171,12 +171,12 @@ public class SharedPrefHelper {
         this.kvMap = new ConcurrentHashMap<>();
         HashMap<String, String> hashMap = new HashMap<>();
         mProcessMap = hashMap;
-        hashMap.put(q45.a, "settings2");
-        mProcessMap.put(q45.b, "remote_settings2");
-        mProcessMap.put(q45.c, "bdservice_settings2");
-        mProcessMap.put(q45.d, q45.h);
-        mProcessMap.put(q45.e, q45.j);
-        mProcessMap.put(q45.f, q45.l);
+        hashMap.put(v45.a, "settings2");
+        mProcessMap.put(v45.b, "remote_settings2");
+        mProcessMap.put(v45.c, "bdservice_settings2");
+        mProcessMap.put(v45.d, v45.h);
+        mProcessMap.put(v45.e, v45.j);
+        mProcessMap.put(v45.f, v45.l);
         mContentResolver = TbadkCoreApplication.getInst().getContext().getContentResolver();
     }
 
@@ -344,9 +344,9 @@ public class SharedPrefHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = q45.n.length;
+                int length = v45.n.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(q45.n[i])) {
+                    if (str.equals(v45.n[i])) {
                         return true;
                     }
                 }
@@ -701,7 +701,7 @@ public class SharedPrefHelper {
             if (Build.VERSION.SDK_INT >= 28) {
                 return Application.getProcessName();
             }
-            String str = q45.a;
+            String str = v45.a;
             ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
             if (activityManager != null) {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();

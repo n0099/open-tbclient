@@ -5,37 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.NovelExt;
-import tbclient.ThemeColorInfo;
+import tbclient.CustomFigure;
 /* loaded from: classes6.dex */
-public class fwc extends qoc {
+public class fwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NovelExt novelExt) {
+    public static JSONObject b(@NonNull CustomFigure customFigure) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, novelExt)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, customFigure)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "chapter_time", novelExt.chapter_time);
-            qoc.a(jSONObject, "abstract", novelExt._abstract);
-            ThemeColorInfo themeColorInfo = novelExt.new_labels;
-            if (themeColorInfo != null) {
-                qoc.a(jSONObject, "new_labels", q4d.b(themeColorInfo));
-            }
-            ThemeColorInfo themeColorInfo2 = novelExt.chapter_bg_color;
-            if (themeColorInfo2 != null) {
-                qoc.a(jSONObject, "chapter_bg_color", q4d.b(themeColorInfo2));
-            }
-            ThemeColorInfo themeColorInfo3 = novelExt.chapter_name_color;
-            if (themeColorInfo3 != null) {
-                qoc.a(jSONObject, "chapter_name_color", q4d.b(themeColorInfo3));
-            }
-            ThemeColorInfo themeColorInfo4 = novelExt.chapter_time_color;
-            if (themeColorInfo4 != null) {
-                qoc.a(jSONObject, "chapter_time_color", q4d.b(themeColorInfo4));
-            }
+            ltc.a(jSONObject, "figure_url", customFigure.figure_url);
+            ltc.a(jSONObject, "background_type", customFigure.background_type);
+            ltc.a(jSONObject, "background_value", customFigure.background_value);
+            ltc.a(jSONObject, "dynamic_figure_url", customFigure.dynamic_figure_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

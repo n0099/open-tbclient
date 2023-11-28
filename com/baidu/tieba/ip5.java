@@ -1,168 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(16)
 /* loaded from: classes6.dex */
-public class ip5 extends PerformanceLogger {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 100;
-    public static int b = 10;
+public class ip5 implements Choreographer.FrameCallback {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861211, "Lcom/baidu/tieba/ip5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947861211, "Lcom/baidu/tieba/ip5;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static int b;
-        public static int c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                BdStatsItem logItem = PerformanceLogger.getLogItem();
-                logItem.append("action", "imbusy");
-                logItem.append("totalNum", String.valueOf(a));
-                logItem.append("tfailNum", String.valueOf(b));
-                logItem.append("qfailNum", String.valueOf(c));
-                BdStatisticsManager.getInstance().performance("im", logItem);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0;
-                c = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static long b;
-        public static long c;
-        public static long d;
-        public static int e;
-        public static int f;
-        public static long g;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                BdStatsItem logItem = PerformanceLogger.getLogItem();
-                logItem.append("action", "imcost");
-                logItem.append("dect", String.valueOf(b));
-                logItem.append("dlsize", String.valueOf(c));
-                logItem.append("dbt", String.valueOf(d));
-                logItem.append("pnum", String.valueOf(e));
-                logItem.append("reqcost", String.valueOf(g));
-                logItem.append("cpu", String.valueOf(f));
-                logItem.append("totalNum", String.valueOf(a));
-                BdStatisticsManager.getInstance().performance("im", logItem);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0L;
-                c = 0L;
-                d = 0L;
-                e = 0;
-                f = 0;
-            }
-        }
-    }
+    public long a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
 
     public ip5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.d = 0;
+        this.e = -1;
+        this.f = false;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.c = currentTimeMillis;
+            this.b = currentTimeMillis + 1000;
+            this.a = 0L;
+            this.d = 0;
+            this.e = -1;
+            this.f = false;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.d = 0;
+            this.c = 0L;
+        }
+    }
+
+    public final void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.c;
+            if (j2 <= 0) {
+                return;
+            }
+            long j3 = j - j2;
+            if (j3 > 0 && this.e <= 0) {
+                this.e = (int) (60 - ((this.d * 1000) / j3));
             }
         }
     }
 
-    public static void c() {
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (b.a > b) {
-            b.a();
-        }
-        if (a.a > b) {
-            a.a();
-        }
-    }
-
-    public static void a(boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            a.a++;
-            if (z2) {
-                a.b++;
-            } else if (z3) {
-                a.c++;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.a;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.d = (int) (this.d + (j3 / 16));
+                }
             }
-            if (a.a > a) {
-                a.a();
+            this.a = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.b && !this.f) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
             }
+            a(currentTimeMillis);
+            this.d = 0;
+            this.c = 0L;
         }
-    }
-
-    public void b(fp5 fp5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, fp5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (b.a < a) {
-            b.b += fp5Var.b;
-            b.c += fp5Var.c;
-            b.d += fp5Var.d;
-            b.e += fp5Var.e;
-            b.g += fp5Var.f;
-            b.f += fp5Var.g;
-            b.a++;
-            return;
-        }
-        b.a();
     }
 }

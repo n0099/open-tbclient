@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.text.ttml;
 
 import android.text.Layout;
 import android.util.Log;
+import com.baidu.tieba.ms;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.text.SimpleSubtitleDecoder;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
@@ -205,7 +206,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
                                 c = 65535;
                             }
                         } else {
-                            if (group4.equals("ms")) {
+                            if (group4.equals(ms.c)) {
                                 c = 3;
                             }
                             c = 65535;

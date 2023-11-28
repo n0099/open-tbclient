@@ -1,55 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.Lbs;
-import tbclient.PbContent;
-import tbclient.SubPostList;
-import tbclient.User;
+import tbclient.Icon;
+import tbclient.Position;
+import tbclient.Terminal;
 /* loaded from: classes9.dex */
-public class z3d extends qoc {
+public class z3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SubPostList subPostList) {
+    public static JSONObject b(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subPostList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, icon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "id", subPostList.id);
-            if (subPostList.content != null) {
+            ltc.a(jSONObject, "name", icon.name);
+            ltc.a(jSONObject, "weight", icon.weight);
+            ltc.a(jSONObject, "url", icon.url);
+            ltc.a(jSONObject, "icon", icon.icon);
+            ltc.a(jSONObject, "value", icon.value);
+            Terminal terminal = icon.terminal;
+            if (terminal != null) {
+                ltc.a(jSONObject, "terminal", p9d.b(terminal));
+            }
+            Position position = icon.position;
+            if (position != null) {
+                ltc.a(jSONObject, CriusAttrConstants.POSITION, r6d.b(position));
+            }
+            if (icon.sprite_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (PbContent pbContent : subPostList.content) {
-                    jSONArray.put(x0d.b(pbContent));
+                for (String str : icon.sprite_info) {
+                    jSONArray.put(str);
                 }
-                qoc.a(jSONObject, "content", jSONArray);
+                ltc.a(jSONObject, "sprite_info", jSONArray);
             }
-            qoc.a(jSONObject, "time", subPostList.time);
-            qoc.a(jSONObject, "author_id", subPostList.author_id);
-            qoc.a(jSONObject, "title", subPostList.title);
-            qoc.a(jSONObject, "floor", subPostList.floor);
-            User user = subPostList.author;
-            if (user != null) {
-                qoc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, n5d.b(user));
-            }
-            qoc.a(jSONObject, "is_giftpost", subPostList.is_giftpost);
-            Agree agree = subPostList.agree;
-            if (agree != null) {
-                qoc.a(jSONObject, "agree", hpc.b(agree));
-            }
-            Lbs lbs = subPostList.location;
-            if (lbs != null) {
-                qoc.a(jSONObject, "location", mzc.b(lbs));
-            }
-            qoc.a(jSONObject, "is_fake_top", subPostList.is_fake_top);
-            qoc.a(jSONObject, "is_author_view", subPostList.is_author_view);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

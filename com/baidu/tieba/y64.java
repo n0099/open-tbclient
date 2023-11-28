@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes9.dex */
-public class y64 implements sn1 {
+public class y64 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile y64 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public volatile ArrayList<x64> b;
 
     public y64() {
         Interceptable interceptable = $ic;
@@ -27,65 +29,79 @@ public class y64 implements sn1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new ArrayList<>(20);
+    }
+
+    public static y64 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (y64.class) {
+                    if (c == null) {
+                        c = new y64();
+                    }
+                }
+            }
+            return c;
+        }
+        return (y64) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sn1
-    public JSONObject a() {
+    public synchronized void a(x64 x64Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, x64Var) == null) {
+            synchronized (this) {
+                if (x64Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(x64Var);
+                } else {
+                    this.a++;
+                }
+            }
+        }
+    }
+
+    public synchronized JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return x64.c().d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<x64> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a74.d(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            a74.f(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void c(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
-            a74.e(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void d(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
-            a74.a(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void f(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
-            a74.g(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sn1
-    public void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
-            a74.b(callbackHandler, str);
-        }
     }
 }

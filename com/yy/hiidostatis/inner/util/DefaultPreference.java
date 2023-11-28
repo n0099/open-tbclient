@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DefaultPreference {
     public static final Object KEY = new Object();
     public static DefaultPreference instance = null;

@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.control;
 
 import android.text.TextUtils;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import com.yy.gslbsdk.flow.DnsResolveFlow;
@@ -14,7 +14,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ActiveRefreshController {
     public static final String TAG = "ActiveRefreshController";
     public static ActiveRefreshController sInstance;
@@ -42,7 +42,7 @@ public class ActiveRefreshController {
                 try {
                     Map<String, String> map = listRefresh.get(i);
                     if (map != null && !map.isEmpty()) {
-                        String str = map.get(u.A);
+                        String str = map.get(t.v);
                         if (!TextUtils.isEmpty(str)) {
                             String str2 = map.get("ut");
                             if (!TextUtils.isEmpty(str2) && TextUtils.isDigitsOnly(str2)) {

@@ -1,27 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: HeaderViewLogic.java */
 /* loaded from: classes9.dex */
-public class y28 {
+public final /* synthetic */ class y28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static x28 a(c38 c38Var, Intent intent) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static z28 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, c38Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new d38(c38Var, intent);
-            }
-            if (intExtra == 2) {
-                return new w28(c38Var, intent);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new a38();
         }
-        return (x28) invokeLL.objValue;
+        return (z28) invokeV.objValue;
+    }
+
+    public static View b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return view2.findViewById(R.id.obfuscated_res_0x7f090d43);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @NonNull
+    public static TextView c(@NonNull View view2, boolean z) {
+        InterceptResult invokeLZ;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
+            if (z) {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f64);
+            } else {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f65);
+            }
+            textView.bringToFront();
+            EMManager.from(textView).setTextColor(R.color.CAM_X0619);
+            return textView;
+        }
+        return (TextView) invokeLZ.objValue;
+    }
+
+    public static void d(@NonNull View view2, @NonNull View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            EMManager.from(view2).setCorner(R.string.J_X11).setMaskBackGround(R.array.Mask_X005);
+        }
     }
 }

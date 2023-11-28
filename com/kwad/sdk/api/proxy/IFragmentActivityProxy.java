@@ -10,13 +10,13 @@ import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 public abstract class IFragmentActivityProxy extends IActivityProxy {
     public BaseProxyFragmentActivity mProxyFragmentActivity;
 
+    public void onAttachFragment(KsFragment ksFragment) {
+    }
+
     @KsAdSdkDynamicApi
     @Keep
     public final KsFragmentManager getSupportFragmentManager() {
         return this.mProxyFragmentActivity.getSupportFragmentManager2();
-    }
-
-    public void onAttachFragment(KsFragment ksFragment) {
     }
 
     public void setProxyFragmentActivity(BaseProxyFragmentActivity baseProxyFragmentActivity) {

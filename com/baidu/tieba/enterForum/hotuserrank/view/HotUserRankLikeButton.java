@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.b65;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.w65
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.c75
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                v55 v55Var = new v55();
-                v55Var.v(R.color.CAM_X0109);
-                setConfig(v55Var);
+                b65 b65Var = new b65();
+                b65Var.v(R.color.CAM_X0109);
+                setConfig(b65Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,11 +95,11 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                v55 v55Var2 = new v55();
-                v55Var2.u(R.color.CAM_X0302);
-                setConfig(v55Var2);
+                b65 b65Var2 = new b65();
+                b65Var2.u(R.color.CAM_X0302);
+                setConfig(b65Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f4));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();

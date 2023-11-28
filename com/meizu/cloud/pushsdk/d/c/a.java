@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.d.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static abstract class AbstractC0698a<T extends AbstractC0698a<T>> {
+    public static abstract class AbstractC0738a<T extends AbstractC0738a<T>> {
         public List<com.meizu.cloud.pushsdk.d.a.b> a = new LinkedList();
         public long b = System.currentTimeMillis();
         public String c = e.b();
@@ -28,13 +28,13 @@ public class a {
         }
     }
 
-    public a(AbstractC0698a<?> abstractC0698a) {
-        d.a(abstractC0698a.a);
-        d.a(abstractC0698a.c);
-        d.a(!abstractC0698a.c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC0698a.a;
-        this.b = abstractC0698a.b;
-        this.c = abstractC0698a.c;
+    public a(AbstractC0738a<?> abstractC0738a) {
+        d.a(abstractC0738a.a);
+        d.a(abstractC0738a.c);
+        d.a(!abstractC0738a.c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC0738a.a;
+        this.b = abstractC0738a.b;
+        this.c = abstractC0738a.c;
     }
 
     public c a(c cVar) {

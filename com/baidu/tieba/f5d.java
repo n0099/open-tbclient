@@ -1,47 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Toast;
-import tbclient.ToastContent;
+import tbclient.AvatarFrame;
+import tbclient.Level;
+import tbclient.MparrProps;
+import tbclient.Portrait;
+import tbclient.Props;
 /* loaded from: classes5.dex */
-public class f5d extends qoc {
+public class f5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Toast toast) {
+    public static JSONObject b(@NonNull MparrProps mparrProps) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toast)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mparrProps)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon_type", toast.icon_type);
-            if (toast.content != null) {
+            AvatarFrame avatarFrame = mparrProps.avatarframe;
+            if (avatarFrame != null) {
+                ltc.a(jSONObject, "avatarframe", wuc.b(avatarFrame));
+            }
+            Portrait portrait = mparrProps.portrait;
+            if (portrait != null) {
+                ltc.a(jSONObject, "portrait", q6d.b(portrait));
+            }
+            Level level = mparrProps.level;
+            if (level != null) {
+                ltc.a(jSONObject, "level", q4d.b(level));
+            }
+            if (mparrProps.props != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ToastContent toastContent : toast.content) {
-                    jSONArray.put(e5d.b(toastContent));
+                for (Props props : mparrProps.props) {
+                    jSONArray.put(y6d.b(props));
                 }
-                qoc.a(jSONObject, "content", jSONArray);
+                ltc.a(jSONObject, "props", jSONArray);
             }
-            qoc.a(jSONObject, "url", toast.url);
-            qoc.a(jSONObject, NotificationCompat.WearableExtender.KEY_BACKGROUND, toast.background);
-            qoc.a(jSONObject, "icon_url", toast.icon_url);
-            qoc.a(jSONObject, "icon_url_dark", toast.icon_url_dark);
-            if (toast.task_ids != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (Integer num : toast.task_ids) {
-                    jSONArray2.put(num.intValue());
-                }
-                qoc.a(jSONObject, "task_ids", jSONArray2);
-            }
-            qoc.a(jSONObject, "icon_width", toast.icon_width);
-            qoc.a(jSONObject, "icon_height", toast.icon_height);
-            qoc.a(jSONObject, "hud_width", toast.hud_width);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

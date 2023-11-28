@@ -7,16 +7,16 @@ import kotlin.Metadata;
 public class DebugItemInfo {
 
     /* renamed from: view  reason: collision with root package name */
-    public View f1059view;
+    public View f1055view;
     public ViewType viewType;
 
     public DebugItemInfo(View view2, ViewType viewType) {
-        this.f1059view = view2;
+        this.f1055view = view2;
         this.viewType = viewType;
     }
 
     public final View getView() {
-        return this.f1059view;
+        return this.f1055view;
     }
 
     public final ViewType getViewType() {
@@ -24,7 +24,7 @@ public class DebugItemInfo {
     }
 
     public final void setView(View view2) {
-        this.f1059view = view2;
+        this.f1055view = view2;
     }
 
     public final void setViewType(ViewType viewType) {

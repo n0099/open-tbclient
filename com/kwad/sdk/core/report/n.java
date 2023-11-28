@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.report;
 
-import org.json.JSONObject;
+import com.kwad.sdk.core.report.g;
 /* loaded from: classes10.dex */
-public interface n {
-    m f(JSONObject jSONObject);
+public interface n<T extends g> {
+    T Dt();
 }

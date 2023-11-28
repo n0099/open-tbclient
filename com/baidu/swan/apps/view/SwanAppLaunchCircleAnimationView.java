@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kc4;
+import com.baidu.tieba.lc4;
 /* loaded from: classes4.dex */
 public class SwanAppLaunchCircleAnimationView extends View {
     public Paint a;
@@ -79,8 +79,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
 
     public final void g() {
         this.g = System.currentTimeMillis();
-        this.d = getResources().getColor(R.color.obfuscated_res_0x7f060480);
-        this.c = getResources().getColor(R.color.obfuscated_res_0x7f06047e);
+        this.d = getResources().getColor(R.color.obfuscated_res_0x7f060482);
+        this.c = getResources().getColor(R.color.obfuscated_res_0x7f060480);
         this.a.setColor(this.d);
         this.a.setAntiAlias(true);
         this.a.setStyle(Paint.Style.STROKE);
@@ -94,7 +94,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
         g();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.f = ofFloat;
-        ofFloat.setInterpolator(new kc4(0.4f, 0.0f, 0.6f, 1.0f));
+        ofFloat.setInterpolator(new lc4(0.4f, 0.0f, 0.6f, 1.0f));
         this.f.setRepeatCount(-1);
         this.f.setRepeatMode(1);
         this.f.setDuration(800L);

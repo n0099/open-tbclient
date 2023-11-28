@@ -10,19 +10,19 @@ public class am {
     public static Object a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, Queue<String>> f899a = new HashMap();
+    public static Map<String, Queue<String>> f895a = new HashMap();
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
         synchronized (a) {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = f899a.get(str);
+            Queue<String> queue = f895a.get(str);
             if (queue == null) {
                 String[] split = sharedPreferences.getString(str, "").split(",");
                 LinkedList linkedList = new LinkedList();
                 for (String str3 : split) {
                     linkedList.add(str3);
                 }
-                f899a.put(str, linkedList);
+                f895a.put(str, linkedList);
                 queue = linkedList;
             }
             if (queue.contains(str2)) {

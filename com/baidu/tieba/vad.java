@@ -1,72 +1,36 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import org.json.JSONObject;
+import tbclient.UserTaskInfo;
 /* loaded from: classes8.dex */
-public final class vad {
+public class vad extends ltc {
     public static /* synthetic */ Interceptable $ic;
-    public static final vad a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948235536, "Lcom/baidu/tieba/vad;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948235536, "Lcom/baidu/tieba/vad;");
-                return;
-            }
-        }
-        a = new vad();
-    }
-
-    public vad() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @TargetApi(17)
-    public final boolean a(Context context) {
+    @NonNull
+    public static JSONObject b(@NonNull UserTaskInfo userTaskInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userTaskInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "id", userTaskInfo.id);
+            ltc.a(jSONObject, "name", userTaskInfo.name);
+            ltc.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, userTaskInfo.brief);
+            ltc.a(jSONObject, "task_icon_url", userTaskInfo.task_icon_url);
+            ltc.a(jSONObject, "status", userTaskInfo.status);
+            ltc.a(jSONObject, "target_num", userTaskInfo.target_num);
+            ltc.a(jSONObject, "curr_num", userTaskInfo.curr_num);
+            ltc.a(jSONObject, "task_type", userTaskInfo.task_type);
+            ltc.a(jSONObject, "weight", userTaskInfo.weight);
+            ltc.a(jSONObject, "act_type", userTaskInfo.act_type);
+            ltc.a(jSONObject, "target_scheme", userTaskInfo.target_scheme);
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

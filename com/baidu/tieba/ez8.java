@@ -1,106 +1,148 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ez8 implements zy8 {
+public class ez8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public ez8 e;
 
-    public ez8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947751750, "Lcom/baidu/tieba/ez8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947751750, "Lcom/baidu/tieba/ez8;");
+                return;
             }
         }
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
+        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
+        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
     }
 
-    @Override // com.baidu.tieba.zy8
-    public RelativeLayout a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
         }
-        return (RelativeLayout) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.zy8
-    public RecyclerView c() {
-        InterceptResult invokeV;
+    @Nullable
+    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            try {
+                URL url = new URL(str);
+                for (EmojiData emojiData : list) {
+                    URL url2 = new URL(emojiData.getContent());
+                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
+                        return emojiData;
+                    }
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return (RecyclerView) invokeV.objValue;
+        return (EmojiData) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.zy8
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zy8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public static ez8 f(@NonNull View view2) {
+    public static boolean c(@NonNull InputDelegate inputDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ez8 ez8Var = new ez8();
-            ez8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091851);
-            ez8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091850);
-            ez8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091857);
-            ez8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091869);
-            ez8Var.e = ez8Var;
-            return ez8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputDelegate)) == null) {
+            return !inputDelegate.G(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
         }
-        return (ez8) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zy8
-    public void b(int i, @NonNull qz8 qz8Var) {
+    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, qz8Var) == null) {
-            if (!qz8Var.e()) {
-                EMManager.from(this.e.b).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
+            EmojiData b2 = b(reaction.getContent(), list);
+            if (b2 != null) {
+                return b2.hasReplied();
             }
-            EMManager.from(this.e.d).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void e(@NonNull gq8 gq8Var, int i, @NonNull BaseItem<? extends TbBaseMsg> baseItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65541, null, gq8Var, i, baseItem) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", Integer.valueOf(i));
+            gq8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseItem, null);
+        }
+    }
+
+    public static void f(@NonNull gq8 gq8Var, @NonNull EmojiData emojiData, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65542, null, gq8Var, emojiData, baseItem, i) == null) {
+            g(gq8Var, new Reaction("", emojiData.getContent()), baseItem, i);
+        }
+    }
+
+    public static void g(@NonNull gq8 gq8Var, @NonNull Reaction reaction, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65543, null, gq8Var, reaction, baseItem, i) == null) {
+            List<EmojiData> emojiList = baseItem.getTbMsg().getEmojiList();
+            boolean z = true;
+            if (emojiList != null) {
+                boolean d = d(reaction, emojiList);
+                if (i != 1) {
+                    int i2 = 2;
+                    if (i == 2) {
+                        z = true ^ d;
+                        if (!z) {
+                            i2 = 3;
+                        }
+                        cz8.h(i2, baseItem);
+                    }
+                } else if (d) {
+                    return;
+                } else {
+                    cz8.h(1, baseItem);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("content", reaction.getContent());
+            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
+            gq8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseItem, null);
         }
     }
 }

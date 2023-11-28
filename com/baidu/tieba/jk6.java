@@ -1,15 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public interface jk6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewDebug");
+public class jk6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    JSONObject a();
-
-    void b();
-
-    void c();
+    public static void a(Closeable... closeableArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, closeableArr) != null) || fk6.e(closeableArr)) {
+            return;
+        }
+        for (Closeable closeable : closeableArr) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                } catch (IOException unused) {
+                }
+            }
+        }
+    }
 }

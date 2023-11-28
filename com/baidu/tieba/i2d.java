@@ -5,22 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.RecomTagInfo;
+import tbclient.FrsPage.StarTaskInfo;
 /* loaded from: classes6.dex */
-public class i2d extends qoc {
+public class i2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomTagInfo recomTagInfo) {
+    public static JSONObject b(@NonNull StarTaskInfo starTaskInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTagInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starTaskInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "id", recomTagInfo.id);
-            qoc.a(jSONObject, "name", recomTagInfo.name);
-            qoc.a(jSONObject, "pic", recomTagInfo.pic);
-            qoc.a(jSONObject, "first_class", recomTagInfo.first_class);
+            ltc.a(jSONObject, "task_title", starTaskInfo.task_title);
+            ltc.a(jSONObject, "task_desc", starTaskInfo.task_desc);
+            ltc.a(jSONObject, "task_score_desc", starTaskInfo.task_score_desc);
+            ltc.a(jSONObject, "task_status", starTaskInfo.task_status);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

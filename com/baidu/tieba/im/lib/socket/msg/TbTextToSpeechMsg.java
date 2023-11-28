@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.lib.socket.msg;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gs8;
+import com.baidu.tieba.nv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +21,8 @@ public final class TbTextToSpeechMsg extends TbTextMsg {
     public static final a Companion;
     public static final int MSG_TYPE = 103;
     public transient /* synthetic */ FieldHolder $fh;
-    @gs8
     @SerializedName("speak_id")
+    @nv8
     public String speakerId;
 
     static {

@@ -1,40 +1,123 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.k19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class q19 {
+public final class q19 implements dg1<k19> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, tbPageContext, str, i) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("level", i);
-                jSONObject.put("success_jump_url", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("page", "pass/accountAuth");
-                jSONObject2.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject);
-                String jSONObject3 = jSONObject2.toString();
-                Uri.Builder builder = new Uri.Builder();
-                builder.scheme("tiebaapp").authority(DI.ROUTER_NAME).path("/portal").appendQueryParameter("params", jSONObject3);
-                str2 = builder.build().toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                str2 = "";
+    /* loaded from: classes7.dex */
+    public static final class a implements k19 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public s19 b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str2});
         }
+
+        @Override // com.baidu.tieba.k19
+        public void onDestroy() {
+            s19 s19Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (s19Var = this.b) != null) {
+                s19Var.p();
+            }
+        }
+
+        @Override // com.baidu.tieba.k19
+        public void a(yk5 callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                s19 s19Var = this.b;
+                if (s19Var != null) {
+                    s19Var.s(callback);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.k19
+        public void d(k19.a callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                s19 s19Var = this.b;
+                if (s19Var != null) {
+                    s19Var.z(callback);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.k19
+        public void b(Context context, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                this.b = new s19(context, i);
+            }
+        }
+
+        @Override // com.baidu.tieba.k19
+        public void c(long j, List<ChatRoomInfo> roomInfoList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, roomInfoList) == null) {
+                Intrinsics.checkNotNullParameter(roomInfoList, "roomInfoList");
+                s19 s19Var = this.b;
+                if (s19Var != null) {
+                    s19Var.A(j);
+                }
+                s19 s19Var2 = this.b;
+                if (s19Var2 != null) {
+                    s19Var2.o(roomInfoList);
+                }
+            }
+        }
+    }
+
+    public q19() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dg1
+    /* renamed from: a */
+    public k19 getService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
+        }
+        return (k19) invokeV.objValue;
     }
 }

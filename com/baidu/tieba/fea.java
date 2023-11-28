@@ -1,35 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class fea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public long a;
+    public long b;
+    public long c;
+    public ThreadData d;
+    public int e;
+    public cea f;
     public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
+    public boolean h;
+    public ep9 i;
 
     public fea() {
         Interceptable interceptable = $ic;
@@ -44,85 +41,219 @@ public class fea {
                 return;
             }
         }
-        this.k = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.e = 1;
+        this.g = "1";
+        this.i = new ep9();
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
-            return;
-        }
-        int i = advertAppInfo.n;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.q;
-            this.g = advertAppInfo.p;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            k();
+            this.a = 0L;
+            this.b = 0L;
+            this.h = false;
+            this.i.a();
         }
     }
 
-    public String d() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            float f = ((float) this.a) / ((float) j);
+            if (j <= 60000) {
+                if (f >= 0.9d) {
+                    return true;
+                }
+                return false;
+            } else if (j <= LiveFeedPageSdk.REFRESH_TIME) {
+                if (f >= 0.8d) {
+                    return true;
+                }
+                return false;
+            } else if (j <= 600000) {
+                if (f >= 0.7d) {
+                    return true;
+                }
+                return false;
+            } else if (f >= 0.6d) {
+                return true;
+            } else {
+                return false;
             }
-            return jSONObject.toString();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
         return (String) invokeV.objValue;
+    }
+
+    public cea c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (cea) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b > 0) {
+            this.a += System.currentTimeMillis() - this.b;
+            this.b = 0L;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            this.h = false;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.i.e();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.b != 0) {
+                this.a += System.currentTimeMillis() - this.b;
+            }
+            this.b = System.currentTimeMillis();
+            this.h = true;
+            this.i.b();
+        }
+    }
+
+    public void f(nda ndaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ndaVar) == null) {
+            this.i.d(ndaVar);
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.c = j;
+            this.i.c();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void n(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, threadData) == null) {
+            this.d = threadData;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void p(cea ceaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ceaVar) == null) {
+            this.f = ceaVar;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void k() {
+        StatisticItem statisticItem;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            long j = this.a;
+            if (j >= 0 && j < 86400000) {
+                if (j > 0) {
+                    if (this.e == 2) {
+                        statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_STAY_TIME);
+                        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, TimeUnit.MILLISECONDS.toSeconds(this.a));
+                    } else {
+                        statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
+                        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, this.a);
+                    }
+                    statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+                    statisticItem.param("obj_type", this.g);
+                    statisticItem.param("playduration", this.c);
+                    statisticItem.param("player_type", 1);
+                    statisticItem.param("is_finish", a() ? 1 : 0);
+                    if (!rd.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                        statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
+                    }
+                    cea ceaVar = this.f;
+                    if (ceaVar != null) {
+                        ceaVar.a(statisticItem);
+                    }
+                    if (!statisticItem.hasParam(TiebaStatic.Params.OBJ_PARAM5) && (threadData = this.d) != null) {
+                        if (threadData.getBaijiahaoData() != null) {
+                            if (this.d.getBaijiahaoData().oriUgcType == 2) {
+                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                            } else if (this.d.getBaijiahaoData().oriUgcType == 4) {
+                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                            }
+                        } else {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                        }
+                    }
+                    ThreadData threadData2 = this.d;
+                    if (threadData2 != null) {
+                        statisticItem.param(TiebaStatic.Params.IS_ZP, threadData2.isWorksInfo() ? 1 : 0);
+                    }
+                    TiebaStatic.log(statisticItem);
+                    rda.d(this.a, this.g, this.f, "", this.c);
+                } else if (this.h) {
+                    rda.d(j, this.g, this.f, "", this.c);
+                }
+            }
+        }
     }
 }

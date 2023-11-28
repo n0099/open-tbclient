@@ -1,36 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.AddPostList;
-import tbclient.SubPostList;
+import rx.internal.operators.OnSubscribeAmb$Selection;
 /* loaded from: classes6.dex */
-public class fpc extends qoc {
+public final class fpc<T> extends koc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final koc<? super T> e;
+    public final OnSubscribeAmb$Selection<T> f;
+    public boolean g;
 
-    @NonNull
-    public static JSONObject b(@NonNull AddPostList addPostList) {
-        InterceptResult invokeL;
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, addPostList)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "pid", addPostList.pid);
-            qoc.a(jSONObject, "total_num", addPostList.total_num);
-            qoc.a(jSONObject, "total_count", addPostList.total_count);
-            if (addPostList.add_post_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SubPostList subPostList : addPostList.add_post_list) {
-                    jSONArray.put(z3d.b(subPostList));
-                }
-                qoc.a(jSONObject, "add_post_list", jSONArray);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.g) {
+                return true;
             }
-            return jSONObject;
+            if (this.f.get() == this) {
+                this.g = true;
+                return true;
+            } else if (this.f.compareAndSet(null, this)) {
+                this.f.unsubscribeOthers(this);
+                this.g = true;
+                return true;
+            } else {
+                this.f.unsubscribeLosers();
+                return false;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
+            this.e.onCompleted();
+        }
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.foc
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
+            this.e.onNext(t);
+        }
     }
 }

@@ -1,74 +1,123 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.validation.utils.ValidationLog;
 /* loaded from: classes7.dex */
-public abstract class pyb extends BaseAdRipper {
+public class pyb {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pyb(Ssp.Pid pid) {
-        super(pid);
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                String str = Build.VERSION.RELEASE;
+                b = str;
+                return str == null ? "" : str;
             }
+            return b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public abstract JSONObject c(Object obj);
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public final RippedAd getRippedAdInternal(Object obj) {
+    public static String b(Context context) {
         InterceptResult invokeL;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            JSONObject c = c(obj);
-            if (c == null) {
-                return null;
-            }
-            try {
-                JSONArray optJSONArray = c.optJSONArray("ad");
-                if (optJSONArray == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (TextUtils.isEmpty(d)) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+                    d = charSequence;
+                    return charSequence;
+                } catch (Throwable unused) {
                     return null;
                 }
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(0);
-                String optString = optJSONObject2.optString("deepLinkUrl");
-                if (TextUtils.isEmpty(optString) && (optJSONObject = optJSONObject2.optJSONObject("apo")) != null) {
-                    optString = optJSONObject.optString("page");
-                }
-                RippedAd.Builder builder = new RippedAd.Builder();
-                builder.setCorporation(optJSONObject2.optString("publisher")).setTitle(optJSONObject2.optString("tit")).setDescription(optJSONObject2.optString("desc")).setIconUrl(optJSONObject2.optString("icon")).setAppName(optJSONObject2.optString("appname")).setAppPkg(optJSONObject2.optString(PushConstants.URI_PACKAGE_NAME)).setAppUrl(optJSONObject2.optString("apk_name")).setImageUrl(optJSONObject2.optString("w_picurl")).setVideoImageUrl(optJSONObject2.optString("w_picurl")).setVideoUrl(optJSONObject2.optString("vurl")).setClickUrl(optJSONObject2.optString("curl")).setDeepLinkUrl(optString);
-                return builder.build();
-            } catch (Exception unused) {
-                LogPrinter.d();
-                return null;
             }
+            return d;
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder(str);
+            sb.append(" ");
+            sb.append("Sapi_");
+            sb.append(d());
+            sb.append("_");
+            sb.append("Android_");
+            sb.append(b(context));
+            sb.append("_");
+            sb.append(e(context));
+            sb.append("_");
+            sb.append(f());
+            sb.append("_");
+            sb.append(a());
+            sb.append("_Sapi");
+            ValidationLog.e(sb.toString(), new Object[0]);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                c = "1.0.5";
+                return "1.0.5";
+            }
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (TextUtils.isEmpty(e)) {
+                try {
+                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                    e = str;
+                    return str;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String str = Build.MODEL;
+                a = str;
+                return str == null ? "" : str;
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
     }
 }

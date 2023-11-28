@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.ez4;
 import com.baidu.tieba.pb.data.ContriInfo;
-import com.baidu.tieba.yw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class SignData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public BlockPopInfoData blockPopInfoData;
     public int cashBalance;
-    public yw4 chatRoomGuideData;
+    public ax4 chatRoomGuideData;
     public int contDays;
     public int count_sign_num;
     public int count_total_sign_num;
@@ -34,7 +34,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public cz4 mSignStampInfoData;
+    public ez4 mSignStampInfoData;
     public int miss_sign_num;
     public boolean showGuideToChatRoom;
     public int sign_bonus_point;
@@ -67,7 +67,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new cz4();
+        this.mSignStampInfoData = new ez4();
     }
 
     public void parserJson(String str) {

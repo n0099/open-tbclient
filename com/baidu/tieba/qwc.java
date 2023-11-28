@@ -5,21 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RealTime;
+import tbclient.Ecom;
 /* loaded from: classes8.dex */
-public class qwc extends qoc {
+public class qwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RealTime realTime) {
+    public static JSONObject b(@NonNull Ecom ecom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, realTime)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ecom)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "task_id", realTime.task_id);
-            qoc.a(jSONObject, "icon", realTime.icon);
-            qoc.a(jSONObject, "url", realTime.url);
+            ltc.a(jSONObject, "is_seller", ecom.is_seller);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

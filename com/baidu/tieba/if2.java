@@ -2,18 +2,17 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cp2;
+import com.baidu.tieba.dp2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class if2 implements ff2 {
+public class if2 implements gf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
+    public String[] a;
 
     public if2() {
         Interceptable interceptable = $ic;
@@ -28,41 +27,24 @@ public class if2 implements ff2 {
                 return;
             }
         }
-        this.a = new String[]{od3.w(), od3.y(), la2.c()};
+        this.a = new String[]{dp2.i(), dp2.l(), dp2.r(), dp2.b.f(), a42.f(), a42.d(), l32.c(), dp2.f.f(), dp2.f.d(), zj2.d};
     }
 
-    @Override // com.baidu.tieba.ff2
+    @Override // com.baidu.tieba.gf2
     public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
             for (String str : this.a) {
-                String K = jm4.K(str);
+                String K = km4.K(str);
                 if (!TextUtils.isEmpty(K)) {
                     arraySet.add(K);
                 }
             }
-            if (rm1.a) {
-                b(arraySet);
-            }
-            g32.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            h32.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;
-    }
-
-    public final void b(ArraySet<String> arraySet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
-            return;
-        }
-        String[] strArr = {xg2.b().getAbsolutePath(), nf3.c().getAbsolutePath(), cp2.b.d(), vi3.b(), fp2.k(), d03.b()};
-        for (int i = 0; i < 6; i++) {
-            String K = jm4.K(strArr[i]);
-            if (!TextUtils.isEmpty(K)) {
-                arraySet.add(K);
-            }
-        }
     }
 }

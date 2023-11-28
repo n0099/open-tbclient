@@ -9,11 +9,11 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g10;
-import com.baidu.tieba.m00;
-import com.baidu.tieba.p00;
-import com.baidu.tieba.s00;
-import com.baidu.tieba.v00;
+import com.baidu.tieba.h10;
+import com.baidu.tieba.n00;
+import com.baidu.tieba.q00;
+import com.baidu.tieba.t00;
+import com.baidu.tieba.w00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,13 +27,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class OaidProvider extends v00 {
+public class OaidProvider extends w00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s00.a d;
+    public t00.a d;
     public h e;
     public g f;
-    public List<v00.d<String>> g;
+    public List<w00.d<String>> g;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -121,7 +121,7 @@ public class OaidProvider extends v00 {
         public final /* synthetic */ OaidProvider d;
 
         /* loaded from: classes3.dex */
-        public class a implements g10.a {
+        public class a implements h10.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -146,7 +146,7 @@ public class OaidProvider extends v00 {
                 this.a = j;
             }
 
-            @Override // com.baidu.tieba.g10.a
+            @Override // com.baidu.tieba.h10.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -189,7 +189,7 @@ public class OaidProvider extends v00 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.sendEmptyMessageDelayed(0, 50000L);
-                g10.a().b(this.b, new a(this, SystemClock.elapsedRealtime()));
+                h10.a().b(this.b, new a(this, SystemClock.elapsedRealtime()));
             }
         }
     }
@@ -233,7 +233,7 @@ public class OaidProvider extends v00 {
                 this.d.e.h(this.b);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, "00000000-0000-0000-0000-000000000000")) {
                     try {
-                        String b = v00.b("A10", new m00("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
+                        String b = w00.b("A10", new n00("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
                         this.d.e.e(b);
                         this.d.e.l(b);
                         this.d.e.d(32L, 124L);
@@ -335,10 +335,10 @@ public class OaidProvider extends v00 {
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v00.d a;
+        public final /* synthetic */ w00.d a;
         public final /* synthetic */ OaidProvider b;
 
-        public f(OaidProvider oaidProvider, v00.d dVar) {
+        public f(OaidProvider oaidProvider, w00.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,7 +403,7 @@ public class OaidProvider extends v00 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public p00 c;
+        public q00 c;
         public String d;
         public int e;
         public ArrayList<String> f;
@@ -429,7 +429,7 @@ public class OaidProvider extends v00 {
             }
             this.j = oaidProvider;
             this.b = true;
-            this.c = new p00();
+            this.c = new q00();
             this.f = new ArrayList<>();
         }
 
@@ -640,15 +640,15 @@ public class OaidProvider extends v00 {
         this.g = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.v00
+    @Override // com.baidu.tieba.w00
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v00
-    public void f(v00.c cVar) {
+    @Override // com.baidu.tieba.w00
+    public void f(w00.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.d = this.a.f(e());
@@ -670,8 +670,8 @@ public class OaidProvider extends v00 {
         }
     }
 
-    @Override // com.baidu.tieba.v00
-    public void g(v00.d<String> dVar) {
+    @Override // com.baidu.tieba.w00
+    public void g(w00.d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             this.b.d.submit(new f(this, dVar));
@@ -681,14 +681,14 @@ public class OaidProvider extends v00 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (v00.d<String> dVar : this.g) {
+            for (w00.d<String> dVar : this.g) {
                 j(dVar);
             }
             this.g.clear();
         }
     }
 
-    public final void j(v00.d<String> dVar) {
+    public final void j(w00.d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             Bundle bundle = new Bundle();

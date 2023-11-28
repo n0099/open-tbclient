@@ -1,31 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public final class hbc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public dbc b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<ybc> e;
 
-    public static final String a(String str) {
+    public hbc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = dbc.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
+    }
+
+    public gbc a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringsKt__StringsJVMKt.isBlank(str)) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            Thread currentThread = Thread.currentThread();
-            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
-            sb.append(currentThread.getName());
-            sb.append("] ");
-            sb.append(str);
-            return sb.toString();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new obc(context, this.a, this.b, this.c, this.d, this.e, null) : (gbc) invokeL.objValue;
+    }
+
+    public hbc b(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (hbc) invokeL.objValue;
     }
 }

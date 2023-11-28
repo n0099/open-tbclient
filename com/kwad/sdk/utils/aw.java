@@ -1,171 +1,132 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.kwad.sdk.service.ServiceProvider;
-import java.util.Map;
-import java.util.Set;
-@Deprecated
+import java.io.File;
 /* loaded from: classes10.dex */
-public class aw {
-    public static final String TAG = "aw";
+public final class aw {
+    public static String aOc;
+    public static File aOd;
 
-    public static void U(String str, String str2) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        if (context == null) {
-            return;
-        }
-        j(context, str, str2);
-    }
-
-    public static void a(Context context, String str, String str2, int i) {
-        if (context == null) {
-            return;
-        }
-        context.getSharedPreferences(str, 0).edit().putInt(str2, i).apply();
-    }
-
-    public static void a(Context context, String str, String str2, long j) {
-        if (context == null) {
-            return;
-        }
-        context.getSharedPreferences(str, 0).edit().putLong(str2, j).apply();
-    }
-
-    public static void a(Context context, String str, String str2, String str3, boolean z) {
-        if (context == null) {
-            return;
-        }
-        if (z && !com.kwad.sdk.core.a.c.bP(str3)) {
-            str3 = com.kwad.sdk.core.a.c.bN(str3);
-        }
-        context.getSharedPreferences(str, 0).edit().putString(str2, str3).apply();
-    }
-
-    public static void a(SharedPreferences.Editor editor, String str, Object obj) {
-        if (str != null) {
-            if (obj instanceof Integer) {
-                editor.putInt(str, ((Integer) obj).intValue());
-            } else if (obj instanceof Long) {
-                editor.putLong(str, ((Long) obj).longValue());
-            } else if (obj instanceof Boolean) {
-                editor.putBoolean(str, ((Boolean) obj).booleanValue());
-            } else if (obj instanceof Float) {
-                editor.putFloat(str, ((Float) obj).floatValue());
-            } else if (obj instanceof Set) {
-                editor.putStringSet(str, (Set) obj);
-            } else if (obj instanceof String) {
-                editor.putString(str, String.valueOf(obj));
+    public static boolean KX() {
+        try {
+            if (!"mounted".equals(Environment.getExternalStorageState())) {
+                if (Environment.isExternalStorageRemovable()) {
+                    return false;
+                }
+                return true;
             }
+            return true;
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.c.printStackTraceOnly(th);
+            return false;
         }
     }
 
-    public static <T> void a(String str, Map<String, T> map) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        if (context == null) {
-            return;
+    public static String cJ(Context context) {
+        if (!TextUtils.isEmpty(aOc)) {
+            return aOc;
         }
-        SharedPreferences.Editor edit = context.getSharedPreferences(str, 0).edit();
-        for (Map.Entry<String, T> entry : map.entrySet()) {
+        String str = null;
+        if (KX()) {
             try {
-                a(edit, entry.getKey(), entry.getValue());
-            } catch (Throwable th) {
-                com.kwad.sdk.core.e.b.e(TAG, Log.getStackTraceString(th));
+                File externalFilesDir = context.getExternalFilesDir(null);
+                if (externalFilesDir != null) {
+                    str = externalFilesDir.getPath();
+                }
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.c.printStackTrace(e);
             }
         }
-        edit.apply();
+        if (TextUtils.isEmpty(str)) {
+            str = context.getFilesDir().getPath();
+        }
+        String str2 = str + File.separator + "ksadsdk";
+        aOc = str2;
+        return str2;
     }
 
-    public static int b(Context context, String str, String str2, int i) {
-        return context == null ? i : context.getSharedPreferences(str, 0).getInt(str2, i);
+    public static File cK(Context context) {
+        File file = aOd;
+        if (file != null) {
+            return file;
+        }
+        String str = null;
+        if (KX()) {
+            try {
+                File externalCacheDir = context.getExternalCacheDir();
+                if (externalCacheDir != null) {
+                    str = externalCacheDir.getPath();
+                }
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.c.printStackTrace(e);
+            }
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = context.getCacheDir().getPath();
+        }
+        File file2 = new File(str + File.separator + "ksadsdk");
+        aOd = file2;
+        if (!file2.exists()) {
+            aOd.mkdirs();
+        }
+        return aOd;
     }
 
-    public static long b(Context context, String str, String str2, long j) {
-        return context == null ? j : context.getSharedPreferences(str, 0).getLong(str2, j);
+    public static File cN(Context context) {
+        String str;
+        if (com.kwad.framework.a.a.mc.booleanValue()) {
+            str = cJ(context);
+        } else {
+            str = context.getFilesDir().getAbsolutePath() + File.separator + "ksadsdk";
+        }
+        return new File(str + File.separator + "ksadlog");
     }
 
-    public static void b(String str, String str2, int i) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
+    public static File cL(Context context) {
+        String cJ = cJ(context);
+        File file = new File(cJ + File.separator + "Download");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
+    }
+
+    public static File cM(Context context) {
+        String cJ = cJ(context);
+        File file = new File(cJ + File.separator + "downloadFileSync/.temp");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
+    }
+
+    public static String cO(Context context) {
         if (context == null) {
-            return;
+            return "";
         }
-        a(context, str, str2, i);
+        String path = context.getFilesDir().getPath();
+        return path + File.separator + "ksadsdk";
     }
 
-    public static int c(String str, String str2, int i) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
+    public static String cP(Context context) {
+        return cK(context).getPath() + "/cookie";
+    }
+
+    public static String getTkJsRootDir(Context context) {
         if (context == null) {
-            return 0;
+            return "";
         }
-        return b(context, str, str2, 0);
+        String cO = cO(context);
+        return cO + File.separator + "ksad/download/js";
     }
 
-    public static void c(Context context, @NonNull String str, @NonNull String str2, String str3) {
+    public static String getTkJsFileDir(Context context, String str) {
         if (context == null) {
-            return;
+            return "";
         }
-        a(context, str, str2, str3, false);
-    }
-
-    public static void c(Context context, String str, String str2, boolean z) {
-        if (context == null) {
-            return;
-        }
-        context.getSharedPreferences(str, 0).edit().putBoolean(str2, z).apply();
-    }
-
-    public static String d(Context context, String str, String str2, String str3) {
-        String string;
-        return (context == null || (string = context.getSharedPreferences(str, 0).getString(str2, str3)) == null || TextUtils.isEmpty(string)) ? str3 : (TextUtils.equals(string, str3) || !com.kwad.sdk.core.a.c.bP(string)) ? string : com.kwad.sdk.core.a.c.bO(string);
-    }
-
-    public static boolean d(Context context, String str, String str2, boolean z) {
-        return context == null ? z : context.getSharedPreferences(str, 0).getBoolean(str2, z);
-    }
-
-    public static SharedPreferences dS(String str) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        if (context == null) {
-            return null;
-        }
-        return context.getSharedPreferences(str, 0);
-    }
-
-    public static void e(String str, String str2, String str3) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        if (context == null) {
-            return;
-        }
-        c(context, str, str2, str3);
-    }
-
-    public static String f(String str, String str2, String str3) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        return context == null ? str3 : d(context, str, str2, str3);
-    }
-
-    public static void g(String str, String str2, String str3) {
-        if (com.kwad.sdk.core.a.c.bP(str)) {
-            return;
-        }
-        e(str2, str3, com.kwad.sdk.core.a.c.bN(str));
-    }
-
-    public static void h(String str, String str2, boolean z) {
-        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
-        if (context == null) {
-            return;
-        }
-        c(context, str, str2, true);
-    }
-
-    public static void j(Context context, String str, String str2) {
-        if (context == null) {
-            return;
-        }
-        context.getSharedPreferences(str, 0).edit().remove(str2).apply();
+        String cO = cO(context);
+        return cO + File.separator + "ksad/download/js" + File.separator + str;
     }
 }

@@ -1,15 +1,15 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.api.model.KSAdInfoData;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes10.dex */
-public interface KsSplashScreenAd {
+public interface KsSplashScreenAd extends BaseKSAd {
 
     @KsAdSdkApi
     @Keep
@@ -58,6 +58,10 @@ public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
+    KSAdInfoData getKSAdInfoData();
+
+    @KsAdSdkApi
+    @Keep
     int getMaterialType();
 
     @KsAdSdkApi
@@ -79,7 +83,10 @@ public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setBidEcpm(int i);
 
-    boolean showSplashMiniWindowIfNeeded(Context context, SplashScreenAdInteractionListener splashScreenAdInteractionListener, Rect rect);
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(long j, long j2);
 }

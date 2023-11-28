@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.video.videoview;
 /* loaded from: classes10.dex */
 public interface c {
+    boolean Fa();
+
     int getBufferPercentage();
 
     long getCurrentPosition();
@@ -17,9 +19,7 @@ public interface c {
 
     void restart();
 
-    void setKsPlayLogParam(com.kwad.sdk.contentalliance.kwai.kwai.a aVar);
+    void setKsPlayLogParam(com.kwad.sdk.contentalliance.a.a.a aVar);
 
     void start();
-
-    boolean vE();
 }

@@ -4,8 +4,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes10.dex */
-public class SplashSkipViewModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class SplashSkipViewModel extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static final long serialVersionUID = 8688696061765036094L;
-    public boolean needShowMiniWindow;
     public int skipSecond;
 }

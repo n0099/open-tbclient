@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.CardPeiWanView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.d1b;
-import com.baidu.tieba.it;
-import com.baidu.tieba.iu5;
+import com.baidu.tieba.en6;
+import com.baidu.tieba.jt;
+import com.baidu.tieba.qu5;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
-import com.baidu.tieba.tm6;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendTag;
 @Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u00012\u00020\u0002:\u00013B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u0014H\u0002J\u001e\u0010'\u001a\u00020%2\f\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010(2\u0006\u0010)\u001a\u00020\bH\u0016J\u0018\u0010*\u001a\u00020%2\u0006\u0010+\u001a\u00020\b2\u0006\u0010,\u001a\u00020\bH\u0002J0\u0010-\u001a\u00020%2\b\u0010.\u001a\u0004\u0018\u00010/2\u000e\u00100\u001a\n\u0012\u0004\u0012\u00020%\u0018\u0001012\u000e\u00102\u001a\n\u0012\u0004\u0012\u00020%\u0018\u000101R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u0010\u001a\u0012\u0012\u0004\u0012\u00020\u000f0\u0011j\b\u0012\u0004\u0012\u00020\u000f`\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0013\u001a\u0012\u0012\u0004\u0012\u00020\u00140\u0011j\b\u0012\u0004\u0012\u00020\u0014`\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u001a\u0010\u001b\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0018\"\u0004\b\u001d\u0010\u001aR\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020!X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020#X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/tbadk/core/view/CardPeiWanView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/card/IChangeSkinAble;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "coverView", "Landroid/view/View;", "labelTopLeft", "Landroid/widget/LinearLayout;", "labelTopLeftText", "Landroid/widget/TextView;", "labels", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "labelsData", "Ltbclient/ThreadRecommendTag;", "labelsLayout", "resultBackgroundColor", "getResultBackgroundColor", "()I", "setResultBackgroundColor", "(I)V", "resultTextColor", "getResultTextColor", "setResultTextColor", "statusView", "Landroid/widget/FrameLayout;", "thumbnailImg", "Lcom/baidu/tbadk/widget/TbImageView;", "voicePlayBtn", "Lcom/baidu/tieba/tbadkCore/voice/VoicePlayBtn;", "addTagTextView", "", "tag", "onChangeSkinType", "Lcom/baidu/tbadk/TbPageContext;", WriteMulitImageActivityConfig.SKIN_TYPE, "setCoverViewLp", "width", "height", "setData", "cardPeiWanData", "Lcom/baidu/tieba/card/data/CardPeiWanData;", "cardClickCallback", "Lkotlin/Function0;", "voiceClickCallBack", "Companion", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class CardPeiWanView extends RelativeLayout implements it {
+public final class CardPeiWanView extends RelativeLayout implements jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinearLayout a;
@@ -241,7 +241,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void c(tm6 it, Function0 function0, View view2) {
+    public static final void c(en6 it, Function0 function0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, it, function0, view2) == null) {
             Intrinsics.checkNotNullParameter(it, "$it");
@@ -259,7 +259,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         }
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
-        textView.setText(iu5.f(threadRecommendTag.text, 10));
+        textView.setText(qu5.f(threadRecommendTag.text, 10));
         textView.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4));
         textView.setMaxLines(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -297,7 +297,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.it
+    @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
@@ -317,14 +317,14 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                     ThreadRecommendTag threadRecommendTag2 = threadRecommendTag;
                     ThemeColorInfo themeColorInfo = threadRecommendTag2.text_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo, "tagData.text_color");
-                    int f = bqa.f(d1b.c(themeColorInfo));
-                    if (!bqa.e(f)) {
+                    int f = uua.f(z5b.c(themeColorInfo));
+                    if (!uua.e(f)) {
                         this.j = f;
                     }
                     ThemeColorInfo themeColorInfo2 = threadRecommendTag2.background_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "tagData.background_color");
-                    int f2 = bqa.f(d1b.c(themeColorInfo2));
-                    if (!bqa.e(f2)) {
+                    int f2 = uua.f(z5b.c(themeColorInfo2));
+                    if (!uua.e(f2)) {
                         this.k = f2;
                     }
                     next.setTextColor(this.j);
@@ -335,24 +335,24 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         }
     }
 
-    public final void setData(final tm6 tm6Var, final Function0<Unit> function0, Function0<Unit> function02) {
+    public final void setData(final en6 en6Var, final Function0<Unit> function0, Function0<Unit> function02) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, tm6Var, function0, function02) == null) && tm6Var != null) {
-            if (TextUtils.isEmpty(tm6Var.f())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, en6Var, function0, function02) == null) && en6Var != null) {
+            if (TextUtils.isEmpty(en6Var.f())) {
                 this.a.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
             }
-            this.c.setText(iu5.f(tm6Var.f(), 6));
-            this.g.startLoad(tm6Var.c());
-            if (tm6Var.i() == null) {
+            this.c.setText(qu5.f(en6Var.f(), 6));
+            this.g.startLoad(en6Var.c());
+            if (en6Var.k() == null) {
                 this.i.setVisibility(8);
             } else {
-                this.i.setData(tm6Var.i());
+                this.i.setData(en6Var.k());
                 this.i.setVisibility(0);
             }
             this.i.setMClickCallBack(new a(function02));
-            List<ThreadRecommendTag> h = tm6Var.h();
+            List<ThreadRecommendTag> h = en6Var.h();
             this.d.removeAllViews();
             this.e.clear();
             this.f.clear();
@@ -364,7 +364,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                     a(threadRecommendTag);
                 }
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z45
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e55
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -372,7 +372,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardPeiWanView.c(tm6.this, function0, view2);
+                        CardPeiWanView.c(en6.this, function0, view2);
                     }
                 }
             });

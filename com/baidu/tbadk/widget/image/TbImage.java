@@ -15,11 +15,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.image.TbImage;
-import com.baidu.tieba.dua;
-import com.baidu.tieba.lw5;
-import com.baidu.tieba.mw5;
-import com.baidu.tieba.ow5;
-import com.baidu.tieba.qw5;
+import com.baidu.tieba.sw5;
+import com.baidu.tieba.tw5;
+import com.baidu.tieba.vw5;
+import com.baidu.tieba.wya;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,16 +48,16 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u009f\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u001c\u0018\u0000 T2\u00020\u00012\u00020\u0002:\u0001TB%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010*\u001a\u00020$2\b\b\u0001\u0010+\u001a\u00020\bJ\u0010\u0010*\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0016J\u0010\u0010.\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0016J\u0012\u0010/\u001a\u00020$2\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0002J\b\u00100\u001a\u00020$H\u0002J\u000e\u00101\u001a\u00020$2\u0006\u00102\u001a\u00020\u001fJ\u0018\u00103\u001a\u00020$2\u0006\u00104\u001a\u0002052\b\b\u0001\u00106\u001a\u00020\bJ\u0006\u00107\u001a\u00020$J\u0006\u00108\u001a\u00020$J\u0010\u00109\u001a\u00020$2\b\u0010:\u001a\u0004\u0018\u00010;J\u001c\u0010<\u001a\u00020$2\b\u0010=\u001a\u0004\u0018\u00010>2\b\u0010?\u001a\u0004\u0018\u00010@H\u0016J\u0010\u0010A\u001a\u00020$2\b\u0010\u001b\u001a\u0004\u0018\u00010!J\u0016\u0010B\u001a\u00020$2\u000e\u0010\u001b\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#J\u0010\u0010C\u001a\u00020$2\b\u0010D\u001a\u0004\u0018\u00010\u000fJ&\u0010E\u001a\u00020$2\u0006\u0010F\u001a\u0002052\u0006\u0010G\u001a\u0002052\u0006\u0010H\u001a\u0002052\u0006\u0010I\u001a\u000205J\u0010\u0010J\u001a\u00020$2\b\b\u0001\u0010K\u001a\u00020\bJ\u000e\u0010L\u001a\u00020$2\u0006\u0010M\u001a\u00020NJ\u0006\u0010O\u001a\u00020$J\u0006\u0010P\u001a\u00020$J\u0012\u0010Q\u001a\u00020$2\b\u0010R\u001a\u0004\u0018\u00010SH\u0002R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001a\u0010\u0016\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u0010\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001dR\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\"\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010%\u001a\u00020&8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0015\u001a\u0004\b'\u0010(¨\u0006U"}, d2 = {"Lcom/baidu/tbadk/widget/image/TbImage;", "Lcom/facebook/drawee/view/SimpleDraweeView;", "Lcom/baidu/tbadk/widget/image/ITbImage;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "animatedDrawable2", "Lcom/facebook/fresco/animation/drawable/AnimatedDrawable2;", "controlAnimatable", "Landroid/graphics/drawable/Animatable;", "curFrame", "Landroid/graphics/drawable/Drawable;", "draweeControllerBuilder", "Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "getDraweeControllerBuilder", "()Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "draweeControllerBuilder$delegate", "Lkotlin/Lazy;", "isLooping", "", "()Z", "setLooping", "(Z)V", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "com/baidu/tbadk/widget/image/TbImage$listener$1", "Lcom/baidu/tbadk/widget/image/TbImage$listener$1;", "mAnimationListener", "Lcom/facebook/fresco/animation/drawable/AnimationListener;", "onResultListener", "Lcom/baidu/tbadk/widget/image/ILoadResultCallback;", "onWebpEndedListener", "Lkotlin/Function0;", "", "uriHierarchyBuilder", "Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "getUriHierarchyBuilder", "()Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "uriHierarchyBuilder$delegate", "displayImage", "drawableResId", "url", "", "preloadImage", "processAttrs", "setAnimatedDrawableListener", "setAnimationListener", "animationListener", "setBorder", "borderWidth", "", "borderColor", "setCircle", "setCurFrameToPLaceHolder", "setCustomColorFilter", "colorFilter", "Landroid/graphics/ColorFilter;", "setImageURI", "uri", "Landroid/net/Uri;", "callerContext", "", "setLoadResultListener", "setOnWebpEndedListener", "setPlaceHolderDrawable", ResourceManager.DRAWABLE, "setRadius", "leftTopRadius", "rightTopRadius", "rightBottomRadius", "leftBottomRadius", "setRadiusById", "radiiStringId", "setScaleType", "scaleType", "Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;", "startPlay", "stopPlay", "updateViewSize", "imageInfo", "Lcom/facebook/imagepipeline/image/ImageInfo;", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u009f\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u001c\u0018\u0000 U2\u00020\u00012\u00020\u0002:\u0001UB%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010*\u001a\u00020$2\b\b\u0001\u0010+\u001a\u00020\bJ\u0010\u0010*\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0016J\u0006\u0010.\u001a\u00020\u0017J\u0010\u0010/\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0016J\u0012\u00100\u001a\u00020$2\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0002J\b\u00101\u001a\u00020$H\u0002J\u000e\u00102\u001a\u00020$2\u0006\u00103\u001a\u00020\u001fJ\u0018\u00104\u001a\u00020$2\u0006\u00105\u001a\u0002062\b\b\u0001\u00107\u001a\u00020\bJ\u0006\u00108\u001a\u00020$J\u0006\u00109\u001a\u00020$J\u0010\u0010:\u001a\u00020$2\b\u0010;\u001a\u0004\u0018\u00010<J\u001c\u0010=\u001a\u00020$2\b\u0010>\u001a\u0004\u0018\u00010?2\b\u0010@\u001a\u0004\u0018\u00010AH\u0016J\u0010\u0010B\u001a\u00020$2\b\u0010\u001b\u001a\u0004\u0018\u00010!J\u0016\u0010C\u001a\u00020$2\u000e\u0010\u001b\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#J\u0010\u0010D\u001a\u00020$2\b\u0010E\u001a\u0004\u0018\u00010\u000fJ&\u0010F\u001a\u00020$2\u0006\u0010G\u001a\u0002062\u0006\u0010H\u001a\u0002062\u0006\u0010I\u001a\u0002062\u0006\u0010J\u001a\u000206J\u0010\u0010K\u001a\u00020$2\b\b\u0001\u0010L\u001a\u00020\bJ\u000e\u0010M\u001a\u00020$2\u0006\u0010N\u001a\u00020OJ\u0006\u0010P\u001a\u00020$J\u0006\u0010Q\u001a\u00020$J\u0012\u0010R\u001a\u00020$2\b\u0010S\u001a\u0004\u0018\u00010TH\u0002R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001a\u0010\u0016\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u0010\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001dR\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\"\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010%\u001a\u00020&8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0015\u001a\u0004\b'\u0010(¨\u0006V"}, d2 = {"Lcom/baidu/tbadk/widget/image/TbImage;", "Lcom/facebook/drawee/view/SimpleDraweeView;", "Lcom/baidu/tbadk/widget/image/ITbImage;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "animatedDrawable2", "Lcom/facebook/fresco/animation/drawable/AnimatedDrawable2;", "controlAnimatable", "Landroid/graphics/drawable/Animatable;", "curFrame", "Landroid/graphics/drawable/Drawable;", "draweeControllerBuilder", "Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "getDraweeControllerBuilder", "()Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "draweeControllerBuilder$delegate", "Lkotlin/Lazy;", "isLooping", "", "()Z", "setLooping", "(Z)V", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "com/baidu/tbadk/widget/image/TbImage$listener$1", "Lcom/baidu/tbadk/widget/image/TbImage$listener$1;", "mAnimationListener", "Lcom/facebook/fresco/animation/drawable/AnimationListener;", "onResultListener", "Lcom/baidu/tbadk/widget/image/ILoadResultCallback;", "onWebpEndedListener", "Lkotlin/Function0;", "", "uriHierarchyBuilder", "Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "getUriHierarchyBuilder", "()Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "uriHierarchyBuilder$delegate", "displayImage", "drawableResId", "url", "", "isPlaying", "preloadImage", "processAttrs", "setAnimatedDrawableListener", "setAnimationListener", "animationListener", "setBorder", "borderWidth", "", "borderColor", "setCircle", "setCurFrameToPLaceHolder", "setCustomColorFilter", "colorFilter", "Landroid/graphics/ColorFilter;", "setImageURI", "uri", "Landroid/net/Uri;", "callerContext", "", "setLoadResultListener", "setOnWebpEndedListener", "setPlaceHolderDrawable", ResourceManager.DRAWABLE, "setRadius", "leftTopRadius", "rightTopRadius", "rightBottomRadius", "leftBottomRadius", "setRadiusById", "radiiStringId", "setScaleType", "scaleType", "Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;", "startPlay", "stopPlay", "updateViewSize", "imageInfo", "Lcom/facebook/imagepipeline/image/ImageInfo;", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class TbImage extends SimpleDraweeView implements mw5 {
+public final class TbImage extends SimpleDraweeView implements tw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimationListener a;
     public boolean b;
     public AnimatedDrawable2 c;
     public Function0<Unit> d;
-    public lw5 e;
+    public sw5 e;
     public Animatable f;
     public final Lazy g;
     public final Lazy h;
@@ -154,9 +154,9 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
                 super.onFailure(str, th);
-                lw5 lw5Var = this.a.e;
-                if (lw5Var != null) {
-                    lw5Var.b(str, th);
+                sw5 sw5Var = this.a.e;
+                if (sw5Var != null) {
+                    sw5Var.b(str, th);
                 }
             }
         }
@@ -168,7 +168,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
             if (interceptable != null && interceptable.invokeLL(1048579, this, str, imageInfo) != null) {
                 return;
             }
-            this.a.r(imageInfo);
+            this.a.s(imageInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,15 +178,15 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
             if (interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) != null) {
                 return;
             }
-            this.a.r(imageInfo);
+            this.a.s(imageInfo);
             this.a.f = animatable;
             if (animatable instanceof AnimatedDrawable2) {
                 this.a.c = (AnimatedDrawable2) animatable;
-                this.a.o();
+                this.a.p();
             }
-            lw5 lw5Var = this.a.e;
-            if (lw5Var != null) {
-                lw5Var.a(str, imageInfo, animatable);
+            sw5 sw5Var = this.a.e;
+            if (sw5Var != null) {
+                sw5Var.a(str, imageInfo, animatable);
             }
         }
     }
@@ -366,7 +366,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
             }
         });
         this.i = new a(this);
-        n(attributeSet);
+        o(attributeSet);
     }
 
     public /* synthetic */ TbImage(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -394,24 +394,24 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
         }
     }
 
-    public void m(String url) {
+    public void n(String url) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, url) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, url) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
-            qw5.a.a().e(url);
+            xw5.a.a().e(url);
         }
     }
 
-    public final void r(ImageInfo imageInfo) {
+    public final void s(ImageInfo imageInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageInfo) == null) && imageInfo != null) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, imageInfo) == null) && imageInfo != null) {
             setAspectRatio((imageInfo.getWidth() * 1.0f) / imageInfo.getHeight());
         }
     }
 
     public final void setAnimationListener(AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, animationListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, animationListener) == null) {
             Intrinsics.checkNotNullParameter(animationListener, "animationListener");
             this.a = animationListener;
         }
@@ -419,43 +419,43 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
 
     public final void setCustomColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, colorFilter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, colorFilter) == null) {
             getUriHierarchyBuilder().setActualImageColorFilter(colorFilter);
         }
     }
 
-    public final void setLoadResultListener(lw5 lw5Var) {
+    public final void setLoadResultListener(sw5 sw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, lw5Var) == null) {
-            this.e = lw5Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, sw5Var) == null) {
+            this.e = sw5Var;
         }
     }
 
     public final void setLooping(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.b = z;
         }
     }
 
     public final void setOnWebpEndedListener(Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, function0) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, function0) == null) {
             this.d = function0;
-            o();
+            p();
         }
     }
 
     public final void setPlaceHolderDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, drawable) == null) {
             getUriHierarchyBuilder().setPlaceholderImage(drawable);
         }
     }
 
     public final void setRadiusById(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             RoundingParams roundingParams = getUriHierarchyBuilder().getRoundingParams();
             if (roundingParams == null) {
                 roundingParams = new RoundingParams();
@@ -467,7 +467,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
 
     public final void setScaleType(ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, scaleType) == null) {
             Intrinsics.checkNotNullParameter(scaleType, "scaleType");
             getUriHierarchyBuilder().setActualImageScaleType(scaleType);
         }
@@ -498,28 +498,33 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return mw5.a.a(this);
+            return tw5.a.a(this);
         }
         return (ImageView.ScaleType[]) invokeV.objValue;
     }
 
-    public final void o() {
-        AnimatedDrawable2 animatedDrawable2;
+    public final boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (animatedDrawable2 = this.c) != null) {
-            animatedDrawable2.getFrameCount();
-            animatedDrawable2.setAnimationListener(new b(this, animatedDrawable2));
-            if (!this.b) {
-                animatedDrawable2.setAnimationBackend(new ow5(animatedDrawable2.getAnimationBackend(), 1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Animatable animatable = this.f;
+            if (animatable != null) {
+                return animatable.isRunning();
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public final void p() {
-        Animatable animatable;
+        AnimatedDrawable2 animatedDrawable2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (animatable = this.f) != null) {
-            animatable.start();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (animatedDrawable2 = this.c) != null) {
+            animatedDrawable2.getFrameCount();
+            animatedDrawable2.setAnimationListener(new b(this, animatedDrawable2));
+            if (!this.b) {
+                animatedDrawable2.setAnimationBackend(new vw5(animatedDrawable2.getAnimationBackend(), 1));
+            }
         }
     }
 
@@ -527,13 +532,21 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
         Animatable animatable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (animatable = this.f) != null) {
+            animatable.start();
+        }
+    }
+
+    public final void r() {
+        Animatable animatable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (animatable = this.f) != null) {
             animatable.stop();
         }
     }
 
     public final void setCircle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             RoundingParams roundingParams = getUriHierarchyBuilder().getRoundingParams();
             if (roundingParams == null) {
                 roundingParams = new RoundingParams();
@@ -546,15 +559,15 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
     public final void setCurFrameToPLaceHolder() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (drawable = this.j) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (drawable = this.j) != null) {
             getUriHierarchyBuilder().setPlaceholderImage(drawable);
         }
     }
 
-    public final void n(AttributeSet attributeSet) {
+    public final void o(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, dua.TbFrescoImage);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) && attributeSet != null) {
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, wya.TbFrescoImage);
             int resourceId = obtainStyledAttributes.getResourceId(3, 0);
             if (resourceId != 0) {
                 getUriHierarchyBuilder().setPlaceholderImage(resourceId);
@@ -586,7 +599,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
 
     public final void setBorder(float f, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
             RoundingParams roundingParams = getUriHierarchyBuilder().getRoundingParams();
             if (roundingParams == null) {
                 roundingParams = new RoundingParams();
@@ -599,7 +612,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
     @Override // com.facebook.drawee.view.SimpleDraweeView
     public void setImageURI(Uri uri, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, uri, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, uri, obj) == null) {
             this.f = null;
             AnimatedDrawable2 animatedDrawable2 = this.c;
             if (animatedDrawable2 != null) {
@@ -617,7 +630,7 @@ public final class TbImage extends SimpleDraweeView implements mw5 {
 
     public final void setRadius(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             RoundingParams roundingParams = getUriHierarchyBuilder().getRoundingParams();
             if (roundingParams == null) {
                 roundingParams = new RoundingParams();

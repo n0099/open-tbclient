@@ -1,52 +1,170 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.write.webwrite.data.WriteDataManager;
-import com.baidu.tieba.write.webwrite.hybirdlistener.image.BaseImageRelatedListener;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.HeadCardCover;
+import tbclient.FrsPage.HeaderCard;
+import tbclient.QuizCard;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public final class lbb extends WriteDataManager {
+public final class lbb implements pi {
     public static /* synthetic */ Interceptable $ic;
+    @JvmField
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<ThreadInfo> b;
+    public ThemeColorInfo c;
+    public jbb d;
+    public kbb e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938525, "Lcom/baidu/tieba/lbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947938525, "Lcom/baidu/tieba/lbb;");
+                return;
+            }
+        }
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        f = gen;
+    }
 
     public lbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void e() {
+    public final ThemeColorInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b().setType(9);
-            b().setIsArticle(a9b.n);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final jbb c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (jbb) invokeV.objValue;
+    }
+
+    public final kbb d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (kbb) invokeV.objValue;
+    }
+
+    public final List<ThreadInfo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void f(HeaderCard headerCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
+            return;
+        }
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            kbb kbbVar = new kbb();
+            this.e = kbbVar;
+            if (kbbVar != null) {
+                kbbVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            jbb jbbVar = new jbb();
+            this.d = jbbVar;
+            if (jbbVar != null) {
+                jbbVar.d(headCardCover);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void o(TbPageContext<?> pageContext, bbb fileInterceptor, EditorTools editor) {
+    public final void g(tbclient.Personalized.HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pageContext, fileInterceptor, editor) == null) {
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            Intrinsics.checkNotNullParameter(fileInterceptor, "fileInterceptor");
-            Intrinsics.checkNotNullParameter(editor, "editor");
-            a().l(new BaseImageRelatedListener(pageContext, c(), b(), fileInterceptor, d(), editor));
-            a().l(new scb(pageContext, c(), b(), d()));
+        if ((interceptable != null && interceptable.invokeL(1048582, this, headerCard) != null) || headerCard == null) {
+            return;
+        }
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            kbb kbbVar = new kbb();
+            this.e = kbbVar;
+            if (kbbVar != null) {
+                kbbVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            jbb jbbVar = new jbb();
+            this.d = jbbVar;
+            if (jbbVar != null) {
+                jbbVar.e(headCardCover);
+            }
         }
     }
 }

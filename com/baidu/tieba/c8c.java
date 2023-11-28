@@ -1,138 +1,159 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Debug;
+import android.os.SystemClock;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c8c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = true;
+public class c8c implements Printer {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public b d;
+    public final boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947630075, "Lcom/baidu/tieba/c8c;")) == null) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(long j, long j2, long j3, long j4);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ c8c e;
+
+        public a(c8c c8cVar, long j, long j2, long j3, long j4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c8cVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = c8cVar;
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = j4;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.d.a(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    public c8c(b bVar, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 3000L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = null;
+        if (bVar != null) {
+            this.d = bVar;
+            this.a = j;
+            this.e = z;
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        throw new IllegalArgumentException("blockListener should not be null.");
+    }
+
+    public final boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j - this.b > this.a) {
+                return true;
+            }
+            return false;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947630075, "Lcom/baidu/tieba/c8c;");
+        return invokeJ.booleanValue;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            a8c.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SecureRandom a() {
-        InterceptResult invokeV;
-        SecureRandom secureRandom;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            g8c.b("EncryptUtil", "generateSecureRandomNew ");
-            try {
-            } catch (NoSuchAlgorithmException unused) {
-                g8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (y7c.f().b != null) {
+                y7c.f().b.c();
             }
-            if (Build.VERSION.SDK_INT >= 26) {
-                secureRandom = SecureRandom.getInstanceStrong();
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        g8c.c("EncryptUtil", "NoSuchAlgorithmException");
-                        return secureRandom;
-                    } catch (Throwable th) {
-                        if (b) {
-                            g8c.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
-                            b = false;
-                        }
-                        return secureRandom;
-                    }
-                }
-                AESEngine aESEngine = new AESEngine();
-                byte[] bArr = new byte[32];
-                secureRandom.nextBytes(bArr);
-                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
+            if (y7c.f().c != null) {
+                y7c.f().c.c();
             }
-            secureRandom = null;
-            if (secureRandom == null) {
-            }
-            AESEngine aESEngine2 = new AESEngine();
-            byte[] bArr2 = new byte[32];
-            secureRandom.nextBytes(bArr2);
-            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
         }
-        return (SecureRandom) invokeV.objValue;
     }
 
-    public static byte[] b(int i) {
-        InterceptResult invokeI;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            SecureRandom a2 = a();
-            if (a2 == null) {
-                return new byte[0];
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (y7c.f().b != null) {
+                y7c.f().b.d();
             }
-            byte[] bArr = new byte[i];
-            a2.nextBytes(bArr);
-            return bArr;
+            if (y7c.f().c != null) {
+                y7c.f().c.d();
+            }
         }
-        return (byte[]) invokeI.objValue;
     }
 
-    public static String d(int i) {
-        InterceptResult invokeI;
+    @Override // android.util.Printer
+    public void println(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return d8c.a(c(i));
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static byte[] c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (!a) {
-                byte[] bArr = new byte[i];
-                SecureRandom secureRandom = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        secureRandom = SecureRandom.getInstanceStrong();
-                    }
-                } catch (NoSuchAlgorithmException unused) {
-                    g8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-                }
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        g8c.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
-                        return new byte[0];
-                    } catch (Exception e) {
-                        g8c.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
-                        return new byte[0];
-                    }
-                }
-                secureRandom.nextBytes(bArr);
-                return bArr;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.e && Debug.isDebuggerConnected()) {
+                return;
             }
-            return b(i);
+            if (str.charAt(0) == '>') {
+                this.b = System.currentTimeMillis();
+                this.c = SystemClock.currentThreadTimeMillis();
+                d();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (b(currentTimeMillis)) {
+                c(currentTimeMillis);
+            }
+            e();
         }
-        return (byte[]) invokeI.objValue;
     }
 }

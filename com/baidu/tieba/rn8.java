@@ -1,7 +1,22 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public interface rn8 {
-    void J(String str, boolean z);
+    void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
 
-    void K(int i, int i2, String str);
+    void d(@NonNull String str, int i);
+
+    void j(@NonNull String str, int i);
+
+    void k(@NonNull String str, @NonNull String str2);
+
+    void m(@NonNull String str, @Nullable Object obj, @Nullable bo8 bo8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
+
+    void q(@NonNull AbilityItem abilityItem);
 }

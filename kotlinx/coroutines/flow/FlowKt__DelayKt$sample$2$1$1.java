@@ -41,12 +41,12 @@ public final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(ChannelResult<? extends Object> channelResult, Continuation<? super Unit> continuation) {
-        return m2333invokeWpGqRn0(channelResult.m2321unboximpl(), continuation);
+        return m2337invokeWpGqRn0(channelResult.m2325unboximpl(), continuation);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m2333invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
-        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m2309boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m2337invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m2313boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Type inference failed for: r4v4, types: [T, java.lang.Object] */
@@ -56,21 +56,21 @@ public final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements
         IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         if (this.label == 0) {
             ResultKt.throwOnFailure(obj);
-            ?? m2321unboximpl = ((ChannelResult) this.L$0).m2321unboximpl();
+            ?? m2325unboximpl = ((ChannelResult) this.L$0).m2325unboximpl();
             Ref.ObjectRef<Object> objectRef = this.$lastValue;
-            boolean z = m2321unboximpl instanceof ChannelResult.Failed;
+            boolean z = m2325unboximpl instanceof ChannelResult.Failed;
             if (!z) {
-                objectRef.element = m2321unboximpl;
+                objectRef.element = m2325unboximpl;
             }
             ReceiveChannel<Unit> receiveChannel = this.$ticker;
             Ref.ObjectRef<Object> objectRef2 = this.$lastValue;
             if (z) {
-                Throwable m2313exceptionOrNullimpl = ChannelResult.m2313exceptionOrNullimpl(m2321unboximpl);
-                if (m2313exceptionOrNullimpl == null) {
+                Throwable m2317exceptionOrNullimpl = ChannelResult.m2317exceptionOrNullimpl(m2325unboximpl);
+                if (m2317exceptionOrNullimpl == null) {
                     receiveChannel.cancel((CancellationException) new ChildCancelledException());
                     objectRef2.element = NullSurrogateKt.DONE;
                 } else {
-                    throw m2313exceptionOrNullimpl;
+                    throw m2317exceptionOrNullimpl;
                 }
             }
             return Unit.INSTANCE;

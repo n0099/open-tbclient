@@ -1,32 +1,47 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.animation.ScaleAnimation;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tieba.zz4;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.forumMember.member.FrsMemberHeaderViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.LikeReturnData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuThrones;
 /* loaded from: classes5.dex */
-public class cq7 {
+public class cq7 extends cs7<dq7, FrsMemberHeaderViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zz4 a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public boolean f;
+    public LikeModel l;
+    public int m;
+    public int n;
+    public View.OnClickListener o;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -56,60 +71,40 @@ public class cq7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cq7 cq7Var = this.a;
-                cq7Var.f = !cq7Var.f;
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ cq7 c;
-
-        public b(cq7 cq7Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cq7Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                Object tag = view2.getTag();
+                if (!(tag instanceof Integer)) {
                     return;
                 }
-            }
-            this.c = cq7Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                SharedPrefHelper.getInstance().putBoolean("key_frs_recommend_tip", !this.c.f);
-                ip7.c().d(this.a, this.b);
-                this.c.a.dismiss();
-                this.c.a = null;
+                pi item = this.a.getItem(((Integer) tag).intValue());
+                if (!(item instanceof dq7)) {
+                    return;
+                }
+                dq7 dq7Var = (dq7) item;
+                if (view2.getId() == R.id.obfuscated_res_0x7f0915e1) {
+                    if (!ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
+                        return;
+                    }
+                    if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0e6f);
+                        return;
+                    }
+                    String a = dq7Var.a();
+                    this.a.l.g0(dq7Var.b(), a);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092937) {
+                    String a2 = dq7Var.a();
+                    this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, dq7Var.b(), a2)));
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements zz4.e {
+    public class b extends w4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cq7 a;
 
-        public c(cq7 cq7Var) {
+        public b(cq7 cq7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,110 +122,186 @@ public class cq7 {
             this.a = cq7Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.w4
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, zz4Var) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if ((obj instanceof LikeReturnData) && this.a.l.getErrorCode() == 0) {
+                    LikeReturnData likeReturnData = (LikeReturnData) obj;
+                    likeReturnData.setLike(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, likeReturnData));
+                } else if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
+                    AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
+                } else {
+                    this.a.c.showToast(this.a.l.getErrorString());
+                }
             }
-            this.a.f = false;
-            this.a.a.dismiss();
-            this.a.a = null;
         }
     }
 
-    public cq7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.c;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            h();
-            TextView textView3 = this.e;
-            if (textView3 != null) {
-                SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-        }
-    }
-
-    public final void h() {
-        ImageView imageView;
-        Drawable maskDrawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (imageView = this.d) == null) {
-            return;
-        }
-        if (this.f) {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
-        } else {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
-        }
-        imageView.setImageDrawable(maskDrawable);
-    }
-
-    public void i(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, str2) == null) {
-            zz4 zz4Var = this.a;
-            if (zz4Var != null && zz4Var.isShowing()) {
                 return;
             }
-            zz4 zz4Var2 = new zz4(tbPageContext.getPageActivity());
-            this.a = zz4Var2;
-            zz4Var2.setContentViewSize(1);
-            this.a.setNegativeTextColor(R.color.CAM_X0105);
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925fe);
-            this.b = textView;
-            textView.setText(R.string.frs_recommend_thread_sure_title);
-            this.c = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones b2 = ip7.c().b();
-            if (b2 != null) {
-                TextView textView2 = this.c;
-                String string = tbPageContext.getString(R.string.frs_recommend_thread_sure_content);
-                Integer num = b2.total_recommend_num;
-                textView2.setText(String.format(string, b2.bazhu_level, num, Integer.valueOf(num.intValue() - b2.used_recommend_num.intValue())));
-            } else {
-                this.c.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
-            }
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090715);
-            this.e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new a(this));
-            f();
-            this.a.setContentView(inflate);
-            this.a.setPositiveButton(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new b(this, str, str2));
-            this.a.setNegativeButton(tbPageContext.getString(R.string.next_time), new c(this));
-            this.a.create(tbPageContext).show();
         }
+        this.m = 0;
+        this.n = 0;
+        this.o = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: Q */
+    public FrsMemberHeaderViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            if (this.l == null) {
+                P();
+            }
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d031d, (ViewGroup) null), this.o);
+        }
+        return (FrsMemberHeaderViewHolder) invokeL.objValue;
+    }
+
+    public final int[] O(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 3) {
+                return new int[]{-8331843, -10499102};
+            }
+            if (i <= 9) {
+                return new int[]{-10499102, -154262};
+            }
+            if (i <= 15) {
+                return new int[]{-154262, -148180};
+            }
+            return new int[]{-148180, -100818};
+        }
+        return (int[]) invokeI.objValue;
+    }
+
+    public final void P() {
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (tbPageContext = this.c) == null) {
+            return;
+        }
+        LikeModel likeModel = new LikeModel(tbPageContext);
+        this.l = likeModel;
+        likeModel.setLoadDataCallBack(new b(this));
+    }
+
+    public View R(int i, View view2, ViewGroup viewGroup, dq7 dq7Var, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
+        InterceptResult invokeCommon;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dq7Var, frsMemberHeaderViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) dq7Var, (dq7) frsMemberHeaderViewHolder);
+            if (dq7Var != null && dq7Var.c() != null) {
+                int parseColor = Color.parseColor("#56cfa1");
+                int color = SkinManager.getColor(R.color.CAM_X0109);
+                LikeReturnData c = dq7Var.c();
+                if (TbadkCoreApplication.isLogin()) {
+                    if (c.isLike() == 1) {
+                        frsMemberHeaderViewHolder.a.setVisibility(8);
+                        frsMemberHeaderViewHolder.b.setVisibility(0);
+                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0d71);
+                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.getUserLevel()));
+                        if (StringUtils.isNull(c.getLevelName())) {
+                            frsMemberHeaderViewHolder.d.setVisibility(8);
+                        } else {
+                            frsMemberHeaderViewHolder.d.setText(c.getLevelName());
+                            frsMemberHeaderViewHolder.d.setVisibility(0);
+                        }
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                        SpannableString spannableString = new SpannableString(c.getCurScore() + "");
+                        spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
+                        SpannableString spannableString2 = new SpannableString("/" + c.getLevelupScore());
+                        spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
+                        spannableStringBuilder.append((CharSequence) spannableString);
+                        spannableStringBuilder.append((CharSequence) spannableString2);
+                        frsMemberHeaderViewHolder.g.setText(spannableStringBuilder);
+                        frsMemberHeaderViewHolder.g.setVisibility(0);
+                        frsMemberHeaderViewHolder.k.setVisibility(0);
+                        frsMemberHeaderViewHolder.l.setVisibility(0);
+                    } else {
+                        frsMemberHeaderViewHolder.a.setVisibility(0);
+                        frsMemberHeaderViewHolder.b.setVisibility(8);
+                        frsMemberHeaderViewHolder.c.setVisibility(8);
+                        frsMemberHeaderViewHolder.d.setVisibility(8);
+                        frsMemberHeaderViewHolder.g.setVisibility(8);
+                        frsMemberHeaderViewHolder.k.setVisibility(8);
+                        frsMemberHeaderViewHolder.l.setVisibility(8);
+                    }
+                } else {
+                    frsMemberHeaderViewHolder.a.setVisibility(8);
+                    frsMemberHeaderViewHolder.b.setVisibility(8);
+                    frsMemberHeaderViewHolder.c.setVisibility(8);
+                    frsMemberHeaderViewHolder.d.setVisibility(8);
+                    frsMemberHeaderViewHolder.g.setVisibility(8);
+                    frsMemberHeaderViewHolder.k.setVisibility(8);
+                    frsMemberHeaderViewHolder.l.setVisibility(8);
+                }
+                frsMemberHeaderViewHolder.a.setTag(Integer.valueOf(i));
+                frsMemberHeaderViewHolder.d.setTag(Integer.valueOf(i));
+                frsMemberHeaderViewHolder.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.h, R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.e, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.a, R.drawable.frs_btn_like);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.a, R.color.white_alpha100, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
+                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f0806da);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
+                if (this.m != c.getUserLevel() || this.n != c.getCurScore()) {
+                    this.m = c.getUserLevel();
+                    this.n = c.getCurScore();
+                    frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, O(this.m)));
+                    int curScore = c.getCurScore();
+                    this.n = curScore;
+                    if (curScore > c.getLevelupScore()) {
+                        this.n = c.getLevelupScore();
+                    }
+                    if (c.getLevelupScore() != 0) {
+                        f = this.n / c.getLevelupScore();
+                    } else {
+                        f = 0.0f;
+                    }
+                    if (f > 0.999f) {
+                        f = 1.0f;
+                    }
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
+                    scaleAnimation.setFillAfter(true);
+                    scaleAnimation.setDuration(1000L);
+                    sua.j((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
+                }
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.cs7, com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        R(i, view2, viewGroup, (dq7) obj, (FrsMemberHeaderViewHolder) viewHolder);
+        return view2;
     }
 }

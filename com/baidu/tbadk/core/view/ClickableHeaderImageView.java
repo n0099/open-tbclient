@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.vu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData a;
     public boolean b;
     public View.OnClickListener c;
-    public tu4 d;
+    public vu4 d;
     public View.OnClickListener e;
 
     /* loaded from: classes4.dex */
@@ -59,12 +59,12 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                tu4 tu4Var = this.a.d;
-                if ((tu4Var != null && tu4Var.a(view2)) || this.a.a == null) {
+                vu4 vu4Var = this.a.d;
+                if ((vu4Var != null && vu4Var.a(view2)) || this.a.a == null) {
                     return;
                 }
                 if (this.a.b) {
-                    author = this.a.a.getTopAgreePost().t();
+                    author = this.a.a.getTopAgreePost().u();
                 } else {
                     author = this.a.a.getAuthor();
                 }
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(tu4 tu4Var) {
+    public void setOnInterceptClickEventListener(vu4 vu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tu4Var) == null) {
-            this.d = tu4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, vu4Var) == null) {
+            this.d = vu4Var;
         }
     }
 
@@ -186,7 +186,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             this.a = threadData;
             this.b = z2;
             if (z2) {
-                author = threadData.getTopAgreePost().t();
+                author = threadData.getTopAgreePost().u();
             } else {
                 author = threadData.getAuthor();
             }

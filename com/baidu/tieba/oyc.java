@@ -4,28 +4,30 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.GodInfo;
+import tbclient.ForumShowInfoTag;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public class oyc extends qoc {
+public class oyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GodInfo godInfo) {
+    public static JSONObject b(@NonNull ForumShowInfoTag forumShowInfoTag) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, godInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumShowInfoTag)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "id", godInfo.id);
-            qoc.a(jSONObject, "intro", godInfo.intro);
-            qoc.a(jSONObject, "type", godInfo.type);
-            qoc.a(jSONObject, "fid", godInfo.fid);
-            qoc.a(jSONObject, "followed", godInfo.followed);
-            qoc.a(jSONObject, "recommend_reason", godInfo.recommend_reason);
-            qoc.a(jSONObject, "forum_name", godInfo.forum_name);
-            qoc.a(jSONObject, "can_send_msg", godInfo.can_send_msg);
-            qoc.a(jSONObject, "prefix", godInfo.prefix);
+            ltc.a(jSONObject, "text", forumShowInfoTag.text);
+            ThemeColorInfo themeColorInfo = forumShowInfoTag.text_color;
+            if (themeColorInfo != null) {
+                ltc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, t9d.b(themeColorInfo));
+            }
+            ThemeColorInfo themeColorInfo2 = forumShowInfoTag.bg_color;
+            if (themeColorInfo2 != null) {
+                ltc.a(jSONObject, "bg_color", t9d.b(themeColorInfo2));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

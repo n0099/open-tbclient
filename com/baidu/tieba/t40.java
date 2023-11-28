@@ -1,44 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class t40 {
+public class t40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-
-    public abstract void a(u40 u40Var);
-
-    public abstract u40 b();
-
-    public abstract boolean c();
-
-    public abstract String d();
-
-    public abstract DataInputStream e() throws Exception;
-
-    public abstract void f(u40 u40Var);
-
-    public abstract boolean g() throws IOException;
-
-    public abstract u40 h(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError, SocketException, UnknownHostException;
-
-    public abstract void i(s40 s40Var) throws IOException;
+    public byte[] a;
+    public long b;
+    public long c;
+    public int d;
+    public String e;
+    public boolean f;
+    public byte[] g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public long o;
+    public boolean p;
+    public List<n40> q;
+    public String r;
+    public long s;
+    public long t;
 
     public t40() {
         Interceptable interceptable = $ic;
@@ -53,6 +45,35 @@ public abstract class t40 {
                 return;
             }
         }
-        this.a = l40.h().g();
+        this.a = new byte[0];
+        this.b = System.currentTimeMillis();
+        this.c = 10000L;
+        this.d = -1;
+        this.e = "";
+        this.f = false;
+        this.g = new byte[0];
+        this.h = 60000L;
+        this.i = -1L;
+        this.j = -1L;
+        this.k = -1;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = -1L;
+        this.p = false;
+        this.q = new ArrayList();
+        this.r = "";
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.n) {
+                return "Request correlationId : " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
+            }
+            return "Response correlationId : " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
+        }
+        return (String) invokeV.objValue;
     }
 }

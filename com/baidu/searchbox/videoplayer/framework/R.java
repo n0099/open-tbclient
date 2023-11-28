@@ -12,12 +12,12 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class color {
-        public static final int bdvideoplayer_quick_share_item_text = 0x7f06049f;
-        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f0604a0;
-        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f0604a1;
-        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f0604a2;
-        public static final int bdvideoplayer_seek_bar_played_color = 0x7f0604a3;
-        public static final int bdvideoplayer_text_color_white = 0x7f0604a4;
+        public static final int bdvideoplayer_quick_share_item_text = 0x7f0604a1;
+        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f0604a2;
+        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f0604a3;
+        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f0604a4;
+        public static final int bdvideoplayer_seek_bar_played_color = 0x7f0604a5;
+        public static final int bdvideoplayer_text_color_white = 0x7f0604a6;
     }
 
     /* loaded from: classes4.dex */
@@ -54,50 +54,50 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int bdvideoplayer_back = 0x7f080271;
-        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080272;
-        public static final int bdvideoplayer_mute_off = 0x7f08027f;
-        public static final int bdvideoplayer_mute_on = 0x7f080280;
-        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080281;
-        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080282;
-        public static final int bdvideoplayer_pause = 0x7f080283;
-        public static final int bdvideoplayer_play = 0x7f080284;
-        public static final int bdvideoplayer_quick_share_item = 0x7f080285;
-        public static final int bdvideoplayer_seekbar_thumb = 0x7f080286;
-        public static final int bdvideoplayer_switch_land = 0x7f080287;
-        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080288;
-        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f080289;
-        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08028a;
+        public static final int bdvideoplayer_back = 0x7f080274;
+        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080275;
+        public static final int bdvideoplayer_mute_off = 0x7f080282;
+        public static final int bdvideoplayer_mute_on = 0x7f080283;
+        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080284;
+        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080285;
+        public static final int bdvideoplayer_pause = 0x7f080286;
+        public static final int bdvideoplayer_play = 0x7f080287;
+        public static final int bdvideoplayer_quick_share_item = 0x7f080288;
+        public static final int bdvideoplayer_seekbar_thumb = 0x7f080289;
+        public static final int bdvideoplayer_switch_land = 0x7f08028a;
+        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f08028b;
+        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f08028c;
+        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08028d;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int bdvideoplayer_seekbar = 0x7f0903dd;
-        public static final int bt_retry = 0x7f0904bc;
-        public static final int center = 0x7f0906b5;
-        public static final int left = 0x7f091527;
-        public static final int main_duration_text = 0x7f091705;
-        public static final int main_progress_text = 0x7f09170b;
-        public static final int main_view_seekbar = 0x7f091717;
-        public static final int play_error_layout_retry = 0x7f091d1e;
-        public static final int progress = 0x7f091de4;
-        public static final int right = 0x7f091f86;
-        public static final int time = 0x7f0925c7;
-        public static final int tv_error = 0x7f09277f;
+        public static final int bdvideoplayer_seekbar = 0x7f0903f1;
+        public static final int bt_retry = 0x7f0904d6;
+        public static final int center = 0x7f0906d1;
+        public static final int left = 0x7f091598;
+        public static final int main_duration_text = 0x7f091776;
+        public static final int main_progress_text = 0x7f09177c;
+        public static final int main_view_seekbar = 0x7f091788;
+        public static final int play_error_layout_retry = 0x7f091d94;
+        public static final int progress = 0x7f091e5a;
+        public static final int right = 0x7f091ffe;
+        public static final int time = 0x7f09264c;
+        public static final int tv_error = 0x7f092802;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0173;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d0174;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0175;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0177;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d0178;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0179;
     }
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0347;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0348;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f0349;
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f034f;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0350;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0351;
     }
 
     /* loaded from: classes4.dex */

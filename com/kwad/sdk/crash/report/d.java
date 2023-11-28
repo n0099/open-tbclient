@@ -8,8 +8,8 @@ import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
-import com.kwad.sdk.utils.l;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.m;
+import com.kwad.sdk.utils.q;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -28,32 +28,34 @@ public abstract class d {
     public String mErrorMessage = "";
     public e mUploader;
 
+    public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
+
     private void a(ExceptionMessage exceptionMessage, @NonNull List<File> list, @Nullable CountDownLatch countDownLatch) {
-        com.kwad.sdk.core.e.b.d("ExceptionCollector", "compressAndUpload");
-        File wv = this.mUploader.wv();
-        if (!wv.exists()) {
-            wv.mkdir();
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", "compressAndUpload");
+        File Gg = this.mUploader.Gg();
+        if (!Gg.exists()) {
+            Gg.mkdir();
         }
-        File file = new File(wv, exceptionMessage.mLogUUID + ".zip");
+        File file = new File(Gg, exceptionMessage.mLogUUID + ".zip");
         StringBuilder sb = new StringBuilder("compressAndUpload zipFile=");
         sb.append(file.getPath());
-        com.kwad.sdk.core.e.b.d("ExceptionCollector", sb.toString());
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", sb.toString());
         if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (Exception e) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                com.kwad.sdk.core.e.c.printStackTraceOnly(e);
             }
         }
-        l.a((File[]) list.toArray(new File[0]), file.getPath());
-        if (file.length() <= 0) {
-            o.P(file);
+        m.a((File[]) list.toArray(new File[0]), file.getPath());
+        if (file.length() > 0) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("mLogUUID", exceptionMessage.mLogUUID);
+            new JSONObject(hashMap);
+            b(file, countDownLatch);
             return;
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put("mLogUUID", exceptionMessage.mLogUUID);
-        new JSONObject(hashMap);
-        b(file, countDownLatch);
+        q.S(file);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x008b */
@@ -104,7 +106,7 @@ public abstract class d {
             } catch (IOException e2) {
                 e = e2;
                 bufferedReader2 = bufferedReader;
-                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                com.kwad.sdk.core.e.c.printStackTraceOnly(e);
                 com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                 bufferedReader2 = bufferedReader2;
             } catch (Throwable th2) {
@@ -114,7 +116,7 @@ public abstract class d {
                 throw th;
             }
         } catch (Exception e3) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e3);
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e3);
         }
     }
 
@@ -123,11 +125,28 @@ public abstract class d {
         com.kwad.sdk.crash.report.upload.d.a(file, true, countDownLatch);
     }
 
-    public static String db(String str) {
-        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
+    public static String fg(String str) {
+        if (str != null && str.contains("-")) {
+            return str.substring(0, str.lastIndexOf(45));
+        }
+        return str;
     }
 
-    public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
+    @SuppressLint({"CheckResult"})
+    public final void C(File file) {
+        com.kwad.sdk.core.e.c.d("AdExceptionCollector", "reportException dir =" + file);
+        File[] listFiles = file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.d.1
+            @Override // java.io.FileFilter
+            public final boolean accept(File file2) {
+                return file2.getName().endsWith(".dump");
+            }
+        });
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                a(file2, (CountDownLatch) null);
+            }
+        }
+    }
 
     public final void a(e eVar) {
         this.mUploader = eVar;
@@ -136,62 +155,62 @@ public abstract class d {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, CHECK_CAST, INVOKE, INVOKE, GOTO, INVOKE, MOVE_EXCEPTION, SGET, INVOKE, IF, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public final void a(File file, @Nullable CountDownLatch countDownLatch) {
         File[] listFiles;
-        String df = com.kwad.sdk.crash.utils.f.df(file.getPath());
-        File file2 = new File(df + ".msg");
-        File file3 = new File(df + ".log");
-        File file4 = new File(df + ".blog");
-        File file5 = new File(df + ".jtrace");
-        File file6 = new File(df + ".minfo");
+        String fk = com.kwad.sdk.crash.utils.g.fk(file.getPath());
+        File file2 = new File(fk + ".msg");
+        File file3 = new File(fk + ".log");
+        File file4 = new File(fk + ".blog");
+        File file5 = new File(fk + ".jtrace");
+        File file6 = new File(fk + ".minfo");
         ArrayList<File> arrayList = new ArrayList();
         try {
-            ExceptionMessage a = a(file, file2, file3, df);
+            ExceptionMessage a = a(file, file2, file3, fk);
             if (a == null) {
                 try {
-                    o.delete(file.getPath());
-                    o.delete(file3.getPath());
-                    o.delete(file4.getPath());
-                    o.delete(file2.getPath());
-                    o.delete(file5.getPath());
-                    o.delete(file6.getPath());
+                    q.delete(file.getPath());
+                    q.delete(file3.getPath());
+                    q.delete(file4.getPath());
+                    q.delete(file2.getPath());
+                    q.delete(file5.getPath());
+                    q.delete(file6.getPath());
                     for (File file7 : arrayList) {
-                        o.delete(file7.getPath());
+                        q.delete(file7.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.g.F(com.kwad.sdk.crash.handler.b.sBackupDir);
                     return;
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th);
                     return;
                 }
             }
-            com.kwad.sdk.core.e.b.d("ExceptionCollector", "message.mCrashSource=" + a.mCrashSource);
+            com.kwad.sdk.core.e.c.d("AdExceptionCollector", "message.mCrashSource=" + a.mCrashSource);
             if (a.mCrashSource == 2) {
                 try {
-                    o.delete(file.getPath());
-                    o.delete(file3.getPath());
-                    o.delete(file4.getPath());
-                    o.delete(file2.getPath());
-                    o.delete(file5.getPath());
-                    o.delete(file6.getPath());
+                    q.delete(file.getPath());
+                    q.delete(file3.getPath());
+                    q.delete(file4.getPath());
+                    q.delete(file2.getPath());
+                    q.delete(file5.getPath());
+                    q.delete(file6.getPath());
                     for (File file8 : arrayList) {
-                        o.delete(file8.getPath());
+                        q.delete(file8.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.g.F(com.kwad.sdk.crash.handler.b.sBackupDir);
                     return;
                 } catch (Throwable th2) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th2);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th2);
                     return;
                 }
             }
             this.mUploader.a(a, countDownLatch);
             if (this instanceof f) {
-                com.kwad.sdk.core.e.b.d("ExceptionCollector", " java crash 不上传文件");
+                com.kwad.sdk.core.e.c.d("AdExceptionCollector", " java crash 不上传文件");
                 try {
                     return;
                 } catch (Throwable th3) {
                     return;
                 }
             }
-            com.kwad.sdk.crash.utils.f.B(file4);
+            com.kwad.sdk.crash.utils.g.E(file4);
             List<File> arrayList2 = new ArrayList<>();
             Collections.addAll(arrayList2, file3, file4);
             Iterator<File> it = arrayList2.iterator();
@@ -203,7 +222,7 @@ public abstract class d {
             File file9 = new File(file.getParentFile().getParent(), ExceptionHandlerImpl.KEY_CUSTOM);
             if (file9.exists()) {
                 for (File file10 : file9.listFiles()) {
-                    if (!file10.isDirectory() && (file10.getName().startsWith(a.mLogUUID) || file10.getName().startsWith(db(a.mLogUUID)))) {
+                    if (!file10.isDirectory() && (file10.getName().startsWith(a.mLogUUID) || file10.getName().startsWith(fg(a.mLogUUID)))) {
                         arrayList.add(file10);
                     }
                 }
@@ -211,51 +230,51 @@ public abstract class d {
             }
             a(a, arrayList2, countDownLatch);
             try {
-                o.delete(file.getPath());
-                o.delete(file3.getPath());
-                o.delete(file4.getPath());
-                o.delete(file2.getPath());
-                o.delete(file5.getPath());
-                o.delete(file6.getPath());
+                q.delete(file.getPath());
+                q.delete(file3.getPath());
+                q.delete(file4.getPath());
+                q.delete(file2.getPath());
+                q.delete(file5.getPath());
+                q.delete(file6.getPath());
                 for (File file11 : arrayList) {
-                    o.delete(file11.getPath());
+                    q.delete(file11.getPath());
                 }
-                com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
+                com.kwad.sdk.crash.utils.g.F(com.kwad.sdk.crash.handler.b.sBackupDir);
             } catch (Throwable th4) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(th4);
+                com.kwad.sdk.core.e.c.printStackTraceOnly(th4);
             }
         } catch (Throwable th5) {
             try {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(th5);
-                com.kwad.sdk.crash.utils.f.l(th5);
+                com.kwad.sdk.core.e.c.printStackTraceOnly(th5);
+                com.kwad.sdk.crash.utils.g.q(th5);
                 try {
-                    o.delete(file.getPath());
-                    o.delete(file3.getPath());
-                    o.delete(file4.getPath());
-                    o.delete(file2.getPath());
-                    o.delete(file5.getPath());
-                    o.delete(file6.getPath());
+                    q.delete(file.getPath());
+                    q.delete(file3.getPath());
+                    q.delete(file4.getPath());
+                    q.delete(file2.getPath());
+                    q.delete(file5.getPath());
+                    q.delete(file6.getPath());
                     for (File file12 : arrayList) {
-                        o.delete(file12.getPath());
+                        q.delete(file12.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.g.F(com.kwad.sdk.crash.handler.b.sBackupDir);
                 } catch (Throwable th6) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th6);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th6);
                 }
             } finally {
                 try {
-                    o.delete(file.getPath());
-                    o.delete(file3.getPath());
-                    o.delete(file4.getPath());
-                    o.delete(file2.getPath());
-                    o.delete(file5.getPath());
-                    o.delete(file6.getPath());
+                    q.delete(file.getPath());
+                    q.delete(file3.getPath());
+                    q.delete(file4.getPath());
+                    q.delete(file2.getPath());
+                    q.delete(file5.getPath());
+                    q.delete(file6.getPath());
                     for (File file13 : arrayList) {
-                        o.delete(file13.getPath());
+                        q.delete(file13.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.g.F(com.kwad.sdk.crash.handler.b.sBackupDir);
                 } catch (Throwable th32) {
-                    com.kwad.sdk.core.e.b.printStackTraceOnly(th32);
+                    com.kwad.sdk.core.e.c.printStackTraceOnly(th32);
                 }
             }
         }
@@ -275,75 +294,77 @@ public abstract class d {
                 while (true) {
                     try {
                         String readLine = bufferedReader2.readLine();
-                        if (readLine == null) {
+                        if (readLine != null) {
+                            if (!z && readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
+                                exceptionMessage.mJNIError = readLine.substring(readLine.indexOf("JNI DETECTED ERROR IN APPLICATION"));
+                                z = true;
+                            } else {
+                                if (!readLine.contains("Waiting for a blocking GC ") && !readLine.contains("WaitForGcToComplete")) {
+                                    if (readLine.contains("dvm_lock_sample")) {
+                                        if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
+                                            sb2 = new StringBuilder();
+                                            sb2.append(readLine);
+                                            sb2.append("\n");
+                                        } else {
+                                            sb2 = new StringBuilder();
+                                            sb2.append(exceptionMessage.mLockInfo);
+                                            sb2.append(readLine);
+                                            sb2.append("\n");
+                                        }
+                                        exceptionMessage.mLockInfo = sb2.toString();
+                                    } else if (readLine.contains("Long monitor")) {
+                                        if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
+                                            sb3 = new StringBuilder();
+                                            sb3.append(readLine);
+                                            sb3.append("\n");
+                                        } else {
+                                            sb3 = new StringBuilder();
+                                            sb3.append(exceptionMessage.mMonitorInfo);
+                                            sb3.append(readLine);
+                                            sb3.append("\n");
+                                        }
+                                        exceptionMessage.mMonitorInfo = sb3.toString();
+                                    } else if (readLine.contains("Slow Looper")) {
+                                        if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
+                                            sb4 = new StringBuilder();
+                                            sb4.append(readLine);
+                                            sb4.append("\n");
+                                        } else {
+                                            sb4 = new StringBuilder();
+                                            sb4.append(exceptionMessage.mSlowLooper);
+                                            sb4.append(readLine);
+                                            sb4.append("\n");
+                                        }
+                                        exceptionMessage.mSlowLooper = sb4.toString();
+                                    } else if (readLine.contains("Slow Operation")) {
+                                        if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
+                                            sb5 = new StringBuilder();
+                                            sb5.append(readLine);
+                                            sb5.append("\n");
+                                        } else {
+                                            sb5 = new StringBuilder();
+                                            sb5.append(exceptionMessage.mSlowOperation);
+                                            sb5.append(readLine);
+                                            sb5.append("\n");
+                                        }
+                                        exceptionMessage.mSlowOperation = sb5.toString();
+                                    }
+                                }
+                                if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
+                                    sb = new StringBuilder();
+                                    sb.append(readLine);
+                                    sb.append("\n");
+                                } else {
+                                    sb = new StringBuilder();
+                                    sb.append(exceptionMessage.mGCInfo);
+                                    sb.append(readLine);
+                                    sb.append("\n");
+                                }
+                                exceptionMessage.mGCInfo = sb.toString();
+                            }
+                        } else {
                             com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                             return;
-                        } else if (z || !readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
-                            if (!readLine.contains("Waiting for a blocking GC ") && !readLine.contains("WaitForGcToComplete")) {
-                                if (readLine.contains("dvm_lock_sample")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
-                                        sb2 = new StringBuilder();
-                                        sb2.append(readLine);
-                                        sb2.append("\n");
-                                    } else {
-                                        sb2 = new StringBuilder();
-                                        sb2.append(exceptionMessage.mLockInfo);
-                                        sb2.append(readLine);
-                                        sb2.append("\n");
-                                    }
-                                    exceptionMessage.mLockInfo = sb2.toString();
-                                } else if (readLine.contains("Long monitor")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
-                                        sb3 = new StringBuilder();
-                                        sb3.append(readLine);
-                                        sb3.append("\n");
-                                    } else {
-                                        sb3 = new StringBuilder();
-                                        sb3.append(exceptionMessage.mMonitorInfo);
-                                        sb3.append(readLine);
-                                        sb3.append("\n");
-                                    }
-                                    exceptionMessage.mMonitorInfo = sb3.toString();
-                                } else if (readLine.contains("Slow Looper")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
-                                        sb4 = new StringBuilder();
-                                        sb4.append(readLine);
-                                        sb4.append("\n");
-                                    } else {
-                                        sb4 = new StringBuilder();
-                                        sb4.append(exceptionMessage.mSlowLooper);
-                                        sb4.append(readLine);
-                                        sb4.append("\n");
-                                    }
-                                    exceptionMessage.mSlowLooper = sb4.toString();
-                                } else if (readLine.contains("Slow Operation")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
-                                        sb5 = new StringBuilder();
-                                        sb5.append(readLine);
-                                        sb5.append("\n");
-                                    } else {
-                                        sb5 = new StringBuilder();
-                                        sb5.append(exceptionMessage.mSlowOperation);
-                                        sb5.append(readLine);
-                                        sb5.append("\n");
-                                    }
-                                    exceptionMessage.mSlowOperation = sb5.toString();
-                                }
-                            }
-                            if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
-                                sb = new StringBuilder();
-                                sb.append(readLine);
-                                sb.append("\n");
-                            } else {
-                                sb = new StringBuilder();
-                                sb.append(exceptionMessage.mGCInfo);
-                                sb.append(readLine);
-                                sb.append("\n");
-                            }
-                            exceptionMessage.mGCInfo = sb.toString();
-                        } else {
-                            exceptionMessage.mJNIError = readLine.substring(readLine.indexOf("JNI DETECTED ERROR IN APPLICATION"));
-                            z = true;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
@@ -371,22 +392,6 @@ public abstract class d {
             e = e3;
         } catch (IOException e4) {
             e = e4;
-        }
-    }
-
-    @SuppressLint({"CheckResult"})
-    public final void z(File file) {
-        com.kwad.sdk.core.e.b.d("ExceptionCollector", "reportException dir =" + file);
-        File[] listFiles = file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.d.1
-            @Override // java.io.FileFilter
-            public final boolean accept(File file2) {
-                return file2.getName().endsWith(".dump");
-            }
-        });
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                a(file2, (CountDownLatch) null);
-            }
         }
     }
 }

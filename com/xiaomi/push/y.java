@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class y {
     public static final String[] a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
 
@@ -96,7 +96,7 @@ public class y {
             } catch (IOException e) {
                 e = e;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m186a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m190a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -208,7 +208,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m849a(File file) {
+    public static boolean m853a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

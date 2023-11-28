@@ -1,9 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
+import android.view.LayoutInflater;
+import com.baidu.tieba.wk4;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public interface xk4 {
-    View onCreateView(View view2, String str, Context context, AttributeSet attributeSet);
+public class xk4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(LayoutInflater layoutInflater, yk4 yk4Var) {
+        wk4.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, yk4Var) == null) {
+            if (yk4Var != null) {
+                aVar = new wk4.a(yk4Var);
+            } else {
+                aVar = null;
+            }
+            layoutInflater.setFactory2(aVar);
+        }
+    }
 }

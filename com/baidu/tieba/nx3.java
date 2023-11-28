@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,62 +13,73 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nx3 extends my3 {
+public class nx3 extends ny3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017792, "Lcom/baidu/tieba/nx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948017792, "Lcom/baidu/tieba/nx3;");
+                return;
+            }
+        }
+        c = sm1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nx3() {
-        super("openSpaceCleanActivity");
+        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.my3
-    public hy1 a(@NonNull JSONObject jSONObject, @NonNull kj2 kj2Var) {
+    @Override // com.baidu.tieba.ny3
+    public iy1 a(@NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
         InterceptResult invokeLL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, kj2Var)) == null) {
-            if (pj3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (pj3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (pj3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (pj3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
+            if (c) {
+                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                lj2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            iy3.a(optString, "openApp", null, null, null);
+            if (!wx3.h(AppRuntime.getAppContext(), optString)) {
+                lj2Var.onFail(31011, "app is not installed");
+                iy3.a(optString, "openApp", "fail", String.valueOf(31011), null);
+                return null;
+            }
+            if (wx3.l(AppRuntime.getAppContext(), optString)) {
+                lj2Var.onSuccess(null);
+                iy3.a(optString, "openApp", "success", null, null);
             } else {
-                z = false;
+                lj2Var.onFail(31019, "open app fail");
+                iy3.a(optString, "openApp", "fail", String.valueOf(31019), null);
             }
-            if (!z) {
-                Toast.makeText(np2.c(), (int) R.string.obfuscated_res_0x7f0f01bf, 0).show();
-            }
-            kj2Var.onSuccess(null);
             return null;
         }
-        return (hy1) invokeLL.objValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return pi3.i(np2.c(), intent, true, false);
-        }
-        return invokeLL.booleanValue;
+        return (iy1) invokeLL.objValue;
     }
 }

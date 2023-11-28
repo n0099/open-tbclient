@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -126,11 +126,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void V(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.C != null && !TextUtils.isEmpty(str) && str.equals(this.C.getTid())) {
-            hw4 hw4Var = new hw4();
-            hw4Var.b = 4;
-            hw4Var.d = 2;
-            hw4Var.j = str2;
-            this.e.setStatisticData(hw4Var);
+            iw4 iw4Var = new iw4();
+            iw4Var.b = 4;
+            iw4Var.d = 2;
+            iw4Var.j = str2;
+            this.e.setStatisticData(iw4Var);
             this.e.N();
         }
     }
@@ -311,7 +311,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.C0.setLayoutParams(layoutParams4);
             float f3 = dimens2;
             this.C0.setTextSize(0, f3);
-            this.C0.setText(this.D.getString(R.string.obfuscated_res_0x7f0f13c7));
+            this.C0.setText(this.D.getString(R.string.obfuscated_res_0x7f0f13d7));
             if (Z()) {
                 this.J = true;
                 setNeedAddReplyIcon(true);

@@ -24,7 +24,7 @@ public class i4 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile i4 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public qx a;
+    public rx a;
     public Context b;
     public volatile int c;
     public AtomicReference<HashMap<String, q4>>[] d;
@@ -73,7 +73,7 @@ public class i4 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap[] hashMapArr = new HashMap[this.c.c];
                 for (q4 q4Var : this.a) {
-                    int a = zx.a(q4Var.a(), this.c.c);
+                    int a = ay.a(q4Var.a(), this.c.c);
                     if (hashMapArr[a] == null) {
                         hashMapArr[a] = new HashMap();
                     }
@@ -154,7 +154,7 @@ public class i4 {
         }
         this.b = context.getApplicationContext();
         this.c = s4.b().a();
-        this.a = new qx(this.b);
+        this.a = new rx(this.b);
         y();
     }
 
@@ -247,7 +247,7 @@ public class i4 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) {
-            return yx.a(u(str), z);
+            return zx.a(u(str), z);
         }
         return invokeLZ.booleanValue;
     }
@@ -256,7 +256,7 @@ public class i4 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return yx.b(u(str), d);
+            return zx.b(u(str), d);
         }
         return invokeCommon.doubleValue;
     }
@@ -265,7 +265,7 @@ public class i4 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i)) == null) {
-            return yx.c(u(str), i);
+            return zx.c(u(str), i);
         }
         return invokeLI.intValue;
     }
@@ -274,7 +274,7 @@ public class i4 {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048591, this, str, j)) == null) {
-            return yx.e(u(str), j);
+            return zx.e(u(str), j);
         }
         return invokeLJ.longValue;
     }
@@ -283,7 +283,7 @@ public class i4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            return yx.f(u(str), str2);
+            return zx.f(u(str), str2);
         }
         return (String) invokeLL.objValue;
     }

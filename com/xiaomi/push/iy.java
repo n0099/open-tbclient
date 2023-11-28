@@ -7,10 +7,10 @@ public class iy {
     public jd a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jk f803a;
+    public final jk f799a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ByteArrayOutputStream f804a;
+    public final ByteArrayOutputStream f800a;
 
     public iy() {
         this(new iz.a());
@@ -18,15 +18,15 @@ public class iy {
 
     public iy(jf jfVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        this.f804a = byteArrayOutputStream;
+        this.f800a = byteArrayOutputStream;
         jk jkVar = new jk(byteArrayOutputStream);
-        this.f803a = jkVar;
+        this.f799a = jkVar;
         this.a = jfVar.a(jkVar);
     }
 
     public byte[] a(is isVar) {
-        this.f804a.reset();
+        this.f800a.reset();
         isVar.b(this.a);
-        return this.f804a.toByteArray();
+        return this.f800a.toByteArray();
     }
 }

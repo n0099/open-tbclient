@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.ArdUtil;
@@ -21,7 +21,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeviceController {
     public static final String FILTER_PROC_NAMES = "|ps|sh|/sbin/adbd|/sbin/cbd|logcat|com.sec.android.app.FlashBarService|com.android.systemui|com.android.phone|com.sec.android.provider.logsprovider|com.android.nfc|com.android.smspush|android.process.acore|android.process.media|com.android.defcontainer|com.android.email|com.android.contacts|com.sec.phone|com.sec.pcw.device|com.osp.app.signin|com.sec.android.service.cm|com.sec.android.app.controlpanel|com.android.musicfx|com.sec.android.gallery3d|com.sec.android.app.music:service|com.sec.android.favoriteappwidget|com.android.connectionhandler|com.sec.android.fotaclient|com.sec.spp.push|com.sec.android.app.launcher|com.sec.android.widgetapp.alarmclock|com.sec.android.app.clockpackage|com.sec.android.provider.badge|com.sec.android.widgetapp.favoriteswidget|com.sec.android.widgetapp.digitalclock|com.sec.android.app.videoplayer|com.sec.pcw|com.nd.assistance.ServerService|screencap|com.sec.pcw:CameraAutoUpload|com.android.browser|com.android.mms|com.android.incallui|com.android.providers.calendar|com.android.calendar:birthday|com.android.calendar|com.android.dialer|com.android.browser:turbo|com.android.browser:webeye|";
     public static final String PREF_KEY_DEVICE_REPORT_DATE = "PREF_KEY_DEVICE_REPORT_DATE";
@@ -67,9 +67,9 @@ public class DeviceController {
     /* JADX WARN: Removed duplicated region for block: B:33:0x009c  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x00cd  */
     /* JADX WARN: Removed duplicated region for block: B:37:0x00cf  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00f4 A[Catch: all -> 0x017e, TryCatch #0 {all -> 0x017e, blocks: (B:3:0x0002, B:5:0x000d, B:6:0x0028, B:10:0x0048, B:17:0x0068, B:30:0x0093, B:34:0x009d, B:38:0x00d0, B:40:0x00f4, B:42:0x00f8, B:43:0x010d, B:47:0x016c), top: B:52:0x0002 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0169  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x016b  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00f4 A[Catch: all -> 0x0181, TryCatch #0 {all -> 0x0181, blocks: (B:3:0x0002, B:5:0x000d, B:6:0x0028, B:10:0x0048, B:17:0x0068, B:30:0x0093, B:34:0x009d, B:38:0x00d0, B:40:0x00f4, B:42:0x00f8, B:43:0x0110, B:47:0x016f), top: B:52:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x016c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x016e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -309,7 +309,7 @@ public class DeviceController {
         WifiInfo connectionInfo;
         String[] strArr = new String[3];
         try {
-            if (ArdUtil.checkPermissions(context, h.d)) {
+            if (ArdUtil.checkPermissions(context, g.d)) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                     int ipAddress = connectionInfo.getIpAddress();
@@ -326,7 +326,7 @@ public class DeviceController {
         return strArr;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0051  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0052  */
     /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

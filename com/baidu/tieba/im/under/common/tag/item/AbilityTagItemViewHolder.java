@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn8;
-import com.baidu.tieba.cv8;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.cz8;
+import com.baidu.tieba.fq8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.jy8;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.um8;
-import com.baidu.tieba.vv8;
+import com.baidu.tieba.xp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     public final TextView c;
     public final TbImageView d;
     public final View e;
-    public cv8 f;
+    public jy8 f;
     public String g;
     public long h;
     public Handler i;
@@ -43,15 +43,15 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dn8 a;
+        public final /* synthetic */ gq8 a;
         public final /* synthetic */ AbilityTagItemViewHolder b;
 
-        public a(AbilityTagItemViewHolder abilityTagItemViewHolder, dn8 dn8Var) {
+        public a(AbilityTagItemViewHolder abilityTagItemViewHolder, gq8 gq8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {abilityTagItemViewHolder, dn8Var};
+                Object[] objArr = {abilityTagItemViewHolder, gq8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = abilityTagItemViewHolder;
-            this.a = dn8Var;
+            this.a = gq8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,7 +71,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.f != null) {
                 this.a.d(this.b.f.b(), this.b.f.c(), null);
                 long e = this.b.f.e();
-                vv8.g("c15210", 2, this.b.f.b(), this.b.f.d(), this.b.g, vv8.b(this.b.f.b()), e, this.b.h);
+                cz8.g("c15210", 2, this.b.f.b(), this.b.f.d(), this.b.g, cz8.b(this.b.f.b()), e, this.b.h);
             }
         }
     }
@@ -152,12 +152,12 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.c.j) {
                 return;
             }
-            vv8.g("c15210", 1, this.c.f.b(), this.c.f.d(), this.c.g, this.a, this.b, this.c.h);
+            cz8.g("c15210", 1, this.c.f.b(), this.c.f.d(), this.c.g, this.a, this.b, this.c.h);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbilityTagItemViewHolder(@NonNull View view2, @Nullable dn8 dn8Var, @Nullable cn8 cn8Var) {
+    public AbilityTagItemViewHolder(@NonNull View view2, @Nullable gq8 gq8Var, @Nullable fq8 fq8Var) {
         super(view2);
         long j;
         String str;
@@ -165,7 +165,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, dn8Var, cn8Var};
+            Object[] objArr = {view2, gq8Var, fq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,39 +181,39 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f090038);
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090039);
         this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09003a);
-        if (cn8Var != null) {
-            cn8Var.b();
+        if (fq8Var != null) {
+            fq8Var.b();
         }
-        if (cn8Var != null) {
-            j = cn8Var.a();
+        if (fq8Var != null) {
+            j = fq8Var.a();
         } else {
             j = 0;
         }
         this.h = j;
-        if (cn8Var != null) {
-            str = cn8Var.d();
+        if (fq8Var != null) {
+            str = fq8Var.d();
         } else {
             str = "";
         }
         this.g = str;
-        this.e.setOnClickListener(new a(this, dn8Var));
+        this.e.setOnClickListener(new a(this, gq8Var));
         this.e.addOnAttachStateChangeListener(new b(this));
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(@NonNull um8 um8Var, Context context, int i) {
+    public void f(@NonNull xp8 xp8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, um8Var, context, i) == null) {
-            super.f(um8Var, context, i);
-            if (um8Var instanceof cv8) {
-                cv8 cv8Var = (cv8) um8Var;
-                this.f = cv8Var;
-                if (cv8Var.b() != null && this.f.b().getStyleConf() != null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, xp8Var, context, i) == null) {
+            super.f(xp8Var, context, i);
+            if (xp8Var instanceof jy8) {
+                jy8 jy8Var = (jy8) xp8Var;
+                this.f = jy8Var;
+                if (jy8Var.b() != null && this.f.b().getStyleConf() != null) {
                     this.c.setText(this.f.b().getStyleConf().getContent());
                 }
                 u(TbadkCoreApplication.getInst().getSkinType());
                 long e = this.f.e();
-                String b2 = vv8.b(this.f.b());
+                String b2 = cz8.b(this.f.b());
                 this.i.removeCallbacksAndMessages(null);
                 this.i.postDelayed(new c(this, b2, e), 500L);
             }
@@ -242,11 +242,11 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     public final void u(int i) {
-        cv8 cv8Var;
+        jy8 jy8Var;
         AbilityItem.StyleConf styleConf;
         AbilityItem.Style t;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (cv8Var = this.f) == null || cv8Var.b() == null || this.f.b().getStyleConf() == null || (t = t((styleConf = this.f.b().getStyleConf()), i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (jy8Var = this.f) == null || jy8Var.b() == null || this.f.b().getStyleConf() == null || (t = t((styleConf = this.f.b().getStyleConf()), i)) == null) {
             return;
         }
         if (TextUtils.isEmpty(styleConf.getContent()) && !TextUtils.isEmpty(t.getIcon())) {

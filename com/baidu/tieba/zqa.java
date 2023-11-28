@@ -1,43 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
 public class zqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return true;
-            }
-            boolean checkWriteExternalStorage = PermissionUtil.checkWriteExternalStorage(activity);
-            if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-                return false;
-            }
-            return checkWriteExternalStorage;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", str2);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context.getPackageManager().getPackageInfo(str, 0) == null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeLL.booleanValue;
     }
 }

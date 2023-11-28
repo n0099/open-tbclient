@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.business.uitemplate.NadEnhanceButtonDownloadView;
-import com.baidu.tieba.eg0;
+import com.baidu.tieba.fg0;
 /* loaded from: classes3.dex */
-public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements eg0 {
+public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements fg0 {
     public NadCriusMiniVideoDownloadView(@NonNull Context context) {
         super(context);
     }

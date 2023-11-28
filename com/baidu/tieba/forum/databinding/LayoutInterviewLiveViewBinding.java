@@ -57,8 +57,8 @@ public final class LayoutInterviewLiveViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0911cb;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911cb);
+            int i = R.id.obfuscated_res_0x7f0911f4;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f4);
             if (tbImageView != null) {
                 i = R.id.interview_live_tip;
                 TextView textView = (TextView) view2.findViewById(R.id.interview_live_tip);
@@ -85,7 +85,7 @@ public final class LayoutInterviewLiveViewBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0543, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d055b, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

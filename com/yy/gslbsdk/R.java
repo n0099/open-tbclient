@@ -1,4 +1,4 @@
 package com.yy.gslbsdk;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class R {
 }

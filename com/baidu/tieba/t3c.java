@@ -1,114 +1,141 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
+import com.baidu.mobads.sdk.api.NativeCPUManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.channel.model.baidu.BaiduNativeCpuAdLargeImgView;
+import com.fun.ad.sdk.channel.model.baidu.BaiduNativeCpuAdSmallImgView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class t3c implements ArCoreApk.a {
+public class t3c extends FunNativeAd2Bridger<IBasicCPUData, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ u3c a;
+    public View b;
+    public final /* synthetic */ Context c;
+    public final /* synthetic */ r3c d;
 
-    public t3c(u3c u3cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t3c(r3c r3cVar, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u3cVar};
+            Object[] objArr = {r3cVar, reporterPidLoader, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = u3cVar;
+        this.d = r3cVar;
+        this.c = context;
     }
 
-    public static Uri b(String str) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: com.fun.ad.sdk.channel.model.baidu.BaiduNativeCpuAdSmallImgView */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(IBasicCPUData iBasicCPUData) {
         InterceptResult invokeL;
+        View creativeView;
+        BaiduNativeCpuAdLargeImgView baiduNativeCpuAdLargeImgView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iBasicCPUData)) == null) {
+            IBasicCPUData iBasicCPUData2 = iBasicCPUData;
+            LayoutInflater from = LayoutInflater.from(this.c);
+            if (this.d.f) {
+                BaiduNativeCpuAdSmallImgView baiduNativeCpuAdSmallImgView = (BaiduNativeCpuAdSmallImgView) from.inflate(R.layout.fun_baidu_ad_native_cpu_small_img_view, (ViewGroup) null, false);
+                baiduNativeCpuAdSmallImgView.a(iBasicCPUData2);
+                creativeView = baiduNativeCpuAdSmallImgView.getCreativeView();
+                baiduNativeCpuAdLargeImgView = baiduNativeCpuAdSmallImgView;
+            } else {
+                BaiduNativeCpuAdLargeImgView baiduNativeCpuAdLargeImgView2 = (BaiduNativeCpuAdLargeImgView) from.inflate(R.layout.fun_baidu_ad_native_cpu_large_img_view, (ViewGroup) null, false);
+                baiduNativeCpuAdLargeImgView2.a(iBasicCPUData2);
+                creativeView = baiduNativeCpuAdLargeImgView2.getCreativeView();
+                baiduNativeCpuAdLargeImgView = baiduNativeCpuAdLargeImgView2;
+            }
+            this.b = creativeView;
+            return baiduNativeCpuAdLargeImgView;
         }
-        return (Uri) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, IBasicCPUData iBasicCPUData, BaseNativeAd2<IBasicCPUData, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, iBasicCPUData, baseNativeAd2, funAdInteractionListener}) == null) {
+            IBasicCPUData iBasicCPUData2 = iBasicCPUData;
+            r3c r3cVar = this.d;
+            FunNativeAdListenerHelper<IBasicCPUData, NativeCPUManager.CPUAdListener> funNativeAdListenerHelper = r3cVar.e;
+            pid = r3cVar.mPid;
+            funNativeAdListenerHelper.startShow(iBasicCPUData2, str, pid, null, funAdInteractionListener);
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                inflate = ((FunNativeView) inflate).getRoot();
+            }
+            r3c r3cVar2 = this.d;
+            List<View> clickViews = customInflater.getClickViews();
+            List<View> creativeViews = customInflater.getCreativeViews();
+            r3cVar2.getClass();
+            if (iBasicCPUData2 != null) {
+                iBasicCPUData2.registerViewForInteraction(inflate, clickViews, creativeViews, new s3c(r3cVar2, iBasicCPUData2));
             }
         }
-        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, IBasicCPUData iBasicCPUData, BaseNativeAd2<IBasicCPUData, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                u3c.c(this.a, availability);
-                u3c.f(this.a, false);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, iBasicCPUData, baseNativeAd2, funAdInteractionListener}) == null) {
+            IBasicCPUData iBasicCPUData2 = iBasicCPUData;
+            r3c r3cVar = this.d;
+            FunNativeAdListenerHelper<IBasicCPUData, NativeCPUManager.CPUAdListener> funNativeAdListenerHelper = r3cVar.e;
+            pid = r3cVar.mPid;
+            funNativeAdListenerHelper.startShow(iBasicCPUData2, str, pid, null, funAdInteractionListener);
+            ViewGroup inflate = expressInflater.inflate();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(inflate);
+            ArrayList arrayList2 = new ArrayList();
+            View view2 = this.b;
+            if (view2 != null) {
+                arrayList2.add(view2);
+            } else {
+                arrayList2.add(inflate);
+            }
+            r3c r3cVar2 = this.d;
+            r3cVar2.getClass();
+            if (iBasicCPUData2 != null) {
+                iBasicCPUData2.registerViewForInteraction(inflate, arrayList, arrayList2, new s3c(r3cVar2, iBasicCPUData2));
             }
         }
-    }
-
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
-            }
-        }
-        return (PendingIntent) invokeL.objValue;
     }
 }

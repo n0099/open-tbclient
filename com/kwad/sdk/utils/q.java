@@ -1,312 +1,608 @@
 package com.kwad.sdk.utils;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.IStringUtil;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedInputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigInteger;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes10.dex */
 public final class q {
-    public static final Map<Class<?>, Class<?>> anz;
-
-    /* loaded from: classes10.dex */
-    public static class a<T> {
-        public final Class<? extends T> anA;
-        public final T obj;
-    }
+    public static final BigInteger aNm;
+    public static final BigInteger aNn;
+    public static final BigInteger aNo;
+    public static final BigInteger aNp;
+    public static final BigInteger aNq;
+    public static final BigInteger aNr;
+    public static final char aNs;
+    public static final BigInteger aNt;
+    public static final BigInteger aNu;
+    public static final File[] aNv;
+    public static final String aNw;
+    public static final char aNx;
 
     static {
-        HashMap hashMap = new HashMap();
-        anz = hashMap;
-        hashMap.put(Boolean.class, Boolean.TYPE);
-        anz.put(Byte.class, Byte.TYPE);
-        anz.put(Character.class, Character.TYPE);
-        anz.put(Short.class, Short.TYPE);
-        anz.put(Integer.class, Integer.TYPE);
-        anz.put(Float.class, Float.TYPE);
-        anz.put(Long.class, Long.TYPE);
-        anz.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = anz;
-        Class<?> cls = Boolean.TYPE;
-        map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = anz;
-        Class<?> cls2 = Byte.TYPE;
-        map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = anz;
-        Class<?> cls3 = Character.TYPE;
-        map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = anz;
-        Class<?> cls4 = Short.TYPE;
-        map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = anz;
-        Class<?> cls5 = Integer.TYPE;
-        map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = anz;
-        Class<?> cls6 = Float.TYPE;
-        map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = anz;
-        Class<?> cls7 = Long.TYPE;
-        map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = anz;
-        Class<?> cls8 = Double.TYPE;
-        map8.put(cls8, cls8);
-    }
-
-    public static <T> T N(String str, String str2) {
-        try {
-            return (T) O(str, str2);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T O(String str, String str2) {
-        return (T) d(Class.forName(str), str2);
-    }
-
-    public static <T> T a(Class<?> cls, Object... objArr) {
-        try {
-            return (T) b(cls, objArr);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T a(Object obj, String str, Object... objArr) {
-        try {
-            return (T) b(obj, str, objArr);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T a(String str, String str2, Object... objArr) {
-        try {
-            return (T) c(Class.forName(str), str2, objArr);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
-        am.dQ(str);
-        for (Method method : methodArr) {
-            if (method.getName().equals(str) && b(method.getParameterTypes(), clsArr)) {
-                return method;
-            }
-        }
-        return null;
-    }
-
-    public static void a(Object obj, String str, Object obj2) {
-        try {
-            b(obj, str, obj2);
-        } catch (Throwable th) {
-            m(th);
-        }
-    }
-
-    public static Class<?>[] a(Object... objArr) {
-        if (objArr == null || objArr.length <= 0) {
-            return null;
-        }
-        Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
-            clsArr[i] = (obj == null || !(obj instanceof a)) ? obj == null ? null : obj.getClass() : ((a) obj).anA;
-        }
-        return clsArr;
-    }
-
-    public static <T> T b(Class<?> cls, String str, Object... objArr) {
-        try {
-            return (T) c(cls, str, objArr);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T b(Class<?> cls, Object... objArr) {
-        return (T) cls.getConstructor(a(objArr)).newInstance(b(objArr));
-    }
-
-    public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) c(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr));
-    }
-
-    public static <T> T b(String str, Object... objArr) {
-        try {
-            return (T) c(str, objArr);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static void b(Object obj, String str, Object obj2) {
-        Class<?> cls = obj.getClass();
-        Field field = null;
-        while (field == null) {
-            try {
-                field = cls.getDeclaredField(str);
-                continue;
-            } catch (NoSuchFieldException unused) {
-                cls = cls.getSuperclass();
-                continue;
-            }
-            if (cls == null) {
-                throw new NoSuchFieldException();
-            }
-        }
-        field.setAccessible(true);
-        field.set(obj, obj2);
-    }
-
-    public static boolean b(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        if (clsArr == null) {
-            return clsArr2 == null || clsArr2.length == 0;
-        } else if (clsArr2 == null) {
-            return clsArr.length == 0;
-        } else if (clsArr.length != clsArr2.length) {
-            return false;
+        BigInteger valueOf = BigInteger.valueOf(1024L);
+        aNm = valueOf;
+        BigInteger multiply = valueOf.multiply(valueOf);
+        aNn = multiply;
+        BigInteger multiply2 = aNm.multiply(multiply);
+        aNo = multiply2;
+        BigInteger multiply3 = aNm.multiply(multiply2);
+        aNp = multiply3;
+        BigInteger multiply4 = aNm.multiply(multiply3);
+        aNq = multiply4;
+        aNr = aNm.multiply(multiply4);
+        BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
+        aNt = multiply5;
+        aNu = aNm.multiply(multiply5);
+        aNv = new File[0];
+        aNw = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
+        aNx = File.separatorChar;
+        if (JP()) {
+            aNs = WebvttCueParser.CHAR_SLASH;
         } else {
-            for (int i = 0; i < clsArr.length; i++) {
-                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!anz.containsKey(clsArr[i]) || !anz.get(clsArr[i]).equals(anz.get(clsArr2[i])))) {
-                    return false;
-                }
-            }
+            aNs = '\\';
+        }
+    }
+
+    public static boolean JP() {
+        if (aNx == '\\') {
             return true;
         }
+        return false;
     }
 
-    public static Object[] b(Object... objArr) {
-        if (objArr == null || objArr.length <= 0) {
-            return null;
+    public static boolean L(File file) {
+        if (file != null && file.exists() && file.length() > 0) {
+            return true;
         }
-        Object[] objArr2 = new Object[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
-            if (obj == null || !(obj instanceof a)) {
-                objArr2[i] = obj;
-            } else {
-                objArr2[i] = ((a) obj).obj;
-            }
-        }
-        return objArr2;
+        return false;
     }
 
-    public static <T> T c(Class<?> cls, String str) {
+    public static boolean M(File file) {
+        if (file.exists()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static FileOutputStream O(File file) {
+        return a(file, false);
+    }
+
+    public static void Q(File file) {
+        if (!file.exists()) {
+            return;
+        }
+        if (!Z(file)) {
+            T(file);
+        }
+        if (file.delete()) {
+            return;
+        }
+        throw new IOException("Unable to delete directory " + file + ".");
+    }
+
+    public static boolean R(File file) {
+        if (file == null) {
+            return false;
+        }
         try {
-            return (T) d(cls, str);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T c(Class<?> cls, String str, Object... objArr) {
-        return (T) c(cls, str, a(objArr)).invoke(null, b(objArr));
-    }
-
-    public static <T> T c(Object obj, String str) {
-        try {
-            return (T) d(obj, str);
-        } catch (Throwable th) {
-            m(th);
-            return null;
-        }
-    }
-
-    public static <T> T c(String str, Object... objArr) {
-        return (T) b(Class.forName(str), b(objArr));
-    }
-
-    public static Method c(Class<?> cls, String str, Class<?>... clsArr) {
-        while (true) {
-            Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
-            if (a2 != null) {
-                a2.setAccessible(true);
-                return a2;
-            } else if (cls.getSuperclass() == null) {
-                throw new NoSuchMethodException();
-            } else {
-                cls = cls.getSuperclass();
+            if (file.isDirectory()) {
+                T(file);
             }
+        } catch (Exception unused) {
+        }
+        try {
+            return file.delete();
+        } catch (Exception unused2) {
+            return false;
         }
     }
 
-    public static <T> T d(Class<?> cls, String str) {
-        Field declaredField = cls.getDeclaredField(str);
-        declaredField.setAccessible(true);
-        return (T) declaredField.get(null);
+    public static boolean S(File file) {
+        return R(file);
     }
 
-    public static <T> T d(Object obj, String str) {
-        Class<?> cls = obj.getClass();
-        Field field = null;
-        while (field == null) {
+    public static byte[] U(File file) {
+        return V(file).getBytes();
+    }
+
+    public static String V(File file) {
+        return a(file, Charset.defaultCharset());
+    }
+
+    public static void Y(File file) {
+        R(file);
+        s(file);
+        if (file.exists()) {
+            return;
+        }
+        throw new IOException("Create file fail");
+    }
+
+    public static boolean aa(File file) {
+        File file2 = new File(file.getAbsolutePath() + System.currentTimeMillis());
+        e(file, file2);
+        return R(file2);
+    }
+
+    public static boolean delete(String str) {
+        return R(new File(str));
+    }
+
+    public static void deleteContents(@NonNull File file) {
+        File[] listFiles;
+        if (!file.exists() || (listFiles = file.listFiles()) == null) {
+            return;
+        }
+        for (File file2 : listFiles) {
+            if (file2.isDirectory()) {
+                deleteContents(file2);
+            }
+            file2.delete();
+        }
+    }
+
+    public static BufferedInputStream fJ(String str) {
+        FileInputStream fileInputStream;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        File file = new File(str);
+        if (!file.exists() || file.isDirectory()) {
+            return null;
+        }
+        try {
+            fileInputStream = new FileInputStream(file);
+        } catch (Exception unused) {
+            fileInputStream = null;
+        }
+        if (fileInputStream == null) {
+            return null;
+        }
+        return new BufferedInputStream(fileInputStream);
+    }
+
+    public static boolean fK(String str) {
+        if (!TextUtils.isEmpty(str) && new File(str).exists()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean fL(String str) {
+        if (!TextUtils.isEmpty(str) && L(new File(str))) {
+            return true;
+        }
+        return false;
+    }
+
+    public static int fM(String str) {
+        if (str == null) {
+            return -1;
+        }
+        return Math.max(str.lastIndexOf(47), str.lastIndexOf(92));
+    }
+
+    public static int fN(String str) {
+        int lastIndexOf;
+        if (str == null || fM(str) > (lastIndexOf = str.lastIndexOf(46))) {
+            return -1;
+        }
+        return lastIndexOf;
+    }
+
+    public static String getExtension(String str) {
+        if (str == null) {
+            return null;
+        }
+        int fN = fN(str);
+        if (fN == -1) {
+            return "";
+        }
+        return str.substring(fN + 1);
+    }
+
+    public static void s(File file) {
+        if (!file.exists()) {
+            com.kwad.sdk.crash.utils.b.closeQuietly(O(file));
+        }
+        if (file.setLastModified(System.currentTimeMillis())) {
+            return;
+        }
+        throw new IOException("Unable to set the last modification time for " + file);
+    }
+
+    public static FileInputStream N(File file) {
+        if (file.exists()) {
+            if (!file.isDirectory()) {
+                if (file.canRead()) {
+                    return new FileInputStream(file);
+                }
+                throw new IOException("File '" + file + "' cannot be read");
+            }
+            throw new IOException("File '" + file + "' exists but is a directory");
+        }
+        throw new FileNotFoundException("File '" + file + "' does not exist");
+    }
+
+    public static void P(File file) {
+        if (file.exists()) {
+            if (!file.isDirectory()) {
+                return;
+            }
+            throw new IOException("File '" + file + "' exists but is a directory");
+        }
+        File parentFile = file.getParentFile();
+        if (parentFile != null) {
+            if (!parentFile.mkdirs() && !parentFile.isDirectory()) {
+                throw new IOException("Directory '" + parentFile + "' could not be created");
+            }
+            file.createNewFile();
+            return;
+        }
+        throw new IOException("Could not find parent directory");
+    }
+
+    public static void X(File file) {
+        if (file != null) {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    return;
+                }
+                if (R(file)) {
+                    file.mkdir();
+                } else {
+                    throw new IOException("Fail to delete existing file, file = " + file.getAbsolutePath());
+                }
+            } else {
+                file.mkdirs();
+            }
+            if (file.exists() && file.isDirectory()) {
+                return;
+            }
+            throw new IOException("Fail to create dir, dir = " + file.getAbsolutePath());
+        }
+        throw new IOException("Dir is null.");
+    }
+
+    public static String N(@NonNull Context context, String str) {
+        return "/data/data/" + context.getPackageName() + "/" + str + "/";
+    }
+
+    public static FileOutputStream a(File file, boolean z) {
+        P(file);
+        return new FileOutputStream(file, z);
+    }
+
+    public static void b(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
+        try {
+            fileOutputStream = O(file);
             try {
-                field = cls.getDeclaredField(str);
-                field.setAccessible(true);
-                continue;
-            } catch (NoSuchFieldException unused) {
-                cls = cls.getSuperclass();
-                continue;
+                file.setReadOnly();
+                com.kwad.sdk.crash.utils.h.g(inputStream, fileOutputStream);
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
+                com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
+            } catch (Throwable th) {
+                th = th;
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
+                com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
+                throw th;
             }
-            if (cls == null) {
-                throw new NoSuchFieldException();
-            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
-        field.setAccessible(true);
-        return (T) field.get(obj);
     }
 
-    public static <T> T g(Class<?> cls) {
+    public static boolean e(File file, File file2) {
+        if (file.renameTo(file2)) {
+            return true;
+        }
         try {
-            return (T) h(cls);
-        } catch (Throwable th) {
-            m(th);
-            return null;
+            f(file, file2);
+            try {
+                file.delete();
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+            }
+            return true;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.e.c.printStackTraceOnly(e2);
+            return false;
         }
     }
 
-    public static <T> T h(Class<?> cls) {
-        Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-        if (declaredConstructors == null || declaredConstructors.length == 0) {
-            throw new IllegalArgumentException("Can't get even one available constructor for " + cls);
-        }
-        Constructor<?> constructor = declaredConstructors[0];
-        constructor.setAccessible(true);
-        Class<?>[] parameterTypes = constructor.getParameterTypes();
-        if (parameterTypes == null || parameterTypes.length == 0) {
-            return (T) constructor.newInstance(new Object[0]);
-        }
-        Object[] objArr = new Object[parameterTypes.length];
-        for (int i = 0; i < parameterTypes.length; i++) {
-            objArr[i] = i(parameterTypes[i]);
-        }
-        return (T) constructor.newInstance(objArr);
+    public static void f(File file, File file2) {
+        b(file, file2, true);
     }
 
-    public static Object i(Class<?> cls) {
-        if (Integer.TYPE.equals(cls) || Integer.class.equals(cls) || Byte.TYPE.equals(cls) || Byte.class.equals(cls) || Short.TYPE.equals(cls) || Short.class.equals(cls) || Long.TYPE.equals(cls) || Long.class.equals(cls) || Double.TYPE.equals(cls) || Double.class.equals(cls) || Float.TYPE.equals(cls) || Float.class.equals(cls)) {
-            return 0;
-        }
-        return (Boolean.TYPE.equals(cls) || Boolean.class.equals(cls)) ? Boolean.FALSE : (Character.TYPE.equals(cls) || Character.class.equals(cls)) ? (char) 0 : null;
+    public static void g(File file, File file2) {
+        d(file, file2, true);
     }
 
-    public static void m(Throwable th) {
-        if (!com.kwad.a.a.aw.booleanValue()) {
-            com.kwad.sdk.core.e.b.printStackTrace(th);
-        } else if (!(th instanceof RuntimeException)) {
-            throw new RuntimeException(th);
+    public static void T(File file) {
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    IOException e = null;
+                    for (File file2 : listFiles) {
+                        try {
+                            W(file2);
+                        } catch (IOException e2) {
+                            e = e2;
+                        }
+                    }
+                    if (e == null) {
+                        return;
+                    }
+                    throw e;
+                }
+                throw new IOException("Failed to list contents of " + file);
+            }
+            throw new IllegalArgumentException(file + " is not a directory");
+        }
+        throw new IllegalArgumentException(file + " does not exist");
+    }
+
+    public static void W(File file) {
+        if (file.isDirectory()) {
+            Q(file);
+            return;
+        }
+        boolean exists = file.exists();
+        if (!file.delete()) {
+            if (!exists) {
+                throw new FileNotFoundException("File does not exist: " + file);
+            }
+            throw new IOException("Unable to delete file: " + file);
+        }
+    }
+
+    public static boolean Z(File file) {
+        ap.checkNotNull(file);
+        if (JP()) {
+            return false;
+        }
+        if (file.getParent() != null) {
+            file = new File(file.getParentFile().getCanonicalFile(), file.getName());
+        }
+        if (file.getCanonicalFile().equals(file.getAbsoluteFile())) {
+            return false;
+        }
+        return true;
+    }
+
+    public static String a(File file, Charset charset) {
+        FileInputStream fileInputStream;
+        try {
+            fileInputStream = N(file);
+            try {
+                String a = com.kwad.sdk.crash.utils.h.a(fileInputStream, com.kwad.sdk.crash.utils.a.a(charset));
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                return a;
+            } catch (Throwable th) {
+                th = th;
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
+        }
+    }
+
+    public static void a(Context context, String str, File file) {
+        if (!TextUtils.isEmpty(str)) {
+            InputStream inputStream = null;
+            try {
+                inputStream = context.getAssets().open(str);
+                b(inputStream, file);
+                return;
+            } finally {
+                com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
+            }
+        }
+        throw new IllegalArgumentException("Asset path is empty.");
+    }
+
+    public static void d(File file, File file2, boolean z) {
+        a(file, file2, (FileFilter) null, true);
+    }
+
+    public static void a(File file, File file2, FileFilter fileFilter, boolean z) {
+        ArrayList arrayList;
+        File[] listFiles;
+        ap.g(file, "Source");
+        ap.g(file2, "Destination");
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                if (!file.getCanonicalPath().equals(file2.getCanonicalPath())) {
+                    if (file2.getCanonicalPath().startsWith(file.getCanonicalPath()) && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
+                        arrayList = new ArrayList(listFiles.length);
+                        for (File file3 : listFiles) {
+                            arrayList.add(new File(file2, file3.getName()).getCanonicalPath());
+                        }
+                    } else {
+                        arrayList = null;
+                    }
+                    a(file, file2, null, z, arrayList);
+                    return;
+                }
+                throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
+            }
+            throw new IOException("Source '" + file + "' exists but is not a directory");
+        }
+        throw new FileNotFoundException("Source '" + file + "' does not exist");
+    }
+
+    public static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
+        File[] listFiles;
+        if (fileFilter == null) {
+            listFiles = file.listFiles();
         } else {
-            throw ((RuntimeException) th);
+            listFiles = file.listFiles(fileFilter);
+        }
+        if (listFiles != null) {
+            if (file2.exists()) {
+                if (!file2.isDirectory()) {
+                    throw new IOException("Destination '" + file2 + "' exists but is not a directory");
+                }
+            } else if (!file2.mkdirs() && !file2.isDirectory()) {
+                throw new IOException("Destination '" + file2 + "' directory cannot be created");
+            }
+            if (file2.canWrite()) {
+                for (File file3 : listFiles) {
+                    File file4 = new File(file2, file3.getName());
+                    if (list == null || !list.contains(file3.getCanonicalPath())) {
+                        if (file3.isDirectory()) {
+                            a(file3, file4, fileFilter, z, list);
+                        } else {
+                            c(file3, file4, z);
+                        }
+                    }
+                }
+                if (z) {
+                    file2.setLastModified(file.lastModified());
+                    return;
+                }
+                return;
+            }
+            throw new IOException("Destination '" + file2 + "' cannot be written to");
+        }
+        throw new IOException("Failed to list contents of " + file);
+    }
+
+    public static void a(File file, String str, Charset charset, boolean z) {
+        FileOutputStream fileOutputStream;
+        try {
+            fileOutputStream = a(file, false);
+            try {
+                com.kwad.sdk.crash.utils.h.a(str, fileOutputStream, charset);
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
+            } catch (Throwable th) {
+                th = th;
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
+        }
+    }
+
+    public static void b(File file, File file2, boolean z) {
+        ap.g(file, "Source");
+        ap.g(file2, "Destination");
+        if (file.exists()) {
+            if (!file.isDirectory()) {
+                if (!file.getCanonicalPath().equals(file2.getCanonicalPath())) {
+                    File parentFile = file2.getParentFile();
+                    if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
+                        throw new IOException("Destination '" + parentFile + "' directory cannot be created");
+                    } else if (file2.exists() && !file2.canWrite()) {
+                        throw new IOException("Destination '" + file2 + "' exists but is read-only");
+                    } else {
+                        c(file, file2, true);
+                        return;
+                    }
+                }
+                throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
+            }
+            throw new IOException("Source '" + file + "' exists but is a directory");
+        }
+        throw new FileNotFoundException("Source '" + file + "' does not exist");
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00a0 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v0 */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r4v3 */
+    /* JADX WARN: Type inference failed for: r4v4, types: [java.io.Closeable, java.io.FileOutputStream] */
+    public static void c(File file, File file2, boolean z) {
+        FileInputStream fileInputStream;
+        ?? r4;
+        FileChannel fileChannel;
+        long j;
+        if (file2.exists() && file2.isDirectory()) {
+            throw new IOException("Destination '" + file2 + "' exists but is a directory");
+        }
+        FileChannel fileChannel2 = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                r4 = new FileOutputStream(file2);
+                try {
+                    fileChannel = fileInputStream.getChannel();
+                    try {
+                        fileChannel2 = r4.getChannel();
+                        long size = fileChannel.size();
+                        for (long j2 = 0; j2 < size; j2 += fileChannel2.transferFrom(fileChannel, j2, j)) {
+                            long j3 = size - j2;
+                            if (j3 > 31457280) {
+                                j = 31457280;
+                            } else {
+                                j = j3;
+                            }
+                        }
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel2);
+                        com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                        if (file.length() == file2.length()) {
+                            if (z) {
+                                file2.setLastModified(file.lastModified());
+                                return;
+                            }
+                            return;
+                        }
+                        throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
+                    } catch (Throwable th) {
+                        th = th;
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel2);
+                        com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel = null;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                r4 = 0;
+                fileChannel = r4;
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel2);
+                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileChannel);
+                com.kwad.sdk.crash.utils.b.closeQuietly(fileInputStream);
+                throw th;
+            }
+        } catch (Throwable th4) {
+            th = th4;
+            fileInputStream = null;
+            r4 = 0;
         }
     }
 }

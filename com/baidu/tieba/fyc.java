@@ -1,61 +1,38 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsTabInfo;
-import tbclient.SortButton;
-import tbclient.TabMenu;
-import tbclient.TabPic;
+import tbclient.DownloadBar;
+import tbclient.FeedMaskLayer;
+import tbclient.FeedVideoAdComponent;
+import tbclient.VideoField;
 /* loaded from: classes6.dex */
-public class fyc extends qoc {
+public class fyc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsTabInfo frsTabInfo) {
+    public static JSONObject b(@NonNull FeedVideoAdComponent feedVideoAdComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTabInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedVideoAdComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "tab_id", frsTabInfo.tab_id);
-            qoc.a(jSONObject, "tab_type", frsTabInfo.tab_type);
-            qoc.a(jSONObject, "tab_name", frsTabInfo.tab_name);
-            qoc.a(jSONObject, "tab_url", frsTabInfo.tab_url);
-            qoc.a(jSONObject, "tab_gid", frsTabInfo.tab_gid);
-            qoc.a(jSONObject, "tab_title", frsTabInfo.tab_title);
-            qoc.a(jSONObject, "is_general_tab", frsTabInfo.is_general_tab);
-            qoc.a(jSONObject, "tab_code", frsTabInfo.tab_code);
-            qoc.a(jSONObject, "tab_version", frsTabInfo.tab_version);
-            qoc.a(jSONObject, AddressField.KEY_IS_DEFAULT, frsTabInfo.is_default);
-            qoc.a(jSONObject, "need_page", frsTabInfo.need_page);
-            TabPic tabPic = frsTabInfo.head_pics;
-            if (tabPic != null) {
-                qoc.a(jSONObject, "head_pics", d4d.b(tabPic));
+            VideoField videoField = feedVideoAdComponent.video_info;
+            if (videoField != null) {
+                ltc.a(jSONObject, WriteActivityConfig.VIDEO_INFO, cbd.b(videoField));
             }
-            qoc.a(jSONObject, "exposure_monitor_url", frsTabInfo.exposure_monitor_url);
-            qoc.a(jSONObject, "click_monitor_url", frsTabInfo.click_monitor_url);
-            qoc.a(jSONObject, "demote_url", frsTabInfo.demote_url);
-            qoc.a(jSONObject, "is_no_show_publisher", frsTabInfo.is_no_show_publisher);
-            qoc.a(jSONObject, "is_no_show_in_publisher", frsTabInfo.is_no_show_in_publisher);
-            qoc.a(jSONObject, "net_tab_type", frsTabInfo.net_tab_type);
-            if (frsTabInfo.sort_menu != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SortButton sortButton : frsTabInfo.sort_menu) {
-                    jSONArray.put(l3d.b(sortButton));
-                }
-                qoc.a(jSONObject, "sort_menu", jSONArray);
+            ltc.a(jSONObject, "schema", feedVideoAdComponent.schema);
+            FeedMaskLayer feedMaskLayer = feedVideoAdComponent.mask_layer;
+            if (feedMaskLayer != null) {
+                ltc.a(jSONObject, "mask_layer", wxc.b(feedMaskLayer));
             }
-            if (frsTabInfo.sub_tab_list != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (TabMenu tabMenu : frsTabInfo.sub_tab_list) {
-                    jSONArray2.put(b4d.b(tabMenu));
-                }
-                qoc.a(jSONObject, "sub_tab_list", jSONArray2);
+            DownloadBar downloadBar = feedVideoAdComponent.download_bar;
+            if (downloadBar != null) {
+                ltc.a(jSONObject, "download_bar", pwc.b(downloadBar));
             }
             return jSONObject;
         }

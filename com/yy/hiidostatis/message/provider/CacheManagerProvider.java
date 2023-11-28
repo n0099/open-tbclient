@@ -5,7 +5,7 @@ import com.yy.hiidostatis.message.MessageMonitor;
 import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CacheManagerProvider implements Provider<TaskDataSqLiteCacheManager> {
     public TaskDataSqLiteCacheManager cache;
 

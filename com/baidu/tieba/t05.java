@@ -1,159 +1,159 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.concurrent.PriorityBlockingQueue;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class t05 {
+public class t05 extends r05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Comparator<YunTask> b;
-    public final PriorityBlockingQueue<YunTask> c;
+    public final HotEventData c;
+    public jb5 d;
+    public SpriteAnimationTipManager e;
 
     /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public class a implements oq6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t05 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-455321005, "Lcom/baidu/tieba/t05$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-455321005, "Lcom/baidu/tieba/t05$a;");
+        public a(t05 t05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[YunTask.Type.values().length];
-            iArr[YunTask.Type.DIRECT_EXECUTE.ordinal()] = 1;
-            iArr[YunTask.Type.ENQUEUE.ordinal()] = 2;
-            $EnumSwitchMapping$0 = iArr;
+            this.a = t05Var;
+        }
+
+        @Override // com.baidu.tieba.oq6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948127408, "Lcom/baidu/tieba/t05;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class b implements oq6.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t05 a;
+
+        public b(t05 t05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t05Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948127408, "Lcom/baidu/tieba/t05;");
+
+        @Override // com.baidu.tieba.oq6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
         }
     }
 
-    public t05(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t05(Activity activity, HotEventData hotEventData) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {activity, hotEventData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = new Comparator() { // from class: com.baidu.tieba.r05
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.util.Comparator
-            public final int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? t05.b((YunTask) obj, (YunTask) obj2) : invokeLL.intValue;
-            }
-        };
-        this.c = new PriorityBlockingQueue<>(11, this.b);
+        this.c = hotEventData;
     }
 
-    public final void c(YunTask yunTask) {
+    @Override // com.baidu.tieba.r05
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yunTask) == null) {
-            yunTask.b(this);
-            this.c.add(yunTask);
-            int size = this.c.size();
-            int i = this.a;
-            if (size > i) {
-                int size2 = this.c.size();
-                while (i < size2) {
-                    YunTask yunTask2 = (YunTask) CollectionsKt___CollectionsKt.elementAt(this.c, i);
-                    this.c.remove(yunTask2);
-                    yunTask2.h();
-                    i++;
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jb5 jb5Var = this.d;
+            if (jb5Var != null) {
+                jb5Var.n();
             }
-            d();
+            SpriteAnimationTipManager spriteAnimationTipManager = this.e;
+            if (spriteAnimationTipManager != null) {
+                spriteAnimationTipManager.q();
+            }
+            pb5.s(false);
+            xq6.b().c(new cua(null, 1));
         }
     }
 
-    public static final int b(YunTask yunTask, YunTask yunTask2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.r05
+    public void d(@NonNull r05.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, yunTask, yunTask2)) == null) {
-            if (yunTask2.f().isExecuting()) {
-                return Integer.MAX_VALUE;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (YunDialogManager.isShowingDialog()) {
+                aVar.callback(false);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
+            } else if (2 == a2b.b().c().a().c && 1 == a2b.b().c().b().c && 6 == a2b.b().c().c().c) {
+                DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
+                aVar.callback(false);
+            } else {
+                aVar.callback(true);
             }
-            return yunTask2.e() - yunTask.e();
         }
-        return invokeLL.intValue;
     }
 
-    public final void a(YunTask task) {
+    @Override // com.baidu.tieba.r05
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            int i = a.$EnumSwitchMapping$0[task.g().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    c(task);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (nl5.a().a()) {
+                DefaultLog.getInstance().e("HotEventTip", "展示精灵动画提示控件形式的S级事件弹窗");
+                this.e = pb5.t(this.c, new a(this));
                 return;
             }
-            task.c();
-        }
-    }
-
-    public final void e(YunTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            this.c.remove(task);
-            d();
-        }
-    }
-
-    public final void d() {
-        YunTask peek;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (peek = this.c.peek()) != null && peek.f().isUnStart()) {
-            peek.c();
+            DefaultLog.getInstance().e("HotEventTip", "展示页面顶部提示控件形式的S级事件弹窗");
+            this.d = pb5.p(this.c, new b(this));
         }
     }
 }

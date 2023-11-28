@@ -1,94 +1,112 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class ak0 implements dk0 {
+public final class ak0 {
     public static /* synthetic */ Interceptable $ic;
+    public static fk0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.dk0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    @Nullable
+    public static dk0 a(fk0 fk0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fk0Var)) == null) {
+            if (fk0Var instanceof dk0) {
+                return (dk0) fk0Var;
+            }
+            return null;
         }
+        return (dk0) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dk0
-    public void onActivityDestroyed(@NonNull Activity activity) {
+    public static gk0 b(fk0 fk0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fk0Var)) == null) {
+            if (fk0Var instanceof gk0) {
+                return (gk0) fk0Var;
+            }
+            return null;
         }
+        return (gk0) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dk0
-    public void onActivityPaused(@NonNull Activity activity) {
+    public static void c(@NonNull fk0 fk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-        }
-    }
-
-    public ak0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65538, null, fk0Var) == null) {
+            synchronized (fk0.class) {
+                if (a != null) {
+                    return;
+                }
+                a = fk0Var;
             }
         }
+    }
+
+    public static void g(ek0 ek0Var) {
+        gk0 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, ek0Var) == null) && (b = b(a)) != null) {
+            b.c(ek0Var);
+        }
+    }
+
+    public static void h(ek0 ek0Var) {
+        gk0 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, ek0Var) == null) && (b = b(a)) != null) {
+            b.e(ek0Var);
+        }
+    }
+
+    @Nullable
+    public static LinkedList<WeakReference<Activity>> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            dk0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.a();
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    @Nullable
+    public static Activity e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            dk0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.b();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Nullable
+    public static Activity f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            dk0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.d();
+        }
+        return (Activity) invokeV.objValue;
     }
 }

@@ -1,100 +1,62 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
+import android.content.Context;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q8b {
+public class q8b extends re5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public p8b c;
+    public EditText t;
 
-    public q8b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q8b(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static q8b c(Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            q8b q8bVar = new q8b();
-            q8bVar.a = fragment;
-            return q8bVar;
-        }
-        return (q8b) invokeL.objValue;
-    }
-
-    public void a(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
-            return;
-        }
-        if (i2 == -1) {
-            p8b p8bVar = this.c;
-            if (p8bVar != null) {
-                p8bVar.a();
                 return;
             }
-            return;
         }
-        p8b p8bVar2 = this.c;
-        if (p8bVar2 != null) {
-            p8bVar2.b();
-        }
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    public void b(p8b p8bVar) {
+    public EditText i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p8bVar) == null) {
-            this.c = p8bVar;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                p8b p8bVar2 = this.c;
-                if (p8bVar2 != null) {
-                    p8bVar2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                p8b p8bVar3 = this.c;
-                if (p8bVar3 != null) {
-                    p8bVar3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
         }
+        return (EditText) invokeV.objValue;
+    }
+
+    public VideoPlayInputContainer j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (VideoPlayInputContainer) this.m;
+        }
+        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

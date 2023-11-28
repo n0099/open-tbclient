@@ -1,83 +1,50 @@
 package com.kwad.components.core.webview.jshandler;
 
-import android.os.Handler;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.components.core.c.a.a;
-import com.kwad.sdk.core.report.u;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import org.json.JSONException;
+import com.kwad.sdk.service.ServiceProvider;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class t implements com.kwad.sdk.core.webview.kwai.a {
-    public final com.kwad.sdk.core.webview.b Lk;
-    public final Handler Ll;
-    @Nullable
-    public final b Mp;
+public final class t implements com.kwad.sdk.core.webview.c.a {
 
     @KsJson
     /* loaded from: classes10.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a {
-        public boolean Mv;
-        public String Mw;
-        public int Mx;
-        public com.kwad.sdk.core.webview.a.a.c My;
+    public static class b extends com.kwad.sdk.core.response.a.a {
+        public String packageName;
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    @NonNull
+    public final String getKey() {
+        return CommonTbJsBridge.START_APP;
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void onDestroy() {
     }
 
     /* loaded from: classes10.dex */
-    public interface b {
+    public static class a extends com.kwad.sdk.core.response.a.a {
+        public boolean VX;
+
+        @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
+        public final JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            com.kwad.sdk.utils.t.putValue(jSONObject, "isStarted", this.VX);
+            return jSONObject;
+        }
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        final com.kwad.components.core.c.a.c cVar2;
-        final a aVar = new a();
-        final AdTemplate adTemplate = new AdTemplate();
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        b bVar = new b();
         try {
-            aVar.parseJson(new JSONObject(str));
-            adTemplate.parseJson(new JSONObject(aVar.Mw));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
+            bVar.parseJson(new JSONObject(str));
+        } catch (Exception unused) {
         }
-        if (com.kwad.sdk.core.response.a.d.bI(adTemplate)) {
-            if (this.Lk.age != null) {
-                cVar2 = (com.kwad.components.core.c.a.c) this.Lk.age.dK(com.kwad.sdk.core.response.a.d.bQ(adTemplate).downloadId);
-            } else {
-                cVar2 = null;
-            }
-            if (this.Lk.agf) {
-                this.Ll.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.t.1
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        u.b bVar = new u.b();
-                        bVar.Mn = aVar.My.Mn;
-                        com.kwad.components.core.c.a.a.a(new a.C0625a(t.this.Lk.Gl.getContext()).L(adTemplate).b(cVar2).ae(aVar.Mx).aj(true).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.t.1.1
-                            @Override // com.kwad.components.core.c.a.a.b
-                            public final void onAdClicked() {
-                            }
-                        }));
-                    }
-                });
-            } else if (this.Mp != null) {
-                this.Ll.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.t.2
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                    }
-                });
-            }
-            cVar.a(null);
-        }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String getKey() {
-        return "clickAction";
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void onDestroy() {
-        this.Ll.removeCallbacksAndMessages(null);
+        a aVar = new a();
+        aVar.VX = com.kwad.sdk.utils.ak.ap(ServiceProvider.getContext(), bVar.packageName);
+        cVar.a(aVar);
     }
 }

@@ -1,29 +1,64 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ep7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ep7 {
 
-    @Nullable
-    public static ImagePipelineConfig a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (hd.a()) {
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static Boolean a(ep7 ep7Var, MotionEvent e) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ep7Var, e)) == null) {
+                Intrinsics.checkNotNullParameter(e, "e");
                 return null;
             }
-            ImagePipelineConfig.Builder newBuilder = ImagePipelineConfig.newBuilder(TbadkCoreApplication.getInst());
-            newBuilder.setBitmapMemoryCacheParamsSupplier(new fp7((ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity")));
-            return newBuilder.build();
+            return (Boolean) invokeLL.objValue;
         }
-        return (ImagePipelineConfig) invokeV.objValue;
+
+        public static Boolean b(ep7 ep7Var, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, ep7Var, i, i2)) == null) {
+                return null;
+            }
+            return (Boolean) invokeLII.objValue;
+        }
+
+        public static Boolean d(ep7 ep7Var, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, ep7Var, i, i2)) == null) {
+                return null;
+            }
+            return (Boolean) invokeLII.objValue;
+        }
+
+        public static Boolean e(ep7 ep7Var, MotionEvent e) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ep7Var, e)) == null) {
+                Intrinsics.checkNotNullParameter(e, "e");
+                return null;
+            }
+            return (Boolean) invokeLL.objValue;
+        }
+
+        public static Boolean c(ep7 ep7Var, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, ep7Var, i, i2)) == null) {
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeLII.objValue;
+        }
     }
 }

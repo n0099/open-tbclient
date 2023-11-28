@@ -1,37 +1,37 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.jjc;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.qjc;
-import com.baidu.tieba.qnc;
-import com.baidu.tieba.wnc;
-import com.baidu.tieba.xjc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.lsc;
+import com.baidu.tieba.rsc;
+import com.baidu.tieba.soc;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements jjc.a<T> {
-    public final xjc<? super qjc> connection;
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements eoc.a<T> {
+    public final soc<? super loc> connection;
     public final int numberOfSubscribers;
-    public final qnc<? extends T> source;
+    public final lsc<? extends T> source;
 
-    public OnSubscribeAutoConnect(qnc<? extends T> qncVar, int i, xjc<? super qjc> xjcVar) {
+    public OnSubscribeAutoConnect(lsc<? extends T> lscVar, int i, soc<? super loc> socVar) {
         if (i > 0) {
-            this.source = qncVar;
+            this.source = lscVar;
             this.numberOfSubscribers = i;
-            this.connection = xjcVar;
+            this.connection = socVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(pjc<? super T> pjcVar) {
-        this.source.O(wnc.c(pjcVar));
+    public void call(koc<? super T> kocVar) {
+        this.source.O(rsc.c(kocVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
             this.source.P(this.connection);
         }
     }
 
-    @Override // com.baidu.tieba.xjc
+    @Override // com.baidu.tieba.soc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((pjc) ((pjc) obj));
+        call((koc) ((koc) obj));
     }
 }

@@ -1,53 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.RenderProcessGoneDetail;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes7.dex */
-public class qk6 extends mk6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView b;
+public interface qk6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrerenderManager");
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qk6(TbWebView tbWebView) {
-        super(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbWebView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebViewClient) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = tbWebView;
-    }
+    @UiThread
+    void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2);
 
-    @Override // com.baidu.tieba.mk6, android.webkit.WebViewClient
-    public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, renderProcessGoneDetail)) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                return false;
-            }
-            this.b.X();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
+    @NonNull
+    @UiThread
+    android.webkit.WebView b(Context context, @NonNull String str);
+
+    @UiThread
+    boolean c(@NonNull String str, android.webkit.WebView webView);
 }

@@ -6,22 +6,46 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.util.Utility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class HwNotifyActivity extends Activity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public HwNotifyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            Intent intent = getIntent();
-            if (intent != null && intent.getData() != null) {
-                String b = e.b(this, intent);
-                String c = e.c(this, intent);
-                if (!TextUtils.isEmpty(c)) {
-                    Utility.b(getApplicationContext(), intent, b, c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                Intent intent = getIntent();
+                if (intent != null && intent.getData() != null) {
+                    String b = e.b(this, intent);
+                    String c = e.c(this, intent);
+                    if (!TextUtils.isEmpty(c)) {
+                        Utility.b(getApplicationContext(), intent, b, c);
+                    }
                 }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            finish();
         }
-        finish();
     }
 }

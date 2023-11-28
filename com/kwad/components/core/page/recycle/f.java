@@ -3,26 +3,41 @@ package com.kwad.components.core.page.recycle;
 import android.view.View;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import com.kwad.sdk.utils.am;
+import com.kwad.sdk.utils.ap;
 /* loaded from: classes10.dex */
 public final class f {
-    public final RecyclerView GU;
-    public final RecyclerView.LayoutManager GV;
+    public final RecyclerView PK;
+    public final RecyclerView.LayoutManager PL;
 
     public f(RecyclerView recyclerView) {
-        this.GU = recyclerView;
-        this.GV = recyclerView.getLayoutManager();
+        this.PK = recyclerView;
+        this.PL = recyclerView.getLayoutManager();
+    }
+
+    public static f b(RecyclerView recyclerView) {
+        ap.checkNotNull(recyclerView);
+        return new f(recyclerView);
     }
 
     private View a(int i, int i2, boolean z, boolean z2) {
-        OrientationHelper createVerticalHelper = this.GV.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.GV) : OrientationHelper.createHorizontalHelper(this.GV);
-        int startAfterPadding = createVerticalHelper.getStartAfterPadding();
-        int endAfterPadding = createVerticalHelper.getEndAfterPadding();
-        int i3 = i2 > i ? 1 : -1;
+        OrientationHelper createHorizontalHelper;
+        int i3;
+        if (this.PL.canScrollVertically()) {
+            createHorizontalHelper = OrientationHelper.createVerticalHelper(this.PL);
+        } else {
+            createHorizontalHelper = OrientationHelper.createHorizontalHelper(this.PL);
+        }
+        int startAfterPadding = createHorizontalHelper.getStartAfterPadding();
+        int endAfterPadding = createHorizontalHelper.getEndAfterPadding();
+        if (i2 > i) {
+            i3 = 1;
+        } else {
+            i3 = -1;
+        }
         while (i != i2) {
-            View childAt = this.GV.getChildAt(i);
-            int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
-            int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
+            View childAt = this.PL.getChildAt(i);
+            int decoratedStart = createHorizontalHelper.getDecoratedStart(childAt);
+            int decoratedEnd = createHorizontalHelper.getDecoratedEnd(childAt);
             if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
                 return childAt;
             }
@@ -31,24 +46,19 @@ public final class f {
         return null;
     }
 
-    public static f b(RecyclerView recyclerView) {
-        am.checkNotNull(recyclerView);
-        return new f(recyclerView);
-    }
-
     public final int findFirstVisibleItemPosition() {
-        View a = a(0, this.GV.getChildCount(), false, true);
+        View a = a(0, this.PL.getChildCount(), false, true);
         if (a == null) {
             return -1;
         }
-        return this.GU.getChildAdapterPosition(a);
+        return this.PK.getChildAdapterPosition(a);
     }
 
     public final int findLastVisibleItemPosition() {
-        View a = a(this.GV.getChildCount() - 1, -1, false, true);
+        View a = a(this.PL.getChildCount() - 1, -1, false, true);
         if (a == null) {
             return -1;
         }
-        return this.GU.getChildAdapterPosition(a);
+        return this.PK.getChildAdapterPosition(a);
     }
 }

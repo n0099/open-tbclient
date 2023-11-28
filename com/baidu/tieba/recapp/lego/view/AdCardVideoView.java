@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e16;
-import com.baidu.tieba.eea;
-import com.baidu.tieba.gea;
-import com.baidu.tieba.gw4;
-import com.baidu.tieba.oca;
+import com.baidu.tieba.gha;
+import com.baidu.tieba.hw4;
+import com.baidu.tieba.kha;
+import com.baidu.tieba.l16;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.sca;
+import com.baidu.tieba.wia;
+import com.baidu.tieba.yia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class AdCardVideoView extends AdCardBaseView implements sca {
+public class AdCardVideoView extends AdCardBaseView implements kha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView f0;
@@ -40,7 +40,7 @@ public class AdCardVideoView extends AdCardBaseView implements sca {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
     }
 
     /* loaded from: classes8.dex */
@@ -104,10 +104,10 @@ public class AdCardVideoView extends AdCardBaseView implements sca {
 
     public boolean C0(AdCard adCard) {
         InterceptResult invokeL;
-        eea eeaVar;
+        wia wiaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (eeaVar = adCard.verticalVideoStyle) == null || !eeaVar.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (wiaVar = adCard.verticalVideoStyle) == null || !wiaVar.a()) {
                 return false;
             }
             return true;
@@ -160,52 +160,52 @@ public class AdCardVideoView extends AdCardBaseView implements sca {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sca
-    public oca getVideoOrVrView() {
+    @Override // com.baidu.tieba.kha
+    public gha getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f0;
         }
-        return (oca) invokeV.objValue;
+        return (gha) invokeV.objValue;
     }
 
     public final void D0(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
             if (adCard.goodsStyle == 14) {
-                if (e16.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (l16.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     int i = (this.x * 2) / 3;
                     this.h0 = i;
                     this.i0 = (i * 4) / 3;
                 } else {
                     int i2 = this.x / 2;
                     this.h0 = i2;
-                    this.i0 = gea.b(i2);
+                    this.i0 = yia.b(i2);
                 }
             } else {
                 int i3 = this.x;
                 this.h0 = i3;
-                this.i0 = gea.a(i3);
+                this.i0 = yia.a(i3);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f0.getLayoutParams();
             layoutParams.height = this.i0;
             layoutParams.width = this.h0;
             if (adCard.goodsStyle == 14 && !C0(adCard)) {
-                if (e16.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (l16.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     this.j0 = (this.x * 2) / 3;
                     this.r0 = (this.h0 * 4) / 3;
                 } else {
                     int i4 = this.x / 2;
                     this.j0 = i4;
-                    this.r0 = gea.b(i4);
+                    this.r0 = yia.b(i4);
                 }
             } else {
                 int i5 = this.x;
                 this.j0 = i5;
-                this.r0 = gea.a(i5);
+                this.r0 = yia.a(i5);
             }
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0918cb);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09193c);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams2.width = this.j0;
             layoutParams2.height = this.r0;
@@ -234,10 +234,10 @@ public class AdCardVideoView extends AdCardBaseView implements sca {
                 } else {
                     str = advertAppInfo.j;
                 }
-                gw4 gw4Var = advertAppInfo.i;
-                if (gw4Var != null) {
-                    i = gw4Var.b;
-                    str = gw4Var.a;
+                hw4 hw4Var = advertAppInfo.i;
+                if (hw4Var != null) {
+                    i = hw4Var.b;
+                    str = hw4Var.a;
                 }
                 this.f0.setStatisticInfo(advertAppInfo, i, str);
             }

@@ -10,8 +10,8 @@ import com.xiaomi.push.service.bd;
 public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
         ig igVar = new ig();
-        igVar.c(hr.VRUpload.f508a);
-        igVar.b(b.m230a(context).m231a());
+        igVar.c(hr.VRUpload.f504a);
+        igVar.b(b.m234a(context).m235a());
         igVar.d(context.getPackageName());
         igVar.a("data", str);
         igVar.a(bd.a());

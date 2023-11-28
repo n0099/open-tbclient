@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import com.kwad.sdk.utils.bf;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,25 +14,31 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class b {
-    public static final Map<String, Set<com.kwad.sdk.core.config.item.b>> To = new ConcurrentHashMap();
-    public static SharedPreferences Tp = null;
+    public static final Map<String, Set<com.kwad.sdk.core.config.item.b>> aos = new ConcurrentHashMap();
+    public static SharedPreferences aot = null;
 
-    public static void a(Context context, com.kwad.sdk.core.config.item.b bVar) {
-        SharedPreferences aS;
-        if (bVar == null || (aS = aS(context)) == null) {
-            return;
+    public static SharedPreferences Ak() {
+        if (aot == null) {
+            aot = bf.gg("ksadsdk_config");
         }
-        try {
-            bVar.a(aS);
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+        return aot;
+    }
+
+    public static void a(Context context, com.kwad.sdk.core.config.item.b<?> bVar) {
+        SharedPreferences Ak;
+        if (bVar != null && (Ak = Ak()) != null) {
+            try {
+                bVar.a(Ak);
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.c.printStackTraceOnly(e);
+            }
         }
     }
 
     public static void a(SharedPreferences.Editor editor) {
         if (editor != null) {
-            for (String str : To.keySet()) {
-                Set<com.kwad.sdk.core.config.item.b> set = To.get(str);
+            for (String str : aos.keySet()) {
+                Set<com.kwad.sdk.core.config.item.b> set = aos.get(str);
                 if (set != null && !set.isEmpty()) {
                     for (com.kwad.sdk.core.config.item.b bVar : set) {
                         if (bVar != null) {
@@ -43,17 +50,33 @@ public final class b {
         }
     }
 
+    public static void i(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        for (String str : aos.keySet()) {
+            Set<com.kwad.sdk.core.config.item.b> set = aos.get(str);
+            if (set != null && !set.isEmpty() && jSONObject.has(str)) {
+                for (com.kwad.sdk.core.config.item.b bVar : set) {
+                    if (bVar != null) {
+                        bVar.j(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
     public static void a(SharedPreferences sharedPreferences) {
         if (sharedPreferences != null) {
-            for (String str : To.keySet()) {
-                Set<com.kwad.sdk.core.config.item.b> set = To.get(str);
+            for (String str : aos.keySet()) {
+                Set<com.kwad.sdk.core.config.item.b> set = aos.get(str);
                 if (set != null && !set.isEmpty()) {
                     for (com.kwad.sdk.core.config.item.b bVar : set) {
                         if (bVar != null) {
                             try {
                                 bVar.a(sharedPreferences);
                             } catch (Exception e) {
-                                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                                com.kwad.sdk.core.e.c.printStackTraceOnly(e);
                             }
                         }
                     }
@@ -67,27 +90,20 @@ public final class b {
         if (TextUtils.isEmpty(key)) {
             return;
         }
-        Set<com.kwad.sdk.core.config.item.b> bs = bs(key);
-        if (bs == null) {
-            bs = new CopyOnWriteArraySet<>();
-            To.put(key, bs);
+        Set<com.kwad.sdk.core.config.item.b> cL = cL(key);
+        if (cL == null) {
+            cL = new CopyOnWriteArraySet<>();
+            aos.put(key, cL);
         }
-        bs.add(bVar);
-    }
-
-    public static SharedPreferences aS(Context context) {
-        if (Tp == null && context != null) {
-            Tp = context.getSharedPreferences("ksadsdk_config", 0);
-        }
-        return Tp;
+        cL.add(bVar);
     }
 
     @WorkerThread
-    public static synchronized boolean aT(Context context) {
+    public static synchronized boolean aP(Context context) {
         synchronized (b.class) {
-            SharedPreferences aS = aS(context);
-            if (aS != null) {
-                SharedPreferences.Editor edit = aS.edit();
+            SharedPreferences Ak = Ak();
+            if (Ak != null) {
+                SharedPreferences.Editor edit = Ak.edit();
                 a(edit);
                 return edit.commit();
             }
@@ -96,36 +112,20 @@ public final class b {
     }
 
     @WorkerThread
-    public static synchronized void aU(Context context) {
+    public static synchronized void aQ(Context context) {
         synchronized (b.class) {
-            SharedPreferences aS = aS(context);
-            if (aS != null) {
-                a(aS);
+            SharedPreferences Ak = Ak();
+            if (Ak != null) {
+                a(Ak);
             }
         }
     }
 
     @Nullable
-    public static Set<com.kwad.sdk.core.config.item.b> bs(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    public static Set<com.kwad.sdk.core.config.item.b> cL(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return aos.get(str);
         }
-        return To.get(str);
-    }
-
-    public static void d(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        for (String str : To.keySet()) {
-            Set<com.kwad.sdk.core.config.item.b> set = To.get(str);
-            if (set != null && !set.isEmpty() && jSONObject.has(str)) {
-                for (com.kwad.sdk.core.config.item.b bVar : set) {
-                    if (bVar != null) {
-                        bVar.e(jSONObject);
-                    }
-                }
-            }
-        }
+        return null;
     }
 }

@@ -1,90 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergeUtil;
+import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class h19 implements w45<List<? extends ChatMsg>> {
+public final class h19 implements IUiState {
     public static /* synthetic */ Interceptable $ic;
+    public static final h19 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771001, "Lcom/baidu/tieba/h19;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947771001, "Lcom/baidu/tieba/h19;");
+                return;
+            }
+        }
+        a = new h19();
+    }
 
     public h19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.w45
-    /* renamed from: b */
-    public List<ChatMsg> a(List<s45<List<ChatMsg>>> tasks) {
-        InterceptResult invokeL;
-        boolean z;
-        JSONObject jSONObject;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tasks)) == null) {
-            Intrinsics.checkNotNullParameter(tasks, "tasks");
-            List<ChatMsg> list = tasks.get(0).a;
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            for (ChatMsg chatMsg : list) {
-                for (s45<List<ChatMsg>> s45Var : tasks) {
-                    List<ChatMsg> list2 = s45Var.a;
-                    if (list2 != null) {
-                        for (ChatMsg chatMsg2 : list2) {
-                            if (chatMsg.getMsgId() == chatMsg2.getMsgId()) {
-                                String chatRoomContentExt = chatMsg.getChatRoomContentExt();
-                                if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
-                                    z = false;
-                                } else {
-                                    z = true;
-                                }
-                                if (z) {
-                                    jSONObject = new JSONObject();
-                                } else {
-                                    jSONObject = new JSONObject(chatMsg.getChatRoomContentExt());
-                                }
-                                String chatRoomContentExt2 = chatMsg2.getChatRoomContentExt();
-                                if (chatRoomContentExt2 != null && chatRoomContentExt2.length() != 0) {
-                                    z2 = false;
-                                } else {
-                                    z2 = true;
-                                }
-                                if (!z2) {
-                                    JSONObject b = MsgContentMergeUtil.a.b(jSONObject, new JSONObject(chatMsg2.getChatRoomContentExt()));
-                                    if (b.length() > 0) {
-                                        chatMsg.setChatRoomContentExt(b.toString());
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                arrayList.add(chatMsg);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
     }
 }

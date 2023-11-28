@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class lp6 implements hb7 {
+public final class lp6 implements ub7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hb7
+    @Override // com.baidu.tieba.ub7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
     }
 
     public lp6() {
@@ -37,24 +36,27 @@ public final class lp6 implements hb7 {
         }
     }
 
-    @Override // com.baidu.tieba.hb7
-    public Map<String, String> a(e57 businessInfo) {
+    @Override // com.baidu.tieba.ub7
+    public Map<String, String> a(r57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", gp6.a.a(businessInfo));
-            hashMap.put("obj_locate", "3");
-            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
-            hashMap.put("obj_source", "1");
-            hashMap.put("obj_param1", "1");
-            String str = a.get("live_type");
+            hashMap.put("obj_type", qp6.a.a(businessInfo));
+            String str = a.get("user_id");
+            String str2 = "";
             if (str == null) {
                 str = "";
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            hashMap.put("obj_id", str);
+            hashMap.put("obj_param1", "1");
+            String str3 = a.get("live_type");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
             return hashMap;
         }
         return (Map) invokeL.objValue;

@@ -2,22 +2,22 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import androidx.core.app.NotificationCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.csb;
-import com.baidu.tieba.gc0;
-import com.baidu.tieba.oc0;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.pc0;
+import com.baidu.tieba.ywb;
 /* loaded from: classes9.dex */
 public class ThemeProcessor extends BaseEffectProcessor {
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(gc0 gc0Var, int i, float[] fArr) {
-        if (gc0Var == null) {
+    public int onProcessFrame(hc0 hc0Var, int i, float[] fArr) {
+        if (hc0Var == null) {
             return i;
         }
-        int b = csb.b(gc0Var.l());
+        int b = ywb.b(hc0Var.l());
         int i2 = i;
         for (int i3 = 1; i3 < b; i3++) {
-            MediaTrack mediaTrack = (MediaTrack) csb.c(gc0Var.l(), i3);
-            if (!oc0.m(mediaTrack, "effect") && !oc0.m(mediaTrack, "template_effect") && !oc0.m(mediaTrack, "edit_sticker") && !oc0.m(mediaTrack, "multi_input") && !oc0.m(mediaTrack, "only_background") && !oc0.m(mediaTrack, "watermark") && !oc0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !oc0.m(mediaTrack, "user_background")) {
-                i2 = gc0Var.j(mediaTrack, i2, null);
+            MediaTrack mediaTrack = (MediaTrack) ywb.c(hc0Var.l(), i3);
+            if (!pc0.m(mediaTrack, "effect") && !pc0.m(mediaTrack, "template_effect") && !pc0.m(mediaTrack, "edit_sticker") && !pc0.m(mediaTrack, "multi_input") && !pc0.m(mediaTrack, "only_background") && !pc0.m(mediaTrack, "watermark") && !pc0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !pc0.m(mediaTrack, "user_background")) {
+                i2 = hc0Var.j(mediaTrack, i2, null);
             }
         }
         return i2 == 0 ? i : i2;

@@ -1,101 +1,190 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class e39 extends bi<a39, CardViewHolder<f39>> {
+public class e39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public yl6 b;
-    public String c;
+    public f39 a;
+    public g39 b;
+    public d39 c;
+    public boolean d;
+    public long e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e39(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d39 a;
+        public final /* synthetic */ e39 b;
+
+        public a(e39 e39Var, d39 d39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e39Var, d39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e39Var;
+            this.a = d39Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TbadkCoreApplication.isLogin()) {
+                    e39 e39Var = this.b;
+                    if (e39Var.a.b.a == CollapseState.Icon.FORUM) {
+                        e39Var.d = true;
+                        l39.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.w(), this.a.v(), String.valueOf(this.b.a.b.d), 14, 1);
+                        GroupChatActivity.q1(view2.getContext(), this.b.a.b.d, -1, "", 14);
+                        return;
+                    }
+                }
+                this.a.onClick(view2);
+            }
+        }
+    }
+
+    public e39(@NonNull ChatFloatEntranceFragment.u uVar, @NonNull d39 d39Var) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {uVar, d39Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = d39Var;
+        g39 g39Var = new g39(uVar, d39Var);
+        this.b = g39Var;
+        this.a = new f39(this, g39Var);
+        uVar.l.setOnClickListener(new a(this, d39Var));
+        long w = d39Var.w();
+        String v = d39Var.v();
+        String valueOf = String.valueOf(this.a.b.d);
+        if (d()) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        l39.e("c15207", w, v, valueOf, 1, str);
+        l39.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, d39Var.w(), d39Var.v(), String.valueOf(this.a.b.d), 2, 1);
+        e(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.bi
-    public yi getOnAdapterItemClickListener() {
+    public void h(CollapseState collapseState, CollapseState collapseState2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, collapseState, collapseState2) == null) {
+            this.b.c(collapseState, collapseState2);
+        }
+    }
+
+    public void b() {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (System.currentTimeMillis() - this.e > 5000) {
+                this.c.y2();
+                this.e = System.currentTimeMillis();
+            }
+            this.a.b(false);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (this.a.b.a == CollapseState.Icon.DEFAULT) {
+                i = 3;
+            } else {
+                i = 2;
+            }
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            l39.e("c15207", w, v, valueOf, i, str);
+            l39.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.c.w(), this.c.v(), String.valueOf(this.a.b.d), 2, 14);
+        }
+    }
+
+    public void c() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.b(true);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            l39.e("c15207", w, v, valueOf, 1, str);
+            l39.c(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.c.w(), this.c.v(), String.valueOf(this.a.b.d), 2, 1);
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            return sharedPrefHelper.getBoolean(ChatFloatEntranceFragment.Y + this.c.v(), true);
         }
-        return (yi) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: t */
-    public CardViewHolder<f39> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            f39 f39Var = new f39(this.a, viewGroup);
-            yl6 yl6Var = this.b;
-            if (yl6Var != null) {
-                f39Var.m(yl6Var);
-            }
-            return new CardViewHolder<>(f39Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.b(i);
         }
     }
 
-    public void y(yl6 yl6Var) {
+    public void g(List<Long> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yl6Var) == null) {
-            this.b = yl6Var;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && this.d) {
+            this.a.c(list);
+            this.d = false;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a39 a39Var, CardViewHolder<f39> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void f(List<Long> list, long j, List list2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a39Var, cardViewHolder})) == null) {
-            if (a39Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().B(this.c);
-                cardViewHolder.a().k(a39Var);
-                return cardViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) {
+            this.a.a(list, j, list2, i);
         }
-        return (View) invokeCommon.objValue;
     }
 }

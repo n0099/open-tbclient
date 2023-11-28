@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
 /* loaded from: classes8.dex */
 public interface wn {
-    void a(String str, vn vnVar);
+    void a(Bitmap bitmap);
+
+    void onError();
 }

@@ -1,6 +1,6 @@
 package com.baidu.bdtask.ctrl.actions.duplicate.duplicate;
 
-import com.baidu.tieba.qm;
+import com.baidu.tieba.rm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public final class b {
         }
     }
 
-    public final Function2<Function1<? super qm, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super qm, Unit>, Function1<qm, Unit>>> a() {
+    public final Function2<Function1<? super rm, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super rm, Unit>, Function1<rm, Unit>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

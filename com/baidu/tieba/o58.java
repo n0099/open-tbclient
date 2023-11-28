@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes7.dex */
 public class o58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<k58> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
+    public static n58 a(s58 s58Var, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    k58 k58Var = new k58();
-                    k58Var.a = voiceRoom.room_name;
-                    k58Var.c = String.valueOf(voiceRoom.talker_num);
-                    k58Var.d = String.valueOf(voiceRoom.joined_num);
-                    k58Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    k58Var.b = arrayList2;
-                    arrayList.add(k58Var);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, s58Var, intent)) == null) {
+            int intExtra = intent.getIntExtra("transition_type", 0);
+            if (intExtra == 1) {
+                return new t58(s58Var, intent);
             }
-            return arrayList;
+            if (intExtra == 2) {
+                return new m58(s58Var, intent);
+            }
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (n58) invokeLL.objValue;
     }
 }

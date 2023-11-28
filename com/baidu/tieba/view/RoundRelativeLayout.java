@@ -122,6 +122,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.reset();
             this.b.addRoundRect(this.c, this.e, Path.Direction.CW);
         }
     }

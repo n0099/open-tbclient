@@ -27,7 +27,7 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public final class DownloadGuideFull extends AbsDownloadGuide {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int m = 2131167434;
+    public static final int m = 2131167453;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy l;
 
@@ -117,7 +117,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
     }
 
     @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
-    public void q() {
+    public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             getGuideProgressView().d();
@@ -129,6 +129,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int progress = getProgress();
+            getGuideProgressView().setMIsShowArrow(false);
             GuideProgressView guideProgressView = getGuideProgressView();
             if (progress <= 0) {
                 progress = 1;
@@ -141,12 +142,12 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.o();
+            this$0.p();
         }
     }
 
     @Override // com.baidu.tbadk.widget.ad.AbsDownloadGuide
-    public void i(int i) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i != 1) {
@@ -173,11 +174,11 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             if (tiebaPlusInfo == null) {
                 return;
             }
-            if (!m() && !j()) {
+            if (!n() && !k()) {
                 getGuideProgressView().setMLeftIconType(1);
-                if (k()) {
+                if (l()) {
                     getGuideProgressView().setMIsShowArrow(false);
-                    if (l()) {
+                    if (m()) {
                         getGuideProgressView().g(getProgress());
                         return;
                     }
@@ -211,17 +212,27 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             getGuideProgressView().setMLeftIconType(1);
             String url = downloadData.getUrl();
             TiebaPlusInfo tiebaPlusInfo = getTiebaPlusInfo();
+            String str2 = null;
             if (tiebaPlusInfo != null) {
                 str = tiebaPlusInfo.download_url;
             } else {
                 str = null;
             }
-            if (Intrinsics.areEqual(url, str)) {
-                getGuideProgressView().setMIsShowArrow(false);
-                int status = downloadData.getStatus();
-                if (status != 0) {
-                    if (status != 1) {
+            if (!Intrinsics.areEqual(url, str)) {
+                DownloadData downloadData2 = getDownloadData();
+                if (downloadData2 != null) {
+                    str2 = downloadData2.getId();
+                }
+                if (!Intrinsics.areEqual(str2, downloadData.getId())) {
+                    return;
+                }
+            }
+            int status = downloadData.getStatus();
+            if (status != 0) {
+                if (status != 1) {
+                    if (status != 4) {
                         if (status != 5) {
+                            getGuideProgressView().setMIsShowArrow(true);
                             getGuideProgressView().setProgress(getProgress());
                             getGuideProgressView().setText(getDescInfo());
                             return;
@@ -229,19 +240,24 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
                         u();
                         return;
                     }
-                    int length = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
-                    GuideProgressView guideProgressView = getGuideProgressView();
-                    if (length > 0) {
-                        i = length;
-                    }
-                    guideProgressView.g(i);
+                    getGuideProgressView().setMIsShowArrow(false);
+                    getGuideProgressView().setProgress(getProgress());
+                    getGuideProgressView().setText(getDescInfo());
                     return;
                 }
-                getGuideProgressView().setMLeftIconType(2);
-                getGuideProgressView().setMIsShowArrow(true);
-                getGuideProgressView().setProgress(100);
-                getGuideProgressView().setText(getDescInfo());
+                getGuideProgressView().setMIsShowArrow(false);
+                int length = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
+                GuideProgressView guideProgressView = getGuideProgressView();
+                if (length > 0) {
+                    i = length;
+                }
+                guideProgressView.g(i);
+                return;
             }
+            getGuideProgressView().setMLeftIconType(2);
+            getGuideProgressView().setMIsShowArrow(true);
+            getGuideProgressView().setProgress(100);
+            getGuideProgressView().setText(getDescInfo());
         }
     }
 
@@ -253,7 +269,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             ViewGroup.LayoutParams layoutParams = getGuideProgressView().getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = UtilHelper.getDimenPixelSize(m);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jv5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rv5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -265,7 +281,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
                     }
                 }
             });
-            q();
+            r();
         }
     }
 }

@@ -1,107 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.res.Configuration;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
-public class yu7 {
+public class yu7 implements tu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public FrsFragment b;
-    public TextView c;
-    public FrsTabSortSwitchButton d;
-    public String e;
-    public int f;
-    public FrsTabSortSwitchButton.e g;
+    public xu7 a;
+    public TbPageContext b;
+    public BdTypeListView c;
+    public List<pi> d;
+    public final List<ci> e;
+    public boolean f;
+    public int g;
 
-    /* loaded from: classes9.dex */
-    public class a implements FrsTabSortSwitchButton.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yu7 a;
-
-        public a(yu7 yu7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yu7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yu7Var;
-        }
-
-        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                boolean z = false;
-                if (!hp7.f().i() && !gp7.h().j()) {
-                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0e61);
-                        return false;
-                    } else if (this.a.b.y1() != null && this.a.b.i2() != null) {
-                        z = true;
-                        if (this.a.f == i) {
-                            return true;
-                        }
-                        this.a.b.y1().h1(this.a.d.w(this.a.f));
-                        this.a.f = i;
-                        if (this.a.f != 7) {
-                            xt5.c();
-                            ata.a();
-                        } else {
-                            ata.b();
-                        }
-                        this.a.b.y1().d1(this.a.d.w(this.a.f));
-                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
-                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
-                        }
-                        this.a.b.y1().g1(true);
-                        this.a.b.i2().c2();
-                        this.a.b.y1().f1(true);
-                        this.a.f();
-                    }
-                }
-                return z;
-            }
-            return invokeI.booleanValue;
-        }
-    }
-
-    public yu7(FrsFragment frsFragment, RelativeLayout relativeLayout) {
+    public yu7(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, relativeLayout};
+            Object[] objArr = {tbPageContext, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -111,73 +45,178 @@ public class yu7 {
                 return;
             }
         }
-        this.f = -1;
-        this.g = new a(this);
-        if (frsFragment != null && relativeLayout != null) {
-            this.b = frsFragment;
-            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ba, relativeLayout);
-            this.a = inflate;
-            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922c3);
-            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f0922c4);
-            this.d = frsTabSortSwitchButton;
-            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
-            this.f = this.d.getState();
-            i();
-        }
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = false;
+        this.g = -1;
+        this.b = tbPageContext;
+        this.c = bdTypeListView;
+        this.f = z;
+        d();
     }
 
-    public void g(int i) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton;
+    @Override // com.baidu.tieba.tu7
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (frsTabSortSwitchButton = this.d) != null) {
-            frsTabSortSwitchButton.t(i);
-            this.f = this.d.getState();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
+            if (!ListUtils.isEmpty(this.d) && this.c != null) {
+                for (pi piVar : this.d) {
+                    if (piVar instanceof zu7) {
+                        ((zu7) piVar).s = false;
+                    }
+                }
+                if (BdNetTypeUtil.isWifiNet()) {
+                    if (this.g < this.d.size() - 1) {
+                        List<pi> list = this.d;
+                        int i2 = this.g + 1;
+                        this.g = i2;
+                        if (list.get(i2) instanceof zu7) {
+                            ((zu7) this.d.get(this.g)).s = true;
+                            BdTypeListView bdTypeListView = this.c;
+                            bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
+                            g();
+                        }
+                    } else if (this.g == this.d.size() - 1 && (this.d.get(this.g) instanceof zu7)) {
+                        ((zu7) this.d.get(this.g)).s = false;
+                    }
+                }
+            }
         }
     }
 
-    public void j(List<FrsTabInfo> list) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
-            frsTabSortSwitchButton.setData(list);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !ListUtils.isEmpty(this.d)) {
+            Iterator<pi> it = this.d.iterator();
+            while (it.hasNext()) {
+                ((zu7) it.next()).s = false;
+            }
         }
     }
 
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c11437");
-            statisticItem.param("obj_type", this.d.w(this.f));
-            statisticItem.param("fid", this.e);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public FrsTabSortSwitchButton h() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.g;
         }
-        return (FrsTabSortSwitchButton) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.tu7
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            xu7 xu7Var = new xu7(this.b, this, this.f);
+            this.a = xu7Var;
+            this.e.add(xu7Var);
+            this.c.addAdapters(this.e);
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.z();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bdTypeListView = this.c) != null && bdTypeListView.getAdapter2() != null && (this.c.getAdapter2() instanceof BaseAdapter)) {
+            this.c.getAdapter2().notifyDataSetChanged();
+        }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
-            if (frsTabSortSwitchButton != null) {
-                frsTabSortSwitchButton.D();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onDestroy();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.E();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            b();
+            this.g = 0;
+            k();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.F();
+        }
+    }
+
+    public void f(String str, boolean z) {
+        zu7 zu7Var;
+        zu7.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048582, this, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        boolean z2 = false;
+        for (pi piVar : this.d) {
+            if (piVar != null && (piVar instanceof zu7) && (bVar = (zu7Var = (zu7) piVar).m) != null && str.equals(bVar.a)) {
+                zu7Var.m.e = z;
+                z2 = true;
             }
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
+        }
+        if (z2) {
+            g();
+        }
+    }
+
+    public void h(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
+            this.a.A(configuration);
+        }
+    }
+
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return this.a.D(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void m(List<zu7> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048589, this, list, z) != null) || list == null) {
+            return;
+        }
+        if (z) {
+            this.d.clear();
+        }
+        this.d.addAll(list);
+        this.c.setData(this.d);
+        if (z && list.size() > 0 && this.f && BdNetTypeUtil.isWifiNet()) {
+            l();
+            list.get(0).s = true;
         }
     }
 }

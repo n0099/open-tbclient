@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.SoChecker;
-import com.baidu.tieba.hd;
-import com.baidu.tieba.hh;
-import com.baidu.tieba.qs5;
-import com.baidu.tieba.wd;
+import com.baidu.tieba.id;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.xd;
+import com.baidu.tieba.ys5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +203,7 @@ public final class SoChecker {
     public static final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.is5
+            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.qs5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -221,7 +221,7 @@ public final class SoChecker {
     public static final void c() {
         String a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && (a2 = qs5.a(a(), "sochecker/soconfig.json")) != null) {
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && (a2 = ys5.a(a(), "sochecker/soconfig.json")) != null) {
             for (Entry entry : DataExt.toEntityList(a2, Entry.class)) {
                 a.put(entry.getName(), entry);
             }
@@ -235,16 +235,16 @@ public final class SoChecker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, name)) == null) {
             Intrinsics.checkNotNullParameter(name, "name");
-            File file = new File(hh.b(name));
+            File file = new File(ih.b(name));
             if (!file.exists()) {
                 return false;
             }
-            String b = wd.b(new FileInputStream(file));
+            String b = xd.b(new FileInputStream(file));
             Entry entry = a.get(name);
             if (entry == null) {
                 return false;
             }
-            if (hd.a()) {
+            if (id.a()) {
                 md532 = entry.getMd564();
             } else {
                 md532 = entry.getMd532();

@@ -1,55 +1,31 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class sz0 {
+public class sz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Column[] c();
-
-    public abstract kz0[] d();
-
-    public abstract kz0[][] e();
-
-    public abstract kz0[] f();
-
-    public abstract String g();
-
-    public sz0() {
+    public static void a(Cursor cursor, uz0... uz0VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, uz0VarArr) == null) {
+            int i = 0;
+            for (uz0 uz0Var : uz0VarArr) {
+                for (Column column : uz0Var.b().c()) {
+                    rz0.e(column, cursor, i);
+                    i++;
+                }
             }
         }
     }
 
-    public static kz0 a(int i, String str, String str2, int i2) {
-        InterceptResult invokeCommon;
+    public static void b(uz0 uz0Var, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
-            return b(i, str, str2, i2, 0);
+        if (interceptable == null || interceptable.invokeLL(65537, null, uz0Var, cursor) == null) {
+            rz0.f(cursor, uz0Var.b().c());
         }
-        return (kz0) invokeCommon.objValue;
-    }
-
-    public static kz0 b(int i, String str, String str2, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return new kz0(i, str, str2, i2, i3);
-        }
-        return (kz0) invokeCommon.objValue;
     }
 }

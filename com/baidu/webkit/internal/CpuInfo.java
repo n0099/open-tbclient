@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.kuaishou.weapon.p0.k1;
+import com.kuaishou.weapon.p0.bk;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,7 +22,7 @@ public class CpuInfo implements INoProGuard {
     public static boolean sSupportNeon;
 
     public static boolean checkCpuInfo(String str) {
-        return checkSysInfo(k1.a, str);
+        return checkSysInfo(bk.a, str);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -191,7 +191,7 @@ public class CpuInfo implements INoProGuard {
     public static int getCpuType_deprecated() {
         if (!sCheckedCpuInfo) {
             sCheckedCpuInfo = true;
-            sCpuType = checkCpuType(k1.a);
+            sCpuType = checkCpuType(bk.a);
         }
         return sCpuType;
     }

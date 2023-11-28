@@ -1,42 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ke2 implements le2 {
+public class ke2 implements sd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.le2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.le2
-    public void c(od2 od2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, od2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.le2
-    public void d(od2 od2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, od2Var) == null) {
-        }
-    }
 
     public ke2() {
         Interceptable interceptable = $ic;
@@ -50,5 +23,29 @@ public abstract class ke2 implements le2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.sd2
+    @SuppressLint({"BDThrowableCheck"})
+    public xd2 a(wd2 wd2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wd2Var)) == null) {
+            int b = wd2Var.b();
+            if (b != 1) {
+                if (b != 2) {
+                    if (b != 3) {
+                        if (!sm1.a) {
+                            return new ne2();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + wd2Var);
+                    }
+                    return new b82();
+                }
+                return pp2.b();
+            }
+            return new ne2();
+        }
+        return (xd2) invokeL.objValue;
     }
 }

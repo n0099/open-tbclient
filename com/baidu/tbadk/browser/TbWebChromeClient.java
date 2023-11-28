@@ -17,12 +17,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.sdk.internal.ci;
-import com.baidu.tieba.lsa;
-import com.baidu.tieba.osa;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.ssa;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.dxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.kxa;
+import com.baidu.tieba.rd;
+import com.baidu.tieba.yb;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lsa callback;
+    public dxa callback;
     public TBWebViewActivity mActivity;
 
     public TbWebChromeClient(TBWebViewActivity tBWebViewActivity) {
@@ -64,16 +64,16 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(lsa lsaVar) {
+    public void setOnJsPromptCallback(dxa dxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lsaVar) == null) {
-            this.callback = lsaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, dxaVar) == null) {
+            this.callback = dxaVar;
         }
     }
 
     private void callJsMethod(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) && webView != null && !qd.isEmpty(str) && !qd.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) && webView != null && !rd.isEmpty(str) && !rd.isEmpty(str2)) {
             if (Build.VERSION.SDK_INT >= 19) {
                 webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
                 return;
@@ -109,7 +109,7 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
             TBWebViewActivity tBWebViewActivity = this.mActivity;
-            if (tBWebViewActivity != null && xb.f(tBWebViewActivity.getPageContext())) {
+            if (tBWebViewActivity != null && yb.f(tBWebViewActivity.getPageContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -123,7 +123,7 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
             TBWebViewActivity tBWebViewActivity = this.mActivity;
-            if (tBWebViewActivity != null && xb.f(tBWebViewActivity.getPageContext())) {
+            if (tBWebViewActivity != null && yb.f(tBWebViewActivity.getPageContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -137,7 +137,7 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
             TBWebViewActivity tBWebViewActivity = this.mActivity;
-            if (tBWebViewActivity != null && xb.f(tBWebViewActivity.getPageContext())) {
+            if (tBWebViewActivity != null && yb.f(tBWebViewActivity.getPageContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -148,16 +148,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        lsa lsaVar;
+        dxa dxaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!t85.a(str) && str2.startsWith("tiebaapp")) {
-                osa osaVar = new osa();
-                osaVar.w(ssa.b(str2));
-                osaVar.y(301);
-                callJsMethod(webView, osaVar.c(), osaVar.d());
+            if (!z85.a(str) && str2.startsWith("tiebaapp")) {
+                gxa gxaVar = new gxa();
+                gxaVar.w(kxa.b(str2));
+                gxaVar.y(301);
+                callJsMethod(webView, gxaVar.c(), gxaVar.d());
             }
-            if (t85.a(str) && (lsaVar = this.callback) != null && lsaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (z85.a(str) && (dxaVar = this.callback) != null && dxaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

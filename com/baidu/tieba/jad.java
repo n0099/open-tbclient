@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.TogetherHi;
 /* loaded from: classes6.dex */
-public class jad {
+public class jad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, View view2, GridView gridView) {
-        int i2;
+    @NonNull
+    public static JSONObject b(@NonNull TogetherHi togetherHi) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
-            if (i >= 3) {
-                i2 = 82;
-            } else {
-                i2 = 110;
-            }
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            gridView.setNumColumns(3);
-                            layoutParams.width = bad.a((i2 * 3) + 14);
-                        } else {
-                            gridView.setNumColumns(2);
-                            layoutParams.width = bad.a((i2 * 2) + 7);
-                        }
-                    } else {
-                        gridView.setNumColumns(3);
-                        layoutParams.width = bad.a((i2 * 3) + 14);
-                    }
-                } else {
-                    gridView.setNumColumns(2);
-                    layoutParams.width = bad.a((i2 * 2) + 7);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, togetherHi)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "album_name", togetherHi.album_name);
+            ltc.a(jSONObject, GroupInfoData.SHARE_KEY_ALBUM_ID, togetherHi.album_id);
+            ltc.a(jSONObject, "start_time", togetherHi.start_time);
+            ltc.a(jSONObject, "end_time", togetherHi.end_time);
+            ltc.a(jSONObject, "location", togetherHi.location);
+            ltc.a(jSONObject, "num_signup", togetherHi.num_signup);
+            if (togetherHi.potraits != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : togetherHi.potraits) {
+                    jSONArray.put(str);
                 }
-            } else {
-                gridView.setNumColumns(1);
-                layoutParams.width = bad.a(i2);
+                ltc.a(jSONObject, "potraits", jSONArray);
             }
-            view2.setLayoutParams(layoutParams);
+            ltc.a(jSONObject, "num_join", togetherHi.num_join);
+            if (togetherHi.pic_urls != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (String str2 : togetherHi.pic_urls) {
+                    jSONArray2.put(str2);
+                }
+                ltc.a(jSONObject, "pic_urls", jSONArray2);
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

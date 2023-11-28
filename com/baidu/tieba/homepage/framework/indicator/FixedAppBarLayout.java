@@ -30,7 +30,6 @@ import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.GlobalBuildConfig;
@@ -50,11 +49,10 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.wf8;
-import com.baidu.tieba.xf8;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.ti8;
+import com.baidu.tieba.ui8;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +62,6 @@ import com.google.android.material.appbar.AppBarLayout;
 /* loaded from: classes6.dex */
 public class FixedAppBarLayout extends AppBarLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
     public Context b;
@@ -363,7 +360,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.SEARCH_BAR_CLICK).param("obj_type", 1));
                 if (UbsABTestHelper.isSearchWebView()) {
-                    BrowserHelper.startWebActivity(this.a.b, FixedAppBarLayout.i);
+                    BrowserHelper.startWebActivity(this.a.b, na8.a);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(this.a.getContext(), "", false)));
                 }
@@ -406,13 +403,13 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 f fVar = new f();
                 fVar.a = view2;
-                fVar.b = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090fd1);
-                fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09088c);
-                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092186);
-                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09219a);
-                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a1);
-                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092166);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091116);
+                fVar.b = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090ff8);
+                fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0908a8);
+                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921fe);
+                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092212);
+                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
+                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921de);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09113e);
                 fVar.h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 fVar.h.setUseNightOrDarkMask(false);
@@ -423,22 +420,6 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1586659089, "Lcom/baidu/tieba/homepage/framework/indicator/FixedAppBarLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1586659089, "Lcom/baidu/tieba/homepage/framework/indicator/FixedAppBarLayout;");
-                return;
-            }
-        }
-        i = TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid-usergrow-search/searchGlobal?nonavigationbar=1&customfullscreen=1&user_skin_overlay=0&loadingSignal=1&page_key=a026";
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FixedAppBarLayout(Context context) {
         super(context);
@@ -447,13 +428,13 @@ public class FixedAppBarLayout extends AppBarLayout {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -468,9 +449,9 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, viewGroup) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                isSwitchOn = wf8.isSwitchOn();
+                isSwitchOn = ti8.isSwitchOn();
             } else {
-                isSwitchOn = xf8.isSwitchOn();
+                isSwitchOn = ui8.isSwitchOn();
             }
             if (isSwitchOn) {
                 return;
@@ -484,7 +465,7 @@ public class FixedAppBarLayout extends AppBarLayout {
                 AlaLiveTipView alaLiveTipView = new AlaLiveTipView(getContext());
                 this.e = alaLiveTipView;
                 viewGroup.addView(alaLiveTipView);
-                s95.f();
+                x95.f();
             }
             AlaLiveTipView alaLiveTipView2 = this.e;
             if (alaLiveTipView2 != null) {
@@ -502,14 +483,14 @@ public class FixedAppBarLayout extends AppBarLayout {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -522,12 +503,12 @@ public class FixedAppBarLayout extends AppBarLayout {
     public void setSearchStyle(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            int i2 = R.color.CAM_X0101;
+            int i = R.color.CAM_X0101;
             if (z) {
                 if (z2) {
-                    i2 = R.color.CAM_X0105;
+                    i = R.color.CAM_X0105;
                 }
-                this.a.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, getResources().getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
                 return;
             }
             this.a.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -535,21 +516,21 @@ public class FixedAppBarLayout extends AppBarLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FixedAppBarLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FixedAppBarLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -566,10 +547,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public void setImageBackgroundVisibility(int i2) {
+    public void setImageBackgroundVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.a.h.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.a.h.setVisibility(i);
         }
     }
 
@@ -584,7 +565,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e2, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) this, true);
             this.a = f.a(this);
             r();
             s();
@@ -597,16 +578,16 @@ public class FixedAppBarLayout extends AppBarLayout {
     }
 
     public final void h() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.c;
             if (GlobalBuildConfig.isTiebaDebugTool()) {
-                i2 = 0;
+                i = 0;
             } else {
-                i2 = 8;
+                i = 8;
             }
-            view2.setVisibility(i2);
+            view2.setVisibility(i);
             this.a.c.setOnClickListener(new b(this));
         }
     }
@@ -614,7 +595,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void i() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091623)) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091694)) == null) {
             return;
         }
         IdleHandlerManager.getInstance().addOrRunTask("livesquare", new c(this, viewGroup));
@@ -700,7 +681,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f134a));
+            this.a.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f135a));
             if (m()) {
                 this.d = true;
                 this.a.g.setVisibility(0);

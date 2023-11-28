@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Group;
 /* loaded from: classes5.dex */
-public class aqa {
+public class aqa implements bqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,12 +26,16 @@ public class aqa {
         }
     }
 
-    public void a(Group group) {
+    @Override // com.baidu.tieba.bqa
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, group) != null) || group == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if ((networkStatRecord != null && networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || networkStatRecord == null || networkStatRecord.exception == null) {
+                return false;
+            }
+            return true;
         }
-        group.group_count.intValue();
-        group.hide_recommend_group.intValue();
+        return invokeL.booleanValue;
     }
 }

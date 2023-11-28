@@ -138,7 +138,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         this.p = new a(this);
     }
 
-    public final void S0() {
+    public final void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
@@ -173,7 +173,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             super.onClick(view2);
             if (view2 == this.g) {
                 finish();
-            } else if (view2 == this.i && T0()) {
+            } else if (view2 == this.i && R0()) {
                 showToast(R.string.download_begin_tip);
                 finish();
             }
@@ -188,9 +188,9 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             YunDialogManager.markShowingDialogName("lcUpdateDialog");
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
-            Q0(bundle);
+            O0(bundle);
             initView();
-            S0();
+            Q0();
         }
     }
 
@@ -209,7 +209,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void Q0(Bundle bundle) {
+    public final void O0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -225,7 +225,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final boolean T0() {
+    public final boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetStatusReceiver {
     public static final String TAG = "NetStatusReceiver";
     public ChangeNetworkInter mChangeNetworkInter;
@@ -21,7 +21,7 @@ public class NetStatusReceiver {
         }
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ChangeNetworkInter {
         void onNetStateChanged();
     }

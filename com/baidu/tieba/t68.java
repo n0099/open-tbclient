@@ -1,75 +1,228 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetGiftList.PresentCategoryList;
+import tbclient.WindowToast;
 /* loaded from: classes8.dex */
 public class t68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public ArrayList<Integer> c;
 
-    public t68() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a implements fv4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ BaseFragment b;
+        public final /* synthetic */ is7 c;
+
+        public a(View view2, BaseFragment baseFragment, is7 is7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, baseFragment, is7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = baseFragment;
+            this.c = is7Var;
+        }
+
+        @Override // com.baidu.tieba.fv4
+        public void onPermissionResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    wh5.h().o(true);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
+                    View view2 = this.a;
+                    if (view2 != null) {
+                        view2.setVisibility(8);
+                        return;
+                    }
+                    return;
+                }
+                new BdTopToast(this.b.getContext()).setIcon(false).setContent(this.b.getString(R.string.forum_broadcast_copy_no_permission_hint)).show(this.c.r0());
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+    /* loaded from: classes8.dex */
+    public class b implements fv4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
         }
-        return invokeV.intValue;
+
+        @Override // com.baidu.tieba.fv4
+        public void onPermissionResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
+                wh5.h().o(true);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
+                View view2 = this.a;
+                if (view2 != null) {
+                    view2.setVisibility(8);
+                }
+            }
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static void a(BaseFragment baseFragment, String str, boolean z, View view2, is7 is7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{baseFragment, str, Boolean.valueOf(z), view2, is7Var}) == null) && baseFragment != null && is7Var != null && view2 != null && FrsActivityConfig.FRS_FROM_FLUTTER_BCASTEDIT.equals(str) && !z) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (Settings.canDrawOverlays(baseFragment.getContext())) {
+                    d(baseFragment, view2, is7Var);
+                    return;
+                } else {
+                    new BdTopToast(baseFragment.getContext()).setIcon(false).setContent(baseFragment.getString(R.string.forum_broadcast_copy_no_permission_hint)).show(is7Var.r0());
+                    return;
+                }
+            }
+            d(baseFragment, view2, is7Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public ArrayList<Integer> c() {
-        InterceptResult invokeV;
+    public static void b(BaseFragment baseFragment, String str, boolean z, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{baseFragment, str, Boolean.valueOf(z), view2}) == null) && baseFragment != null && view2 != null && FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT.equals(str) && !z) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (Settings.canDrawOverlays(baseFragment.getContext())) {
+                    e(baseFragment, view2);
+                    return;
+                } else if (Build.VERSION.SDK_INT < 23 || !SharedPrefHelper.getInstance().getBoolean("key_forum_rule_dialog_show_frs", false)) {
+                    e(baseFragment, view2);
+                    SharedPrefHelper.getInstance().putBoolean("key_forum_rule_dialog_show_frs", true);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            e(baseFragment, view2);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public void d(PresentCategoryList presentCategoryList) {
+    public static void c(Activity activity, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, presentCategoryList) != null) || presentCategoryList == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, activity, frsViewData) == null) && activity != null && activity.getIntent() != null) {
+            String stringExtra = activity.getIntent().getStringExtra(FrsActivityConfig.KEY_ACHIEVEMENT_URL);
+            if (!TextUtils.isEmpty(stringExtra)) {
+                activity.getIntent().removeExtra(FrsActivityConfig.KEY_ACHIEVEMENT_URL);
+                AchievementActivityConfig achievementActivityConfig = new AchievementActivityConfig(activity);
+                achievementActivityConfig.setUrl(stringExtra);
+                if (frsViewData != null && frsViewData.getForumActiveInfo() != null) {
+                    achievementActivityConfig.setShareUrl(frsViewData.getForumActiveInfo().forum_share_url);
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, achievementActivityConfig));
+            }
         }
-        this.a = presentCategoryList.category_id.intValue();
-        this.b = presentCategoryList.category_name;
-        List<Integer> list = presentCategoryList.gift_ids;
-        if (list != null && list.size() > 0) {
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            this.c = arrayList;
-            arrayList.addAll(presentCategoryList.gift_ids);
+    }
+
+    public static void d(BaseFragment baseFragment, View view2, is7 is7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, baseFragment, view2, is7Var) == null) && baseFragment != null && is7Var != null && view2 != null && baseFragment.getPageContext() != null && baseFragment.getPageContext().getOrignalPage() != null) {
+            wh5.h().m(new th5(baseFragment.getContext()));
+            wh5.h().n(85, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds144));
+            if (wh5.h().j()) {
+                baseFragment.getPageContext().getOrignalPage().grantWindowPermission(new a(view2, baseFragment, is7Var), true);
+            }
+        }
+    }
+
+    public static void e(BaseFragment baseFragment, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseFragment, view2) == null) && baseFragment != null && view2 != null && baseFragment.getPageContext() != null && baseFragment.getPageContext().getOrignalPage() != null) {
+            wh5.h().m(new uh5(baseFragment.getContext()));
+            wh5.h().n(85, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds144));
+            if (wh5.h().j()) {
+                baseFragment.getPageContext().getOrignalPage().grantWindowPermission(new b(view2), true);
+            }
+        }
+    }
+
+    public static void g(FrsViewData frsViewData, is7 is7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, frsViewData, is7Var) == null) {
+            if (frsViewData != null && frsViewData.getForum() == null) {
+                if (is7Var != null && frsViewData.getForum() != null && frsViewData.getForum().getYuleData() != null) {
+                    if (frsViewData.getForum().getYuleData() != null && frsViewData.getForum().getYuleData().a()) {
+                        TiebaStatic.log(TbadkCoreStatisticKey.YULE_GAME_EAST_EGG_VIEW);
+                        is7Var.S1(frsViewData.getForum().getYuleData().b());
+                        return;
+                    }
+                    is7Var.A0();
+                }
+            } else if (is7Var != null) {
+                is7Var.A0();
+            }
+        }
+    }
+
+    public static void f(Context context, int i, FrsViewData frsViewData) {
+        List<WindowToast> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65541, null, context, i, frsViewData) == null) && TbadkCoreApplication.isLogin() && frsViewData != null && (list = frsViewData.mWindowToast) != null && list.size() > 0) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                WindowToast windowToast = list.get(i2);
+                if (windowToast != null && windowToast.toast_type.intValue() == i) {
+                    if (!rd.isEmpty(windowToast.toast_link)) {
+                        BrowserHelper.startWebActivity(context, "", WebviewHelper.addParamsForPageTranslucent(windowToast.toast_link), true);
+                        return;
+                    }
+                    return;
+                }
+            }
         }
     }
 }

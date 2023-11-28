@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.w25;
 /* loaded from: classes9.dex */
-public interface z25<T extends w25> {
-    void a(int i, T t);
+public interface z25 {
+    String getPicLinkUrl();
 
-    void b(int i, String str);
+    String getPicUrl();
 }

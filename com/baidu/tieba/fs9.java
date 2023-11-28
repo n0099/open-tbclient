@@ -1,130 +1,138 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import android.content.Context;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fs9 {
+public abstract class fs9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public final Context c;
+    public List<os9> d;
+    public a e;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo W = tbRichTextData.W();
-            if (W == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(W.O())) {
-                return W.O();
-            }
-            if (W.getHeight() * W.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (W.getHeight() * W.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (W.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (W.getHeight() * sqrt)));
-            } else {
-                double width = W.getWidth() / W.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(qd.getUrlEncode(W.U()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void D2(int i);
     }
 
-    public static void b(vra vraVar, AbsPbActivity.e eVar) {
-        ImageUrlData imageUrlData;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, vraVar, eVar) != null) || vraVar == null || vraVar.e0() == null || vraVar.e0().Q() == null || eVar == null || eVar.a == null || eVar.b == null || vraVar.e0().Q().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = vraVar.e0().Q().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, imageUrlData);
-                }
-            }
-        }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
-    }
-
-    public static vra c(es9 es9Var, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{es9Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (es9Var != null && es9Var.F() != null && es9Var.F().size() > 0) {
-                    vra vraVar = es9Var.F().get(0);
-                    if (vraVar.J() != 1) {
-                        return d(es9Var);
-                    }
-                    return vraVar;
-                }
-                return null;
-            }
-            return d(es9Var);
-        }
-        return (vra) invokeCommon.objValue;
-    }
-
-    public static vra d(es9 es9Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, es9Var)) == null) {
-            if (es9Var != null && es9Var.O() != null && es9Var.O().getAuthor() != null) {
-                vra vraVar = new vra();
-                MetaData author = es9Var.O().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = es9Var.O().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
-                }
-                vraVar.X0(1);
-                vraVar.d1(es9Var.O().getFirstPostId());
-                vraVar.v1(es9Var.O().getTitle());
-                vraVar.u1(es9Var.O().getCreateTime());
-                vraVar.Q0(author);
-                return vraVar;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             return null;
         }
-        return (vra) invokeL.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public fs9(List<os9> list, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+        this.d = list;
+        this.c = context;
+    }
+
+    public List<os9> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (os9 os9Var : this.d) {
+                if (os9Var.e()) {
+                    arrayList.add(os9Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<os9> list = this.d;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(List<os9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.d = list;
+        }
+    }
+
+    public void f(os9 os9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, os9Var) == null) {
+            if (os9Var.e()) {
+                this.a++;
+            } else {
+                this.a--;
+            }
+        }
     }
 }

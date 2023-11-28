@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.PayEventStatisticsApiImpl;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayUIEventStatisticApiImpl implements PayEventStatisticsApiImpl.IPayUIEventStatisticApi {
     public final String TAG = "PayUIEventStatisticApiImpl";
     public BaseHiidoContent mBaseHiidoContent;

@@ -78,31 +78,44 @@ public class BaseImageDownloader implements ImageDownloader {
         this(context, 5000, 20000);
     }
 
-    public BaseImageDownloader(Context context, int i, int i2) {
-        this.context = context.getApplicationContext();
-        this.connectTimeout = i;
-        this.readTimeout = i2;
-    }
-
     @TargetApi(8)
     private InputStream getVideoThumbnailStream(String str) {
         Bitmap createVideoThumbnail;
-        if (Build.VERSION.SDK_INT < 8 || (createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(str, 2)) == null) {
-            return null;
+        if (Build.VERSION.SDK_INT >= 8 && (createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(str, 2)) != null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            createVideoThumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        createVideoThumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
-        return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+        return null;
     }
 
     private boolean isVideoContentUri(Uri uri) {
         String type = this.context.getContentResolver().getType(uri);
-        return type != null && type.startsWith(FileUtils.VIDEO_FILE_START);
+        if (type != null && type.startsWith(FileUtils.VIDEO_FILE_START)) {
+            return true;
+        }
+        return false;
     }
 
     private boolean isVideoFileUri(String str) {
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(str));
-        return mimeTypeFromExtension != null && mimeTypeFromExtension.startsWith(FileUtils.VIDEO_FILE_START);
+        if (mimeTypeFromExtension != null && mimeTypeFromExtension.startsWith(FileUtils.VIDEO_FILE_START)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean shouldBeProcessed(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection.getResponseCode() == 200) {
+            return true;
+        }
+        return false;
+    }
+
+    public BaseImageDownloader(Context context, int i, int i2) {
+        this.context = context.getApplicationContext();
+        this.connectTimeout = i;
+        this.readTimeout = i2;
     }
 
     public HttpURLConnection createConnection(String str, Object obj) {
@@ -110,6 +123,26 @@ public class BaseImageDownloader implements ImageDownloader {
         httpURLConnection.setConnectTimeout(this.connectTimeout);
         httpURLConnection.setReadTimeout(this.readTimeout);
         return httpURLConnection;
+    }
+
+    public InputStream getStreamFromAssets(String str, Object obj) {
+        return this.context.getAssets().open(ImageDownloader.Scheme.ASSETS.crop(str));
+    }
+
+    public InputStream getStreamFromDrawable(String str, Object obj) {
+        return this.context.getResources().openRawResource(Integer.parseInt(ImageDownloader.Scheme.DRAWABLE.crop(str)));
+    }
+
+    public InputStream getStreamFromFile(String str, Object obj) {
+        String crop = ImageDownloader.Scheme.FILE.crop(str);
+        if (isVideoFileUri(str)) {
+            return getVideoThumbnailStream(crop);
+        }
+        return new ContentLengthInputStream(new BufferedInputStream(new FileInputStream(crop), 32768), (int) new File(crop).length());
+    }
+
+    public InputStream getStreamFromOtherSource(String str, Object obj) {
+        throw new UnsupportedOperationException(String.format(ERROR_UNSUPPORTED_SCHEME, str));
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
@@ -131,29 +164,16 @@ public class BaseImageDownloader implements ImageDownloader {
         }
     }
 
-    public InputStream getStreamFromAssets(String str, Object obj) {
-        return this.context.getAssets().open(ImageDownloader.Scheme.ASSETS.crop(str));
-    }
-
     public InputStream getStreamFromContent(String str, Object obj) {
         Bitmap thumbnail;
         ContentResolver contentResolver = this.context.getContentResolver();
         Uri parse = Uri.parse(str);
-        if (!isVideoContentUri(parse) || (thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null)) == null) {
-            return contentResolver.openInputStream(parse);
+        if (isVideoContentUri(parse) && (thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null)) != null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
-        return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-    }
-
-    public InputStream getStreamFromDrawable(String str, Object obj) {
-        return this.context.getResources().openRawResource(Integer.parseInt(ImageDownloader.Scheme.DRAWABLE.crop(str)));
-    }
-
-    public InputStream getStreamFromFile(String str, Object obj) {
-        String crop = ImageDownloader.Scheme.FILE.crop(str);
-        return isVideoFileUri(str) ? getVideoThumbnailStream(crop) : new ContentLengthInputStream(new BufferedInputStream(new FileInputStream(crop), 32768), (int) new File(crop).length());
+        return contentResolver.openInputStream(parse);
     }
 
     public InputStream getStreamFromNetwork(String str, Object obj) {
@@ -172,13 +192,5 @@ public class BaseImageDownloader implements ImageDownloader {
             IoUtils.readAndCloseStream(createConnection.getErrorStream());
             throw e;
         }
-    }
-
-    public InputStream getStreamFromOtherSource(String str, Object obj) {
-        throw new UnsupportedOperationException(String.format(ERROR_UNSUPPORTED_SCHEME, str));
-    }
-
-    public boolean shouldBeProcessed(HttpURLConnection httpURLConnection) {
-        return httpURLConnection.getResponseCode() == 200;
     }
 }

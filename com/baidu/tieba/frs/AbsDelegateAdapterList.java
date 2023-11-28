@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.bi;
+import com.baidu.tieba.ci;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class AbsDelegateAdapterList extends LinkedList<bi<?, ?>> {
+public class AbsDelegateAdapterList extends LinkedList<ci<?, ?>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5256036611896007456L;
     public transient /* synthetic */ FieldHolder $fh;

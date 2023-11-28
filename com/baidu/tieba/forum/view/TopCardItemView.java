@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
+import com.baidu.tieba.e87;
 import com.baidu.tieba.feed.widget.AutoDegradeTagView;
 import com.baidu.tieba.feed.widget.HeadImageView;
 import com.baidu.tieba.forum.databinding.TopCardItemViewBinding;
 import com.baidu.tieba.forum.view.TopCardItemView;
-import com.baidu.tieba.ha7;
-import com.baidu.tieba.i57;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.r77;
-import com.baidu.tieba.sk7;
-import com.baidu.tieba.ta7;
+import com.baidu.tieba.gb7;
+import com.baidu.tieba.h67;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.u57;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.ua7;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.v57;
+import com.baidu.tieba.vm7;
+import com.baidu.tieba.y77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,14 +49,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0012\u0018\u0000 =2\u00020\u00012\u00020\u00022\u00020\u0003:\u0001=B'\b\u0007\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\b\u0010'\u001a\u00020(H\u0002J\b\u0010)\u001a\u00020(H\u0016J\u0012\u0010*\u001a\u00020(2\b\u0010+\u001a\u0004\u0018\u00010,H\u0016J&\u0010-\u001a\u00020(2\u0006\u0010.\u001a\u00020&2\u0006\u0010/\u001a\u00020\u00152\u0006\u00100\u001a\u00020\u001b2\u0006\u00101\u001a\u00020\u0015J\u000e\u00102\u001a\u00020(2\u0006\u00103\u001a\u00020\u0015J\u0010\u00104\u001a\u00020(2\u0006\u00105\u001a\u00020\u0015H\u0002J\u0016\u00106\u001a\u00020(2\u0006\u00107\u001a\u00020\u001b2\u0006\u00108\u001a\u00020\u0015J\u000e\u00109\u001a\u00020(2\u0006\u0010:\u001a\u00020\u0015J\u0016\u0010;\u001a\u00020(2\u0006\u0010/\u001a\u00020\u00152\u0006\u00101\u001a\u00020\u0015J\u0010\u0010<\u001a\u00020(2\u0006\u00101\u001a\u00020\u0015H\u0002R\u000e\u0010\u000b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\u0010\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\u0015X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\u001c\u001a\u00020\u001d¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u001a\u0010 \u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R\u000e\u0010%\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000¨\u0006>"}, d2 = {"Lcom/baidu/tieba/forum/view/TopCardItemView;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "CARD_HORIZONTAL_MARGIN", "HORIZONTAL_WIDTH", "SCREEN_WIDTH", "binding", "Lcom/baidu/tieba/forum/databinding/TopCardItemViewBinding;", "cardPicAndTextView", "Lcom/baidu/tieba/forum/view/CardPicAndTextView;", "getCardPicAndTextView", "()Lcom/baidu/tieba/forum/view/CardPicAndTextView;", "hasRead", "", "isCompleteThread", "()Z", "setCompleteThread", "(Z)V", "mThemeColorInfo", "", "textView", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "getTextView", "()Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "tid", "getTid", "()Ljava/lang/String;", "setTid", "(Ljava/lang/String;)V", "topCardData", "Lcom/baidu/tieba/feed/data/TopCardData;", "initView", "", "onChangeSkin", "onClick", "v", "Landroid/view/View;", "setData", "data", "isShowComplete", "themeColorInfo", "isLiked", "setSplitViewVisible", "isVisible", "setTitleBold", "bold", "setViewStyle", "itemStyle", "showOneItem", "showCompleteCard", "showComplete", "updateAfterRead", "updateHasReadVisible", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class TopCardItemView extends LinearLayout implements View.OnClickListener, ta7 {
+public final class TopCardItemView extends LinearLayout implements View.OnClickListener, gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TopCardItemViewBinding a;
     public final int b;
     public final int c;
     public final int d;
-    public r77 e;
+    public e87 e;
     public String f;
     public boolean g;
     public String h;
@@ -148,7 +148,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         }
 
         @Override // com.baidu.tieba.feed.widget.AutoDegradeTagView.a
-        public void a(u57 data, View view2) {
+        public void a(h67 data, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, data, view2) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -157,18 +157,18 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 if (G == null || G.length() == 0) {
                 }
                 TopCardItemView topCardItemView = this.a;
-                ha7.c(topCardItemView.getContext(), data.G());
-                r77 r77Var = topCardItemView.e;
+                ua7.c(topCardItemView.getContext(), data.G());
+                e87 e87Var = topCardItemView.e;
                 String str = null;
-                if (r77Var == null) {
+                if (e87Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("topCardData");
-                    r77Var = null;
+                    e87Var = null;
                 }
-                l77 h = r77Var.h();
+                y77 h = e87Var.h();
                 if (h != null) {
                     str = Long.valueOf(h.d).toString();
                 }
-                sk7.b(str, topCardItemView.g, topCardItemView.e(), 2);
+                vm7.b(str, topCardItemView.g, topCardItemView.e(), 2);
             }
         }
     }
@@ -209,7 +209,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         Intrinsics.checkNotNullExpressionValue(b, "inflate(LayoutInflater.from(context), this)");
         this.a = b;
         c();
-        r();
+        f();
     }
 
     public /* synthetic */ TopCardItemView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -227,9 +227,9 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         }
     }
 
-    public final void h(boolean z) {
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (!z) {
                 this.a.h.setVisibility(8);
             } else if (this.g) {
@@ -270,13 +270,13 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            r77 r77Var = this$0.e;
-            if (r77Var == null) {
+            e87 e87Var = this$0.e;
+            if (e87Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("topCardData");
-                r77Var = null;
+                e87Var = null;
             }
-            l77 h = r77Var.h();
-            sk7.b((h == null || (r5 = Long.valueOf(h.d).toString()) == null) ? "" : "", this$0.g, this$0.i, 3);
+            y77 h = e87Var.h();
+            vm7.b((h == null || (r5 = Long.valueOf(h.d).toString()) == null) ? "" : "", this$0.g, this$0.i, 3);
         }
     }
 
@@ -294,7 +294,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds124);
             this.a.b.v(dimens, dimens, 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds_30));
             this.a.b.setIsAgreeNumClick(true);
-            this.a.b.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dm7
+            this.a.b.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ko7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -315,14 +315,14 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         }
     }
 
-    @Override // com.baidu.tieba.ta7
-    public void r() {
+    @Override // com.baidu.tieba.gb7
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            int f = bqa.f(this.f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int f = uua.f(this.f);
             this.j.invalidate();
             this.a.h.setTextColor(f);
-            EMManager.from(this.a.h).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(bqa.a(f, r25.b(R.string.A_X11)));
+            EMManager.from(this.a.h).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(uua.a(f, u25.b(R.string.A_X11)));
             EMManager.from(this.a.i).setTextSize(R.dimen.T_X06);
             if (this.g) {
                 EMManager.from(this.a.i).setTextColor(R.color.CAM_X0109);
@@ -334,9 +334,9 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             WebPManager.setPureDrawable(this.a.d, R.drawable.icon_pure_card_comment18, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             this.a.b.P(TbadkApplication.getInst().getSkinType());
             EMManager.from(this.a.e).setTextColor(R.color.CAM_X0107);
-            this.a.c.r();
+            this.a.c.f();
             EMManager.from(this.a.f).setBackGroundColor(R.color.CAM_X0203);
-            this.k.r();
+            this.k.f();
         }
     }
 
@@ -376,9 +376,9 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         return (String) invokeV.objValue;
     }
 
-    public final void f(boolean z) {
+    public final void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             setTitleBold(z);
             if (!z) {
                 this.a.g.setVisibility(8);
@@ -411,12 +411,12 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         }
     }
 
-    public final void g(boolean z, boolean z2) {
+    public final void h(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.g = true;
             this.i = z;
-            f(z);
+            g(z);
             if (this.g) {
                 EMManager.from(this.a.i).setTextColor(R.color.CAM_X0109);
                 EMManager.from(this.j).setTextColor(R.color.CAM_X0109);
@@ -424,7 +424,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 EMManager.from(this.a.i).setTextColor(R.color.CAM_X0105);
                 EMManager.from(this.j).setTextColor(R.color.CAM_X0107);
             }
-            h(z2);
+            i(z2);
             requestLayout();
         }
     }
@@ -435,23 +435,23 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             int i = 1;
-            r77 r77Var = null;
+            e87 e87Var = null;
             if (Intrinsics.areEqual(view2, this.a.l)) {
                 Context context = getContext();
-                r77 r77Var2 = this.e;
-                if (r77Var2 == null) {
+                e87 e87Var2 = this.e;
+                if (e87Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("topCardData");
-                    r77Var2 = null;
+                    e87Var2 = null;
                 }
-                i57 d = r77Var2.d();
+                v57 d = e87Var2.d();
                 if (d != null) {
                     str2 = d.f();
                 } else {
                     str2 = null;
                 }
-                ha7.c(context, str2);
+                ua7.c(context, str2);
                 i = 2;
             } else {
                 if (Intrinsics.areEqual(view2, this.a.d)) {
@@ -461,12 +461,12 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 }
                 if (areEqual) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-                    r77 r77Var3 = this.e;
-                    if (r77Var3 == null) {
+                    e87 e87Var3 = this.e;
+                    if (e87Var3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("topCardData");
-                        r77Var3 = null;
+                        e87Var3 = null;
                     }
-                    l77 h = r77Var3.h();
+                    y77 h = e87Var3.h();
                     if (h != null) {
                         str = h.c;
                     } else {
@@ -479,22 +479,22 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                     i = 4;
                 } else {
                     Context context2 = getContext();
-                    r77 r77Var4 = this.e;
-                    if (r77Var4 == null) {
+                    e87 e87Var4 = this.e;
+                    if (e87Var4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("topCardData");
-                        r77Var4 = null;
+                        e87Var4 = null;
                     }
-                    ha7.c(context2, r77Var4.g());
+                    ua7.c(context2, e87Var4.g());
                 }
             }
-            r77 r77Var5 = this.e;
-            if (r77Var5 == null) {
+            e87 e87Var5 = this.e;
+            if (e87Var5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("topCardData");
             } else {
-                r77Var = r77Var5;
+                e87Var = e87Var5;
             }
-            l77 h2 = r77Var.h();
-            sk7.b((h2 == null || (r6 = Long.valueOf(h2.d).toString()) == null) ? "" : "", this.g, this.i, i);
+            y77 h2 = e87Var.h();
+            vm7.b((h2 == null || (r6 = Long.valueOf(h2.d).toString()) == null) ? "" : "", this.g, this.i, i);
         }
     }
 
@@ -504,7 +504,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void setData(r77 data, boolean z, String themeColorInfo, boolean z2) {
+    public final void setData(e87 data, boolean z, String themeColorInfo, boolean z2) {
         String str;
         long j;
         long j2;
@@ -512,8 +512,8 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
         String str2;
         Long l;
         boolean z4;
-        r77 r77Var;
-        l77 h;
+        e87 e87Var;
+        y77 h;
         String l2;
         boolean z5;
         boolean z6;
@@ -523,10 +523,10 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
             this.f = themeColorInfo;
             this.i = z;
-            f(z);
+            g(z);
             this.e = data;
-            l77 h2 = data.h();
-            r77 r77Var2 = null;
+            y77 h2 = data.h();
+            e87 e87Var2 = null;
             if (h2 != null) {
                 str = h2.c;
             } else {
@@ -534,10 +534,10 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             }
             this.h = str.toString();
             this.g = data.c();
-            h(z2);
+            i(z2);
             boolean z7 = true;
             ThreadCardUtils.cutAndSetTextByMaxLine(this.a.i, data.i(), 1, getWidth());
-            l77 h3 = data.h();
+            y77 h3 = data.h();
             long j3 = 0;
             if (h3 != null) {
                 j = h3.b;
@@ -545,9 +545,9 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 j = 0;
             }
             if (j <= 0) {
-                this.a.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f126c));
+                this.a.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f127c));
             } else {
-                l77 h4 = data.h();
+                y77 h4 = data.h();
                 if (h4 != null) {
                     j2 = h4.b;
                 } else {
@@ -555,33 +555,33 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 }
                 this.a.e.setText(StringHelper.numFormatOverWan(j2));
             }
-            i57 d = data.d();
+            v57 d = data.d();
             if (d != null) {
                 HeadImageView headImageView = this.a.l;
-                headImageView.i(d.c());
+                headImageView.j(d.c());
                 if (d.b() == 2) {
                     z6 = true;
                 } else {
                     z6 = false;
                 }
-                headImageView.l(z6);
-                headImageView.h(d.a());
+                headImageView.m(z6);
+                headImageView.i(d.a());
                 headImageView.setCornerViewSize(BdUtilHelper.getDimens(headImageView.getContext(), R.dimen.tbds28));
             }
             AgreeData agreeData = new AgreeData();
-            l77 h5 = data.h();
+            y77 h5 = data.h();
             if (h5 != null) {
                 j3 = h5.g;
             }
             agreeData.agreeNum = j3;
-            l77 h6 = data.h();
+            y77 h6 = data.h();
             if (h6 != null) {
                 z3 = h6.f;
             } else {
                 z3 = false;
             }
             agreeData.hasAgree = z3;
-            l77 h7 = data.h();
+            y77 h7 = data.h();
             if (h7 != null) {
                 str2 = h7.c;
             } else {
@@ -590,7 +590,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             agreeData.threadId = str2;
             agreeData.agreeType = 2;
             agreeData.isInThread = true;
-            l77 h8 = data.h();
+            y77 h8 = data.h();
             String str3 = "";
             if (h8 == null) {
                 l = "";
@@ -599,7 +599,7 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
             }
             agreeData.forumId = l.toString();
             this.a.b.setData(agreeData);
-            this.a.c.i(data.e());
+            this.a.c.j(data.e());
             this.a.c.setOnTagClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004);
@@ -623,18 +623,18 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                     this.j.setLineSpacing(getResources().getDimensionPixelSize(R.dimen.M_T_X001), 1.0f);
                     this.j.setPadding(0, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds3));
                     this.a.g.addView(this.j, layoutParams);
-                    r77Var = this.e;
-                    if (r77Var == null) {
+                    e87Var = this.e;
+                    if (e87Var == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("topCardData");
                     } else {
-                        r77Var2 = r77Var;
+                        e87Var2 = e87Var;
                     }
-                    h = r77Var2.h();
+                    h = e87Var2.h();
                     if (h != null && (l2 = Long.valueOf(h.d).toString()) != null) {
                         str3 = l2;
                     }
-                    sk7.c(str3, this.g, this.i);
-                    r();
+                    vm7.c(str3, this.g, this.i);
+                    f();
                 }
             }
             if (!data.f().isEmpty()) {
@@ -648,15 +648,15 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                 if (z4) {
                     this.k.setData(data.a(), data.f(), data.c());
                     this.a.g.addView(this.k, layoutParams);
-                    r77Var = this.e;
-                    if (r77Var == null) {
+                    e87Var = this.e;
+                    if (e87Var == null) {
                     }
-                    h = r77Var2.h();
+                    h = e87Var2.h();
                     if (h != null) {
                         str3 = l2;
                     }
-                    sk7.c(str3, this.g, this.i);
-                    r();
+                    vm7.c(str3, this.g, this.i);
+                    f();
                 }
             }
             if (!data.f().isEmpty()) {
@@ -671,14 +671,14 @@ public final class TopCardItemView extends LinearLayout implements View.OnClickL
                     this.a.g.addView(cardMutiImageView, layoutParams);
                 }
             }
-            r77Var = this.e;
-            if (r77Var == null) {
+            e87Var = this.e;
+            if (e87Var == null) {
             }
-            h = r77Var2.h();
+            h = e87Var2.h();
             if (h != null) {
             }
-            sk7.c(str3, this.g, this.i);
-            r();
+            vm7.c(str3, this.g, this.i);
+            f();
         }
     }
 

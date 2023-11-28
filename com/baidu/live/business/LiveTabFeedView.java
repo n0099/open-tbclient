@@ -60,15 +60,15 @@ import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f60;
-import com.baidu.tieba.g80;
-import com.baidu.tieba.h60;
+import com.baidu.tieba.g60;
 import com.baidu.tieba.h80;
-import com.baidu.tieba.k60;
+import com.baidu.tieba.i60;
+import com.baidu.tieba.i80;
 import com.baidu.tieba.l60;
-import com.baidu.tieba.n60;
-import com.baidu.tieba.s80;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.m60;
+import com.baidu.tieba.o60;
+import com.baidu.tieba.t80;
+import com.baidu.tieba.x80;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
@@ -111,7 +111,7 @@ public final class LiveTabFeedView extends FrameLayout {
     public LiveFeedBannerListener S;
 
     /* renamed from: T  reason: collision with root package name */
-    public LiveFeedFollowListener f1040T;
+    public LiveFeedFollowListener f1036T;
     public LiveBaseFragment.a U;
     public LiveFeedToolListener V;
     public ILiveFeedOther.LiveFeedStatusListener W;
@@ -337,11 +337,11 @@ public final class LiveTabFeedView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class i implements n60 {
+    public static final class i implements o60 {
         public i() {
         }
 
-        @Override // com.baidu.tieba.n60
+        @Override // com.baidu.tieba.o60
         public final void a(View view2) {
             LiveTabFeedView liveTabFeedView = LiveTabFeedView.this;
             liveTabFeedView.f0(liveTabFeedView.r);
@@ -353,11 +353,11 @@ public final class LiveTabFeedView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class j implements n60 {
+    public static final class j implements o60 {
         public j() {
         }
 
-        @Override // com.baidu.tieba.n60
+        @Override // com.baidu.tieba.o60
         public final void a(View view2) {
             ILiveFeedPageInvoke invoker;
             if (!TextUtils.isEmpty(LiveTabFeedView.this.getMinorUfoUrl()) && (invoker = LiveFeedPageSdk.getInstance().getInvoker()) != null) {
@@ -414,7 +414,7 @@ public final class LiveTabFeedView extends FrameLayout {
         public final void onClick(View view2) {
             LiveExpandTabView liveExpandTabView = LiveTabFeedView.this.x;
             if (liveExpandTabView != null) {
-                liveExpandTabView.setTabs(LiveTabFeedView.this.M, k60.a());
+                liveExpandTabView.setTabs(LiveTabFeedView.this.M, l60.a());
             }
             LiveTabFeedView.this.i0();
             LiveTabFeedView.this.setAppBarScroll(false);
@@ -671,7 +671,7 @@ public final class LiveTabFeedView extends FrameLayout {
     }
 
     public final void setFeedFollowListener(LiveFeedFollowListener liveFeedFollowListener) {
-        this.f1040T = liveFeedFollowListener;
+        this.f1036T = liveFeedFollowListener;
     }
 
     public final void setFeedModel(ILiveFeedModel iLiveFeedModel) {
@@ -816,10 +816,10 @@ public final class LiveTabFeedView extends FrameLayout {
             if (recyclerView != null) {
                 recyclerView.setVisibility(8);
             }
-        } else if (!h80.c(this.M)) {
+        } else if (!i80.c(this.M)) {
             if (i2 >= 0 && i2 < this.M.size()) {
                 List<LiveTabEntity.TabLabelInfo> list = this.M.get(i2).subTabList;
-                if (!h80.c(list)) {
+                if (!i80.c(list)) {
                     LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = this.n;
                     if (liveFeedPageSubTipAdapter != null) {
                         liveFeedPageSubTipAdapter.x(list, this.K);
@@ -862,8 +862,8 @@ public final class LiveTabFeedView extends FrameLayout {
         if (smartTabLayout != null) {
             smartTabLayout.setViewPager(this.g, liveFeedData.feedConfig);
         }
-        if (!h80.c(this.M)) {
-            k60.c(w);
+        if (!i80.c(this.M)) {
+            l60.c(w);
             NestedNoScrollViewPager nestedNoScrollViewPager = this.g;
             if (nestedNoScrollViewPager != null) {
                 nestedNoScrollViewPager.setCurrentItem(w);
@@ -949,7 +949,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (nestedNoScrollViewPager == null) {
                 Intrinsics.throwNpe();
             }
-            baiduLiveTabAdapter.k(nestedNoScrollViewPager.getCurrentItem());
+            baiduLiveTabAdapter.j(nestedNoScrollViewPager.getCurrentItem());
         }
     }
 
@@ -960,7 +960,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (nestedNoScrollViewPager == null) {
                 Intrinsics.throwNpe();
             }
-            baiduLiveTabAdapter.l(nestedNoScrollViewPager.getCurrentItem());
+            baiduLiveTabAdapter.k(nestedNoScrollViewPager.getCurrentItem());
         }
     }
 
@@ -971,7 +971,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (nestedNoScrollViewPager == null) {
                 Intrinsics.throwNpe();
             }
-            baiduLiveTabAdapter.m(nestedNoScrollViewPager.getCurrentItem());
+            baiduLiveTabAdapter.l(nestedNoScrollViewPager.getCurrentItem());
         }
     }
 
@@ -1044,7 +1044,7 @@ public final class LiveTabFeedView extends FrameLayout {
 
     public final void c0() {
         Q();
-        k60.b();
+        l60.b();
         SmartTabLayout smartTabLayout = this.k;
         if (smartTabLayout != null) {
             smartTabLayout.E();
@@ -1072,7 +1072,7 @@ public final class LiveTabFeedView extends FrameLayout {
     }
 
     public final LiveFeedFollowListener getFeedFollowListener() {
-        return this.f1040T;
+        return this.f1036T;
     }
 
     public final LiveFeedFollowView getFeedFollowView() {
@@ -1180,16 +1180,16 @@ public final class LiveTabFeedView extends FrameLayout {
         bannerView2.setIndicatorGravity(81);
         Context context = bannerView2.getContext();
         Intrinsics.checkExpressionValueIsNotNull(context, "context");
-        bannerView2.setIndicatorMargin(0, 0, 0, (int) f60.c(context.getResources(), 7.0f));
+        bannerView2.setIndicatorMargin(0, 0, 0, (int) g60.c(context.getResources(), 7.0f));
         Context context2 = bannerView2.getContext();
         Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-        bannerView2.setLargeIndicatorItemSize((int) f60.c(context2.getResources(), 4.0f));
+        bannerView2.setLargeIndicatorItemSize((int) g60.c(context2.getResources(), 4.0f));
         Context context3 = bannerView2.getContext();
         Intrinsics.checkExpressionValueIsNotNull(context3, "context");
-        bannerView2.setSmallIndicatorItemSize((int) f60.c(context3.getResources(), 4.0f));
+        bannerView2.setSmallIndicatorItemSize((int) g60.c(context3.getResources(), 4.0f));
         Context context4 = bannerView2.getContext();
         Intrinsics.checkExpressionValueIsNotNull(context4, "context");
-        bannerView2.setIndicatorInterval((int) f60.c(context4.getResources(), 6.0f));
+        bannerView2.setIndicatorInterval((int) g60.c(context4.getResources(), 6.0f));
         bannerView2.setAspectRatio(0.336f);
         bannerView2.setScene(this.F);
         bannerView2.setOnBannerClickListener(new c());
@@ -1249,11 +1249,11 @@ public final class LiveTabFeedView extends FrameLayout {
                         }
                         RecyclerView recyclerView = this.l;
                         if (recyclerView != null && recyclerView != null) {
-                            recyclerView.setPadding(0, f60.b(getContext(), 15.0f), 0, f60.b(getContext(), 12.0f));
+                            recyclerView.setPadding(0, g60.b(getContext(), 15.0f), 0, g60.b(getContext(), 12.0f));
                         }
                         LiveFeedFollowView liveFeedFollowView = this.m;
                         if (liveFeedFollowView != null && liveFeedFollowView != null) {
-                            liveFeedFollowView.setPadding(0, 0, 0, f60.b(getContext(), 9.0f));
+                            liveFeedFollowView.setPadding(0, 0, 0, g60.b(getContext(), 9.0f));
                             break;
                         }
                     }
@@ -1264,8 +1264,8 @@ public final class LiveTabFeedView extends FrameLayout {
                         if (imageView4 != null) {
                             imageView4.setVisibility(0);
                         }
-                        if (g80.a() && (view2 = this.a) != null) {
-                            view2.setPadding(0, g80.e(getContext()), 0, 0);
+                        if (h80.a() && (view2 = this.a) != null) {
+                            view2.setPadding(0, h80.e(getContext()), 0, 0);
                         }
                         View view4 = this.B;
                         if (view4 != null) {
@@ -1285,11 +1285,11 @@ public final class LiveTabFeedView extends FrameLayout {
                         }
                         RecyclerView recyclerView2 = this.l;
                         if (recyclerView2 != null && recyclerView2 != null) {
-                            recyclerView2.setPadding(0, f60.b(getContext(), 15.0f), 0, f60.b(getContext(), 12.0f));
+                            recyclerView2.setPadding(0, g60.b(getContext(), 15.0f), 0, g60.b(getContext(), 12.0f));
                         }
                         LiveFeedFollowView liveFeedFollowView2 = this.m;
                         if (liveFeedFollowView2 != null && liveFeedFollowView2 != null) {
-                            liveFeedFollowView2.setPadding(0, 0, 0, f60.b(getContext(), 9.0f));
+                            liveFeedFollowView2.setPadding(0, 0, 0, g60.b(getContext(), 9.0f));
                         }
                         View view5 = this.w;
                         if (view5 != null) {
@@ -1312,7 +1312,7 @@ public final class LiveTabFeedView extends FrameLayout {
                         Space space = this.o;
                         if (space != null) {
                             if (space != null && (layoutParams2 = space.getLayoutParams()) != null) {
-                                layoutParams2.height = f60.b(getContext(), 11.0f);
+                                layoutParams2.height = g60.b(getContext(), 11.0f);
                             } else {
                                 layoutParams2 = null;
                             }
@@ -1374,7 +1374,7 @@ public final class LiveTabFeedView extends FrameLayout {
                         if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_HAOKAN, liveFeedPageSdk3.getHost())) {
                             SmartTabLayout smartTabLayout6 = this.k;
                             if (smartTabLayout6 != null) {
-                                smartTabLayout6.setCustomTextsSize(f60.b(getContext(), 16.0f));
+                                smartTabLayout6.setCustomTextsSize(g60.b(getContext(), 16.0f));
                             }
                             if (this.G) {
                                 SmartTabLayout smartTabLayout7 = this.k;
@@ -1400,20 +1400,20 @@ public final class LiveTabFeedView extends FrameLayout {
                         LiveFeedPageSdk liveFeedPageSdk5 = LiveFeedPageSdk.getInstance();
                         Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk5, "LiveFeedPageSdk.getInstance()");
                         if (Intrinsics.areEqual("baidu", liveFeedPageSdk5.getHost()) && getAccountManager() != null) {
-                            h60.e("last_time_enter_zhibo_channel_" + getAccountManager().getUid(), System.currentTimeMillis());
+                            i60.e("last_time_enter_zhibo_channel_" + getAccountManager().getUid(), System.currentTimeMillis());
                         }
                         LiveFeedPageSdk liveFeedPageSdk6 = LiveFeedPageSdk.getInstance();
                         Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk6, "LiveFeedPageSdk.getInstance()");
                         if (Intrinsics.areEqual("baidu", liveFeedPageSdk6.getHost())) {
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (h60.a(x("need_to_check"), true) && h60.a(x("user_clicked_add_channel_btn"), false)) {
-                                long c2 = h60.c(x("user_click_add_channel_time"), 0L);
-                                if (c2 != 0 && currentTimeMillis > c2 && h60.c(x("days_no_visit_live_channel"), 0L) != 0) {
-                                    if (currentTimeMillis - c2 < h60.c(x("days_no_visit_live_channel"), 0L)) {
-                                        h60.d(x("need_to_check"), false);
-                                        h60.d(x("need_insert_live_channel_to_end"), false);
+                            if (i60.a(x("need_to_check"), true) && i60.a(x("user_clicked_add_channel_btn"), false)) {
+                                long c2 = i60.c(x("user_click_add_channel_time"), 0L);
+                                if (c2 != 0 && currentTimeMillis > c2 && i60.c(x("days_no_visit_live_channel"), 0L) != 0) {
+                                    if (currentTimeMillis - c2 < i60.c(x("days_no_visit_live_channel"), 0L)) {
+                                        i60.d(x("need_to_check"), false);
+                                        i60.d(x("need_insert_live_channel_to_end"), false);
                                     } else {
-                                        h60.d(x("need_to_check"), false);
+                                        i60.d(x("need_to_check"), false);
                                     }
                                 }
                             }
@@ -1436,7 +1436,7 @@ public final class LiveTabFeedView extends FrameLayout {
                                 }
                                 if (layoutParams5 != null) {
                                     layoutParams4 = (RelativeLayout.LayoutParams) layoutParams5;
-                                    layoutParams4.width = f60.b(getContext(), 60.0f);
+                                    layoutParams4.width = g60.b(getContext(), 60.0f);
                                 } else {
                                     throw new TypeCastException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                                 }
@@ -1448,7 +1448,7 @@ public final class LiveTabFeedView extends FrameLayout {
                                 }
                                 if (layoutParams3 != null) {
                                     layoutParams4 = (RelativeLayout.LayoutParams) layoutParams3;
-                                    layoutParams4.width = f60.b(getContext(), 26.0f);
+                                    layoutParams4.width = g60.b(getContext(), 26.0f);
                                 } else {
                                     throw new TypeCastException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                                 }
@@ -1477,11 +1477,11 @@ public final class LiveTabFeedView extends FrameLayout {
         if (layoutParams != null) {
             FrameLayout.LayoutParams layoutParams6 = (FrameLayout.LayoutParams) layoutParams;
             if (Intrinsics.areEqual(LiveFeedPageSdk.IMMERSION, this.F)) {
-                layoutParams6.bottomMargin = f60.b(getContext(), 15.0f);
+                layoutParams6.bottomMargin = g60.b(getContext(), 15.0f);
             } else {
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                layoutParams6.bottomMargin = s80.e(f60.c(context.getResources(), 10.0f), 0, 0, 6, null);
+                layoutParams6.bottomMargin = t80.e(g60.c(context.getResources(), 10.0f), 0, 0, 6, null);
             }
             LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout4 = this.D;
             if (liveFeedPageToolFloatLayout4 != null) {
@@ -1495,10 +1495,10 @@ public final class LiveTabFeedView extends FrameLayout {
             if (imageView7 != null) {
                 Context context2 = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-                float c3 = f60.c(context2.getResources(), 38.0f);
+                float c3 = g60.c(context2.getResources(), 38.0f);
                 Context context3 = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context3, "context");
-                s80.j(imageView7, c3, f60.c(context3.getResources(), 38.0f), 0, 0, 12, null);
+                t80.j(imageView7, c3, g60.c(context3.getResources(), 38.0f), 0, 0, 12, null);
             }
             BaiduLiveTabAdapter baiduLiveTabAdapter = new BaiduLiveTabAdapter(this.O, i2, this.F, this.K, this.Q, this.U);
             this.h = baiduLiveTabAdapter;
@@ -1551,30 +1551,30 @@ public final class LiveTabFeedView extends FrameLayout {
     }
 
     public final void G() {
-        this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f5, (ViewGroup) this, true);
-        this.b = findViewById(R.id.obfuscated_res_0x7f091709);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0917d5);
-        this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f091631);
-        this.e = findViewById(R.id.obfuscated_res_0x7f091633);
-        this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f091629);
-        this.o = (Space) findViewById(R.id.obfuscated_res_0x7f09162c);
-        this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09162b);
-        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09163c);
-        this.j = findViewById(R.id.obfuscated_res_0x7f09163a);
-        this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f091639);
-        this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09163e);
-        this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f091634);
-        this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09162a);
-        this.u = findViewById(R.id.obfuscated_res_0x7f091635);
-        this.v = findViewById(R.id.obfuscated_res_0x7f09163b);
-        this.w = findViewById(R.id.obfuscated_res_0x7f09163d);
-        this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091636);
-        this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091637);
-        this.B = findViewById(R.id.obfuscated_res_0x7f091638);
-        this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f0915c6);
-        this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091630);
-        this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f09162e);
-        this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f0915bd);
+        this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) this, true);
+        this.b = findViewById(R.id.obfuscated_res_0x7f09177a);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091846);
+        this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f0916a2);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0916a4);
+        this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f09169a);
+        this.o = (Space) findViewById(R.id.obfuscated_res_0x7f09169d);
+        this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09169c);
+        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916ad);
+        this.j = findViewById(R.id.obfuscated_res_0x7f0916ab);
+        this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f0916aa);
+        this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0916af);
+        this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f0916a5);
+        this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09169b);
+        this.u = findViewById(R.id.obfuscated_res_0x7f0916a6);
+        this.v = findViewById(R.id.obfuscated_res_0x7f0916ac);
+        this.w = findViewById(R.id.obfuscated_res_0x7f0916ae);
+        this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916a7);
+        this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a8);
+        this.B = findViewById(R.id.obfuscated_res_0x7f0916a9);
+        this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f091637);
+        this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f0916a1);
+        this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f09169f);
+        this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f09162e);
         MinorView minorView = this.d;
         if (minorView != null) {
             minorView.c(this.F);
@@ -1587,7 +1587,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (fakeStartLiveButton != null) {
             fakeStartLiveButton.setOnClickListener(new k());
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915c7);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091638);
         this.C = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(new l());
@@ -1596,28 +1596,28 @@ public final class LiveTabFeedView extends FrameLayout {
         if (view2 != null) {
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            s80.m(view2, f60.c(context.getResources(), 8.0f), 0, 0, 6, null);
+            t80.m(view2, g60.c(context.getResources(), 8.0f), 0, 0, 6, null);
         }
         View view3 = this.w;
         if (view3 != null) {
             Context context2 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-            s80.m(view3, f60.c(context2.getResources(), 26.0f), 0, 0, 6, null);
+            t80.m(view3, g60.c(context2.getResources(), 26.0f), 0, 0, 6, null);
         }
         ImageView imageView2 = this.E;
         if (imageView2 != null) {
             Context context3 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context3, "context");
-            float c2 = f60.c(context3.getResources(), 26.0f);
+            float c2 = g60.c(context3.getResources(), 26.0f);
             Context context4 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context4, "context");
-            s80.j(imageView2, c2, f60.c(context4.getResources(), 26.0f), 0, 0, 12, null);
+            t80.j(imageView2, c2, g60.c(context4.getResources(), 26.0f), 0, 0, 12, null);
         }
         ImageView imageView3 = this.E;
         if (imageView3 != null) {
             imageView3.setOnClickListener(new m());
         }
-        LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f0915e3);
+        LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f091654);
         this.D = liveFeedPageToolFloatLayout;
         if (liveFeedPageToolFloatLayout != null) {
             liveFeedPageToolFloatLayout.setCallback(new n());
@@ -1632,7 +1632,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (recyclerView != null) {
             recyclerView.setLayoutManager(staggeredGridLayoutManager);
         }
-        NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f09163f);
+        NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f0916b0);
         LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
         Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
         if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_HAOKAN, liveFeedPageSdk.getHost())) {
@@ -1669,7 +1669,7 @@ public final class LiveTabFeedView extends FrameLayout {
                     LiveTabEntity f2;
                     Fragment fragment3;
                     LiveFeedPageSdk.liveLog("二级 tab 滑动/点击切换：" + i2);
-                    int a2 = k60.a();
+                    int a2 = l60.a();
                     BaiduLiveTabAdapter baiduLiveTabAdapter = LiveTabFeedView.this.h;
                     Fragment fragment4 = null;
                     if (baiduLiveTabAdapter != null) {
@@ -1686,7 +1686,7 @@ public final class LiveTabFeedView extends FrameLayout {
                             fragment3 = null;
                         }
                         if (fragment3 != null) {
-                            ((LiveBaseFragment) fragment3).z2(false);
+                            ((LiveBaseFragment) fragment3).L2(false);
                         } else {
                             throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.base.LiveBaseFragment");
                         }
@@ -1699,7 +1699,7 @@ public final class LiveTabFeedView extends FrameLayout {
                         str = null;
                     }
                     liveTabFeedView.J = str;
-                    k60.c(i2);
+                    l60.c(i2);
                     BaiduLiveTabAdapter baiduLiveTabAdapter4 = LiveTabFeedView.this.h;
                     if (baiduLiveTabAdapter4 != null) {
                         fragment2 = baiduLiveTabAdapter4.getItem(i2);
@@ -1712,7 +1712,7 @@ public final class LiveTabFeedView extends FrameLayout {
                             fragment4 = baiduLiveTabAdapter5.getItem(i2);
                         }
                         if (fragment4 != null) {
-                            ((LiveBaseFragment) fragment4).z2(true);
+                            ((LiveBaseFragment) fragment4).L2(true);
                         } else {
                             throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.base.LiveBaseFragment");
                         }
@@ -1749,7 +1749,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (smartTabLayout5 != null) {
             smartTabLayout5.setOnScrollChangeListener(new h());
         }
-        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09162d);
+        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09169e);
         this.s = errorView;
         if (errorView != null) {
             errorView.setActionCallback(new i());
@@ -1879,22 +1879,22 @@ public final class LiveTabFeedView extends FrameLayout {
             } else {
                 f2 = i3;
             }
-            linearLayout.setMinimumHeight(f60.b(context, f2));
+            linearLayout.setMinimumHeight(g60.b(context, f2));
         }
     }
 
     public final void P(String str) {
         View view2 = this.a;
         if (view2 != null) {
-            view2.setBackgroundColor(w80.f().a(getContext(), this.F, "color_main_bg"));
+            view2.setBackgroundColor(x80.f().a(getContext(), this.F, "color_main_bg"));
         }
         View view3 = this.u;
         if (view3 != null) {
-            view3.setBackgroundColor(w80.f().a(getContext(), this.F, "color_F5F5F52"));
+            view3.setBackgroundColor(x80.f().a(getContext(), this.F, "color_F5F5F52"));
         }
         TextView textView = this.z;
         if (textView != null) {
-            textView.setTextColor(w80.f().a(getContext(), this.F, "color_1F1F1F"));
+            textView.setTextColor(x80.f().a(getContext(), this.F, "color_1F1F1F"));
         }
         BaiduLiveTabAdapter baiduLiveTabAdapter = this.h;
         if (baiduLiveTabAdapter != null) {
@@ -1934,16 +1934,16 @@ public final class LiveTabFeedView extends FrameLayout {
         }
         LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = this.D;
         if (liveFeedPageToolFloatLayout != null) {
-            w80 f2 = w80.f();
+            x80 f2 = x80.f();
             Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
             liveFeedPageToolFloatLayout.d(f2.r());
         }
         ImageView imageView = this.E;
         if (imageView != null) {
-            l60 l60Var = l60.a;
+            m60 m60Var = m60.a;
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            imageView.setBackgroundDrawable(l60Var.b(context, this.F));
+            imageView.setBackgroundDrawable(m60Var.b(context, this.F));
         }
         LiveExpandTabView liveExpandTabView = this.x;
         if (liveExpandTabView != null) {
@@ -1951,17 +1951,17 @@ public final class LiveTabFeedView extends FrameLayout {
         }
         View view4 = this.v;
         if (view4 != null) {
-            l60 l60Var2 = l60.a;
+            m60 m60Var2 = m60.a;
             Context context2 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-            view4.setBackgroundDrawable(l60Var2.a(context2, this.F, str));
+            view4.setBackgroundDrawable(m60Var2.a(context2, this.F, str));
         }
         View view5 = this.w;
         if (view5 != null) {
-            l60 l60Var3 = l60.a;
+            m60 m60Var3 = m60.a;
             Context context3 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context3, "context");
-            view5.setBackgroundDrawable(l60Var3.d(context3, this.F, str));
+            view5.setBackgroundDrawable(m60Var3.d(context3, this.F, str));
         }
     }
 
@@ -1971,22 +1971,22 @@ public final class LiveTabFeedView extends FrameLayout {
         if (view2 != null) {
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            s80.m(view2, f60.c(context.getResources(), 8.0f), 0, 0, 6, null);
+            t80.m(view2, g60.c(context.getResources(), 8.0f), 0, 0, 6, null);
         }
         View view3 = this.w;
         if (view3 != null) {
             Context context2 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-            s80.m(view3, f60.c(context2.getResources(), 26.0f), 0, 0, 6, null);
+            t80.m(view3, g60.c(context2.getResources(), 26.0f), 0, 0, 6, null);
         }
         ImageView imageView = this.E;
         if (imageView != null) {
             Context context3 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context3, "context");
-            float c2 = f60.c(context3.getResources(), 26.0f);
+            float c2 = g60.c(context3.getResources(), 26.0f);
             Context context4 = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context4, "context");
-            s80.j(imageView, c2, f60.c(context4.getResources(), 26.0f), 0, 0, 12, null);
+            t80.j(imageView, c2, g60.c(context4.getResources(), 26.0f), 0, 0, 12, null);
         }
         LiveExpandTabView liveExpandTabView = this.x;
         if (liveExpandTabView != null) {
@@ -2019,7 +2019,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_LIVE_TAB, this.F)) {
                 Context context5 = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context5, "context");
-                layoutParams2.bottomMargin = s80.e(f60.c(context5.getResources(), 10.0f), 0, 0, 6, null);
+                layoutParams2.bottomMargin = t80.e(g60.c(context5.getResources(), 10.0f), 0, 0, 6, null);
             }
             LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout3 = this.D;
             if (liveFeedPageToolFloatLayout3 != null) {
@@ -2029,10 +2029,10 @@ public final class LiveTabFeedView extends FrameLayout {
             if (imageView2 != null) {
                 Context context6 = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context6, "context");
-                float c3 = f60.c(context6.getResources(), 38.0f);
+                float c3 = g60.c(context6.getResources(), 38.0f);
                 Context context7 = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context7, "context");
-                s80.j(imageView2, c3, f60.c(context7.getResources(), 38.0f), 0, 0, 12, null);
+                t80.j(imageView2, c3, g60.c(context7.getResources(), 38.0f), 0, 0, 12, null);
                 return;
             }
             return;
@@ -2062,8 +2062,8 @@ public final class LiveTabFeedView extends FrameLayout {
                 } else {
                     i2 = -1;
                 }
-                LiveFeedPageSdk.liveLog("D8800088 selectedPos = " + i2 + ", LiveTabUtil.getCurFragPos() = " + k60.a());
-                if (i2 != -1 && i2 != k60.a() && (nestedNoScrollViewPager = this.g) != null) {
+                LiveFeedPageSdk.liveLog("D8800088 selectedPos = " + i2 + ", LiveTabUtil.getCurFragPos() = " + l60.a());
+                if (i2 != -1 && i2 != l60.a() && (nestedNoScrollViewPager = this.g) != null) {
                     nestedNoScrollViewPager.setCurrentItem(i2);
                 }
             }
@@ -2072,7 +2072,7 @@ public final class LiveTabFeedView extends FrameLayout {
             LiveFeedPageSdk.liveLog("D8800088 onTabSelectedEvent 3333级Tab不一致，需要重新设定");
             LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = this.n;
             if (liveFeedPageSubTipAdapter != null) {
-                i3 = liveFeedPageSubTipAdapter.m(this.K);
+                i3 = liveFeedPageSubTipAdapter.n(this.K);
             }
             StringBuilder sb = new StringBuilder();
             sb.append("D8800088 selectedPos = ");
@@ -2080,7 +2080,7 @@ public final class LiveTabFeedView extends FrameLayout {
             sb.append(", mSubTipAdapter.getSelectPos() = ");
             LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter2 = this.n;
             if (liveFeedPageSubTipAdapter2 != null) {
-                num = Integer.valueOf(liveFeedPageSubTipAdapter2.n());
+                num = Integer.valueOf(liveFeedPageSubTipAdapter2.o());
             } else {
                 num = null;
             }
@@ -2096,7 +2096,7 @@ public final class LiveTabFeedView extends FrameLayout {
             int i2 = 0;
             if (!Intrinsics.areEqual(this.F, LiveFeedPageSdk.IMMERSION) && !Intrinsics.areEqual(this.F, "recommend")) {
                 if (liveBannerWrapData != null) {
-                    if (!h80.c(liveBannerWrapData.bannerList)) {
+                    if (!i80.c(liveBannerWrapData.bannerList)) {
                         List<LiveBannerEntity> list = liveBannerWrapData.bannerList;
                         BannerView bannerView2 = this.q;
                         if (bannerView2 != null && bannerView2.r(list) && (bannerView = this.q) != null) {
@@ -2152,7 +2152,7 @@ public final class LiveTabFeedView extends FrameLayout {
         LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = this.n;
         boolean z = false;
         if (liveFeedPageSubTipAdapter != null) {
-            i3 = liveFeedPageSubTipAdapter.n();
+            i3 = liveFeedPageSubTipAdapter.o();
         } else {
             i3 = 0;
         }
@@ -2209,7 +2209,7 @@ public final class LiveTabFeedView extends FrameLayout {
             }
             if (layoutParams != null) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
-                layoutParams2.setMargins(f60.b(getContext(), 12.0f), 0, f60.b(getContext(), 6.0f), 0);
+                layoutParams2.setMargins(g60.b(getContext(), 12.0f), 0, g60.b(getContext(), 6.0f), 0);
                 View view3 = this.j;
                 if (view3 != null) {
                     view3.setLayoutParams(layoutParams2);
@@ -2337,7 +2337,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (liveTabEntity != null && !TextUtils.isEmpty(liveTabEntity.type)) {
                 LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = this.n;
                 if (liveFeedPageSubTipAdapter != null) {
-                    tabLabelInfo = liveFeedPageSubTipAdapter.o();
+                    tabLabelInfo = liveFeedPageSubTipAdapter.p();
                 }
                 String str2 = "";
                 if (tabLabelInfo == null) {
@@ -2364,7 +2364,7 @@ public final class LiveTabFeedView extends FrameLayout {
 
     public final void y(LiveFollowWrapData liveFollowWrapData, boolean z, LiveFeedConfig liveFeedConfig) {
         if (liveFollowWrapData != null) {
-            if (!h80.c(liveFollowWrapData.followList)) {
+            if (!i80.c(liveFollowWrapData.followList)) {
                 LiveFeedFollowView liveFeedFollowView = this.m;
                 if (liveFeedFollowView != null) {
                     List<LiveFollowEntity> list = liveFollowWrapData.followList;
@@ -2381,7 +2381,7 @@ public final class LiveTabFeedView extends FrameLayout {
                 }
                 LiveFeedFollowView liveFeedFollowView4 = this.m;
                 if (liveFeedFollowView4 != null && this.I && liveFeedFollowView4 != null) {
-                    liveFeedFollowView4.setPadding(0, 0, 0, f60.b(getContext(), 6.0f));
+                    liveFeedFollowView4.setPadding(0, 0, 0, g60.b(getContext(), 6.0f));
                 }
             } else {
                 LiveFeedFollowView liveFeedFollowView5 = this.m;

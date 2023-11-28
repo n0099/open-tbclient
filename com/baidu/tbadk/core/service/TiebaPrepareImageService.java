@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +18,7 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu5;
+import com.baidu.tieba.cv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,9 +163,14 @@ public class TiebaPrepareImageService extends BdBaseService {
                 boolean z2 = false;
                 try {
                     if (TextUtils.isEmpty(this.e)) {
-                        bitmap = uu5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
+                        bitmap = cv5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
                     } else {
-                        bitmap = (Bitmap) Glide.with(TbadkCoreApplication.getInst()).asBitmap().load((Object) new GlideUrl(this.e)).skipMemoryCache(true).submit().get();
+                        BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(this.e, 10, new Object[0]);
+                        if (bdImage != null) {
+                            bitmap = bdImage.getRawBitmap();
+                        } else {
+                            bitmap = (Bitmap) Glide.with(TbadkCoreApplication.getInst()).asBitmap().load((Object) new GlideUrl(this.e)).skipMemoryCache(true).submit().get();
+                        }
                     }
                 } catch (Exception unused) {
                     TiebaPrepareImageService.IS_DECODING = false;

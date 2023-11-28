@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bj9;
+import com.baidu.tieba.rm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class MemberTaskCenterHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImgInfo> mImageList;
-    public List<bj9> mTaskList;
+    public List<rm9> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class MemberTaskCenterHttpResMessage extends TbHttpResponsedMessage {
                 int size = getMemberTaskListResIdl.data.task_list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                        this.mTaskList.add(new bj9(getMemberTaskListResIdl.data.task_list.get(i2)));
+                        this.mTaskList.add(new rm9(getMemberTaskListResIdl.data.task_list.get(i2)));
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class MemberTaskCenterHttpResMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<bj9> getTaskList() {
+    public List<rm9> getTaskList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

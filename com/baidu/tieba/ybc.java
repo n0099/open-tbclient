@@ -1,74 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
 public class ybc {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<?> a;
+    public final Class<?> b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325839, "Lcom/baidu/tieba/ybc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948325839, "Lcom/baidu/tieba/ybc;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-    }
-
-    public static boolean a() {
+    public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.get();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
     }
 
-    public static synchronized void b() {
+    public Class<?> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (ybc.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Class) invokeV.objValue;
     }
 
-    public static synchronized void c(Context context) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (ybc.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
-                cdc.d();
-                if (a.compareAndSet(false, true)) {
-                    boolean z = aec.z(context);
-                    a.set(z);
-                    if (z) {
-                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
-                    }
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 }

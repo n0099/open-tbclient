@@ -1,64 +1,262 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes5.dex */
-public class c56 extends bg1<sg0> {
+public class c56 extends cg1<mf0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements sg0 {
+    public class a implements mf0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c56 c;
 
-        @Override // com.baidu.tieba.sg0
-        public boolean a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return true;
+        /* renamed from: com.baidu.tieba.c56$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0251a implements of0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a f;
+
+            @Override // com.baidu.tieba.of0
+            public String B() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Tieba" : (String) invokeV.objValue;
             }
-            return invokeL.booleanValue;
-        }
 
-        @Override // com.baidu.tieba.sg0
-        public ViewGroup b(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-                return null;
+            @Override // com.baidu.tieba.of0
+            public boolean C() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
             }
-            return (ViewGroup) invokeL.objValue;
-        }
 
-        @Override // com.baidu.tieba.sg0
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            @Override // com.baidu.tieba.of0
+            public String q() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "" : (String) invokeV.objValue;
             }
-        }
 
-        @Override // com.baidu.tieba.sg0
-        public void e(Activity activity, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            @Override // com.baidu.tieba.of0
+            public String s() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "tieba" : (String) invokeV.objValue;
             }
-        }
 
-        @Override // com.baidu.tieba.sg0
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
+            @Override // com.baidu.tieba.of0
+            public String t() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "2" : (String) invokeV.objValue;
+            }
+
+            public C0251a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = aVar;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return d56.h().a();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String b() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return d56.h().l();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String c() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.f.c.c();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String d() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return d56.h().j();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String e() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    return d56.h().g();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String f() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                    return d56.h().i();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String g() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    return d56.h().d();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String h() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                    return d56.h().q();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String i() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                    return d56.h().o();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String k() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                    return d56.h().m();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String m() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                    return d56.h().f();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public boolean o() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                    return PermissionUtil.isAgreePrivacyPolicy();
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String p() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    return d56.h().b();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String r() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                    return d56.h().n();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String u() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                    return d56.h().p();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            @NonNull
+            public String w() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                    return d56.h().e();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.of0
+            public String x() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                    return d56.h().c();
+                }
+                return (String) invokeV.objValue;
+            }
         }
 
         public a(c56 c56Var) {
@@ -73,37 +271,21 @@ public class c56 extends bg1<sg0> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = c56Var;
         }
 
-        @Override // com.baidu.tieba.sg0
-        public wh0 c() {
+        @Override // com.baidu.tieba.mf0
+        @NonNull
+        public of0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                wh0 wh0Var = new wh0();
-                wh0Var.a = R.layout.obfuscated_res_0x7f0d0072;
-                wh0Var.b = R.id.obfuscated_res_0x7f09010b;
-                wh0Var.c = R.id.obfuscated_res_0x7f090109;
-                wh0Var.d = R.id.obfuscated_res_0x7f09010c;
-                wh0Var.e = R.id.obfuscated_res_0x7f09010a;
-                return wh0Var;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new C0251a(this);
             }
-            return (wh0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.sg0
-        public boolean isMainActivity(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
+            return (of0) invokeV.objValue;
         }
     }
 
@@ -122,14 +304,48 @@ public class c56 extends bg1<sg0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public sg0 createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: b */
+    public mf0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (sg0) invokeV.objValue;
+        return (mf0) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        byte[] b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = "";
+            String string = SharedPrefHelper.getInstance().getString("key_last_cached_real_oid", "");
+            if (!StringUtils.isNull(string)) {
+                return string;
+            }
+            String k = d56.h().k();
+            if (StringUtils.isNull(k)) {
+                return "";
+            }
+            String[] split = k.split("-");
+            if (split != null && split.length > 1) {
+                String str2 = split[1];
+                if (StringUtils.isNull(str2) || (b = new n00("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+                    return "";
+                }
+                try {
+                    str = new String(b, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                if (!StringUtils.isNull(str)) {
+                    SharedPrefHelper.getInstance().putString("key_last_cached_real_oid", str);
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

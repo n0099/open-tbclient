@@ -13,24 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.core.view.animation.PathInterpolatorCompat;
+import com.kwad.components.core.video.VideoAdapters;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes10.dex */
 public class DetailVideoView extends KSFrameLayout implements View.OnClickListener {
-    public com.kwad.components.core.page.widget.b Kb;
-    public b Kc;
-    public SurfaceTexture Kd;
-    public Surface Ke;
-    public a Kf;
-    public boolean Kg;
-    public boolean Kh;
-    public boolean Ki;
-    public boolean Kj;
-    public PhotoInfo.VideoInfo Kk;
-    public final RectF Kl;
+    public com.kwad.components.core.page.widget.b Uc;
+    public b Ud;
+    public SurfaceTexture Ue;
+    public Surface Uf;
+    public a Ug;
+    public PhotoInfo.VideoInfo Uh;
+    public final RectF Ui;
+    public int Uj;
+    public int Uk;
+    @NonNull
+    public final d Ul;
     public Matrix mMatrix;
 
     /* loaded from: classes10.dex */
@@ -42,29 +43,108 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
 
     public DetailVideoView(Context context) {
         super(context);
-        this.Kg = false;
-        this.Kh = false;
-        this.Ki = false;
-        this.Kj = false;
-        this.Kl = new RectF();
-        E(context);
+        this.Ui = new RectF();
+        this.Uj = 0;
+        this.Uk = 0;
+        this.Ul = new d();
+        B(context);
+    }
+
+    private void B(Context context) {
+        this.mMatrix = new Matrix();
+        this.Uc = new com.kwad.components.core.page.widget.b(context);
+        addView(this.Uc, 0, new FrameLayout.LayoutParams(-1, -1, 17));
+        rm();
+    }
+
+    @Deprecated
+    public final void fixWidth(boolean z) {
+        this.Ul.aQ(z);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        if (view2 == this.Uc) {
+            a aVar = this.Ug;
+            if (aVar != null) {
+                aVar.onClickVideoView();
+                return;
+            }
+            return;
+        }
+        a aVar2 = this.Ug;
+        if (aVar2 != null) {
+            aVar2.onClickRootView();
+        }
+    }
+
+    @Deprecated
+    public void setAd(boolean z) {
+        this.Ul.setAd(z);
+    }
+
+    public void setClickListener(a aVar) {
+        this.Ug = aVar;
+        setOnClickListener(this);
+    }
+
+    @Deprecated
+    public void setFillXY(boolean z) {
+        this.Ul.setFillXY(z);
+    }
+
+    @Deprecated
+    public void setForce(boolean z) {
+        this.Ul.setForce(z);
+    }
+
+    public void setHorizontalVideo(boolean z) {
+        this.Ul.setHorizontalVideo(z);
+    }
+
+    public void setMediaPlayer(b bVar) {
+        this.Ud = bVar;
+        Surface surface = this.Uf;
+        if (surface != null && bVar != null) {
+            bVar.setSurface(surface);
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public void setRadius(float f) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            com.kwad.components.core.widget.h.b(this, f);
+        }
+    }
+
+    public void setVideoInfo(PhotoInfo.VideoInfo videoInfo) {
+        this.Uh = videoInfo;
+    }
+
+    public final void updateTextureViewGravity(int i) {
+        com.kwad.components.core.page.widget.b bVar = this.Uc;
+        if (bVar == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = bVar.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            ((FrameLayout.LayoutParams) layoutParams).gravity = i;
+            this.Uc.requestLayout();
+        }
     }
 
     public DetailVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Kg = false;
-        this.Kh = false;
-        this.Ki = false;
-        this.Kj = false;
-        this.Kl = new RectF();
-        E(context);
+        this.Ui = new RectF();
+        this.Uj = 0;
+        this.Uk = 0;
+        this.Ul = new d();
+        B(context);
     }
 
-    private void E(Context context) {
-        this.mMatrix = new Matrix();
-        this.Kb = new com.kwad.components.core.page.widget.b(context);
-        addView(this.Kb, 0, new FrameLayout.LayoutParams(-1, -1, 17));
-        oZ();
+    public final void g(boolean z, int i) {
+        this.Ul.setAd(true);
+        this.Ul.aI(i);
     }
 
     private void a(View view2, long j, long j2) {
@@ -74,43 +154,29 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
         }
         int width = view3.getWidth();
         int height = view3.getHeight();
-        if (width == 0 || height == 0) {
-            return;
+        if (width != 0 && height != 0) {
+            view2.getLayoutParams();
+            float f = ((float) j) / ((float) j2);
+            float f2 = height * f;
+            float f3 = width;
+            if (f2 > f3) {
+                height = (int) (f3 / f);
+            } else {
+                width = (int) f2;
+            }
+            if (width == 0 || height == 0) {
+                height = -1;
+                width = -1;
+            }
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.width = width;
+            layoutParams.height = height;
+            this.Uc.setLayoutParams(layoutParams);
         }
-        view2.getLayoutParams();
-        float f = ((float) j) / ((float) j2);
-        float f2 = height * f;
-        float f3 = width;
-        if (f2 > f3) {
-            height = (int) (f3 / f);
-        } else {
-            width = (int) f2;
-        }
-        if (width == 0 || height == 0) {
-            height = -1;
-            width = -1;
-        }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        layoutParams.width = width;
-        layoutParams.height = height;
-        this.Kb.setLayoutParams(layoutParams);
     }
 
-    private void oZ() {
-        this.Kb.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: com.kwad.components.core.video.DetailVideoView.1
-            @Override // android.view.TextureView.SurfaceTextureListener
-            public final void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-                if (DetailVideoView.this.Kd == surfaceTexture) {
-                    return;
-                }
-                DetailVideoView.this.Kd = surfaceTexture;
-                DetailVideoView.this.pa();
-                DetailVideoView.this.Ke = new Surface(surfaceTexture);
-                if (DetailVideoView.this.Kc != null) {
-                    DetailVideoView.this.Kc.setSurface(DetailVideoView.this.Ke);
-                }
-            }
-
+    private void rm() {
+        this.Uc.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: com.kwad.components.core.video.DetailVideoView.1
             @Override // android.view.TextureView.SurfaceTextureListener
             public final boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
                 return false;
@@ -123,33 +189,68 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
             @Override // android.view.TextureView.SurfaceTextureListener
             public final void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
+
+            @Override // android.view.TextureView.SurfaceTextureListener
+            public final void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+                if (DetailVideoView.this.Ue != surfaceTexture) {
+                    DetailVideoView.this.Ue = surfaceTexture;
+                    DetailVideoView.this.rn();
+                    DetailVideoView.this.Uf = new Surface(surfaceTexture);
+                    if (DetailVideoView.this.Ud != null) {
+                        DetailVideoView.this.Ud.setSurface(DetailVideoView.this.Uf);
+                    }
+                }
+            }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pa() {
-        Surface surface = this.Ke;
+    public void rn() {
+        Surface surface = this.Uf;
         if (surface != null) {
             try {
                 surface.release();
             } catch (Throwable th) {
-                com.kwad.sdk.core.e.b.printStackTrace(th);
+                com.kwad.sdk.core.e.c.printStackTrace(th);
             }
-            this.Ke = null;
+            this.Uf = null;
+        }
+    }
+
+    public int getTextureViewGravity() {
+        com.kwad.components.core.page.widget.b bVar = this.Uc;
+        if (bVar == null) {
+            return 17;
+        }
+        ViewGroup.LayoutParams layoutParams = bVar.getLayoutParams();
+        if (!(layoutParams instanceof FrameLayout.LayoutParams)) {
+            return 17;
+        }
+        return ((FrameLayout.LayoutParams) layoutParams).gravity;
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        rn();
+        SurfaceTexture surfaceTexture = this.Ue;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+            this.Ue = null;
         }
     }
 
     public final ValueAnimator a(AdTemplate adTemplate, int i, final ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
         float height = getHeight();
         final float width = height / getWidth();
-        final boolean I = com.kwad.sdk.core.response.a.a.I(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
+        final boolean W = com.kwad.sdk.core.response.b.a.W(com.kwad.sdk.core.response.b.e.dP(adTemplate));
         final ViewGroup.LayoutParams layoutParams = getLayoutParams();
         ValueAnimator ofInt = ValueAnimator.ofInt((int) height, i);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.core.video.DetailVideoView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                if (I) {
+                if (W) {
                     int i2 = (int) (intValue / width);
                     ViewGroup.LayoutParams layoutParams2 = layoutParams;
                     if (layoutParams2 != null) {
@@ -179,154 +280,71 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
     }
 
     public final void adaptVideoSize(int i, int i2) {
-        if (this.Kg) {
-            com.kwad.sdk.b.kwai.a.e(this.Kb, i, i2);
-        } else if (this.Ki) {
-            com.kwad.sdk.b.kwai.a.f(this.Kb, i, i2);
-        } else if (this.Kh) {
-            com.kwad.sdk.b.kwai.a.d(this.Kb, i, i2);
-        } else if (this.Kj) {
-            a(this.Kb, i, i2);
+        if (this.Uc == null) {
+            com.kwad.sdk.core.e.c.w("DetailVideoView", "adaptVideoSize mTextureView is null");
+            return;
+        }
+        this.Uk = i2;
+        this.Uj = i;
+        if (this.Ul.ro()) {
+            int rp = this.Ul.rp();
+            VideoAdapters.a aVar = null;
+            if (rp != 1) {
+                if (rp == 2) {
+                    aVar = new VideoAdapters.b();
+                }
+            } else {
+                aVar = new VideoAdapters.c();
+            }
+            if (aVar != null) {
+                com.kwad.components.core.page.widget.b bVar = this.Uc;
+                aVar.a(bVar, (View) bVar.getParent(), i, i2);
+            }
+        } else if (this.Ul.ru()) {
+            com.kwad.sdk.d.a.a.D(this.Uc);
+        } else if (this.Ul.rq()) {
+            com.kwad.sdk.d.a.a.e(this.Uc, i, i2);
+        } else if (this.Ul.rs()) {
+            com.kwad.sdk.d.a.a.f(this.Uc, i, i2);
+        } else if (this.Ul.rr()) {
+            com.kwad.sdk.d.a.a.d(this.Uc, i, i2);
+        } else if (this.Ul.rt()) {
+            a(this.Uc, i, i2);
         } else {
-            View view2 = (View) this.Kb.getParent();
+            View view2 = (View) this.Uc.getParent();
             if (view2 == null) {
                 return;
             }
             int width = view2.getWidth();
             int height = view2.getHeight();
-            if (width == 0 || height == 0) {
-                return;
+            if (width != 0 && height != 0) {
+                PhotoInfo.VideoInfo videoInfo = this.Uh;
+                if (videoInfo != null && com.kwad.sdk.core.response.b.h.a(this.mMatrix, width, height, videoInfo)) {
+                    ViewGroup.LayoutParams layoutParams = this.Uc.getLayoutParams();
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
+                    this.Uc.setTransform(this.mMatrix);
+                    this.Uc.setLayoutParams(layoutParams);
+                } else {
+                    ViewGroup.LayoutParams layoutParams2 = this.Uc.getLayoutParams();
+                    layoutParams2.width = width;
+                    layoutParams2.height = (int) ((i2 / (i * 1.0f)) * width);
+                    this.mMatrix.reset();
+                    this.Uc.setTransform(this.mMatrix);
+                    this.Uc.setLayoutParams(layoutParams2);
+                }
+                this.Ui.set(this.Uc.getLeft(), this.Uc.getTop(), this.Uc.getRight(), this.Uc.getBottom());
             }
-            PhotoInfo.VideoInfo videoInfo = this.Kk;
-            if (videoInfo == null || !com.kwad.sdk.core.response.a.f.a(this.mMatrix, width, height, videoInfo)) {
-                ViewGroup.LayoutParams layoutParams = this.Kb.getLayoutParams();
-                layoutParams.width = width;
-                layoutParams.height = (int) ((i2 / (i * 1.0f)) * width);
-                this.mMatrix.reset();
-                this.Kb.setTransform(this.mMatrix);
-                this.Kb.setLayoutParams(layoutParams);
-            } else {
-                ViewGroup.LayoutParams layoutParams2 = this.Kb.getLayoutParams();
-                layoutParams2.width = -1;
-                layoutParams2.height = -1;
-                this.Kb.setTransform(this.mMatrix);
-                this.Kb.setLayoutParams(layoutParams2);
-            }
-            this.Kl.set(this.Kb.getLeft(), this.Kb.getTop(), this.Kb.getRight(), this.Kb.getBottom());
         }
     }
 
-    @Nullable
-    public final ValueAnimator ar(int i) {
-        float width = getWidth();
-        final float height = width / getHeight();
-        final ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams == null) {
-            return null;
-        }
-        ValueAnimator ofInt = ValueAnimator.ofInt((int) width, i);
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.core.video.DetailVideoView.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams2 = layoutParams;
-                layoutParams2.height = (int) (intValue / height);
-                layoutParams2.width = intValue;
-                DetailVideoView.this.setLayoutParams(layoutParams2);
-            }
-        });
-        return ofInt;
-    }
-
-    public final void fixWidth(boolean z) {
-        this.Ki = z;
-    }
-
-    public int getTextureViewGravity() {
-        com.kwad.components.core.page.widget.b bVar = this.Kb;
-        if (bVar == null) {
-            return 17;
-        }
-        ViewGroup.LayoutParams layoutParams = bVar.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            return ((FrameLayout.LayoutParams) layoutParams).gravity;
-        }
-        return 17;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.Kb) {
-            a aVar = this.Kf;
-            if (aVar != null) {
-                aVar.onClickVideoView();
-                return;
-            }
-            return;
-        }
-        a aVar2 = this.Kf;
-        if (aVar2 != null) {
-            aVar2.onClickRootView();
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        pa();
-        SurfaceTexture surfaceTexture = this.Kd;
-        if (surfaceTexture != null) {
-            surfaceTexture.release();
-            this.Kd = null;
-        }
-    }
-
-    public void setAd(boolean z) {
-        this.Kh = z;
-    }
-
-    public void setClickListener(a aVar) {
-        this.Kf = aVar;
-        setOnClickListener(this);
-    }
-
-    public void setForce(boolean z) {
-        this.Kg = z;
-    }
-
-    public void setHorizontalVideo(boolean z) {
-        this.Kj = z;
-    }
-
-    public void setMediaPlayer(b bVar) {
-        this.Kc = bVar;
-        Surface surface = this.Ke;
-        if (surface == null || bVar == null) {
-            return;
-        }
-        bVar.setSurface(surface);
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public void setRadius(float f) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            com.kwad.components.core.widget.g.b(this, f);
-        }
-    }
-
-    public void setVideoInfo(PhotoInfo.VideoInfo videoInfo) {
-        this.Kk = videoInfo;
-    }
-
-    public final void updateTextureViewGravity(int i) {
-        com.kwad.components.core.page.widget.b bVar = this.Kb;
-        if (bVar == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = bVar.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) layoutParams).gravity = i;
-            this.Kb.requestLayout();
+    @Override // com.kwad.sdk.widget.KSFrameLayout, android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        int i5;
+        super.onSizeChanged(i, i2, i3, i4);
+        int i6 = this.Uj;
+        if (i6 > 0 && (i5 = this.Uk) > 0) {
+            adaptVideoSize(i6, i5);
         }
     }
 }

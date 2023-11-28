@@ -15,7 +15,7 @@ public final class nz3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public o04 a;
+    public p04 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class nz3 {
                 return;
             }
         }
-        b = rm1.a;
+        b = sm1.a;
     }
 
     public nz3() {
@@ -48,22 +48,22 @@ public final class nz3 {
     }
 
     public void c() {
-        o04 o04Var;
+        p04 p04Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (o04Var = this.a) != null) {
-            o04Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (p04Var = this.a) != null) {
+            p04Var.c();
         }
     }
 
-    public static nz3 d(oy1 oy1Var) {
+    public static nz3 d(py1 py1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oy1Var)) == null) {
-            if (oy1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, py1Var)) == null) {
+            if (py1Var == null) {
                 return null;
             }
             nz3 nz3Var = new nz3();
-            nz3Var.a = o04.e(oy1Var);
+            nz3Var.a = p04.e(py1Var);
             return nz3Var;
         }
         return (nz3) invokeL.objValue;
@@ -73,9 +73,9 @@ public final class nz3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            o04 o04Var = this.a;
-            if (o04Var != null) {
-                o04Var.b(a);
+            p04 p04Var = this.a;
+            if (p04Var != null) {
+                p04Var.b(a);
             }
         }
     }
@@ -88,7 +88,7 @@ public final class nz3 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", tv3.a(str));
+                jSONObject.put("errDes", uv3.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();

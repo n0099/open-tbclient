@@ -12,10 +12,10 @@ public class s {
     public static volatile s a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f87a;
+    public final Context f83a;
 
     public s(Context context) {
-        this.f87a = context.getApplicationContext();
+        this.f83a = context.getApplicationContext();
     }
 
     public static s a(Context context) {
@@ -38,18 +38,18 @@ public class s {
     }
 
     private void a(id idVar, int i, boolean z) {
-        if (com.xiaomi.push.j.m717a(this.f87a) || !com.xiaomi.push.j.m716a() || idVar == null || idVar.f631a != hh.SendMessage || idVar.m630a() == null || !z) {
+        if (com.xiaomi.push.j.m721a(this.f83a) || !com.xiaomi.push.j.m720a() || idVar == null || idVar.f627a != hh.SendMessage || idVar.m634a() == null || !z) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m186a("click to start activity result:" + String.valueOf(i));
-        ig igVar = new ig(idVar.m630a().m590a(), false);
-        igVar.c(hr.SDK_START_ACTIVITY.f508a);
-        igVar.b(idVar.m631a());
-        igVar.d(idVar.f638b);
+        com.xiaomi.channel.commonutils.logger.b.m190a("click to start activity result:" + String.valueOf(i));
+        ig igVar = new ig(idVar.m634a().m594a(), false);
+        igVar.c(hr.SDK_START_ACTIVITY.f504a);
+        igVar.b(idVar.m635a());
+        igVar.d(idVar.f634b);
         HashMap hashMap = new HashMap();
-        igVar.f650a = hashMap;
+        igVar.f646a = hashMap;
         hashMap.put("result", String.valueOf(i));
-        ao.a(this.f87a).a(igVar, hh.Notification, false, false, null, true, idVar.f638b, idVar.f634a, true, false);
+        ao.a(this.f83a).a(igVar, hh.Notification, false, false, null, true, idVar.f634b, idVar.f630a, true, false);
     }
 
     public static void b(Context context, id idVar, boolean z) {
@@ -67,14 +67,14 @@ public class s {
     public static void e(Context context, id idVar, boolean z) {
         s a2;
         int i;
-        b m230a = b.m230a(context);
-        if (TextUtils.isEmpty(m230a.m238c()) || TextUtils.isEmpty(m230a.d())) {
+        b m234a = b.m234a(context);
+        if (TextUtils.isEmpty(m234a.m242c()) || TextUtils.isEmpty(m234a.d())) {
             a2 = a(context);
             i = 6;
         } else {
-            boolean m242f = m230a.m242f();
+            boolean m246f = m234a.m246f();
             a2 = a(context);
-            i = m242f ? 7 : 5;
+            i = m246f ? 7 : 5;
         }
         a2.a(idVar, i, z);
     }

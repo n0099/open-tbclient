@@ -1,43 +1,19 @@
 package com.kwad.components.core.video;
 /* loaded from: classes10.dex */
-public class h implements g {
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayBufferingPaused() {
-    }
+public interface h {
+    void onMediaPlayCompleted();
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayBufferingPlaying() {
-    }
+    void onMediaPlayError(int i, int i2);
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayCompleted() {
-    }
+    void onMediaPlayPaused();
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayError(int i, int i2) {
-    }
+    void onMediaPlayProgress(long j, long j2);
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayPaused() {
-    }
+    void onMediaPlayStart();
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayProgress(long j, long j2) {
-    }
+    void onMediaPlaying();
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlayStart() {
-    }
+    void onMediaPrepared();
 
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPlaying() {
-    }
-
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPrepared() {
-    }
-
-    @Override // com.kwad.components.core.video.g
-    public void onVideoPreparing() {
-    }
+    void onMediaPreparing();
 }

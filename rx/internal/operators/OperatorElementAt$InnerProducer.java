@@ -1,17 +1,17 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ljc;
+import com.baidu.tieba.goc;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public class OperatorElementAt$InnerProducer extends AtomicBoolean implements ljc {
+public class OperatorElementAt$InnerProducer extends AtomicBoolean implements goc {
     public static final long serialVersionUID = 1;
-    public final ljc actual;
+    public final goc actual;
 
-    public OperatorElementAt$InnerProducer(ljc ljcVar) {
-        this.actual = ljcVar;
+    public OperatorElementAt$InnerProducer(goc gocVar) {
+        this.actual = gocVar;
     }
 
-    @Override // com.baidu.tieba.ljc
+    @Override // com.baidu.tieba.goc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {

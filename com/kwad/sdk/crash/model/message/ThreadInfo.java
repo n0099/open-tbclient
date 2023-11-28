@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -14,6 +14,16 @@ public final class ThreadInfo implements b, Serializable {
     public String mTrace;
 
     @Override // com.kwad.sdk.core.b
+    public final JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        t.putValue(jSONObject, "mName", this.mName);
+        t.putValue(jSONObject, "mTrace", this.mTrace);
+        t.putValue(jSONObject, "mTid", this.mTid);
+        t.putValue(jSONObject, "mIndex", this.mIndex);
+        return jSONObject;
+    }
+
+    @Override // com.kwad.sdk.core.b
     public final void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -22,15 +32,5 @@ public final class ThreadInfo implements b, Serializable {
         this.mTrace = jSONObject.optString("mTrace");
         this.mTid = jSONObject.optInt("mTid");
         this.mIndex = jSONObject.optInt("mIndex");
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public final JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, "mName", this.mName);
-        r.putValue(jSONObject, "mTrace", this.mTrace);
-        r.putValue(jSONObject, "mTid", this.mTid);
-        r.putValue(jSONObject, "mIndex", this.mIndex);
-        return jSONObject;
     }
 }

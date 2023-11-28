@@ -187,7 +187,7 @@ public class b implements k {
 
     private String j(Context context) {
         int i = Build.VERSION.SDK_INT;
-        String cw = i > 28 ? cw() : (i <= 27 || context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) != 0) ? Build.SERIAL : Build.getSerial();
+        String cw = i > 28 ? cw() : (i <= 27 || context.checkSelfPermission(com.kuaishou.weapon.p0.g.c) != 0) ? Build.SERIAL : Build.getSerial();
         return "unknown".equals(cw) ? "" : cw;
     }
 

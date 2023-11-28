@@ -4,10 +4,10 @@ import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.a39;
+import com.baidu.tieba.b39;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.sz8;
-import com.baidu.tieba.tz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,9 +58,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     this.groupId = optJSONObject.optLong("mid_group_id", 0L);
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("banner");
                     if (optJSONObject2 != null) {
-                        tz8 tz8Var = new tz8();
-                        tz8Var.i(optJSONObject2);
-                        this.mList.add(tz8Var);
+                        b39 b39Var = new b39();
+                        b39Var.i(optJSONObject2);
+                        this.mList.add(b39Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -76,9 +76,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        sz8 sz8Var = new sz8();
-                        sz8Var.c(optJSONObject4);
-                        this.mList.add(sz8Var);
+                        a39 a39Var = new a39();
+                        a39Var.c(optJSONObject4);
+                        this.mList.add(a39Var);
                         return;
                     }
                     return;

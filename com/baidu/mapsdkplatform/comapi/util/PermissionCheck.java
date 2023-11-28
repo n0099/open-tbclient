@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.u;
+import com.kuaishou.weapon.p0.t;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -265,7 +265,7 @@ public class PermissionCheck {
                 g.put("ver", "1");
                 g.put("screen", String.format("(%d,%d)", Integer.valueOf(jSONObject.optInt("screen_x")), Integer.valueOf(jSONObject.optInt("screen_y"))));
                 g.put("dpi", String.format("(%d,%d)", Integer.valueOf(jSONObject.optInt("dpi_x")), Integer.valueOf(jSONObject.optInt("dpi_y"))));
-                g.put(u.w, jSONObject.optString(u.w));
+                g.put(t.r, jSONObject.optString(t.r));
                 g.put("cuid", jSONObject.optString("cuid"));
                 g.put("name", str);
             } catch (Exception unused) {

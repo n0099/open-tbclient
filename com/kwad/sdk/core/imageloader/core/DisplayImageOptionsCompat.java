@@ -48,14 +48,6 @@ public final class DisplayImageOptionsCompat {
         public boolean considerExifParams = false;
         public boolean isSyncLoading = false;
 
-        public Builder bitmapConfig(Bitmap.Config config) {
-            if (config != null) {
-                this.decodingOptions.inPreferredConfig = config;
-                return this;
-            }
-            throw new IllegalArgumentException("bitmapConfig can't be null");
-        }
-
         public DisplayImageOptionsCompat build() {
             return new DisplayImageOptionsCompat(this);
         }
@@ -66,14 +58,22 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder cacheInMemory(boolean z) {
-            this.cacheInMemory = z;
-            return this;
-        }
-
         @Deprecated
         public Builder cacheOnDisc() {
             return cacheOnDisk(true);
+        }
+
+        public Builder bitmapConfig(Bitmap.Config config) {
+            if (config != null) {
+                this.decodingOptions.inPreferredConfig = config;
+                return this;
+            }
+            throw new IllegalArgumentException("bitmapConfig can't be null");
+        }
+
+        public Builder cacheInMemory(boolean z) {
+            this.cacheInMemory = z;
+            return this;
         }
 
         @Deprecated
@@ -83,29 +83,6 @@ public final class DisplayImageOptionsCompat {
 
         public Builder cacheOnDisk(boolean z) {
             this.cacheOnDisk = z;
-            return this;
-        }
-
-        public Builder cloneFrom(DisplayImageOptionsCompat displayImageOptionsCompat) {
-            this.imageResOnLoading = displayImageOptionsCompat.imageResOnLoading;
-            this.imageResForEmptyUri = displayImageOptionsCompat.imageResForEmptyUri;
-            this.imageResOnFail = displayImageOptionsCompat.imageResOnFail;
-            this.imageOnLoading = displayImageOptionsCompat.imageOnLoading;
-            this.imageForEmptyUri = displayImageOptionsCompat.imageForEmptyUri;
-            this.imageOnFail = displayImageOptionsCompat.imageOnFail;
-            this.resetViewBeforeLoading = displayImageOptionsCompat.resetViewBeforeLoading;
-            this.cacheInMemory = displayImageOptionsCompat.cacheInMemory;
-            this.cacheOnDisk = displayImageOptionsCompat.cacheOnDisk;
-            this.decodingOptions = displayImageOptionsCompat.decodingOptions;
-            this.delayBeforeLoading = displayImageOptionsCompat.delayBeforeLoading;
-            this.considerExifParams = displayImageOptionsCompat.considerExifParams;
-            this.isSyncLoading = displayImageOptionsCompat.isSyncLoading;
-            this.blurRadius = displayImageOptionsCompat.blurRadius;
-            this.isFrameSequence = displayImageOptionsCompat.isFrameSequence;
-            this.cornerRound = displayImageOptionsCompat.cornerRound;
-            this.isCircle = displayImageOptionsCompat.isCircle;
-            this.strokeColor = displayImageOptionsCompat.strokeColor;
-            this.strokeWidth = displayImageOptionsCompat.strokeWidth;
             return this;
         }
 
@@ -152,18 +129,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder showImageForEmptyUri(Drawable drawable) {
-            this.imageForEmptyUri = drawable;
-            return this;
-        }
-
         public Builder showImageOnFail(int i) {
             this.imageResOnFail = i;
-            return this;
-        }
-
-        public Builder showImageOnFail(Drawable drawable) {
-            this.imageOnFail = drawable;
             return this;
         }
 
@@ -172,14 +139,47 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder showImageOnLoading(Drawable drawable) {
-            this.imageOnLoading = drawable;
-            return this;
-        }
-
         @Deprecated
         public Builder showStubImage(int i) {
             this.imageResOnLoading = i;
+            return this;
+        }
+
+        public Builder cloneFrom(DisplayImageOptionsCompat displayImageOptionsCompat) {
+            this.imageResOnLoading = displayImageOptionsCompat.imageResOnLoading;
+            this.imageResForEmptyUri = displayImageOptionsCompat.imageResForEmptyUri;
+            this.imageResOnFail = displayImageOptionsCompat.imageResOnFail;
+            this.imageOnLoading = displayImageOptionsCompat.imageOnLoading;
+            this.imageForEmptyUri = displayImageOptionsCompat.imageForEmptyUri;
+            this.imageOnFail = displayImageOptionsCompat.imageOnFail;
+            this.resetViewBeforeLoading = displayImageOptionsCompat.resetViewBeforeLoading;
+            this.cacheInMemory = displayImageOptionsCompat.cacheInMemory;
+            this.cacheOnDisk = displayImageOptionsCompat.cacheOnDisk;
+            this.decodingOptions = displayImageOptionsCompat.decodingOptions;
+            this.delayBeforeLoading = displayImageOptionsCompat.delayBeforeLoading;
+            this.considerExifParams = displayImageOptionsCompat.considerExifParams;
+            this.isSyncLoading = displayImageOptionsCompat.isSyncLoading;
+            this.blurRadius = displayImageOptionsCompat.blurRadius;
+            this.isFrameSequence = displayImageOptionsCompat.isFrameSequence;
+            this.cornerRound = displayImageOptionsCompat.cornerRound;
+            this.isCircle = displayImageOptionsCompat.isCircle;
+            this.strokeColor = displayImageOptionsCompat.strokeColor;
+            this.strokeWidth = displayImageOptionsCompat.strokeWidth;
+            return this;
+        }
+
+        public Builder showImageForEmptyUri(Drawable drawable) {
+            this.imageForEmptyUri = drawable;
+            return this;
+        }
+
+        public Builder showImageOnFail(Drawable drawable) {
+            this.imageOnFail = drawable;
+            return this;
+        }
+
+        public Builder showImageOnLoading(Drawable drawable) {
+            this.imageOnLoading = drawable;
             return this;
         }
     }
@@ -206,6 +206,30 @@ public final class DisplayImageOptionsCompat {
         this.strokeWidth = builder.strokeWidth;
     }
 
+    public final Drawable getImageForEmptyUri(Resources resources) {
+        int i = this.imageResForEmptyUri;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageForEmptyUri;
+    }
+
+    public final Drawable getImageOnFail(Resources resources) {
+        int i = this.imageResOnFail;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageOnFail;
+    }
+
+    public final Drawable getImageOnLoading(Resources resources) {
+        int i = this.imageResOnLoading;
+        if (i != 0) {
+            return resources.getDrawable(i);
+        }
+        return this.imageOnLoading;
+    }
+
     public static DisplayImageOptionsCompat createSimple() {
         return new Builder().build();
     }
@@ -224,21 +248,6 @@ public final class DisplayImageOptionsCompat {
 
     public final int getDelayBeforeLoading() {
         return this.delayBeforeLoading;
-    }
-
-    public final Drawable getImageForEmptyUri(Resources resources) {
-        int i = this.imageResForEmptyUri;
-        return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
-    }
-
-    public final Drawable getImageOnFail(Resources resources) {
-        int i = this.imageResOnFail;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
-    }
-
-    public final Drawable getImageOnLoading(Resources resources) {
-        int i = this.imageResOnLoading;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
     public final int getStrokeColor() {
@@ -274,18 +283,30 @@ public final class DisplayImageOptionsCompat {
     }
 
     public final boolean shouldDelayBeforeLoading() {
-        return this.delayBeforeLoading > 0;
+        if (this.delayBeforeLoading > 0) {
+            return true;
+        }
+        return false;
     }
 
     public final boolean shouldShowImageForEmptyUri() {
-        return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
+        if (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) {
+            return false;
+        }
+        return true;
     }
 
     public final boolean shouldShowImageOnFail() {
-        return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
+        if (this.imageOnFail == null && this.imageResOnFail == 0) {
+            return false;
+        }
+        return true;
     }
 
     public final boolean shouldShowImageOnLoading() {
-        return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
+        if (this.imageOnLoading == null && this.imageResOnLoading == 0) {
+            return false;
+        }
+        return true;
     }
 }

@@ -4,23 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrequentlyForumInfo;
-import tbclient.VitalityInfo;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes5.dex */
-public class e6d extends qoc {
+public class e6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull VitalityInfo vitalityInfo) {
+    public static JSONObject b(@NonNull PbPresent pbPresent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vitalityInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbPresent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            FrequentlyForumInfo frequentlyForumInfo = vitalityInfo.frequently_forum_info;
-            if (frequentlyForumInfo != null) {
-                qoc.a(jSONObject, "frequently_forum_info", stc.b(frequentlyForumInfo));
+            ltc.a(jSONObject, "total", pbPresent.total);
+            if (pbPresent.list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    jSONArray.put(f6d.b(pbPresentList));
+                }
+                ltc.a(jSONObject, "list", jSONArray);
             }
             return jSONObject;
         }

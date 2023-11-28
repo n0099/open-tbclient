@@ -1,120 +1,47 @@
 package com.kwad.components.ad.reward.k;
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.IdRes;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.R;
-import com.kwad.components.ad.widget.KsAppTagsView;
-import com.kwad.components.core.widget.KSCornerButton;
-import com.kwad.components.core.widget.KsConvertButton;
-import com.kwad.components.core.widget.KsLogoView;
-import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.components.core.webview.jshandler.x;
+import com.kwad.sdk.core.report.y;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.ref.WeakReference;
 /* loaded from: classes10.dex */
-public final class q extends p {
-    @IdRes
-    public int we;
-    public ImageView wf;
-    @Nullable
-    public com.kwad.components.ad.reward.model.a wg;
-    public View wh;
+public final class q extends x {
+    public long vy;
+    public WeakReference<com.kwad.components.ad.reward.g> xo;
 
-    public q(@IdRes int i) {
-        this.we = i;
-        this.wc = R.layout.obfuscated_res_0x7f0d04ea;
-        this.wd = false;
-    }
-
-    @Override // com.kwad.components.ad.reward.k.p
-    public final void a(com.kwad.components.ad.reward.model.a aVar) {
-        super.a(aVar);
-        this.wg = aVar;
-    }
-
-    public final void a(AdInfo adInfo, boolean z) {
-        ImageView imageView = this.wf;
-        if (imageView == null || adInfo == null) {
-            return;
+    public q(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.e.d.c cVar, @Nullable com.kwad.components.ad.reward.g gVar, long j, @Nullable com.kwad.sdk.core.webview.d.a.a aVar, @Nullable DialogInterface.OnDismissListener onDismissListener) {
+        super(bVar, cVar, aVar, onDismissListener);
+        this.vy = -1L;
+        this.vy = j;
+        if (gVar != null) {
+            this.xo = new WeakReference<>(gVar);
         }
-        imageView.setVisibility(0);
-        com.kwad.components.ad.reward.presenter.b.a(this.wf, com.kwad.sdk.core.response.a.a.K(adInfo));
     }
 
-    @Override // com.kwad.components.ad.reward.k.d
-    public final void aa(boolean z) {
-        super.aa(z);
-        ViewGroup viewGroup = this.pV;
-        if (viewGroup == null) {
-            return;
-        }
-        Resources resources = viewGroup.getResources();
-        ImageView imageView = this.ll;
-        if (imageView != null && this.wg != null) {
-            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-            int i = 18;
-            if (layoutParams != null) {
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
-                if (!z) {
-                    dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
-                    i = 14;
-                }
-                layoutParams.width = dimensionPixelSize;
-                layoutParams.height = dimensionPixelSize;
-                this.ll.setLayoutParams(layoutParams);
-                KSImageLoader.loadAppIcon(this.ll, this.wg.eL(), this.wg.gA(), i);
+    @Override // com.kwad.components.core.webview.jshandler.x
+    @NonNull
+    public final y.b a(com.kwad.sdk.core.webview.d.b.a aVar, AdTemplate adTemplate) {
+        y.b a = super.a(aVar, adTemplate);
+        WeakReference<com.kwad.components.ad.reward.g> weakReference = this.xo;
+        if (weakReference != null && weakReference.get() != null) {
+            a.vy = this.xo.get().oI.getPlayDuration();
+        } else {
+            long j = this.vy;
+            if (j > 0) {
+                a.vy = j;
             }
         }
-        TextView textView = this.nH;
-        if (textView != null && (textView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && this.wg != null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.nH.getLayoutParams();
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ed);
-            if (!this.wg.gC() && z) {
-                dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ec);
-            }
-            marginLayoutParams.topMargin = dimensionPixelSize2;
-            this.nH.setLayoutParams(marginLayoutParams);
-        }
-        View view2 = this.wh;
-        if (view2 == null || !(view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) || this.wg == null) {
-            return;
-        }
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.wh.getLayoutParams();
-        int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ea);
-        if (z) {
-            dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e9);
-        }
-        marginLayoutParams2.topMargin = dimensionPixelSize3;
-        this.wh.setLayoutParams(marginLayoutParams2);
+        return a;
     }
 
-    @Override // com.kwad.components.ad.reward.k.p
-    public final void g(ViewGroup viewGroup) {
-        if (viewGroup == null) {
-            return;
+    @Override // com.kwad.components.core.webview.jshandler.x
+    public final void jf() {
+        super.jf();
+        if (this.VP != null) {
+            com.kwad.components.ad.reward.c.a.gJ().c(this.VP.getAdTemplate(), com.kwad.components.ad.reward.c.b.STATUS_NONE);
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091398);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091396);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091397);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139f);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091395);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139a);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091391);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091399);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091390);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091392);
-    }
-
-    @Override // com.kwad.components.ad.reward.k.p
-    public final int jb() {
-        return this.we;
-    }
-
-    @Override // com.kwad.components.ad.reward.k.p
-    public final int jc() {
-        return R.id.obfuscated_res_0x7f091393;
     }
 }

@@ -1,101 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.searchbox.live.frame.PageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedFeedback;
+import org.json.JSONObject;
+import tbclient.FeedItem;
 /* loaded from: classes5.dex */
 public final class d97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x006d, code lost:
-        if (r1.equals("recommend_post") == false) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0077, code lost:
-        if (r1.equals("frs_post") == false) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007b, code lost:
-        r8 = r20.a().a().get("thread_id");
-        r9 = r20.a().a().get("forum_id");
-        r1 = r19.dislike;
-        r11 = new android.util.SparseArray();
-        r1 = r1.iterator();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00ae, code lost:
-        if (r1.hasNext() == false) goto L24;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00b0, code lost:
-        r7 = r1.next();
-        r12 = r7.id;
-        kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r12, "reason.id");
-        r11.put(r12.intValue(), r7.reason);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c5, code lost:
-        r0 = r19.dislike;
-        r12 = new android.util.SparseArray();
-        r0 = r0.iterator();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00d4, code lost:
-        if (r0.hasNext() == false) goto L29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00d6, code lost:
-        r1 = r0.next();
-        r7 = r1.id;
-        kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r7, "reason.id");
-        r12.put(r7.intValue(), r1.extra);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00eb, code lost:
-        r13 = r20.a().a().get("weight");
-        r14 = r20.a().a().get("source");
-        r0 = r20.a().a().get("threadType");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x011d, code lost:
-        if (r0 == null) goto L34;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x011f, code lost:
-        r16 = java.lang.Integer.parseInt(r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0126, code lost:
-        r16 = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0129, code lost:
-        r7 = new com.baidu.tieba.d67(r8, r9, null, r11, r12, r13, r14, r20.a().a().get("extra"), r16, 4, null);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final c67 a(FeedFeedback feedFeedback, a67 feedExtraData) {
-        InterceptResult invokeLL;
-        e67 e67Var;
+    public static final i47 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, feedFeedback, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(feedFeedback, "<this>");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String type = feedFeedback.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            String str = feedFeedback.title;
-            String str2 = feedFeedback.button_text;
-            String str3 = feedFeedback.common_id;
-            String str4 = feedFeedback.type;
-            if (str4 != null) {
-                int hashCode = str4.hashCode();
-                if (hashCode != -1142233928) {
-                    if (hashCode != -1030597053) {
-                        if (hashCode == 951024288 && str4.equals(ImageViewerConfig.FROM_CONCERN)) {
-                            e67Var = new e67(feedExtraData.a().a().get("user_id"), feedExtraData.a().a().get("portrait"));
-                            Object obj = e67Var;
-                            return new c67(type, str, str2, str3, obj);
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            JSONObject jSONObject = new JSONObject(apkDetailStr);
+            l57 l57Var = new l57();
+            l57Var.l = jSONObject.optString("appid");
+            l57Var.m = item.name;
+            l57Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                l57Var.c = (float) item.icon_ratio.doubleValue();
             }
-            e67Var = null;
-            Object obj2 = e67Var;
-            return new c67(type, str, str2, str3, obj2);
+            l57Var.n = jSONObject.optString("apk_name");
+            l57Var.o = jSONObject.optString("version");
+            l57Var.p = jSONObject.optInt("version_code");
+            l57Var.q = jSONObject.optLong("size");
+            l57Var.r = item.button_link;
+            l57Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                l57Var.f = (float) item.score.doubleValue();
+            }
+            l57Var.g = item.tags;
+            l57Var.s = jSONObject.optString("developer");
+            l57Var.t = jSONObject.optString("publisher");
+            l57Var.u = jSONObject.optString("authority_url");
+            l57Var.v = jSONObject.optString("privacy_url");
+            l57Var.w = jSONObject.optInt("pkg_source");
+            l57Var.h = item.button_name;
+            l57Var.a = j;
+            l57Var.k = forumName;
+            ia7 ia7Var = new ia7();
+            ia7Var.a = tid;
+            ia7Var.b = pageFrom;
+            return new i47(l57Var, ia7Var, false, 4, null);
         }
-        return (c67) invokeLL.objValue;
+        return (i47) invokeCommon.objValue;
+    }
+
+    public static final m47 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            k77 k77Var = new k77();
+            k77Var.a = j;
+            k77Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                k77Var.c = (float) item.icon_ratio.doubleValue();
+            }
+            k77Var.d = item.name;
+            k77Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                k77Var.f = (float) item.score.doubleValue();
+            }
+            k77Var.g = item.tags;
+            k77Var.h = item.button_name;
+            k77Var.i = item.button_link;
+            k77Var.k = forumName;
+            ja7 ja7Var = new ja7();
+            ja7Var.a = tid;
+            ja7Var.b = pageFrom;
+            return new m47(k77Var, ja7Var, false, 4, null);
+        }
+        return (m47) invokeCommon.objValue;
+    }
+
+    public static final void c(FeedItem feedItem, List<nb7<?>> dataList, n67 feedExtraData) {
+        String str;
+        String str2;
+        String str3;
+        Map<String, String> a;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedItem, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            HashMap<String, String> a2 = ra7.a.a(feedItem.business_info);
+            String str5 = a2.get("apk_detail");
+            String str6 = feedExtraData.a().a().get("thread_id");
+            if (str6 == null) {
+                str = "";
+            } else {
+                str = str6;
+            }
+            long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
+            String str7 = a2.get("forum_name");
+            if (str7 == null) {
+                str2 = "";
+            } else {
+                str2 = str7;
+            }
+            ub7 ub7Var = feedExtraData.e().get(PageInfo.KEY);
+            if (ub7Var == null || (a = ub7Var.a(new r57())) == null || (str4 = a.get("page_from")) == null) {
+                str3 = "";
+            } else {
+                str3 = str4;
+            }
+            if (str5 == null) {
+                dataList.add(new ob7(b(feedItem, j, str, str2, str3), "mount"));
+            } else {
+                dataList.add(new ob7(a(feedItem, str5, j, str, str2, str3), "mount_app"));
+            }
+        }
     }
 }

@@ -1,18 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+import java.util.HashMap;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes6.dex */
-public class hra {
+public final class hra implements jua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public final ora a;
+    public final mra b;
+    public final pra c;
+    public final nra d;
+    public final ira e;
+    public final kra f;
+    public final jra g;
+    public final HashMap<mua, HashMap<kua, mua>> h;
 
     public hra() {
         Interceptable interceptable = $ic;
@@ -24,35 +33,94 @@ public class hra {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ora();
+        this.b = new mra();
+        this.c = new pra();
+        this.d = new nra();
+        new qra();
+        this.e = new ira();
+        this.f = new kra();
+        new lra();
+        this.g = new jra();
+        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))), new Pair(this.d, MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))));
     }
 
-    public void a(ActHot actHot) {
+    public final ira b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        String str = actHot.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.a = JavaTypesHelper.toInt(split[0], 1);
-                this.b = JavaTypesHelper.toInt(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        return (ira) invokeV.objValue;
+    }
+
+    public final mra c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        if (this.a <= 0) {
-            this.a = 1;
+        return (mra) invokeV.objValue;
+    }
+
+    public final nra d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        if (this.b <= 0) {
-            this.b = 1;
+        return (nra) invokeV.objValue;
+    }
+
+    public final jra e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
         }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
+        return (jra) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jua
+    /* renamed from: f */
+    public ora a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (ora) invokeV.objValue;
+    }
+
+    public final kra g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (kra) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jua
+    public HashMap<mua, HashMap<kua, mua>> getMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final pra h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (pra) invokeV.objValue;
     }
 }

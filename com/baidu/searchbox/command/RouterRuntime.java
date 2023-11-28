@@ -2,12 +2,12 @@ package com.baidu.searchbox.command;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.mha;
+import com.baidu.tieba.fma;
 @Autowired
 /* loaded from: classes3.dex */
 public class RouterRuntime {
     @Inject
     public static ICommandIoc getICommandIoc() {
-        return mha.a();
+        return fma.a();
     }
 }

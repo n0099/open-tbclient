@@ -14,11 +14,11 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.e87;
 import com.baidu.tieba.forum.view.TopCardView;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.r77;
-import com.baidu.tieba.sk7;
-import com.baidu.tieba.ta7;
+import com.baidu.tieba.gb7;
+import com.baidu.tieba.vm7;
+import com.baidu.tieba.y77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(d1 = {"\u0000p\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0014\u0018\u00002\u00020\u00012\u00020\u0002:\u0001<B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010!\u001a\u00020\b2\u0006\u0010\"\u001a\u00020#H\u0002J\b\u0010$\u001a\u00020%H\u0002J\b\u0010&\u001a\u00020\u0014H\u0002J\u001e\u0010'\u001a\u00020\u00142\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0)2\u0006\u0010*\u001a\u00020\u0014H\u0002J\b\u0010+\u001a\u00020%H\u0016J\b\u0010,\u001a\u00020%H\u0014J\u0010\u0010-\u001a\u00020%2\u0006\u0010.\u001a\u00020\bH\u0002J\u0018\u0010/\u001a\u00020%2\u0006\u00100\u001a\u00020#2\u0006\u00101\u001a\u00020\bH\u0002J\u000e\u00102\u001a\u00020%2\u0006\u00103\u001a\u00020\u001fJ\b\u00104\u001a\u00020%H\u0002J\b\u00105\u001a\u00020%H\u0002J\u001c\u00106\u001a\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0\u001d2\u0006\u00107\u001a\u00020\u0017J,\u00108\u001a\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0\u001d2\u0006\u00109\u001a\u00020\b2\u0006\u0010:\u001a\u00020\u00142\u0006\u0010;\u001a\u00020\u0017R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\r0\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006="}, d2 = {"Lcom/baidu/tieba/forum/view/TopCardView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "collapsibleLayout", "Landroid/widget/LinearLayout;", "defaultData", "Lcom/baidu/tieba/feed/data/TopCardData;", "foldAnimator", "Landroid/animation/ValueAnimator;", "foldingView", "Landroid/widget/ImageView;", "foldingViewContent", "isShowCompleteCard", "", "mCollapsibleHeight", "mFid", "", "mFixedHeight", "mIsFolding", "mIsLiked", "mThemeColorInfo", "mTopCardDataList", "", "mUpdateFoldingListener", "Lcom/baidu/tieba/forum/view/TopCardView$IUpdateFoldingListener;", "unFoldAnimator", "getTopItemViewHeight", "topCardItemView", "Lcom/baidu/tieba/forum/view/TopCardItemView;", "initUI", "", "isAllRead", "isCanShowCompleteCard", "topCardDataList", "", "liked", "onChangeSkin", "onDetachedFromWindow", "refreshCollapsibleLayout", "collapsibleLayoutHeight", "setTopCardStyle", "itemView", "no", "setUpdateFoldingListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "startFoldAnimation", "startUnfoldAnimation", "updateLocalUI", "updateTid", "updateState", "foldStatus", "isLiked", "themeColorInfo", "IUpdateFoldingListener", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class TopCardView extends RelativeLayout implements ta7 {
+public final class TopCardView extends RelativeLayout implements gb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
@@ -49,11 +49,11 @@ public final class TopCardView extends RelativeLayout implements ta7 {
     public int h;
     public int i;
     public boolean j;
-    public List<r77> k;
+    public List<e87> k;
     public String l;
     public boolean m;
     public String n;
-    public r77 o;
+    public e87 o;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -132,10 +132,10 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         this.k = new ArrayList();
         this.l = "";
         this.n = "";
-        this.o = new r77();
+        this.o = new e87();
         setPadding(0, BdUtilHelper.getDimens(context, R.dimen.M_H_X005), 0, 0);
         c();
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cm7
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jo7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +147,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 }
             }
         });
-        r();
+        f();
     }
 
     public /* synthetic */ TopCardView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -166,24 +166,24 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 aVar.a(z);
             }
             if (this$0.e) {
-                this$0.h();
+                this$0.i();
             } else {
-                this$0.j();
+                this$0.k();
                 i = 2;
             }
-            sk7.a(this$0.n, i);
+            vm7.a(this$0.n, i);
         }
     }
 
-    public final boolean e(List<r77> list, boolean z) {
+    public final boolean e(List<e87> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, list, z)) == null) {
             if (!z) {
                 return false;
             }
-            for (r77 r77Var : list) {
-                if (!r77Var.c() && !r77Var.b()) {
+            for (e87 e87Var : list) {
+                if (!e87Var.c() && !e87Var.b()) {
                     return true;
                 }
             }
@@ -192,10 +192,10 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         return invokeLZ.booleanValue;
     }
 
-    public final void g(TopCardItemView topCardItemView, int i) {
+    public final void h(TopCardItemView topCardItemView, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048581, this, topCardItemView, i) != null) || this.k.size() <= 0) {
+        if ((interceptable != null && interceptable.invokeLI(1048582, this, topCardItemView, i) != null) || this.k.size() <= 0) {
             return;
         }
         if (this.k.size() == 1) {
@@ -210,7 +210,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public static final void i(TopCardView this$0, ViewGroup.LayoutParams layoutParams, ValueAnimator valueAnimator) {
+    public static final void j(TopCardView this$0, ViewGroup.LayoutParams layoutParams, ValueAnimator valueAnimator) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, this$0, layoutParams, valueAnimator) == null) {
@@ -236,7 +236,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public static final void k(TopCardView this$0, ViewGroup.LayoutParams layoutParams, Ref.IntRef moreMargin, ValueAnimator valueAnimator) {
+    public static final void l(TopCardView this$0, ViewGroup.LayoutParams layoutParams, Ref.IntRef moreMargin, ValueAnimator valueAnimator) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, this$0, layoutParams, moreMargin, valueAnimator) == null) {
@@ -288,9 +288,9 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public final void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b.removeAllViews();
             final ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
             TopCardItemView topCardItemView = new TopCardItemView(getContext(), null, 0, 6, null);
@@ -300,7 +300,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             this.f = ofFloat;
             if (ofFloat != null) {
-                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.em7
+                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.mo7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +308,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                            TopCardView.i(TopCardView.this, layoutParams, valueAnimator);
+                            TopCardView.j(TopCardView.this, layoutParams, valueAnimator);
                         }
                     }
                 });
@@ -328,8 +328,8 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (r77 r77Var : this.k) {
-                if (!r77Var.c()) {
+            for (e87 e87Var : this.k) {
+                if (!e87Var.c()) {
                     return false;
                 }
             }
@@ -341,7 +341,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
             ValueAnimator valueAnimator = this.g;
             if (valueAnimator != null) {
@@ -362,9 +362,21 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public final void f(int i) {
+    @Override // com.baidu.tieba.gb7
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
+            int childCount = this.b.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                ((TopCardItemView) ViewGroupKt.get(this.b, i)).f();
+            }
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
             layoutParams.height = i;
             this.b.setLayoutParams(layoutParams);
@@ -380,10 +392,10 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public final void j() {
+    public final void k() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.b.removeAllViews();
             if (this.k.size() == 1) {
                 z = true;
@@ -425,7 +437,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.g = ofFloat;
             if (ofFloat != null) {
-                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.bm7
+                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.io7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -433,7 +445,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                            TopCardView.k(TopCardView.this, layoutParams, intRef, valueAnimator);
+                            TopCardView.l(TopCardView.this, layoutParams, intRef, valueAnimator);
                         }
                     }
                 });
@@ -449,9 +461,9 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public final void l(List<r77> topCardDataList, String updateTid) {
+    public final void m(List<e87> topCardDataList, String updateTid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, topCardDataList, updateTid) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, topCardDataList, updateTid) == null) {
             Intrinsics.checkNotNullParameter(topCardDataList, "topCardDataList");
             Intrinsics.checkNotNullParameter(updateTid, "updateTid");
             if (topCardDataList.size() <= 0) {
@@ -463,30 +475,30 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 if (this.b.getChildCount() == 1 && this.k.size() == 1) {
                     this.d.setVisibility(8);
                     TopCardItemView topCardItemView = (TopCardItemView) ViewGroupKt.get(this.b, 0);
-                    topCardItemView.g(false, this.j);
+                    topCardItemView.h(false, this.j);
                     topCardItemView.setViewStyle("top_card_view_style_first", true);
-                    f(b(topCardItemView));
+                    g(b(topCardItemView));
                 } else if (this.b.getChildCount() == 1) {
                     TopCardItemView topCardItemView2 = (TopCardItemView) ViewGroupKt.get(this.b, 0);
-                    topCardItemView2.g(false, this.j);
+                    topCardItemView2.h(false, this.j);
                     this.c.setImageResource(R.drawable.icon_mask_zhankai);
                     this.e = true;
                     a aVar = this.a;
                     if (aVar != null) {
                         aVar.a(true);
                     }
-                    f(b(topCardItemView2));
+                    g(b(topCardItemView2));
                 } else if (d()) {
                     this.m = false;
                     int childCount = this.b.getChildCount();
                     int i2 = 0;
                     for (int i3 = 0; i3 < childCount; i3++) {
                         TopCardItemView topCardItemView3 = (TopCardItemView) ViewGroupKt.get(this.b, i3);
-                        topCardItemView3.g(false, this.j);
-                        g(topCardItemView3, i3);
+                        topCardItemView3.h(false, this.j);
+                        h(topCardItemView3, i3);
                         i2 += b(topCardItemView3);
                     }
-                    f(i2);
+                    g(i2);
                 } else {
                     int childCount2 = this.b.getChildCount();
                     while (true) {
@@ -495,8 +507,8 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                         }
                         TopCardItemView topCardItemView4 = (TopCardItemView) ViewGroupKt.get(this.b, i);
                         if (Intrinsics.areEqual(updateTid, topCardItemView4.getTid())) {
-                            topCardItemView4.g(true, this.j);
-                            g(topCardItemView4, i);
+                            topCardItemView4.h(true, this.j);
+                            h(topCardItemView4, i);
                             break;
                         }
                         i++;
@@ -511,8 +523,8 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                     }
                     TopCardItemView topCardItemView5 = (TopCardItemView) ViewGroupKt.get(this.b, i4);
                     if (Intrinsics.areEqual(updateTid, topCardItemView5.getTid())) {
-                        topCardItemView5.g(false, this.j);
-                        g(topCardItemView5, i4);
+                        topCardItemView5.h(false, this.j);
+                        h(topCardItemView5, i4);
                         break;
                     }
                     i4++;
@@ -522,10 +534,10 @@ public final class TopCardView extends RelativeLayout implements ta7 {
         }
     }
 
-    public final void m(List<r77> topCardDataList, int i, boolean z, String themeColorInfo) {
+    public final void n(List<e87> topCardDataList, int i, boolean z, String themeColorInfo) {
         Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{topCardDataList, Integer.valueOf(i), Boolean.valueOf(z), themeColorInfo}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{topCardDataList, Integer.valueOf(i), Boolean.valueOf(z), themeColorInfo}) == null) {
             Intrinsics.checkNotNullParameter(topCardDataList, "topCardDataList");
             Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
             boolean z2 = true;
@@ -534,7 +546,7 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 this.k = topCardDataList;
                 this.j = z;
                 this.l = themeColorInfo;
-                l77 h = topCardDataList.get(0).h();
+                y77 h = topCardDataList.get(0).h();
                 if (h != null) {
                     l = Long.valueOf(h.d);
                 } else {
@@ -553,23 +565,23 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 this.m = e(topCardDataList, z);
                 TopCardItemView topCardItemView = new TopCardItemView(getContext(), null, 0, 6, null);
                 this.o = topCardDataList.get(0);
-                Iterator<r77> it = topCardDataList.iterator();
+                Iterator<e87> it = topCardDataList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    r77 next = it.next();
+                    e87 next = it.next();
                     if (!next.c()) {
                         this.o = next;
                         break;
                     }
                 }
-                Iterator<r77> it2 = topCardDataList.iterator();
+                Iterator<e87> it2 = topCardDataList.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
                     }
-                    r77 next2 = it2.next();
+                    e87 next2 = it2.next();
                     if (!next2.c() && !next2.b()) {
                         this.o = next2;
                         break;
@@ -597,28 +609,16 @@ public final class TopCardView extends RelativeLayout implements ta7 {
                 topCardItemView.setSplitViewVisible(false);
                 this.b.addView(topCardItemView, new RelativeLayout.LayoutParams(-1, -2));
                 topCardItemView.measure(View.MeasureSpec.makeMeasureSpec(getContext().getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(getContext().getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-                f(topCardItemView.getMeasuredHeight());
+                g(topCardItemView.getMeasuredHeight());
                 this.h = topCardItemView.getMeasuredHeight() - this.i;
                 requestLayout();
-                r();
+                f();
                 return;
             }
             if (i != 2) {
                 z2 = false;
             }
             this.e = z2;
-        }
-    }
-
-    @Override // com.baidu.tieba.ta7
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
-            int childCount = this.b.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                ((TopCardItemView) ViewGroupKt.get(this.b, i)).r();
-            }
         }
     }
 }

@@ -1,35 +1,54 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialConstants;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class atc extends qoc {
+public final class atc extends zsc {
     public static /* synthetic */ Interceptable $ic;
+    public static final atc a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedOriginPic feedOriginPic) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedOriginPic)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (feedOriginPic.pics != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (PicInfo picInfo : feedOriginPic.pics) {
-                    jSONArray.put(g1d.b(picInfo));
-                }
-                qoc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628153, "Lcom/baidu/tieba/atc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            qoc.a(jSONObject, "schema", feedOriginPic.schema);
-            return jSONObject;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947628153, "Lcom/baidu/tieba/atc;");
+                return;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        a = new atc();
+    }
+
+    public atc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static zsc e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (zsc) invokeV.objValue;
     }
 }

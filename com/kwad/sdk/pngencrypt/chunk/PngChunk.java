@@ -3,14 +3,24 @@ package com.kwad.sdk.pngencrypt.chunk;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 /* loaded from: classes10.dex */
 public abstract class PngChunk {
-    public final com.kwad.sdk.pngencrypt.k akJ;
-    public final String alB;
-    public final boolean alK;
-    public final boolean alL;
-    public final boolean alM;
-    public d alN;
-    public boolean alO = false;
-    public int alP = -1;
+    public final com.kwad.sdk.pngencrypt.k aJz;
+    public final boolean aKA;
+    public final boolean aKB;
+    public d aKC;
+    public boolean aKD = false;
+    public int aKE = -1;
+    public final boolean aKz;
+    public final String agT;
+
+    public abstract void a(d dVar);
+
+    public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
+        this.agT = str;
+        this.aJz = kVar;
+        this.aKz = b.fB(str);
+        this.aKA = b.fC(str);
+        this.aKB = b.fD(str);
+    }
 
     /* loaded from: classes10.dex */
     public enum ChunkOrderingConstraint {
@@ -26,61 +36,88 @@ public abstract class PngChunk {
             if (this == NONE) {
                 return true;
             }
-            return this == BEFORE_IDAT ? i < 4 : this == BEFORE_PLTE_AND_IDAT ? i < 2 : this == AFTER_PLTE_BEFORE_IDAT ? z ? i < 4 : i < 4 && i > 2 : this == AFTER_IDAT && i > 4;
+            if (this == BEFORE_IDAT) {
+                if (i < 4) {
+                    return true;
+                }
+                return false;
+            } else if (this == BEFORE_PLTE_AND_IDAT) {
+                if (i < 2) {
+                    return true;
+                }
+                return false;
+            } else if (this == AFTER_PLTE_BEFORE_IDAT) {
+                if (z) {
+                    if (i < 4) {
+                        return true;
+                    }
+                    return false;
+                } else if (i < 4 && i > 2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (this == AFTER_IDAT && i > 4) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public final boolean mustGoAfterIDAT() {
-            return this == AFTER_IDAT;
+            if (this == AFTER_IDAT) {
+                return true;
+            }
+            return false;
         }
 
         public final boolean mustGoAfterPLTE() {
-            return this == AFTER_PLTE_BEFORE_IDAT || this == AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED;
+            if (this != AFTER_PLTE_BEFORE_IDAT && this != AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED) {
+                return false;
+            }
+            return true;
         }
 
         public final boolean mustGoBeforeIDAT() {
-            return this == BEFORE_IDAT || this == BEFORE_PLTE_AND_IDAT || this == AFTER_PLTE_BEFORE_IDAT;
+            if (this != BEFORE_IDAT && this != BEFORE_PLTE_AND_IDAT && this != AFTER_PLTE_BEFORE_IDAT) {
+                return false;
+            }
+            return true;
         }
 
         public final boolean mustGoBeforePLTE() {
-            return this == BEFORE_PLTE_AND_IDAT;
+            if (this == BEFORE_PLTE_AND_IDAT) {
+                return true;
+            }
+            return false;
         }
     }
 
-    public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.alB = str;
-        this.akJ = kVar;
-        this.alK = b.dr(str);
-        this.alL = b.ds(str);
-        this.alM = b.dt(str);
-    }
-
-    private long yG() {
-        d dVar = this.alN;
+    private long IJ() {
+        d dVar = this.aKC;
         if (dVar != null) {
-            return dVar.yG();
+            return dVar.IJ();
         }
         return -1L;
     }
 
-    private int yI() {
-        d dVar = this.alN;
+    private int IL() {
+        d dVar = this.aKC;
         if (dVar != null) {
             return dVar.len;
         }
         return -1;
     }
 
-    public abstract void a(d dVar);
+    public String toString() {
+        return "chunk id= " + this.agT + " (len=" + IL() + " offset=" + IJ() + SmallTailInfo.EMOTION_SUFFIX;
+    }
 
     public final void b(d dVar) {
-        this.alN = dVar;
+        this.aKC = dVar;
     }
 
-    public final void br(int i) {
-        this.alP = i;
-    }
-
-    public String toString() {
-        return "chunk id= " + this.alB + " (len=" + yI() + " offset=" + yG() + SmallTailInfo.EMOTION_SUFFIX;
+    public final void dq(int i) {
+        this.aKE = i;
     }
 }

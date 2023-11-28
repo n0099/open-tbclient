@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.h;
 import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d d;
@@ -238,74 +237,6 @@ public class d {
         }
     }
 
-    public synchronized void a(String str, String str2) {
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            synchronized (this) {
-                LinkedHashMap linkedHashMap = null;
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.b.put("c_time", Long.toString(currentTimeMillis));
-                    this.b.put("cache_e", str);
-                    this.b.put("cache_m", str2);
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("c_time", currentTimeMillis);
-                    jSONObject.put("cache_e", str);
-                    jSONObject.put("cache_m", str2);
-                    byte[] c = com.yxcorp.kuaishou.addfp.android.b.b.c(jSONObject.toString().getBytes(), "20212102sjcudiab".getBytes());
-                    try {
-                        bArr = Base64.encode(c, 0);
-                    } catch (Throwable unused) {
-                        bArr = null;
-                    }
-                    if (bArr == null) {
-                        try {
-                            bArr = Base64.encode(c, 8);
-                        } catch (Throwable unused2) {
-                        }
-                    }
-                    if (bArr != null) {
-                        this.a.a(new String(bArr));
-                    }
-                } catch (Throwable unused3) {
-                }
-                try {
-                    String a = com.yxcorp.kuaishou.addfp.c.a.a.a(this.c, "k_w_o_d_out_dtt");
-                    if (TextUtils.isEmpty(a) && g.a(this.c, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                        a = a("Lm91a2R0ZnQ=");
-                    }
-                    if (!TextUtils.isEmpty(a) && (linkedHashMap = b(a)) != null) {
-                        c cVar = b.a;
-                        String a2 = cVar.a();
-                        if (!TextUtils.isEmpty(a2)) {
-                            if (linkedHashMap.containsKey(a2)) {
-                                linkedHashMap.remove(a2);
-                            }
-                            linkedHashMap.put(cVar.a(), str);
-                        }
-                    }
-                    if (linkedHashMap == null || linkedHashMap.size() == 0) {
-                        linkedHashMap = new LinkedHashMap();
-                        linkedHashMap.put(b.a.a(), str);
-                    }
-                    String a3 = a(linkedHashMap);
-                    if (!TextUtils.isEmpty(a3)) {
-                        try {
-                            Settings.System.putString(this.c.getContentResolver(), "k_w_o_d_out_dtt", a3);
-                        } catch (Throwable unused4) {
-                        }
-                        if (g.a(this.c, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                            a(this.c, a3);
-                        }
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
     public LinkedHashMap b(String str) {
         InterceptResult invokeL;
         Throwable th;
@@ -354,5 +285,73 @@ public class d {
             return new LinkedHashMap();
         }
         return (LinkedHashMap) invokeL.objValue;
+    }
+
+    public synchronized void a(String str, String str2) {
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            synchronized (this) {
+                LinkedHashMap linkedHashMap = null;
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.b.put("c_time", Long.toString(currentTimeMillis));
+                    this.b.put("cache_e", str);
+                    this.b.put("cache_m", str2);
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("c_time", currentTimeMillis);
+                    jSONObject.put("cache_e", str);
+                    jSONObject.put("cache_m", str2);
+                    byte[] c = com.yxcorp.kuaishou.addfp.android.b.b.c(jSONObject.toString().getBytes(), "20212102sjcudiab".getBytes());
+                    try {
+                        bArr = Base64.encode(c, 0);
+                    } catch (Throwable unused) {
+                        bArr = null;
+                    }
+                    if (bArr == null) {
+                        try {
+                            bArr = Base64.encode(c, 8);
+                        } catch (Throwable unused2) {
+                        }
+                    }
+                    if (bArr != null) {
+                        this.a.a(new String(bArr));
+                    }
+                } catch (Throwable unused3) {
+                }
+                try {
+                    String a = com.yxcorp.kuaishou.addfp.c.a.a.a(this.c, "k_w_o_d_out_dtt");
+                    if (TextUtils.isEmpty(a) && g.a(this.c, new String[]{com.kuaishou.weapon.p0.g.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        a = a("Lm91a2R0ZnQ=");
+                    }
+                    if (!TextUtils.isEmpty(a) && (linkedHashMap = b(a)) != null) {
+                        c cVar = b.a;
+                        String a2 = cVar.a();
+                        if (!TextUtils.isEmpty(a2)) {
+                            if (linkedHashMap.containsKey(a2)) {
+                                linkedHashMap.remove(a2);
+                            }
+                            linkedHashMap.put(cVar.a(), str);
+                        }
+                    }
+                    if (linkedHashMap == null || linkedHashMap.size() == 0) {
+                        linkedHashMap = new LinkedHashMap();
+                        linkedHashMap.put(b.a.a(), str);
+                    }
+                    String a3 = a(linkedHashMap);
+                    if (!TextUtils.isEmpty(a3)) {
+                        try {
+                            Settings.System.putString(this.c.getContentResolver(), "k_w_o_d_out_dtt", a3);
+                        } catch (Throwable unused4) {
+                        }
+                        if (g.a(this.c, new String[]{com.kuaishou.weapon.p0.g.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                            a(this.c, a3);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+        }
     }
 }

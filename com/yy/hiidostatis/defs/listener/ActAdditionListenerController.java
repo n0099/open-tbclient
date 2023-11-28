@@ -7,7 +7,7 @@ import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ActAdditionListenerController {
     public Map<IAct, ActListener> actMap = new HashMap();
     public HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate;

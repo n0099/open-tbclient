@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.ljc;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.vjc;
+import com.baidu.tieba.goc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.qoc;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements ljc {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements goc {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final pjc<? super T> child;
+    public final koc<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(pjc<? super T> pjcVar) {
-        this.child = pjcVar;
+    public SingleDelayedProducer(koc<? super T> kocVar) {
+        this.child = kocVar;
     }
 
-    @Override // com.baidu.tieba.ljc
+    @Override // com.baidu.tieba.goc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements ljc
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(pjc<? super T> pjcVar, T t) {
-        if (pjcVar.isUnsubscribed()) {
+    public static <T> void emit(koc<? super T> kocVar, T t) {
+        if (kocVar.isUnsubscribed()) {
             return;
         }
         try {
-            pjcVar.onNext(t);
-            if (pjcVar.isUnsubscribed()) {
+            kocVar.onNext(t);
+            if (kocVar.isUnsubscribed()) {
                 return;
             }
-            pjcVar.onCompleted();
+            kocVar.onCompleted();
         } catch (Throwable th) {
-            vjc.g(th, pjcVar, t);
+            qoc.g(th, kocVar, t);
         }
     }
 }

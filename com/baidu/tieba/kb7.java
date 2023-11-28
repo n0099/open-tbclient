@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.oa7;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class kb7 implements oa7.b {
+public class kb7 implements eb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hb7 a;
+    @Inject(force = false)
+    public qf1<eb7> a;
 
-    public kb7(hb7 statStrategy) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            of1 b = of1.b();
+            this.a = b;
+            b.a(new fb7());
+        }
+    }
+
+    public kb7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,35 +39,30 @@ public final class kb7 implements oa7.b {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        this.a = statStrategy;
+        b();
     }
 
-    @Override // com.baidu.tieba.oa7.b
-    public void a(ab7<?> data, int i) {
-        Map<String, String> a;
+    @Override // com.baidu.tieba.eb7
+    @NonNull
+    public List<mb7<?, ?>> a() {
+        InterceptResult invokeV;
+        List<eb7> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            ka7 ka7Var = (ka7) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            e57 e57Var = new e57();
-            e57 e57Var2 = ka7Var.b;
-            if (e57Var2 != null) {
-                e57Var = e57Var2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            qf1<eb7> qf1Var = this.a;
+            if (qf1Var == null) {
+                list = null;
+            } else {
+                list = qf1Var.getList();
             }
-            if (ka7Var.b != null) {
-                for (Map.Entry<String, String> entry : this.a.a(e57Var).entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
+            if (list != null) {
+                for (eb7 eb7Var : list) {
+                    arrayList.addAll(eb7Var.a());
                 }
             }
-            w67 w67Var = ka7Var.a;
-            if (w67Var != null && (a = w67Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-            }
-            TiebaStatic.log(statisticItem);
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ResultTB implements Serializable, Cloneable {
     public static final String CMD = "cmd";
     public static final String ENDTIME = "end_time";
@@ -25,7 +25,7 @@ public class ResultTB implements Serializable, Cloneable {
     public long updateTime = -1;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1221view = null;
+    public String f1222view = null;
     public String uip = null;
     public int source = 0;
 
@@ -74,7 +74,7 @@ public class ResultTB implements Serializable, Cloneable {
     }
 
     public String getView() {
-        return this.f1221view;
+        return this.f1222view;
     }
 
     public void setCmd(String str) {
@@ -118,6 +118,6 @@ public class ResultTB implements Serializable, Cloneable {
     }
 
     public void setView(String str) {
-        this.f1221view = str;
+        this.f1222view = str;
     }
 }

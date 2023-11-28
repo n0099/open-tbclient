@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.ap8;
-import com.baidu.tieba.fq8;
+import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.q5;
+import com.baidu.tieba.mt8;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.r5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
+public abstract class ChatMessage extends TbSocketMessage implements r5, pi {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -52,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<fq8> iceBreakEmotions;
+    public List<mt8> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<ap8> itemViewWeakReference;
+    public WeakReference<hs8> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -281,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
         return invokeV.intValue;
     }
 
-    public List<fq8> getIceBreakEmotions() {
+    public List<mt8> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
     }
 
     @Nullable
-    public ap8 getItemView() {
+    public hs8 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<ap8> weakReference = this.itemViewWeakReference;
+            WeakReference<hs8> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (ap8) invokeV.objValue;
+        return (hs8) invokeV.objValue;
     }
 
     public String getLink() {
@@ -578,7 +578,7 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
         }
     }
 
-    @Override // com.baidu.tieba.oi
+    @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -619,7 +619,7 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q5
+    @Override // com.baidu.tieba.r5
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -636,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable ap8 ap8Var) {
-        WeakReference<ap8> weakReference;
+    public void setItemView(@Nullable hs8 hs8Var) {
+        WeakReference<hs8> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, ap8Var) == null) {
-            if (ap8Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, hs8Var) == null) {
+            if (hs8Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<ap8> weakReference2 = this.itemViewWeakReference;
+            WeakReference<hs8> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == ap8Var) {
+                if (weakReference2.get() == hs8Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(ap8Var);
+            this.itemViewWeakReference = new WeakReference<>(hs8Var);
         }
     }
 
@@ -727,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements q5, oi {
         }
     }
 
-    public void setIceBreakEmotions(List<fq8> list) {
+    public void setIceBreakEmotions(List<mt8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

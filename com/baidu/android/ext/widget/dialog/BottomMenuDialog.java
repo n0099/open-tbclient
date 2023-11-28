@@ -127,7 +127,7 @@ public class BottomMenuDialog extends DialogFragment {
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
                 View inflate = View.inflate(this.mContext, R.layout.bottom_menu_item, null);
                 TextView textView = (TextView) inflate.findViewById(R.id.menu_item);
-                textView.setTextColor(this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060768));
+                textView.setTextColor(this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f06076a));
                 List<String> list = this.mData;
                 if (list != null && list.size() > i) {
                     textView.setText(this.mData.get(i));
@@ -303,11 +303,11 @@ public class BottomMenuDialog extends DialogFragment {
             getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003e5);
             View inflate = layoutInflater.inflate(R.layout.bottom_menu_dialog, viewGroup);
             this.mRootView = inflate;
-            inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b99));
+            inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060ba0));
             TextView textView = (TextView) this.mRootView.findViewById(R.id.menu_title);
             this.mTitleView = textView;
             textView.setText(this.mTitle);
-            this.mTitleView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0604a9));
+            this.mTitleView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0604ab));
             TextView textView2 = this.mTitleView;
             if (!this.isTitleShow) {
                 i = 8;
@@ -316,18 +316,18 @@ public class BottomMenuDialog extends DialogFragment {
             TextView textView3 = (TextView) this.mRootView.findViewById(R.id.menu_bottom);
             this.mBottomView = textView3;
             textView3.setText(this.mBottomTxt);
-            this.mBottomView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0604a9));
+            this.mBottomView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0604ab));
             this.mListView = (ListView) this.mRootView.findViewById(R.id.bottom_dialog_list);
             OptionAdapter optionAdapter = new OptionAdapter(this, getContext());
             this.mAdapter = optionAdapter;
             optionAdapter.setData(this.mOriginalData);
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
-            this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f0604ff));
+            this.mListView.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060501));
             this.mListView.setDividerHeight(1);
-            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f0803ae);
-            this.mRootView.findViewById(R.id.header_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604ff));
-            this.mRootView.findViewById(R.id.bottom_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604fe));
-            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0803ae));
+            this.mListView.setSelector(R.drawable.obfuscated_res_0x7f0803b1);
+            this.mRootView.findViewById(R.id.header_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060501));
+            this.mRootView.findViewById(R.id.bottom_devider).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060500));
+            this.mBottomView.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0803b1));
             setup();
             return this.mRootView;
         }

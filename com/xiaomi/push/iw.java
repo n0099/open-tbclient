@@ -6,7 +6,7 @@ public class iw {
     public final jd a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jm f802a;
+    public final jm f798a;
 
     public iw() {
         this(new iz.a());
@@ -14,13 +14,13 @@ public class iw {
 
     public iw(jf jfVar) {
         jm jmVar = new jm();
-        this.f802a = jmVar;
+        this.f798a = jmVar;
         this.a = jfVar.a(jmVar);
     }
 
     public void a(is isVar, byte[] bArr) {
         try {
-            this.f802a.a(bArr);
+            this.f798a.a(bArr);
             isVar.a(this.a);
         } finally {
             this.a.k();

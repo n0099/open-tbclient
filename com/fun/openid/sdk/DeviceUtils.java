@@ -125,7 +125,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
+                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.g.c)) {
                         IMEI = ApiReplaceUtil.getDeviceId(telephonyManager);
                     }
                 } catch (Exception e) {
@@ -157,7 +157,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
+                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.g.c)) {
                         if (Build.VERSION.SDK_INT >= 26) {
                             try {
                                 Method method = telephonyManager.getClass().getMethod("getImei", new Class[0]);
@@ -209,7 +209,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    return (!checkPermission(context, com.kuaishou.weapon.p0.h.c) || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
+                    return (!checkPermission(context, com.kuaishou.weapon.p0.g.c) || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return "";
@@ -225,7 +225,7 @@ public class DeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.p0.h.c) || Build.VERSION.SDK_INT >= 30) {
+            if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.p0.g.c) || Build.VERSION.SDK_INT >= 30) {
                 return 0;
             }
             return telephonyManager.getNetworkType();

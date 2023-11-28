@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.StateInfo;
+import tbclient.GraffitiInfo;
 /* loaded from: classes8.dex */
-public class t3d extends qoc {
+public class t3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StateInfo stateInfo) {
+    public static JSONObject b(@NonNull GraffitiInfo graffitiInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, stateInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, graffitiInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon", stateInfo.icon);
-            qoc.a(jSONObject, "text", stateInfo.text);
-            qoc.a(jSONObject, "icon_type", stateInfo.icon_type);
-            qoc.a(jSONObject, "icon_pid", stateInfo.icon_pid);
-            qoc.a(jSONObject, "icon_pid_new", stateInfo.icon_pid_new);
+            ltc.a(jSONObject, "url", graffitiInfo.url);
+            ltc.a(jSONObject, TbEnum.ParamKey.GID, graffitiInfo.gid);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

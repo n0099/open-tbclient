@@ -1,43 +1,40 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class xia extends Thread {
+public class xia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public boolean k;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a();
-    }
-
-    public xia(String str, String str2, boolean z) {
+    public xia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,93 +44,85 @@ public class xia extends Thread {
                 return;
             }
         }
-        this.a = true;
-        this.d = null;
-        this.e = null;
+        this.k = false;
+    }
+
+    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
+            return;
+        }
+        int i = advertAppInfo.n;
+        if (i == 3) {
+            this.a = "apk_download";
+            this.f = advertAppInfo.q;
+            this.g = advertAppInfo.p;
+        } else if (i == 1) {
+            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+        }
+        this.e = adCard.getButtonText();
+        this.b = adCard.userName;
+        this.c = adCard.userImage;
+        this.d = adCard.scheme;
+        this.i = adCard.threadTitle;
+        this.j = adCard.getButtonCmdScheme();
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("style");
+        this.b = jSONObject.optString("user_name");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optString("scheme");
+        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.h = jSONObject.optInt("close_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
+        if (optJSONObject != null) {
+            this.f = optJSONObject.optString("pkgname");
+            this.g = optJSONObject.optString("download_url");
+        }
+        jSONObject.optString("content");
+        this.k = true;
+        this.j = jSONObject.optString("button_scheme");
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
         try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + ".txt"), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
+            b(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public final void a() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
-            }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
-                        }
-                    }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            } finally {
-                a();
+                jSONObject.put("style", this.a);
+                jSONObject.put("user_name", this.b);
+                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
+                jSONObject.put("scheme", this.d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pkgname", this.f);
+                jSONObject2.put("download_url", this.g);
+                jSONObject.put("ext_data", jSONObject2);
+                jSONObject.put("content", this.h);
+                jSONObject.put("button_scheme", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

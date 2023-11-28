@@ -2,89 +2,58 @@ package com.kwad.components.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.components.core.playable.PlayableSource;
+import com.kwad.sdk.utils.bn;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class a implements com.kwad.sdk.core.webview.kwai.a {
-    public com.kwad.sdk.core.webview.kwai.c Lb;
-    public com.kwad.components.core.webview.jshandler.b Lc;
+public final class a implements com.kwad.sdk.core.webview.c.a {
+    public b VB;
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0642a extends com.kwad.sdk.core.response.kwai.a {
-        public String Ld;
-
-        public final String getTarget() {
-            return this.Ld;
-        }
+    public static class C0664a extends com.kwad.sdk.core.response.a.a {
+        public String Jw;
+        public String VE;
+        public String VF;
     }
 
-    @KsJson
     /* loaded from: classes10.dex */
-    public static class b extends com.kwad.sdk.core.response.kwai.a {
-        public int Le;
-        public int Lf;
-        public int Lg;
-        public int oQ;
+    public interface b {
+        void c(C0664a c0664a);
     }
 
-    public a(com.kwad.components.core.webview.jshandler.b bVar) {
-        this.Lc = bVar;
-    }
-
-    public final void a(com.kwad.sdk.core.response.kwai.a aVar) {
-        com.kwad.sdk.core.webview.kwai.c cVar = this.Lb;
-        if (cVar == null || aVar == null) {
-            return;
-        }
-        cVar.a(aVar);
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.Lb = cVar;
-        try {
-            C0642a c0642a = new C0642a();
-            c0642a.parseJson(new JSONObject(str));
-            String target = c0642a.getTarget();
-            if (this.Lc != null) {
-                this.Lc.a(this, target);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public final void as(int i) {
-        b bVar = new b();
-        bVar.oQ = i;
-        a(bVar);
-    }
-
-    public final void f(PlayableSource playableSource) {
-        if (playableSource == null) {
-            return;
-        }
-        b bVar = new b();
-        bVar.Le = playableSource.getCode();
-        a(bVar);
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     @NonNull
     public final String getKey() {
-        return "getNativeData";
+        return "adOutCallback";
     }
 
-    public final void h(boolean z, boolean z2) {
-        b bVar = new b();
-        bVar.Lf = z ? 1 : 0;
-        bVar.Lg = z2 ? 1 : 0;
-        a(bVar);
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     public final void onDestroy() {
-        this.Lb = null;
+    }
+
+    public a(b bVar) {
+        this.VB = bVar;
+    }
+
+    private void b(final C0664a c0664a) {
+        bn.postOnUiThread(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.a.1
+            @Override // java.lang.Runnable
+            public final void run() {
+                if (a.this.VB != null) {
+                    a.this.VB.c(c0664a);
+                }
+            }
+        });
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        try {
+            C0664a c0664a = new C0664a();
+            c0664a.parseJson(new JSONObject(str));
+            b(c0664a);
+        } catch (Throwable unused) {
+        }
     }
 }

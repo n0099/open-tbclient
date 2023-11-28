@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,17 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes8.dex */
-public class r36 {
+public class r36 extends q6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v36> a;
-    public List<v36> b;
+    public boolean a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r36() {
+        super(304001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,89 +27,45 @@ public class r36 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public List<v36> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.n6
+    public /* bridge */ /* synthetic */ SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        i(socketResponsedMessage2);
+        return socketResponsedMessage2;
     }
 
-    public final boolean b(List<v36> list, ta5 ta5Var) {
-        InterceptResult invokeLL;
-        List<ta5> a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ta5Var)) == null) {
-            if (list != null && ta5Var != null) {
-                for (v36 v36Var : list) {
-                    if (v36Var != null && (a = v36Var.a()) != null) {
-                        for (ta5 ta5Var2 : a) {
-                            if (ta5Var2 != null && ta5Var2.d() == ta5Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean c(DataRes dataRes) {
+    public SocketResponsedMessage i(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes != null && dataRes.robots_list != null) {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        v36 v36Var = new v36();
-                        v36Var.d(robotslist);
-                        this.b.add(v36Var);
-                    }
-                }
-            } else {
-                z = false;
-            }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        v36 v36Var2 = new v36();
-                        v36Var2.c(listdata);
-                        if (v36Var2.a() != null) {
-                            for (ta5 ta5Var : v36Var2.a()) {
-                                if (b(this.b, ta5Var)) {
-                                    ta5Var.q(1);
-                                } else {
-                                    ta5Var.q(0);
-                                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                z36 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                if (addressListData != null) {
+                    for (d46 d46Var : addressListData.a()) {
+                        List<ya5> a = d46Var.a();
+                        ArrayList arrayList = new ArrayList();
+                        for (ya5 ya5Var : a) {
+                            if (!this.a && ya5Var.h() == 1) {
+                                arrayList.add(ya5Var);
                             }
                         }
-                        this.a.add(v36Var2);
+                        a.removeAll(arrayList);
                     }
                 }
             }
-            return z;
+            return socketResponsedMessage;
         }
-        return invokeL.booleanValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

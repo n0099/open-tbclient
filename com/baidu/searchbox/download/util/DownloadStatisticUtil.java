@@ -3,7 +3,7 @@ package com.baidu.searchbox.download.util;
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.ox;
+import com.baidu.tieba.px;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -183,6 +183,6 @@ public class DownloadStatisticUtil {
                 e.printStackTrace();
             }
         }
-        ox.z(str6, jSONObject.toString());
+        px.z(str6, jSONObject.toString());
     }
 }

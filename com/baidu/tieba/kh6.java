@@ -1,10 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface kh6<Key, Value> {
-    @Nullable
-    Value a(Key key) throws Exception;
+public class kh6 extends jh6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Key key, yjc<Value, Exception> yjcVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kh6(WebView webView) {
+        super(webView);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((WebView) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static void e(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.setHorizontalScrollbarOverlay(false);
+            webView.setVerticalScrollBarEnabled(true);
+            webView.setVerticalScrollbarOverlay(true);
+            new kh6(webView).a();
+        }
+    }
+
+    @Override // com.baidu.tieba.jh6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+        }
+    }
 }

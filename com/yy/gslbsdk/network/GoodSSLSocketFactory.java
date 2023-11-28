@@ -17,7 +17,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GoodSSLSocketFactory extends SSLSocketFactory {
     public static final String TAG = "GoodSSLSocketFactory";
     public static String[] cipherSuites;

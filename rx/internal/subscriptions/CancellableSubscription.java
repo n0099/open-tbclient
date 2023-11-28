@@ -1,19 +1,19 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.akc;
-import com.baidu.tieba.qjc;
-import com.baidu.tieba.vjc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.qoc;
+import com.baidu.tieba.usc;
+import com.baidu.tieba.voc;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class CancellableSubscription extends AtomicReference<akc> implements qjc {
+public final class CancellableSubscription extends AtomicReference<voc> implements loc {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableSubscription(akc akcVar) {
-        super(akcVar);
+    public CancellableSubscription(voc vocVar) {
+        super(vocVar);
     }
 
-    @Override // com.baidu.tieba.qjc
+    @Override // com.baidu.tieba.loc
     public boolean isUnsubscribed() {
         if (get() == null) {
             return true;
@@ -21,15 +21,15 @@ public final class CancellableSubscription extends AtomicReference<akc> implemen
         return false;
     }
 
-    @Override // com.baidu.tieba.qjc
+    @Override // com.baidu.tieba.loc
     public void unsubscribe() {
-        akc andSet;
+        voc andSet;
         if (get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                vjc.e(e);
-                znc.j(e);
+                qoc.e(e);
+                usc.j(e);
             }
         }
     }

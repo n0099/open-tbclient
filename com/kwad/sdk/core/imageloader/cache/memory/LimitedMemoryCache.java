@@ -14,6 +14,10 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
     public final List<DecodedResult> hardCache = Collections.synchronizedList(new LinkedList());
     public final AtomicInteger cacheSize = new AtomicInteger();
 
+    public abstract int getSize(DecodedResult decodedResult);
+
+    public abstract DecodedResult removeNext();
+
     public LimitedMemoryCache(int i) {
         this.sizeLimit = i;
         if (i > 16777216) {
@@ -22,13 +26,20 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public DecodedResult remove(String str) {
+        DecodedResult decodedResult = super.get(str);
+        if (decodedResult != null && this.hardCache.remove(decodedResult)) {
+            this.cacheSize.addAndGet(-getSize(decodedResult));
+        }
+        return super.remove(str);
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public void clear() {
         this.hardCache.clear();
         this.cacheSize.set(0);
         super.clear();
     }
-
-    public abstract int getSize(DecodedResult decodedResult);
 
     public int getSizeLimit() {
         return this.sizeLimit;
@@ -56,15 +67,4 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
         super.put(str, decodedResult);
         return z;
     }
-
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public DecodedResult remove(String str) {
-        DecodedResult decodedResult = super.get(str);
-        if (decodedResult != null && this.hardCache.remove(decodedResult)) {
-            this.cacheSize.addAndGet(-getSize(decodedResult));
-        }
-        return super.remove(str);
-    }
-
-    public abstract DecodedResult removeNext();
 }

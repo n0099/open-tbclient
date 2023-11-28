@@ -1,146 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public final class js1 extends jr2<js1> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface js1 {
+    rs1 a(Context context);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        public static final String a = jr2.r("SwanApkFetcher.Params", "title");
-        public static final String b = jr2.r("SwanApkFetcher.Params", "pkg_name");
-        public static final String c = jr2.r("SwanApkFetcher.Params", "description");
-        public static final String d = jr2.r("SwanApkFetcher.Params", "should_auto_install");
-        public static final String e = jr2.r("SwanApkFetcher.Params", "current_swan_app");
-        public static final String f = jr2.r("SwanApkFetcher.Params", "content_disposition");
-        public static final String g = jr2.r("SwanApkFetcher.Params", "mime_type");
-        public static final String h = jr2.r("SwanApkFetcher.Params", "user_agent");
-        public static final String i = jr2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
-        public static final String j = jr2.r("SwanApkFetcher.Params", MigrateStatisticUtils.EXT_INFO);
-    }
+    ns1 b(Context context);
 
-    public js1 N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (js1) invokeV.objValue;
-    }
+    rs1 c(Context context);
 
-    public js1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    c82 d();
 
-    @Override // com.baidu.tieba.cl3
-    public /* bridge */ /* synthetic */ cl3 k() {
-        N();
-        return this;
-    }
+    os1 e(Context context, int i);
 
-    public js1 F(Boolean bool) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
-            return t(a.d, bool.booleanValue());
-        }
-        return (js1) invokeL.objValue;
-    }
+    rs1 f(Context context);
 
-    public js1 G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return z(a.f, str);
-        }
-        return (js1) invokeL.objValue;
-    }
+    rs1 g(Context context);
 
-    public js1 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.i, str);
-        }
-        return (js1) invokeL.objValue;
-    }
+    d82 h(Context context, int i);
 
-    public js1 I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return z(a.e, str);
-        }
-        return (js1) invokeL.objValue;
-    }
+    rs1 i(Context context);
 
-    public js1 J(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return z(a.c, str);
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    public js1 K(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return z(a.j, str);
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    public js1 L(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return z(a.g, str);
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    public js1 M(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return z(a.b, str);
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    public js1 O(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return z(a.a, str);
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    public js1 P(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return z(a.h, str);
-        }
-        return (js1) invokeL.objValue;
-    }
+    boolean j(int i);
 }

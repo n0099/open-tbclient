@@ -1,7 +1,26 @@
 package com.baidu.tieba;
 
 import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
+/* compiled from: JsPromptInterface.java */
 /* loaded from: classes7.dex */
-public interface lj6 {
-    void a(WebView webView, String str);
+public final /* synthetic */ class lj6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void b(mj6 mj6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, mj6Var) == null) {
+        }
+    }
+
+    public static void a(mj6 mj6Var, WebView webView, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, mj6Var, webView, str, jSONObject) != null) || webView == null) {
+            return;
+        }
+        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+    }
 }

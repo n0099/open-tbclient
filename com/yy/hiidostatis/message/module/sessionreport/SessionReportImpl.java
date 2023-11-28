@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SessionReportImpl implements SessionReport {
     public MessageConfig config;
     public Packer packer;
     public Map<String, Session> sessions = new ConcurrentHashMap();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class Session {
         public final String act;
         public final SessionReport.AfterFlush afterFlush;

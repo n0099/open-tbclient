@@ -8,7 +8,6 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.downloader.Downloader;
 import com.baidu.cyberplayer.sdk.loader.CyberCoreLoader;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -185,7 +184,7 @@ public class CyberFileUtils {
         MD5VerificationException mD5VerificationException;
         ArrayList arrayList = new ArrayList();
         try {
-            CyberLog.d(TAG, ZeusPerformanceTiming.KEY_UNZIP + file + " to " + str);
+            CyberLog.d(TAG, "unzip" + file + " to " + str);
             ArrayList<String> unZip = ZipUtils.unZip(file, str);
             StringBuilder sb = new StringBuilder();
             sb.append("unzip FileList:");

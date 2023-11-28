@@ -16,13 +16,13 @@ public class cp extends fw {
 
     @Override // com.xiaomi.push.fw
     /* renamed from: a */
-    public byte[] mo518a() {
+    public byte[] mo522a() {
         try {
             dw.b bVar = new dw.b();
-            bVar.a(bv.a().m813a());
-            return bVar.m452a();
+            bVar.a(bv.a().m817a());
+            return bVar.m456a();
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("getOBBString err: " + e.toString());
+            com.xiaomi.channel.commonutils.logger.b.m190a("getOBBString err: " + e.toString());
             return null;
         }
     }

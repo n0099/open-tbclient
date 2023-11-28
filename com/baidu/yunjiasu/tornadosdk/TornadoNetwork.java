@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.n0;
+import com.kuaishou.weapon.p0.am;
 import java.lang.reflect.Method;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -599,7 +599,7 @@ public final class TornadoNetwork {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0045, code lost:
         return r1;
      */
     /*
@@ -618,7 +618,7 @@ public final class TornadoNetwork {
                     String interfaceName = linkProperties.getInterfaceName();
                     Intrinsics.checkNotNull(interfaceName);
                     Intrinsics.checkNotNullExpressionValue(interfaceName, "lp.interfaceName!!");
-                    if (StringsKt__StringsJVMKt.startsWith(interfaceName, n0.a, true)) {
+                    if (StringsKt__StringsJVMKt.startsWith(interfaceName, am.a, true)) {
                         continue;
                     }
                 }

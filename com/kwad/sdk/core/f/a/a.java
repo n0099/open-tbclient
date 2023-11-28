@@ -1,45 +1,56 @@
 package com.kwad.sdk.core.f.a;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.asus.msa.SupplementaryDID.IDidAidlInterface;
+import com.kwad.sdk.core.f.b.a;
+import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes10.dex */
-public interface a extends IInterface {
-
-    /* renamed from: com.kwad.sdk.core.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C0661a implements a {
-        public IBinder Zy;
-
-        public C0661a(IBinder iBinder) {
+public final class a {
+    public final LinkedBlockingQueue<IBinder> auS = new LinkedBlockingQueue<>(1);
+    public ServiceConnection auT = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
+        @Override // android.content.ServiceConnection
+        public final void onServiceDisconnected(ComponentName componentName) {
         }
 
-        @Override // android.os.IInterface
-        public final IBinder asBinder() {
-            return this.Zy;
-        }
-
-        public final String getID() {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
+        @Override // android.content.ServiceConnection
+        public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                obtain.writeInterfaceToken(IDidAidlInterface.Stub.DESCRIPTOR);
-                this.Zy.transact(3, obtain, obtain2, 0);
-                obtain2.readException();
-                String readString = obtain2.readString();
-                obtain.recycle();
-                obtain2.recycle();
-                return readString;
+                a.this.auS.put(iBinder);
             } catch (Exception unused) {
-                obtain.recycle();
-                obtain2.recycle();
-                return null;
-            } catch (Throwable th) {
-                obtain.recycle();
-                obtain2.recycle();
-                throw th;
             }
         }
+    };
+    public Context mContext;
+
+    public a(Context context) {
+        this.mContext = context;
+    }
+
+    public final String getOAID() {
+        Context context;
+        String str = "";
+        try {
+            Intent intent = new Intent();
+            intent.setAction("com.asus.msa.action.ACCESS_DID");
+            intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
+            if (this.mContext.bindService(intent, this.auT, 1)) {
+                try {
+                    str = new a.C0708a(this.auS.take()).getID();
+                    new StringBuilder("getOAID oaid:").append(str);
+                    context = this.mContext;
+                } catch (Exception unused) {
+                    context = this.mContext;
+                } catch (Throwable th) {
+                    this.mContext.unbindService(this.auT);
+                    throw th;
+                }
+                context.unbindService(this.auT);
+            }
+        } catch (Exception unused2) {
+        }
+        return str;
     }
 }

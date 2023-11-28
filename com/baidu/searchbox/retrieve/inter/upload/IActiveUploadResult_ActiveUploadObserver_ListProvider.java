@@ -1,16 +1,16 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
-import com.baidu.tieba.kib;
-import com.baidu.tieba.lf1;
+import com.baidu.tieba.gnb;
+import com.baidu.tieba.mf1;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements lf1 {
-    @Override // com.baidu.tieba.lf1
+public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements mf1 {
+    @Override // com.baidu.tieba.mf1
     public Object get() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new DebugActiveUploadResult());
-        arrayList.add(new kib());
+        arrayList.add(new gnb());
         return arrayList;
     }
 }

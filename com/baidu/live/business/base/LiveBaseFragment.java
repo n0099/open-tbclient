@@ -15,7 +15,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.v70;
+import com.baidu.tieba.w70;
 /* loaded from: classes3.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public LiveTabEntity a;
@@ -69,23 +69,12 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
-    public abstract RecyclerView v2();
+    public abstract RecyclerView H2();
 
-    public abstract void y2(boolean z);
+    public abstract void K2(boolean z);
 
-    public void b() {
-        x2(null);
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        this.b = null;
-        v70.a().e(this);
-    }
-
-    public int u2() {
-        RecyclerView.LayoutManager layoutManager = v2().getLayoutManager();
+    public int G2() {
+        RecyclerView.LayoutManager layoutManager = H2().getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
             return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
         }
@@ -96,7 +85,73 @@ public abstract class LiveBaseFragment extends Fragment {
         return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
     }
 
-    public boolean A2() {
+    public void b() {
+        J2(null);
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        this.b = null;
+        w70.a().e(this);
+    }
+
+    public boolean I2(String str, String str2, int i) {
+        if (str == null) {
+            str = "";
+        }
+        if (str2 == null) {
+            str2 = "";
+        }
+        return (str + "_" + str2 + "_" + i).equals(this.q);
+    }
+
+    public void J2(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+        this.s = onLoadMoreListener;
+        this.p = 1;
+        String str = this.q;
+        if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
+            return;
+        }
+        this.q = this.m + "_" + this.o + "_" + this.p;
+        this.k = this.k + 1;
+        RequestUtil.setResource(40);
+        ILiveFeedModel iLiveFeedModel = this.h;
+        if (iLiveFeedModel != null) {
+            iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
+        }
+    }
+
+    public void L2(boolean z) {
+        K2(z);
+    }
+
+    public void P2(String str) {
+        this.f = str;
+    }
+
+    public void Q2(LiveFeedConfig liveFeedConfig) {
+        this.c = liveFeedConfig;
+    }
+
+    public void R2(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+        this.d = liveFeedReserveWrapData;
+    }
+
+    public void S2(LiveFeedWrapData liveFeedWrapData) {
+        this.b = liveFeedWrapData;
+    }
+
+    public void T2(a aVar) {
+        this.r = aVar;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onCreate(@Nullable Bundle bundle) {
+        super.onCreate(bundle);
+    }
+
+    public boolean M2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -113,7 +168,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean B2() {
+    public boolean N2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -130,7 +185,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean C2() {
+    public boolean O2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -145,60 +200,5 @@ public abstract class LiveBaseFragment extends Fragment {
             iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
         }
         return true;
-    }
-
-    public void D2(String str) {
-        this.f = str;
-    }
-
-    public void E2(LiveFeedConfig liveFeedConfig) {
-        this.c = liveFeedConfig;
-    }
-
-    public void F2(LiveFeedReserveWrapData liveFeedReserveWrapData) {
-        this.d = liveFeedReserveWrapData;
-    }
-
-    public void G2(LiveFeedWrapData liveFeedWrapData) {
-        this.b = liveFeedWrapData;
-    }
-
-    public void H2(a aVar) {
-        this.r = aVar;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-    }
-
-    public void z2(boolean z) {
-        y2(z);
-    }
-
-    public boolean w2(String str, String str2, int i) {
-        if (str == null) {
-            str = "";
-        }
-        if (str2 == null) {
-            str2 = "";
-        }
-        return (str + "_" + str2 + "_" + i).equals(this.q);
-    }
-
-    public void x2(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
-        this.s = onLoadMoreListener;
-        this.p = 1;
-        String str = this.q;
-        if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
-            return;
-        }
-        this.q = this.m + "_" + this.o + "_" + this.p;
-        this.k = this.k + 1;
-        RequestUtil.setResource(40);
-        ILiveFeedModel iLiveFeedModel = this.h;
-        if (iLiveFeedModel != null) {
-            iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
-        }
     }
 }

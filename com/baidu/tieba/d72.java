@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.tieba.o62;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.p62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,32 +12,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes5.dex */
 public class d72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o62 a;
-    public final x62 b;
-    public final l62 c;
-    public long d;
-    public String e;
-    public Timer f;
+    public final p62 a;
+    public final y62 b;
+    public final m62 c;
 
     /* loaded from: classes5.dex */
-    public class a extends TimerTask {
+    public class a implements p62.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d72 a;
+        public final /* synthetic */ a72 a;
+        public final /* synthetic */ o62 b;
+        public final /* synthetic */ d72 c;
 
-        public a(d72 d72Var) {
+        public a(d72 d72Var, a72 a72Var, o62 o62Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d72Var};
+                Object[] objArr = {d72Var, a72Var, o62Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,65 +44,59 @@ public class d72 {
                     return;
                 }
             }
-            this.a = d72Var;
+            this.c = d72Var;
+            this.a = a72Var;
+            this.b = o62Var;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.p62.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                i62.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (d72.d) {
+                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                }
+                j62.g(sb.toString());
+                this.c.d(networkStatus);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements o62.b {
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n62 a;
-        public final /* synthetic */ z62 b;
-        public final /* synthetic */ zk3 c;
-        public final /* synthetic */ d72 d;
 
-        public b(d72 d72Var, n62 n62Var, z62 z62Var, zk3 zk3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d72Var, n62Var, z62Var, zk3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-907012116, "Lcom/baidu/tieba/d72$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-907012116, "Lcom/baidu/tieba/d72$b;");
                     return;
                 }
             }
-            this.d = d72Var;
-            this.a = n62Var;
-            this.b = z62Var;
-            this.c = zk3Var;
-        }
-
-        @Override // com.baidu.tieba.o62.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                if (d72.g) {
-                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
-                }
-                this.d.e = sb.toString();
-                zk3 zk3Var = this.c;
-                if (zk3Var != null) {
-                    zk3Var.a(this.d.e);
-                }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
@@ -125,57 +114,7 @@ public class d72 {
                 return;
             }
         }
-        g = rm1.a;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
-            timer.cancel();
-            this.f = null;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (g) {
-                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
-            }
-            g();
-            Timer timer = new Timer();
-            this.f = timer;
-            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-        }
+        d = sm1.a;
     }
 
     public d72() {
@@ -191,24 +130,33 @@ public class d72 {
                 return;
             }
         }
-        this.d = System.currentTimeMillis();
-        this.e = "";
-        this.a = new o62();
-        this.b = x62.d();
-        this.c = l62.d();
+        this.c = m62.d();
+        this.a = new p62();
+        this.b = y62.d();
     }
 
-    public void e(@Nullable zk3<String> zk3Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zk3Var) == null) {
-            if (d() && !TextUtils.isEmpty(this.e)) {
-                if (zk3Var != null) {
-                    zk3Var.a(this.e);
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (d) {
+                Log.d("SceneInitDataTips", ">> trigger init data error event.");
             }
-            this.a.a(new b(this, this.c.f(), this.b.f(), zk3Var));
+            y62.d().j();
+            m62.d().j();
+            o62 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
+        }
+    }
+
+    public final void d(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+            int i = b.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                h62.f(R.string.obfuscated_res_0x7f0f15dd);
+            } else {
+                h62.f(R.string.obfuscated_res_0x7f0f15d3);
+            }
         }
     }
 }

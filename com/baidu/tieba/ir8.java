@@ -1,67 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.safe.UiUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ir8 {
+public final class ir8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbWebView a;
 
-    public static short b(int i) {
-        InterceptResult invokeI;
+    public ir8(TbWebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeI.shortValue;
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = webView;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public static final void b(ir8 this$0, String name, HashMap params) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.message_text_error_because_network;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b != 4) {
-                        if (b != 5) {
-                            if (b == 6) {
-                                i2 = R.string.message_text_error_because_refuse;
-                            }
-                            i2 = -1;
-                        } else {
-                            i2 = R.string.message_text_error_because_refuse_stranger;
-                        }
-                    } else {
-                        i2 = R.string.message_text_error_because_refuse_friend;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, name, params) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(name, "$name");
+            Intrinsics.checkNotNullParameter(params, "$params");
+            nj6.a().d(this$0.a, name, params);
+        }
+    }
+
+    public static final void d(ir8 this$0, String eventName, String json) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, eventName, json) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(eventName, "$eventName");
+            Intrinsics.checkNotNullParameter(json, "$json");
+            nj6.a().i(this$0.a, eventName, new JSONObject(json));
+        }
+    }
+
+    public final void a(final String name, final HashMap<String, Object> params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, name, params) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            Intrinsics.checkNotNullParameter(params, "params");
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.dr8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ir8.b(ir8.this, name, params);
                     }
                 }
-            }
-            if (i2 != -1) {
-                return TbadkCoreApplication.getInst().getResources().getString(i2);
-            }
-            return str;
+            });
         }
-        return (String) invokeIL.objValue;
+    }
+
+    public final void c(final String eventName, final String json) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eventName, json) == null) {
+            Intrinsics.checkNotNullParameter(eventName, "eventName");
+            Intrinsics.checkNotNullParameter(json, "json");
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.er8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ir8.d(ir8.this, eventName, json);
+                    }
+                }
+            });
+        }
     }
 }

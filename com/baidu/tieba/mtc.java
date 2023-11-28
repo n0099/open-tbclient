@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ForumFriendWatchingInfo;
+import tbclient.AbilityConf;
 /* loaded from: classes7.dex */
-public class mtc extends qoc {
+public class mtc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumFriendWatchingInfo forumFriendWatchingInfo) {
+    public static JSONObject b(@NonNull AbilityConf abilityConf) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumFriendWatchingInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, abilityConf)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "forum_avatar", forumFriendWatchingInfo.forum_avatar);
-            qoc.a(jSONObject, "forum_name", forumFriendWatchingInfo.forum_name);
-            qoc.a(jSONObject, "show_num", forumFriendWatchingInfo.show_num);
-            qoc.a(jSONObject, "show_type", forumFriendWatchingInfo.show_type);
+            ltc.a(jSONObject, "bot_uk", abilityConf.bot_uk);
+            ltc.a(jSONObject, "skill_id", abilityConf.skill_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

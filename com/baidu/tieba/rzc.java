@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.LinkThreadContent;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes8.dex */
-public class rzc extends qoc {
+public class rzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LinkThreadContent linkThreadContent) {
+    public static JSONObject b(@NonNull Classify classify) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkThreadContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, classify)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "link_type", linkThreadContent.link_type);
-            qoc.a(jSONObject, "link_title", linkThreadContent.link_title);
-            qoc.a(jSONObject, "link_abstract", linkThreadContent.link_abstract);
-            qoc.a(jSONObject, "link_head_pic", linkThreadContent.link_head_pic);
-            qoc.a(jSONObject, "link_head_small_pic", linkThreadContent.link_head_small_pic);
-            qoc.a(jSONObject, "link_head_big_pic", linkThreadContent.link_head_big_pic);
+            ltc.a(jSONObject, "name", classify.name);
+            ltc.a(jSONObject, "id", classify.id);
+            ltc.a(jSONObject, "class_id", classify.class_id);
+            ltc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, classify.class_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

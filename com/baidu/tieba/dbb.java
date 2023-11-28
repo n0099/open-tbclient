@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class dbb extends sk6 {
+public final class dbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView d;
-    public final HashSet<String> e;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
-    public abstract void i(WebView webView, String str);
-
-    public abstract void j(WebView webView, String str);
-
-    public dbb(TbWebView webView) {
+    public dbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,80 +28,63 @@ public abstract class dbb extends sk6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.d = webView;
-        HashSet<String> hashSet = new HashSet<>();
-        this.e = hashSet;
-        hashSet.add("onPageStarted");
-        this.e.add("onPageFinished");
-        this.e.add("onAddView");
-        this.e.add("onDraftLoad");
-        this.d.m(this);
-        c(new lj6() { // from class: com.baidu.tieba.zab
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.lj6
-            public final void a(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    dbb.d(dbb.this, webView2, str);
-                }
-            }
-        });
-        b(new kj6() { // from class: com.baidu.tieba.xab
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.kj6
-            public final void onPageFinished(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    dbb.e(dbb.this, webView2, str);
-                }
-            }
-        });
+        this.d = 200L;
     }
 
-    public static final void d(dbb this$0, WebView webView, String str) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.j(webView, str);
-            this$0.f("onPageStarted");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public static final void e(dbb this$0, WebView webView, String str) {
+    public final void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.i(webView, str);
-            this$0.f("onPageFinished");
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public final void f(String str) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.e.remove(str);
-            if (this.e.isEmpty()) {
-                ej6.a().i(this.d, "writePageNa.pageReady", new JSONObject());
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f("onAddView");
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f("onDraftLoad");
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
     }
 }

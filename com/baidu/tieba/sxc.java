@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Video;
+import tbclient.FeedKV;
 /* loaded from: classes8.dex */
-public class sxc extends qoc {
+public class sxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Video video) {
+    public static JSONObject b(@NonNull FeedKV feedKV) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, video)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedKV)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "pic", video.pic);
-            qoc.a(jSONObject, "num", video.num);
+            ltc.a(jSONObject, "key", feedKV.key);
+            ltc.a(jSONObject, "value", feedKV.value);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

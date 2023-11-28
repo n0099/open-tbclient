@@ -1,17 +1,11 @@
 package com.kwad.sdk.core.videocache;
 /* loaded from: classes10.dex */
-public final class m {
-    public final long aeV;
-    public final String aeW;
-    public final String url;
+public interface m {
+    void al(long j);
 
-    public m(String str, long j, String str2) {
-        this.url = str;
-        this.aeV = j;
-        this.aeW = str2;
-    }
+    void close();
 
-    public final String toString() {
-        return "SourceInfo{url='" + this.url + "', length=" + this.aeV + ", mime='" + this.aeW + "'}";
-    }
+    long length();
+
+    int read(byte[] bArr);
 }

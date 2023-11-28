@@ -12,7 +12,6 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.ubc.UBCManager;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -234,7 +233,7 @@ public final class DiskUtilKt {
         File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
         if (externalFilesDir != null) {
             arrayList.add(new File(externalFilesDir, "downloads"));
-            arrayList.add(new File(externalFilesDir, ZeusPerformanceTiming.KEY_UNZIP));
+            arrayList.add(new File(externalFilesDir, "unzip"));
         }
         return arrayList;
     }

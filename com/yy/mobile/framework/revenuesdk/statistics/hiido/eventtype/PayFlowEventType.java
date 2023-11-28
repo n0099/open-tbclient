@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayFlowEventType {
     public static final String paychargeorderStatus = "paychargeorderStatus";
     public static final String payingaddpaymentrequest = "payingaddpaymentrequest";

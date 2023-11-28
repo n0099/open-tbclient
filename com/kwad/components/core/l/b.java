@@ -1,74 +1,101 @@
 package com.kwad.components.core.l;
 
-import androidx.annotation.NonNull;
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.Set;
-import java.util.WeakHashMap;
+import androidx.annotation.CallSuper;
+import com.kwad.components.core.l.a;
+import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes10.dex */
-public class b {
-    public static volatile boolean IA = false;
-    public static volatile Set<c> IB = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
-    public static volatile b Ix = null;
-    public static volatile int Iy = 204800;
-    public static volatile boolean Iz = true;
+public abstract class b<T extends a> extends com.kwad.components.core.proxy.c {
+    public T mCallerContext;
+    public Presenter mPresenter;
 
-    public static synchronized void a(c cVar) {
-        synchronized (b.class) {
-            if (IB.contains(cVar)) {
-                IB.remove(cVar);
-            }
+    public abstract T onCreateCallerContext();
+
+    public abstract Presenter onCreatePresenter();
+
+    private void notifyOnCreate() {
+        T t = this.mCallerContext;
+        if (t == null) {
+            return;
+        }
+        for (com.kwad.components.core.l.a.a aVar : t.Mm) {
+            aVar.fN();
         }
     }
 
-    public static void e(boolean z, int i) {
-        if (i > 0) {
-            Iy = i * 1024;
+    private void notifyOnDestroy() {
+        T t = this.mCallerContext;
+        if (t == null) {
+            return;
         }
-        Iz = z;
-    }
-
-    public static boolean ln() {
-        return Iz;
-    }
-
-    public static int lo() {
-        return Iy / 1024;
-    }
-
-    public static b or() {
-        if (Ix == null) {
-            synchronized (b.class) {
-                if (Ix == null) {
-                    Ix = new b();
-                }
-            }
+        for (com.kwad.components.core.l.a.a aVar : t.Mm) {
+            aVar.fO();
         }
-        return Ix;
     }
 
-    public static synchronized InputStream wrap(@NonNull InputStream inputStream) {
-        c cVar;
-        synchronized (b.class) {
-            cVar = new c(inputStream, Iy / (IB.size() + 1));
-            IB.add(cVar);
+    private void notifyOnPause() {
+        T t = this.mCallerContext;
+        if (t == null) {
+            return;
         }
-        return cVar;
-    }
-
-    public static InputStream wrapInputStream(InputStream inputStream) {
-        return wrap(inputStream);
-    }
-
-    public final synchronized int lp() {
-        int i;
-        i = 0;
-        try {
-            for (c cVar : IB) {
-                i += (int) cVar.os();
-            }
-        } catch (Exception unused) {
+        for (com.kwad.components.core.l.a.a aVar : t.Mm) {
+            aVar.d(this);
         }
-        return i;
+    }
+
+    private void notifyOnResume() {
+        T t = this.mCallerContext;
+        if (t == null) {
+            return;
+        }
+        for (com.kwad.components.core.l.a.a aVar : t.Mm) {
+            aVar.c(this);
+        }
+    }
+
+    public void initMVP() {
+        this.mCallerContext = onCreateCallerContext();
+        if (this.mPresenter == null) {
+            Presenter onCreatePresenter = onCreatePresenter();
+            this.mPresenter = onCreatePresenter;
+            onCreatePresenter.G(this.mRootView);
+        }
+        this.mPresenter.k(this.mCallerContext);
+    }
+
+    @Override // com.kwad.components.core.proxy.c
+    @CallSuper
+    public void onActivityCreate() {
+        super.onActivityCreate();
+        initMVP();
+        notifyOnCreate();
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    @CallSuper
+    public void onDestroy() {
+        super.onDestroy();
+        notifyOnDestroy();
+        T t = this.mCallerContext;
+        if (t != null) {
+            t.release();
+        }
+        Presenter presenter = this.mPresenter;
+        if (presenter != null) {
+            presenter.destroy();
+        }
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    @CallSuper
+    public void onPause() {
+        super.onPause();
+        notifyOnPause();
+    }
+
+    @Override // com.kwad.components.core.proxy.c, com.kwad.sdk.api.proxy.IActivityProxy
+    @CallSuper
+    public void onResume() {
+        super.onResume();
+        notifyOnResume();
     }
 }

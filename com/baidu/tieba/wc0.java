@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Service
 /* loaded from: classes8.dex */
-public class wc0 extends qe0 {
+public class wc0 extends re0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qe0
+    @Override // com.baidu.tieba.re0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
     }
 
     public wc0() {
@@ -38,13 +38,19 @@ public class wc0 extends qe0 {
         }
     }
 
-    @Override // com.baidu.tieba.qe0
-    public boolean b(@NonNull Context context, @NonNull ue0 ue0Var, @Nullable Map<String, Object> map, @Nullable ye0 ye0Var) {
+    @Override // com.baidu.tieba.re0
+    public boolean b(@NonNull Context context, @NonNull ve0 ve0Var, @Nullable Map<String, Object> map, @Nullable ze0 ze0Var) {
         InterceptResult invokeLLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ue0Var, map, ye0Var)) == null) {
-            super.b(context, ue0Var, map, ye0Var);
-            lg0.k().b(ue0Var, ye0Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ve0Var, map, ze0Var)) == null) {
+            boolean b = super.b(context, ve0Var, map, ze0Var);
+            if (b) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            c(ze0Var, ve0Var, i, b);
             return true;
         }
         return invokeLLLL.booleanValue;

@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ix6> a;
+    public String a;
+    public int b;
+    public String c;
 
     public jx6() {
         Interceptable interceptable = $ic;
@@ -28,21 +30,25 @@ public class jx6 {
         }
     }
 
-    public void a(List<FrsTabInfo> list) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (list == null) {
-                return;
-            }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new ix6(frsTabInfo));
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.c);
         }
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optString(pic.f);
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("server_time");
+        this.b = jSONObject.optInt("adid");
+        this.c = jSONObject.optString("big_pic");
+        jSONObject.optString("small_pic");
     }
 }

@@ -16,38 +16,43 @@ import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public final class c extends AnimationDrawable {
-    public Bitmap AE;
-    public Bitmap AF;
-    public Bitmap AG;
-    public Bitmap AH;
-    public Bitmap AI;
-    public Bitmap AJ;
-    public int AK;
-    public RectF AL;
-    public Paint AM;
-    public Paint AN;
-    public PorterDuffXfermode AO;
-    public final int AP;
-    public final int AQ;
-    public float AR;
-    public float AS;
-    public RectF AT;
-    public Paint AU;
-    public int AV;
-    public int AW;
-    public ValueAnimator AX;
-    public final float AY = 6.0f;
-    public final float AZ = 11.0f;
-    public float Ba;
-    public float Bb;
-    public int Bc;
+    public RectF GA;
+    public Paint GB;
+    public int GC;
+    public int GD;
+    public ValueAnimator GE;
+    public final float GF = 6.0f;
+    public final float GG = 11.0f;
+    public float GH;
+    public float GI;
+    public int GJ;
+    public Bitmap Gl;
+    public Bitmap Gm;
+    public Bitmap Gn;
+    public Bitmap Go;
+    public Bitmap Gp;
+    public Bitmap Gq;
+    public int Gr;
+    public RectF Gs;
+    public Paint Gt;
+    public Paint Gu;
+    public PorterDuffXfermode Gv;
+    public final int Gw;
+    public final int Gx;
+    public float Gy;
+    public float Gz;
     public Context mContext;
+
+    @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public final int getOpacity() {
+        return -2;
+    }
 
     public c(Context context, int i) {
         this.mContext = context;
-        this.AP = com.kwad.sdk.b.kwai.a.a(context, 51.0f);
-        this.AQ = com.kwad.sdk.b.kwai.a.a(context, 61.0f);
-        this.Bc = i;
+        this.Gw = com.kwad.sdk.d.a.a.a(context, 51.0f);
+        this.Gx = com.kwad.sdk.d.a.a.a(context, 61.0f);
+        this.GJ = i;
         init();
     }
 
@@ -55,190 +60,160 @@ public final class c extends AnimationDrawable {
     public void c(float f) {
         if (f <= 6.0f) {
             float f2 = f / 6.0f;
-            int i = this.Bc;
-            if (i == 0) {
-                RectF rectF = this.AT;
-                float f3 = this.AW * (1.0f - f2);
-                rectF.top = f3;
-                this.AL.offsetTo(rectF.left + this.AS, f3 + this.AR);
-                this.Bb = (f2 * 30.0f) + 290.0f;
-            } else if (i == 1) {
-                RectF rectF2 = this.AT;
+            int i = this.GJ;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        RectF rectF = this.GA;
+                        float f3 = this.GC * f2;
+                        rectF.right = f3;
+                        this.Gs.offsetTo(f3 + this.Gz, rectF.top + this.Gy);
+                        this.GI = (f2 * 30.0f) + 330.0f;
+                        return;
+                    }
+                    return;
+                }
+                RectF rectF2 = this.GA;
                 float f4 = 1.0f - f2;
-                float f5 = this.AV * f4;
+                float f5 = this.GC * f4;
                 rectF2.left = f5;
-                this.AL.offsetTo(f5 + this.AS, rectF2.top + this.AR);
-                this.Bb = f4 * 30.0f;
-            } else if (i != 2) {
-            } else {
-                RectF rectF3 = this.AT;
-                float f6 = this.AV * f2;
-                rectF3.right = f6;
-                this.AL.offsetTo(f6 + this.AS, rectF3.top + this.AR);
-                this.Bb = (f2 * 30.0f) + 330.0f;
+                this.Gs.offsetTo(f5 + this.Gz, rectF2.top + this.Gy);
+                this.GI = f4 * 30.0f;
+                return;
             }
+            RectF rectF3 = this.GA;
+            float f6 = this.GD * (1.0f - f2);
+            rectF3.top = f6;
+            this.Gs.offsetTo(rectF3.left + this.Gz, f6 + this.Gy);
+            this.GI = (f2 * 30.0f) + 290.0f;
         }
     }
 
     private void init() {
-        float f;
-        float f2;
-        Matrix matrix;
-        float f3;
-        this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ed7);
-        this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ed9);
-        this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ed8);
-        this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080edb);
-        this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080eda);
-        Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ee0);
-        int i = this.Bc;
+        this.Gl = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ef4);
+        this.Gm = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ef6);
+        this.Gn = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ef5);
+        this.Go = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ef8);
+        this.Gp = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080ef7);
+        Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080efd);
+        int i = this.GJ;
         if (i != 0) {
-            if (i == 1) {
-                matrix = new Matrix();
-                f3 = 270.0f;
-            } else if (i == 2) {
-                matrix = new Matrix();
-                f3 = 90.0f;
-            }
-            matrix.postRotate(f3);
-            this.AJ = Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix, true);
-        } else {
-            this.AJ = decodeResource;
-        }
-        this.AK = com.kwad.sdk.b.kwai.a.a(this.mContext, 10.0f);
-        this.AU = new Paint(1);
-        int i2 = this.Bc;
-        if (i2 == 0) {
-            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070552);
-            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070553);
-            this.AV = dimension;
-            this.AR = (-this.AQ) * 0.22f;
-            f = dimension;
-            f2 = 0.08f;
-        } else if (i2 != 1) {
-            if (i2 == 2) {
-                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070553);
-                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070552);
-                this.AR = this.AW * 0.09f;
-                f = -this.AP;
-                f2 = 0.5f;
-            }
-            this.AT = new RectF(0.0f, 0.0f, this.AV, this.AW);
-            this.AM = new Paint(3);
-            Paint paint = new Paint(3);
-            this.AN = paint;
-            paint.setDither(true);
-            float f4 = this.AT.right;
-            this.AL = new RectF(f4 - this.AP, 0.0f, f4, this.AQ);
-            this.AO = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 6.0f, 11.0f);
-            this.AX = ofFloat;
-            ofFloat.setDuration(1100L);
-            this.AX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.splashscreen.widget.c.1
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    c.this.Ba = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    c cVar = c.this;
-                    cVar.c(cVar.Ba);
-                    c.this.invalidateSelf();
+            if (i != 1) {
+                if (i == 2) {
+                    Matrix matrix = new Matrix();
+                    matrix.postRotate(90.0f);
+                    this.Gq = Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix, true);
                 }
-            });
-            this.AX.setRepeatCount(-1);
+            } else {
+                Matrix matrix2 = new Matrix();
+                matrix2.postRotate(270.0f);
+                this.Gq = Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix2, true);
+            }
         } else {
-            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070553);
-            this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070552);
-            this.AR = this.AW * 0.09f;
-            f = -this.AP;
-            f2 = 0.2f;
+            this.Gq = decodeResource;
         }
-        this.AS = f * f2;
-        this.AT = new RectF(0.0f, 0.0f, this.AV, this.AW);
-        this.AM = new Paint(3);
-        Paint paint2 = new Paint(3);
-        this.AN = paint2;
-        paint2.setDither(true);
-        float f42 = this.AT.right;
-        this.AL = new RectF(f42 - this.AP, 0.0f, f42, this.AQ);
-        this.AO = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 6.0f, 11.0f);
-        this.AX = ofFloat2;
-        ofFloat2.setDuration(1100L);
-        this.AX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.splashscreen.widget.c.1
+        this.Gr = com.kwad.sdk.d.a.a.a(this.mContext, 10.0f);
+        this.GB = new Paint(1);
+        int i2 = this.GJ;
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
+                    this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
+                    this.Gy = this.GD * 0.09f;
+                    this.Gz = (-this.Gw) * 0.5f;
+                }
+            } else {
+                this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
+                this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
+                this.Gy = this.GD * 0.09f;
+                this.Gz = (-this.Gw) * 0.2f;
+            }
+        } else {
+            this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
+            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
+            this.GC = dimension;
+            this.Gy = (-this.Gx) * 0.22f;
+            this.Gz = dimension * 0.08f;
+        }
+        this.GA = new RectF(0.0f, 0.0f, this.GC, this.GD);
+        this.Gt = new Paint(3);
+        Paint paint = new Paint(3);
+        this.Gu = paint;
+        paint.setDither(true);
+        float f = this.GA.right;
+        this.Gs = new RectF(f - this.Gw, 0.0f, f, this.Gx);
+        this.Gv = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 6.0f, 11.0f);
+        this.GE = ofFloat;
+        ofFloat.setDuration(1100L);
+        this.GE.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.splashscreen.widget.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                c.this.Ba = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                c.this.GH = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 c cVar = c.this;
-                cVar.c(cVar.Ba);
+                cVar.c(cVar.GH);
                 c.this.invalidateSelf();
             }
         });
-        this.AX.setRepeatCount(-1);
+        this.GE.setRepeatCount(-1);
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public final void draw(@NonNull Canvas canvas) {
-        Bitmap bitmap;
-        if (this.AT == null) {
+        if (this.GA == null) {
             return;
         }
         canvas.save();
-        canvas.translate((getIntrinsicWidth() - this.AV) / 2, (getIntrinsicHeight() - this.AW) / 2);
-        float f = this.Ba;
+        canvas.translate((getIntrinsicWidth() - this.GC) / 2, (getIntrinsicHeight() - this.GD) / 2);
+        float f = this.GH;
         if (f <= 6.0f) {
-            this.AU.setAlpha((int) ((f * 255.0f) / 6.0f));
-            this.AN.setAlpha(255);
+            this.GB.setAlpha((int) ((f * 255.0f) / 6.0f));
+            this.Gu.setAlpha(255);
         } else {
             int i = (int) ((1.0f - ((f - 6.0f) / 5.0f)) * 255.0f);
-            this.AU.setAlpha(i);
-            this.AN.setAlpha(i);
+            this.GB.setAlpha(i);
+            this.Gu.setAlpha(i);
         }
         int save = canvas.save();
-        int saveLayer = canvas.saveLayer(this.AT, this.AU, 31);
-        canvas.drawBitmap(this.AJ, (Rect) null, this.AT, this.AU);
-        canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
-        this.AM.setXfermode(this.AO);
-        int i2 = this.Bc;
+        int saveLayer = canvas.saveLayer(this.GA, this.GB, 31);
+        try {
+            canvas.drawBitmap(this.Gq, (Rect) null, this.GA, this.GB);
+        } catch (Throwable unused) {
+        }
+        canvas.rotate(this.GI, this.Gs.centerX(), this.Gs.centerY());
+        this.Gt.setXfermode(this.Gv);
+        int i2 = this.GJ;
         if (i2 != 0) {
             if (i2 == 1) {
-                canvas.drawBitmap(this.AF, (Rect) null, this.AL, this.AM);
-                bitmap = this.AG;
+                canvas.drawBitmap(this.Gm, (Rect) null, this.Gs, this.Gt);
+                canvas.drawBitmap(this.Gn, (Rect) null, this.Gs, this.Gt);
             }
-            canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AM);
-            canvas.restoreToCount(saveLayer);
-            canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
-            canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AN);
-            canvas.restoreToCount(save);
-            canvas.restore();
+        } else {
+            canvas.drawBitmap(this.Go, (Rect) null, this.Gs, this.Gt);
+            canvas.drawBitmap(this.Gp, (Rect) null, this.Gs, this.Gt);
         }
-        canvas.drawBitmap(this.AH, (Rect) null, this.AL, this.AM);
-        bitmap = this.AI;
-        canvas.drawBitmap(bitmap, (Rect) null, this.AL, this.AM);
-        canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AM);
+        canvas.drawBitmap(this.Gl, (Rect) null, this.Gs, this.Gt);
         canvas.restoreToCount(saveLayer);
-        canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
-        canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AN);
+        canvas.rotate(this.GI, this.Gs.centerX(), this.Gs.centerY());
+        canvas.drawBitmap(this.Gl, (Rect) null, this.Gs, this.Gu);
         canvas.restoreToCount(save);
         canvas.restore();
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public final int getIntrinsicHeight() {
-        return this.AW + this.AQ + this.AK;
+        return this.GD + this.Gx + this.Gr;
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public final int getIntrinsicWidth() {
-        return this.AV + this.AP;
-    }
-
-    @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public final int getOpacity() {
-        return -2;
+        return this.GC + this.Gw;
     }
 
     @Override // android.graphics.drawable.AnimationDrawable, android.graphics.drawable.Animatable
     public final boolean isRunning() {
-        ValueAnimator valueAnimator = this.AX;
+        ValueAnimator valueAnimator = this.GE;
         if (valueAnimator != null) {
             return valueAnimator.isRunning();
         }
@@ -247,7 +222,7 @@ public final class c extends AnimationDrawable {
 
     @Override // android.graphics.drawable.AnimationDrawable, android.graphics.drawable.Animatable
     public final void start() {
-        ValueAnimator valueAnimator = this.AX;
+        ValueAnimator valueAnimator = this.GE;
         if (valueAnimator != null) {
             valueAnimator.start();
         }
@@ -255,7 +230,7 @@ public final class c extends AnimationDrawable {
 
     @Override // android.graphics.drawable.AnimationDrawable, android.graphics.drawable.Animatable
     public final void stop() {
-        ValueAnimator valueAnimator = this.AX;
+        ValueAnimator valueAnimator = this.GE;
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }

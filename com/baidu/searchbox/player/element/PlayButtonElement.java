@@ -83,9 +83,9 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
 
     public void setPlayIcon(boolean z) {
         if (z) {
-            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080283);
+            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080286);
         } else {
-            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080284);
+            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080287);
         }
     }
 

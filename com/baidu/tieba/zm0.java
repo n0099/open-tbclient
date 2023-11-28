@@ -7,22 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class zm0 {
+public class zm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
     public int a;
     @JvmField
-    public long b;
+    public int b;
     @JvmField
-    public long c;
+    public Object c;
+    @JvmField
+    public tm0 d;
+    @JvmField
+    public wm0 e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +40,7 @@ public final class zm0 {
                 return;
             }
         }
-        d = new a(null);
+        f = new a(null);
     }
 
     /* loaded from: classes9.dex */
@@ -68,18 +71,24 @@ public final class zm0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    zm0 zm0Var = new zm0();
-                    zm0Var.a = jSONObject.optInt("style");
-                    long j = 0;
-                    if (jSONObject.optLong(DelayTB.DELAY) >= 0) {
-                        j = jSONObject.optLong(DelayTB.DELAY);
-                    }
-                    zm0Var.b = j;
-                    zm0Var.c = jSONObject.optLong("duration");
-                    return zm0Var;
+                if (jSONObject == null) {
+                    return null;
                 }
-                return null;
+                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
+                if (optJSONObject == null) {
+                    optJSONObject = my0.c(jSONObject.optString("popover"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                zm0 zm0Var = new zm0();
+                zm0Var.a = optJSONObject.optInt("type");
+                zm0Var.b = optJSONObject.optInt("show_time");
+                optJSONObject.optInt("async_get_popover_data_switch");
+                optJSONObject.optInt("async_get_popover_data_delay_time");
+                optJSONObject.optString("popover_data_request_url");
+                optJSONObject.optJSONObject("popover_data_request_params");
+                return zm0Var;
             }
             return (zm0) invokeL.objValue;
         }

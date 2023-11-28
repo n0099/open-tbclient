@@ -1,109 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eq1;
-import com.baidu.tieba.k53;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class c52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements eq1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-
-        public a(Context context, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625673, "Lcom/baidu/tieba/c52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.eq1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!z) {
-                    g32.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f013c));
-                    return;
-                }
-                g32.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.b.a(true, "");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625673, "Lcom/baidu/tieba/c52;");
+                return;
             }
         }
+        boolean z = sm1.a;
+    }
 
-        @Override // com.baidu.tieba.eq1.b
-        public void b(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                g32.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
-                String message = exc.getMessage();
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f013c));
-                if (TextUtils.isEmpty(message)) {
-                    str = "";
-                } else {
-                    str = "\n" + message;
-                }
-                sb.append(str);
-                this.b.a(false, sb.toString());
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            qs1 B = ur2.V().B(ur2.V().D());
+            if (B != null) {
+                h32.i("ConsoleMessageHelper", "send full San request");
+                B.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
             }
         }
     }
 
-    public static void a(@NonNull g63 g63Var, @NonNull Context context, @NonNull b bVar) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, g63Var, context, bVar) == null) {
-            um1.b(g63Var.P(), new a(context, bVar));
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put("data", str2);
+            ur2.V().n(ur2.V().r().a(), new ig2(str, hashMap));
         }
     }
 
-    public static void b(Context context, @StringRes int i, String str) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            k53.a aVar = new k53.a(context);
-            aVar.U(i);
-            aVar.x(str);
-            aVar.n(new ol3());
-            aVar.O(R.string.obfuscated_res_0x7f0f0149, null);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a("sanFullData2Console", str);
         }
     }
 
-    public static void c(Context context, String str) {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b(context, R.string.obfuscated_res_0x7f0f0182, str);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a("sanIncData2Console", str);
         }
     }
 }

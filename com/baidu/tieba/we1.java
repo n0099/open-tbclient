@@ -1,55 +1,72 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.URLUtil;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tieba.kp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class we1 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static float b;
-    public static float c;
-    public static int d;
-    public static int e;
-    public static float f;
+    public static d a;
+    public static List<ye1> b;
+    public static ye1 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public ArrayList<C0516a> b;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
 
         /* renamed from: com.baidu.tieba.we1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0516a {
+        public class C0519a implements kp0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public long a;
-            public long b;
+            public final /* synthetic */ a a;
 
-            public C0516a(long j, long j2) {
+            public C0519a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -59,29 +76,36 @@ public class we1 {
                         return;
                     }
                 }
-                this.a = j;
-                this.b = j2;
+                this.a = aVar;
             }
 
-            public boolean a(long j) {
-                InterceptResult invokeJ;
+            @Override // com.baidu.tieba.kp0.b
+            public void a(String str, int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                    if (j >= this.a && j <= this.b) {
-                        return true;
-                    }
-                    return false;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                    ClogBuilder.LogType logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
+                    a aVar = this.a;
+                    bz0.e(new dz0(logType, aVar.b, aVar.d, true).b(i, str, "download"));
                 }
-                return invokeJ.booleanValue;
+            }
+
+            @Override // com.baidu.tieba.kp0.b
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    a aVar = this.a;
+                    we1.A(aVar.a, aVar.c);
+                    ve1.m().g();
+                }
             }
         }
 
-        public a(JSONObject jSONObject) {
+        public a(File file, String str, File file2, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
+                Object[] objArr = {file, str, file2, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,541 +115,729 @@ public class we1 {
                     return;
                 }
             }
-            this.b = new ArrayList<>();
-            this.a = jSONObject.optLong("expires", 0L);
-            JSONArray optJSONArray = jSONObject.optJSONArray("schedule");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                    if (optJSONObject != null) {
-                        this.b.add(new C0516a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+            this.a = file;
+            this.b = str;
+            this.c = file2;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    kp0.a(this.a, this.b, new C0519a(this), this.e);
+                } catch (Exception e) {
+                    bz0.e(new dz0(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ye1 a;
+
+        public b(ye1 ye1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ye1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ye1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                we1.C(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+
+        public c(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            List list;
+            ye1 ye1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() != 0) {
+                ArrayList arrayList = new ArrayList(3);
+                Iterator it = this.a.iterator();
+                while (it.hasNext() && (ye1Var = (ye1) it.next()) != null) {
+                    if (we1.v(ye1Var.w)) {
+                        we1.j(ye1Var);
+                    } else {
+                        arrayList.add(ye1Var);
                     }
                 }
+                if (arrayList.size() > 0) {
+                    if (we1.a == null) {
+                        d unused = we1.a = new d(arrayList, null);
+                        hf0.b().registerReceiver(we1.a, we1.a.getIntentFilter());
+                        return;
+                    }
+                    we1.a.setNeedDownloadList(arrayList);
+                }
             }
         }
+    }
 
-        @Nullable
-        public static a c(@Nullable JSONObject jSONObject) {
-            InterceptResult invokeL;
+    /* loaded from: classes8.dex */
+    public static class d extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<ye1> mNeedDownloadList;
+
+        public d(List<ye1> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                try {
-                    return new a(jSONObject);
-                } catch (Exception unused) {
-                    return null;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return (a) invokeL.objValue;
+            this.mNeedDownloadList = list;
         }
 
-        public final boolean g(long j) {
-            InterceptResult invokeJ;
+        public void setNeedDownloadList(List<ye1> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                if (this.a > j) {
-                    return true;
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.mNeedDownloadList = list;
             }
-            return invokeJ.booleanValue;
         }
 
-        public final boolean d() {
+        public /* synthetic */ d(List list, a aVar) {
+            this(list);
+        }
+
+        public IntentFilter getIntentFilter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return e(System.currentTimeMillis() / 1000);
+                return new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
             }
-            return invokeV.booleanValue;
+            return (IntentFilter) invokeV.objValue;
         }
 
-        public final boolean f() {
+        public List<ye1> getNeedDownloadList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return g(System.currentTimeMillis() / 1000);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mNeedDownloadList;
             }
-            return invokeV.booleanValue;
+            return (List) invokeV.objValue;
         }
 
-        public final boolean e(long j) {
-            InterceptResult invokeJ;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                if (ky0.l(this.b) == 0) {
-                    return false;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, intent) == null) {
+                Log.d("SourceManager", "onReceive: receiver");
+                if (!TextUtils.equals(intent.getAction(), NetworkMonitor.NET_CHANGE_ACTION)) {
+                    return;
                 }
-                Iterator<C0516a> it = this.b.iterator();
-                while (it.hasNext()) {
-                    C0516a next = it.next();
-                    if (next != null && next.a(j)) {
-                        return true;
+                ArrayList arrayList = new ArrayList();
+                for (ye1 ye1Var : this.mNeedDownloadList) {
+                    if (we1.v(ye1Var.w)) {
+                        Log.d("SourceManager", "onReceive: " + ye1Var);
+                        we1.j(ye1Var);
+                    } else {
+                        arrayList.add(ye1Var);
                     }
                 }
-                return false;
+                this.mNeedDownloadList = arrayList;
             }
-            return invokeJ.booleanValue;
         }
     }
 
-    public static void A(JSONObject jSONObject) {
+    public static boolean A(File file, File file2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        if (jSONObject.has("gesture_lottie_sensitivity")) {
-            b = (float) jSONObject.optDouble("gesture_lottie_sensitivity", 0.0d);
-        }
-        if (jSONObject.has("hot_shake_sensitivity")) {
-            c = (float) jSONObject.optDouble("hot_shake_sensitivity", 0.0d);
-        }
-        if (jSONObject.has("shake_update_interval")) {
-            d = jSONObject.optInt("shake_update_interval", 67);
-        }
-        if (jSONObject.has("shake_direction_count")) {
-            e = jSONObject.optInt("shake_direction_count", 2);
-        }
-        if (jSONObject.has("shake_action_delay_time")) {
-            f = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
-        }
-    }
-
-    public static void M(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("freq");
-            if (optJSONObject != null) {
-                z(optJSONObject);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, file2)) == null) {
+            if (file != null && file2 != null) {
+                return file.renameTo(file2);
             }
-            J(jSONObject.optInt("query_time_out_advance", 100));
-            E((float) jSONObject.optDouble("hot_update_split_time", 5.0d));
-            w(jSONObject.optInt("open_bes_switch", 0));
-            G(jSONObject.optInt("md5_check_switch", 0));
-            K(jSONObject.optInt("request_count", 10));
-            H(jSONObject.optInt("monitor_log_switch", 1));
-            F(jSONObject.optString("inner_monitor_host", "https://sp0.baidu.com"));
-            y(jSONObject.optInt("crash_opt", 1));
-            x(jSONObject.optString("cpt_config", ""));
-            I(jSONObject.optInt("query_host_opt", 0));
-            A(jSONObject);
-        } catch (JSONException unused) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int f(ye1 ye1Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, ye1Var, i)) == null) {
+            return g(ye1Var, false, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static void B(List<ye1> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
+            c01.d(new c(list), "ScheduleDownloadSplashSourceThread");
         }
     }
 
-    public static void B(int i) {
+    public static void D(ye1 ye1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("hot_splash_max_count", i);
-        }
-    }
-
-    public static void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("hot_switch", i);
-        }
-    }
-
-    public static void D(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65539, null, f2) == null) {
-            xy0.a().b("splash_sp_name").e("hot_background_time", f2);
-        }
-    }
-
-    public static void E(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2) == null) {
-            xy0.a().b("splash_sp_name").e("hot_update_split_time", f2);
-        }
-    }
-
-    public static void F(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && !TextUtils.isEmpty(str)) {
-            xy0.a().b("splash_sp_name").i("inner_monitor_host", str, false);
-        }
-    }
-
-    public static void G(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("md5_check_switch", i);
-        }
-    }
-
-    public static void H(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("monitor_log_switch", i);
-        }
-    }
-
-    public static void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("query_host_opt", i);
-        }
-    }
-
-    public static void J(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("query_time_out_advance", i);
-        }
-    }
-
-    public static void K(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("request_count", i);
-        }
-    }
-
-    public static void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65573, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("open_bes_switch", i);
-        }
-    }
-
-    public static void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65575, null, i) == null) {
-            xy0.a().b("splash_sp_name").f("crash_opt", i);
-        }
-    }
-
-    public static void z(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65576, null, jSONObject) == null) {
-            D((float) jSONObject.optDouble("hot_background_time", 5.0d));
-            B(jSONObject.optInt("hot_splash_max_count", 3));
-            C(jSONObject.optInt("hot_switch", 1));
-        }
-    }
-
-    public static void L(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            String str2 = "";
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    str2 = new JSONObject(str).optString("server_block_reason", "");
-                } catch (JSONException unused) {
-                }
+        if ((interceptable == null || interceptable.invokeL(65539, null, ye1Var) == null) && ye1Var.v >= 1) {
+            int i = ye1Var.x;
+            if (i < Integer.MAX_VALUE) {
+                ye1Var.x = i + 1;
             }
-            xy0.a().b("splash_sp_name").h("server_block_reason", str2);
+            c01.d(new b(ye1Var), "updateSplashDataItemRate");
         }
     }
 
-    public static boolean a(int i) {
+    public static void E(List<ye1> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) && list != null && list.size() != 0) {
+            b = Collections.synchronizedList(list);
+            z(list, q());
+        }
+    }
+
+    public static File r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            String m = m(str);
+            if (TextUtils.isEmpty(m)) {
+                return null;
+            }
+            return new File(o(), m);
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(str);
+            stringBuffer.append(".tmp");
+            return new File(o(), stringBuffer.toString());
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static boolean v(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            JSONObject d2 = je1.a().d();
-            if (d2 == null || !d2.has("cpc_show_scene")) {
-                return true;
-            }
-            int optInt = d2.optInt("cpc_show_scene", 0);
-            if (optInt != 1) {
-                if (optInt != 2 || i == 1) {
-                    return true;
-                }
-                return false;
-            } else if (i == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean c(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65553, null, z)) == null) {
-            a e2 = e();
-            if (e2 == null) {
-                i = 13001;
-            } else if (!e2.f()) {
-                i = TaskResponseData.ERROR_NO_TASK_OFFLINE_02;
-            } else if (e2.d()) {
-                i = 13003;
-            } else {
-                i = 0;
-            }
-            if (i != 0 && z) {
-                BaseVM.k(i);
-            }
-            if (i != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public static void x(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65574, null, str) == null) && !TextUtils.isEmpty(str)) {
-            a = a.c(ly0.c(str));
-            xy0.a().b("splash_sp_name").i("cpt_config", str, false);
-        }
-    }
-
-    public static boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            JSONObject d2 = je1.a().d();
-            if (d2 == null) {
-                return false;
-            }
-            return d2.optBoolean("is_block_shake_gesture", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (xy0.a().b("splash_sp_name").getInt("query_host_opt", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return c(false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            JSONObject d2 = je1.a().d();
-            if (d2 != null && d2.has("cpc_show_times")) {
-                return d2.optInt("cpc_show_times");
-            }
-            return Integer.MAX_VALUE;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public static a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            if (a == null) {
-                a = f();
-            }
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            return xy0.a().b("splash_sp_name").getInt("hot_splash_max_count", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            return xy0.a().b("splash_sp_name").getFloat("hot_background_time", 5.0f);
-        }
-        return invokeV.floatValue;
-    }
-
-    public static float i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            return xy0.a().b("splash_sp_name").getFloat("hot_update_split_time", 5.0f);
-        }
-        return invokeV.floatValue;
-    }
-
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            return xy0.a().b("splash_sp_name").getString("inner_monitor_host", "https://sp0.baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (xy0.a().b("splash_sp_name").getInt("monitor_log_switch", 1) == 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i)) == null) {
+            if (new xo0(hf0.b()).a() || i == 0) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    @NonNull
-    public static String l() {
+    public static List<ye1> x(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65564, null, z)) == null) {
+            return y(z, 0);
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public static void C(ye1 ye1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ye1Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            File q = q();
+            List<ye1> s = s();
+            if (s != null && s.size() != 0) {
+                for (int i = 0; i < s.size(); i++) {
+                    ye1 ye1Var2 = s.get(i);
+                    if (TextUtils.equals(ye1Var.b, ye1Var2.b)) {
+                        ye1.t(ye1Var2, ye1Var);
+                        arrayList.add(ye1Var2);
+                    } else {
+                        arrayList.add(ye1Var2);
+                    }
+                }
+                z(arrayList, q);
+            }
+        }
+    }
+
+    public static String l(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
+            try {
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
+                            }
+                            return sb.toString();
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (Exception unused2) {
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    bufferedReader2.close();
+                } catch (Exception unused3) {
+                }
+            } catch (Exception unused4) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(z11.b(str, false));
+            int lastIndexOf = str.lastIndexOf(".");
+            int lastIndexOf2 = str.lastIndexOf("/");
+            if (lastIndexOf < lastIndexOf2 || lastIndexOf == -1 || lastIndexOf2 == -1) {
+                return null;
+            }
+            sb.append(str.substring(lastIndexOf));
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static File o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            if (u()) {
-                return n();
-            }
-            return je1.a().e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            File file = new File(hf0.b().getFilesDir(), SpeedStatsUtils.UBC_VALUE_SPLASH);
+            file.mkdirs();
+            return file;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public static int m() {
+    public static File q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return new File(o(), "splash.dat");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static List<ye1> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            return xy0.a().b("splash_sp_name").getInt("query_time_out_advance", 100);
+            return y(false, 0);
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @NonNull
-    public static String n() {
-        InterceptResult invokeV;
+    public static boolean e(@NonNull ye1 ye1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            JSONObject d2 = je1.a().d();
-            if (d2 == null || !d2.has("query_unite_pid")) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, ye1Var)) == null) {
+            long j = ye1Var.R;
+            long j2 = ye1Var.S;
+            if (j <= 0 || j2 <= 0) {
+                return true;
             }
-            return d2.optString("query_unite_pid", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
-            return xy0.a().b("splash_sp_name").getInt("request_count", 10);
-        }
-        return invokeV.intValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            return xy0.a().b("splash_sp_name").getString("server_block_reason", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            return hj0.b().a().a("nad_splash_abnormal_time", 5000);
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            if (hj0.b().a().a("nad_hot_background_time_opt", 0) != 1) {
-                return false;
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (currentTimeMillis >= j && currentTimeMillis <= j2) {
+                return true;
             }
-            return true;
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean s() {
-        InterceptResult invokeV;
+    public static void j(ye1 ye1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
-            if (!TextUtils.equals(SpeedStatsUtils.UBC_VALUE_SPLASH, "sdk") && hj0.b().a().a("cmd_uniform_enable", 0) == 0) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(65550, null, ye1Var) != null) || !URLUtil.isNetworkUrl(ye1Var.g)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            JSONObject d2 = je1.a().d();
-            if (d2 == null || d2.optInt("nad_splash_query_download_opt", 0) != 1) {
-                return false;
-            }
-            return true;
+        k(ye1Var.g, ye1Var.d, ye1Var.V);
+        if (!TextUtils.isEmpty(ye1Var.z)) {
+            k(ye1Var.z, ye1Var.d, ye1Var.V);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            if (hj0.b().a().a("query_uniform_enable", 0) != 1 || TextUtils.isEmpty(n())) {
-                return false;
-            }
-            return true;
+        if (!TextUtils.isEmpty(ye1Var.H)) {
+            k(ye1Var.H, ye1Var.d, ye1Var.V);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            if (hj0.b().a().a("query_url_cache_opt", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     @Nullable
-    public static a f() {
-        InterceptResult invokeV;
+    public static ye1 n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            String string = xy0.a().b("splash_sp_name").getString("cpt_config", "");
-            if (!TextUtils.isEmpty(string)) {
-                return a.c(ly0.c(string));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
+            List<ye1> y = y(true, i);
+            if (y != null && y.size() > 0) {
+                for (int i2 = 0; i2 < y.size(); i2++) {
+                    ye1 ye1Var = y.get(i2);
+                    if (ye1Var != null && ye1Var.m() && e(ye1Var)) {
+                        return ye1Var;
+                    }
+                }
+                return null;
             }
             return null;
         }
-        return (a) invokeV.objValue;
+        return (ye1) invokeI.objValue;
+    }
+
+    @Nullable
+    public static ye1 p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            List<ye1> x = x(false);
+            if (ly0.g(x)) {
+                return null;
+            }
+            for (int i = 0; i < x.size(); i++) {
+                ye1 ye1Var = x.get(i);
+                if (ye1Var != null && TextUtils.equals(str, ye1Var.c)) {
+                    return ye1Var;
+                }
+            }
+            return null;
+        }
+        return (ye1) invokeL.objValue;
+    }
+
+    public static int g(ye1 ye1Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{ye1Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return h(ye1Var, z, i, System.currentTimeMillis());
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int h(ye1 ye1Var, boolean z, int i, long j) {
+        InterceptResult invokeCommon;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{ye1Var, Boolean.valueOf(z), Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (ye1Var.k()) {
+                if (!xe1.a(qe1.b())) {
+                    i2 = 1024;
+                } else {
+                    i2 = 0;
+                }
+                if (af1.a() >= xe1.d()) {
+                    i2 |= 2048;
+                }
+                if (!xe1.c(true)) {
+                    i2 |= 4096;
+                }
+                if (i2 != 0) {
+                    return i2;
+                }
+            } else {
+                i2 = 0;
+            }
+            if (ye1Var.y) {
+                return i2;
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            long j2 = j / 1000;
+            long c2 = af1.c();
+            if ((t11.a(System.currentTimeMillis(), j) < 2 && j2 < ye1Var.s) || j2 > ye1Var.t) {
+                i2 |= 2;
+            }
+            if (z) {
+                int i3 = ye1Var.x;
+                int i4 = ye1Var.v;
+                if (i3 >= i4 || i4 == 0) {
+                    i2 |= 8;
+                }
+            }
+            if (currentTimeMillis - c2 < ye1Var.u * 60.0d) {
+                i2 |= 16;
+            }
+            File r = r(ye1Var.g);
+            if (r == null || !r.exists()) {
+                i2 |= 4;
+            }
+            if (i == 1 && ke1.a().d() != null && ke1.a().d().optInt("hot_launch_splash_policy", 0) == 2 && TextUtils.equals(ye1Var.e, "splash_video")) {
+                i2 |= 256;
+            }
+            long currentTimeMillis2 = (System.currentTimeMillis() - qe1.a()) / 1000;
+            if (i == 1 && xe1.r() && ye1Var.Q > 0 && (System.currentTimeMillis() - qe1.a()) / 1000 < ye1Var.Q) {
+                i2 |= 16384;
+            }
+            if (ye1Var.o() && xe1.N()) {
+                return i2 | 32768;
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static void i(@Nullable List<ye1> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, list) == null) {
+            if (list != null && !list.isEmpty()) {
+                File[] listFiles = o().listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    ArrayList arrayList = new ArrayList(list.size());
+                    for (ye1 ye1Var : list) {
+                        if (ye1Var != null) {
+                            arrayList.add(m(ye1Var.g));
+                            arrayList.add(m(ye1Var.z));
+                            arrayList.add(m(ye1Var.H));
+                        }
+                    }
+                    ye1 ye1Var2 = c;
+                    if (ye1Var2 != null) {
+                        arrayList.add(m(ye1Var2.g));
+                        arrayList.add(m(c.z));
+                        arrayList.add(m(c.H));
+                    }
+                    for (File file : listFiles) {
+                        if (!arrayList.contains(file.getName())) {
+                            file.delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            y11.c(o());
+        }
+    }
+
+    public static void k(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) {
+            File r = r(str);
+            if (r != null && r.exists()) {
+                return;
+            }
+            File u = u(z11.b(str, false));
+            if (u.exists()) {
+                u.delete();
+            }
+            c01.d(new a(u, str, r, str2, str3), "download splash resource");
+        }
+    }
+
+    public static List<ye1> s() {
+        InterceptResult invokeV;
+        String l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            List<ye1> list = b;
+            if (list != null) {
+                return list;
+            }
+            b = new CopyOnWriteArrayList();
+            File q = q();
+            if (!q.exists() || (l = l(q)) == null) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(l);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    b.add(ye1.c(jSONArray.optJSONObject(i)));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static HashMap<String, ye1> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            HashMap<String, ye1> hashMap = new HashMap<>();
+            File q = q();
+            if (!q.exists()) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(l(q));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    ye1 c2 = ye1.c((JSONObject) jSONArray.get(i));
+                    hashMap.put(c2.b, c2);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static List<ye1> y(boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            List<ye1> s = s();
+            if (s != null && s.size() != 0) {
+                ArrayList arrayList = new ArrayList();
+                JSONObject jSONObject = new JSONObject();
+                int i2 = 0;
+                for (int i3 = 0; i3 < s.size(); i3++) {
+                    ye1 ye1Var = s.get(i3);
+                    int g = g(ye1Var, z, i);
+                    if (g == 0) {
+                        arrayList.add(ye1Var);
+                    } else {
+                        i2 |= g;
+                        try {
+                            jSONObject.put(ye1Var.c, g);
+                        } catch (JSONException unused) {
+                        }
+                    }
+                }
+                if (arrayList.size() == 0) {
+                    BaseVM.i(i2, jSONObject.toString());
+                    return null;
+                }
+                return arrayList;
+            }
+            BaseVM.h(1);
+            return null;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static boolean z(List<ye1> list, File file) {
+        InterceptResult invokeLL;
+        StringBuffer stringBuffer;
+        int i;
+        FileWriter fileWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, list, file)) == null) {
+            int i2 = 0;
+            if (list.size() <= 0) {
+                return false;
+            }
+            FileWriter fileWriter2 = null;
+            try {
+                ye1[] ye1VarArr = (ye1[]) list.toArray(new ye1[list.size() - 1]);
+                stringBuffer = new StringBuffer();
+                stringBuffer.append(PreferencesUtil.LEFT_MOUNT);
+                int length = ye1VarArr.length;
+                while (true) {
+                    i = length - 1;
+                    if (i2 >= i) {
+                        break;
+                    }
+                    stringBuffer.append(ye1VarArr[i2].s());
+                    stringBuffer.append(",");
+                    i2++;
+                }
+                stringBuffer.append(ye1VarArr[i].s());
+                stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
+                fileWriter = new FileWriter(file);
+            } catch (IOException unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(stringBuffer.toString());
+                try {
+                    fileWriter.close();
+                } catch (Exception unused2) {
+                }
+                return true;
+            } catch (IOException unused3) {
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (Exception unused4) {
+                    }
+                }
+                return true;
+            } catch (Throwable th2) {
+                fileWriter2 = fileWriter;
+                th = th2;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (Exception unused5) {
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

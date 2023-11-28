@@ -15,13 +15,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.im.base.core.inputtool.robotfloor.botpanel.BotItemViewHolderFactory;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.um8;
-import com.baidu.tieba.vi6;
-import com.baidu.tieba.vl8;
-import com.baidu.tieba.wm8;
-import com.baidu.tieba.xl8;
+import com.baidu.tieba.xp8;
+import com.baidu.tieba.yo8;
+import com.baidu.tieba.zp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,10 +34,10 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 /* loaded from: classes6.dex */
-public class BotItemViewHolderFactory extends wm8 {
+public class BotItemViewHolderFactory extends zp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xl8 d;
+    public final ap8 d;
 
     /* loaded from: classes6.dex */
     public static class a extends BaseTagItemViewHolder {
@@ -48,18 +48,18 @@ public class BotItemViewHolderFactory extends wm8 {
 
         /* renamed from: com.baidu.tieba.im.base.core.inputtool.robotfloor.botpanel.BotItemViewHolderFactory$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0330a implements View.OnClickListener {
+        public class View$OnClickListenerC0353a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ xl8 a;
+            public final /* synthetic */ ap8 a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0330a(a aVar, xl8 xl8Var) {
+            public View$OnClickListenerC0353a(a aVar, ap8 ap8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, xl8Var};
+                    Object[] objArr = {aVar, ap8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -70,15 +70,15 @@ public class BotItemViewHolderFactory extends wm8 {
                     }
                 }
                 this.b = aVar;
-                this.a = xl8Var;
+                this.a = ap8Var;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                xl8 xl8Var;
+                ap8 ap8Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.b.d() instanceof vl8) && (xl8Var = this.a) != null) {
-                    xl8Var.a(((vl8) this.b.d()).b());
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.b.d() instanceof yo8) && (ap8Var = this.a) != null) {
+                    ap8Var.a(((yo8) this.b.d()).b());
                 }
             }
         }
@@ -133,10 +133,10 @@ public class BotItemViewHolderFactory extends wm8 {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{glideException, obj, target, Boolean.valueOf(z)})) == null) {
-                    vi6.a a = vi6.a();
+                    ej6.a a = ej6.a();
                     final int i = this.a;
                     final GlideUrl glideUrl = this.b;
-                    a.c(new Runnable() { // from class: com.baidu.tieba.tl8
+                    a.c(new Runnable() { // from class: com.baidu.tieba.wo8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,13 +155,13 @@ public class BotItemViewHolderFactory extends wm8 {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2, xl8 xl8Var) {
+        public a(View view2, ap8 ap8Var) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, xl8Var};
+                Object[] objArr = {view2, ap8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -172,9 +172,9 @@ public class BotItemViewHolderFactory extends wm8 {
                     return;
                 }
             }
-            this.c = (CardView) view2.findViewById(R.id.obfuscated_res_0x7f090459);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09045a);
-            view2.setOnClickListener(new View$OnClickListenerC0330a(this, xl8Var));
+            this.c = (CardView) view2.findViewById(R.id.obfuscated_res_0x7f090471);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090472);
+            view2.setOnClickListener(new View$OnClickListenerC0353a(this, ap8Var));
         }
 
         @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
@@ -187,10 +187,10 @@ public class BotItemViewHolderFactory extends wm8 {
         }
 
         @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-        public void f(um8 um8Var, Context context, int i) {
+        public void f(xp8 xp8Var, Context context, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, um8Var, context, i) == null) && (um8Var instanceof vl8)) {
-                r(1, new GlideUrl(((vl8) um8Var).c()));
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, xp8Var, context, i) == null) && (xp8Var instanceof yo8)) {
+                r(1, new GlideUrl(((yo8) xp8Var).c()));
                 q();
             }
         }
@@ -198,7 +198,7 @@ public class BotItemViewHolderFactory extends wm8 {
         public final void q() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                EMManager.from(this.d).setCorner(R.string.J_X05).setBorderWidth(R.dimen.obfuscated_res_0x7f0708c0).setBorderColor(R.color.CAM_X0401);
+                EMManager.from(this.d).setCorner(R.string.J_X05).setBorderWidth(R.dimen.obfuscated_res_0x7f0708d3).setBorderColor(R.color.CAM_X0401);
             }
         }
 
@@ -247,12 +247,12 @@ public class BotItemViewHolderFactory extends wm8 {
         }
     }
 
-    public BotItemViewHolderFactory(xl8 xl8Var) {
+    public BotItemViewHolderFactory(ap8 ap8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xl8Var};
+            Object[] objArr = {ap8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -262,16 +262,16 @@ public class BotItemViewHolderFactory extends wm8 {
                 return;
             }
         }
-        this.d = xl8Var;
+        this.d = ap8Var;
     }
 
-    @Override // com.baidu.tieba.wm8
+    @Override // com.baidu.tieba.zp8
     public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0180, viewGroup, false), this.d);
+                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0185, viewGroup, false), this.d);
             }
             return null;
         }

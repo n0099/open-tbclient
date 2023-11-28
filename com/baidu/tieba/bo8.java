@@ -1,85 +1,88 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeSet;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class bo8 {
+public class bo8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bo8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BotsDTO.BotListDTO.UserDTO a;
+    public BotsDTO.BotListDTO.SkillDTO b;
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    @NonNull
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651806, "Lcom/baidu/tieba/bo8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947651806, "Lcom/baidu/tieba/bo8;");
-                return;
-            }
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
-        a = new bo8();
     }
 
     public bo8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = false;
         }
     }
 
-    public final void a(AibotChatRepo repo, JSONObject params, ds8 fetchMsgCallback) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, repo, params, fetchMsgCallback) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(params, "params");
-            Intrinsics.checkNotNullParameter(fetchMsgCallback, "fetchMsgCallback");
-            repo.f0(params.optLong("beginMsgId"), params.optLong("endMsgId"), params.optInt("count"), fetchMsgCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return invokeV.booleanValue;
     }
 
-    public final HashMap<String, Object> b(TreeSet<TbBaseMsg> fetchedMsgs, long j) {
-        InterceptResult invokeLJ;
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchedMsgs, j)) == null) {
-            Intrinsics.checkNotNullParameter(fetchedMsgs, "fetchedMsgs");
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(fetchedMsgs, 10));
-            for (TbBaseMsg tbBaseMsg : fetchedMsgs) {
-                arrayList.add(is8.c(tbBaseMsg, false));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
+                    if (itemsDTO.isFileType()) {
+                        return itemsDTO;
+                    }
+                }
             }
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String a2 = cx.a(DataExt.toJson(arrayList));
-            Intrinsics.checkNotNullExpressionValue(a2, "getEncodeValue(mapList.toJson())");
-            hashMap.put("msgs", a2);
-            hashMap.put("chatType", "AISingleChat");
-            hashMap.put("chatId", Long.valueOf(j));
-            return hashMap;
+            return null;
         }
-        return (HashMap) invokeLJ.objValue;
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
     }
 }

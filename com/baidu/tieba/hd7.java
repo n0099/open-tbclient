@@ -1,105 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v27;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.g37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
 public final class hd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final v27.e a;
-    public final View b;
 
-    public hd7(Context context) {
+    public static final int a(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return 0;
+            }
+            return BdUtilHelper.getDimens(r27.a, r27.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, r27.a.getPackageName()));
+        }
+        return invokeL.intValue;
+    }
+
+    public static final void b(View imageView, String iconUrl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, imageView, iconUrl) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "imageView");
+            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+            g37.e a = g37.a().a();
+            boolean z = false;
+            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                if (!(imageView instanceof ImageView)) {
+                    return;
+                }
+                Uri parse = Uri.parse(iconUrl);
+                List<String> pathSegments = parse.getPathSegments();
+                if (pathSegments.size() > 0) {
+                    int identifier = r27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, r27.a.getPackageName());
+                    String queryParameter = parse.getQueryParameter("type");
+                    String queryParameter2 = parse.getQueryParameter("color");
+                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                        return;
+                    }
+                    int identifier2 = r27.a.getResources().getIdentifier(queryParameter2, "color", r27.a.getPackageName());
+                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
+                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
+                        if (imageView instanceof TbImageView) {
+                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
+                        }
+                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
+                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
+                        if (imageView instanceof TbImageView) {
+                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
+                        }
+                    } else {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                    }
+                }
+            } else if (a != null) {
+                a.f(imageView, iconUrl);
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        v27.e a = v27.a().a();
-        this.a = a;
-        View create = a.create(context);
-        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
-        this.b = create;
-    }
-
-    public final void a(String protrait) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, protrait) == null) {
-            Intrinsics.checkNotNullParameter(protrait, "protrait");
-            this.a.i(this.b, protrait);
-        }
-    }
-
-    public final void b(String url) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            this.a.f(this.b, url);
-        }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.d(this.b, i);
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.g(this.b, i);
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.a(this.b, i);
-        }
-    }
-
-    public final void f(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            Intrinsics.checkNotNullParameter(scaleType, "scaleType");
-            this.a.h(this.b, scaleType);
-        }
-    }
-
-    public final void g(v27.d config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.a.c(this.b, config);
-        }
-    }
-
-    public final View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
     }
 }

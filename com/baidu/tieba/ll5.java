@@ -2,26 +2,30 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
 public interface ll5 {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a();
+        void a(boolean z, boolean z2);
 
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+        void b(boolean z);
     }
 
-    ll5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+    void hide();
 
-    void b(int i, ey4 ey4Var, long j);
+    void j();
 
-    void c(@Nullable a aVar);
+    void k(@Nullable a aVar);
+
+    void l();
+
+    @NonNull
+    Fragment m(@NonNull String str);
+
+    void show();
 }

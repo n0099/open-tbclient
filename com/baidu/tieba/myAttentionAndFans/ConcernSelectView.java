@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sl9;
+import com.baidu.tieba.ip9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,9 +124,9 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f139b);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f13ab);
                 } else {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f02a3);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f02ab);
                 }
                 if (this.a.l != null) {
                     this.a.l.a(0);
@@ -433,13 +433,13 @@ public class ConcernSelectView extends FrameLayout {
             if (childCount < 0) {
                 childCount = 0;
             }
-            sl9 sl9Var = new sl9(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
+            ip9 ip9Var = new ip9(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
             if (i == 0 && view2.getVisibility() != 0) {
                 view2.setVisibility(0);
             }
-            sl9Var.setDuration(260L);
-            sl9Var.setAnimationListener(new d(this, i, view2));
-            view2.startAnimation(sl9Var);
+            ip9Var.setDuration(260L);
+            ip9Var.setAnimationListener(new d(this, i, view2));
+            view2.startAnimation(ip9Var);
             ImageView imageView = this.c;
             if (imageView != null) {
                 if (imageView.getAnimation() != null && !this.c.getAnimation().hasEnded()) {
@@ -517,18 +517,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d022f, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ae0);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ae1);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09179d);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0235, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aff);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b00);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09180e);
             this.d = (TextView) findViewById(R.id.menu_title);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090293);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a7);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f139b);
-                this.e.setText(R.string.obfuscated_res_0x7f0f139b);
+                this.d.setText(R.string.obfuscated_res_0x7f0f13ab);
+                this.e.setText(R.string.obfuscated_res_0x7f0f13ab);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0909a2);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0911ff);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0909be);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091228);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

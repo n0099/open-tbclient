@@ -1,302 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.DiskCodeCacheManager;
-import com.baidu.tbadk.core.atomData.BaseWriteConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.ForumTagInfo;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import java.util.ArrayList;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class ucb {
+public class ucb {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948207605, "Lcom/baidu/tieba/ucb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948207605, "Lcom/baidu/tieba/ucb;");
-                return;
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
-        a = new a(null);
+        return (long[]) invokeCommon.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static xcb b(zcb zcbVar, pcb pcbVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, zcbVar, pcbVar)) == null) {
+            if (zcbVar == null || pcbVar == null || zcbVar.e == null) {
+                return null;
             }
-        }
-
-        public final JSONObject a(ImageFileInfo info, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, info, i)) == null) {
-                Intrinsics.checkNotNullParameter(info, "info");
-                String b = y8b.b(info);
-                String a = y8b.a(info);
-                JSONObject jSONObject = new JSONObject();
-                JSONKt.c(jSONObject, DiskCodeCacheManager.DISK_CODE_CACHE_INDEX_SUFFIX, Integer.valueOf(i));
-                JSONKt.c(jSONObject, "name", b);
-                JSONKt.c(jSONObject, "type", Integer.valueOf(info.getImageType()));
-                JSONKt.c(jSONObject, "isGif", Boolean.valueOf(info.isGif()));
-                JSONKt.c(jSONObject, "tag", a);
-                JSONKt.c(jSONObject, "serverImageCode", info.getServerImageCode());
-                return jSONObject;
+            long[] a = a(zcbVar.b, zcbVar.a);
+            MultiMediaData multiMediaData = zcbVar.e;
+            xcb xcbVar = new xcb();
+            xcbVar.e = new ArrayList();
+            xcbVar.a = multiMediaData.path;
+            xcbVar.c = zcbVar.c;
+            xcbVar.d = zcbVar.d;
+            xcbVar.b = multiMediaData.rotation;
+            for (int i = 0; i < zcbVar.b; i++) {
+                long j = multiMediaData.start + a[i];
+                rcb rcbVar = new rcb();
+                rcbVar.a = kcb.b(multiMediaData.path, j, multiMediaData.type);
+                rcbVar.b = multiMediaData.path;
+                rcbVar.f = i;
+                rcbVar.g = multiMediaData.type;
+                rcbVar.h = zcbVar.c;
+                rcbVar.i = zcbVar.d;
+                rcbVar.j = pcbVar;
+                rcbVar.d = j;
+                rcbVar.c = multiMediaData.rotation;
+                xcbVar.e.add(rcbVar);
             }
-            return (JSONObject) invokeLI.objValue;
+            return xcbVar;
         }
+        return (xcb) invokeLL.objValue;
+    }
 
-        public final void b(Bundle savedInstanceState, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, savedInstanceState, writeData) == null) {
-                Intrinsics.checkNotNullParameter(savedInstanceState, "savedInstanceState");
-                Intrinsics.checkNotNullParameter(writeData, "writeData");
-                writeData.setType(savedInstanceState.getInt("type", 9));
-                writeData.setForumId(savedInstanceState.getString("forum_id"));
-                writeData.setForumName(savedInstanceState.getString("forum_name"));
-                writeData.setFirstDir(savedInstanceState.getString(IntentConfig.FORUM_FIRST_DIR));
-                writeData.setSecondDir(savedInstanceState.getString(IntentConfig.FORUM_SECOND_DIR));
-                writeData.setThreadId(savedInstanceState.getString("thread_id"));
-                writeData.setTitle(savedInstanceState.getString(BaseWriteConfig.TITLE));
-                writeData.setContent(savedInstanceState.getString(BaseWriteConfig.CONTENT));
-                writeData.setCallFrom(savedInstanceState.getString(BaseWriteConfig.KEY_CALL_FROM));
-                if (Intrinsics.areEqual("1", savedInstanceState.getString(WriteActivityConfig.NO_SUCCESS_TOAST))) {
-                    writeData.setInterceptWriteResultDialog(true);
-                }
-                if (savedInstanceState.getBoolean(WriteActivityConfig.KEY_PUT_STORAGE_TID, false)) {
-                    writeData.setPutStorageTid(true);
-                }
-                String string = savedInstanceState.getString(BaseWriteConfig.PREFIX_DATA);
-                PostPrefixData postPrefixData = null;
-                if (!StringUtils.isNull(string)) {
-                    postPrefixData = (PostPrefixData) OrmObject.objectWithJsonStr(string, PostPrefixData.class);
-                }
-                writeData.setPrefixData(postPrefixData);
-                writeData.setFrom(savedInstanceState.getString("from"));
-                writeData.setTopicId(savedInstanceState.getString(WriteActivityConfig.HOT_TOPIC_ID));
-                writeData.setStatisticFrom(savedInstanceState.getInt(WriteActivityConfig.KEY_STATISTIS_FROM, 0));
-                writeData.setPrivateThread(savedInstanceState.getInt(BaseWriteConfig.PRIVATE_THREAD));
-                writeData.setFrsTabInfoData((FrsTabInfoData) savedInstanceState.getSerializable("tab_list"));
-                writeData.setCanGoods(savedInstanceState.getBoolean(WriteActivityConfig.CAN_GOODS));
-                writeData.setNotificationH5(savedInstanceState.getBoolean(WriteActivityConfig.KEY_NOTIFICATION_H5, false));
-                writeData.setNotFakePost(savedInstanceState.getBoolean(WriteActivityConfig.KEY_NOT_FAKE_POST, false));
-                writeData.setActiveName(savedInstanceState.getString(WriteActivityConfig.KEY_ACTIVE_NAME));
-                writeData.setActiveTaskName(savedInstanceState.getString(WriteActivityConfig.KEY_ACTIVE_TASK_NAME));
-                writeData.setHintText(savedInstanceState.getString(WriteActivityConfig.KEY_WRITE_HINT_TEXT));
-                writeData.setInputInsertAtList(savedInstanceState.getParcelableArrayList(WriteActivityConfig.KEY_WRITE_AT_LIST));
-                if (writeData.getType() == 10) {
-                    writeData.setEntranceType(2);
-                    writeData.setType(9);
-                } else {
-                    writeData.setEntranceType(1);
-                }
-                ForumTagInfo forumTagInfo = (ForumTagInfo) savedInstanceState.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
-                if (Intrinsics.areEqual("2", writeData.getCallFrom()) && forumTagInfo != null && forumTagInfo.isValid()) {
-                    writeData.setQuestionTagId(forumTagInfo.id);
-                    writeData.setQuestionTagManualCreated(false);
-                }
-                writeData.setFirstClass(savedInstanceState.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY));
+    public static List<xcb> c(ycb ycbVar, pcb pcbVar) {
+        InterceptResult invokeLL;
+        List<rcb> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ycbVar, pcbVar)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (ycbVar == null || pcbVar == null || ycbVar.b <= 0 || ywb.e(ycbVar.e) || ywb.e(ycbVar.f)) {
+                return null;
             }
-        }
-
-        public final void c(Intent intent, WriteData writeData) {
-            FrsTabInfoData frsTabInfoData;
-            PostPrefixData postPrefixData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, intent, writeData) == null) {
-                Intrinsics.checkNotNullParameter(intent, "intent");
-                Intrinsics.checkNotNullParameter(writeData, "writeData");
-                if (writeData.isFromErrorDialog() && vta.f != null) {
-                    return;
-                }
-                writeData.setType(intent.getIntExtra("type", 9));
-                writeData.setForumId(intent.getStringExtra("forum_id"));
-                writeData.setForumName(intent.getStringExtra("forum_name"));
-                writeData.setFirstDir(intent.getStringExtra(IntentConfig.FORUM_FIRST_DIR));
-                writeData.setSecondDir(intent.getStringExtra(IntentConfig.FORUM_SECOND_DIR));
-                writeData.setThreadId(intent.getStringExtra("thread_id"));
-                writeData.setTitle(intent.getStringExtra(BaseWriteConfig.TITLE));
-                writeData.setContent(intent.getStringExtra(BaseWriteConfig.CONTENT));
-                writeData.setCallFrom(intent.getStringExtra(BaseWriteConfig.KEY_CALL_FROM));
-                writeData.setFrom(intent.getStringExtra("from"));
-                writeData.setTopicId(intent.getStringExtra(WriteActivityConfig.HOT_TOPIC_ID));
-                writeData.setStatisticFrom(intent.getIntExtra(WriteActivityConfig.KEY_STATISTIS_FROM, 0));
-                writeData.setPrivateThread(intent.getIntExtra(BaseWriteConfig.PRIVATE_THREAD, 0));
-                Serializable serializableExtra = intent.getSerializableExtra("tab_list");
-                WriteVoteData writeVoteData = null;
-                if (serializableExtra instanceof FrsTabInfoData) {
-                    frsTabInfoData = (FrsTabInfoData) serializableExtra;
-                } else {
-                    frsTabInfoData = null;
-                }
-                writeData.setFrsTabInfoData(frsTabInfoData);
-                writeData.setVoiceEnable(intent.getBooleanExtra(WriteActivityConfig.ENABLE_AUDIO, true));
-                writeData.setDisableAudioMessage(intent.getStringExtra(WriteActivityConfig.DISABLE_AUDIO_MESSAGE));
-                writeData.setCanGoods(intent.getBooleanExtra(WriteActivityConfig.CAN_GOODS, false));
-                Serializable serializableExtra2 = intent.getSerializableExtra(BaseWriteConfig.PREFIX_DATA);
-                if (serializableExtra2 instanceof PostPrefixData) {
-                    postPrefixData = (PostPrefixData) serializableExtra2;
-                } else {
-                    postPrefixData = null;
-                }
-                if (Intrinsics.areEqual("1", intent.getStringExtra(WriteActivityConfig.NO_SUCCESS_TOAST))) {
-                    writeData.setInterceptWriteResultDialog(true);
-                }
-                if (intent.getBooleanExtra(WriteActivityConfig.KEY_PUT_STORAGE_TID, false)) {
-                    writeData.setPutStorageTid(true);
-                }
-                if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                    postPrefixData.getPrefixs().add(UtilHelper.getString(R.string.write_no_prefix));
-                }
-                writeData.setPrefixData(postPrefixData);
-                Serializable serializableExtra3 = intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA);
-                if (serializableExtra3 instanceof WriteVoteData) {
-                    writeVoteData = (WriteVoteData) serializableExtra3;
-                }
-                writeData.setWriteVoteData(writeVoteData);
-                writeData.setFromItemDetail(intent.getBooleanExtra(IntentConfig.IS_ITEM_DETAIL, false));
-                writeData.setIntentStarCount(intent.getIntExtra(WriteActivityConfig.STAR_COUNT, 0));
-                Serializable serializableExtra4 = intent.getSerializableExtra(WriteActivityConfig.ITEM_INFO);
-                if (serializableExtra4 instanceof SerializableItemInfo) {
-                    SerializableItemInfo serializableItemInfo = (SerializableItemInfo) serializableExtra4;
-                    writeData.setIntentItemInfo(serializableItemInfo);
-                    writeData.setItem_id(String.valueOf(serializableItemInfo.id));
-                }
-                writeData.setSaveDraft(intent.getBooleanExtra(BaseWriteConfig.IS_SAVE_DRAFTE, true));
-                writeData.setMoreForumImg(intent.getStringExtra("more_forum_img"));
-                writeData.setMoreForumTitle(intent.getStringExtra("more_forum_title"));
-                writeData.setMoreForumUrl(intent.getStringExtra("more_forum_url"));
-                writeData.setNetImgUrl(intent.getStringExtra(WriteActivityConfig.KEY_GAME_RANK_IMG_URL));
-                writeData.setFromGameRank(intent.getBooleanExtra(WriteActivityConfig.KEY_IS_FROM_GAME_RANK, false));
-                writeData.setGameId(intent.getStringExtra(WriteActivityConfig.KEY_GAME_ID));
-                writeData.setGameName(intent.getStringExtra(WriteActivityConfig.KEY_GAME_NAME));
-                writeData.setRewardsType(intent.getStringExtra(WriteActivityConfig.KEY_REWARDS_TYPE));
-                writeData.setXiuxiuOriginalContent(intent.getStringExtra(WriteActivityConfig.KEY_XIUXIU_ORIGINAL_CONTENT));
-                writeData.setXiuxiuOriginalFname(intent.getStringExtra(WriteActivityConfig.KEY_XIUXIU_ORIGINAL_FNAME));
-                writeData.setIsArticle(intent.getStringExtra(WriteActivityConfig.IS_ARTICLE));
-                writeData.setNotificationH5(intent.getBooleanExtra(WriteActivityConfig.KEY_NOTIFICATION_H5, false));
-                writeData.setNotFakePost(intent.getBooleanExtra(WriteActivityConfig.KEY_NOT_FAKE_POST, false));
-                writeData.setHintText(intent.getStringExtra(WriteActivityConfig.KEY_WRITE_HINT_TEXT));
-                writeData.setInputInsertAtList(intent.getParcelableArrayListExtra(WriteActivityConfig.KEY_WRITE_AT_LIST));
-                writeData.setActiveName(intent.getStringExtra(WriteActivityConfig.KEY_ACTIVE_NAME));
-                writeData.setActiveTaskName(intent.getStringExtra(WriteActivityConfig.KEY_ACTIVE_TASK_NAME));
-                if (writeData.getType() == 10) {
-                    writeData.setEntranceType(2);
-                    writeData.setType(9);
-                } else {
-                    writeData.setEntranceType(1);
-                }
-                ForumTagInfo forumTagInfo = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
-                if (Intrinsics.areEqual("2", writeData.getCallFrom()) && forumTagInfo != null && forumTagInfo.isValid()) {
-                    writeData.setQuestionTagId(forumTagInfo.id);
-                    writeData.setQuestionTagManualCreated(false);
-                }
-                writeData.setFirstClass(intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY));
-            }
-        }
-
-        public final void d(WriteData writeData, WriteData draftData) {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, writeData, draftData) == null) {
-                Intrinsics.checkNotNullParameter(writeData, "writeData");
-                Intrinsics.checkNotNullParameter(draftData, "draftData");
-                if (writeData.isFromErrorDialog() && vta.f != null) {
-                    return;
-                }
-                writeData.setTitle(draftData.getTitle());
-                writeData.setContent(draftData.getContent());
-                writeData.setReplyId(draftData.getReplyId());
-                writeData.setThreadId(draftData.getThreadId());
-                writeData.setLocalChannelDynamic(draftData.isLocalChannelDynamic());
-                writeData.setLocalChannelTopic(draftData.getLocalChannelTopic());
-                writeData.setVideoInfo(draftData.getVideoInfo());
-                VoiceData.VoiceModel voiceModel = draftData.getVoiceModel();
-                if (voiceModel != null) {
-                    str = voiceModel.voiceId;
-                } else {
-                    str = null;
-                }
-                writeData.setVoice(str);
-                VoiceData.VoiceModel voiceModel2 = draftData.getVoiceModel();
-                if (voiceModel2 != null) {
-                    i = voiceModel2.duration;
-                } else {
-                    i = 0;
-                }
-                writeData.setVoiceDuringTime(i);
-                writeData.setVoiceModel(draftData.getVoiceModel());
-                writeData.setWriteImagesInfo(draftData.getWriteImagesInfo());
-                writeData.setRichTextEditorMode(draftData.isRichTextEditorMode());
-                writeData.setRichContentData(draftData.getRichContentData());
-                writeData.sourceFrom = draftData.sourceFrom;
-                writeData.setTopicId(draftData.getTopicId());
-                writeData.setSubPbReplyPrefix(draftData.getSubPbReplyPrefix());
-                writeData.setItemInfo(draftData.getItemInfo());
-                writeData.setEvaluationStar(draftData.getEvaluationStar());
-                writeData.setIsEvaluate(draftData.isEvaluate());
-                writeData.setQuestionThread(draftData.isQuestionThread());
-                writeData.setWriteVoteData(draftData.getWriteVoteData());
-                writeData.setItemInfo(draftData.getItemInfo());
-                ArrayList<ItemData> itemDatas = draftData.getItemDatas();
-                if (itemDatas != null) {
-                    for (ItemData itemData : itemDatas) {
-                        writeData.addItemData(itemData);
+            long[] a = a(ycbVar.b, ycbVar.a);
+            ArrayList arrayList = new ArrayList();
+            xcb xcbVar = null;
+            for (int i = 0; i < ycbVar.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(ycbVar.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) ywb.c(ycbVar.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        xcbVar = new xcb();
+                        xcbVar.e = new ArrayList();
+                        xcbVar.a = multiMediaData2.path;
+                        xcbVar.c = ycbVar.c;
+                        xcbVar.d = ycbVar.d;
+                        xcbVar.b = multiMediaData2.rotation;
+                        arrayList.add(xcbVar);
                     }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) ywb.c(ycbVar.e, findInputIndexInSegments), j) * 1000;
+                    rcb rcbVar = new rcb();
+                    rcbVar.a = kcb.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    rcbVar.b = multiMediaData2.path;
+                    rcbVar.f = i;
+                    rcbVar.g = multiMediaData2.type;
+                    rcbVar.h = ycbVar.c;
+                    rcbVar.i = ycbVar.d;
+                    rcbVar.d = multiMediaDataSeekTime;
+                    rcbVar.j = pcbVar;
+                    rcbVar.c = multiMediaData2.rotation;
+                    if (xcbVar != null && (list = xcbVar.e) != null) {
+                        list.add(rcbVar);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
-                writeData.setSelectForumInfo(draftData.getSelectForumInfo());
             }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 }

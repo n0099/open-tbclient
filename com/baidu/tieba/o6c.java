@@ -1,81 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Deprecated
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class o6c implements l6c {
+public class o6c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, o6c> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985645, "Lcom/baidu/tieba/o6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985645, "Lcom/baidu/tieba/o6c;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public o6c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o6c(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static o6c c(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        boolean z;
+        Object obj2;
+        AdResultData adResultData;
+        List<AdTemplate> adTemplateList;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
-        }
-        return (o6c) invokeL.objValue;
-    }
-
-    public static o6c d(Context context, String str) {
-        InterceptResult invokeLL;
-        o6c o6cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                o6cVar = a.get(str);
-                if (o6cVar == null) {
-                    o6cVar = new u6c(context, str);
-                    a.put(str, o6cVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                c7c c7cVar = (c7c) obj;
+                if (c7cVar != null) {
+                    Object obj3 = c7cVar.a;
+                    String[] strArr = {"BM", "Bu", "AC", "yJ"};
+                    Field field = null;
+                    int i = 0;
+                    while (true) {
+                        z = true;
+                        if (i >= 4) {
+                            break;
+                        }
+                        try {
+                            field = obj3.getClass().getDeclaredField(strArr[i]);
+                            field.setAccessible(true);
+                            break;
+                        } catch (NoSuchFieldException unused) {
+                            i++;
+                        }
+                    }
+                    if (field == null || (obj2 = field.get(obj3)) == null) {
+                        return null;
+                    }
+                    if (obj2 instanceof AdResultData) {
+                        adResultData = (AdResultData) obj2;
+                    } else {
+                        adResultData = null;
+                    }
+                    if (adResultData == null) {
+                        z = false;
+                    }
+                    if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                        AdTemplate adTemplate = adTemplateList.get(0);
+                        if (adTemplate == null) {
+                            list = null;
+                        } else {
+                            list = adTemplate.adInfoList;
+                        }
+                        if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                            return null;
+                        }
+                        return p6c.a(adInfo);
+                    }
                 }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            return o6cVar;
         }
-        return (o6c) invokeLL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

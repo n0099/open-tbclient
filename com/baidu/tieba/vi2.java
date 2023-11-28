@@ -15,7 +15,7 @@ public class vi2 {
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
-    public String[] files;
+    public hi2[] fileList;
 
     public vi2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class vi2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadDirCallBack" + this.b;
+            return "GetSavedFileListCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

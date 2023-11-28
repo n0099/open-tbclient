@@ -3,39 +3,41 @@ package com.baidu.tieba;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e1a extends wv9<f1a, GodReplyMoreViewHolder> {
+public class e1a extends tz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e1a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public e1a(d6a d6aVar, BdUniqueId bdUniqueId) {
+        super(d6aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {d6aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((h1a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((d6a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,49 +45,137 @@ public class e1a extends wv9<f1a, GodReplyMoreViewHolder> {
         }
     }
 
+    public final void D0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.G0);
+        }
+    }
+
+    public final void E0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.D0);
+        }
+    }
+
+    public final void F0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.s);
+        }
+    }
+
+    public final void G0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pbCommenFloorItemViewHolder) == null) && (view2 = pbCommenFloorItemViewHolder.J) != null) {
+            view2.setVisibility(4);
+        }
+    }
+
+    public final void H0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pbCommenFloorItemViewHolder) == null) {
+            TextView textView = pbCommenFloorItemViewHolder.D;
+            if (textView != null) {
+                textView.setVisibility(8);
+            }
+            TextView textView2 = pbCommenFloorItemViewHolder.m;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+        }
+    }
+
+    public final void J0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pbCommenFloorItemViewHolder) == null) {
+            I0(pbCommenFloorItemViewHolder.w);
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: x */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.tz9, com.baidu.tieba.ci
+    /* renamed from: p0 */
+    public PbCommenFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07b0, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
+            PbCommenFloorItemViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup);
+            K0(onCreateViewHolder);
+            return onCreateViewHolder;
         }
-        return (GodReplyMoreViewHolder) invokeL.objValue;
+        return (PbCommenFloorItemViewHolder) invokeL.objValue;
     }
 
-    public void z(View.OnClickListener onClickListener) {
+    public final void I0(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            marginLayoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
+            marginLayoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 
-    @Override // com.baidu.tieba.wv9, com.baidu.tieba.bi
+    public final void L0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pbCommenFloorItemViewHolder) == null) {
+            View findViewById = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f092854);
+            if (findViewById != null) {
+                SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
+            }
+            View findViewById2 = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f092853);
+            if (findViewById2 != null) {
+                SkinManager.setViewTextColor(findViewById2, R.color.CAM_X0105, 1);
+            }
+        }
+    }
+
+    public final void K0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+        RelativeLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pbCommenFloorItemViewHolder) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091c2d);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07e9, (ViewGroup) null);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
+            if (relativeLayout != null) {
+                relativeLayout.addView(inflate, 0, layoutParams2);
+            }
+            LinearLayout linearLayout = (LinearLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f09122f);
+            if (linearLayout != null) {
+                if (linearLayout.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
+                } else {
+                    layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+                }
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09204e);
+                linearLayout.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tz9, com.baidu.tieba.vz9, com.baidu.tieba.ci
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (f1a) obj, (GodReplyMoreViewHolder) viewHolder);
+        q0(i, view2, viewGroup, (nwa) obj, (PbCommenFloorItemViewHolder) viewHolder);
         return view2;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, f1a f1aVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+    @Override // com.baidu.tieba.tz9
+    public View q0(int i, View view2, ViewGroup viewGroup, nwa nwaVar, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
         InterceptResult invokeCommon;
-        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f1aVar, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) f1aVar, (f1a) godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
-                }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nwaVar, pbCommenFloorItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, nwaVar, pbCommenFloorItemViewHolder);
+            F0(pbCommenFloorItemViewHolder);
+            H0(pbCommenFloorItemViewHolder);
+            D0(pbCommenFloorItemViewHolder);
+            E0(pbCommenFloorItemViewHolder);
+            J0(pbCommenFloorItemViewHolder);
+            G0(pbCommenFloorItemViewHolder);
+            L0(pbCommenFloorItemViewHolder);
+            x5a.w("c14887");
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes9.dex */
 public interface zy1 {
-    void a();
+    void onFailure();
 
-    void cancel();
+    void onSuccess(String str);
 }

@@ -102,7 +102,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
         return invokeV.intValue;
     }
 
-    public static final void m(BotSkillMenuAdapter this$0, ViewHolder holder, CallRobotEntrance callRobotEntrance, View view2) {
+    public static final void n(BotSkillMenuAdapter this$0, ViewHolder holder, CallRobotEntrance callRobotEntrance, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, this$0, holder, callRobotEntrance, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -155,7 +155,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
                     }
                 }
             }
-            holder.a().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.or9
+            holder.a().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ev9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,7 +163,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        BotSkillMenuAdapter.m(BotSkillMenuAdapter.this, holder, callRobotEntrance, view2);
+                        BotSkillMenuAdapter.n(BotSkillMenuAdapter.this, holder, callRobotEntrance, view2);
                     }
                 }
             });
@@ -172,7 +172,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: n */
+    /* renamed from: o */
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -185,9 +185,9 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
         return (ViewHolder) invokeLI.objValue;
     }
 
-    public final void o(a aVar) {
+    public final void p(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.b = aVar;
         }
     }

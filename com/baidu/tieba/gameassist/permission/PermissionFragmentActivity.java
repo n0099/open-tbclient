@@ -15,8 +15,8 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p68;
-import com.baidu.tieba.w21;
+import com.baidu.tieba.j98;
+import com.baidu.tieba.x21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -174,7 +174,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         }
     }
 
-    public void n1() {
+    public void m1() {
         PermissionService.IGrantCallback iGrantCallback;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iGrantCallback = this.a) == null) {
@@ -210,14 +210,14 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         finish();
     }
 
-    public void o1() {
+    public void n1() {
         String[] strArr;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null && this.c != null) {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (w21.a(this, str) != 0) {
+                    if (x21.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }
@@ -280,13 +280,13 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) p68.a.get(Integer.valueOf(intExtra));
-            p68.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) j98.a.get(Integer.valueOf(intExtra));
+            j98.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
-                    n1();
+                    m1();
                 } else if (stringExtra.equals("requestPermissions")) {
-                    o1();
+                    n1();
                 }
             }
         }

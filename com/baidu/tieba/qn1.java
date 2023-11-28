@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
 public interface qn1 {
-    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
+    File a(String str, String str2);
 
-    String b();
+    File b();
 
-    void c(JSONObject jSONObject);
-
-    be4 d();
-
-    void e(int i, String str);
-
-    void f(@NonNull zk3<Boolean> zk3Var);
+    String c();
 }

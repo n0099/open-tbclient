@@ -1,51 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ufosdk.FeedbackConfigurations;
-import com.baidu.ufosdk.FeedbackManager;
-import com.baidu.ufosdk.IConfigurations;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class a0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final fza b;
+    public final tza c;
 
-    public static Intent a() {
-        InterceptResult invokeV;
+    public a0b(MainTabActivity mainTabActivity, fza fzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            b();
-            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, fzaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Intent) invokeV.objValue;
+        this.a = mainTabActivity;
+        this.b = fzaVar;
+        this.c = mainTabActivity.e;
     }
 
-    public static void b() {
-        String str;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
-            if (TbadkCoreApplication.getInst().getVersionName() != null) {
-                str = TbadkCoreApplication.getInst().getVersionName();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            fza fzaVar = this.b;
+            if (fzaVar != null && fzaVar.y() != null && this.b.y().getAnimationView() != null && this.b.y().getAnimationView().getVisibility() != 0) {
+                this.b.y().setLottieView(false);
+            }
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                        if (sharedPrefHelper.getBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
+                            sharedPrefHelper2.putBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
+                    }
+                }
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        fza fzaVar2 = this.b;
+                        if (fzaVar2 != null) {
+                            fzaVar2.Q(myTabText);
+                        }
+                    } else {
+                        fza fzaVar3 = this.b;
+                        if (fzaVar3 != null) {
+                            fzaVar3.Q(null);
+                        }
+                    }
+                } else {
+                    fza fzaVar4 = this.b;
+                    if (fzaVar4 != null) {
+                        fzaVar4.Q(null);
+                    }
+                }
             } else {
-                str = "";
+                fza fzaVar5 = this.b;
+                if (fzaVar5 != null) {
+                    fzaVar5.Q(null);
+                }
             }
-            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
-            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
             }
-            int i = 0;
-            builder.setFeedbackBackbar(0);
-            IConfigurations build = builder.build();
-            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                i = 1;
+            xv4.b().l("1", "");
+            tza tzaVar = this.c;
+            if (tzaVar != null && tzaVar.i() != null) {
+                this.c.i().a();
             }
-            build.setThemeMode(i);
-            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
         }
     }
 }

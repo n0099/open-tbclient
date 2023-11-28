@@ -1,156 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.UiUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
-import com.baidu.tieba.impersonal.sprite.ImSpriteSysLog;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
+import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
+import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabNavTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o99 {
+public final class o99 extends f19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final lk5 b;
-    public final int c;
-    public BroadcastReceiver d;
-    public final SpriteMsgProcessor e;
-    public final st5<String> f;
-    public final String g;
-    public final HashSet<b> h;
+    public final BaseFragmentActivity f;
+    public ViewGroup g;
+    public BarImageView h;
+    public BarImageView i;
+    public MsgTabNavTextView j;
+    public ImageView k;
+    public TextView l;
+    public Long m;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        static {
-            a aVar = a.a;
-        }
-
-        void a(List<? extends a89> list);
-
-        void b(int i, String str, f89<?> f89Var);
-
-        void c(int i);
-
-        void d(String str);
-
-        void e(int i);
-
-        void onError(int i);
-
-        /* loaded from: classes7.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static final /* synthetic */ a a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-88812801, "Lcom/baidu/tieba/o99$b$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-88812801, "Lcom/baidu/tieba/o99$b$a;");
-                        return;
-                    }
-                }
-                a = new a();
-            }
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.o99.b
-        public void b(int i, String errorMsg, f89<?> msg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, errorMsg, msg) == null) {
-                Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
-                Intrinsics.checkNotNullParameter(msg, "msg");
-            }
-        }
-
-        @Override // com.baidu.tieba.o99.b
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.o99.b
-        public void d(String msgKey) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msgKey) == null) {
-                Intrinsics.checkNotNullParameter(msgKey, "msgKey");
-            }
-        }
-
-        @Override // com.baidu.tieba.o99.b
-        public void e(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.o99.b
-        public void onError(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public o99(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o99(BaseFragmentActivity context) {
+        super(R.layout.obfuscated_res_0x7f0d0673);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,474 +53,343 @@ public final class o99 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = context;
-        this.b = kk5.a();
-        this.c = 20;
-        this.e = new SpriteMsgProcessor(this.a);
-        this.f = st5.c();
-        this.g = "fetchMsgFirst";
-        this.h = new HashSet<>();
+        this.f = context;
     }
 
-    public static final void c(final o99 this$0, String key, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
-        List<ChatMsg> msgs;
-        List<ChatMsg> msgs2;
+    public final void R(h79 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{this$0, key, Integer.valueOf(i), str, personFetchMsgResponse}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(key, "$key");
-            Integer num = null;
-            if (i == 0) {
-                TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
-                String r = this$0.e.r();
-                StringBuilder sb = new StringBuilder();
-                sb.append("fetchHistoryMsg success ：  responseCode : ");
-                sb.append(i);
-                sb.append(" errMsg : ");
-                sb.append(str);
-                sb.append(" response : ");
-                if (personFetchMsgResponse != null && (msgs2 = personFetchMsgResponse.getMsgs()) != null) {
-                    num = Integer.valueOf(msgs2.size());
-                }
-                sb.append(num);
-                imSpriteSysLog.i(r, sb.toString());
-                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
-                treeSet.addAll(personFetchMsgResponse.getMsgs());
-                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(1));
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.h99
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Long valueOf = Long.valueOf(data.a());
+            this.m = valueOf;
+            if (valueOf != null) {
+                n().setTag(Long.valueOf(valueOf.longValue()));
+            }
+            K(data.c());
+        }
+    }
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o99.d(o99.this);
-                        }
-                    }
-                });
+    public static final Boolean T(o99 this$0, Map map) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, this$0, map)) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            if (this$0.m != null) {
+                z = true;
             } else {
-                TbLog imSpriteSysLog2 = ImSpriteSysLog.getInstance();
-                String r2 = this$0.e.r();
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("fetchHistoryMsg error ：  responseCode : ");
-                sb2.append(i);
-                sb2.append(" errMsg : ");
-                sb2.append(str);
-                sb2.append(" response : ");
-                if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
-                    num = Integer.valueOf(msgs.size());
-                }
-                sb2.append(num);
-                imSpriteSysLog2.i(r2, sb2.toString());
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.y89
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o99.e(o99.this);
-                        }
-                    }
-                });
+                z = false;
             }
-            this$0.f.d(key);
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeLL.objValue;
+    }
+
+    public static final MsgTabForumData U(o99 this$0, Map it) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, this$0, it)) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullExpressionValue(it, "it");
+            return (MsgTabForumData) it.get(this$0.m);
+        }
+        return (MsgTabForumData) invokeLL.objValue;
+    }
+
+    public static final void V(o99 this$0, MsgTabForumData msgTabForumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, msgTabForumData) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.W(msgTabForumData);
         }
     }
 
-    public static final void n(final o99 this$0, String key, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
-        List<ChatMsg> msgs;
-        List<ChatMsg> msgs2;
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{this$0, key, Integer.valueOf(i), str, personFetchMsgResponse}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(key, "$key");
-            BdLog.e(StatConstants.KEY_EXT_ERR_MSG + str);
-            Integer num = null;
-            if (i == 0) {
-                TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
-                String r = this$0.e.r();
-                StringBuilder sb = new StringBuilder();
-                sb.append("firstFetchMsg success ：  responseCode : ");
-                sb.append(i);
-                sb.append(" errMsg : ");
-                sb.append(str);
-                sb.append(" response : ");
-                if (personFetchMsgResponse != null && (msgs2 = personFetchMsgResponse.getMsgs()) != null) {
-                    num = Integer.valueOf(msgs2.size());
-                }
-                sb.append(num);
-                imSpriteSysLog.i(r, sb.toString());
-                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
-                treeSet.addAll(personFetchMsgResponse.getMsgs());
-                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(0));
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.b99
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = (ViewGroup) j(R.id.obfuscated_res_0x7f0906ec);
+            this.i = (BarImageView) j(R.id.iv_icon);
+            this.h = (BarImageView) j(R.id.obfuscated_res_0x7f0906eb);
+            this.j = (MsgTabNavTextView) j(R.id.obfuscated_res_0x7f092884);
+            this.k = (ImageView) j(R.id.obfuscated_res_0x7f0912b8);
+            this.l = (TextView) j(R.id.tv_tips);
+        }
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.w09
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.b();
+            htc k = k();
+            if (k != null) {
+                k.a(ForumChannelDataObs.b.a().b().k(new xoc() { // from class: com.baidu.tieba.v89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
+                    @Override // com.baidu.tieba.xoc
+                    public final Object call(Object obj) {
+                        InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o99.o(o99.this);
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? o99.T(o99.this, (Map) obj) : invokeL.objValue;
+                    }
+                }).x().p(new xoc() { // from class: com.baidu.tieba.z89
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.xoc
+                    public final Object call(Object obj) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? o99.U(o99.this, (Map) obj) : invokeL.objValue;
+                    }
+                }).s(ooc.b()).H(new soc() { // from class: com.baidu.tieba.u89
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.soc
+                    public final void call(Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                            o99.V(o99.this, (MsgTabForumData) obj);
                         }
                     }
-                });
+                }));
+            }
+        }
+    }
+
+    public final void S(float f, float f2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            ImageView imageView = this.k;
+            ImageView imageView2 = null;
+            if (imageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
+                imageView = null;
+            }
+            if (f2 == imageView.getAlpha()) {
+                z = true;
             } else {
-                TbLog imSpriteSysLog2 = ImSpriteSysLog.getInstance();
-                String r2 = this$0.e.r();
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("firstFetchMsg error ：  responseCode : ");
-                sb2.append(i);
-                sb2.append(" errMsg : ");
-                sb2.append(str);
-                sb2.append(" response : ");
-                if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
-                    num = Integer.valueOf(msgs.size());
-                }
-                sb2.append(num);
-                imSpriteSysLog2.i(r2, sb2.toString());
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.k99
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o99.p(o99.this);
-                        }
-                    }
-                });
+                z = false;
             }
-            this$0.f.d(key);
-        }
-    }
-
-    public static final void d(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.c(1);
-            }
-        }
-    }
-
-    public static final void e(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.onError(1);
-            }
-        }
-    }
-
-    public static final void f(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.e(1);
-            }
-        }
-    }
-
-    public static final void h(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.e(2);
-            }
-        }
-    }
-
-    public static final void j(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.c(2);
-            }
-        }
-    }
-
-    public static final void k(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.onError(2);
-            }
-        }
-    }
-
-    public static final void m(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.e(0);
-            }
-        }
-    }
-
-    public static final void o(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.c(0);
-            }
-        }
-    }
-
-    public static final void p(o99 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (b bVar : this$0.h) {
-                bVar.onError(0);
-            }
-        }
-    }
-
-    public final void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (bVar != null) {
-                this.h.add(bVar);
-            }
-            this.e.e(bVar);
-        }
-    }
-
-    public final void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.f99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        o99.h(o99.this);
-                    }
-                }
-            });
-            this.b.b(this.a, j, Long.MAX_VALUE, this.c, SpriteMsgProcessor.m.a(), new mk5() { // from class: com.baidu.tieba.c99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.mk5
-                public final void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, personFetchMsgResponse) == null) {
-                        o99.i(o99.this, i, str, personFetchMsgResponse);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void t(f89<?> msg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, msg) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            this.e.E(msg);
-        }
-    }
-
-    public final void u(SpriteMsgProcessor.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.e.F(dVar);
-        }
-    }
-
-    public static final void i(final o99 this$0, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
-        List<ChatMsg> msgs;
-        List<ChatMsg> msgs2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65542, null, this$0, i, str, personFetchMsgResponse) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Integer num = null;
-            if (i == 0) {
-                TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
-                String r = this$0.e.r();
-                StringBuilder sb = new StringBuilder();
-                sb.append("fetchNextMsg success ：  responseCode : ");
-                sb.append(i);
-                sb.append(" errMsg : ");
-                sb.append(str);
-                sb.append(" response : ");
-                if (personFetchMsgResponse != null && (msgs2 = personFetchMsgResponse.getMsgs()) != null) {
-                    num = Integer.valueOf(msgs2.size());
-                }
-                sb.append(num);
-                imSpriteSysLog.i(r, sb.toString());
-                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
-                treeSet.addAll(personFetchMsgResponse.getMsgs());
-                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(2));
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.j99
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            o99.j(o99.this);
-                        }
-                    }
-                });
+            if (z) {
                 return;
             }
-            TbLog imSpriteSysLog2 = ImSpriteSysLog.getInstance();
-            String r2 = this$0.e.r();
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("fetchNextMsg error ：  responseCode : ");
-            sb2.append(i);
-            sb2.append(" errMsg : ");
-            sb2.append(str);
-            sb2.append(" response : ");
-            if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
-                num = Integer.valueOf(msgs.size());
+            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(Key.ALPHA, f, f2);
+            ImageView imageView3 = this.k;
+            if (imageView3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
+            } else {
+                imageView2 = imageView3;
             }
-            sb2.append(num);
-            imSpriteSysLog2.i(r2, sb2.toString());
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.m99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        o99.k(o99.this);
-                    }
-                }
-            });
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(imageView2, ofFloat);
+            Intrinsics.checkNotNullExpressionValue(ofPropertyValuesHolder, "ofPropertyValuesHolder(m…kgroundView, alphaProper)");
+            ofPropertyValuesHolder.setDuration(200L);
+            ofPropertyValuesHolder.start();
         }
     }
 
-    public final void b(long j) {
+    public final void W(MsgTabForumData msgTabForumData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.f.b(this.g) && this.f.a("fetchHistoryMsg")) {
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.d99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        o99.f(o99.this);
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, msgTabForumData) == null) && msgTabForumData != null) {
+            BarImageView barImageView = this.i;
+            TextView textView = null;
+            if (barImageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
+                barImageView = null;
+            }
+            if (!(!Intrinsics.areEqual(barImageView.getTag(), msgTabForumData.getIcon()))) {
+                barImageView = null;
+            }
+            int i = 0;
+            if (barImageView != null) {
+                barImageView.setTag(msgTabForumData.getIcon());
+                barImageView.setImageDrawable(null);
+                barImageView.setDefaultBgResource(R.drawable.pic_use_header_28_n);
+                barImageView.startLoad(msgTabForumData.getIcon(), 10, false);
+            }
+            if (TextUtils.isEmpty(msgTabForumData.getHotNumsText())) {
+                MsgTabNavTextView msgTabNavTextView = this.j;
+                if (msgTabNavTextView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView = null;
                 }
-            });
-            this.b.b(this.a, 0L, j, -this.c, SpriteMsgProcessor.m.a(), new mk5() { // from class: com.baidu.tieba.w89
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.mk5
-                public final void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, personFetchMsgResponse) == null) {
-                        o99.c(o99.this, r2, i, str, personFetchMsgResponse);
-                    }
+                msgTabNavTextView.setVisibility(8);
+            } else {
+                MsgTabNavTextView msgTabNavTextView2 = this.j;
+                if (msgTabNavTextView2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView2 = null;
                 }
-            });
+                msgTabNavTextView2.setText(msgTabForumData.getHotNumsText());
+                MsgTabNavTextView msgTabNavTextView3 = this.j;
+                if (msgTabNavTextView3 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView3 = null;
+                }
+                msgTabNavTextView3.setVisibility(0);
+            }
+            TextView textView2 = this.l;
+            if (textView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mTipsView");
+            } else {
+                textView = textView2;
+            }
+            if (msgTabForumData.getHasActivity() != 1) {
+                i = 8;
+            }
+            textView.setVisibility(i);
         }
     }
 
-    public final void q(Object msg) {
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.e19
+    public void d(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, msg) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            if (msg instanceof f89) {
-                f89 f89Var = (f89) msg;
-                if (f89Var.h() instanceof ChatMsg) {
-                    SpriteMsgProcessor spriteMsgProcessor = this.e;
-                    Object h = f89Var.h();
-                    if (h != null) {
-                        spriteMsgProcessor.y((ChatMsg) h);
-                        return;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.android.imsdk.chatmessage.messages.ChatMsg");
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            super.d(z);
+            if (z) {
+                S(0.0f, 1.0f);
+            } else {
+                S(1.0f, 0.0f);
+            }
+            BarImageView barImageView = this.h;
+            ViewGroup viewGroup = null;
+            if (barImageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
+                barImageView = null;
+            }
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            barImageView.setVisibility(i);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            if (z) {
+                ViewGroup viewGroup2 = this.g;
+                if (viewGroup2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mContentContainerView");
+                } else {
+                    viewGroup = viewGroup2;
                 }
+                ka9.a(viewGroup);
             }
         }
     }
 
-    public final void l() {
+    @Override // com.baidu.tieba.e19
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            final String str = this.g;
-            if (!this.f.a(str)) {
-                return;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            BarImageView barImageView = null;
+            if (B()) {
+                MsgTabNavTextView msgTabNavTextView = this.j;
+                if (msgTabNavTextView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView = null;
+                }
+                EMManager.from(msgTabNavTextView).setTextColor(R.color.CAM_X0622).setBorderColor(R.color.CAM_X0201).setBorderWidth(R.dimen.tbds6).setBackGroundColor(R.color.CAM_X0341);
+                TextView textView = this.l;
+                if (textView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mTipsView");
+                    textView = null;
+                }
+                EMManager.from(textView).setTextColor(R.color.CAM_X0101).setBorderColor(R.color.CAM_X0201).setBackGroundColor(R.color.CAM_X0319);
+            } else {
+                MsgTabNavTextView msgTabNavTextView2 = this.j;
+                if (msgTabNavTextView2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView2 = null;
+                }
+                EMManager.from(msgTabNavTextView2).setTextColor(R.color.CAM_X0622).setBorderColor(R.color.CAM_X0202).setBorderWidth(R.dimen.tbds6).setBackGroundColorString("#FFA1B2E6");
+                TextView textView2 = this.l;
+                if (textView2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mTipsView");
+                    textView2 = null;
+                }
+                EMManager.from(textView2).setTextColor(R.color.CAM_X0101).setBorderColor(R.color.CAM_X0202).setBackGroundColor(R.color.CAM_X0319);
             }
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.n99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            ImageView imageView = this.k;
+            if (imageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
+                imageView = null;
+            }
+            imageView.setColorFilter(SkinManager.getColor(R.color.CAM_X0201));
+            BarImageView barImageView2 = this.h;
+            if (barImageView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
+            } else {
+                barImageView = barImageView2;
+            }
+            barImageView.setStrokeColorResId(R.color.CAM_X0341);
+        }
+    }
 
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        o99.m(o99.this);
-                    }
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    public void r(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            TextView textView = null;
+            Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), R.drawable.obfuscated_res_0x7f080a94, null);
+            if (drawable != null) {
+                DrawableCompat.setTint(drawable, ResourcesCompat.getColor(context.getResources(), R.color.CAM_X0622, null));
+                MsgTabNavTextView msgTabNavTextView = this.j;
+                if (msgTabNavTextView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                    msgTabNavTextView = null;
                 }
-            });
-            this.b.b(this.a, 0L, Long.MAX_VALUE, this.c, SpriteMsgProcessor.m.a(), new mk5() { // from class: com.baidu.tieba.l99
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.mk5
-                public final void a(int i, String str2, PersonFetchMsgResponse personFetchMsgResponse) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, personFetchMsgResponse) == null) {
-                        o99.n(o99.this, str, i, str2, personFetchMsgResponse);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = this.b.a(this.a, this.e);
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e.D();
-        }
-    }
-
-    public final void v() {
-        BroadcastReceiver broadcastReceiver;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (broadcastReceiver = this.d) != null) {
-            lk5 lk5Var = this.b;
-            Context context = this.a;
-            Intrinsics.checkNotNull(broadcastReceiver);
-            lk5Var.c(context, broadcastReceiver);
+                msgTabNavTextView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            }
+            BarImageView barImageView = this.h;
+            if (barImageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
+                barImageView = null;
+            }
+            barImageView.setShowOval(true);
+            barImageView.setShowOuterBorder(true);
+            barImageView.setShowInnerBorder(false);
+            barImageView.setDefaultBgResource(R.color.CAM_X0211);
+            barImageView.setStrokeWith(BdUtilHelper.getDimens(context, R.dimen.tbds5));
+            barImageView.setStrokeColorResId(R.color.CAM_X0341);
+            BarImageView barImageView2 = this.i;
+            if (barImageView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
+                barImageView2 = null;
+            }
+            barImageView2.setShowOval(true);
+            barImageView2.setShowOuterBorder(true);
+            barImageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            MsgTabNavTextView msgTabNavTextView2 = this.j;
+            if (msgTabNavTextView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
+                msgTabNavTextView2 = null;
+            }
+            EMManager.from(msgTabNavTextView2).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X07).setTextColor(R.color.CAM_X0622).setBorderWidth(R.dimen.tbds6).setBorderColor(R.color.CAM_X0202);
+            TextView textView2 = this.l;
+            if (textView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mTipsView");
+                textView2 = null;
+            }
+            textView2.setText(R.string.card_promotion_text);
+            TextView textView3 = this.l;
+            if (textView3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mTipsView");
+            } else {
+                textView = textView3;
+            }
+            EMManager.from(textView).setCorner(R.string.J_X07).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X10).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X04).setBorderColor(R.color.CAM_X0202).setBackGroundColor(R.color.CAM_X0319);
         }
     }
 }

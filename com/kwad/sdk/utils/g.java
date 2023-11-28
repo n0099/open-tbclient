@@ -1,25 +1,33 @@
 package com.kwad.sdk.utils;
 
+import com.kwad.sdk.core.threads.GlobalThreadPools;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes10.dex */
-public final class g {
-    public static volatile Executor amY = com.kwad.sdk.core.threads.b.vq();
-    public static volatile ScheduledExecutorService amZ;
+public class g {
+    public static volatile Executor aMT;
+    public static volatile ScheduledExecutorService aMU;
 
     public static void execute(Runnable runnable) {
-        amY.execute(runnable);
-    }
-
-    public static void runOnDefaultExecutor(Runnable runnable) {
-        amY.execute(runnable);
+        if (aMT == null) {
+            synchronized (g.class) {
+                if (aMT == null) {
+                    aMT = GlobalThreadPools.EB();
+                }
+            }
+        }
+        aMT.execute(runnable);
     }
 
     public static void schedule(Runnable runnable, long j, TimeUnit timeUnit) {
-        if (amZ == null) {
-            amZ = com.kwad.sdk.core.threads.b.vr();
+        if (aMU == null) {
+            synchronized (g.class) {
+                if (aMU == null) {
+                    aMU = GlobalThreadPools.EC();
+                }
+            }
         }
-        amZ.schedule(runnable, j, timeUnit);
+        aMU.schedule(runnable, j, timeUnit);
     }
 }

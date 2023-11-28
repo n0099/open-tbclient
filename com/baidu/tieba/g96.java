@@ -2,34 +2,31 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g96 extends zk6<e86> {
+public class g96 extends jl6<q86> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TabLiveStageLiveView j;
-    public int k;
+    public f96 i;
+    public f96 j;
+    public LinearLayout k;
+    public ViewGroup l;
+    public View m;
 
-    @Override // com.baidu.tieba.zk6
+    @Override // com.baidu.tieba.jl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0968 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0988 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,13 +37,13 @@ public class g96 extends zk6<e86> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g96(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public g96(TbPageContext<?> tbPageContext, ViewGroup viewGroup, String str) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext, viewGroup, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,83 +55,52 @@ public class g96 extends zk6<e86> {
                 return;
             }
         }
-        this.k = 0;
-        p();
-    }
-
-    @Override // com.baidu.tieba.zk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(i(), R.color.CAM_X0201);
-            TabLiveStageLiveView tabLiveStageLiveView = this.j;
-            if (tabLiveStageLiveView != null) {
-                tabLiveStageLiveView.c();
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = i();
-            int[] b = v76.b(c());
-            int i = b[0];
-            int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.j = tabLiveStageLiveView;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
-            } else {
-                layoutParams.width = i;
-                layoutParams.height = i2;
-            }
-            layoutParams.gravity = 1;
-            this.j.setLayoutParams(layoutParams);
-        }
+        this.i = new f96(tbPageContext, str);
+        this.j = new f96(tbPageContext, str);
+        ViewGroup viewGroup2 = (ViewGroup) i();
+        this.l = viewGroup2;
+        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f0910b3);
+        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f0910a9);
+        View view2 = new View(c());
+        this.k.setPadding(h().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, h().getResources().getDimensionPixelSize(R.dimen.tbds44), h().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.k.addView(this.i.h());
+        this.k.addView(view2, new LinearLayout.LayoutParams(h().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.k.addView(this.j.h());
+        k(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk6
-    /* renamed from: r */
-    public void k(e86 e86Var) {
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        String str;
+    @Override // com.baidu.tieba.jl6
+    /* renamed from: p */
+    public void j(q86 q86Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, e86Var) == null) && e86Var != null && e86Var.a != null) {
-            int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.c);
-            if (equipmentWidth != this.k) {
-                int[] b = v76.b(c());
-                int i = b[0];
-                int i2 = b[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.width = i;
-                layoutParams.height = i2;
-                this.j.setLayoutParams(layoutParams);
-                this.k = equipmentWidth;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, q86Var) == null) && q86Var != null) {
+            this.i.i(q86Var.a);
+            this.j.i(q86Var.b);
+            if (q86Var.c) {
+                this.m.setVisibility(0);
+            } else {
+                this.m.setVisibility(8);
             }
-            this.j.setData(e86Var.a.a, 101);
-            StatisticItem statisticItem = new StatisticItem("c13551");
-            f86 f86Var = e86Var.a;
-            if (f86Var != null && (sdkLiveInfoData = f86Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
-                int a = v76.a(alaLiveInfo);
-                SdkLiveInfoData sdkLiveInfoData2 = e86Var.a.a;
-                SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
-                if (yYExt != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, v76.j(yYExt, sdkLiveInfoData2.roomId));
-                    str = TiebaStatic.YYValues.YY_LIVE;
-                } else {
-                    str = "";
-                }
-                statisticItem.param("obj_param1", a);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-            }
-            statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-            statisticItem.param("nid", e86Var.a.a.nid);
-            statisticItem.param("log_id", e86Var.a.a.logid);
-            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void r(l96 l96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, l96Var) == null) {
+            this.i.l(l96Var);
+            this.j.l(l96Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jl6
+    public void k(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.k(tbPageContext, i);
+            this.j.k(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
         }
     }
 }

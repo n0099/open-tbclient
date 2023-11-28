@@ -189,7 +189,7 @@ public class CooperService implements ICooperService {
             return "";
         }
         try {
-            if (!bn.e(context, com.kuaishou.weapon.p0.h.c)) {
+            if (!bn.e(context, com.kuaishou.weapon.p0.g.c)) {
                 return "";
             }
             return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
@@ -548,7 +548,7 @@ public class CooperService implements ICooperService {
         if (telephonyManager != null && bu.a().d()) {
             Pattern compile = Pattern.compile("\\s*|\t|\r|\n");
             try {
-                if (!bn.e(context, com.kuaishou.weapon.p0.h.c)) {
+                if (!bn.e(context, com.kuaishou.weapon.p0.g.c)) {
                     str = "";
                 } else {
                     str = ApiReplaceUtil.getDeviceId(telephonyManager);

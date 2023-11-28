@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.h68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,6 +135,7 @@ public class ForumActivityStatic {
             }
         }
         a();
+        h68.a.c();
     }
 
     public ForumActivityStatic() {

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes9.dex */
 public interface xn {
-    boolean a();
+    void a(String str, wn wnVar);
 }

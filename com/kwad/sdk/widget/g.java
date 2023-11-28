@@ -3,126 +3,127 @@ package com.kwad.sdk.widget;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import com.kwad.sdk.utils.bf;
+import com.kwad.sdk.utils.bp;
+import com.kwad.sdk.utils.k;
 /* loaded from: classes10.dex */
 public final class g {
-    public final int GD;
-    public final bf afk;
-    public final i are;
-    public boolean arg;
-    public boolean arh;
-    public ViewTreeObserver.OnScrollChangedListener arj;
+    public final bp aBL;
+    public final i aRo;
+    public boolean aRq;
+    public boolean aRr;
+    public ViewTreeObserver.OnScrollChangedListener aRt;
     public final View mView;
-    public float arf = 0.1f;
-    public boolean ari = true;
+    public final int me;
+    public float aRp = 0.1f;
+    public boolean aRs = true;
 
     public g(View view2, i iVar) {
         this.mView = view2;
-        this.are = iVar;
-        this.afk = new bf(view2);
-        this.GD = com.kwad.sdk.utils.j.getScreenHeight(view2.getContext());
+        this.aRo = iVar;
+        this.aBL = new bp(view2);
+        this.me = k.getScreenHeight(view2.getContext());
     }
 
-    private void Bx() {
-        if (By()) {
-            av();
+    private void FB() {
+        if (this.aRt == null) {
+            this.aRt = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.widget.g.1
+                @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+                public final void onScrollChanged() {
+                    if (!g.this.Ms()) {
+                        return;
+                    }
+                    g.this.ao();
+                }
+            };
+            ViewTreeObserver viewTreeObserver = this.mView.getViewTreeObserver();
+            if (viewTreeObserver != null) {
+                viewTreeObserver.addOnScrollChangedListener(this.aRt);
+            }
+        }
+    }
+
+    private void FC() {
+        if (this.aRt == null) {
             return;
         }
-        wf();
-        we();
+        try {
+            ViewTreeObserver viewTreeObserver = this.mView.getViewTreeObserver();
+            if (viewTreeObserver != null) {
+                viewTreeObserver.removeOnScrollChangedListener(this.aRt);
+            }
+            this.aRt = null;
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.c.printStackTrace(e);
+        }
+    }
+
+    private void Mr() {
+        if (Ms()) {
+            ao();
+            return;
+        }
+        FC();
+        FB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean By() {
-        if (this.afk.AV() && Math.abs(this.afk.apg.height() - this.mView.getHeight()) <= this.mView.getHeight() * (1.0f - this.arf) && this.mView.getHeight() > 0 && this.mView.getWidth() > 0) {
-            Rect rect = this.afk.apg;
-            if (rect.bottom > 0 && rect.top < this.GD) {
+    public void ao() {
+        FC();
+        i iVar = this.aRo;
+        if (iVar != null) {
+            iVar.A(this.mView);
+        }
+    }
+
+    private void ot() {
+        if (this.aRs) {
+            Mr();
+        }
+    }
+
+    public final void Mq() {
+        if (this.aRr) {
+            ot();
+        }
+    }
+
+    public final float getVisiblePercent() {
+        return this.aRp;
+    }
+
+    public final void onAttachedToWindow() {
+        FB();
+    }
+
+    public final void onDetachedFromWindow() {
+        FC();
+        this.aRq = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean Ms() {
+        if (this.aBL.LP() && Math.abs(this.aBL.aPt.height() - this.mView.getHeight()) <= this.mView.getHeight() * (1.0f - this.aRp) && this.mView.getHeight() > 0 && this.mView.getWidth() > 0) {
+            Rect rect = this.aBL.aPt;
+            if (rect.bottom > 0 && rect.top < this.me) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void av() {
-        wf();
-        i iVar = this.are;
-        if (iVar != null) {
-            iVar.k(this.mView);
-        }
-    }
-
-    private void wa() {
-        if (this.ari) {
-            Bx();
-        }
-    }
-
-    private void we() {
-        if (this.arj == null) {
-            this.arj = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.widget.g.1
-                @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-                public final void onScrollChanged() {
-                    if (g.this.By()) {
-                        g.this.av();
-                    }
-                }
-            };
-            ViewTreeObserver viewTreeObserver = this.mView.getViewTreeObserver();
-            if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.arj);
-            }
-        }
-    }
-
-    private void wf() {
-        if (this.arj == null) {
-            return;
-        }
-        try {
-            ViewTreeObserver viewTreeObserver = this.mView.getViewTreeObserver();
-            if (viewTreeObserver != null) {
-                viewTreeObserver.removeOnScrollChangedListener(this.arj);
-            }
-            this.arj = null;
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
-        }
-    }
-
-    public final void Bw() {
-        if (this.arh) {
-            wa();
-        }
-    }
-
-    public final void b(int i, int i2, int i3, int i4) {
-        this.arh = false;
-        if (this.arg || (i3 | i4) != 0 || (i | i2) == 0) {
-            return;
-        }
-        this.arh = true;
-        this.arg = true;
-    }
-
-    public final void bs(boolean z) {
-        this.ari = z;
-    }
-
-    public final float getVisiblePercent() {
-        return this.arf;
-    }
-
-    public final void onAttachedToWindow() {
-        we();
-    }
-
-    public final void onDetachedFromWindow() {
-        wf();
-        this.arg = false;
+    public final void cb(boolean z) {
+        this.aRs = z;
     }
 
     public final void setVisiblePercent(float f) {
-        this.arf = f;
+        this.aRp = f;
+    }
+
+    public final void b(int i, int i2, int i3, int i4) {
+        this.aRr = false;
+        if (!this.aRq && (i3 | i4) == 0 && (i | i2) != 0) {
+            this.aRr = true;
+            this.aRq = true;
+        }
     }
 }

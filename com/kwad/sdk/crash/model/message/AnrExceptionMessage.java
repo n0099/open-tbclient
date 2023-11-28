@@ -2,9 +2,9 @@ package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.core.e.c;
 import com.kwad.sdk.crash.offline.monitor.mem.message.OfflineMemExceptionMessage;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class AnrExceptionMessage extends ExceptionMessage {
@@ -15,13 +15,23 @@ public final class AnrExceptionMessage extends ExceptionMessage {
     public String mThreadStatus = "";
     public int mIndex = -1;
 
+    @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
+    public final String getTypePrefix() {
+        return "ANR_";
+    }
+
     public AnrExceptionMessage() {
         this.mExceptionType = 3;
     }
 
-    @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
-    public final String getTypePrefix() {
-        return "ANR_";
+    @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
+    public final JSONObject toJson() {
+        JSONObject json = super.toJson();
+        t.putValue(json, OfflineMemExceptionMessage.REASON, this.mReason);
+        t.putValue(json, OfflineMemExceptionMessage.MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
+        t.putValue(json, OfflineMemExceptionMessage.THREAD_DETAIL, this.mThreadDetail);
+        t.putValue(json, OfflineMemExceptionMessage.THREAD_STATUS, this.mThreadStatus);
+        return json;
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
@@ -34,16 +44,6 @@ public final class AnrExceptionMessage extends ExceptionMessage {
         this.mMessageQueueDetail = jSONObject.optString(OfflineMemExceptionMessage.MSG_QUEUE_DETAIL);
         this.mThreadDetail = jSONObject.optString(OfflineMemExceptionMessage.THREAD_DETAIL);
         this.mThreadStatus = jSONObject.optString(OfflineMemExceptionMessage.THREAD_STATUS);
-    }
-
-    @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
-    public final JSONObject toJson() {
-        JSONObject json = super.toJson();
-        r.putValue(json, OfflineMemExceptionMessage.REASON, this.mReason);
-        r.putValue(json, OfflineMemExceptionMessage.MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
-        r.putValue(json, OfflineMemExceptionMessage.THREAD_DETAIL, this.mThreadDetail);
-        r.putValue(json, OfflineMemExceptionMessage.THREAD_STATUS, this.mThreadStatus);
-        return json;
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
@@ -71,7 +71,7 @@ public final class AnrExceptionMessage extends ExceptionMessage {
                 sb.append("\n");
             }
         } catch (Exception e) {
-            b.printStackTraceOnly(e);
+            c.printStackTraceOnly(e);
         }
         return sb.substring(0);
     }

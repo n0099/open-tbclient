@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.a85;
-import com.baidu.tieba.bk;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.ksa;
-import com.baidu.tieba.osa;
-import com.baidu.tieba.zza;
+import com.baidu.tieba.ck;
+import com.baidu.tieba.cxa;
+import com.baidu.tieba.g85;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.po5;
+import com.baidu.tieba.u4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@bk
+@ck
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements ksa {
+public class UegTbJsBridge implements cxa {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements ksa {
         }
     }
 
-    public osa novelPayResultToClient(boolean z) {
+    public gxa novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            osa osaVar = new osa();
+            gxa gxaVar = new gxa();
             if (z) {
-                ho5.c();
+                po5.c();
             }
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeZ.objValue;
+        return (gxa) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements ksa {
         this.mTbPageContext = tbPageContext;
     }
 
-    public osa bindingMobileNumber() {
+    public gxa bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            osa osaVar = new osa();
+            gxa gxaVar = new gxa();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a85.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, g85.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public osa callNativeSMS(String str, String str2) {
+    public gxa callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            osa osaVar = new osa();
+            gxa gxaVar = new gxa();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ksa
+    @Override // com.baidu.tieba.cxa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements ksa {
         return invokeLLLL.booleanValue;
     }
 
-    public osa recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public gxa recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            osa osaVar = new osa();
+            gxa gxaVar = new gxa();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.Q(true);
-            ho5.d(str2, readRecordsData);
-            return osaVar;
+            po5.d(str2, readRecordsData);
+            return gxaVar;
         }
-        return (osa) invokeLLLLL.objValue;
+        return (gxa) invokeLLLLL.objValue;
     }
 
-    public osa setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public gxa setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            osa osaVar = new osa();
+            gxa gxaVar = new gxa();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements ksa {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                zza.h(build);
-                zza.g(build);
+                u4b.h(build);
+                u4b.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return osaVar;
+            return gxaVar;
         }
-        return (osa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 }

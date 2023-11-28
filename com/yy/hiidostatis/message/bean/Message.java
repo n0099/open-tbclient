@@ -2,7 +2,7 @@ package com.yy.hiidostatis.message.bean;
 
 import com.yy.hiidostatis.inner.util.cipher.TextUtils;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Message {
     public byte[] content;
     public int count;

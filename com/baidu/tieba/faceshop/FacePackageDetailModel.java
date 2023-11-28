@@ -13,9 +13,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.qd;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.da;
+import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,10 +78,10 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                yz4.l();
-                ca<String> m = yz4.m("tb_face_package");
-                if (m != null) {
-                    m.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
+                b05.k();
+                da<String> l = b05.l("tb_face_package");
+                if (l != null) {
+                    l.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
             }
         }
@@ -126,11 +126,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    yz4.l();
-                    ca<String> m = yz4.m("tb_face_package");
-                    if (m != null) {
-                        String str = m.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                        if (!qd.isEmpty(str)) {
+                    b05.k();
+                    da<String> l = b05.l("tb_face_package");
+                    if (l != null) {
+                        String str = l.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
+                        if (!rd.isEmpty(str)) {
                             publishProgress(str);
                         }
                     }

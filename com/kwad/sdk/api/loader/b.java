@@ -12,43 +12,56 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes10.dex */
 public final class b {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    break;
-                }
+    public static void E(String str, String str2) {
+        File file = new File(str2);
+        if (file.exists()) {
+            h.j(file);
+        }
+        FileOutputStream fileOutputStream = new FileOutputStream(file, false);
+        file.setReadOnly();
+        d(new FileInputStream(str), fileOutputStream);
+    }
+
+    public static void c(InputStream inputStream, OutputStream outputStream) {
+        byte[] bArr = new byte[8192];
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read != -1) {
                 outputStream.write(bArr, 0, read);
+            } else {
+                return;
             }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused) {
-                }
-            }
-            try {
-                outputStream.close();
-            } catch (Exception unused2) {
-            }
-        } catch (Throwable th) {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused3) {
-                }
-            }
-            try {
-                outputStream.close();
-            } catch (Exception unused4) {
-            }
-            throw th;
         }
     }
 
-    public static void a(String str, String str2) {
-        String str3 = v.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
+    public static void d(InputStream inputStream, OutputStream outputStream) {
+        try {
+            c(inputStream, outputStream);
+            try {
+                outputStream.close();
+            } catch (Exception unused) {
+            }
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused2) {
+                }
+            }
+            try {
+                outputStream.close();
+            } catch (Exception unused3) {
+            }
+        }
+    }
+
+    public static void F(String str, String str2) {
+        String str3;
+        if (w.is64Bit()) {
+            str3 = "lib/arm64-v8a/";
+        } else {
+            str3 = "lib/armeabi-v7a/";
+        }
         ZipFile zipFile = null;
         try {
             ZipFile zipFile2 = new ZipFile(str);
@@ -59,7 +72,10 @@ public final class b {
                     if (!nextElement.isDirectory()) {
                         String name = nextElement.getName();
                         if (!TextUtils.isEmpty(name) && !name.contains("../") && name.endsWith(".so") && name.startsWith(str3)) {
-                            a(zipFile2.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
+                            File file = new File(str2, name.substring(str3.length()));
+                            FileOutputStream fileOutputStream = new FileOutputStream(file);
+                            file.setReadOnly();
+                            d(zipFile2.getInputStream(nextElement), fileOutputStream);
                         }
                     }
                 }
@@ -83,36 +99,38 @@ public final class b {
         }
     }
 
-    public static boolean b(Context context, String str, String str2) {
-        String a = h.a(context, str2);
-        d(new File(a));
-        String m = h.m(context, str2);
-        String n = h.n(context, str2);
-        String o = h.o(context, str2);
+    public static boolean a(Context context, ClassLoader classLoader, String str, String str2) {
+        String q = h.q(context, str2);
+        h(new File(q));
+        String s = h.s(context, str2);
+        String t = h.t(context, str2);
+        String u = h.u(context, str2);
         try {
-            a(new FileInputStream(str), new FileOutputStream(m));
-            a(str, o);
-            return l.b(context, m, n, o).RJ != null;
+            E(str, s);
+            F(str, u);
+            if (k.b(context, classLoader, s, t, u).zk() != null) {
+                return true;
+            }
+            return false;
         } catch (Exception e) {
-            d(new File(m));
-            d(new File(n));
-            d(new File(o));
-            d(new File(a));
+            h(new File(s));
+            h(new File(t));
+            h(new File(u));
+            h(new File(q));
             throw e;
         }
     }
 
-    public static void d(File file) {
+    public static void h(File file) {
         if (file.isFile()) {
             file.delete();
             return;
         }
         File[] listFiles = file.listFiles();
-        if (listFiles == null || listFiles.length <= 0) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            d(file2);
+        if (listFiles != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                h(file2);
+            }
         }
     }
 }

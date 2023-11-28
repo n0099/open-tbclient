@@ -1,13 +1,13 @@
 package com.baidu.tieba.forum.data.protobuf;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a67;
-import com.baidu.tieba.ab7;
-import com.baidu.tieba.bb7;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.ea7;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.ze7;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.n67;
+import com.baidu.tieba.nb7;
+import com.baidu.tieba.ob7;
+import com.baidu.tieba.ra7;
+import com.baidu.tieba.wf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public final class FrsHeadlinesExtensionKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedToutiao feedToutiao, final List<ab7<?>> dataList, final a67 feedExtraData, final String schema) {
+    public static final void a(FeedToutiao feedToutiao, final List<nb7<?>> dataList, final n67 feedExtraData, final String schema) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65536, null, feedToutiao, dataList, feedExtraData, schema) == null) {
@@ -34,14 +34,14 @@ public final class FrsHeadlinesExtensionKt {
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
             Intrinsics.checkNotNullParameter(schema, "schema");
-            HashMap<String, String> a = ea7.a.a(feedToutiao.business_info);
+            HashMap<String, String> a = ra7.a.a(feedToutiao.business_info);
             if (a.isEmpty() || (str = a.get("task_info")) == null) {
                 return;
             }
             JSONKt.a(str, new Function1<JSONObject, Unit>(feedExtraData, schema, dataList) { // from class: com.baidu.tieba.forum.data.protobuf.FrsHeadlinesExtensionKt$insertTemplateList$1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ List<ab7<?>> $dataList;
-                public final /* synthetic */ a67 $feedExtraData;
+                public final /* synthetic */ List<nb7<?>> $dataList;
+                public final /* synthetic */ n67 $feedExtraData;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String $schema;
 
@@ -81,13 +81,13 @@ public final class FrsHeadlinesExtensionKt {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonObj) == null) {
                         Intrinsics.checkNotNullParameter(jsonObj, "jsonObj");
-                        fz4 fz4Var = new fz4();
-                        fz4Var.s(jsonObj);
+                        hz4 hz4Var = new hz4();
+                        hz4Var.s(jsonObj);
                         String str2 = this.$feedExtraData.a().a().get("thread_id");
                         if (str2 == null) {
                             str2 = "";
                         }
-                        this.$dataList.add(new bb7(new ze7(str2, fz4Var, this.$schema, this.$feedExtraData.a().a(), this.$feedExtraData.c().a(), null, 32, null), "head_lines"));
+                        this.$dataList.add(new ob7(new wf7(str2, hz4Var, this.$schema, this.$feedExtraData.a().a(), this.$feedExtraData.c().a(), null, 32, null), "head_lines"));
                     }
                 }
             });

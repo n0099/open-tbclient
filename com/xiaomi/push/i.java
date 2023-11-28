@@ -29,10 +29,10 @@ public class i {
     public static String a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Set<String> f601a;
+    public static final Set<String> f597a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f602a = false;
+    public static boolean f598a = false;
     public static String b = null;
     public static String c = "";
     public static String d;
@@ -40,15 +40,15 @@ public class i {
     public static final String f = String.valueOf((char) 2);
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f603a = {"--", "a-", "u-", "v-", "o-", "g-"};
+    public static final String[] f599a = {"--", "a-", "u-", "v-", "o-", "g-"};
 
     static {
         HashSet hashSet = new HashSet();
-        f601a = hashSet;
+        f597a = hashSet;
         hashSet.add("com.xiaomi.xmsf");
-        f601a.add("com.xiaomi.finddevice");
-        f601a.add("com.miui.securitycenter");
-        f602a = true;
+        f597a.add("com.xiaomi.finddevice");
+        f597a.add("com.miui.securitycenter");
+        f598a = true;
     }
 
     public static double a(double d2) {
@@ -83,19 +83,19 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m612a() {
+    public static String m616a() {
         return a(b()) + "GB";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m613a(int i) {
+    public static String m617a(int i) {
         if (i > 0) {
-            String[] strArr = f603a;
+            String[] strArr = f599a;
             if (i < strArr.length) {
                 return strArr[i];
             }
         }
-        return f603a[0];
+        return f599a[0];
     }
 
     @Deprecated
@@ -106,18 +106,18 @@ public class i {
     public static String a(Context context, boolean z) {
         if (d == null) {
             String b2 = b(context);
-            String c2 = !j.m722d() ? z ? c(context) : j(context) : "";
+            String c2 = !j.m726d() ? z ? c(context) : j(context) : "";
             String a2 = a(context);
             int i = 1;
             if (!(Build.VERSION.SDK_INT < 26) && b(c2) && b(a2)) {
                 String b3 = az.a(context).b();
                 if (TextUtils.isEmpty(b3)) {
-                    String mo271a = az.a(context).mo271a();
-                    if (TextUtils.isEmpty(mo271a) || mo271a.startsWith("00000000-0000-0000-0000-000000000000")) {
+                    String mo275a = az.a(context).mo275a();
+                    if (TextUtils.isEmpty(mo275a) || mo275a.startsWith("00000000-0000-0000-0000-000000000000")) {
                         i = 5;
                     } else {
                         i = 4;
-                        b2 = mo271a;
+                        b2 = mo275a;
                     }
                 } else {
                     b2 = b3 + b2;
@@ -130,14 +130,14 @@ public class i {
             if (i == 3) {
                 d = b2;
             } else {
-                d = m613a(i) + bo.b(b2);
+                d = m617a(i) + bo.b(b2);
             }
         }
         return d;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m614a(Context context) {
+    public static boolean m618a(Context context) {
         Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver != null) {
             int intExtra = registerReceiver.getIntExtra("status", -1);
@@ -164,7 +164,7 @@ public class i {
         }
         int i = 0;
         while (true) {
-            String[] strArr = f603a;
+            String[] strArr = f599a;
             if (i >= strArr.length) {
                 return false;
             }
@@ -218,20 +218,20 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m615b() {
+    public static String m619b() {
         double a2 = a(((a(Environment.getDataDirectory()) / 1024.0d) / 1024.0d) / 1024.0d);
         return a2 + "GB";
     }
 
     public static String b(Context context) {
-        if (b == null && f602a) {
-            boolean m617c = m617c(context);
-            f602a = m617c;
-            if (m617c) {
+        if (b == null && f598a) {
+            boolean m621c = m621c(context);
+            f598a = m621c;
+            if (m621c) {
                 try {
                     b = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Throwable th) {
-                    com.xiaomi.channel.commonutils.logger.b.m186a("failure to get androidId: " + th);
+                    com.xiaomi.channel.commonutils.logger.b.m190a("failure to get androidId: " + th);
                 }
                 return b;
             }
@@ -241,7 +241,7 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m616b(Context context) {
+    public static boolean m620b(Context context) {
         PowerManager powerManager = (PowerManager) context.getSystemService("power");
         return powerManager == null || powerManager.isScreenOn();
     }
@@ -264,7 +264,7 @@ public class i {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m617c(Context context) {
+    public static boolean m621c(Context context) {
         if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
             return true;
         }

@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProductListResult {
     public String bubbleActMsg;
     public String currencyName;

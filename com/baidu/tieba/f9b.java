@@ -1,178 +1,153 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes5.dex */
-public class f9b extends BaseAdapter {
+public final class f9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uq4> a;
-    public String b;
-    public BaseFragmentActivity c;
-    public int d;
-    public LayoutInflater e;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static final String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount(str);
+            return sharedPrefKeyWithAccount + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(f9b f9bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f9bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static final boolean b(String str, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(str), "");
+            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
+            List<String> e = e(spCancelValue);
+            if (e != null && !e.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                long j = JavaTypesHelper.toLong(e.get(0), 0L);
+                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
+                if (TimeHelper.isSameDay(j, System.currentTimeMillis()) && i2 > i) {
+                    return false;
                 }
             }
+            return true;
         }
-
-        public /* synthetic */ b(f9b f9bVar, a aVar) {
-            this(f9bVar);
-        }
+        return invokeLI.booleanValue;
     }
 
-    public f9b(BaseFragmentActivity baseFragmentActivity) {
+    public static final boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (str2 != null && str2.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return true;
+            }
+            return !TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(a(str, str2), 0L), System.currentTimeMillis());
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final void g(String spKey, String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
+            Intrinsics.checkNotNullParameter(spKey, "spKey");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return;
             }
-        }
-        this.c = baseFragmentActivity;
-        this.e = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
-        this.d = BdUtilHelper.getEquipmentWidth(this.c.getPageContext().getPageActivity()) / 2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public uq4 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (uq4) ListUtils.getItem(this.a, i);
-        }
-        return (uq4) invokeI.objValue;
-    }
-
-    public void b(List<uq4> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
+            SharedPrefHelper.getInstance().putLong(a(spKey, str), System.currentTimeMillis());
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static final boolean d(LiveConfig config) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ListUtils.getCount(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public static final List<String> e(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str.length() > 0) {
+                z = true;
             } else {
-                view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d0125, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091205);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091217);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f1);
-                bVar.a.setGifIconSupport(false);
-                bVar.a.setLongIconSupport(false);
-                view2.setTag(bVar);
+                z = false;
             }
-            uq4 item = getItem(i);
-            if (item == null) {
-                view2.setVisibility(4);
-                return view2;
+            if (z) {
+                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
             }
-            view2.setVisibility(0);
-            if (!TextUtils.isEmpty(item.g())) {
-                String textOmit = BdUtilHelper.getTextOmit(bVar.b.getPaint(), item.g(), this.d);
-                bVar.b.setText(textOmit + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
-            } else {
-                bVar.b.setText("");
-            }
-            String b2 = item.b();
-            if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-                bVar.c.setVisibility(0);
-            } else {
-                bVar.c.setVisibility(8);
-            }
-            MediaFileInfo f = item.f();
-            if (f instanceof VideoFileInfo) {
-                bVar.a.startLoad(((VideoFileInfo) f).videoPath, 37, false);
-            } else if (f instanceof ImageFileInfo) {
-                bVar.a.startLoad(((ImageFileInfo) f).getFilePath(), 35, false);
-            }
-            SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
+            return null;
         }
-        return (View) invokeILL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
+    public static final void f(String spKey) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
+            Intrinsics.checkNotNullParameter(spKey, "spKey");
+            long currentTimeMillis = System.currentTimeMillis();
+            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(spKey), "");
+            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
+            List<String> e = e(spCancelValue);
+            int i = 1;
+            if (e != null && !e.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                long j = JavaTypesHelper.toLong(e.get(0), 0L);
+                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
+                if (TimeHelper.isSameDay(j, System.currentTimeMillis())) {
+                    i = 1 + i2;
+                }
+            }
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            StringBuilder sb = new StringBuilder();
+            sb.append(currentTimeMillis);
+            sb.append(',');
+            sb.append(i);
+            sharedPrefHelper.putString(spKey, sb.toString());
+        }
     }
 }

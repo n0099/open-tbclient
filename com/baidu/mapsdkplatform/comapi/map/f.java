@@ -11,7 +11,6 @@ import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,7 +247,7 @@ public class f {
             } else {
                 linkedHashMap.put("type", StatKey.EDITADDR_TAG_STAGE_EDIT);
             }
-            linkedHashMap.put(PackageTable.MD5, b2);
+            linkedHashMap.put("md5", b2);
             linkedHashMap.put("token", SyncSysInfo.getAuthToken());
             return b("api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/custom/v2/getjsonstyle") + "?" + ((a(linkedHashMap) + SyncSysInfo.getPhoneInfo()) + "&sign=" + AppMD5.getSignMD5String(str2));
         }
@@ -626,7 +625,7 @@ public class f {
                 } else {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject != null && optJSONObject.length() != 0) {
-                        a(context, optJSONObject.optString("pb_url", ""), str2, optJSONObject.optString(PackageTable.MD5, ""), aVar);
+                        a(context, optJSONObject.optString("pb_url", ""), str2, optJSONObject.optString("md5", ""), aVar);
                     } else if (aVar != null) {
                         aVar.a(HttpClient.HttpStateError.SERVER_ERROR.ordinal(), "custom style data is null", str3);
                     }

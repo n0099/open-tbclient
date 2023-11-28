@@ -1,19 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes7.dex */
 public interface m45 {
-    void a(Context context);
+    String h0();
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    String j1();
 }

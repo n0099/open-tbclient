@@ -391,10 +391,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     heartSurfaceView.h = heartSurfaceView.getWidth();
                     HeartSurfaceView heartSurfaceView2 = this.a;
                     heartSurfaceView2.g = heartSurfaceView2.getHeight();
-                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070570);
-                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070571);
-                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056c);
-                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056f);
+                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070584);
+                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
+                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070580);
+                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070583);
                     PointF pointF = new PointF(dimensionPixelSize, this.a.g - dimensionPixelSize3);
                     PointF pointF2 = new PointF(dimensionPixelSize, dimensionPixelSize4);
                     PointF pointF3 = new PointF(dimensionPixelSize2, this.a.g - dimensionPixelSize3);
@@ -403,7 +403,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     this.a.i.add(Pair.create(pointF, pointF2));
                     this.a.i.add(Pair.create(pointF3, pointF4));
                     this.a.j = new PointF(0.0f, this.a.g * 0.5f);
-                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056d), this.a.g * 0.5f);
+                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070581), this.a.g * 0.5f);
                 }
             }
         }
@@ -1152,11 +1152,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(r(R.drawable.obfuscated_res_0x7f080f99));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f9a));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f9b));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f9c));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f9d));
+            arrayList.add(r(R.drawable.obfuscated_res_0x7f080fb9));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080fba));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080fbb));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080fbc));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080fbd));
         }
     }
 
@@ -1222,11 +1222,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.e = false;
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(s(R.drawable.obfuscated_res_0x7f080f99));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f9a));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f9b));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f9c));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f9d));
+            arrayList.add(s(R.drawable.obfuscated_res_0x7f080fb9));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080fba));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080fbb));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080fbc));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080fbd));
         }
     }
 }

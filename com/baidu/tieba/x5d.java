@@ -1,28 +1,37 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.VideoDesc;
+import tbclient.Level;
+import tbclient.ParrProps;
+import tbclient.Props;
 /* loaded from: classes9.dex */
-public class x5d extends qoc {
+public class x5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull VideoDesc videoDesc) {
+    public static JSONObject b(@NonNull ParrProps parrProps) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoDesc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, parrProps)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "video_id", videoDesc.video_id);
-            qoc.a(jSONObject, VideoFinishResult.KEY_VIDEO_MD5, videoDesc.video_md5);
-            qoc.a(jSONObject, "video_url", videoDesc.video_url);
-            qoc.a(jSONObject, "video_width", videoDesc.video_width);
-            qoc.a(jSONObject, "video_height", videoDesc.video_height);
+            ltc.a(jSONObject, "portrait_time", parrProps.portrait_time);
+            Level level = parrProps.level;
+            if (level != null) {
+                ltc.a(jSONObject, "level", q4d.b(level));
+            }
+            if (parrProps.props != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (Props props : parrProps.props) {
+                    jSONArray.put(y6d.b(props));
+                }
+                ltc.a(jSONObject, "props", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

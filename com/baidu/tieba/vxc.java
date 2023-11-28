@@ -1,34 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.WorldCupGame;
-import tbclient.FrsPage.WorldCupGameTeam;
+import tbclient.FeedLiveComponent;
 /* loaded from: classes8.dex */
-public class vxc extends qoc {
+public class vxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldCupGame worldCupGame) {
+    public static JSONObject b(@NonNull FeedLiveComponent feedLiveComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupGame)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLiveComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "title", worldCupGame.title);
-            qoc.a(jSONObject, "status", worldCupGame.status);
-            qoc.a(jSONObject, "url", worldCupGame.url);
-            if (worldCupGame.team != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (WorldCupGameTeam worldCupGameTeam : worldCupGame.team) {
-                    jSONArray.put(wxc.b(worldCupGameTeam));
-                }
-                qoc.a(jSONObject, "team", jSONArray);
-            }
+            ltc.a(jSONObject, "top_label", feedLiveComponent.top_label);
+            ltc.a(jSONObject, "bottom_label", feedLiveComponent.bottom_label);
+            ltc.a(jSONObject, "audience_label", feedLiveComponent.audience_label);
+            ltc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedLiveComponent.cover_url);
+            ltc.a(jSONObject, "schema", feedLiveComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

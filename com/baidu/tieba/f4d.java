@@ -4,28 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.TagLabelInfo;
-import tbclient.ThemeColorInfo;
+import tbclient.ItemPlot;
 /* loaded from: classes5.dex */
-public class f4d extends qoc {
+public class f4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TagLabelInfo tagLabelInfo) {
+    public static JSONObject b(@NonNull ItemPlot itemPlot) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tagLabelInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemPlot)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (tagLabelInfo.labels != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThemeColorInfo themeColorInfo : tagLabelInfo.labels) {
-                    jSONArray.put(q4d.b(themeColorInfo));
-                }
-                qoc.a(jSONObject, "labels", jSONArray);
-            }
+            ltc.a(jSONObject, "level", itemPlot.level);
+            ltc.a(jSONObject, "num", itemPlot.num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

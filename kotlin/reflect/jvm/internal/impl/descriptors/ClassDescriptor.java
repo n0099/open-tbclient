@@ -8,7 +8,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 /* loaded from: classes2.dex */
 public interface ClassDescriptor extends ClassOrPackageFragmentDescriptor, ClassifierDescriptorWithTypeParameters {
     /* renamed from: getCompanionObjectDescriptor */
-    ClassDescriptor mo2103getCompanionObjectDescriptor();
+    ClassDescriptor mo2107getCompanionObjectDescriptor();
 
     Collection<ClassConstructorDescriptor> getConstructors();
 
@@ -40,7 +40,7 @@ public interface ClassDescriptor extends ClassOrPackageFragmentDescriptor, Class
     MemberScope getUnsubstitutedMemberScope();
 
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    ClassConstructorDescriptor mo2104getUnsubstitutedPrimaryConstructor();
+    ClassConstructorDescriptor mo2108getUnsubstitutedPrimaryConstructor();
 
     Visibility getVisibility();
 

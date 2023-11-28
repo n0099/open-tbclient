@@ -5,12 +5,11 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.ls;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static final DocumentDataParser INSTANCE = new DocumentDataParser();
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", "j", "tr", MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, ls.c, "fc", "sc", TbConfig.SW_APID, MapBundleKey.MapObjKey.OBJ_OFFSET);
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", "j", "tr", MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, "ls", "fc", "sc", TbConfig.SW_APID, MapBundleKey.MapObjKey.OBJ_OFFSET);
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

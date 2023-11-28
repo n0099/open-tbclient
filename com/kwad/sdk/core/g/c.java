@@ -4,24 +4,37 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.sdk.utils.ba;
+import java.util.Arrays;
 /* loaded from: classes10.dex */
 public final class c {
-    public volatile boolean adk = true;
-    public long adl = 0;
-    public double adm = 9.999999717180685E-10d;
-    public double[] adn = {0.0d, 0.0d, 0.0d};
-    public double[] ado = {0.0d, 0.0d, 0.0d};
     @Nullable
-    public com.kwad.sdk.core.g.a adp;
+    public com.kwad.sdk.core.g.a aze;
     @Nullable
-    public a adq;
+    public a azf;
     public AdMatrixInfo.RotateInfo rotateInfo;
+    public volatile boolean ayZ = true;
+    public long aza = 0;
+    public double azb = 9.999999717180685E-10d;
+    public double[] azc = {0.0d, 0.0d, 0.0d};
+    public double[] azd = {0.0d, 0.0d, 0.0d};
+    public final ba.b azg = new ba.b() { // from class: com.kwad.sdk.core.g.c.1
+        @Override // com.kwad.sdk.utils.ba.b
+        public final void onFailed() {
+            if (c.this.aze != null) {
+                c.this.aze.lk();
+            }
+        }
+    };
 
     /* loaded from: classes10.dex */
     public class a implements SensorEventListener {
+        @Override // android.hardware.SensorEventListener
+        public final void onAccuracyChanged(Sensor sensor, int i) {
+        }
+
         public a() {
         }
 
@@ -30,27 +43,23 @@ public final class c {
         }
 
         @Override // android.hardware.SensorEventListener
-        public final void onAccuracyChanged(Sensor sensor, int i) {
-        }
-
-        @Override // android.hardware.SensorEventListener
         public final void onSensorChanged(SensorEvent sensorEvent) {
             float[] fArr = sensorEvent.values;
             float f = fArr[0];
             float f2 = fArr[1];
             float f3 = fArr[2];
-            if (c.this.adl != 0) {
-                double d = (sensorEvent.timestamp - c.this.adl) * c.this.adm;
-                double[] dArr = c.this.ado;
+            if (c.this.aza != 0) {
+                double d = (sensorEvent.timestamp - c.this.aza) * c.this.azb;
+                double[] dArr = c.this.azd;
                 dArr[0] = dArr[0] + Math.toDegrees(f * d);
-                double[] dArr2 = c.this.ado;
+                double[] dArr2 = c.this.azd;
                 dArr2[1] = dArr2[1] + Math.toDegrees(f2 * d);
-                double[] dArr3 = c.this.ado;
+                double[] dArr3 = c.this.azd;
                 dArr3[2] = dArr3[2] + Math.toDegrees(f3 * d);
-                c.this.vc();
-                c.this.vd();
+                c.this.Ei();
+                c.this.Ej();
             }
-            c.this.adl = sensorEvent.timestamp;
+            c.this.aza = sensorEvent.timestamp;
         }
     }
 
@@ -58,91 +67,87 @@ public final class c {
         this.rotateInfo = rotateInfo;
     }
 
-    private boolean a(int i, double d, int i2) {
-        if (d <= 0.0d || Math.abs(this.ado[i]) < d) {
-            return false;
-        }
-        return (this.ado[i] <= 0.0d || i2 != 1) && (this.ado[i] >= 0.0d || i2 != 2);
+    private void Eh() {
+        Arrays.fill(this.azc, 0.0d);
+        Arrays.fill(this.azd, 0.0d);
+        this.aza = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vc() {
-        if (this.adk) {
-            if (Math.abs(this.ado[0]) > Math.abs(this.adn[0])) {
-                this.adn[0] = this.ado[0];
-            }
-            if (Math.abs(this.ado[1]) > Math.abs(this.adn[1])) {
-                this.adn[1] = this.ado[1];
-            }
-            if (Math.abs(this.ado[2]) > Math.abs(this.adn[2])) {
-                this.adn[2] = this.ado[2];
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void vd() {
-        AdMatrixInfo.RotateInfo rotateInfo;
-        if (!this.adk || (rotateInfo = this.rotateInfo) == null || this.adp == null) {
+    public void Ei() {
+        if (!this.ayZ) {
             return;
         }
-        AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo = rotateInfo.x;
-        if (!a(0, rotateDegreeInfo.rotateDegree, rotateDegreeInfo.direction)) {
-            AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo2 = this.rotateInfo.y;
-            if (!a(1, rotateDegreeInfo2.rotateDegree, rotateDegreeInfo2.direction)) {
-                AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo3 = this.rotateInfo.z;
-                if (!a(2, rotateDegreeInfo3.rotateDegree, rotateDegreeInfo3.direction)) {
-                    return;
-                }
-            }
+        if (Math.abs(this.azd[0]) > Math.abs(this.azc[0])) {
+            this.azc[0] = this.azd[0];
         }
-        this.adk = false;
-        this.adp.aa(ve());
-        this.ado = new double[]{0.0d, 0.0d, 0.0d};
-        this.adn = new double[]{0.0d, 0.0d, 0.0d};
+        if (Math.abs(this.azd[1]) > Math.abs(this.azc[1])) {
+            this.azc[1] = this.azd[1];
+        }
+        if (Math.abs(this.azd[2]) > Math.abs(this.azc[2])) {
+            this.azc[2] = this.azd[2];
+        }
     }
 
-    private String ve() {
-        return "{\"x\": " + this.adn[0] + ",\"y\":" + this.adn[1] + ",\"z\":" + this.adn[2] + "}";
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Ej() {
+        AdMatrixInfo.RotateInfo rotateInfo;
+        if (this.ayZ && (rotateInfo = this.rotateInfo) != null && this.aze != null) {
+            AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo = rotateInfo.x;
+            if (!a(0, rotateDegreeInfo.rotateDegree, rotateDegreeInfo.direction)) {
+                AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo2 = this.rotateInfo.y;
+                if (!a(1, rotateDegreeInfo2.rotateDegree, rotateDegreeInfo2.direction)) {
+                    AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo3 = this.rotateInfo.z;
+                    if (!a(2, rotateDegreeInfo3.rotateDegree, rotateDegreeInfo3.direction)) {
+                        return;
+                    }
+                }
+            }
+            this.ayZ = false;
+            this.aze.U(Ek());
+        }
+    }
+
+    private String Ek() {
+        return "{\"x\": " + this.azc[0] + ",\"y\":" + this.azc[1] + ",\"z\":" + this.azc[2] + "}";
+    }
+
+    public final void bi(Context context) {
+        if (context == null) {
+            return;
+        }
+        Eh();
+        this.ayZ = true;
+        if (this.azf == null) {
+            this.azf = new a(this, (byte) 0);
+        }
+        ba.KZ().a(2, 2, this.azf, this.azg);
+    }
+
+    public final synchronized void bj(Context context) {
+        if (context != null) {
+            if (this.azf != null) {
+                ba.KZ().a(this.azf);
+                this.azf = null;
+            }
+        }
+    }
+
+    private boolean a(int i, double d, int i2) {
+        if (d <= 0.0d || Math.abs(this.azd[i]) < d) {
+            return false;
+        }
+        if ((this.azd[i] > 0.0d && i2 == 1) || (this.azd[i] < 0.0d && i2 == 2)) {
+            return false;
+        }
+        return true;
     }
 
     public final void a(@Nullable com.kwad.sdk.core.g.a aVar) {
-        this.adp = aVar;
+        this.aze = aVar;
     }
 
     public final void a(AdMatrixInfo.RotateInfo rotateInfo) {
         this.rotateInfo = rotateInfo;
-    }
-
-    public final synchronized void bA(Context context) {
-        if (context != null) {
-            if (this.adq != null) {
-                ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.adq);
-                this.adq = null;
-            }
-        }
-    }
-
-    public final void bz(Context context) {
-        if (context == null) {
-            return;
-        }
-        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        Sensor defaultSensor = sensorManager.getDefaultSensor(4);
-        if (defaultSensor != null) {
-            if (this.adq == null) {
-                this.adq = new a(this, (byte) 0);
-            }
-            sensorManager.registerListener(this.adq, defaultSensor, 2);
-            return;
-        }
-        com.kwad.sdk.core.g.a aVar = this.adp;
-        if (aVar != null) {
-            aVar.ko();
-        }
-    }
-
-    public final synchronized void vb() {
-        this.adk = true;
     }
 }

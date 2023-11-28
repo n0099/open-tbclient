@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad9;
-import com.baidu.tieba.fd9;
-import com.baidu.tieba.gb9;
-import com.baidu.tieba.gd9;
-import com.baidu.tieba.hb9;
-import com.baidu.tieba.hd9;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.df9;
 import com.baidu.tieba.lego.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.nb9;
-import com.baidu.tieba.wj5;
-import com.baidu.tieba.zc9;
+import com.baidu.tieba.pg9;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.vg9;
+import com.baidu.tieba.we9;
+import com.baidu.tieba.wg9;
+import com.baidu.tieba.xe9;
+import com.baidu.tieba.xg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,22 +37,22 @@ public class LegoTabFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
-    public gd9 b;
-    public wj5 c;
+    public wg9 b;
+    public ck5 c;
     public LoadingView d;
     public long e;
     public String f;
     public String g;
     public String h;
     public String i;
-    public List<zc9> j;
-    public nb9 k;
-    public hb9 l;
-    public gb9 m;
+    public List<pg9> j;
+    public df9 k;
+    public xe9 l;
+    public we9 m;
     public CustomMessageListener n;
 
     /* loaded from: classes7.dex */
-    public class a implements hb9 {
+    public class a implements xe9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -75,7 +75,7 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.hb9
+        @Override // com.baidu.tieba.xe9
         public void a(int i, long j, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) {
@@ -83,7 +83,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.hb9
+        @Override // com.baidu.tieba.xe9
         public void b(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
@@ -93,7 +93,7 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements gb9 {
+    public class b implements we9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -116,12 +116,12 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.gb9
-        public void a(List<zc9> list) {
+        @Override // com.baidu.tieba.we9
+        public void a(List<pg9> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                List<zc9> list2 = legoTabFragment.j;
+                List<pg9> list2 = legoTabFragment.j;
                 if (list2 == null) {
                     legoTabFragment.j = new ArrayList();
                 } else {
@@ -130,20 +130,20 @@ public class LegoTabFragment extends BaseFragment {
                 if (list != null && list.size() > 0) {
                     this.a.j.addAll(list);
                 }
-                this.a.Q2();
+                this.a.c3();
             }
         }
 
-        @Override // com.baidu.tieba.gb9
+        @Override // com.baidu.tieba.we9
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                legoTabFragment.H2(legoTabFragment.getView());
+                legoTabFragment.T2(legoTabFragment.getView());
             }
         }
 
-        @Override // com.baidu.tieba.gb9
+        @Override // com.baidu.tieba.we9
         public void c(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str) == null) {
@@ -151,19 +151,19 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.gb9
-        public void d(String str, String str2, String str3, List<ad9> list) {
+        @Override // com.baidu.tieba.we9
+        public void d(String str, String str2, String str3, List<qg9> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, list) == null) {
                 this.a.g = str;
                 this.a.h = str2;
                 this.a.i = str3;
-                this.a.L2();
-                this.a.K2(list);
+                this.a.X2();
+                this.a.W2(list);
             }
         }
 
-        @Override // com.baidu.tieba.gb9
+        @Override // com.baidu.tieba.we9
         public void e(long j, String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) {
@@ -203,16 +203,15 @@ public class LegoTabFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.X2();
+                this.a.c3();
             }
-            this.a.L2();
-            this.a.Q2();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements hd9 {
+    public class d implements xg9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -235,35 +234,34 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.hd9
+        @Override // com.baidu.tieba.xg9
         public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) != null) {
-                return;
-            }
-            this.a.L2();
-            if (z) {
-                LegoTabFragment legoTabFragment = this.a;
-                legoTabFragment.H2(legoTabFragment.getView());
-            }
-            DataRes dataRes = (DataRes) message;
-            if (z && !this.a.a.f() && (dataRes == null || dataRes.cards == null)) {
-                if (this.a.getPageContext() != null && this.a.getPageContext().getResources() != null) {
-                    LegoTabFragment legoTabFragment2 = this.a;
-                    legoTabFragment2.showNetRefreshView(legoTabFragment2.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e61), false);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+                this.a.X2();
+                if (z) {
+                    LegoTabFragment legoTabFragment = this.a;
+                    legoTabFragment.T2(legoTabFragment.getView());
+                }
+                DataRes dataRes = (DataRes) message;
+                if (z && !this.a.a.f() && (dataRes == null || dataRes.cards == null)) {
+                    if (this.a.getPageContext() != null && this.a.getPageContext().getResources() != null) {
+                        LegoTabFragment legoTabFragment2 = this.a;
+                        legoTabFragment2.showNetRefreshView(legoTabFragment2.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f), false);
+                        return;
+                    }
                     return;
                 }
-                return;
+                this.a.a.n(z, j, str, dataRes, z2, i);
             }
-            this.a.a.n(z, j, str, dataRes, z2, i);
         }
 
-        @Override // com.baidu.tieba.hd9
+        @Override // com.baidu.tieba.xg9
         public void b(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                legoTabFragment.H2(legoTabFragment.getView());
+                legoTabFragment.T2(legoTabFragment.getView());
                 if (!this.a.a.f()) {
                     if (this.a.getPageContext() != null && this.a.getPageContext().getResources() != null) {
                         LegoTabFragment legoTabFragment2 = this.a;
@@ -276,12 +274,12 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.hd9
+        @Override // com.baidu.tieba.xg9
         public void c(long j, String str, Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                legoTabFragment.H2(legoTabFragment.getView());
+                legoTabFragment.T2(legoTabFragment.getView());
                 this.a.a.p(j, str, (DataRes) message, z);
             }
         }
@@ -316,9 +314,9 @@ public class LegoTabFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null) {
                 this.a.b.c(1, this.a.e, this.a.f, 1, "");
-                this.a.I2();
+                this.a.U2();
                 LegoTabFragment legoTabFragment = this.a;
-                legoTabFragment.P2(legoTabFragment.getView(), false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c8));
+                legoTabFragment.b3(legoTabFragment.getView(), false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c8));
             }
         }
     }
@@ -342,7 +340,7 @@ public class LegoTabFragment extends BaseFragment {
         this.n = new c(this, 2016449);
     }
 
-    public final void L2() {
+    public final void X2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.k != null) {
             if (!TextUtils.isEmpty(this.h) && !TextUtils.isEmpty(this.i)) {
@@ -361,12 +359,12 @@ public class LegoTabFragment extends BaseFragment {
             super.onPrimary();
             if (isPrimary() && (scrollFragmentTabHost = this.a) != null && scrollFragmentTabHost.j()) {
                 this.a.m(this.e, this.f);
-                P2(getView(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c8));
+                b3(getView(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c8));
             }
         }
     }
 
-    public final void H2(View view2) {
+    public final void T2(View view2) {
         LoadingView loadingView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (loadingView = this.d) != null) {
@@ -375,21 +373,21 @@ public class LegoTabFragment extends BaseFragment {
         }
     }
 
-    public void M2(String str) {
+    public void Y2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.f = str;
         }
     }
 
-    public void N2(nb9 nb9Var) {
+    public void Z2(df9 df9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nb9Var) == null) {
-            this.k = nb9Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, df9Var) == null) {
+            this.k = df9Var;
         }
     }
 
-    public void O2(long j) {
+    public void a3(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             this.e = j;
@@ -417,33 +415,33 @@ public class LegoTabFragment extends BaseFragment {
         }
     }
 
-    public final void I2() {
-        wj5 wj5Var;
+    public final void U2() {
+        ck5 ck5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wj5Var = this.c) != null) {
-            wj5Var.dettachView(getView());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ck5Var = this.c) != null) {
+            ck5Var.dettachView(getView());
             this.c = null;
         }
     }
 
-    public final void J2() {
+    public final void V2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gd9 c2 = fd9.d().c(getPageContext(), getUniqueId());
+            wg9 c2 = vg9.d().c(getPageContext(), getUniqueId());
             this.b = c2;
             c2.b(new d(this));
         }
     }
 
-    public final void Q2() {
-        nb9 nb9Var;
+    public final void c3() {
+        df9 df9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (nb9Var = this.k) != null) {
-            nb9Var.g(this.j);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (df9Var = this.k) != null) {
+            df9Var.g(this.j);
         }
     }
 
-    public final void K2(List<ad9> list) {
+    public final void W2(List<qg9> list) {
         int count;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (count = ListUtils.getCount(list)) > 0 && this.a != null) {
@@ -470,15 +468,15 @@ public class LegoTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            J2();
-            ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) getView().findViewById(R.id.obfuscated_res_0x7f09154f);
+            V2();
+            ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) getView().findViewById(R.id.obfuscated_res_0x7f0915c0);
             this.a = scrollFragmentTabHost;
             scrollFragmentTabHost.setPageUniqueId(getUniqueId());
             this.a.h(this.l, this.m);
         }
     }
 
-    public final void P2(View view2, boolean z, int i) {
+    public final void b3(View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.d == null) {
@@ -498,12 +496,12 @@ public class LegoTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048591, this, view2, str, z) == null) {
             if (this.c == null) {
-                this.c = new wj5(getPageContext().getPageActivity(), new e(this));
+                this.c = new ck5(getPageContext().getPageActivity(), new e(this));
             }
-            this.c.j(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037a));
-            this.c.l(str);
+            this.c.k(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037a));
+            this.c.m(str);
             this.c.attachView(view2, z);
-            this.c.o();
+            this.c.q();
         }
     }
 
@@ -512,7 +510,7 @@ public class LegoTabFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05c5, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05de, (ViewGroup) null);
             inflate.setDrawingCacheEnabled(false);
             return inflate;
         }

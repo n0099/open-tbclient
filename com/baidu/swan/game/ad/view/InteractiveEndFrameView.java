@@ -10,59 +10,59 @@ import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gv3;
-import com.baidu.tieba.hu3;
-import com.baidu.tieba.mu3;
-import com.baidu.tieba.ou3;
-import com.baidu.tieba.pv3;
+import com.baidu.tieba.hv3;
+import com.baidu.tieba.iu3;
+import com.baidu.tieba.nu3;
+import com.baidu.tieba.pu3;
 import com.baidu.tieba.qv3;
-import com.baidu.tieba.yu3;
-import com.baidu.tieba.yv3;
+import com.baidu.tieba.rv3;
+import com.baidu.tieba.zu3;
+import com.baidu.tieba.zv3;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class InteractiveEndFrameView extends RelativeLayout {
     public RewardWebView a;
-    public gv3 b;
+    public hv3 b;
     public AdElementInfo c;
     public DownloadParams d;
-    public hu3 e;
+    public iu3 e;
     public JSONObject f;
     public String g;
     public String h;
     public DownloadState i;
-    public qv3 j;
-    public mu3 k;
+    public rv3 j;
+    public nu3 k;
     public RelativeLayout l;
     public RelativeLayout.LayoutParams m;
 
     /* loaded from: classes4.dex */
-    public class a implements hu3 {
+    public class a implements iu3 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public void a(int i) {
             InteractiveEndFrameView.this.k.d(i);
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public void d(String str) {
             InteractiveEndFrameView.this.y(str);
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public void b() {
             InteractiveEndFrameView.this.j.c("appinstallbegin");
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public String e() {
             InteractiveEndFrameView.this.j.c("appinstallopen");
             InteractiveEndFrameView interactiveEndFrameView = InteractiveEndFrameView.this;
             return interactiveEndFrameView.v(interactiveEndFrameView.g);
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public void c(DownloadState downloadState, int i) {
             InteractiveEndFrameView.this.k.b(downloadState);
             if (InteractiveEndFrameView.this.i == downloadState) {
@@ -83,7 +83,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             InteractiveEndFrameView.this.i = downloadState;
         }
 
-        @Override // com.baidu.tieba.hu3
+        @Override // com.baidu.tieba.iu3
         public void f(boolean z) {
             if (InteractiveEndFrameView.this.l == null) {
                 return;
@@ -104,7 +104,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
 
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            pv3.h(InteractiveEndFrameView.this.c, InteractiveEndFrameView.this.b);
+            qv3.h(InteractiveEndFrameView.this.c, InteractiveEndFrameView.this.b);
             InteractiveEndFrameView.this.g = str;
             String v = InteractiveEndFrameView.this.v(str);
             if (!TextUtils.isEmpty(v)) {
@@ -112,20 +112,20 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
             InteractiveEndFrameView interactiveEndFrameView = InteractiveEndFrameView.this;
             interactiveEndFrameView.d = new DownloadParams(interactiveEndFrameView.g, InteractiveEndFrameView.this.h);
-            InteractiveEndFrameView.this.k = new ou3();
+            InteractiveEndFrameView.this.k = new pu3();
             InteractiveEndFrameView interactiveEndFrameView2 = InteractiveEndFrameView.this;
-            mu3 mu3Var = interactiveEndFrameView2.k;
-            mu3Var.c(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d, InteractiveEndFrameView.this.e);
-            interactiveEndFrameView2.k = mu3Var;
+            nu3 nu3Var = interactiveEndFrameView2.k;
+            nu3Var.c(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d, InteractiveEndFrameView.this.e);
+            interactiveEndFrameView2.k = nu3Var;
             InteractiveEndFrameView.this.k.e(InteractiveEndFrameView.this.d);
             InteractiveEndFrameView.this.k.f();
-            if (yv3.a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d.b) && InteractiveEndFrameView.this.l != null) {
+            if (zv3.a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d.b) && InteractiveEndFrameView.this.l != null) {
                 InteractiveEndFrameView.this.l.removeView(InteractiveEndFrameView.this.k.getRealView());
                 InteractiveEndFrameView.this.l.addView(InteractiveEndFrameView.this.k.getRealView(), InteractiveEndFrameView.this.m);
                 InteractiveEndFrameView.this.k.b(DownloadState.INSTALLED);
                 return;
             }
-            yu3.b().d(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.e);
+            zu3.b().d(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.e);
         }
     }
 
@@ -133,7 +133,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         super(context);
         this.h = "";
         this.i = DownloadState.NOT_START;
-        this.b = new gv3(context);
+        this.b = new hv3(context);
     }
 
     public final String v(String str) {
@@ -168,7 +168,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         this.a.loadUrl(endFrameUrl);
         addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
         this.f = adElementInfo.getAdMonitors();
-        this.j = new qv3(getContext(), this.f);
+        this.j = new rv3(getContext(), this.f);
         w();
         setDownloadListener();
     }
@@ -184,7 +184,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
         if (DownloadState.DOWNLOADING == this.i) {
             this.e = null;
-            yu3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
+            zu3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
         }
     }
 

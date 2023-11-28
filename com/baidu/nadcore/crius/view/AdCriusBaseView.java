@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.render.CriusRender;
-import com.baidu.tieba.n81;
+import com.baidu.tieba.o81;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayout {
@@ -30,7 +30,7 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
 
     public abstract int h();
 
-    public abstract int k();
+    public abstract int j();
 
     /* loaded from: classes3.dex */
     public class a implements CriusRender.IHrefClick {
@@ -49,7 +49,7 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
 
     public void g(Context context) {
         LayoutInflater.from(context).inflate(h(), this);
-        this.a = (ViewGroup) findViewById(k());
+        this.a = (ViewGroup) findViewById(j());
         this.b = (LinearLayout) findViewById(d());
     }
 
@@ -57,7 +57,7 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
         this(context, attributeSet, 0);
     }
 
-    public void l(T t, boolean z) {
+    public void k(T t, boolean z) {
         if (t != null) {
             i(t, z);
         } else {
@@ -78,9 +78,9 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
             return;
         }
         this.b.removeAllViews();
-        n81 n81Var = (n81) ServiceManager.getService(n81.a);
-        if (n81Var != null) {
-            this.c = this.d.initCriusView(getContext(), t, n81Var.b(), z, n81Var.a());
+        o81 o81Var = (o81) ServiceManager.getService(o81.a);
+        if (o81Var != null) {
+            this.c = this.d.initCriusView(getContext(), t, o81Var.b(), z, o81Var.a());
         } else {
             this.c = this.d.initCriusView(getContext(), t, false, z, -1);
         }

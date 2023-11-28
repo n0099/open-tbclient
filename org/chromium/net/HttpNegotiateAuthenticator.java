@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Process;
 import androidx.annotation.VisibleForTesting;
-import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.g;
 import java.io.IOException;
 import org.chromium.base.ApplicationStatus;
 import org.chromium.base.ContextUtils;
@@ -187,7 +187,7 @@ public class HttpNegotiateAuthenticator {
         if (z) {
             str = "android.permission.MANAGE_ACCOUNTS";
         } else {
-            str = h.f;
+            str = g.f;
         }
         if (lacksPermission(context, str, z)) {
             Log.e(TAG, "ERR_MISCONFIGURED_AUTH_ENVIRONMENT: %s permission not granted. Aborting authentication", str);
@@ -225,7 +225,7 @@ public class HttpNegotiateAuthenticator {
     }
 
     private void requestTokenWithoutActivity(Context context, RequestData requestData, String[] strArr) {
-        if (lacksPermission(context, h.f, true)) {
+        if (lacksPermission(context, g.f, true)) {
             Log.e(TAG, "ERR_MISCONFIGURED_AUTH_ENVIRONMENT: GET_ACCOUNTS permission not granted. Aborting authentication.", new Object[0]);
             HttpNegotiateAuthenticatorJni.get().setResult(requestData.nativeResultObject, this, NetError.ERR_MISCONFIGURED_AUTH_ENVIRONMENT, null);
             return;

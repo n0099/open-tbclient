@@ -1,24 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public abstract class se0 {
+public class se0 implements mf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Nullable
-    public abstract String a();
-
-    public abstract String b();
-
-    public abstract boolean d(Context context, ue0 ue0Var, @Nullable Map<String, Object> map, @Nullable ye0 ye0Var);
 
     public se0() {
         Interceptable interceptable = $ic;
@@ -34,10 +25,31 @@ public abstract class se0 {
         }
     }
 
-    public void c(ye0 ye0Var, @Nullable ue0 ue0Var, int i, boolean z) {
+    @Override // com.baidu.tieba.mf1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ye0Var, ue0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            df0.b(ye0Var, ue0Var, i, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new vc0());
+            arrayList.add(new wc0());
+            arrayList.add(new xc0());
+            arrayList.add(new yc0());
+            arrayList.add(new zc0());
+            arrayList.add(new ad0());
+            arrayList.add(new cd0());
+            arrayList.add(new xd0());
+            arrayList.add(new fi0());
+            arrayList.add(new cl0());
+            arrayList.add(new dl0());
+            arrayList.add(new fl0());
+            arrayList.add(new nl0());
+            arrayList.add(new v01());
+            arrayList.add(new j41());
+            arrayList.add(new l61());
+            arrayList.add(new n26());
+            return arrayList;
         }
+        return invokeV.objValue;
     }
 }

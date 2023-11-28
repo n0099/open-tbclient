@@ -1,534 +1,623 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.OriginalForumInfo;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.controller.TransmitShareController;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tieba.core.widget.SpriteBottomTipView;
+import com.baidu.tieba.jb5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.Item;
-import tbclient.ItemInfo;
-import tbclient.ItemPoint;
-import tbclient.ItemTable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Collections;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes7.dex */
 public class pb5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<jb5> b;
+    public static WeakReference<SpriteAnimationTipManager> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i == 1) {
-                return 5;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (i == 3) {
-                return 3;
-            }
-            if (i == 4) {
-                return 4;
-            }
-            if (i == 6) {
-                return 8;
-            }
-            if (i == 10) {
-                return 16;
-            }
-            if (i == 11) {
-                return 24;
-            }
-            if (i == 12) {
-                return 20;
-            }
-            if (i == 13) {
-                return 30;
-            }
-            return i == 15 ? 33 : 0;
         }
-        return invokeI.intValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String b = ik5.b("", 0);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("HotEventTip", "精灵动画提示控件：精灵点击跳转，scheme" + b);
+                if (b.startsWith("tiebaapp://router/portal")) {
+                    pb5.d(b);
+                }
+            }
+        }
     }
 
-    public static void a(ShareDialogConfig shareDialogConfig, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, shareDialogConfig, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 4) {
-                        if (i != 16) {
-                            if (i != 7) {
-                                if (i != 8) {
-                                    if (i != 9) {
-                                        if (i != 12) {
-                                            if (i != 13) {
-                                                shareDialogConfig.setFrom(ShareDialogConfig.From.Default);
-                                                return;
-                                            } else {
-                                                shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-                                                return;
-                                            }
-                                        }
-                                        shareDialogConfig.setFrom(ShareDialogConfig.From.HomeGameTab);
-                                        return;
-                                    }
-                                    shareDialogConfig.setFrom(ShareDialogConfig.From.Concern);
-                                    return;
-                                }
-                                shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-                                return;
-                            }
-                            shareDialogConfig.setFrom(ShareDialogConfig.From.Recommend);
-                            return;
-                        }
-                        shareDialogConfig.setFrom(ShareDialogConfig.From.HomeVideoTab);
-                        return;
-                    }
-                    shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
+    /* loaded from: classes7.dex */
+    public class b implements Function0<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oq6.e a;
+
+        public b(oq6.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                shareDialogConfig.setFrom(ShareDialogConfig.From.FRS);
-                return;
             }
-            shareDialogConfig.setFrom(ShareDialogConfig.From.Recommend);
+            this.a = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                boolean unused = pb5.a = false;
+                DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：动画执行完成，触发弹窗管理器监听");
+                this.a.onDismiss();
+                return null;
+            }
+            return (Unit) invokeV.objValue;
         }
     }
 
-    public static void b(Context context, ThreadData threadData) {
-        ItemInfo o0;
-        List<ItemPoint> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof uq7)) {
-            uq7 uq7Var = (uq7) context;
-            if (!uq7Var.C() || threadData == null || threadData.getItem() != null || (o0 = uq7Var.o0()) == null) {
-                return;
-            }
-            Item.Builder builder = new Item.Builder();
-            builder.item_id = Long.valueOf(o0.id.longValue());
-            builder.item_name = o0.name;
-            builder.icon_size = o0.icon_size;
-            builder.icon_url = o0.icon_url;
-            builder.tags = o0.tags;
-            ItemTable itemTable = o0.score;
-            if (itemTable != null && (list = itemTable.item_point) != null) {
-                Iterator<ItemPoint> it = list.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    ItemPoint next = it.next();
-                    if (next.time_intval.equals("all")) {
-                        Double d = next.point;
-                        builder.score = d;
-                        builder.star = Integer.valueOf((int) (d.doubleValue() / 2.0d));
-                        break;
-                    }
+    /* loaded from: classes7.dex */
+    public class c implements SpriteBottomTipView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+        public final /* synthetic */ SpriteAnimationTipManager b;
+
+        public c(HotEventData hotEventData, SpriteAnimationTipManager spriteAnimationTipManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData, spriteAnimationTipManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            Item build = builder.build(false);
-            ItemData itemData = new ItemData();
-            itemData.parseProto(build);
-            threadData.setItemData(itemData);
+            this.a = hotEventData;
+            this.b = spriteAnimationTipManager;
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpriteAnimationTipManager spriteAnimationTipManager = this.b;
+                if (spriteAnimationTipManager != null) {
+                    spriteAnimationTipManager.i();
+                }
+                pb5.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onBtnClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                pb5.d(this.a.getBtnSchema());
+                pb5.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                pb5.d(this.a.getBtnSchema());
+                pb5.n();
+            }
         }
     }
 
-    public static String c(ThreadData threadData) {
+    /* loaded from: classes7.dex */
+    public class d implements jb5.j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oq6.e a;
+
+        public d(oq6.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.baidu.tieba.jb5.j
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = pb5.a = false;
+                oq6.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.onDismiss();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements jb5.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+
+        public e(HotEventData hotEventData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotEventData;
+        }
+
+        @Override // com.baidu.tieba.jb5.h
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pb5.d(this.a.getBtnSchema());
+                pb5.n();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements jb5.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+
+        public f(HotEventData hotEventData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotEventData;
+        }
+
+        @Override // com.baidu.tieba.jb5.i
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pb5.d(this.a.getBtnSchema());
+                pb5.n();
+            }
+        }
+    }
+
+    public static void q(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65552, null, hotEventData) == null) && hotEventData != null && hotEventData.getWindowType() == 1) {
+            SharedPrefHelper.getInstance().putLong("key_hot_event_tip_show_time", System.currentTimeMillis());
+        }
+    }
+
+    public static void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void u(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, hotEventData) == null) {
+            g(hotEventData);
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                return;
+            }
+            s05.g(Collections.singletonList(new t05(currentActivity, hotEventData)));
+        }
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.i();
+            }
+            c = null;
+        }
+    }
+
+    public static jb5 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            WeakReference<jb5> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (jb5) invokeV.objValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SpriteAnimationTipManager k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            WeakReference<SpriteAnimationTipManager> weakReference = c;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (SpriteAnimationTipManager) invokeV.objValue;
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.q();
+            }
+            c = null;
+        }
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        }
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.e("HotEventTip", "精灵动画提示控件：气泡点击跳转，scheme" + str);
+            UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{str});
+        }
+    }
+
+    public static void r(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, hotEventData) == null) {
+            if (TextUtils.isEmpty(hotEventData.getDesc())) {
+                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.hot_event_desc_text));
+            }
+            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
+                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.hot_event_btn_text));
+                return;
+            }
+            String btnText = hotEventData.getBtnText();
+            if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
+                hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
+            }
+        }
+    }
+
+    @NonNull
+    public static FrameLayout.LayoutParams e(Activity activity) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            String str = null;
-            if (threadData == null) {
-                return null;
-            }
-            if (threadData.getThreadAlaInfo() != null && !TextUtils.isEmpty(threadData.getThreadAlaInfo().cover)) {
-                return threadData.getThreadAlaInfo().cover;
-            }
-            if (threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0) {
-                if (threadData.getForumData() == null) {
-                    return null;
-                }
-                return threadData.getForumData().c;
-            } else if (threadData.getMedias() == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 83;
+            if (sua.f(activity)) {
+                i = R.dimen.tbds95;
             } else {
-                ArrayList<MediaData> medias = threadData.getMedias();
-                int size = medias.size();
-                int i = 0;
-                while (true) {
-                    if (i >= size) {
-                        break;
-                    }
-                    MediaData mediaData = medias.get(i);
-                    if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
-                        if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
-                            str = mediaData.getThumbnails_url();
-                            break;
-                        } else if (!StringUtils.isNull(mediaData.getPicUrl())) {
-                            str = mediaData.getPicUrl();
-                            break;
-                        }
-                    }
-                    i++;
-                }
-                if (str == null && threadData.getThreadVideoInfo() != null && !TextUtils.isEmpty(threadData.getThreadVideoInfo().thumbnail_url)) {
-                    return threadData.getThreadVideoInfo().thumbnail_url;
-                }
-                return str;
+                i = R.dimen.tbds141;
             }
+            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(i);
+            return layoutParams;
         }
-        return (String) invokeL.objValue;
+        return (FrameLayout.LayoutParams) invokeL.objValue;
     }
 
-    public static int d(ThreadData threadData) {
+    public static void g(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) {
+            Context curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+            if (curGlobalActivity != null && !(curGlobalActivity instanceof TbPageContextSupport)) {
+                return;
+            }
+            if (curGlobalActivity == null) {
+                curGlobalActivity = TbadkCoreApplication.getInst();
+            }
+            if (hotEventData != null && hotEventData.getWindowType() == 3) {
+                lma.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+            }
+        }
+    }
+
+    public static SpriteBottomTipView f(HotEventData hotEventData, Activity activity, SpriteAnimationTipManager spriteAnimationTipManager) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, hotEventData, activity, spriteAnimationTipManager)) == null) {
+            SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
+            aVar.e(hotEventData.getBtnText());
+            aVar.t(hotEventData.getTitle());
+            aVar.g(hotEventData.getDesc());
+            aVar.n(hotEventData.getIcon());
+            aVar.s(hotEventData.isShowCloseBtn());
+            aVar.m(R.drawable.hot_event_icon);
+            if (hotEventData.isUseRightBg()) {
+                i = R.drawable.funny_sprite_tip_bg_right;
+            } else {
+                i = R.drawable.funny_sprite_tip_bg_left;
+            }
+            aVar.p(Integer.valueOf(i));
+            aVar.r(new c(hotEventData, spriteAnimationTipManager));
+            return aVar.a();
+        }
+        return (SpriteBottomTipView) invokeLLL.objValue;
+    }
+
+    public static boolean m(HotEventData hotEventData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadData)) == null) {
-            if (threadData == null) {
-                return 0;
-            }
-            if (threadData.isVideoWorksInfo()) {
-                return 11;
-            }
-            if (threadData.isBJHArticleThreadType()) {
-                return 10;
-            }
-            if (threadData.isBJHVideoThreadType()) {
-                return 9;
-            }
-            if (threadData.isBJHVideoDynamicThreadType()) {
-                return 8;
-            }
-            if (threadData.isBJHNormalThreadType()) {
-                return 7;
-            }
-            if (threadData.isShareThread) {
-                return 6;
-            }
-            int i = threadData.threadType;
-            if (i == 0) {
-                return 1;
-            }
-            if (i == 40) {
-                return 2;
-            }
-            if (i != 49 && i != 69) {
-                if (i == 54) {
-                    return 4;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hotEventData)) == null) {
+            if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
+                if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e("HotEventTip", "S级事件弹窗无法展示，WindowType不对" + hotEventData.getWindowType());
+                    return false;
                 }
-                return 5;
+                Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
+                    HotEvent hotEvent = new HotEvent();
+                    hotEvent.hotEventData = hotEventData;
+                    hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                    MutiProcessManager.publishEvent(hotEvent);
+                    DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，Activity为空");
+                    return false;
+                }
+                if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
+                }
+                if (a) {
+                    DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，正在展示");
+                    return false;
+                }
+                if (hotEventData.getWindowType() == 1) {
+                    if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("key_hot_event_tip_show_time", 0L) <= 600000) {
+                        DefaultLog.getInstance().e("HotEventTip", "S级事件弹窗无法展示，十分钟内只弹一次");
+                        return false;
+                    }
+                }
+                return true;
             }
-            return 3;
+            TbLog defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.e("HotEventTip", "S级事件弹窗无法展示，数据不合法 schema:" + hotEventData.getBtnSchema() + " title:" + hotEventData.getTitle());
+            return false;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x037a  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0385  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x016b  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x016d  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x01dd  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0228  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0254  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x025c  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x02a4  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x02ac  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x02ae  */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x02b3  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x02cb  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x02f3  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0306  */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x030e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void f(Context context, ThreadData threadData, int i, int i2) {
-        String tid;
+    public static jb5 p(HotEventData hotEventData, oq6.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                eVar.onDismiss();
+                return null;
+            }
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                eVar.onDismiss();
+                return null;
+            }
+            if (z95.c() && z95.b() != null) {
+                z95.b().t();
+            }
+            r(hotEventData);
+            jb5.g gVar = new jb5.g(currentActivity);
+            gVar.w(kb5.a("SCENE_HOT_EVENT"));
+            gVar.o(hotEventData.getBtnText());
+            gVar.y(hotEventData.getTitle());
+            gVar.q(hotEventData.getDesc());
+            gVar.s(hotEventData.getIcon());
+            gVar.p(R.drawable.hot_event_icon);
+            gVar.r(5000);
+            gVar.u(new f(hotEventData));
+            gVar.t(new e(hotEventData));
+            gVar.v(new d(eVar));
+            jb5 n = gVar.n();
+            n.t();
+            b = new WeakReference<>(n);
+            o();
+            q(hotEventData);
+            a = true;
+            return n;
+        }
+        return (jb5) invokeLL.objValue;
+    }
+
+    public static SpriteAnimationTipManager t(HotEventData hotEventData, oq6.e eVar) {
+        InterceptResult invokeLL;
+        boolean z;
         String str;
         String str2;
-        boolean z;
-        boolean z2;
-        String c;
-        Uri parse;
-        boolean z3;
-        String format;
-        ShareItem shareItem;
-        boolean z4;
-        boolean z5;
-        OriginalThreadInfo.ShareInfo generateShareInfo;
-        ThreadData threadData2;
-        boolean z6;
-        boolean z7;
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(65541, null, context, threadData, i, i2) == null) && threadData != null && context != null) {
-            String valueOf = String.valueOf(threadData.getFid());
-            String forum_name = threadData.getForum_name();
-            OriginalForumInfo originalForumInfo = threadData.mOriginalForumInfo;
-            if (originalForumInfo != null) {
-                valueOf = originalForumInfo.id;
-                forum_name = originalForumInfo.ori_fname;
-            }
-            String str3 = forum_name;
-            String str4 = valueOf;
-            String title = threadData.getTitle();
-            if (TextUtils.isEmpty(title)) {
-                title = threadData.getAbstract();
-            }
-            String str5 = title;
-            if (threadData.isUgcThreadType()) {
-                tid = threadData.getBaijiahaoData().oriUgcTid;
-                str = "?share=9105&fr=dshare&dtype=" + threadData.getBaijiahaoData().oriUgcType + "&dvid=" + threadData.getBaijiahaoData().oriUgcVid + "&nid=" + threadData.getBaijiahaoData().oriUgcNid;
-            } else {
-                tid = threadData.getTid();
-                str = "?share=9105&fr=sharewise";
-            }
-            String str6 = str;
-            String str7 = tid;
-            String str8 = str6 + "&share_from=post";
-            if (threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0) {
-                str2 = String.format(TbConfig.TIEBA_ADDRESS + "mo/q/wise-main-share/shareVoiceRoom?room_id=%s", String.valueOf(threadData.getVoiceRoomData().room_id));
-                z = true;
-            } else {
-                str2 = TbConfig.HTTPS_PB_PREFIX + str7 + str8;
-                z = false;
-            }
-            if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().user_info != null) {
-                try {
-                    str2 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(threadData.getThreadAlaInfo().user_info.user_name, "utf-8");
-                    z2 = false;
-                } catch (Exception e) {
-                    BdLog.e(e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                if (eVar != null) {
+                    eVar.onDismiss();
                 }
-                if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().isLegalYYLiveData()) {
-                    str2 = TbConfig.HTTPS_YY_LIVE_SHARE_PREFIX + threadData.getThreadAlaInfo().mYyExtData.mSid + "&livessid=" + threadData.getThreadAlaInfo().mYyExtData.mSsid + "&uid=" + threadData.getThreadAlaInfo().mYyExtData.mYyUid;
-                    z2 = false;
+                return null;
+            }
+            if (z95.c() && z95.b() != null) {
+                z95.b().t();
+            }
+            r(hotEventData);
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && !currentActivity.isFinishing()) {
+                if (currentActivity instanceof k0b) {
+                    DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
+                    xq6.b().c(new cua(new dua(hotEventData, eVar), 1));
+                    return null;
                 }
-                c = c(threadData);
-                if (c != null) {
-                    parse = null;
+                if (sua.f(currentActivity)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
+                }
+                SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
+                if (TbadkCoreApplication.getInst().getSkinType() == 0) {
+                    z = true;
                 } else {
-                    parse = Uri.parse(c);
+                    z = false;
                 }
-                String str9 = threadData.getAbstract();
-                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.share_content_tpl);
-                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-                if (!threadData.isUgcThreadType() && threadData.getAuthor() != null) {
-                    if (!TextUtils.isEmpty(threadData.getTitle()) && !TextUtils.isEmpty(str9)) {
-                        format = str9;
-                    } else {
-                        format = MessageFormat.format(string2, threadData.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
-                    }
-                    z3 = z;
-                } else if (!z) {
-                    StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.voice_room_all_together));
-                    if (threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
-                        z3 = z;
-                        sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.voice_room_forum), threadData.getForumData().b));
-                    } else {
-                        z3 = z;
-                    }
-                    format = sb.toString();
+                if (z) {
+                    str = "funny_sprite_appear_day";
                 } else {
-                    z3 = z;
-                    format = MessageFormat.format(string, str5, str9);
+                    str = "funny_sprite_appear_dark";
                 }
-                int j = cb5.j(threadData);
-                String cutString = qd.cutString(str5, 100);
-                String cutString2 = qd.cutString(format, 100);
-                shareItem = new ShareItem();
-                shareItem.title = cutString;
-                shareItem.content = cutString2;
-                if (!threadData.isUgcThreadType()) {
-                    z4 = z2;
-                    shareItem.readCount = -1L;
-                    shareItem.shareAbstract = cutString2;
+                fr6 a2 = ik5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+                if (z) {
+                    str2 = "funny_sprite_show_day";
                 } else {
-                    z4 = z2;
-                    if (j == 2 && threadData.getThreadVideoInfo() != null) {
-                        shareItem.readCount = threadData.getThreadVideoInfo().play_count.intValue();
-                    } else if (j == 1) {
-                        shareItem.readCount = threadData.getView_num();
-                    }
-                    shareItem.shareAbstract = str9;
+                    str2 = "funny_sprite_show_dark";
                 }
-                shareItem.linkUrl = str2;
-                shareItem.extData = str7;
-                shareItem.fid = str4;
-                shareItem.fName = str3;
-                shareItem.tid = str7;
-                shareItem.isFromFeed = true;
-                shareItem.shareReportFrom = i;
-                shareItem.objSource = e(i);
-                shareItem.obj_type = j;
-                shareItem.objParam1 = 3;
-                shareItem.objParam2 = d(threadData);
-                if (parse != null) {
-                    shareItem.imageUri = parse;
-                }
-                if (!threadData.isUgcThreadType()) {
-                    z5 = false;
+                fr6 a3 = ik5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+                if (z) {
+                    str3 = "funny_sprite_exit_day";
                 } else {
-                    z5 = z4;
+                    str3 = "funny_sprite_exit_dark";
                 }
-                shareItem.canShareBySmartApp = z5;
-                if (z5) {
-                    shareItem.smartAppShareImageUrl = threadData.getShareImageUrl();
-                }
-                b(context, threadData);
-                generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
-                shareItem.originalThreadInfo = generateShareInfo;
-                if (StringUtils.isNull(generateShareInfo.showText, true)) {
-                    if (StringUtils.isNull(threadData.getTitle(), true)) {
-                        OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-                        if (originalThreadInfo != null) {
-                            shareItem.originalThreadInfo.showText = originalThreadInfo.g;
-                        }
-                    } else {
-                        shareItem.originalThreadInfo.showText = threadData.getTitle();
-                    }
-                }
-                if (StringUtils.isNull(shareItem.originalThreadInfo.showText, true)) {
-                    shareItem.originalThreadInfo.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
-                }
-                if (i2 != 13) {
-                    shareItem.forwardInfo = ShareItem.ForwardInfo.generateForwardInfo(threadData, 2);
-                } else {
-                    shareItem.forwardInfo = ShareItem.ForwardInfo.generateForwardInfo(threadData);
-                }
-                threadData2 = shareItem.originalThreadInfo.threadData;
-                if (threadData2 != null && threadData2.getForumData() == null) {
-                    dz4 dz4Var = new dz4();
-                    dz4Var.n(threadData.getForum_name());
-                    dz4Var.a = String.valueOf(threadData.getFid());
-                    dz4Var.c = threadData.getForumAvatar();
-                    shareItem.originalThreadInfo.threadData.setForumData(dz4Var);
-                }
-                TbadkCoreApplication.getInst().setShareItem(shareItem);
-                Bundle bundle = new Bundle();
-                bundle.putInt("obj_param1", shareItem.objParam1);
-                bundle.putInt("obj_type", shareItem.obj_type);
-                bundle.putString("fid", shareItem.fid);
-                bundle.putString("tid", shareItem.tid);
-                bundle.putInt("obj_source", shareItem.shareReportFrom);
-                if (shareItem.shareReportFrom == 11) {
-                    bundle.putInt("source", 14);
-                }
-                if (shareItem.shareReportFrom == 12) {
-                    bundle.putInt("source", 15);
-                }
-                shareItem.setStats(bundle);
-                shareItem.shareH5CardOptimizeTitle = cb5.i(threadData, j);
-                shareItem.shareH5CardOptimizeContent = cb5.h(threadData, j, str3, shareItem.readCount, "", "");
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, shareItem, true, true);
-                if (threadData.getThreadType() == 49 && threadData.getThreadType() != 60 && threadData.getThreadType() != 69) {
-                    z6 = z3;
-                    z7 = false;
-                } else {
-                    z6 = z3;
-                    z7 = true;
-                }
-                shareDialogConfig.mIsVoiceRoom = z6;
-                shareDialogConfig.setIsAlaLive(z7);
-                a(shareDialogConfig, i2);
-                TransmitShareController.getInstance().showShareDialog(shareDialogConfig);
+                spriteAnimationTipManager.v(a2, a3, ik5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
+                spriteAnimationTipManager.z(f(hotEventData, currentActivity, spriteAnimationTipManager));
+                spriteAnimationTipManager.A(5000L);
+                spriteAnimationTipManager.x(0, UtilHelper.getDimenPixelSize(R.dimen.tbds16), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds16));
+                spriteAnimationTipManager.t(UtilHelper.getDimenPixelSize(R.dimen.tbds146), UtilHelper.getDimenPixelSize(R.dimen.tbds187));
+                spriteAnimationTipManager.u(e(currentActivity));
+                spriteAnimationTipManager.w(new a());
+                spriteAnimationTipManager.s(new b(eVar));
+                spriteAnimationTipManager.B();
+                c = new WeakReference<>(spriteAnimationTipManager);
+                a = true;
+                o();
+                q(hotEventData);
+                return spriteAnimationTipManager;
             }
-            z2 = true;
-            if (threadData.getThreadAlaInfo() != null) {
-                str2 = TbConfig.HTTPS_YY_LIVE_SHARE_PREFIX + threadData.getThreadAlaInfo().mYyExtData.mSid + "&livessid=" + threadData.getThreadAlaInfo().mYyExtData.mSsid + "&uid=" + threadData.getThreadAlaInfo().mYyExtData.mYyUid;
-                z2 = false;
+            DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：当前页面Activity为空或者正在关闭");
+            if (eVar != null) {
+                eVar.onDismiss();
             }
-            c = c(threadData);
-            if (c != null) {
-            }
-            String str92 = threadData.getAbstract();
-            String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.share_content_tpl);
-            String string22 = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-            if (!threadData.isUgcThreadType()) {
-            }
-            if (!z) {
-            }
-            int j2 = cb5.j(threadData);
-            String cutString3 = qd.cutString(str5, 100);
-            String cutString22 = qd.cutString(format, 100);
-            shareItem = new ShareItem();
-            shareItem.title = cutString3;
-            shareItem.content = cutString22;
-            if (!threadData.isUgcThreadType()) {
-            }
-            shareItem.linkUrl = str2;
-            shareItem.extData = str7;
-            shareItem.fid = str4;
-            shareItem.fName = str3;
-            shareItem.tid = str7;
-            shareItem.isFromFeed = true;
-            shareItem.shareReportFrom = i;
-            shareItem.objSource = e(i);
-            shareItem.obj_type = j2;
-            shareItem.objParam1 = 3;
-            shareItem.objParam2 = d(threadData);
-            if (parse != null) {
-            }
-            if (!threadData.isUgcThreadType()) {
-            }
-            shareItem.canShareBySmartApp = z5;
-            if (z5) {
-            }
-            b(context, threadData);
-            generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
-            shareItem.originalThreadInfo = generateShareInfo;
-            if (StringUtils.isNull(generateShareInfo.showText, true)) {
-            }
-            if (StringUtils.isNull(shareItem.originalThreadInfo.showText, true)) {
-            }
-            if (i2 != 13) {
-            }
-            threadData2 = shareItem.originalThreadInfo.threadData;
-            if (threadData2 != null) {
-                dz4 dz4Var2 = new dz4();
-                dz4Var2.n(threadData.getForum_name());
-                dz4Var2.a = String.valueOf(threadData.getFid());
-                dz4Var2.c = threadData.getForumAvatar();
-                shareItem.originalThreadInfo.threadData.setForumData(dz4Var2);
-            }
-            TbadkCoreApplication.getInst().setShareItem(shareItem);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("obj_param1", shareItem.objParam1);
-            bundle2.putInt("obj_type", shareItem.obj_type);
-            bundle2.putString("fid", shareItem.fid);
-            bundle2.putString("tid", shareItem.tid);
-            bundle2.putInt("obj_source", shareItem.shareReportFrom);
-            if (shareItem.shareReportFrom == 11) {
-            }
-            if (shareItem.shareReportFrom == 12) {
-            }
-            shareItem.setStats(bundle2);
-            shareItem.shareH5CardOptimizeTitle = cb5.i(threadData, j2);
-            shareItem.shareH5CardOptimizeContent = cb5.h(threadData, j2, str3, shareItem.readCount, "", "");
-            ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(context, shareItem, true, true);
-            if (threadData.getThreadType() == 49) {
-            }
-            z6 = z3;
-            z7 = true;
-            shareDialogConfig2.mIsVoiceRoom = z6;
-            shareDialogConfig2.setIsAlaLive(z7);
-            a(shareDialogConfig2, i2);
-            TransmitShareController.getInstance().showShareDialog(shareDialogConfig2);
+            return null;
         }
+        return (SpriteAnimationTipManager) invokeLL.objValue;
     }
 }

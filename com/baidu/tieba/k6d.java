@@ -5,21 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.WindowToast;
+import tbclient.PkItem;
 /* loaded from: classes7.dex */
-public class k6d extends qoc {
+public class k6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WindowToast windowToast) {
+    public static JSONObject b(@NonNull PkItem pkItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, windowToast)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pkItem)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "toast_type", windowToast.toast_type);
-            qoc.a(jSONObject, "toast_link", windowToast.toast_link);
-            qoc.a(jSONObject, "toast_content", windowToast.toast_content);
+            ltc.a(jSONObject, "pk_num", pkItem.pk_num);
+            ltc.a(jSONObject, "pk_desc", pkItem.pk_desc);
+            ltc.a(jSONObject, "last_username", pkItem.last_username);
+            ltc.a(jSONObject, "pk_icon", pkItem.pk_icon);
+            ltc.a(jSONObject, "has_clicked", pkItem.has_clicked);
+            ltc.a(jSONObject, "pk_index", pkItem.pk_index);
+            ltc.a(jSONObject, "pk_icon_after", pkItem.pk_icon_after);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,177 +1,77 @@
 package com.kwad.components.ad.reward.k;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.R;
-import com.kwad.components.ad.widget.KsAppTagsView;
-import com.kwad.components.core.widget.KSCornerButton;
-import com.kwad.components.core.widget.KsConvertButton;
-import com.kwad.components.core.widget.KsLogoView;
-import com.kwad.sdk.core.imageloader.KSImageLoader;
+import com.kwad.components.core.webview.jshandler.ak;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.utils.bn;
+import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class p extends v implements View.OnClickListener {
-    public KsLogoView bq;
-    public TextView li;
-    public ImageView ll;
-    public TextView nH;
-    @Nullable
-    public KsAppTagsView uu;
-    public KSCornerButton vX;
-    public KsConvertButton vY;
-    public View vZ;
-    @Nullable
-    public TextView wa;
-    public a wb;
-    @LayoutRes
-    public int wc = R.layout.obfuscated_res_0x7f0d04e9;
-    public boolean wd = true;
+public final class p extends ak {
+    public WeakReference<com.kwad.components.ad.reward.g> qg;
+    public long xl;
+    public String xm;
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void hs();
-
-        void ht();
-
-        void hu();
-
-        void hv();
+    public p(com.kwad.components.ad.reward.g gVar, String str, long j, com.kwad.sdk.core.webview.b bVar) {
+        super(bVar);
+        this.xl = -1L;
+        this.xm = str;
+        this.xl = j;
+        if (gVar != null) {
+            this.qg = new WeakReference<>(gVar);
+        }
     }
 
-    private void T(int i) {
-        KSCornerButton kSCornerButton = this.vX;
-        if (kSCornerButton == null || this.vY == null) {
+    @Override // com.kwad.components.core.webview.jshandler.ak
+    public final void b(boolean z, AdTemplate adTemplate, @Nullable JSONObject jSONObject, @Nullable com.kwad.sdk.core.report.j jVar) {
+        com.kwad.components.ad.reward.j.b.a(z, adTemplate, null, jVar);
+    }
+
+    public static boolean Q(String str) {
+        try {
+            if (new JSONObject(str).optInt("elementType") == 18) {
+                return true;
+            }
+            return false;
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    private boolean b(ak.b bVar) {
+        WeakReference<com.kwad.components.ad.reward.g> weakReference;
+        if (bVar.getActionType() == 140 && com.kwad.sdk.core.config.d.yD() && Q(bVar.sd()) && (weakReference = this.qg) != null && weakReference.get() != null) {
+            final com.kwad.components.ad.reward.g gVar = this.qg.get();
+            bn.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.components.ad.reward.k.p.1
+                @Override // java.lang.Runnable
+                public final void run() {
+                    gVar.x(p.this.xm);
+                }
+            }, 1500L);
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.kwad.components.core.webview.jshandler.ak
+    public final void a(@NonNull ak.b bVar) {
+        if (!b(bVar)) {
+            super.a(bVar);
+        }
+    }
+
+    @Override // com.kwad.components.core.webview.jshandler.ak
+    public final void a(com.kwad.sdk.core.report.j jVar) {
+        super.a(jVar);
+        WeakReference<com.kwad.components.ad.reward.g> weakReference = this.qg;
+        if (weakReference != null && weakReference.get() != null) {
+            jVar.ai(this.qg.get().oI.getPlayDuration());
             return;
         }
-        if (i == 1) {
-            kSCornerButton.getCornerConf().bx(true);
-            this.vY.getCornerConf().bx(true);
-            this.vZ.setVisibility(0);
-        } else if (i == 2) {
-            kSCornerButton.getCornerConf().bt(true).bw(true).bv(false).bu(false);
-            this.vY.getCornerConf().bt(false).bw(false).bv(true).bu(true);
-            this.vZ.setVisibility(8);
-        }
-        this.vX.postInvalidate();
-        this.vY.postInvalidate();
-    }
-
-    public final void a(a aVar) {
-        this.wb = aVar;
-    }
-
-    @Override // com.kwad.components.ad.reward.k.d
-    public final void a(u uVar) {
-        super.a(uVar);
-        a(com.kwad.components.ad.reward.model.a.a(uVar, this.wd));
-    }
-
-    public void a(com.kwad.components.ad.reward.model.a aVar) {
-        TextView textView;
-        int i;
-        int i2;
-        if (aVar == null || this.vX == null) {
-            return;
-        }
-        T(aVar.gD());
-        this.bq.T(aVar.gA());
-        this.li.setText(aVar.getTitle());
-        this.nH.setText(aVar.fO());
-        TextView textView2 = this.wa;
-        if (textView2 != null) {
-            textView2.setText(aVar.fO());
-            if (TextUtils.isEmpty(aVar.fO())) {
-                i2 = 8;
-            } else if (aVar.gC()) {
-                i2 = 8;
-                i = 0;
-                this.nH.setVisibility(i2);
-                textView = this.wa;
-            } else {
-                i2 = 0;
-            }
-            i = 8;
-            this.nH.setVisibility(i2);
-            textView = this.wa;
-        } else {
-            textView = this.nH;
-            i = TextUtils.isEmpty(aVar.fO()) ? 8 : 0;
-        }
-        textView.setVisibility(i);
-        KsAppTagsView ksAppTagsView = this.uu;
-        if (ksAppTagsView != null) {
-            ksAppTagsView.c(aVar.gB(), this.wc);
-            this.uu.setVisibility(aVar.gC() ? 8 : 0);
-        }
-        this.vY.a(aVar.getApkDownloadHelper(), aVar.gA());
-        KSImageLoader.loadAppIcon(this.ll, aVar.eL(), aVar.gA(), 12);
-    }
-
-    public final void e(ViewGroup viewGroup) {
-        super.a(viewGroup, jb(), jc());
-        g(this.pV);
-        ViewGroup viewGroup2 = this.pV;
-        if (viewGroup2 != null) {
-            viewGroup2.setOnClickListener(this);
-            this.vX.setOnClickListener(this);
-            this.vY.setOnClickListener(this);
-        }
-    }
-
-    public void g(ViewGroup viewGroup) {
-        if (viewGroup == null) {
-            return;
-        }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091426);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091423);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091428);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091429);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091421);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091422);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091425);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09141e);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091427);
-    }
-
-    public int jb() {
-        return R.id.obfuscated_res_0x7f091420;
-    }
-
-    public int jc() {
-        return R.id.obfuscated_res_0x7f09141f;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        a aVar;
-        if (view2.equals(this.vX)) {
-            a aVar2 = this.wb;
-            if (aVar2 != null) {
-                aVar2.ht();
-            }
-        } else if (view2.equals(this.vY)) {
-            a aVar3 = this.wb;
-            if (aVar3 != null) {
-                aVar3.hu();
-            }
-        } else if (!view2.equals(this.pV) || (aVar = this.wb) == null) {
-        } else {
-            aVar.hv();
-        }
-    }
-
-    public final void show() {
-        ViewGroup viewGroup = this.pV;
-        if (viewGroup != null) {
-            viewGroup.setVisibility(0);
-            a aVar = this.wb;
-            if (aVar != null) {
-                aVar.hs();
-            }
+        long j = this.xl;
+        if (j > 0) {
+            jVar.ai(j);
         }
     }
 }

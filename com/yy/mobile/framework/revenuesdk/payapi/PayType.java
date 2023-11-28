@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum PayType {
     WECHAT_PAY("Weixin", "WapApp"),
     ALI_PAY("Zfb", "WapApp"),

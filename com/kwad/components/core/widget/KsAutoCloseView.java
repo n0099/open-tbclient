@@ -9,61 +9,37 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
+import com.kwad.sdk.m.l;
 /* loaded from: classes10.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
-    public static String wD = "%s秒后自动关闭";
-    public TextView Pr;
-    public ImageView Ps;
-    public a Pt;
-    public boolean Pu;
-    public boolean Pv;
+    public static String Bd = "%s秒后自动关闭";
+    public TextView abS;
+    public ImageView abT;
+    public a abU;
+    public boolean abV;
+    public boolean abW;
     public int countDown;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void dg();
+        void de();
 
-        void dh();
+        void df();
     }
 
     public KsAutoCloseView(Context context) {
         super(context);
         this.countDown = 10;
-        this.Pu = true;
-        this.Pv = false;
-        L(context);
+        this.abV = true;
+        this.abW = false;
+        P(context);
     }
 
-    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.countDown = 10;
-        this.Pu = true;
-        this.Pv = false;
-        L(context);
-    }
-
-    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.countDown = 10;
-        this.Pu = true;
-        this.Pv = false;
-        L(context);
-    }
-
-    @RequiresApi(api = 21)
-    public KsAutoCloseView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        this.countDown = 10;
-        this.Pu = true;
-        this.Pv = false;
-        L(context);
-    }
-
-    private void L(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04a4, this);
-        this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dd);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912dc);
-        this.Ps = imageView;
+    private void P(Context context) {
+        l.inflate(context, R.layout.obfuscated_res_0x7f0d04b4, this);
+        this.abS = (TextView) findViewById(R.id.obfuscated_res_0x7f091315);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091314);
+        this.abT = imageView;
         imageView.setOnClickListener(this);
     }
 
@@ -75,7 +51,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x(int i) {
-        this.Pr.setText(String.format(wD, Integer.valueOf(i)));
+        this.abS.setText(String.format(Bd, Integer.valueOf(i)));
     }
 
     public final void U(int i) {
@@ -86,29 +62,34 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
         post(new Runnable() { // from class: com.kwad.components.core.widget.KsAutoCloseView.1
             @Override // java.lang.Runnable
             public final void run() {
-                if (KsAutoCloseView.this.Pu) {
-                    if (!KsAutoCloseView.this.Pv) {
-                        if (KsAutoCloseView.this.countDown == 0) {
-                            if (KsAutoCloseView.this.Pt != null) {
-                                KsAutoCloseView.this.Pt.dg();
-                                return;
-                            }
-                            return;
-                        }
-                        KsAutoCloseView ksAutoCloseView = KsAutoCloseView.this;
-                        ksAutoCloseView.x(ksAutoCloseView.countDown);
-                        KsAutoCloseView.e(KsAutoCloseView.this);
+                if (!KsAutoCloseView.this.abV) {
+                    return;
+                }
+                if (KsAutoCloseView.this.abW) {
+                    KsAutoCloseView.this.postDelayed(this, 1000L);
+                } else if (KsAutoCloseView.this.countDown == 0) {
+                    if (KsAutoCloseView.this.abU != null) {
+                        KsAutoCloseView.this.abU.de();
                     }
+                } else {
+                    KsAutoCloseView ksAutoCloseView = KsAutoCloseView.this;
+                    ksAutoCloseView.x(ksAutoCloseView.countDown);
+                    KsAutoCloseView.e(KsAutoCloseView.this);
                     KsAutoCloseView.this.postDelayed(this, 1000L);
                 }
             }
         });
     }
 
-    public final void aG(boolean z) {
-        this.Pu = z;
-        int i = z ? 0 : 8;
-        TextView textView = this.Pr;
+    public final void aX(boolean z) {
+        int i;
+        this.abV = z;
+        if (z) {
+            i = 0;
+        } else {
+            i = 8;
+        }
+        TextView textView = this.abS;
         if (textView != null) {
             textView.setVisibility(i);
         }
@@ -116,16 +97,41 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (this.Pt != null && view2.equals(this.Ps)) {
-            this.Pt.dh();
+        if (this.abU != null && view2.equals(this.abT)) {
+            this.abU.df();
         }
     }
 
     public void setCountDownPaused(boolean z) {
-        this.Pv = z;
+        this.abW = z;
     }
 
     public void setViewListener(a aVar) {
-        this.Pt = aVar;
+        this.abU = aVar;
+    }
+
+    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.countDown = 10;
+        this.abV = true;
+        this.abW = false;
+        P(context);
+    }
+
+    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.countDown = 10;
+        this.abV = true;
+        this.abW = false;
+        P(context);
+    }
+
+    @RequiresApi(api = 21)
+    public KsAutoCloseView(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        this.countDown = 10;
+        this.abV = true;
+        this.abW = false;
+        P(context);
     }
 }

@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.helios.channels.csc.QuantumChannel;
-import com.baidu.tieba.my;
+import com.baidu.tieba.gy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class n10 implements my.a {
+public class n10 implements gy.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,19 +25,13 @@ public class n10 implements my.a {
         }
     }
 
-    @Override // com.baidu.tieba.my.a
-    public List<ly> a() {
+    @Override // com.baidu.tieba.gy.a
+    public fy a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new uy());
-            arrayList.add(new QuantumChannel());
-            arrayList.add(new py());
-            arrayList.add(new qy());
-            arrayList.add(new ry());
-            return arrayList;
+            return new iy(true);
         }
-        return (List) invokeV.objValue;
+        return (fy) invokeV.objValue;
     }
 }

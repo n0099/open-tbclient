@@ -20,9 +20,9 @@ public abstract class CollectFragment extends BaseFragment {
     public boolean a;
     public final CustomMessageListener b;
 
-    public abstract int u2();
+    public abstract int G2();
 
-    public abstract boolean v2();
+    public abstract boolean H2();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -59,10 +59,10 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
             CollectFragment collectFragment = this.a;
-            collectFragment.x2(collectFragment.u2());
+            collectFragment.J2(collectFragment.G2());
             CollectFragment collectFragment2 = this.a;
             if (!collectFragment2.a) {
-                collectFragment2.y2(false, collectFragment2.u2());
+                collectFragment2.K2(false, collectFragment2.G2());
             }
         }
     }
@@ -84,10 +84,19 @@ public abstract class CollectFragment extends BaseFragment {
         this.b = new a(this, 2000994);
     }
 
+    public boolean I2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStart();
             registerListener(this.b);
         }
@@ -96,27 +105,18 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStop();
             MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
-    public boolean w2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void x2(int i) {
+    public void J2(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Bundle bundle = new Bundle();
-            if (!v2() && BdNetTypeUtil.isNetWorkAvailable()) {
+            if (!H2() && BdNetTypeUtil.isNetWorkAvailable()) {
                 z = true;
             } else {
                 z = false;
@@ -128,9 +128,9 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void y2(boolean z, int i) {
+    public void K2(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("is_edit_state", z);
             bundle.putInt("fragment_type", i);

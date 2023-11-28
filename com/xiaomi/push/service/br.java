@@ -6,7 +6,7 @@ import java.util.Map;
 public class br {
     public static hu a(hu huVar) {
         Map<String, String> map;
-        if (huVar != null && (map = huVar.f547b) != null) {
+        if (huVar != null && (map = huVar.f543b) != null) {
             map.remove("score_info");
         }
         return huVar;

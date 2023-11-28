@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes9.dex */
 public interface yq0 {
-    boolean a(int i);
+    void a(boolean z);
 }

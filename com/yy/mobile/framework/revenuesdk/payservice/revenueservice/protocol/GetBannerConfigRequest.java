@@ -7,7 +7,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class GetBannerConfigRequest implements IRequestProtocol {
     public int appId;
     public String expand;

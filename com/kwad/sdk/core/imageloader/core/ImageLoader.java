@@ -55,17 +55,10 @@ public class ImageLoader {
     }
 
     private void checkConfiguration() {
-        if (this.configuration == null) {
-            throw new IllegalStateException(ERROR_NOT_INIT);
+        if (this.configuration != null) {
+            return;
         }
-    }
-
-    public static Handler defineHandler(DisplayImageOptions displayImageOptions) {
-        Handler handler = displayImageOptions.getHandler();
-        if (displayImageOptions.isSyncLoading()) {
-            return null;
-        }
-        return (handler == null && Looper.myLooper() == Looper.getMainLooper()) ? new Handler() : handler;
+        throw new IllegalStateException(ERROR_NOT_INIT);
     }
 
     public static ImageLoader getInstance() {
@@ -77,14 +70,6 @@ public class ImageLoader {
             }
         }
         return instance;
-    }
-
-    public void cancelDisplayTask(ImageView imageView) {
-        this.engine.cancelDisplayTaskFor(new ImageViewAware(imageView));
-    }
-
-    public void cancelDisplayTask(ImageAware imageAware) {
-        this.engine.cancelDisplayTaskFor(imageAware);
     }
 
     @Deprecated
@@ -102,10 +87,6 @@ public class ImageLoader {
         this.configuration.memoryCache.clear();
     }
 
-    public void denyNetworkDownloads(boolean z) {
-        this.engine.denyNetworkDownloads(z);
-    }
-
     public void destroy() {
         if (this.configuration != null) {
             L.d(LOG_DESTROY, new Object[0]);
@@ -116,24 +97,159 @@ public class ImageLoader {
         this.configuration = null;
     }
 
+    @Deprecated
+    public DiskCache getDiscCache() {
+        return getDiskCache();
+    }
+
+    public DiskCache getDiskCache() {
+        checkConfiguration();
+        return this.configuration.diskCache;
+    }
+
+    public MemoryCache getMemoryCache() {
+        checkConfiguration();
+        return this.configuration.memoryCache;
+    }
+
+    public boolean isInited() {
+        if (this.configuration != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public void pause() {
+        this.engine.pause();
+    }
+
+    public void resume() {
+        this.engine.resume();
+    }
+
+    public void stop() {
+        this.engine.stop();
+    }
+
+    public static Handler defineHandler(DisplayImageOptions displayImageOptions) {
+        Handler handler = displayImageOptions.getHandler();
+        if (displayImageOptions.isSyncLoading()) {
+            return null;
+        }
+        if (handler == null && Looper.myLooper() == Looper.getMainLooper()) {
+            return new Handler();
+        }
+        return handler;
+    }
+
+    public void cancelDisplayTask(ImageView imageView) {
+        this.engine.cancelDisplayTaskFor(new ImageViewAware(imageView));
+    }
+
+    public void denyNetworkDownloads(boolean z) {
+        this.engine.denyNetworkDownloads(z);
+    }
+
+    public String getLoadingUriForView(ImageView imageView) {
+        return this.engine.getLoadingUriForView(new ImageViewAware(imageView));
+    }
+
+    public void handleSlowNetwork(boolean z) {
+        this.engine.handleSlowNetwork(z);
+    }
+
+    public synchronized void init(ImageLoaderConfiguration imageLoaderConfiguration) {
+        if (imageLoaderConfiguration != null) {
+            if (this.configuration == null) {
+                L.d(LOG_INIT_CONFIG, new Object[0]);
+                this.engine = new ImageLoaderEngine(imageLoaderConfiguration);
+                this.configuration = imageLoaderConfiguration;
+                return;
+            }
+            L.w(WARNING_RE_INIT_CONFIG, new Object[0]);
+            return;
+        }
+        throw new IllegalArgumentException(ERROR_INIT_CONFIG_WITH_NULL);
+    }
+
+    public Bitmap loadImageSync(String str) {
+        return loadImageSync(str, null, null);
+    }
+
+    public void setDefaultLoadingListener(ImageLoadingListener imageLoadingListener) {
+        if (imageLoadingListener == null) {
+            imageLoadingListener = new SimpleImageLoadingListener();
+        }
+        this.defaultListener = imageLoadingListener;
+    }
+
+    public void cancelDisplayTask(ImageAware imageAware) {
+        this.engine.cancelDisplayTaskFor(imageAware);
+    }
+
+    public String getLoadingUriForView(ImageAware imageAware) {
+        return this.engine.getLoadingUriForView(imageAware);
+    }
+
     public void displayImage(String str, ImageView imageView) {
         displayImage(str, new ImageViewAware(imageView), (DisplayImageOptions) null, (ImageLoadingListener) null, (ImageLoadingProgressListener) null);
+    }
+
+    public void loadImage(String str, ImageLoadingListener imageLoadingListener) {
+        loadImage(str, null, null, imageLoadingListener, null);
+    }
+
+    public Bitmap loadImageSync(String str, DisplayImageOptions displayImageOptions) {
+        return loadImageSync(str, null, displayImageOptions);
     }
 
     public void displayImage(String str, ImageView imageView, DisplayImageOptions displayImageOptions) {
         displayImage(str, new ImageViewAware(imageView), displayImageOptions, (ImageLoadingListener) null, (ImageLoadingProgressListener) null);
     }
 
+    public void loadImage(String str, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
+        loadImage(str, null, displayImageOptions, imageLoadingListener, null);
+    }
+
+    public Bitmap loadImageSync(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions) {
+        if (displayImageOptions == null) {
+            displayImageOptions = this.configuration.defaultDisplayImageOptions;
+        }
+        DisplayImageOptions build = new DisplayImageOptions.Builder().cloneFrom(displayImageOptions).syncLoading(true).build();
+        SyncImageLoadingListener syncImageLoadingListener = new SyncImageLoadingListener();
+        loadImage(str, imageSize, build, syncImageLoadingListener);
+        return syncImageLoadingListener.getLoadedBitmap();
+    }
+
     public void displayImage(String str, ImageView imageView, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
         displayImage(str, imageView, displayImageOptions, imageLoadingListener, (ImageLoadingProgressListener) null);
+    }
+
+    public void loadImage(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
+        loadImage(str, imageSize, displayImageOptions, imageLoadingListener, null);
     }
 
     public void displayImage(String str, ImageView imageView, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener, ImageLoadingProgressListener imageLoadingProgressListener) {
         displayImage(str, new ImageViewAware(imageView), displayImageOptions, imageLoadingListener, imageLoadingProgressListener);
     }
 
+    public void loadImage(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener, ImageLoadingProgressListener imageLoadingProgressListener) {
+        checkConfiguration();
+        if (imageSize == null) {
+            imageSize = this.configuration.getMaxImageSize();
+        }
+        if (displayImageOptions == null) {
+            displayImageOptions = this.configuration.defaultDisplayImageOptions;
+        }
+        displayImage(str, new NonViewAware(str, imageSize, ViewScaleType.CROP), displayImageOptions, imageLoadingListener, imageLoadingProgressListener);
+    }
+
     public void displayImage(String str, ImageView imageView, ImageSize imageSize) {
         displayImage(str, new ImageViewAware(imageView), null, imageSize, null, null);
+    }
+
+    public void loadImage(String str, ImageSize imageSize, ImageLoadingListener imageLoadingListener) {
+        loadImage(str, imageSize, null, imageLoadingListener, null);
     }
 
     public void displayImage(String str, ImageView imageView, ImageLoadingListener imageLoadingListener) {
@@ -144,42 +260,59 @@ public class ImageLoader {
         displayImage(str, imageAware, (DisplayImageOptions) null, (ImageLoadingListener) null, (ImageLoadingProgressListener) null);
     }
 
+    public Bitmap loadImageSync(String str, ImageSize imageSize) {
+        return loadImageSync(str, imageSize, null);
+    }
+
     public void displayImage(String str, ImageAware imageAware, DisplayImageOptions displayImageOptions) {
         displayImage(str, imageAware, displayImageOptions, (ImageLoadingListener) null, (ImageLoadingProgressListener) null);
     }
 
     public void displayImage(String str, ImageAware imageAware, DisplayImageOptions displayImageOptions, ImageSize imageSize, ImageLoadingListener imageLoadingListener, ImageLoadingProgressListener imageLoadingProgressListener) {
         checkConfiguration();
-        if (imageAware == null) {
-            throw new IllegalArgumentException(ERROR_WRONG_ARGUMENTS);
-        }
-        if (imageLoadingListener == null) {
-            imageLoadingListener = this.defaultListener;
-        }
-        ImageLoadingListener imageLoadingListener2 = imageLoadingListener;
-        if (displayImageOptions == null) {
-            displayImageOptions = this.configuration.defaultDisplayImageOptions;
-        }
-        if (TextUtils.isEmpty(str)) {
-            this.engine.cancelDisplayTaskFor(imageAware);
-            imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
-            if (displayImageOptions.shouldShowImageForEmptyUri()) {
-                imageAware.setImageDrawable(displayImageOptions.getImageForEmptyUri(this.configuration.resources));
-            } else {
-                imageAware.setImageDrawable(null);
+        if (imageAware != null) {
+            if (imageLoadingListener == null) {
+                imageLoadingListener = this.defaultListener;
             }
-            imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), null);
-            return;
-        }
-        if (imageSize == null) {
-            imageSize = ImageSizeUtils.defineTargetSizeForView(imageAware, this.configuration.getMaxImageSize());
-        }
-        ImageSize imageSize2 = imageSize;
-        String generateKey = MemoryCacheUtils.generateKey(str, imageSize2);
-        this.engine.prepareDisplayTaskFor(imageAware, generateKey);
-        imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
-        DecodedResult decodedResult = this.configuration.memoryCache.get(generateKey);
-        if (decodedResult == null || !decodedResult.isDecoded()) {
+            ImageLoadingListener imageLoadingListener2 = imageLoadingListener;
+            if (displayImageOptions == null) {
+                displayImageOptions = this.configuration.defaultDisplayImageOptions;
+            }
+            if (TextUtils.isEmpty(str)) {
+                this.engine.cancelDisplayTaskFor(imageAware);
+                imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
+                if (displayImageOptions.shouldShowImageForEmptyUri()) {
+                    imageAware.setImageDrawable(displayImageOptions.getImageForEmptyUri(this.configuration.resources));
+                } else {
+                    imageAware.setImageDrawable(null);
+                }
+                imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), null);
+                return;
+            }
+            if (imageSize == null) {
+                imageSize = ImageSizeUtils.defineTargetSizeForView(imageAware, this.configuration.getMaxImageSize());
+            }
+            ImageSize imageSize2 = imageSize;
+            String generateKey = MemoryCacheUtils.generateKey(str, imageSize2);
+            this.engine.prepareDisplayTaskFor(imageAware, generateKey);
+            imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
+            DecodedResult decodedResult = this.configuration.memoryCache.get(generateKey);
+            if (decodedResult != null && decodedResult.isDecoded()) {
+                L.d(LOG_LOAD_IMAGE_FROM_MEMORY_CACHE, generateKey);
+                if (displayImageOptions.shouldPostProcess()) {
+                    ProcessAndDisplayImageTask processAndDisplayImageTask = new ProcessAndDisplayImageTask(this.engine, decodedResult, new ImageLoadingInfo(str, imageAware, imageSize2, generateKey, displayImageOptions, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions));
+                    if (displayImageOptions.isSyncLoading()) {
+                        processAndDisplayImageTask.run();
+                        return;
+                    } else {
+                        this.engine.submit(processAndDisplayImageTask);
+                        return;
+                    }
+                }
+                displayImageOptions.getDisplayer().display(decodedResult, imageAware, LoadedFrom.MEMORY_CACHE);
+                imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), decodedResult);
+                return;
+            }
             if (displayImageOptions.shouldShowImageOnLoading()) {
                 imageAware.setImageDrawable(displayImageOptions.getImageOnLoading(this.configuration.resources));
             } else if (displayImageOptions.isResetViewBeforeLoading()) {
@@ -194,18 +327,7 @@ public class ImageLoader {
                 return;
             }
         }
-        L.d(LOG_LOAD_IMAGE_FROM_MEMORY_CACHE, generateKey);
-        if (!displayImageOptions.shouldPostProcess()) {
-            displayImageOptions.getDisplayer().display(decodedResult, imageAware, LoadedFrom.MEMORY_CACHE);
-            imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), decodedResult);
-            return;
-        }
-        ProcessAndDisplayImageTask processAndDisplayImageTask = new ProcessAndDisplayImageTask(this.engine, decodedResult, new ImageLoadingInfo(str, imageAware, imageSize2, generateKey, displayImageOptions, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions));
-        if (displayImageOptions.isSyncLoading()) {
-            processAndDisplayImageTask.run();
-        } else {
-            this.engine.submit(processAndDisplayImageTask);
-        }
+        throw new IllegalArgumentException(ERROR_WRONG_ARGUMENTS);
     }
 
     public void displayImage(String str, ImageAware imageAware, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
@@ -218,117 +340,5 @@ public class ImageLoader {
 
     public void displayImage(String str, ImageAware imageAware, ImageLoadingListener imageLoadingListener) {
         displayImage(str, imageAware, (DisplayImageOptions) null, imageLoadingListener, (ImageLoadingProgressListener) null);
-    }
-
-    @Deprecated
-    public DiskCache getDiscCache() {
-        return getDiskCache();
-    }
-
-    public DiskCache getDiskCache() {
-        checkConfiguration();
-        return this.configuration.diskCache;
-    }
-
-    public String getLoadingUriForView(ImageView imageView) {
-        return this.engine.getLoadingUriForView(new ImageViewAware(imageView));
-    }
-
-    public String getLoadingUriForView(ImageAware imageAware) {
-        return this.engine.getLoadingUriForView(imageAware);
-    }
-
-    public MemoryCache getMemoryCache() {
-        checkConfiguration();
-        return this.configuration.memoryCache;
-    }
-
-    public void handleSlowNetwork(boolean z) {
-        this.engine.handleSlowNetwork(z);
-    }
-
-    public synchronized void init(ImageLoaderConfiguration imageLoaderConfiguration) {
-        if (imageLoaderConfiguration == null) {
-            throw new IllegalArgumentException(ERROR_INIT_CONFIG_WITH_NULL);
-        }
-        if (this.configuration != null) {
-            L.w(WARNING_RE_INIT_CONFIG, new Object[0]);
-            return;
-        }
-        L.d(LOG_INIT_CONFIG, new Object[0]);
-        this.engine = new ImageLoaderEngine(imageLoaderConfiguration);
-        this.configuration = imageLoaderConfiguration;
-    }
-
-    public boolean isInited() {
-        return this.configuration != null;
-    }
-
-    public void loadImage(String str, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
-        loadImage(str, null, displayImageOptions, imageLoadingListener, null);
-    }
-
-    public void loadImage(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
-        loadImage(str, imageSize, displayImageOptions, imageLoadingListener, null);
-    }
-
-    public void loadImage(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener, ImageLoadingProgressListener imageLoadingProgressListener) {
-        checkConfiguration();
-        if (imageSize == null) {
-            imageSize = this.configuration.getMaxImageSize();
-        }
-        if (displayImageOptions == null) {
-            displayImageOptions = this.configuration.defaultDisplayImageOptions;
-        }
-        displayImage(str, new NonViewAware(str, imageSize, ViewScaleType.CROP), displayImageOptions, imageLoadingListener, imageLoadingProgressListener);
-    }
-
-    public void loadImage(String str, ImageSize imageSize, ImageLoadingListener imageLoadingListener) {
-        loadImage(str, imageSize, null, imageLoadingListener, null);
-    }
-
-    public void loadImage(String str, ImageLoadingListener imageLoadingListener) {
-        loadImage(str, null, null, imageLoadingListener, null);
-    }
-
-    public Bitmap loadImageSync(String str) {
-        return loadImageSync(str, null, null);
-    }
-
-    public Bitmap loadImageSync(String str, DisplayImageOptions displayImageOptions) {
-        return loadImageSync(str, null, displayImageOptions);
-    }
-
-    public Bitmap loadImageSync(String str, ImageSize imageSize) {
-        return loadImageSync(str, imageSize, null);
-    }
-
-    public Bitmap loadImageSync(String str, ImageSize imageSize, DisplayImageOptions displayImageOptions) {
-        if (displayImageOptions == null) {
-            displayImageOptions = this.configuration.defaultDisplayImageOptions;
-        }
-        DisplayImageOptions build = new DisplayImageOptions.Builder().cloneFrom(displayImageOptions).syncLoading(true).build();
-        SyncImageLoadingListener syncImageLoadingListener = new SyncImageLoadingListener();
-        loadImage(str, imageSize, build, syncImageLoadingListener);
-        return syncImageLoadingListener.getLoadedBitmap();
-    }
-
-    public void pause() {
-        this.engine.pause();
-    }
-
-    public void resume() {
-        this.engine.resume();
-    }
-
-    public void setDefaultLoadingListener(ImageLoadingListener imageLoadingListener) {
-        if (imageLoadingListener == null) {
-            imageLoadingListener = new SimpleImageLoadingListener();
-        }
-        this.defaultListener = imageLoadingListener;
-    }
-
-    public void stop() {
-        this.engine.stop();
     }
 }

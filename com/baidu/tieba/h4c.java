@@ -1,30 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.e5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class h4c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 1;
-    public static final int b = 2;
-    public static final int c = 3;
+public class h4c<A extends e5c> extends AdReporter<A> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean e;
+    public final String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947775186, "Lcom/baidu/tieba/h4c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h4c(Ssp.Pid pid) {
+        super(pid.pid, pid.type, pid.ssp.type);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947775186, "Lcom/baidu/tieba/h4c;");
+        this.e = pid.isBidding;
+        this.f = pid.pid;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            e5c e5cVar = (e5c) obj;
+            if (e5cVar != null && e5cVar.a != 0 && !TextUtils.isEmpty(e5cVar.e())) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("gdt_rq_id", e5cVar.e()));
+                if (!this.e) {
+                    c = FunAdSdk.getARPU(this.f);
+                } else {
+                    c = (e5cVar.c() / 100.0d) / 1000.0d;
+                }
+                arrayList.add(Pair.create("rvn", Double.valueOf(c)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * c)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
+            }
+            return null;
         }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReward(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            e5c e5cVar = (e5c) obj;
+            if (e5cVar != null && !TextUtils.isEmpty(e5cVar.f())) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("gdt_tr_id", e5cVar.f()));
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
     }
 }

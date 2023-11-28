@@ -1,29 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.FrsSpriteBubble;
-import tbclient.SpriteBubble;
+import tbclient.BotReplyUserInfo;
 /* loaded from: classes7.dex */
-public class lvc extends qoc {
+public class lvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsSpriteBubble frsSpriteBubble) {
+    public static JSONObject b(@NonNull BotReplyUserInfo botReplyUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsSpriteBubble)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, botReplyUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            SpriteBubble spriteBubble = frsSpriteBubble.bubble_text;
-            if (spriteBubble != null) {
-                qoc.a(jSONObject, "bubble_text", n3d.b(spriteBubble));
-            }
-            qoc.a(jSONObject, "bubble_uri", frsSpriteBubble.bubble_uri);
-            qoc.a(jSONObject, "bubble_seconds", frsSpriteBubble.bubble_seconds);
+            ltc.a(jSONObject, PersonalMsgSettingDispatcher.PERSONAL_PORTRAIT_URL, botReplyUserInfo.portrait_url);
+            ltc.a(jSONObject, "name", botReplyUserInfo.name);
+            ltc.a(jSONObject, "icon_url", botReplyUserInfo.icon_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

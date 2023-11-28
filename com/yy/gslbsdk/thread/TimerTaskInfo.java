@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.thread;
 
 import java.util.TimerTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class TimerTaskInfo {
     public String taskName;
     public TimerTask worker;

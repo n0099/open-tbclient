@@ -1,40 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.video.VideoItemData;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.GeneralTabList.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
-public final class zh7 {
+public final class zh7 extends sh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentActivity b;
+    public final CustomMessageListener c;
 
-    public static final List<VideoItemData> a(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            List<ThreadInfo> list = dataRes.general_list;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (ThreadInfo threadInfo : list) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.buildWithThreadData(threadData);
-                    arrayList.add(videoItemData);
+    /* loaded from: classes9.dex */
+    public static final class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zh7 zh7Var) {
+            super(2921476);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return arrayList;
             }
-            return CollectionsKt__CollectionsKt.emptyList();
+            this.a = zh7Var;
         }
-        return (List) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                this.a.q();
+            }
+        }
+    }
+
+    public zh7(FragmentActivity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.b = activity;
+        this.c = new a(this);
+    }
+
+    @Override // com.baidu.tieba.sh7
+    public void k(Bundle bundle, ActivityForumBinding binding) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            super.k(bundle, binding);
+            o(this.c);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            YunDialogManager.unMarkShowingDialogName("frsGuide");
+        }
     }
 }

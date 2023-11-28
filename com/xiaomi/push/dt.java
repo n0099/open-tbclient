@@ -17,12 +17,12 @@ public class dt extends ds {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.ds.a()Z */
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo306a() {
+    public String mo310a() {
         return "23";
     }
 
     @Override // com.xiaomi.push.ds
     public String b() {
-        return "ram:" + i.m612a() + ",rom:" + i.m615b() + "|ramOriginal:" + i.c() + ",romOriginal:" + i.d();
+        return "ram:" + i.m616a() + ",rom:" + i.m619b() + "|ramOriginal:" + i.c() + ",romOriginal:" + i.d();
     }
 }

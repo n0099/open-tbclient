@@ -1,104 +1,175 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.MemberGroupInfo;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tn7 implements oi {
+public final class tn7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public MemberGroupInfo a;
-    public String b;
+    public final BdRecyclerView a;
+    public Function0<Unit> b;
+    public boolean c;
+    public boolean d;
+    public final PbListView e;
+    public final BdListView.p f;
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187052, "Lcom/baidu/tieba/tn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948187052, "Lcom/baidu/tieba/tn7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public tn7() {
+    public tn7(BdRecyclerView recyclerView, Function0<Unit> function0) {
+        RecyclerView.LayoutParams generateLayoutParams;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recyclerView, function0};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(recyclerView, "recyclerView");
+        this.a = recyclerView;
+        this.b = function0;
+        PbListView pbListView = new PbListView(this.a.getContext());
+        pbListView.c();
+        pbListView.s(R.color.transparent);
+        pbListView.w(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds182));
+        pbListView.B();
+        pbListView.L(R.dimen.tbfontsize33);
+        pbListView.J(SkinManager.getColor(R.color.CAM_X0107));
+        pbListView.F(R.color.CAM_X0110);
+        pbListView.v();
+        this.e = pbListView;
+        ViewGroup.LayoutParams layoutParams = pbListView.c().getLayoutParams();
+        layoutParams = layoutParams == null ? new ViewGroup.LayoutParams(-1, -2) : layoutParams;
+        RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
+        if (layoutManager != null && (generateLayoutParams = layoutManager.generateLayoutParams(layoutParams)) != null) {
+            Intrinsics.checkNotNullExpressionValue(generateLayoutParams, "generateLayoutParams(oldLayoutParams)");
+            this.e.c().setLayoutParams(generateLayoutParams);
+        }
+        this.f = new BdListView.p() { // from class: com.baidu.tieba.on7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.adp.widget.ListView.BdListView.p
+            public final void onScrollToBottom() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    tn7.e(tn7.this);
+                }
+            }
+        };
+    }
+
+    public static final void e(tn7 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Function0<Unit> function0 = this$0.b;
+            if (function0 != null) {
+                function0.invoke();
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static final void g(tn7 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public MemberGroupInfo b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (MemberGroupInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            boolean canScrollVertically = this$0.a.canScrollVertically(1);
+            boolean canScrollVertically2 = this$0.a.canScrollVertically(-1);
+            if (!canScrollVertically && canScrollVertically2) {
+                this$0.f.onScrollToBottom();
+            }
         }
     }
 
-    public void e(MemberGroupInfo memberGroupInfo) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, memberGroupInfo) == null) {
-            this.a = memberGroupInfo;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public final void c() {
+        Function0<Unit> function0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (function0 = this.b) != null) {
+            function0.invoke();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.post(new Runnable() { // from class: com.baidu.tieba.mn7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        tn7.g(tn7.this);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.e.H(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c2e));
+                this.e.c().setPadding(0, 0, 0, BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds125));
+                this.e.g();
+                this.e.G(null);
+                this.a.setOnSrollToBottomListener(null);
+                return;
+            }
+            this.e.c().setPadding(0, 0, 0, 0);
+            d(this.c, this.d);
+        }
+    }
+
+    public final void d(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.c = z;
+            this.d = z2;
+            if (!z2) {
+                this.a.setNextPage(null);
+                this.a.setOnSrollToBottomListener(null);
+                return;
+            }
+            this.a.setNextPage(this.e);
+            if (z) {
+                this.e.R();
+                this.e.G(null);
+                this.a.setOnSrollToBottomListener(this.f);
+                f();
+                return;
+            }
+            this.e.H(this.a.getContext().getString(R.string.list_has_no_more));
+            this.e.g();
+            this.e.G(null);
+            this.a.setOnSrollToBottomListener(null);
         }
     }
 }

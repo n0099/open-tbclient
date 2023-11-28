@@ -11,7 +11,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UtcDates {
     public static final String UTC = "UTC";
     public static AtomicReference<TimeSource> timeSourceRef = new AtomicReference<>();
@@ -174,7 +174,7 @@ public class UtcDates {
 
     public static String getTextInputHint(Resources resources, SimpleDateFormat simpleDateFormat) {
         String localizedPattern = simpleDateFormat.toLocalizedPattern();
-        return localizedPattern.replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0d25)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0d26)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0d27));
+        return localizedPattern.replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0d33)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0d34)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0d35));
     }
 
     @NonNull

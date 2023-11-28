@@ -1,142 +1,676 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.searchbox.common.security.PermissionStorage;
+import com.baidu.tbadk.core.data.IMUserExtraData;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class du8 extends gu8<ForumData> {
+public class du8 {
     public static /* synthetic */ Interceptable $ic;
+    public static du8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
-    public LinearLayout n;
-    public BarImageView o;
-    public TextView p;
-    public EMTextView q;
-    public EMTextView r;
-    public EMTextView s;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public du8(@NonNull Context context) {
-        super(context);
+    public du8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = context;
-        q(context);
     }
 
-    @Override // com.baidu.tieba.zt8
-    public void a(String str) {
-        boolean z;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ForumData forumData = (ForumData) this.j;
-            long userIdLong = this.k.getUserIdLong();
-            String userName = this.k.getUserName();
-            String name_show = this.k.getName_show();
-            String portrait = this.k.getPortrait();
-            if (this.k.getIsMyFriend() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ow8.a(forumData, str, userIdLong, userName, name_show, portrait, z);
-            p(1, 0, 3, String.valueOf(this.k.getUserIdLong()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return bu8.e().b("tb_message_center", "custom_group_type=? AND is_friend!=?", new String[]{String.valueOf(2), String.valueOf(1)});
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zt8
-    public void b(String str) {
+    public static synchronized du8 f() {
+        InterceptResult invokeV;
+        du8 du8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ow8.h(str, this.k.groupData, (ForumData) this.j);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.g();
-            EMManager.from(this.n).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0207);
-            EMManager.from(this.p).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            EMManager.from(this.q).setTextColor(R.color.CAM_X0107);
-            EMManager.from(this.r).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.s).setTextColor(R.color.CAM_X0109);
-            this.o.setStrokeColorResId(R.color.CAM_X0401);
-        }
-    }
-
-    public final void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_forum, i());
-            this.n = (LinearLayout) inflate.findViewById(R.id.im_share_forum_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_forum_info_head);
-            this.o = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.o.setShowOval(true);
-            this.o.setAutoChangeStyle(true);
-            this.o.setShowInnerBorder(true);
-            this.o.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.o.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_forum_info_title);
-            this.q = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_brief);
-            this.r = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_attention_count);
-            this.s = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_thread_count);
-            g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gu8
-    /* renamed from: r */
-    public void o(ForumData forumData, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, forumData, metaData) == null) {
-            super.o(forumData, metaData);
-            if (forumData != null && !TextUtils.isEmpty(forumData.getId())) {
-                this.o.startLoad(forumData.getImage_url(), 10, false);
-                this.p.setText("" + forumData.getName() + this.m.getResources().getString(R.string.obfuscated_res_0x7f0f0787));
-                if (!TextUtils.isEmpty(forumData.getSlogan())) {
-                    this.q.setVisibility(0);
-                    this.q.setText(forumData.getSlogan());
-                } else {
-                    this.q.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (du8.class) {
+                if (a == null) {
+                    synchronized (du8.class) {
+                        if (a == null) {
+                            a = new du8();
+                        }
+                    }
                 }
-                this.r.setText(String.format(this.m.getString(R.string.obfuscated_res_0x7f0f04be), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
-                this.s.setText(String.format(this.m.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
+                du8Var = a;
             }
+            return du8Var;
+        }
+        return (du8) invokeV.objValue;
+    }
+
+    public void a(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("unread_count", (Integer) 0);
+        bu8.e().i("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+    }
+
+    public boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            try {
+                return bu8.e().b("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public LinkedList<ImMessageCenterPojo> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
+            Cursor g = bu8.e().g("SELECT * FROM tb_message_center", null);
+            if (g != null) {
+                while (g.moveToNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                    imMessageCenterPojo.setPulled_msgId(JavaTypesHelper.toLong(g.getString(g.getColumnIndex("pull_msgid")), 0L));
+                    imMessageCenterPojo.setGid(g.getString(g.getColumnIndex(TbEnum.ParamKey.GID)));
+                    imMessageCenterPojo.setGroup_name(g.getString(g.getColumnIndex("group_name")));
+                    imMessageCenterPojo.setNameShow(g.getString(g.getColumnIndex("group_name_show")));
+                    imMessageCenterPojo.setGroup_head(g.getString(g.getColumnIndex("group_head")));
+                    imMessageCenterPojo.setCustomGroupType(g.getInt(g.getColumnIndex("custom_group_type")));
+                    imMessageCenterPojo.setIsFriend(g.getInt(g.getColumnIndex("is_friend")));
+                    imMessageCenterPojo.setUnread_count(g.getInt(g.getColumnIndex("unread_count")));
+                    imMessageCenterPojo.setLast_rid(g.getLong(g.getColumnIndex("last_msgId")));
+                    imMessageCenterPojo.setLast_user_name(g.getString(g.getColumnIndex("last_user_name")));
+                    imMessageCenterPojo.setLast_content_time(g.getLong(g.getColumnIndex("last_content_time")));
+                    imMessageCenterPojo.setSend_status(g.getInt(g.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
+                    imMessageCenterPojo.setLast_content(g.getString(g.getColumnIndex("last_content")));
+                    imMessageCenterPojo.setPulled_msgId(g.getLong(g.getColumnIndex("pull_msgid")));
+                    imMessageCenterPojo.setIs_hidden(g.getInt(g.getColumnIndex("is_hidden")));
+                    imMessageCenterPojo.setSent_msgId(g.getLong(g.getColumnIndex("sent_mid")));
+                    imMessageCenterPojo.setRead_msgId(g.getLong(g.getColumnIndex("read_mid")));
+                    imMessageCenterPojo.setUserType(g.getInt(g.getColumnIndex("user_type")));
+                    imMessageCenterPojo.setSid(g.getLong(g.getColumnIndex("sid")));
+                    imMessageCenterPojo.setTaskId(g.getString(g.getColumnIndex("task_id")));
+                    imMessageCenterPojo.setServiceId(g.getString(g.getColumnIndex("service_id")));
+                    imMessageCenterPojo.setPushIds(g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_1)));
+                    o(imMessageCenterPojo, g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_2)));
+                    linkedList.add(imMessageCenterPojo);
+                }
+            }
+            sd.a(g);
+            return linkedList;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public LinkedList<ImMessageCenterPojo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
+            Cursor g = bu8.e().g("SELECT * FROM tb_message_center", null);
+            if (g != null) {
+                while (g.moveToNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                    imMessageCenterPojo.setPulled_msgId(JavaTypesHelper.toLong(g.getString(g.getColumnIndex("pull_msgid")), 0L));
+                    imMessageCenterPojo.setGid(g.getString(g.getColumnIndex(TbEnum.ParamKey.GID)));
+                    imMessageCenterPojo.setGroup_name(g.getString(g.getColumnIndex("group_name")));
+                    imMessageCenterPojo.setNameShow(g.getString(g.getColumnIndex("group_name_show")));
+                    imMessageCenterPojo.setGroup_head(g.getString(g.getColumnIndex("group_head")));
+                    imMessageCenterPojo.setCustomGroupType(g.getInt(g.getColumnIndex("custom_group_type")));
+                    imMessageCenterPojo.setIsFriend(g.getInt(g.getColumnIndex("is_friend")));
+                    imMessageCenterPojo.setUnread_count(g.getInt(g.getColumnIndex("unread_count")));
+                    imMessageCenterPojo.setLast_rid(g.getLong(g.getColumnIndex("last_msgId")));
+                    imMessageCenterPojo.setLast_user_name(g.getString(g.getColumnIndex("last_user_name")));
+                    imMessageCenterPojo.setLast_content_time(g.getLong(g.getColumnIndex("last_content_time")));
+                    imMessageCenterPojo.setSend_status(g.getInt(g.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
+                    imMessageCenterPojo.setLast_content(g.getString(g.getColumnIndex("last_content")));
+                    imMessageCenterPojo.setPulled_msgId(g.getLong(g.getColumnIndex("pull_msgid")));
+                    imMessageCenterPojo.setIs_hidden(g.getInt(g.getColumnIndex("is_hidden")));
+                    o(imMessageCenterPojo, g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_2)));
+                    linkedList.add(imMessageCenterPojo);
+                }
+            }
+            sd.a(g);
+            return linkedList;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public ImMessageCenterPojo g(String str, int i) {
+        InterceptResult invokeLI;
+        ImMessageCenterPojo imMessageCenterPojo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            Cursor cursor = null;
+            r2 = null;
+            ImMessageCenterPojo imMessageCenterPojo2 = null;
+            cursor = null;
+            try {
+                try {
+                    Cursor g = bu8.e().g("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+                    if (g != null) {
+                        try {
+                            try {
+                                if (g.moveToNext()) {
+                                    imMessageCenterPojo = new ImMessageCenterPojo();
+                                    try {
+                                        imMessageCenterPojo.setPulled_msgId(JavaTypesHelper.toLong(g.getString(g.getColumnIndex("pull_msgid")), 0L));
+                                        imMessageCenterPojo.setGid(g.getString(g.getColumnIndex(TbEnum.ParamKey.GID)));
+                                        imMessageCenterPojo.setGroup_name(g.getString(g.getColumnIndex("group_name")));
+                                        imMessageCenterPojo.setNameShow(g.getString(g.getColumnIndex("group_name_show")));
+                                        imMessageCenterPojo.setGroup_head(g.getString(g.getColumnIndex("group_head")));
+                                        imMessageCenterPojo.setCustomGroupType(g.getInt(g.getColumnIndex("custom_group_type")));
+                                        imMessageCenterPojo.setIsFriend(g.getInt(g.getColumnIndex("is_friend")));
+                                        imMessageCenterPojo.setUnread_count(g.getInt(g.getColumnIndex("unread_count")));
+                                        imMessageCenterPojo.setLast_rid(g.getLong(g.getColumnIndex("last_msgId")));
+                                        imMessageCenterPojo.setLast_user_name(g.getString(g.getColumnIndex("last_user_name")));
+                                        imMessageCenterPojo.setLast_content_time(g.getLong(g.getColumnIndex("last_content_time")));
+                                        imMessageCenterPojo.setSend_status(g.getInt(g.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
+                                        imMessageCenterPojo.setLast_content(g.getString(g.getColumnIndex("last_content")));
+                                        imMessageCenterPojo.setPulled_msgId(g.getLong(g.getColumnIndex("pull_msgid")));
+                                        imMessageCenterPojo.setIs_hidden(g.getInt(g.getColumnIndex("is_hidden")));
+                                        imMessageCenterPojo.setSent_msgId(g.getLong(g.getColumnIndex("sent_mid")));
+                                        imMessageCenterPojo.setRead_msgId(g.getLong(g.getColumnIndex("read_mid")));
+                                        imMessageCenterPojo.setUserType(g.getInt(g.getColumnIndex("user_type")));
+                                        imMessageCenterPojo.setSid(g.getLong(g.getColumnIndex("sid")));
+                                        imMessageCenterPojo.setTaskId(g.getString(g.getColumnIndex("task_id")));
+                                        imMessageCenterPojo.setServiceId(g.getString(g.getColumnIndex("service_id")));
+                                        imMessageCenterPojo.setPushIds(g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_1)));
+                                        o(imMessageCenterPojo, g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_2)));
+                                        imMessageCenterPojo2 = imMessageCenterPojo;
+                                    } catch (Exception e) {
+                                        e = e;
+                                        cursor = g;
+                                        e.printStackTrace();
+                                        TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
+                                        sd.a(cursor);
+                                        return imMessageCenterPojo;
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                imMessageCenterPojo = null;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = g;
+                            sd.a(cursor);
+                            throw th;
+                        }
+                    }
+                    sd.a(g);
+                    return imMessageCenterPojo2;
+                } catch (Exception e3) {
+                    e = e3;
+                    imMessageCenterPojo = null;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (ImMessageCenterPojo) invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x0073: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:22:0x0073 */
+    public LinkedList<ImMessageCenterPojo> h() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        Cursor cursor2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
+            Cursor cursor3 = null;
+            try {
+                try {
+                    cursor = bu8.e().g("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            try {
+                                ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                                imMessageCenterPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                                imMessageCenterPojo.setCustomGroupType(cursor.getInt(cursor.getColumnIndex("custom_group_type")));
+                                linkedList.add(imMessageCenterPojo);
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getShrinkData", new Object[0]);
+                                sd.a(cursor);
+                                return null;
+                            }
+                        }
+                    }
+                    sd.a(cursor);
+                    return linkedList;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor3 = cursor2;
+                    sd.a(cursor3);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                sd.a(cursor3);
+                throw th;
+            }
+        } else {
+            return (LinkedList) invokeV.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0171 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0008 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [com.baidu.tieba.im.db.pojo.ImMessageCenterPojo] */
+    public ImMessageCenterPojo i(String str) {
+        InterceptResult invokeL;
+        ImMessageCenterPojo imMessageCenterPojo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            Cursor cursor = 0;
+            r2 = null;
+            ImMessageCenterPojo imMessageCenterPojo2 = null;
+            Cursor cursor2 = null;
+            try {
+                try {
+                    Cursor g = bu8.e().g("select * from tb_message_center WHERE group_head like ? ", new String[]{str + "%"});
+                    if (g != null) {
+                        try {
+                            try {
+                                if (g.moveToNext()) {
+                                    imMessageCenterPojo = new ImMessageCenterPojo();
+                                    try {
+                                        imMessageCenterPojo.setPulled_msgId(JavaTypesHelper.toLong(g.getString(g.getColumnIndex("pull_msgid")), 0L));
+                                        imMessageCenterPojo.setGid(g.getString(g.getColumnIndex(TbEnum.ParamKey.GID)));
+                                        imMessageCenterPojo.setGroup_name(g.getString(g.getColumnIndex("group_name")));
+                                        imMessageCenterPojo.setNameShow(g.getString(g.getColumnIndex("group_name_show")));
+                                        imMessageCenterPojo.setGroup_head(g.getString(g.getColumnIndex("group_head")));
+                                        imMessageCenterPojo.setCustomGroupType(g.getInt(g.getColumnIndex("custom_group_type")));
+                                        imMessageCenterPojo.setIsFriend(g.getInt(g.getColumnIndex("is_friend")));
+                                        imMessageCenterPojo.setUnread_count(g.getInt(g.getColumnIndex("unread_count")));
+                                        imMessageCenterPojo.setLast_rid(g.getLong(g.getColumnIndex("last_msgId")));
+                                        imMessageCenterPojo.setLast_user_name(g.getString(g.getColumnIndex("last_user_name")));
+                                        imMessageCenterPojo.setLast_content_time(g.getLong(g.getColumnIndex("last_content_time")));
+                                        imMessageCenterPojo.setSend_status(g.getInt(g.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
+                                        imMessageCenterPojo.setLast_content(g.getString(g.getColumnIndex("last_content")));
+                                        imMessageCenterPojo.setPulled_msgId(g.getLong(g.getColumnIndex("pull_msgid")));
+                                        imMessageCenterPojo.setIs_hidden(g.getInt(g.getColumnIndex("is_hidden")));
+                                        imMessageCenterPojo.setSent_msgId(g.getLong(g.getColumnIndex("sent_mid")));
+                                        imMessageCenterPojo.setRead_msgId(g.getLong(g.getColumnIndex("read_mid")));
+                                        imMessageCenterPojo.setUserType(g.getInt(g.getColumnIndex("user_type")));
+                                        imMessageCenterPojo.setSid(g.getLong(g.getColumnIndex("sid")));
+                                        imMessageCenterPojo.setTaskId(g.getString(g.getColumnIndex("task_id")));
+                                        imMessageCenterPojo.setServiceId(g.getString(g.getColumnIndex("service_id")));
+                                        imMessageCenterPojo.setPushIds(g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_1)));
+                                        o(imMessageCenterPojo, g.getString(g.getColumnIndex(PermissionStorage.PermissionItem.ITEM_EXT_2)));
+                                        imMessageCenterPojo2 = imMessageCenterPojo;
+                                    } catch (Exception e) {
+                                        e = e;
+                                        cursor2 = g;
+                                        e.printStackTrace();
+                                        TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getUidByPortrait", new Object[0]);
+                                        sd.a(cursor2);
+                                        cursor = imMessageCenterPojo;
+                                        return cursor;
+                                    }
+                                }
+                            } catch (Throwable th) {
+                                th = th;
+                                cursor = g;
+                                sd.a(cursor);
+                                throw th;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            imMessageCenterPojo = null;
+                        }
+                    }
+                    sd.a(g);
+                    return imMessageCenterPojo2;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                imMessageCenterPojo = null;
+            }
+        } else {
+            return (ImMessageCenterPojo) invokeL.objValue;
+        }
+    }
+
+    public final void j(ContentValues contentValues, ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues, imMessageCenterPojo) == null) && contentValues != null && imMessageCenterPojo != null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(imMessageCenterPojo.getBjhAvatar())) {
+                    jSONObject.put("bjhAvatar", imMessageCenterPojo.getBjhAvatar());
+                }
+                if (imMessageCenterPojo.getShowOutOfStranger() > 0) {
+                    jSONObject.put("key_show_out_of_stranger", imMessageCenterPojo.getShowOutOfStranger());
+                }
+                if (imMessageCenterPojo.getImUserExtraData() != null) {
+                    jSONObject.put("key_user_extra_data", imMessageCenterPojo.getImUserExtraData().toJson());
+                }
+                contentValues.put(PermissionStorage.PermissionItem.ITEM_EXT_2, jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void o(ImMessageCenterPojo imMessageCenterPojo, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, imMessageCenterPojo, str) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                imMessageCenterPojo.setBjhAvatar(jSONObject.optString("bjhAvatar", null));
+                imMessageCenterPojo.setShowOutOfStranger(jSONObject.optInt("key_show_out_of_stranger", 0));
+                String optString = jSONObject.optString("key_user_extra_data");
+                if (!TextUtils.isEmpty(optString)) {
+                    IMUserExtraData iMUserExtraData = new IMUserExtraData();
+                    iMUserExtraData.parseJson(optString);
+                    imMessageCenterPojo.setImUserExtraData(iMUserExtraData);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void k(ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, imMessageCenterPojo) == null) {
+            l(imMessageCenterPojo, 1);
+        }
+    }
+
+    public void l(ImMessageCenterPojo imMessageCenterPojo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, imMessageCenterPojo, i) == null) {
+            m(imMessageCenterPojo, i, 1);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x00b9 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0103 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0120  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0144  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x017c  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0191  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x01a6  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01f4  */
+    /* JADX WARN: Removed duplicated region for block: B:83:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r13v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r13v1 */
+    /* JADX WARN: Type inference failed for: r13v2 */
+    /* JADX WARN: Type inference failed for: r13v3 */
+    /* JADX WARN: Type inference failed for: r13v4, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r13v40 */
+    /* JADX WARN: Type inference failed for: r13v6, types: [android.database.Cursor] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void m(ImMessageCenterPojo imMessageCenterPojo, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048587, this, imMessageCenterPojo, i, i2) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid()) && JavaTypesHelper.toLong(imMessageCenterPojo.getGid(), 0L) != 0) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(TbEnum.ParamKey.GID, imMessageCenterPojo.getGid());
+            contentValues.put("sid", Long.valueOf(imMessageCenterPojo.getSid()));
+            contentValues.put("task_id", imMessageCenterPojo.getTaskId());
+            contentValues.put("service_id", imMessageCenterPojo.getServiceId());
+            if (i2 == 2) {
+                contentValues.put(PermissionStorage.PermissionItem.ITEM_EXT_1, imMessageCenterPojo.getPushIds());
+            }
+            if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) {
+                contentValues.put("group_name", imMessageCenterPojo.getGroup_name());
+            }
+            if (!TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
+                contentValues.put("group_name_show", imMessageCenterPojo.getNameShow());
+            }
+            j(contentValues, imMessageCenterPojo);
+            if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_head())) {
+                contentValues.put("group_head", imMessageCenterPojo.getGroup_head());
+            }
+            contentValues.put("custom_group_type", Integer.valueOf(imMessageCenterPojo.getCustomGroupType()));
+            int unread_count = imMessageCenterPojo.getUnread_count();
+            Cursor cursor = null;
+            if (i == 2) {
+                contentValues.put("unread_count", Integer.valueOf(unread_count));
+            } else if (i == 3) {
+                try {
+                    if (unread_count > 0) {
+                        try {
+                            i = bu8.e().g("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+                        } catch (Exception e) {
+                            e = e;
+                            i = 0;
+                        } catch (Throwable th) {
+                            th = th;
+                            sd.a(cursor);
+                            throw th;
+                        }
+                        if (i != 0) {
+                            try {
+                            } catch (Exception e2) {
+                                e = e2;
+                                i = i;
+                                BdLog.e(e);
+                                sd.a(i);
+                                contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
+                                if (imMessageCenterPojo.getLast_user_name() != null) {
+                                }
+                                if (imMessageCenterPojo.getLast_content_time() != 0) {
+                                }
+                                if (imMessageCenterPojo.getLast_content() != null) {
+                                }
+                                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
+                                contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
+                                contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
+                                if (imMessageCenterPojo.getPulled_msgId() != 0) {
+                                }
+                                if (imMessageCenterPojo.getSent_msgId() > 0) {
+                                }
+                                if (imMessageCenterPojo.getRead_msgId() > 0) {
+                                }
+                                contentValues.put("user_type", Integer.valueOf(imMessageCenterPojo.getUserType()));
+                                BdLog.i("sql-" + contentValues);
+                                if (bu8.e().i("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+                                }
+                            }
+                            if (i.moveToNext()) {
+                                int i3 = unread_count + i.getInt(i.getColumnIndex("unread_count"));
+                                if (i3 > 0) {
+                                    contentValues.put("unread_count", Integer.valueOf(i3));
+                                }
+                                sd.a(i);
+                            }
+                        }
+                        contentValues.put("unread_count", Integer.valueOf(unread_count));
+                        sd.a(i);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = i;
+                }
+            }
+            contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
+            if (imMessageCenterPojo.getLast_user_name() != null) {
+                contentValues.put("last_user_name", imMessageCenterPojo.getLast_user_name());
+            }
+            if (imMessageCenterPojo.getLast_content_time() != 0) {
+                contentValues.put("last_content_time", Long.valueOf(imMessageCenterPojo.getLast_content_time()));
+            }
+            if (imMessageCenterPojo.getLast_content() != null) {
+                contentValues.put("last_content", imMessageCenterPojo.getLast_content());
+            }
+            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
+            contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
+            contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
+            if (imMessageCenterPojo.getPulled_msgId() != 0) {
+                contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
+            }
+            if (imMessageCenterPojo.getSent_msgId() > 0) {
+                contentValues.put("sent_mid", Long.valueOf(imMessageCenterPojo.getSent_msgId()));
+            }
+            if (imMessageCenterPojo.getRead_msgId() > 0) {
+                contentValues.put("read_mid", Long.valueOf(imMessageCenterPojo.getRead_msgId()));
+            }
+            contentValues.put("user_type", Integer.valueOf(imMessageCenterPojo.getUserType()));
+            BdLog.i("sql-" + contentValues);
+            if (bu8.e().i("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+                BdLog.i("insert");
+                bu8.e().f("tb_message_center", null, contentValues);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00e7  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00fa  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0145  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0186  */
+    /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void n(ImMessageCenterPojo imMessageCenterPojo, int i) {
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048588, this, imMessageCenterPojo, i) != null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
+            return;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(TbEnum.ParamKey.GID, imMessageCenterPojo.getGid());
+        if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) {
+            contentValues.put("group_name", imMessageCenterPojo.getGroup_name());
+        }
+        if (!TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
+            contentValues.put("group_name_show", imMessageCenterPojo.getNameShow());
+        }
+        j(contentValues, imMessageCenterPojo);
+        if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_head())) {
+            contentValues.put("group_head", imMessageCenterPojo.getGroup_head());
+        }
+        contentValues.put("custom_group_type", Integer.valueOf(imMessageCenterPojo.getCustomGroupType()));
+        int unread_count = imMessageCenterPojo.getUnread_count();
+        Cursor cursor2 = null;
+        if (i == 2) {
+            contentValues.put("unread_count", Integer.valueOf(unread_count));
+        } else if (i == 3 && unread_count > 0) {
+            try {
+                cursor = bu8.e().g("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+            } catch (Exception e) {
+                e = e;
+                cursor = null;
+            } catch (Throwable th) {
+                th = th;
+                sd.a(cursor2);
+                throw th;
+            }
+            if (cursor != null) {
+                try {
+                    try {
+                    } catch (Exception e2) {
+                        e = e2;
+                        BdLog.e(e);
+                        sd.a(cursor);
+                        contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
+                        if (imMessageCenterPojo.getLast_user_name() != null) {
+                        }
+                        if (imMessageCenterPojo.getLast_content_time() != 0) {
+                        }
+                        if (imMessageCenterPojo.getLast_content() != null) {
+                        }
+                        contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
+                        contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
+                        contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
+                        if (imMessageCenterPojo.getPulled_msgId() != 0) {
+                        }
+                        BdLog.i("sql-" + contentValues);
+                        if (bu8.e().i("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+                        }
+                    }
+                    if (cursor.moveToNext()) {
+                        int i2 = unread_count + cursor.getInt(cursor.getColumnIndex("unread_count"));
+                        if (i2 > 0) {
+                            contentValues.put("unread_count", Integer.valueOf(i2));
+                        }
+                        sd.a(cursor);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor2 = cursor;
+                    sd.a(cursor2);
+                    throw th;
+                }
+            }
+            contentValues.put("unread_count", Integer.valueOf(unread_count));
+            sd.a(cursor);
+        }
+        contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
+        if (imMessageCenterPojo.getLast_user_name() != null) {
+            contentValues.put("last_user_name", imMessageCenterPojo.getLast_user_name());
+        }
+        if (imMessageCenterPojo.getLast_content_time() != 0) {
+            contentValues.put("last_content_time", Long.valueOf(imMessageCenterPojo.getLast_content_time()));
+        }
+        if (imMessageCenterPojo.getLast_content() != null) {
+            contentValues.put("last_content", imMessageCenterPojo.getLast_content());
+        }
+        contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
+        contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
+        contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
+        if (imMessageCenterPojo.getPulled_msgId() != 0) {
+            contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
+        }
+        BdLog.i("sql-" + contentValues);
+        if (bu8.e().i("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+            BdLog.i("insert");
+            bu8.e().f("tb_message_center", null, contentValues);
         }
     }
 }

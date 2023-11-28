@@ -1,15 +1,15 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ikc;
-import com.baidu.tieba.pjc;
+import com.baidu.tieba.dpc;
+import com.baidu.tieba.koc;
 /* loaded from: classes2.dex */
 public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 4127754106204442833L;
 
     public abstract void onOverflow();
 
-    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(pjc<? super T> pjcVar) {
-        super(pjcVar);
+    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(koc<? super T> kocVar) {
+        super(kocVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
@@ -19,7 +19,7 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends On
         }
         if (get() != 0) {
             this.actual.onNext(t);
-            ikc.g(this, 1L);
+            dpc.g(this, 1L);
             return;
         }
         onOverflow();

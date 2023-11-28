@@ -1,45 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.User;
+import tbclient.Zan;
 /* loaded from: classes8.dex */
-public abstract class ubd implements View.OnClickListener {
+public class ubd extends ltc {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(View view2);
-
-    public ubd() {
+    @NonNull
+    public static JSONObject b(@NonNull Zan zan) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zan)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "num", zan.num);
+            if (zan.liker_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (User user : zan.liker_list) {
+                    jSONArray.put(qad.b(user));
+                }
+                ltc.a(jSONObject, "liker_list", jSONArray);
             }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a >= 1000) {
-                a = currentTimeMillis;
-                a(view2);
-                return;
+            ltc.a(jSONObject, "is_liked", zan.is_liked);
+            ltc.a(jSONObject, "last_time", zan.last_time);
+            if (zan.liker_id != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (Long l : zan.liker_id) {
+                    jSONArray2.put(l.longValue());
+                }
+                ltc.a(jSONObject, "liker_id", jSONArray2);
             }
-            RLog.debug("OnMultiClickListener", "click too often");
+            ltc.a(jSONObject, "consent_type", zan.consent_type);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.yy.transvod.player.common.effectmp4;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EffectSource {
     public float a = 0.0f;
     public float b = 0.0f;

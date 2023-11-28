@@ -1,74 +1,59 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes9.dex */
-public class y8c {
+public final class y8c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ v8c c;
 
-    public static void a(WebSettings webSettings) {
+    public y8c(v8c v8cVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
-            webSettings.setAllowContentAccess(false);
-        }
-    }
-
-    public static void b(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
-            webSettings.setAllowFileAccess(false);
-            if (Build.VERSION.SDK_INT >= 16) {
-                webSettings.setAllowFileAccessFromFileURLs(false);
-                webSettings.setAllowUniversalAccessFromFileURLs(false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8cVar, context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = v8cVar;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public static void c(WebSettings webSettings) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
-            webSettings.setGeolocationEnabled(false);
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-    }
-
-    public static void d(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
-            webSettings.setMixedContentMode(1);
-        }
-    }
-
-    public static void e(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
-            webSettings.setSavePassword(false);
-        }
-    }
-
-    public static void f(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
-            WebSettings settings = webView.getSettings();
-            b(settings);
-            g(webView);
-            e(settings);
-            c(settings);
-            d(settings);
-            a(settings);
-        }
-    }
-
-    public static void g(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            v8c v8cVar = this.c;
+            l = v8c.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

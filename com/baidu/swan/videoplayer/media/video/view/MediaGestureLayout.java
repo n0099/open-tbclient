@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sn4;
 import com.baidu.tieba.tn4;
 import com.baidu.tieba.un4;
+import com.baidu.tieba.vn4;
 /* loaded from: classes4.dex */
-public final class MediaGestureLayout extends FrameLayout implements tn4 {
-    public sn4 a;
+public final class MediaGestureLayout extends FrameLayout implements un4 {
+    public tn4 a;
     public b b;
     public MediaVolume c;
     public MediaBrightness d;
     public MediaFastForward e;
     public SwanVideoView f;
-    public un4 g;
+    public vn4 g;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -66,7 +66,7 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean a(MotionEvent motionEvent) {
         b bVar = this.b;
         if (bVar != null) {
@@ -76,8 +76,8 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         return true;
     }
 
-    public void g(@NonNull un4 un4Var) {
-        this.g = un4Var;
+    public void g(@NonNull vn4 vn4Var) {
+        this.g = vn4Var;
     }
 
     public void h(@NonNull SwanVideoView swanVideoView) {
@@ -85,10 +85,10 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
     }
 
     public final void i(Context context) {
-        sn4 sn4Var = new sn4(context);
-        this.a = sn4Var;
-        sn4Var.d(this);
-        this.g = new un4.b().f();
+        tn4 tn4Var = new tn4(context);
+        this.a = tn4Var;
+        tn4Var.d(this);
+        this.g = new vn4.b().f();
         setOnTouchListener(new a());
     }
 
@@ -107,7 +107,7 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         addView(this.e);
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean onDoubleTap(MotionEvent motionEvent) {
         b bVar;
         if (this.g.a() && (bVar = this.b) != null) {
@@ -131,7 +131,7 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         i(context);
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
         this.e.setVisibility(8);
         this.c.setVisibility(8);
@@ -147,11 +147,11 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         return true;
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-            this.c.g(R.drawable.obfuscated_res_0x7f0814e3);
+            this.c.g(R.drawable.obfuscated_res_0x7f081506);
             this.c.h(b2);
             this.c.f();
             return true;
@@ -159,7 +159,7 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         int i;
         if (this.g.d()) {
@@ -168,9 +168,9 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
             this.e.h((int) (this.e.b() + (c2 / (getWidth() * 0.8f))));
             MediaFastForward mediaFastForward = this.e;
             if (x > 0.0f) {
-                i = R.drawable.obfuscated_res_0x7f0814df;
+                i = R.drawable.obfuscated_res_0x7f081502;
             } else {
-                i = R.drawable.obfuscated_res_0x7f0814e0;
+                i = R.drawable.obfuscated_res_0x7f081503;
             }
             mediaFastForward.g(i);
             this.e.f();
@@ -179,12 +179,12 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
             this.d.f(a2);
-            this.d.g(R.drawable.obfuscated_res_0x7f0814d1);
+            this.d.g(R.drawable.obfuscated_res_0x7f0814f4);
             this.d.h((int) ((a2 / this.d.b()) * 100.0f));
             this.d.e();
             return true;
@@ -192,7 +192,7 @@ public final class MediaGestureLayout extends FrameLayout implements tn4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.tn4
+    @Override // com.baidu.tieba.un4
     public boolean onDown(MotionEvent motionEvent) {
         SwanVideoView swanVideoView = this.f;
         if (swanVideoView == null) {

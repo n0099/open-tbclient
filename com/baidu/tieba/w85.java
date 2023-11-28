@@ -1,103 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w85 {
     public static /* synthetic */ Interceptable $ic;
-    public static final w85 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, x85> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224469, "Lcom/baidu/tieba/w85;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948224469, "Lcom/baidu/tieba/w85;");
-                return;
-            }
-        }
-        b = new w85();
-    }
+    public List<x85> a;
 
     public w85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static w85 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return b;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
-            w85 w85Var = new w85();
-            w85Var.a(optJSONObject);
-            return w85Var;
-        }
-        return (w85) invokeL.objValue;
-    }
-
-    public x85 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !StringUtils.isNull(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (x85) invokeL.objValue;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (optJSONArray != null) {
-            this.a = new HashMap<>();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    x85 g = x85.g(optJSONObject);
-                    if (!StringUtils.isNull(g.f())) {
-                        this.a.put(g.f(), g);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    x85 x85Var = new x85();
+                    x85 x85Var2 = new x85();
+                    x85Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        x85Var2.i(jSONArray2.getJSONObject(i2));
+                        if (x85Var.c != null && x85Var.c.equals(x85Var2.c)) {
+                            if (!TextUtils.isEmpty(x85Var2.e) && x85Var2.e.equals(x85Var.e)) {
+                                z = false;
+                                x85Var.f = z;
+                            }
+                            z = true;
+                            x85Var.f = z;
+                        }
+                    }
+                    if (!x85Var.f()) {
+                        this.a.add(x85Var);
                     }
                 }
+                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

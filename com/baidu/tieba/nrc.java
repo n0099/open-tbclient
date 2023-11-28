@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.DelThreadText;
 /* loaded from: classes7.dex */
-public class nrc extends qoc {
+public final class nrc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull DelThreadText delThreadText) {
-        InterceptResult invokeL;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, delThreadText)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "text_id", delThreadText.text_id);
-            qoc.a(jSONObject, "text_info", delThreadText.text_info);
-            return jSONObject;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeI.intValue;
     }
 }

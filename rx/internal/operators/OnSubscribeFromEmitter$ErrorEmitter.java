@@ -1,21 +1,21 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.znc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.usc;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
     public static final long serialVersionUID = 338953216916120960L;
     public boolean done;
 
-    public OnSubscribeFromEmitter$ErrorEmitter(pjc<? super T> pjcVar) {
-        super(pjcVar);
+    public OnSubscribeFromEmitter$ErrorEmitter(koc<? super T> kocVar) {
+        super(kocVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
     public void onError(Throwable th) {
         if (this.done) {
-            znc.j(th);
+            usc.j(th);
             return;
         }
         this.done = true;

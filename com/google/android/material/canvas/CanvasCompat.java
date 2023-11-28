@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CanvasCompat {
     public static int saveLayerAlpha(@NonNull Canvas canvas, float f, float f2, float f3, float f4, int i) {
         if (Build.VERSION.SDK_INT > 21) {

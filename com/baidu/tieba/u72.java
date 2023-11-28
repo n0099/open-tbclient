@@ -1,15 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface u72 {
-    boolean a(String str);
-
-    void b(int i);
-
-    void c(int i, String str, String str2);
-
-    void d(String str);
-
-    void e(String str);
-
-    void goBack();
+    void onScrollChanged(int i, int i2, int i3, int i4);
 }

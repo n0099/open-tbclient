@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NumberUtil {
     public static byte[] getBytes(char c) {
         return new byte[]{(byte) c, (byte) (c >> '\b')};

@@ -919,7 +919,7 @@ public class b {
         r5.add(java.lang.Integer.valueOf(r11));
      */
     /* JADX WARN: Code restructure failed: missing block: B:40:0x008b, code lost:
-        r8 = r8.optString(com.baidu.searchbox.pms.db.PackageTable.MD5);
+        r8 = r8.optString("md5");
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x0095, code lost:
         if (android.text.TextUtils.isEmpty(r9) == false) goto L31;

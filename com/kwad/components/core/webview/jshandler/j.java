@@ -1,43 +1,31 @@
 package com.kwad.components.core.webview.jshandler;
 
-import android.os.Handler;
-import android.os.Looper;
 import androidx.annotation.NonNull;
+import com.ksad.json.annotation.KsJson;
+import java.util.UUID;
 /* loaded from: classes10.dex */
-public final class j implements com.kwad.sdk.core.webview.kwai.a {
-    public final com.kwad.sdk.core.webview.b Lk;
-    public a Ly;
-    public Handler mHandler = new Handler(Looper.getMainLooper());
+public final class j implements com.kwad.sdk.core.webview.c.a {
 
+    @KsJson
     /* loaded from: classes10.dex */
-    public interface a {
-        void bx();
+    public static class a extends com.kwad.sdk.core.response.a.a {
+        public String data;
     }
 
-    public j(com.kwad.sdk.core.webview.b bVar, a aVar) {
-        this.Lk = bVar;
-        this.Ly = aVar;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.mHandler.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.j.1
-            @Override // java.lang.Runnable
-            public final void run() {
-                j.this.Ly.bx();
-            }
-        });
-        cVar.a(null);
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     @NonNull
     public final String getKey() {
-        return "dislike";
+        return "uuid";
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
+    @Override // com.kwad.sdk.core.webview.c.a
     public final void onDestroy() {
-        this.mHandler.removeCallbacksAndMessages(null);
+    }
+
+    @Override // com.kwad.sdk.core.webview.c.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.c.c cVar) {
+        a aVar = new a();
+        aVar.data = UUID.randomUUID().toString();
+        cVar.a(aVar);
     }
 }

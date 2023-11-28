@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p9a;
+import com.baidu.tieba.lea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public p9a c;
+    public lea c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -92,7 +92,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void J0(Bundle bundle) {
+    public final void H0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -117,9 +117,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            p9a p9aVar = new p9a(this, frameLayout2);
-            this.c = p9aVar;
-            p9aVar.setStageType("2006");
+            lea leaVar = new lea(this, frameLayout2);
+            this.c = leaVar;
+            leaVar.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -146,7 +146,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             initView();
-            J0(bundle);
+            H0(bundle);
             setContentView(this.d);
         }
     }

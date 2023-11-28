@@ -1,55 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Formatter;
-import java.util.Locale;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class rsb {
+public final class rsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133608, "Lcom/baidu/tieba/rsb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133608, "Lcom/baidu/tieba/rsb;");
-                return;
-            }
-        }
-        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    }
-
-    public static boolean a(String str) {
+    public static String a(com.baidu.ubs.analytics.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.trim().length() != 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            JSONArray jSONArray3 = new JSONArray();
+            JSONArray jSONArray4 = new JSONArray();
+            try {
+                jSONObject2.put("cuid", bVar.n().l());
+                jSONObject2.put("imei", bVar.n().getImei());
+                jSONObject2.put("osVersion", bVar.n().getOsVersion());
+                jSONObject2.put("brandName", bVar.n().r());
+                jSONObject2.put("deviceType", bVar.n().s());
+                jSONObject2.put("mac", bVar.n().t());
+                jSONObject2.put(com.heytap.mcssdk.constant.b.C, bVar.n().u());
+                jSONObject2.put("testEnable", bVar.n().v());
+                jSONObject2.put("appVersion", bVar.n().w());
+                jSONObject2.put("appVersionName", bVar.n().w());
+                jSONObject2.put("screenWidth", bVar.n().y());
+                jSONObject2.put("screenHeight", bVar.n().z());
+                jSONObject2.put("screenDensity", bVar.n().A());
+                jSONObject2.put("netType", bVar.n().x());
+                jSONObject2.put("appName", bVar.n().C());
+                jSONObject2.put("expInfo", bVar.n().B());
+                jSONObject2.put("phone", bVar.n().getPhone());
+                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("startTime", nVar.N());
+                    jSONObject3.put("endTime", nVar.O());
+                    jSONObject3.put("keepTime", nVar.P());
+                    jSONObject3.put("sessionId", nVar.I());
+                    jSONArray.put(jSONObject3);
+                }
+                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    jSONObject4.put("pagerName", lVar.E());
+                    jSONObject4.put("sessionId", lVar.I());
+                    jSONObject4.put("endTime", lVar.O());
+                    jSONObject4.put("startTime", lVar.N());
+                    jSONObject4.put("path", lVar.getPath());
+                    jSONArray2.put(jSONObject4);
+                }
+                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
+                    JSONObject jSONObject5 = new JSONObject();
+                    jSONObject5.put("type", aVar.G());
+                    jSONObject5.put("sessionId", aVar.I());
+                    jSONObject5.put("ext", aVar.H());
+                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
+                    jSONObject5.put("page", aVar.E());
+                    jSONObject5.put("from", aVar.D());
+                    jSONArray3.put(jSONObject5);
+                }
+                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("url", iVar.getUrl());
+                    jSONObject6.put("sessionId", iVar.I());
+                    jSONObject6.put("method", iVar.getType());
+                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
+                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
+                    jSONArray4.put(jSONObject6);
+                }
+                jSONObject.put("deviceinfo", jSONObject2);
+                jSONObject.put("sessions", jSONArray);
+                jSONObject.put("events", jSONArray3);
+                jSONObject.put("pagers", jSONArray2);
+                jSONObject.put("nets", jSONArray4);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return true;
+            return jSONObject.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000) {
-                i = 1000;
-            }
-            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
-        }
-        return (String) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Calendar;
+import tbclient.AnimationThread;
 /* loaded from: classes7.dex */
-public class ouc extends qoc {
+public class ouc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Calendar calendar) {
+    public static JSONObject b(@NonNull AnimationThread animationThread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, calendar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, animationThread)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "d", calendar.d);
-            qoc.a(jSONObject, "t", calendar.t);
-            qoc.a(jSONObject, MultiRatePlayUrlHelper.RANK, calendar.rank);
-            qoc.a(jSONObject, "sign_type", calendar.sign_type);
+            ltc.a(jSONObject, "video_pic", animationThread.video_pic);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, animationThread.jump_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

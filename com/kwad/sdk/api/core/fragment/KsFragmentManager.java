@@ -23,14 +23,16 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
+    public static void enableDebugLogging(boolean z) {
+        while (true) {
+        }
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
     /* loaded from: classes10.dex */
     public static abstract class FragmentLifecycleCallbacks {
         public FragmentManager.FragmentLifecycleCallbacks mBase;
-
-        @Keep
-        public FragmentManager.FragmentLifecycleCallbacks getBase() {
-            return this.mBase;
-        }
 
         @KsAdSdkDynamicApi
         @Keep
@@ -103,6 +105,11 @@ public class KsFragmentManager {
         }
 
         @Keep
+        public FragmentManager.FragmentLifecycleCallbacks getBase() {
+            return this.mBase;
+        }
+
+        @Keep
         public void setBase(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
             this.mBase = fragmentLifecycleCallbacks;
         }
@@ -111,31 +118,6 @@ public class KsFragmentManager {
     @Keep
     public KsFragmentManager(FragmentManager fragmentManager) {
         this.mBase = fragmentManager;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public static void enableDebugLogging(boolean z) {
-        while (true) {
-        }
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragmentTransaction beginTransaction() {
-        return new KsFragmentTransaction(this.mBase.beginTransaction());
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.mBase.dump(str, fileDescriptor, printWriter, strArr);
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public boolean executePendingTransactions() {
-        return this.mBase.executePendingTransactions();
     }
 
     @KsAdSdkDynamicApi
@@ -166,6 +148,30 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
+    public KsSavedState saveFragmentInstanceState(KsFragment ksFragment) {
+        return new KsSavedState(this.mBase.saveFragmentInstanceState(ksFragment.getBase()));
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void unregisterFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
+        this.mBase.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks.getBase());
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragmentTransaction beginTransaction() {
+        return new KsFragmentTransaction(this.mBase.beginTransaction());
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public boolean executePendingTransactions() {
+        return this.mBase.executePendingTransactions();
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
     public int getBackStackEntryCount() {
         return this.mBase.getBackStackEntryCount();
     }
@@ -173,33 +179,6 @@ public class KsFragmentManager {
     @Keep
     public FragmentManager getBase() {
         return this.mBase;
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsFragment getFragment(Bundle bundle, String str) {
-        Fragment fragment = this.mBase.getFragment(bundle, str);
-        if (fragment instanceof IDelegateFragment) {
-            return ((IDelegateFragment) fragment).getBase();
-        }
-        if (fragment == null) {
-            return null;
-        }
-        throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public List<KsFragment> getFragments() {
-        List<Fragment> fragments = this.mBase.getFragments();
-        ArrayList arrayList = new ArrayList(fragments.size());
-        for (Fragment fragment : fragments) {
-            if (!(fragment instanceof IDelegateFragment)) {
-                throw new RuntimeException(fragment + " is not a DelegateFragment");
-            }
-            arrayList.add(((IDelegateFragment) fragment).getBase());
-        }
-        return arrayList;
     }
 
     @KsAdSdkDynamicApi
@@ -231,26 +210,67 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void popBackStack(int i, int i2) {
-        this.mBase.popBackStack(i, i2);
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void popBackStack(String str, int i) {
-        this.mBase.popBackStack(str, i);
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
     public boolean popBackStackImmediate() {
         return this.mBase.popBackStackImmediate();
     }
 
     @KsAdSdkDynamicApi
     @Keep
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        this.mBase.dump(str, fileDescriptor, printWriter, strArr);
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public KsFragment getFragment(Bundle bundle, String str) {
+        Fragment fragment = this.mBase.getFragment(bundle, str);
+        if (fragment instanceof IDelegateFragment) {
+            return ((IDelegateFragment) fragment).getBase();
+        }
+        if (fragment == null) {
+            return null;
+        }
+        throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void popBackStack(int i, int i2) {
+        this.mBase.popBackStack(i, i2);
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
     public boolean popBackStackImmediate(int i, int i2) {
         return this.mBase.popBackStackImmediate(i, i2);
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void registerFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
+        fragmentLifecycleCallbacks.setBase(new DelegateFragmentLifecycleCallbacks(this, fragmentLifecycleCallbacks));
+        this.mBase.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks.getBase(), z);
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public List<KsFragment> getFragments() {
+        List<Fragment> fragments = this.mBase.getFragments();
+        ArrayList arrayList = new ArrayList(fragments.size());
+        for (Fragment fragment : fragments) {
+            if (fragment instanceof IDelegateFragment) {
+                arrayList.add(((IDelegateFragment) fragment).getBase());
+            } else {
+                throw new RuntimeException(fragment + " is not a DelegateFragment");
+            }
+        }
+        return arrayList;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public void popBackStack(String str, int i) {
+        this.mBase.popBackStack(str, i);
     }
 
     @KsAdSdkDynamicApi
@@ -263,24 +283,5 @@ public class KsFragmentManager {
     @Keep
     public void putFragment(Bundle bundle, String str, KsFragment ksFragment) {
         this.mBase.putFragment(bundle, str, ksFragment.getBase());
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void registerFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
-        fragmentLifecycleCallbacks.setBase(new DelegateFragmentLifecycleCallbacks(this, fragmentLifecycleCallbacks));
-        this.mBase.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks.getBase(), z);
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public KsSavedState saveFragmentInstanceState(KsFragment ksFragment) {
-        return new KsSavedState(this.mBase.saveFragmentInstanceState(ksFragment.getBase()));
-    }
-
-    @KsAdSdkDynamicApi
-    @Keep
-    public void unregisterFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
-        this.mBase.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks.getBase());
     }
 }

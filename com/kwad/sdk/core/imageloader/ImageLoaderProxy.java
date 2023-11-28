@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.imageloader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
@@ -8,13 +9,29 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import java.io.File;
 /* loaded from: classes10.dex */
 public enum ImageLoaderProxy implements IImageLoader {
     INSTANCE;
     
     public final IImageLoader mDelegate = ImageLoadFactory.create();
 
+    @Override // com.kwad.sdk.core.imageloader.IImageLoader
+    public final void pause() {
+        this.mDelegate.pause();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.IImageLoader
+    public final void resume() {
+        this.mDelegate.resume();
+    }
+
     ImageLoaderProxy() {
+    }
+
+    @Override // com.kwad.sdk.service.a.i
+    public final void load(ImageView imageView, Object obj) {
+        this.mDelegate.load(imageView, obj);
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
@@ -23,16 +40,16 @@ public enum ImageLoaderProxy implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public final void init(Context context) {
-        this.mDelegate.init(context);
+    public final File isImageExistOnDisk(String str) {
+        return this.mDelegate.isImageExistOnDisk(str);
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public final boolean isInited() {
-        return this.mDelegate.isInited();
+    public final Bitmap loadImageSync(String str) {
+        return this.mDelegate.loadImageSync(str);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public final void load(@NonNull Context context, ImageView imageView, Object obj, int i, int i2) {
         this.mDelegate.load(context, imageView, obj, i, i2);
     }
@@ -47,17 +64,12 @@ public enum ImageLoaderProxy implements IImageLoader {
         this.mDelegate.load(context, str, displayImageOptionsCompat, imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
-    public final void load(ImageView imageView, Object obj) {
-        this.mDelegate.load(imageView, obj);
-    }
-
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public final void load(ImageView imageView, Object obj, ImageLoadingListener imageLoadingListener) {
         this.mDelegate.load(imageView, obj, imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public final void load(ImageView imageView, Object obj, AdTemplate adTemplate) {
         this.mDelegate.load(imageView, obj, adTemplate);
     }
@@ -67,23 +79,13 @@ public enum ImageLoaderProxy implements IImageLoader {
         this.mDelegate.load(ksFragment, context, str, displayImageOptionsCompat, imageLoadingListener);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public final void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2) {
         this.mDelegate.load(ksFragment, str, imageView, drawable, drawable2);
     }
 
-    @Override // com.kwad.sdk.service.kwai.g
+    @Override // com.kwad.sdk.service.a.i
     public final void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f) {
         this.mDelegate.load(ksFragment, str, imageView, drawable, drawable2, f);
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public final void pause() {
-        this.mDelegate.pause();
-    }
-
-    @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public final void resume() {
-        this.mDelegate.resume();
     }
 }

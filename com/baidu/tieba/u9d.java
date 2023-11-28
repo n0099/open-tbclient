@@ -1,53 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import tbclient.ThemeElement;
 /* loaded from: classes8.dex */
-public class u9d {
+public class u9d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2, PayFlowType payFlowType, int i3) {
+    @NonNull
+    public static JSONObject b(@NonNull ThemeElement themeElement) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3)}) == null) {
-            b(i, i2, payFlowType, i3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeElement)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "common_color", themeElement.common_color);
+            ltc.a(jSONObject, "dark_color", themeElement.dark_color);
+            ltc.a(jSONObject, "light_color", themeElement.light_color);
+            ltc.a(jSONObject, "pattern_image", themeElement.pattern_image);
+            ltc.a(jSONObject, "font_color", themeElement.font_color);
+            ltc.a(jSONObject, "pattern_image_height", themeElement.pattern_image_height);
+            ltc.a(jSONObject, "pattern_image_width", themeElement.pattern_image_width);
+            ltc.a(jSONObject, "pattern_text", themeElement.pattern_text);
+            return jSONObject;
         }
-    }
-
-    public static void b(int i, int i2, PayFlowType payFlowType, int i3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3), map}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayBdLiveStatisticManager", "onPayInfo null yyPayUIKit", new Object[0]);
-                return;
-            }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && payFlowModel.viewEventListener != null) {
-                String str = "{}";
-                if (map != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            jSONObject.put(entry.getKey(), entry.getValue());
-                        }
-                        str = jSONObject.toString();
-                    } catch (JSONException e) {
-                        RLog.error("PayBdLiveStatisticManager", "onPayInfo JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    }
-                }
-                RLog.info("PayBdLiveStatisticManager", "onPayInfo type:" + i3 + " json:" + str + " listener:" + payFlowModel.viewEventListener + " content:" + map);
-                payFlowModel.viewEventListener.onPayInfo(i3, str);
-                return;
-            }
-            RLog.error("PayBdLiveStatisticManager", "onPayInfo error h5PayFlowModel null", new Object[0]);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

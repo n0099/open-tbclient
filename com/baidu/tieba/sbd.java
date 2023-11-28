@@ -1,45 +1,30 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import org.json.JSONObject;
+import tbclient.YulePostActivity;
 /* loaded from: classes8.dex */
-public final class sbd {
+public class sbd extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948147124, "Lcom/baidu/tieba/sbd;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948147124, "Lcom/baidu/tieba/sbd;");
-        }
-    }
-
-    @JvmStatic
-    public static final void a(WebView webView) {
+    @NonNull
+    public static JSONObject b(@NonNull YulePostActivity yulePostActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            if (webView != null) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibility");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibilityTraversal");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yulePostActivity)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ltc.a(jSONObject, "start_time", yulePostActivity.start_time);
+            ltc.a(jSONObject, "end_time", yulePostActivity.end_time);
+            ltc.a(jSONObject, "activity_banner", yulePostActivity.activity_banner);
+            ltc.a(jSONObject, "activity_url", yulePostActivity.activity_url);
+            ltc.a(jSONObject, "activity_desc", yulePostActivity.activity_desc);
+            ltc.a(jSONObject, "activity_button", yulePostActivity.activity_button);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

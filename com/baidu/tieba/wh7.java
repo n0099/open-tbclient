@@ -1,482 +1,635 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AntiData;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.ForumTagInfo;
-import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.forum.data.ForumTabItem;
-import com.baidu.tieba.forum.data.ForumTabPic;
-import com.baidu.tieba.forum.data.SortItem;
-import com.baidu.tieba.forum.data.SubTabItem;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.PublishProgressView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.vcode.VcodeTool;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
+import com.baidu.tieba.forum.viewmodel.BottomViewModel;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
+import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import kotlin.Unit;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsBottomSmartBgColor;
-import tbclient.FrsPage.ActivityConfig;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsBottom;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.FrsPage.TagInfo;
-import tbclient.FrsTabInfo;
-import tbclient.ItemInfo;
-import tbclient.RecomTagInfo;
-import tbclient.SortButton;
-import tbclient.TabMenu;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
-import tbclient.ThemeColorInfo;
+import kotlin.text.StringsKt__StringNumberConversionsKt;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.FeedKV;
+import tbclient.FeedLayout;
+import tbclient.GetMyPost.DataRes;
+import tbclient.GetMyPost.GetMyPostResIdl;
+import tbclient.GetMyPost.PageData;
+import tbclient.LayoutFactory;
 /* loaded from: classes8.dex */
-public final class wh7 {
+public final class wh7 extends sh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentActivity b;
+    public ForumData c;
+    public final int d;
+    public PublishProgressView e;
+    public final CustomMessageListener f;
+    public final CustomMessageListener g;
+    public final HttpMessageListener h;
+    public final CustomMessageListener i;
 
-    public static final fh7 a(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            fh7 fh7Var = new fh7();
-            fh7Var.r(dataRes);
-            fh7Var.s(dataRes.forum);
-            fh7Var.w(dataRes.hot_user_entry);
-            fh7Var.B(dataRes.service_area);
-            fh7Var.x(dataRes.live_fuse_forum);
-            fh7Var.u(dataRes.frs_banner_header);
-            fh7Var.A(dataRes.recreation_rank_info);
-            fh7Var.C(dataRes.sign_activity_info);
-            fh7Var.o(dataRes.activityhead);
-            fh7Var.t(dataRes.frs_bottom);
-            fh7Var.q(dataRes.business_promot);
-            fh7Var.y(dataRes.private_forum_info);
-            fh7Var.z(dataRes.bawutask_pop);
-            fh7Var.E(dataRes.user);
-            fh7Var.D(dataRes.sprite_bubble_guide);
-            fh7Var.v(dataRes.frsmask_pop_info);
-            fh7Var.p(dataRes.add_bawu_pop);
-            return fh7Var;
-        }
-        return (fh7) invokeL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static final class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
 
-    public static final ForumTabPic c(TabPic tabPic) {
-        InterceptResult invokeL;
-        TabPicDesc tabPicDesc;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tabPic)) == null) {
-            if (tabPic == null || (tabPicDesc = tabPic.dark) == null) {
-                return null;
-            }
-            Integer num = tabPicDesc.pic_height;
-            Intrinsics.checkNotNullExpressionValue(num, "dark.pic_height");
-            if (num.intValue() <= 0) {
-                return null;
-            }
-            Integer num2 = tabPic.dark.pic_width;
-            Intrinsics.checkNotNullExpressionValue(num2, "dark.pic_width");
-            if (num2.intValue() <= 0) {
-                return null;
-            }
-            String str = tabPic.dark.selected_pic_url;
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            String str2 = tabPic.dark.unselected_pic_url;
-            if ((str2 == null || str2.length() == 0) ? true : true) {
-                return null;
-            }
-            String str3 = tabPic.dark.selected_pic_url;
-            Intrinsics.checkNotNullExpressionValue(str3, "dark.selected_pic_url");
-            String str4 = tabPic.dark.unselected_pic_url;
-            Intrinsics.checkNotNullExpressionValue(str4, "dark.unselected_pic_url");
-            Integer num3 = tabPic.dark.pic_height;
-            Intrinsics.checkNotNullExpressionValue(num3, "dark.pic_height");
-            int intValue = num3.intValue();
-            Integer num4 = tabPic.dark.pic_width;
-            Intrinsics.checkNotNullExpressionValue(num4, "dark.pic_width");
-            return new ForumTabPic(str3, str4, intValue, num4.intValue());
-        }
-        return (ForumTabPic) invokeL.objValue;
-    }
-
-    public static final ForumTabPic e(TabPic tabPic) {
-        InterceptResult invokeL;
-        TabPicDesc tabPicDesc;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tabPic)) == null) {
-            if (tabPic == null || (tabPicDesc = tabPic.normal) == null) {
-                return null;
-            }
-            Integer num = tabPicDesc.pic_height;
-            Intrinsics.checkNotNullExpressionValue(num, "normal.pic_height");
-            if (num.intValue() <= 0) {
-                return null;
-            }
-            Integer num2 = tabPic.normal.pic_width;
-            Intrinsics.checkNotNullExpressionValue(num2, "normal.pic_width");
-            if (num2.intValue() <= 0) {
-                return null;
-            }
-            String str = tabPic.normal.selected_pic_url;
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            String str2 = tabPic.normal.unselected_pic_url;
-            if ((str2 == null || str2.length() == 0) ? true : true) {
-                return null;
-            }
-            String str3 = tabPic.normal.selected_pic_url;
-            Intrinsics.checkNotNullExpressionValue(str3, "normal.selected_pic_url");
-            String str4 = tabPic.normal.unselected_pic_url;
-            Intrinsics.checkNotNullExpressionValue(str4, "normal.unselected_pic_url");
-            Integer num3 = tabPic.normal.pic_height;
-            Intrinsics.checkNotNullExpressionValue(num3, "normal.pic_height");
-            int intValue = num3.intValue();
-            Integer num4 = tabPic.normal.pic_width;
-            Intrinsics.checkNotNullExpressionValue(num4, "normal.pic_width");
-            return new ForumTabPic(str3, str4, intValue, num4.intValue());
-        }
-        return (ForumTabPic) invokeL.objValue;
-    }
-
-    public static final hh7 b(DataRes dataRes) {
-        InterceptResult invokeL;
-        Long l;
-        long longValue;
-        String str;
-        String str2;
-        Integer num;
-        int intValue;
-        Integer num2;
-        int intValue2;
-        Integer num3;
-        int intValue3;
-        String str3;
-        TagInfo tagInfo;
-        FrsBottomSmartBgColor frsBottomSmartBgColor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            hh7 hh7Var = new hh7(0L, null, null, null, 0, 0, 0, 0, 0, null, null, null, null, null, null, null, 0, 131071, null);
-            ForumInfo forumInfo = dataRes.forum;
-            ThemeColorInfo themeColorInfo = null;
-            if (forumInfo != null) {
-                l = forumInfo.id;
-            } else {
-                l = null;
-            }
-            if (l == null) {
-                longValue = 0;
-            } else {
-                longValue = l.longValue();
-            }
-            hh7Var.t(longValue);
-            ForumInfo forumInfo2 = dataRes.forum;
-            if (forumInfo2 != null) {
-                str = forumInfo2.name;
-            } else {
-                str = null;
-            }
-            String str4 = "";
-            if (str == null) {
-                str = "";
-            }
-            hh7Var.u(str);
-            ForumInfo forumInfo3 = dataRes.forum;
-            if (forumInfo3 != null) {
-                str2 = forumInfo3.avatar;
-            } else {
-                str2 = null;
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            hh7Var.s(str2);
-            hh7Var.k().clear();
-            List<FrsTabInfo> list = dataRes.frs_main_tab_list;
-            if (list != null) {
-                for (FrsTabInfo it : list) {
-                    List<ForumTabItem> k = hh7Var.k();
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    k.add(d(it));
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wh7 wh7Var) {
+            super(CmdConfigHttp.CMD_GET_MY_POST);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            Integer frs_tab_default = dataRes.frs_tab_default;
-            Intrinsics.checkNotNullExpressionValue(frs_tab_default, "frs_tab_default");
-            hh7Var.q(frs_tab_default.intValue());
-            hh7Var.w(dataRes.frs_common_info);
-            ForumInfo forumInfo4 = dataRes.forum;
-            if (forumInfo4 != null) {
-                num = forumInfo4.msg_bubble_guide_frequency;
-            } else {
-                num = null;
-            }
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            hh7Var.y(intValue);
-            ForumInfo forumInfo5 = dataRes.forum;
-            if (forumInfo5 != null) {
-                num2 = forumInfo5.msg_bubble_guide_frequency_unread;
-            } else {
-                num2 = null;
-            }
-            if (num2 == null) {
-                intValue2 = 0;
-            } else {
-                intValue2 = num2.intValue();
-            }
-            hh7Var.D(intValue2);
-            ForumInfo forumInfo6 = dataRes.forum;
-            if (forumInfo6 != null) {
-                num3 = forumInfo6.msg_bubble_guide_frequency_special;
-            } else {
-                num3 = null;
-            }
-            if (num3 == null) {
-                intValue3 = 0;
-            } else {
-                intValue3 = num3.intValue();
-            }
-            hh7Var.A(intValue3);
-            FrsBottom frsBottom = dataRes.frs_bottom;
-            if (frsBottom != null && (frsBottomSmartBgColor = frsBottom.frs_smart_bg_color) != null) {
-                str3 = frsBottomSmartBgColor.theme_color;
-            } else {
-                str3 = null;
-            }
-            if (str3 != null) {
-                str4 = str3;
-            }
-            hh7Var.B(str4);
-            Integer num4 = dataRes.is_member_broadcast_forum;
-            if (num4 != null) {
-                i = num4.intValue();
-            }
-            hh7Var.x(i);
-            hh7Var.z(f(dataRes));
-            ForumInfo forumInfo7 = dataRes.forum;
-            if (forumInfo7 != null) {
-                themeColorInfo = forumInfo7.theme_color;
-            }
-            hh7Var.C(themeColorInfo);
-            hh7Var.E(g(dataRes));
-            ForumInfo forumInfo8 = dataRes.forum;
-            if (forumInfo8 != null && (tagInfo = forumInfo8.tag_info) != null) {
-                String str5 = tagInfo.first_category;
-                Intrinsics.checkNotNullExpressionValue(str5, "it.first_category");
-                hh7Var.r(str5);
-                if (tagInfo.recom_tag != null) {
-                    ForumTagInfo forumTagInfo = new ForumTagInfo();
-                    forumTagInfo.id = String.valueOf(tagInfo.recom_tag.id);
-                    RecomTagInfo recomTagInfo = tagInfo.recom_tag;
-                    forumTagInfo.name = recomTagInfo.name;
-                    forumTagInfo.pic = recomTagInfo.pic;
-                    hh7Var.v(forumTagInfo);
-                }
-            }
-            return hh7Var;
+            this.a = wh7Var;
         }
-        return (hh7) invokeL.objValue;
-    }
 
-    public static final ph7 h(DataRes dataRes) {
-        InterceptResult invokeL;
-        String str;
-        TagInfo tagInfo;
-        TagInfo tagInfo2;
-        RecomTagInfo recom_tag;
-        Integer num;
-        Integer num2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            ActivityConfig activityConfig = dataRes.activity_config;
-            ItemInfo itemInfo = dataRes.item_info;
-            ForumData forumData = new ForumData();
-            forumData.parserProtobuf(dataRes.forum);
-            UserData userData = new UserData();
-            userData.parserProtobuf(dataRes.user);
-            String id = forumData.getId();
-            String name = forumData.getName();
-            PostPrefixData prefixData = forumData.getPrefixData();
-            AntiData antiData = new AntiData();
-            antiData.parserProtobuf(dataRes.anti);
-            Unit unit = Unit.INSTANCE;
-            ForumWriteData forumWriteData = new ForumWriteData(id, name, prefixData, antiData);
-            forumWriteData.avatar = forumData.getImage_url();
-            forumWriteData.forumLevel = forumData.getUser_level();
-            forumWriteData.specialForumType = forumData.special_forum_type;
-            forumWriteData.firstDir = forumData.getFirst_class();
-            forumWriteData.secondDir = forumData.getSecond_class();
-            forumWriteData.privateThread = userData.getPrivateThread();
-            nqa nqaVar = new nqa();
-            NavTabInfo navTabInfo = dataRes.nav_tab_info;
-            if (navTabInfo == null) {
-                NavTabInfo.Builder builder = new NavTabInfo.Builder();
-                builder.tab = dataRes.frs_tab_info;
-                nqaVar.a(builder.build(true));
-            } else {
-                nqaVar.a(navTabInfo);
-            }
-            int i = -1;
-            ArrayList arrayList = new ArrayList();
-            for (FrsTabInfo frsTabInfo : nqaVar.a) {
-                if (frsTabInfo != null && (num = frsTabInfo.is_general_tab) != null && num.intValue() == 1 && ((num2 = frsTabInfo.tab_type) == null || num2.intValue() != 100)) {
-                    Integer num3 = frsTabInfo.tab_id;
-                    if (num3 == null || num3.intValue() != 505 || !userData.isForumBusinessAccount()) {
-                        arrayList.add(new FrsTabItemData(frsTabInfo));
-                        Integer num4 = frsTabInfo.tab_id;
-                        if (num4 != null && num4.intValue() == 0) {
-                            i = 0;
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:12:0x002c  */
+        /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage responsedMessage) {
+            boolean z;
+            String errorString;
+            RequestGetMyPostNetMessage requestGetMyPostNetMessage;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                if (responsedMessage.getOrginalMessage() != null) {
+                    Object extra = responsedMessage.getOrginalMessage().getExtra();
+                    if (extra instanceof RequestGetMyPostNetMessage) {
+                        z = ((RequestGetMyPostNetMessage) extra).showErrorToast();
+                        JSONObject jSONObject = new JSONObject();
+                        if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
+                            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
+                            if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
+                                errorString = this.a.x().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                            } else {
+                                errorString = getMyPostHttpResponseMessage.getErrorString();
+                            }
+                            if ((responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage) && (requestGetMyPostNetMessage = (RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra()) != null) {
+                                jSONObject = this.a.y(requestGetMyPostNetMessage);
+                            }
+                            if (!z && getMyPostHttpResponseMessage.getError() != 0) {
+                                return;
+                            }
+                            wh7 wh7Var = this.a;
+                            int error = getMyPostHttpResponseMessage.getError();
+                            Intrinsics.checkNotNullExpressionValue(errorString, "errorString");
+                            wh7Var.A(error, errorString, getMyPostHttpResponseMessage.getResponseData(), jSONObject);
+                            return;
                         }
+                        return;
+                    }
+                }
+                z = true;
+                JSONObject jSONObject2 = new JSONObject();
+                if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(wh7 wh7Var) {
+            super(2001378);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                if (responsedMessage.getData() instanceof WriteData) {
+                    WriteData writeData = (WriteData) responsedMessage.getData();
+                    Intrinsics.checkNotNull(writeData);
+                    String forumId = writeData.getForumId();
+                    ForumData forumData = this.a.c;
+                    if (forumData == null) {
+                        Intrinsics.throwUninitializedPropertyAccessException("forumData");
+                        forumData = null;
+                    }
+                    if (StringHelper.equals(forumId, forumData.getId())) {
+                        wh7 wh7Var = this.a;
+                        WriteData writeData2 = (WriteData) responsedMessage.getData();
+                        Intrinsics.checkNotNull(writeData2);
+                        wh7Var.C(writeData2.getTabId());
+                        MessageManager.getInstance().abortResponsedMessage(responsedMessage);
                     }
                 }
             }
-            if (!arrayList.isEmpty()) {
-                FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-                frsTabInfoData.tabList = arrayList;
-                frsTabInfoData.selectedTabId = i;
-                frsTabInfoData.isForumBusinessAccount = userData.isForumBusinessAccount();
-                forumWriteData.frsTabInfo = frsTabInfoData;
-            }
-            ForumInfo forumInfo = dataRes.forum;
-            if (forumInfo != null && (tagInfo2 = forumInfo.tag_info) != null && (recom_tag = tagInfo2.recom_tag) != null) {
-                Intrinsics.checkNotNullExpressionValue(recom_tag, "recom_tag");
-                ForumTagInfo forumTagInfo = new ForumTagInfo();
-                forumWriteData.forumTagInfo = forumTagInfo;
-                forumTagInfo.id = String.valueOf(recom_tag.id);
-                ForumTagInfo forumTagInfo2 = forumWriteData.forumTagInfo;
-                forumTagInfo2.name = recom_tag.name;
-                forumTagInfo2.pic = recom_tag.pic;
-            }
-            ForumInfo forumInfo2 = dataRes.forum;
-            if (forumInfo2 != null && (tagInfo = forumInfo2.tag_info) != null) {
-                str = tagInfo.first_category;
-            } else {
-                str = null;
-            }
-            forumWriteData.firstCategory = str;
-            return new ph7(forumWriteData, activityConfig, itemInfo);
         }
-        return (ph7) invokeL.objValue;
     }
 
-    public static final ForumTabItem d(FrsTabInfo frsTabInfo) {
-        InterceptResult invokeL;
-        ForumTabPic forumTabPic;
-        ForumTabPic forumTabPic2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, frsTabInfo)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<SortButton> list = frsTabInfo.sort_menu;
-            if (list != null) {
-                for (SortButton sortButton : list) {
-                    Integer num = sortButton.source_id;
-                    Intrinsics.checkNotNullExpressionValue(num, "sortButton.source_id");
-                    int intValue = num.intValue();
-                    String str = sortButton.text;
-                    Intrinsics.checkNotNullExpressionValue(str, "sortButton.text");
-                    arrayList.add(new SortItem(intValue, str));
+    /* loaded from: classes8.dex */
+    public static final class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(wh7 wh7Var) {
+            super(2001383);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            ArrayList arrayList2 = new ArrayList();
-            List<TabMenu> list2 = frsTabInfo.sub_tab_list;
-            if (list2 != null) {
-                for (TabMenu tabMenu : list2) {
-                    Integer num2 = tabMenu.class_id;
-                    Intrinsics.checkNotNullExpressionValue(num2, "tabMenu.class_id");
-                    int intValue2 = num2.intValue();
-                    String str2 = tabMenu.class_name;
-                    Intrinsics.checkNotNullExpressionValue(str2, "tabMenu.class_name");
-                    arrayList2.add(new SubTabItem(intValue2, str2));
+            this.a = wh7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                if (!(responsedMessage.getData() instanceof PostWriteCallBackData)) {
+                    return;
+                }
+                PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) responsedMessage.getData();
+                this.a.I(postWriteCallBackData);
+                if (!this.a.B(postWriteCallBackData)) {
+                    this.a.w(postWriteCallBackData);
+                } else if (this.a.x() instanceof TbPageContextSupport) {
+                    vb5.c(((TbPageContextSupport) this.a.x()).getPageContext(), postWriteCallBackData, 1);
+                } else {
+                    vb5.c(TbadkApplication.getInst().getCurrentPageContext(this.a.x()), postWriteCallBackData, 1);
                 }
             }
-            Integer tab_id = frsTabInfo.tab_id;
-            Intrinsics.checkNotNullExpressionValue(tab_id, "tab_id");
-            int intValue3 = tab_id.intValue();
-            String tab_name = frsTabInfo.tab_name;
-            Intrinsics.checkNotNullExpressionValue(tab_name, "tab_name");
-            Integer tab_type = frsTabInfo.tab_type;
-            Intrinsics.checkNotNullExpressionValue(tab_type, "tab_type");
-            int intValue4 = tab_type.intValue();
-            String str3 = frsTabInfo.tab_url;
-            Integer net_tab_type = frsTabInfo.net_tab_type;
-            Intrinsics.checkNotNullExpressionValue(net_tab_type, "net_tab_type");
-            int intValue5 = net_tab_type.intValue();
-            Integer num3 = frsTabInfo.is_general_tab;
-            boolean z = true;
-            z = (num3 == null || num3.intValue() != 1) ? false : false;
-            TabPic tabPic = frsTabInfo.head_pics;
-            if (tabPic != null) {
-                forumTabPic = e(tabPic);
-            } else {
-                forumTabPic = null;
-            }
-            TabPic tabPic2 = frsTabInfo.head_pics;
-            if (tabPic2 != null) {
-                forumTabPic2 = c(tabPic2);
-            } else {
-                forumTabPic2 = null;
-            }
-            return new ForumTabItem(intValue3, tab_name, intValue4, str3, intValue5, arrayList, arrayList2, z, forumTabPic, forumTabPic2);
         }
-        return (ForumTabItem) invokeL.objValue;
     }
 
-    public static final oh7 f(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            PrivateForumTotalInfo privateForumTotalInfo = dataRes.private_forum_info;
-            if (privateForumTotalInfo != null) {
-                return new oh7(privateForumTotalInfo.private_forum_shareinfo, privateForumTotalInfo.private_forum_popinfo, privateForumTotalInfo.private_forum_info, privateForumTotalInfo.private_forum_taskpercent);
+    /* loaded from: classes8.dex */
+    public static final class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(wh7 wh7Var) {
+            super(2921526);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.a = wh7Var;
         }
-        return (oh7) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> responseMessage) {
+            PublishProgressData publishProgressData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responseMessage) == null) {
+                Intrinsics.checkNotNullParameter(responseMessage, "responseMessage");
+                if (responseMessage.getData() == null || !(responseMessage.getData() instanceof PublishProgressData) || (publishProgressData = (PublishProgressData) responseMessage.getData()) == null || WriteMsgHolder.isFromVideoHotTopic() || WriteMsgHolder.getCurrentWriteActivityFromTag() == null) {
+                    return;
+                }
+                PublishProgressView publishProgressView = this.a.e;
+                if (publishProgressView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("publishProgressView");
+                    publishProgressView = null;
+                }
+                publishProgressView.c(publishProgressData);
+            }
+        }
     }
 
-    public static final UserData g(DataRes dataRes) {
+    public wh7(FragmentActivity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.b = activity;
+        this.d = 1000;
+        this.f = new c(this);
+        this.g = new d(this);
+        this.h = new a(this);
+        this.i = new b(this);
+    }
+
+    public final boolean w(PostWriteCallBackData postWriteCallBackData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
-            Intrinsics.checkNotNullParameter(dataRes, "<this>");
-            if (dataRes.user != null) {
-                UserData userData = new UserData();
-                userData.parserProtobuf(dataRes.user);
-                return userData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, postWriteCallBackData)) == null) {
+            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || rd.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+                return false;
             }
-            return null;
+            if (!SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+            return true;
         }
-        return (UserData) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static final void G(wh7 this$0, ki7 ki7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, ki7Var) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            ForumData forumData = new ForumData();
+            this$0.c = forumData;
+            if (forumData == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("forumData");
+                forumData = null;
+            }
+            forumData.parserProtobuf(ki7Var.d());
+        }
+    }
+
+    @Override // com.baidu.tieba.sh7
+    public void k(Bundle bundle, ActivityForumBinding binding) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bundle, binding) == null) {
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            super.k(bundle, binding);
+            PublishProgressView publishProgressView = binding.i;
+            Intrinsics.checkNotNullExpressionValue(publishProgressView, "binding.forumPublishProgressView");
+            this.e = publishProgressView;
+            F();
+            H();
+        }
+    }
+
+    public static final void J(long j, long j2, long j3, wh7 this$0) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), this$0}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+            float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+            requestGetMyPostNetMessage.setParams(j, j2, j3, equipmentWidth, equipmentHeight, f, i);
+            ni7 value = ((ForumViewModel) new ViewModelProvider(this$0.b).get(ForumViewModel.class)).c().getValue();
+            if (value != null) {
+                requestGetMyPostNetMessage.setFrsCommonInfo(value.i());
+            }
+            requestGetMyPostNetMessage.setIsNewFrs(1);
+            MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
+        }
+    }
+
+    public final boolean B(PostWriteCallBackData postWriteCallBackData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postWriteCallBackData)) == null) {
+            if (postWriteCallBackData != null && postWriteCallBackData.getIconStampData() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i == 0) {
+                i = xh7.m(this.b).C();
+            }
+            if (xh7.m(this.b).y(i) != null) {
+                xh7.m(this.b).L(i);
+            }
+        }
+    }
+
+    public final void A(int i, String str, GetMyPostResIdl getMyPostResIdl, JSONObject jSONObject) {
+        DataRes dataRes;
+        PageData pageData;
+        LayoutFactory layoutFactory;
+        w87 w87Var;
+        FeedLayout feedLayout;
+        List<FeedKV> business_info;
+        String str2;
+        Integer intOrNull;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, getMyPostResIdl, jSONObject}) == null) {
+            if (i != 0) {
+                BdUtilHelper.showToast(this.b, str);
+            } else if (getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && (pageData = dataRes.page_data) != null && (layoutFactory = pageData.feed) != null && (w87Var = f77.a().get(layoutFactory.layout)) != null) {
+                nb7<?> templateData = w87Var.b(layoutFactory);
+                int i2 = 0;
+                if (Intrinsics.areEqual(layoutFactory.layout, "feed") && (feedLayout = layoutFactory.feed) != null && (business_info = feedLayout.business_info) != null) {
+                    Intrinsics.checkNotNullExpressionValue(business_info, "business_info");
+                    Map<String, String> b2 = e97.b(business_info);
+                    if (b2 != null && (str2 = b2.get("inner_tab_id")) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(str2)) != null) {
+                        i2 = intOrNull.intValue();
+                    }
+                }
+                Intrinsics.checkNotNullExpressionValue(templateData, "templateData");
+                D(templateData, jSONObject, i2);
+            }
+        }
+    }
+
+    public final void D(nb7<?> nb7Var, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, nb7Var, jSONObject, i) == null) {
+            if (i == 0) {
+                i = xh7.m(this.b).C();
+            }
+            un7 y = xh7.m(this.b).y(i);
+            if (y != null) {
+                xh7.m(this.b).L(i);
+                if (y.a() instanceof vn7) {
+                    ((vn7) y.a()).U0(nb7Var, jSONObject);
+                }
+            }
+        }
+    }
+
+    public final void E(dy4 dy4Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, dy4Var, jSONObject) == null) {
+            int tabId = dy4Var.getTabId();
+            if (tabId == 0) {
+                tabId = xh7.m(this.b).C();
+            }
+            un7 y = xh7.m(this.b).y(tabId);
+            if (y != null) {
+                xh7.m(this.b).L(tabId);
+                if (y.a() instanceof vn7) {
+                    ((vn7) y.a()).C2(dy4Var, jSONObject);
+                }
+            }
+        }
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.wg7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // androidx.lifecycle.Observer
+                public final void onChanged(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        wh7.G(wh7.this, (ki7) obj);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            o(this.f);
+            o(this.h);
+            o(this.g);
+            this.i.setSelfListener(true);
+            o(this.i);
+        }
+    }
+
+    @Override // com.baidu.tieba.sh7
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.l();
+        }
+    }
+
+    public final FragmentActivity x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (FragmentActivity) invokeV.objValue;
+    }
+
+    public final void I(PostWriteCallBackData postWriteCallBackData) {
+        String str;
+        String str2;
+        String str3;
+        int i;
+        UserData q;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
+            final long j = JavaTypesHelper.toLong(postWriteCallBackData.getPostId(), 0L);
+            final long j2 = JavaTypesHelper.toLong(postWriteCallBackData.getThreadId(), 0L);
+            ForumData forumData = this.c;
+            if (forumData == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("forumData");
+                forumData = null;
+            }
+            final long j3 = JavaTypesHelper.toLong(forumData.getId(), 0L);
+            if (j != 0 && j2 != 0 && j3 != 0) {
+                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.xg7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            wh7.J(j2, j, j3, this);
+                        }
+                    }
+                }, this.d);
+                return;
+            }
+            WriteData writeData = postWriteCallBackData.writeDataForVideo;
+            if (writeData != null) {
+                writeData.setForumId(null);
+                writeData.setForumName(null);
+                dy4 dy4Var = new dy4();
+                dy4Var.parseFromWriteData(writeData);
+                String forumId = writeData.getForumId();
+                if (forumId == null) {
+                    str = "";
+                } else {
+                    str = forumId;
+                }
+                String threadId = writeData.getThreadId();
+                if (threadId == null) {
+                    str2 = "";
+                } else {
+                    str2 = threadId;
+                }
+                String repostId = writeData.getRepostId();
+                if (repostId == null) {
+                    str3 = "";
+                } else {
+                    str3 = repostId;
+                }
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                JSONObject z = z(str, str2, str3, i, "", "0");
+                ni7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+                if (value != null && (q = value.q()) != null) {
+                    dy4Var.setIsManager(q.getIs_manager());
+                }
+                E(dy4Var, z);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sh7
+    public void g(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
+            super.g(i, i2, intent);
+            VcodeTool.tryProcessActivityResultOnWriteScene(i, i2, intent);
+        }
+    }
+
+    public final JSONObject y(RequestGetMyPostNetMessage requestGetMyPostNetMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, requestGetMyPostNetMessage)) == null) {
+            return z(String.valueOf(requestGetMyPostNetMessage.getForumId()), String.valueOf(requestGetMyPostNetMessage.getThreadId()), String.valueOf(requestGetMyPostNetMessage.getPostId()), requestGetMyPostNetMessage.getQType(), requestGetMyPostNetMessage.getFrom(), String.valueOf(requestGetMyPostNetMessage.getCallFrom()));
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final JSONObject z(String str, String str2, String str3, int i, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("forum_id", str);
+                jSONObject.put("thread_id", str2);
+                jSONObject.put("post_id", str3);
+                jSONObject.put("scr_w", BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                jSONObject.put("scr_h", BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+                jSONObject.put("scr_dip", Float.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
+                jSONObject.put("q_type", i);
+                if (str4 == null) {
+                    str4 = "";
+                }
+                jSONObject.put("bfrom", str4);
+                jSONObject.put(IntentConfig.CALL_FROM, str5);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
     }
 }

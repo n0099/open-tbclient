@@ -1,38 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
 public class xt5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static final <T extends IntentConfig> void a(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (StringUtils.isNull(a)) {
-                return null;
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a != null) {
-            a = null;
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
         }
     }
 
-    public static void b(String str) {
+    public static final <T extends IntentConfig> void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
+        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
+            a(2002001, t);
         }
     }
 }

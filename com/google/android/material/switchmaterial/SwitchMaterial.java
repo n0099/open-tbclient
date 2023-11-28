@@ -41,7 +41,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406e9);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ef);
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -57,7 +57,7 @@ public class SwitchMaterial extends SwitchCompat {
         if (this.materialThemeColorsThumbTintList == null) {
             int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
             int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070630);
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070644);
             if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                 dimension += ViewUtils.getParentAbsoluteElevation(this);
             }

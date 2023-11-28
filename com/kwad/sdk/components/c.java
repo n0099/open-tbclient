@@ -2,7 +2,6 @@ package com.kwad.sdk.components;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,34 +10,32 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public final class c {
-    public static final Map<Class, a> Td = new ConcurrentHashMap();
+    public static final Map<Class, a> aoh = new ConcurrentHashMap();
 
     public static void a(Class cls, a aVar) {
-        Td.put(cls, aVar);
+        aoh.put(cls, aVar);
     }
 
     @Nullable
     public static <T extends a> T f(Class<T> cls) {
-        T t = (T) Td.get(cls);
+        T t = (T) aoh.get(cls);
         if (t != null) {
             return t;
         }
-        com.kwad.sdk.core.e.b.w("KSAdSDK", new ComponentsNotFoundException(cls.getSimpleName()));
         try {
             if (DevelopMangerComponents.class.isAssignableFrom(cls)) {
                 e eVar = new e();
-                Td.put(cls, eVar);
+                aoh.put(cls, eVar);
                 return eVar;
             }
             return null;
-        } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+        } catch (Throwable unused) {
             return null;
         }
     }
 
-    public static void init(Context context, SdkConfig sdkConfig) {
-        ArrayList arrayList = new ArrayList(Td.values());
+    public static void init(Context context) {
+        ArrayList arrayList = new ArrayList(aoh.values());
         Collections.sort(arrayList, new Comparator<a>() { // from class: com.kwad.sdk.components.c.1
             public static int a(a aVar, a aVar2) {
                 if (aVar == null) {
@@ -69,9 +66,9 @@ public final class c {
             a aVar = (a) it.next();
             if (aVar != null) {
                 try {
-                    aVar.init(context, sdkConfig);
+                    aVar.init(context);
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.e.b.printStackTrace(th);
+                    com.kwad.sdk.core.e.c.printStackTrace(th);
                 }
             }
         }

@@ -14,13 +14,13 @@ public class by implements Runnable {
     public void run() {
         ConcurrentHashMap concurrentHashMap;
         try {
-            concurrentHashMap = this.a.f960a;
+            concurrentHashMap = this.a.f956a;
             for (bx.a aVar : concurrentHashMap.values()) {
                 aVar.run();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m186a("Sync job exception :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m190a("Sync job exception :" + e.getMessage());
         }
-        this.a.f961a = false;
+        this.a.f957a = false;
     }
 }

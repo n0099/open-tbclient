@@ -1,46 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FeedItem;
-import tbclient.FeedKV;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tsc extends qoc {
+public abstract class tsc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull FeedItem feedItem) {
+    @Deprecated
+    public void a(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
+    }
+
+    public String c(Object obj) throws InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedItem)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "icon_url", feedItem.icon_url);
-            qoc.a(jSONObject, "icon_ratio", feedItem.icon_ratio);
-            qoc.a(jSONObject, "name", feedItem.name);
-            qoc.a(jSONObject, "score", feedItem.score);
-            if (feedItem.tags != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : feedItem.tags) {
-                    jSONArray.put(str);
-                }
-                qoc.a(jSONObject, "tags", jSONArray);
-            }
-            qoc.a(jSONObject, "button_name", feedItem.button_name);
-            qoc.a(jSONObject, "button_link", feedItem.button_link);
-            if (feedItem.business_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : feedItem.business_info) {
-                    jSONArray2.put(usc.b(feedKV));
-                }
-                qoc.a(jSONObject, "business_info", jSONArray2);
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public tsc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                qoc.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

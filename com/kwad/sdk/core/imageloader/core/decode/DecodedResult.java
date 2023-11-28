@@ -16,7 +16,22 @@ public class DecodedResult {
     }
 
     public boolean isDecoded() {
+        boolean z;
+        boolean z2;
         Bitmap bitmap = this.mBitmap;
-        return (bitmap != null && !bitmap.isRecycled()) || (this.mFrameSequence != null);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (this.mFrameSequence != null) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        if (z || z2) {
+            return true;
+        }
+        return false;
     }
 }

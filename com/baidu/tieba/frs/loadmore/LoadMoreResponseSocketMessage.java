@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.nea;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.fja;
+import com.baidu.tieba.pi;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<oi> threadList;
+    public ArrayList<pi> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<oi> getThreadList() {
+    public ArrayList<pi> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -121,18 +121,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        ux4 ux4Var = new ux4();
-                        ux4Var.e(threadData.getLegoCard());
-                        this.threadList.add(ux4Var);
+                        wx4 wx4Var = new wx4();
+                        wx4Var.e(threadData.getLegoCard());
+                        this.threadList.add(wx4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = nea.b(threadInfo);
+                        JSONObject b = fja.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                nea.f().h("FRS", arrayList);
+                fja.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

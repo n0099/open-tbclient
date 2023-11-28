@@ -1,41 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zd7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
+public interface zd7 {
+    void setRadius(float f);
 
-    public zd7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void setRadius(float f, float f2, float f3, float f4);
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optLong("id");
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("name_show");
-        this.d = jSONObject.optString("portrait");
-    }
+    void setRadiusBottom(float f);
+
+    void setRadiusBottomLeft(float f);
+
+    void setRadiusBottomRight(float f);
+
+    void setRadiusLeft(float f);
+
+    void setRadiusRight(float f);
+
+    void setRadiusTop(float f);
+
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

@@ -67,11 +67,11 @@ public class ErrorConstant {
 
     /* loaded from: classes4.dex */
     public static final class TipMsg {
-        public static final String META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0037);
-        public static final String META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0035);
-        public static final String META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0038);
-        public static final String META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0039);
-        public static final String META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0036);
+        public static final String META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0038);
+        public static final String META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0036);
+        public static final String META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0039);
+        public static final String META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f003a);
+        public static final String META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0037);
         public static final String DOWNLOAD_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001d);
         public static final String DOWNLOAD_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0015);
         public static final String DOWNLOAD_ERROR_MD5 = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0013);

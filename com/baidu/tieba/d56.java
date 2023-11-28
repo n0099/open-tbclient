@@ -1,43 +1,79 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONObject;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes5.dex */
 public class d56 {
     public static /* synthetic */ Interceptable $ic;
-    public static d56 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public boolean c;
-    public long d;
-    public SplashNativePolicy e;
-    public jr4 f;
-    public final ArrayList<e56> g;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final d56 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-908739994, "Lcom/baidu/tieba/d56$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-908739994, "Lcom/baidu/tieba/d56$b;");
+                    return;
+                }
+            }
+            a = new d56(null);
+        }
+    }
 
     public d56() {
         Interceptable interceptable = $ic;
@@ -52,360 +88,317 @@ public class d56 {
                 return;
             }
         }
-        this.c = false;
-        this.d = -1L;
-        this.f = null;
-        this.g = new ArrayList<>();
-        this.a = SharedPrefHelper.getInstance().getInt("splash_ad_strategy_key", 0);
-        m();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<e56> it = this.g.iterator();
-            while (it.hasNext()) {
-                e56 next = it.next();
-                if (next != null) {
-                    next.destroy();
-                }
-            }
-            this.g.clear();
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy != null) {
-                splashNativePolicy.releaseSplash();
-                this.e = null;
-            }
+        try {
+            this.a = TbConfig.getVersion();
+            this.b = DeviceInfoHelper.getOsVersion();
+            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.d = r();
+            this.e = s();
+            this.f = DeviceInfoHelper.getModel();
+            this.g = TbadkCoreApplication.getInst().getImei();
+            this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.j = BdBaseApplication.getInst().getPackageName();
+            this.k = TbadkCoreApplication.getInst().getAndroidId();
+            this.l = "com.baidu.tieba.fileprovider";
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 
-    public static d56 d() {
+    @NonNull
+    public final String r() {
         InterceptResult invokeV;
+        String sb;
+        String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (h == null) {
-                synchronized (d56.class) {
-                    if (h == null) {
-                        h = new d56();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                     }
                 }
+                sb = sb2.toString();
             }
-            return h;
+            String osVersion = DeviceInfoHelper.getOsVersion();
+            if (TextUtils.isEmpty(osVersion)) {
+                replace = com.baidu.mobads.sdk.internal.cj.d;
+            } else {
+                replace = osVersion.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ d56(a aVar) {
+        this();
+    }
+
+    public static d56 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
         return (d56) invokeV.objValue;
     }
 
-    public int c() {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.k)) {
+                try {
+                    this.k = TbadkCoreApplication.getInst().getAndroidId();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            if (baiduIdForAnti == null) {
+                return "";
+            }
+            return baiduIdForAnti;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                try {
+                    this.a = TbConfig.getVersion();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
             return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean g() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<e56> it = this.g.iterator();
-            while (it.hasNext()) {
-                e56 next = it.next();
-                if (next != null && next.b()) {
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.c)) {
+                try {
+                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
             }
-            return false;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void h() {
-        UBCManager uBCManager;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
-            uBCManager.onEvent("5088");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.l == null) {
+                this.l = "com.baidu.tieba.fileprovider";
+            }
+            return this.l;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        String str;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Iterator<e56> it = this.g.iterator();
-            while (it.hasNext()) {
-                e56 next = it.next();
-                if (next instanceof m46) {
-                    m46 m46Var = (m46) next;
-                    boolean D = m46Var.D();
-                    gua.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + D);
-                    if (D && BearTimeoutTryShowSwitch.isOn()) {
-                        int i = 1;
-                        StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1);
-                        if (this.c) {
-                            i = 2;
-                        }
-                        StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                        if (!StringUtils.isNull(next.c())) {
-                            param2.param(TiebaStatic.Params.OBJ_TO, next.c());
-                        }
-                        param2.eventStat();
-                        m46Var.B();
-                        return;
-                    }
-                    StatisticItem make = StatisticItem.make("fail_splash");
-                    if (D) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    make.param("obj_param1", str).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (StringUtils.isNull(this.g)) {
+                try {
+                    this.g = TbadkCoreApplication.getInst().getImei();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
             }
-            jr4 jr4Var = this.f;
-            if (jr4Var != null) {
-                jr4Var.a("");
-            }
+            return this.g;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final byte e(e56 e56Var) {
-        InterceptResult invokeL;
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e56Var)) == null) {
-            if (e56Var == null) {
-                return (byte) 0;
-            }
-            String f = e56Var.f();
-            char c = 65535;
-            int hashCode = f.hashCode();
-            if (hashCode != -1348168235) {
-                if (hashCode == 3019700 && f.equals("bear")) {
-                    c = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (StringUtils.isNull(this.i)) {
+                try {
+                    this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
-            } else if (f.equals("prologue_gd")) {
-                c = 1;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    return (byte) 0;
-                }
-                return (byte) 5;
-            }
-            return (byte) 6;
+            return this.i;
         }
-        return invokeL.byteValue;
+        return (String) invokeV.objValue;
     }
 
-    public final synchronized void f() {
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.g.isEmpty()) {
-                    return;
-                }
-                n46 n46Var = new n46(this.e);
-                m46 m46Var = new m46(this.e);
-                this.g.clear();
-                if (ks5.v()) {
-                    this.g.add(n46Var);
-                } else {
-                    BaseVM.m(27);
-                }
-                if (ks5.p()) {
-                    this.g.add(m46Var);
-                }
-                if (SharedPrefHelper.getInstance().getBoolean("key_is_jump_splash_ad", false)) {
-                    h();
-                    this.g.clear();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (StringUtils.isNull(this.f)) {
+                this.f = DeviceInfoHelper.getModel();
             }
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i(int i) {
-        jr4 jr4Var;
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (jr4Var = this.f) != null) {
-            jr4Var.b(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (StringUtils.isNull(this.h)) {
+                try {
+                    this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.h;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void j(int i) {
-        String str;
+    public String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = false;
-            f();
-            Iterator<e56> it = this.g.iterator();
-            while (it.hasNext()) {
-                e56 next = it.next();
-                if (i == 5 && (next instanceof n46)) {
-                    next.a();
-                    return;
-                } else if (i == 6 && (next instanceof m46)) {
-                    Iterator<e56> it2 = this.g.iterator();
-                    while (it2.hasNext()) {
-                        e56 next2 = it2.next();
-                        if (next2 instanceof n46) {
-                            StatisticItem statisticItem = new StatisticItem("preload_bear");
-                            n46 n46Var = (n46) next2;
-                            String str2 = "1";
-                            if (n46Var.z()) {
-                                str = "1";
-                            } else {
-                                str = "0";
-                            }
-                            statisticItem.param("obj_param1", str);
-                            if (!n46Var.A()) {
-                                str2 = "0";
-                            }
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                            TiebaStatic.log(statisticItem);
-                        }
-                    }
-                    next.a();
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (StringUtils.isNull(this.b)) {
+                this.b = DeviceInfoHelper.getOsVersion();
             }
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void k(mr4 mr4Var) {
+    public String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mr4Var) == null) {
-            synchronized (this) {
-                this.b = false;
-                this.d = mr4Var.c();
-                this.f = mr4Var.a();
-                this.c = mr4Var.d();
-                if (this.e != null) {
-                    this.e.onSplashEvent(96);
-                }
-                f();
-                m56.c();
-                Iterator<e56> it = this.g.iterator();
-                while (it.hasNext()) {
-                    it.next().e(mr4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (StringUtils.isNull(this.j)) {
+                try {
+                    this.j = BdBaseApplication.getInst().getPackageName();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
             }
+            return this.j;
         }
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void l(boolean z) {
-        boolean z2;
-        int i;
+    public String n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                Iterator<e56> it = this.g.iterator();
-                while (it.hasNext()) {
-                    e56 next = it.next();
-                    if (next != null) {
-                        if (z) {
-                            z2 = next instanceof m46;
-                        } else {
-                            z2 = next instanceof n46;
-                        }
-                        if (z2 && next.d() == AdLoadState.SUCCEED) {
-                            int i2 = 1;
-                            this.b = true;
-                            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                            if (this.c) {
-                                i = 2;
-                            } else {
-                                i = 1;
-                            }
-                            StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                            if (!StringUtils.isNull(next.c())) {
-                                param2.param(TiebaStatic.Params.OBJ_TO, next.c());
-                            }
-                            param2.eventStat();
-                            if (String.valueOf((int) e(next)).equals(n56.c)) {
-                                BaseVM.m(28);
-                            }
-                            hua.a(MainTabScheduleStrategy.UNSCHEDULE);
-                            if (this.f != null) {
-                                String str = null;
-                                if (next instanceof n46) {
-                                    str = ((n46) next).k;
-                                }
-                                this.f.c(str);
-                            }
-                            next.show();
-                            TbLog defaultLog = DefaultLog.getInstance();
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("开屏广告：showSplashAd, 广告渠道(5.序章GD; 6.小熊SDK): ");
-                            sb.append((int) e(next));
-                            sb.append(" ，启动类型(1=冷启动 2=热启动)：");
-                            if (this.c) {
-                                i2 = 2;
-                            }
-                            sb.append(i2);
-                            defaultLog.i("AdSdkStretagyManager", sb.toString());
-                            if (this.f != null) {
-                                this.f.d(String.valueOf((int) e(next)));
-                            }
-                            m56.d(String.valueOf((int) e(next)));
-                            return;
-                        }
-                    }
-                }
-                if (this.f != null) {
-                    this.f.a("");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                try {
+                    this.e = s();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
             }
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void m() {
+    @NonNull
+    public String o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy == null) {
-                SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
-                this.e = splashNativePolicy2;
-                boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(ks5.t(), ks5.v(), ks5.u(), ks5.j(), ks5.k());
-                PrintStream printStream = System.out;
-                printStream.println("SplashPolicy init result = " + initSplashPolicy);
-                if (!initSplashPolicy) {
-                    this.e = null;
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            if (sampleId == null) {
+                return "";
             }
-            boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(ks5.t(), ks5.v(), ks5.u(), ks5.j(), ks5.k());
-            PrintStream printStream2 = System.out;
-            printStream2.println("SplashPolicy update result = " + updateSplashConfig);
-            if (!updateSplashConfig) {
-                this.e = null;
-            }
+            return sampleId.replace(SignatureImpl.SEP, ',');
         }
+        return (String) invokeV.objValue;
     }
 
-    public void n(JSONObject jSONObject) {
+    @NonNull
+    public String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.a = JavaTypesHelper.toInt(jSONObject.optString("ad_sdk_priority"), 0);
-            SharedPrefHelper.getInstance().putInt("splash_ad_strategy_key", this.a);
-            SharedPrefHelper.getInstance().putInt("splash_origin_ad_strategy_key", JavaTypesHelper.toInt(jSONObject.optString("ad_origin_config_switch"), 1));
-            JSONObject optJSONObject = jSONObject.optJSONObject("screen_fill_data_result");
-            if (optJSONObject != null) {
-                int i = JavaTypesHelper.toInt(optJSONObject.optString("screen_fill_advertisement_first_switch", com.tencent.connect.common.Constants.DEFAULT_UIN), 1000);
-                int i2 = JavaTypesHelper.toInt(optJSONObject.optString("screen_fill_advertisement_second_switch", "1400"), 1400);
-                int i3 = JavaTypesHelper.toInt(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
-                int i4 = JavaTypesHelper.toInt(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
-                int i5 = JavaTypesHelper.toInt(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
-                SharedPrefHelper.getInstance().putInt("key_splash_new_policy_bear_enable", i3);
-                SharedPrefHelper.getInstance().putInt("key_splash_new_policy_plg_enable", i4);
-                SharedPrefHelper.getInstance().putInt("key_splash_new_policy_plg_cpc_enable", i5);
-                SharedPrefHelper.getInstance().putInt("key_splash_new_policy_first_timeout", i);
-                SharedPrefHelper.getInstance().putInt("key_splash_new_policy_second_timeout", i2);
-            }
-            m46.F(JavaTypesHelper.toInt(jSONObject.optString("bear_sid_type"), 0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (StringUtils.isNull(this.d)) {
+                try {
+                    this.d = r();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
+            int i = 0;
+            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
+            StringBuilder sb = new StringBuilder();
+            String str = "";
+            while (i < 5) {
+                String str2 = strArr[i];
+                sb.append(str);
+                sb.append(str2);
+                i++;
+                str = "_";
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

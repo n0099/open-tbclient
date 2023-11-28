@@ -1,72 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ip extends dp<TaskGuideData> {
+public final class ip {
     public static /* synthetic */ Interceptable $ic;
+    public static final ip a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fp a;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ip(fp fpVar) {
-        super(fpVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fpVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((fp) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307558, "Lcom/baidu/tieba/ip;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448307558, "Lcom/baidu/tieba/ip;");
                 return;
             }
         }
-        this.a = fpVar;
+        a = new ip();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dp
-    /* renamed from: c */
-    public TaskGuideData a(String str) {
-        InterceptResult invokeL;
+    public ip() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-                dp a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData != null) {
-                    return new TaskGuideData(optInt, taskUIData);
-                }
-                return new TaskGuideData(0, null, 3, null);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new TaskGuideData(0, null, 3, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (TaskGuideData) invokeL.objValue;
+    }
+
+    public final hp a(TaskStatus taskStatus, TaskInfo taskInfo) {
+        InterceptResult invokeLL;
+        int i;
+        TaskUIData taskUIData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
+            if (taskStatus.isFinished()) {
+                taskUIData = taskInfo.getResponse().getUi();
+                i = taskInfo.getResponse().getUiType();
+            } else if (taskStatus.isRunning()) {
+                taskUIData = taskInfo.getTaskMeter().getUi();
+                i = taskInfo.getTaskMeter().getUiType();
+            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
+                taskUIData = taskInfo.getTaskGuide().getUi();
+                i = taskInfo.getTaskGuide().getUiType();
+            } else {
+                i = -1;
+                taskUIData = null;
+            }
+            return new hp(i, taskUIData);
+        }
+        return (hp) invokeLL.objValue;
     }
 }

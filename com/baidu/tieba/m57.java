@@ -11,10 +11,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class m57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
+    public final int a;
+    public int b;
+    public final String c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -25,7 +24,7 @@ public final class m57 {
             }
             if (obj instanceof m57) {
                 m57 m57Var = (m57) obj;
-                return Intrinsics.areEqual(this.a, m57Var.a) && Intrinsics.areEqual(this.b, m57Var.b) && this.c == m57Var.c && Intrinsics.areEqual(this.d, m57Var.d);
+                return this.a == m57Var.a && this.b == m57Var.b && Intrinsics.areEqual(this.c, m57Var.c);
             }
             return false;
         }
@@ -35,79 +34,70 @@ public final class m57 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
-            String str = this.d;
-            return hashCode + (str == null ? 0 : str.hashCode());
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((this.a * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
+            return "BawuThronesData(totalRecommendNum=" + this.a + ", usedRecommendNum=" + this.b + ", bazhuLevel=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public m57(String imgUrl, String bgValue, int i, String str) {
+    public m57(int i, int i2, String bazhuLevel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), bazhuLevel};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
-        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
-        this.a = imgUrl;
-        this.b = bgValue;
-        this.c = i;
-        this.d = str;
+        Intrinsics.checkNotNullParameter(bazhuLevel, "bazhuLevel");
+        this.a = i;
+        this.b = i2;
+        this.c = bazhuLevel;
     }
 
-    public final int a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xp5;
+import com.baidu.tieba.fq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,7 +97,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
-    public static void L0(Context context, String str) {
+    public static void I0(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) && str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateForumSuccessActivity.class);
@@ -109,27 +109,27 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
-    public final void J0() {
+    public final void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09200a);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092081);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.create_bar);
             this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
             int dimens = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909f7), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimens), null, null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a13), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimens), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09252c);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0eba) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0ebb));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092501);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0eb6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0925b1);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0ec8) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0ec9));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092586);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ec4);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f09250f).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f092594).setOnClickListener(new a(this));
         }
     }
 
@@ -140,7 +140,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i);
             super.changeSkinType(i);
             getLayoutMode().onModeChanged(this.b);
-            xp5.a(getPageContext(), this.b);
+            fq5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -161,9 +161,9 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0241);
+            setContentView(R.layout.obfuscated_res_0x7f0d0247);
             initData();
-            J0();
+            H0();
         }
     }
 }

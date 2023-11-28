@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zm5 implements dm5<MissionEvent> {
+public class zm5 implements lm5<EmotionReloadEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,29 +27,16 @@ public class zm5 implements dm5<MissionEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dm5
+    @Override // com.baidu.tieba.lm5
     /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
+    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
+            if (emotionReloadEvent == null) {
                 return false;
             }
-            int i = missionEvent.pageId;
-            int i2 = missionEvent.pageType;
-            long j = missionEvent.tid;
-            String str = missionEvent.actionType;
-            if ("onResume".equals(str)) {
-                lo4.w().L(i, j);
-                lo4.w().Q(i2, j);
-            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                lo4.w().E();
-            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                lo4.w().F();
-            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                lo4.w().L(i, j);
-            }
+            MessageManager.getInstance().runTask(2004603, (Class) null);
             return true;
         }
         return invokeL.booleanValue;

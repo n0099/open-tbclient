@@ -26,8 +26,8 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gj;
 import com.baidu.tieba.hj;
+import com.baidu.tieba.ij;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild, hj {
+public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild, ij {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] Q;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdCircleImageView a;
-        public gj b;
+        public hj b;
         public Animation c;
         public Animation d;
         public final /* synthetic */ BdSwipeRefreshLayout e;
@@ -131,7 +131,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public long getCompleteAnimTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return 0L;
             }
             return invokeV.longValue;
@@ -176,9 +176,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-                    gj gjVar = this.c.b;
+                    hj hjVar = this.c.b;
                     int i = this.a;
-                    gjVar.setAlpha((int) (i + ((this.b - i) * f)));
+                    hjVar.setAlpha((int) (i + ((this.b - i) * f)));
                 }
             }
         }
@@ -200,9 +200,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             this.e = bdSwipeRefreshLayout;
             this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            gj gjVar = new gj(context, this.a);
-            this.b = gjVar;
-            gjVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            hj hjVar = new hj(context, this.a);
+            this.b = hjVar;
+            hjVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
             this.a.setImageDrawable(this.b);
             this.a.setVisibility(8);
         }
@@ -260,18 +260,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
 
         @SuppressLint({"NewApi"})
-        public final void f() {
+        public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.d = e(this.b.getAlpha(), 255);
-            }
-        }
-
-        @SuppressLint({"NewApi"})
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.c = e(this.b.getAlpha(), 76);
             }
         }
 
@@ -279,10 +271,18 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return this.a;
             }
             return (View) invokeV.objValue;
+        }
+
+        @SuppressLint({"NewApi"})
+        public final void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.c = e(this.b.getAlpha(), 76);
+            }
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -301,7 +301,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 this.b.setAlpha(76);
                 this.b.l(true);
                 if (this.b.getAlpha() > 76 && !this.e.q(this.c)) {
-                    g();
+                    h();
                 }
             }
         }
@@ -323,7 +323,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public void onReleaseToRefresh() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.b.getAlpha() < 255 && !this.e.q(this.d)) {
-                f();
+                g();
             }
         }
     }
@@ -638,7 +638,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hj
+    @Override // com.baidu.tieba.ij
     @Nullable
     public View getTarget() {
         InterceptResult invokeV;

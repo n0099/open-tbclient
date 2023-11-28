@@ -1,147 +1,84 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g3c {
+public class g3c extends l3c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SimpleDateFormat b;
-    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] g = d3c.g();
-                if (g != null && g.length > 0) {
-                    synchronized (g3c.a) {
-                        for (File file : g) {
-                            if (currentTimeMillis - file.lastModified() > com.baidu.mobads.sdk.internal.bj.e) {
-                                file.delete();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744434, "Lcom/baidu/tieba/g3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947744434, "Lcom/baidu/tieba/g3c;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g3c(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f3c.b().post(new a());
-        }
-    }
-
-    public static String c(String str) {
+    @Override // com.baidu.tieba.l3c
+    public JSONObject c(Object obj) {
         InterceptResult invokeL;
-        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (a) {
-                d = d("looper", str);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                File c2 = d3c.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    try {
-                        Log.e("LogWriter", "save: ", th);
-                        return str3;
-                    } finally {
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (Exception e) {
-                                Log.e("LogWriter", "save: ", e);
-                            }
-                        }
+                if (obj instanceof z2c) {
+                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
+                    declaredField.setAccessible(true);
+                    Object obj2 = declaredField.get(obj);
+                    if (obj2 == null) {
+                        return null;
                     }
+                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
+                    declaredField2.setAccessible(true);
+                    Object obj3 = declaredField2.get(obj2);
+                    if (obj3 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
+                    declaredField3.setAccessible(true);
+                    Object obj4 = declaredField3.get(obj3);
+                    if (obj4 == null) {
+                        return null;
+                    }
+                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
+                    declaredField4.setAccessible(true);
+                    Object obj5 = declaredField4.get(obj4);
+                    if (obj5 == null) {
+                        return null;
+                    }
+                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
+                    declaredField5.setAccessible(true);
+                    Object obj6 = declaredField5.get(obj5);
+                    if (obj6 instanceof JSONObject) {
+                        return (JSONObject) obj6;
+                    }
+                    return null;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                return null;
+            } catch (Exception unused) {
+                LogPrinter.d();
+                return null;
             }
-            return str3;
         }
-        return (String) invokeLL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

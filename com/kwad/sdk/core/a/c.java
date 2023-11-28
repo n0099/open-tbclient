@@ -12,47 +12,52 @@ public final class c {
 
     /* loaded from: classes10.dex */
     public static class a {
-        public static final int[] Xr;
-        public final boolean Xt;
-        public final boolean Xu = false;
-        public static final a Xp = new a(false, false);
-        public static final a Xq = new a(true, false);
-        public static final int[] Xs = new int[256];
+        public static final int[] asJ;
+        public final boolean asL;
+        public final boolean asM = false;
+        public static final a asH = new a(false, false);
+        public static final a asI = new a(true, false);
+        public static final int[] asK = new int[256];
 
         static {
             int[] iArr = new int[256];
-            Xr = iArr;
+            asJ = iArr;
             Arrays.fill(iArr, -1);
-            for (int i = 0; i < b.Xx.length; i++) {
-                Xr[b.Xx[i]] = i;
+            for (int i = 0; i < b.asP.length; i++) {
+                asJ[b.asP[i]] = i;
             }
-            Xr[61] = -2;
-            Arrays.fill(Xs, -1);
-            for (int i2 = 0; i2 < b.Xy.length; i2++) {
-                Xs[b.Xy[i2]] = i2;
+            asJ[61] = -2;
+            Arrays.fill(asK, -1);
+            for (int i2 = 0; i2 < b.asQ.length; i2++) {
+                asK[b.asQ[i2]] = i2;
             }
-            Xs[61] = -2;
+            asK[61] = -2;
         }
 
         public a(boolean z, boolean z2) {
-            this.Xt = z;
+            this.asL = z;
         }
 
         private int a(byte[] bArr, int i, int i2) {
+            int[] iArr;
             int i3;
-            int[] iArr = this.Xt ? Xs : Xr;
+            if (this.asL) {
+                iArr = asK;
+            } else {
+                iArr = asJ;
+            }
             int i4 = i2 + 0;
             int i5 = 0;
             if (i4 == 0) {
                 return 0;
             }
             if (i4 < 2) {
-                if (this.Xu && iArr[0] == -1) {
+                if (this.asM && iArr[0] == -1) {
                     return 0;
                 }
                 throw new IllegalArgumentException("Input byte[] should at least have 2 bytes for base64 bytes");
             }
-            if (this.Xu) {
+            if (this.asM) {
                 int i6 = 0;
                 while (true) {
                     if (i >= i2) {
@@ -108,7 +113,7 @@ public final class c {
             if (r12 >= r13) goto L39;
          */
         /* JADX WARN: Code restructure failed: missing block: B:41:0x00a0, code lost:
-            if (r10.Xu == false) goto L38;
+            if (r10.asM == false) goto L38;
          */
         /* JADX WARN: Code restructure failed: missing block: B:42:0x00a2, code lost:
             r14 = r12 + 1;
@@ -135,7 +140,12 @@ public final class c {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         private int a(byte[] bArr, int i, int i2, byte[] bArr2) {
-            int[] iArr = this.Xt ? Xs : Xr;
+            int[] iArr;
+            if (this.asL) {
+                iArr = asK;
+            } else {
+                iArr = asJ;
+            }
             int i3 = 0;
             int i4 = 18;
             int i5 = 0;
@@ -145,7 +155,19 @@ public final class c {
                 }
                 int i6 = i + 1;
                 int i7 = iArr[bArr[i] & 255];
-                if (i7 >= 0) {
+                if (i7 < 0) {
+                    if (i7 == -2) {
+                        if (i4 == 6) {
+                            if (i6 != i2) {
+                                i = i6 + 1;
+                            }
+                            throw new IllegalArgumentException("Input byte array has wrong 4-byte ending unit");
+                        }
+                        i = i6;
+                    } else if (!this.asM) {
+                        throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i6 - 1], 16));
+                    }
+                } else {
                     int i8 = (i7 << i4) | i3;
                     i4 -= 6;
                     if (i4 < 0) {
@@ -160,16 +182,6 @@ public final class c {
                     } else {
                         i3 = i8;
                     }
-                } else if (i7 == -2) {
-                    if (i4 == 6) {
-                        if (i6 != i2) {
-                            i = i6 + 1;
-                        }
-                        throw new IllegalArgumentException("Input byte array has wrong 4-byte ending unit");
-                    }
-                    i = i6;
-                } else if (!this.Xu) {
-                    throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i6 - 1], 16));
                 }
                 i = i6;
             }
@@ -183,43 +195,55 @@ public final class c {
             int a = a(bArr, 0, bArr.length);
             byte[] bArr2 = new byte[a];
             int a2 = a(bArr, 0, bArr.length, bArr2);
-            return a2 != a ? Arrays.copyOf(bArr2, a2) : bArr2;
+            if (a2 != a) {
+                return Arrays.copyOf(bArr2, a2);
+            }
+            return bArr2;
         }
+    }
+
+    public static b Ci() {
+        return b.asN;
+    }
+
+    public static b Cj() {
+        return b.asO;
+    }
+
+    public static a Ck() {
+        return a.asH;
+    }
+
+    public static a Cl() {
+        return a.asI;
     }
 
     /* loaded from: classes10.dex */
     public static class b {
-        public static final b Xv = new b(false, null, -1, true);
-        public static final b Xw = new b(true, null, -1, false);
-        public static final char[] Xx = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
-        public static final char[] Xy = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
-        public final boolean XB;
-        public final boolean Xt;
-        public final byte[] Xz = null;
-        public final int XA = -1;
+        public static final b asN = new b(false, null, -1, true);
+        public static final b asO = new b(true, null, -1, false);
+        public static final char[] asP = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
+        public static final char[] asQ = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
+        public final boolean asL;
+        public final byte[] asR = null;
+        public final int asS = -1;
+        public final boolean asT;
 
         public b(boolean z, byte[] bArr, int i, boolean z2) {
-            this.Xt = z;
-            this.XB = z2;
-        }
-
-        private final int az(int i) {
-            int i2;
-            if (this.XB) {
-                i2 = ((i + 2) / 3) * 4;
-            } else {
-                int i3 = i % 3;
-                i2 = ((i / 3) * 4) + (i3 == 0 ? 0 : i3 + 1);
-            }
-            int i4 = this.XA;
-            return i4 > 0 ? i2 + (((i2 - 1) / i4) * this.Xz.length) : i2;
+            this.asL = z;
+            this.asT = z2;
         }
 
         private int b(byte[] bArr, int i, int i2, byte[] bArr2) {
-            char[] cArr = this.Xt ? Xy : Xx;
+            char[] cArr;
+            if (this.asL) {
+                cArr = asQ;
+            } else {
+                cArr = asP;
+            }
             int i3 = ((i2 + 0) / 3) * 3;
             int i4 = i3 + 0;
-            int i5 = this.XA;
+            int i5 = this.asS;
             if (i5 > 0 && i3 > (i5 / 4) * 3) {
                 i3 = (i5 / 4) * 3;
             }
@@ -247,8 +271,8 @@ public final class c {
                 }
                 int i18 = ((min - i6) / 3) * 4;
                 i7 += i18;
-                if (i18 == this.XA && min < i2) {
-                    byte[] bArr3 = this.Xz;
+                if (i18 == this.asS && min < i2) {
+                    byte[] bArr3 = this.asR;
                     int length = bArr3.length;
                     int i19 = 0;
                     while (i19 < length) {
@@ -267,7 +291,7 @@ public final class c {
                 if (i20 == i2) {
                     int i23 = i22 + 1;
                     bArr2[i22] = (byte) cArr[(i21 << 4) & 63];
-                    if (this.XB) {
+                    if (this.asT) {
                         int i24 = i23 + 1;
                         bArr2[i23] = 61;
                         int i25 = i24 + 1;
@@ -281,7 +305,7 @@ public final class c {
                 bArr2[i22] = (byte) cArr[((i21 << 4) & 63) | (i26 >> 4)];
                 int i28 = i27 + 1;
                 bArr2[i27] = (byte) cArr[(i26 << 2) & 63];
-                if (this.XB) {
+                if (this.asT) {
                     int i29 = i28 + 1;
                     bArr2[i28] = 61;
                     return i29;
@@ -291,37 +315,65 @@ public final class c {
             return i7;
         }
 
+        private final int cq(int i) {
+            int i2;
+            int i3;
+            if (this.asT) {
+                i3 = ((i + 2) / 3) * 4;
+            } else {
+                int i4 = i % 3;
+                int i5 = (i / 3) * 4;
+                if (i4 == 0) {
+                    i2 = 0;
+                } else {
+                    i2 = i4 + 1;
+                }
+                i3 = i5 + i2;
+            }
+            int i6 = this.asS;
+            if (i6 > 0) {
+                return i3 + (((i3 - 1) / i6) * this.asR.length);
+            }
+            return i3;
+        }
+
         public final byte[] encode(byte[] bArr) {
-            int az = az(bArr.length);
-            byte[] bArr2 = new byte[az];
+            int cq = cq(bArr.length);
+            byte[] bArr2 = new byte[cq];
             int b = b(bArr, 0, bArr.length, bArr2);
-            return b != az ? Arrays.copyOf(bArr2, b) : bArr2;
+            if (b != cq) {
+                return Arrays.copyOf(bArr2, b);
+            }
+            return bArr2;
+        }
+
+        public final String encodeToString(byte[] bArr) {
+            byte[] encode = encode(bArr);
+            return new String(encode, 0, 0, encode.length);
         }
     }
 
-    public static String bN(String str) {
+    public static String dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        return "sDAkk/dS" + new String(tg().encode(str.getBytes()), com.kwad.sdk.crash.utils.a.UTF_8);
+        return "sDAkk/dS" + new String(Ci().encode(str.getBytes()), com.kwad.sdk.crash.utils.a.UTF_8);
     }
 
-    public static String bO(String str) {
-        return TextUtils.isEmpty(str) ? "" : str.startsWith("sDAkk/dS") ? new String(th().decode(str.substring(8)), com.kwad.sdk.crash.utils.a.UTF_8) : str;
+    public static String dk(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        if (str.startsWith("sDAkk/dS")) {
+            return new String(Ck().decode(str.substring(8)), com.kwad.sdk.crash.utils.a.UTF_8);
+        }
+        return str;
     }
 
-    public static boolean bP(String str) {
+    public static boolean dl(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.startsWith("sDAkk/dS");
-    }
-
-    public static b tg() {
-        return b.Xv;
-    }
-
-    public static a th() {
-        return a.Xp;
     }
 }

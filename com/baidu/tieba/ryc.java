@@ -4,21 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Guess;
+import tbclient.FrsBottomActivity;
+import tbclient.FrsBottomActivityBase;
 /* loaded from: classes8.dex */
-public class ryc extends qoc {
+public class ryc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Guess guess) {
+    public static JSONObject b(@NonNull FrsBottomActivityBase frsBottomActivityBase) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, guess)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivityBase)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "title", guess.title);
-            qoc.a(jSONObject, "url", guess.url);
+            if (frsBottomActivityBase.activity_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FrsBottomActivity frsBottomActivity : frsBottomActivityBase.activity_list) {
+                    jSONArray.put(syc.b(frsBottomActivity));
+                }
+                ltc.a(jSONObject, "activity_list", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

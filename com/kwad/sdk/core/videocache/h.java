@@ -1,9 +1,8 @@
 package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
-import com.kwad.sdk.core.network.o;
-import com.kwad.sdk.core.network.q;
-import com.kwad.sdk.utils.am;
+import com.kwad.sdk.core.network.r;
+import com.kwad.sdk.utils.ap;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,38 +11,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 /* loaded from: classes10.dex */
-public final class h implements l {
-    public m aeG;
-    public HttpURLConnection aeH;
-    public InputStream aeI;
-    public final com.kwad.sdk.core.videocache.c.b aek;
-    public final com.kwad.sdk.core.videocache.a.b ael;
+public final class h extends p {
+    public final com.kwad.sdk.core.videocache.d.c aAG;
+    public final com.kwad.sdk.core.videocache.b.b aAH;
+    public n aBe;
+    public HttpURLConnection aBf;
+    public InputStream aBg;
 
     public h(h hVar) {
-        this.aeG = hVar.aeG;
-        this.aek = hVar.aek;
-        this.ael = hVar.ael;
+        this.aBe = hVar.aBe;
+        this.aAG = hVar.aAG;
+        this.aAH = hVar.aAH;
     }
 
-    public h(String str, com.kwad.sdk.core.videocache.c.b bVar, com.kwad.sdk.core.videocache.a.b bVar2) {
-        this.aek = (com.kwad.sdk.core.videocache.c.b) am.checkNotNull(bVar);
-        this.ael = (com.kwad.sdk.core.videocache.a.b) am.checkNotNull(bVar2);
-        m cJ = bVar.cJ(str);
-        this.aeG = cJ == null ? new m(str, -2147483648L, k.cH(str)) : cJ;
-    }
-
-    private long a(HttpURLConnection httpURLConnection, long j, int i) {
-        long b = b(httpURLConnection);
-        return i == 200 ? b : i == 206 ? b + j : this.aeG.aeV;
-    }
-
-    private void a(HttpURLConnection httpURLConnection, String str) {
-        for (Map.Entry<String, String> entry : this.ael.vZ().entrySet()) {
-            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public static long b(HttpURLConnection httpURLConnection) {
+    public static long d(HttpURLConnection httpURLConnection) {
         String headerField = httpURLConnection.getHeaderField("Content-Length");
         if (headerField == null) {
             return -1L;
@@ -51,49 +32,22 @@ public final class h implements l {
         return Long.parseLong(headerField);
     }
 
-    private HttpURLConnection b(long j, int i) {
-        String str;
-        HttpURLConnection httpURLConnection;
-        boolean z;
-        String str2 = this.aeG.url;
-        int i2 = 0;
-        do {
-            StringBuilder sb = new StringBuilder("Open connection ");
-            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i3 > 0) {
-                str = " with offset " + j;
-            } else {
-                str = "";
-            }
-            sb.append(str);
-            sb.append(" to ");
-            sb.append(str2);
-            com.kwad.sdk.core.e.b.d("HttpUrlSource", sb.toString());
-            httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
-            q.wrapHttpURLConnection(httpURLConnection);
-            a(httpURLConnection, str2);
-            if (i3 > 0) {
-                httpURLConnection.setRequestProperty("Range", "bytes=" + j + "-");
-            }
-            if (i > 0) {
-                httpURLConnection.setConnectTimeout(i);
-                httpURLConnection.setReadTimeout(i);
-            }
-            httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
-            httpURLConnection.setRequestProperty("BrowserUa", o.tD());
-            httpURLConnection.setRequestProperty("SystemUa", o.tC());
-            int responseCode = httpURLConnection.getResponseCode();
-            z = responseCode == 301 || responseCode == 302 || responseCode == 303;
-            if (z) {
-                str2 = httpURLConnection.getHeaderField("Location");
-                i2++;
-                httpURLConnection.disconnect();
-            }
-            if (i2 > 5) {
-                throw new ProxyCacheException("Too many redirects: " + i2);
-            }
-        } while (z);
-        return httpURLConnection;
+    public h(String str, com.kwad.sdk.core.videocache.d.c cVar, com.kwad.sdk.core.videocache.b.b bVar) {
+        this.aAG = (com.kwad.sdk.core.videocache.d.c) ap.checkNotNull(cVar);
+        this.aAH = (com.kwad.sdk.core.videocache.b.b) ap.checkNotNull(bVar);
+        n eo = cVar.eo(str);
+        this.aBe = eo == null ? new n(str, -2147483648L, l.em(str)) : eo;
+    }
+
+    private long a(HttpURLConnection httpURLConnection, long j, int i) {
+        long d = d(httpURLConnection);
+        if (i == 200) {
+            return d;
+        }
+        if (i == 206) {
+            return d + j;
+        }
+        return this.aBe.aBu;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x005e */
@@ -107,25 +61,25 @@ public final class h implements l {
     /* JADX WARN: Type inference failed for: r0v5, types: [java.net.URLConnection] */
     /* JADX WARN: Type inference failed for: r0v6 */
     /* JADX WARN: Type inference failed for: r0v8, types: [java.net.URLConnection] */
-    private void vR() {
+    private void Fo() {
         HttpURLConnection httpURLConnection;
-        com.kwad.sdk.core.e.b.d("HttpUrlSource", "Read content info from " + this.aeG.url);
+        com.kwad.sdk.core.e.c.d("HttpUrlSource", "Read content info from " + this.aBe.url);
         ?? r0 = 10000;
         InputStream inputStream = null;
         try {
             try {
-                httpURLConnection = b(0L, 10000);
+                httpURLConnection = c(0L, 10000);
                 try {
-                    long b = b(httpURLConnection);
+                    long d = d(httpURLConnection);
                     String contentType = httpURLConnection.getContentType();
                     inputStream = httpURLConnection.getInputStream();
-                    m mVar = new m(this.aeG.url, b, contentType);
-                    this.aeG = mVar;
-                    this.aek.a(mVar.url, mVar);
-                    com.kwad.sdk.core.e.b.d("HttpUrlSource", "Source info fetched: " + this.aeG);
+                    n nVar = new n(this.aBe.url, d, contentType);
+                    this.aBe = nVar;
+                    this.aAG.a(nVar.url, nVar);
+                    com.kwad.sdk.core.e.c.d("HttpUrlSource", "Source info fetched: " + this.aBe);
                     r0 = httpURLConnection;
                 } catch (IOException unused) {
-                    com.kwad.sdk.core.e.b.e("HttpUrlSource", "Error fetching info from " + this.aeG.url);
+                    com.kwad.sdk.core.e.c.e("HttpUrlSource", "Error fetching info from " + this.aBe.url);
                     r0 = httpURLConnection;
                     com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
                     com.kwad.sdk.crash.utils.b.a(r0);
@@ -149,29 +103,33 @@ public final class h implements l {
         com.kwad.sdk.crash.utils.b.a(r0);
     }
 
-    @Override // com.kwad.sdk.core.videocache.l
-    public final void I(long j) {
-        try {
-            HttpURLConnection b = b(j, -1);
-            this.aeH = b;
-            String contentType = b.getContentType();
-            this.aeI = new BufferedInputStream(this.aeH.getInputStream(), 8192);
-            m mVar = new m(this.aeG.url, a(this.aeH, j, this.aeH.getResponseCode()), contentType);
-            this.aeG = mVar;
-            this.aek.a(mVar.url, mVar);
-        } catch (IOException e) {
-            throw new ProxyCacheException("Error opening connection for " + this.aeG.url + " with offset " + j, e);
+    private void Fq() {
+        n eo;
+        com.kwad.sdk.core.videocache.d.c cVar = this.aAG;
+        if (cVar != null && (cVar instanceof com.kwad.sdk.core.videocache.d.b) && (eo = cVar.eo(getUrl())) != null && !TextUtils.isEmpty(eo.aBv) && eo.aBu != -2147483648L) {
+            this.aBe = eo;
         }
     }
 
-    @Override // com.kwad.sdk.core.videocache.l
+    @Override // com.kwad.sdk.core.videocache.p
+    public final synchronized String Fp() {
+        if (TextUtils.isEmpty(this.aBe.aBv)) {
+            Fq();
+        }
+        if (TextUtils.isEmpty(this.aBe.aBv)) {
+            Fo();
+        }
+        return this.aBe.aBv;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
     public final void close() {
-        HttpURLConnection httpURLConnection = this.aeH;
+        HttpURLConnection httpURLConnection = this.aBf;
         if (httpURLConnection != null) {
             try {
                 httpURLConnection.disconnect();
             } catch (ArrayIndexOutOfBoundsException unused) {
-                com.kwad.sdk.core.e.b.e("HttpUrlSource", "Error closing connection correctly. Should happen only on Android L. If anybody know how to fix it, please visit https://github.com/danikula/AndroidVideoCache/issues/88. Until good solution is not know, just ignore this issue.");
+                com.kwad.sdk.core.e.c.e("HttpUrlSource", "Error closing connection correctly. Should happen only on Android L. If anybody know how to fix it, please visit https://github.com/danikula/AndroidVideoCache/issues/88. Until good solution is not know, just ignore this issue.");
             } catch (IllegalArgumentException e) {
                 e = e;
                 throw new RuntimeException("Wait... but why? WTF!? Really shouldn't happen any more after fixing https://github.com/danikula/AndroidVideoCache/issues/43. If you read it on your device log, please, notify me danikula@gmail.com or create issue here https://github.com/danikula/AndroidVideoCache/issues.", e);
@@ -182,37 +140,107 @@ public final class h implements l {
         }
     }
 
-    @Override // com.kwad.sdk.core.videocache.l
+    @Override // com.kwad.sdk.core.videocache.p
+    public final String getUrl() {
+        return this.aBe.url;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
     public final synchronized long length() {
-        if (this.aeG.aeV == -2147483648L) {
-            vR();
+        if (this.aBe.aBu == -2147483648L) {
+            Fq();
         }
-        return this.aeG.aeV;
+        if (this.aBe.aBu == -2147483648L) {
+            Fo();
+        }
+        return this.aBe.aBu;
     }
 
-    @Override // com.kwad.sdk.core.videocache.l
-    public final int read(byte[] bArr) {
-        InputStream inputStream = this.aeI;
-        if (inputStream == null) {
-            throw new ProxyCacheException("Error reading data from " + this.aeG.url + ": connection is absent!");
-        }
-        try {
-            return inputStream.read(bArr, 0, 8192);
-        } catch (InterruptedIOException e) {
-            throw new InterruptedProxyCacheException("Reading source " + this.aeG.url + " is interrupted", e);
-        } catch (IOException e2) {
-            throw new ProxyCacheException("Error reading data from " + this.aeG.url, e2);
-        }
-    }
-
+    @Override // com.kwad.sdk.core.videocache.p
     public final String toString() {
-        return "HttpUrlSource{sourceInfo='" + this.aeG + "}";
+        return "HttpUrlSource{sourceInfo='" + this.aBe + "}";
     }
 
-    public final synchronized String vS() {
-        if (TextUtils.isEmpty(this.aeG.aeW)) {
-            vR();
+    private void a(HttpURLConnection httpURLConnection, String str) {
+        for (Map.Entry<String, String> entry : this.aAH.Fx().entrySet()) {
+            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
-        return this.aeG.aeW;
+    }
+
+    private HttpURLConnection c(long j, int i) {
+        String str;
+        HttpURLConnection httpURLConnection;
+        boolean z;
+        String str2 = this.aBe.url;
+        int i2 = 0;
+        do {
+            StringBuilder sb = new StringBuilder("Open connection ");
+            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i3 > 0) {
+                str = " with offset " + j;
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            sb.append(" to ");
+            sb.append(str2);
+            com.kwad.sdk.core.e.c.d("HttpUrlSource", sb.toString());
+            httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            r.wrapHttpURLConnection(httpURLConnection);
+            a(httpURLConnection, str2);
+            if (i3 > 0) {
+                httpURLConnection.setRequestProperty("Range", "bytes=" + j + "-");
+            }
+            if (i > 0) {
+                httpURLConnection.setConnectTimeout(i);
+                httpURLConnection.setReadTimeout(i);
+            }
+            com.kwad.sdk.core.network.p.b(httpURLConnection);
+            int responseCode = httpURLConnection.getResponseCode();
+            if (responseCode != 301 && responseCode != 302 && responseCode != 303) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                str2 = httpURLConnection.getHeaderField("Location");
+                i2++;
+                httpURLConnection.disconnect();
+            }
+            if (i2 > 5) {
+                throw new ProxyCacheException("Too many redirects: " + i2);
+            }
+        } while (z);
+        return httpURLConnection;
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
+    public final void al(long j) {
+        try {
+            HttpURLConnection c = c(j, -1);
+            this.aBf = c;
+            String contentType = c.getContentType();
+            this.aBg = new BufferedInputStream(this.aBf.getInputStream(), 1024);
+            n nVar = new n(this.aBe.url, a(this.aBf, j, this.aBf.getResponseCode()), contentType);
+            this.aBe = nVar;
+            this.aAG.a(nVar.url, nVar);
+        } catch (IOException e) {
+            throw new ProxyCacheException("Error opening connection for " + this.aBe.url + " with offset " + j, e);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.videocache.m
+    public final int read(byte[] bArr) {
+        InputStream inputStream = this.aBg;
+        if (inputStream != null) {
+            try {
+                return inputStream.read(bArr, 0, 1024);
+            } catch (InterruptedIOException e) {
+                throw new InterruptedProxyCacheException("Reading source " + this.aBe.url + " is interrupted", e);
+            } catch (IOException e2) {
+                throw new ProxyCacheException("Error reading data from " + this.aBe.url, e2);
+            }
+        }
+        throw new ProxyCacheException("Error reading data from " + this.aBe.url + ": connection is absent!");
     }
 }

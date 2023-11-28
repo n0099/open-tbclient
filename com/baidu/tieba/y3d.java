@@ -1,32 +1,37 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.appsearchlib.Info;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SubPost;
-import tbclient.SubPostList;
+import tbclient.HotUserRankEntry;
+import tbclient.ShortUserInfo;
 /* loaded from: classes9.dex */
-public class y3d extends qoc {
+public class y3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SubPost subPost) {
+    public static JSONObject b(@NonNull HotUserRankEntry hotUserRankEntry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subPost)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotUserRankEntry)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "pid", subPost.pid);
-            if (subPost.sub_post_list != null) {
+            if (hotUserRankEntry.hot_user != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (SubPostList subPostList : subPost.sub_post_list) {
-                    jSONArray.put(z3d.b(subPostList));
+                for (ShortUserInfo shortUserInfo : hotUserRankEntry.hot_user) {
+                    jSONArray.put(d8d.b(shortUserInfo));
                 }
-                qoc.a(jSONObject, "sub_post_list", jSONArray);
+                ltc.a(jSONObject, "hot_user", jSONArray);
             }
+            ltc.a(jSONObject, Info.kBaiduModuleKey, hotUserRankEntry.module_name);
+            ltc.a(jSONObject, "module_icon", hotUserRankEntry.module_icon);
+            ltc.a(jSONObject, "today_rank", hotUserRankEntry.today_rank);
+            ltc.a(jSONObject, "yesterday_rank", hotUserRankEntry.yesterday_rank);
+            ltc.a(jSONObject, "is_in_rank", hotUserRankEntry.is_in_rank);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

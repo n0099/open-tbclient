@@ -1,78 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.DegradeData;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
-import com.baidu.searchbox.pms.db.PackageManager;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.utils.DebugUtils;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class gh extends DefaultPackageCallback {
+public class gh extends DefaultDownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DefaultDownloadCallback a;
-    public ih b;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ gh b;
-
-        public a(gh ghVar, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghVar, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ghVar;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (PackageInfo packageInfo : this.a) {
-                    if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                        this.b.a.onDownloadSuccess(packageInfo, null);
-                    }
-                }
-            }
-        }
-    }
 
     public gh(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -92,164 +38,50 @@ public class gh extends DefaultPackageCallback {
         this.a = defaultDownloadCallback;
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onDegradeData(DegradeData degradeData) {
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, degradeData) == null) {
-            super.onDegradeData(degradeData);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
+            return;
+        }
+        BdLog.e(errorInfo.errorMsg);
+        DefaultDownloadCallback defaultDownloadCallback = this.a;
+        if (defaultDownloadCallback != null) {
+            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
         }
     }
 
-    public gh(DefaultDownloadCallback defaultDownloadCallback, ih ihVar) {
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback, ihVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = defaultDownloadCallback;
-        this.b = ihVar;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (PackageInfo packageInfo : PackageManager.getFinishedPackageInfo("137", null).values()) {
-                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                    if (!packageInfo.name.contains(".so")) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo.name;
-                        resHashMap.put(str, hh.a(str));
-                    } else if (!new File(hh.b(packageInfo.name)).exists()) {
-                        DownloadOptions downloadOptions = new DownloadOptions();
-                        downloadOptions.fileDir = hh.a(packageInfo.name);
-                        zg.b(packageInfo.name, packageInfo.toString(), "re download start");
-                        PmsManager.getInstance().download(packageInfo, downloadOptions, new fh(this.a));
-                    } else if (jh.a(BdBaseApplication.getInst().getContext(), hh.a(packageInfo.name))) {
-                        zg.b(packageInfo.name, packageInfo.toString(), "load success1");
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
+            File file = new File(packageInfo.filePath);
+            if (file.exists() && file.isFile()) {
+                String b = ih.b(packageInfo.name);
+                File file2 = new File(b);
+                if (file2.exists() && !file2.delete()) {
+                    return;
+                }
+                ah.b(packageInfo.name, packageInfo.toString(), "download success");
+                if (file.renameTo(file2)) {
+                    if (b.contains(".so")) {
+                        if (kh.a(BdBaseApplication.getInst().getContext(), ih.a(packageInfo.name))) {
+                            ah.b(packageInfo.name, packageInfo.toString(), "load success2");
+                            ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                            String str = packageInfo.name;
+                            resHashMap.put(str, ih.a(str));
+                        }
+                        ((zg) ServiceManager.getService(zg.a)).a(packageInfo.name);
+                    } else {
                         ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
                         String str2 = packageInfo.name;
-                        resHashMap2.put(str2, hh.a(str2));
-                        ih ihVar = this.b;
-                        if (ihVar != null) {
-                            ihVar.onSoFileLoaded(packageInfo.name);
-                        }
+                        resHashMap2.put(str2, ih.a(str2));
+                    }
+                    DefaultDownloadCallback defaultDownloadCallback = this.a;
+                    if (defaultDownloadCallback != null) {
+                        defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
                     }
                 }
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onFetchError(ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, errorInfo) != null) || errorInfo == null) {
-            return;
-        }
-        BdBaseApplication.getInst().getResHashMap().clear();
-        b();
-        TbLog defaultLog = DefaultLog.getInstance();
-        defaultLog.i("PMS", "onFetchError: " + BdBaseApplication.getInst().getResHashMap().toString());
-        BdLog.e(errorInfo.errorMsg);
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onResultData(ResultData resultData) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, resultData) != null) || resultData == null) {
-            return;
-        }
-        DebugUtils.log(resultData);
-        ArrayList<PackageInfo> arrayList = new ArrayList();
-        arrayList.addAll(resultData.addList);
-        arrayList.addAll(resultData.updateList);
-        if (!arrayList.isEmpty()) {
-            z = false;
-            for (PackageInfo packageInfo : arrayList) {
-                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                    DownloadOptions downloadOptions = new DownloadOptions();
-                    downloadOptions.fileDir = hh.a(packageInfo.name);
-                    zg.b(packageInfo.name, packageInfo.toString(), "download start");
-                    PmsManager.getInstance().download(packageInfo, downloadOptions, new fh(this.a));
-                    z = true;
-                }
-            }
-        } else {
-            z = false;
-        }
-        arrayList.clear();
-        arrayList.addAll(resultData.configChangeList);
-        arrayList.addAll(resultData.filterList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo2 : arrayList) {
-                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
-                    if (!packageInfo2.name.contains(".so")) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo2.name;
-                        resHashMap.put(str, hh.a(str));
-                    } else if (!new File(hh.b(packageInfo2.name)).exists()) {
-                        DownloadOptions downloadOptions2 = new DownloadOptions();
-                        downloadOptions2.fileDir = hh.a(packageInfo2.name);
-                        zg.b(packageInfo2.name, packageInfo2.toString(), "re download start");
-                        PmsManager.getInstance().download(packageInfo2, downloadOptions2, new fh(this.a));
-                    } else if (jh.a(BdBaseApplication.getInst().getContext(), hh.a(packageInfo2.name))) {
-                        zg.b(packageInfo2.name, packageInfo2.toString(), "load success1");
-                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo2.name;
-                        resHashMap2.put(str2, hh.a(str2));
-                        ih ihVar = this.b;
-                        if (ihVar != null) {
-                            ihVar.onSoFileLoaded(packageInfo2.name);
-                        }
-                    }
-                }
-            }
-            if (!z && this.b == null && this.a != null) {
-                SafeHandler.getInst().post(new a(this, arrayList));
-            }
-        }
-        TbLog defaultLog = DefaultLog.getInstance();
-        defaultLog.i("PMS", "检索数据库前Map：" + BdBaseApplication.getInst().getResHashMap().toString());
-        b();
-        TbLog defaultLog2 = DefaultLog.getInstance();
-        defaultLog2.i("PMS", "检索数据库后Map：" + BdBaseApplication.getInst().getResHashMap().toString());
-        if (!resultData.invalidList.isEmpty()) {
-            ArrayList arrayList2 = new ArrayList();
-            Map<String, PackageInfo> finishedPackageInfo = PackageManager.getFinishedPackageInfo("137", null);
-            for (PackageInfo packageInfo3 : resultData.invalidList) {
-                boolean z2 = true;
-                for (PackageInfo packageInfo4 : finishedPackageInfo.values()) {
-                    if (!TextUtils.isEmpty(packageInfo3.name) && !TextUtils.isEmpty(packageInfo4.name) && packageInfo4.name.equals(packageInfo3.name)) {
-                        TbLog defaultLog3 = DefaultLog.getInstance();
-                        defaultLog3.i("PMS", "本地数据库中已有资源：" + packageInfo3.name);
-                        if (packageInfo4.version == packageInfo3.version) {
-                            z2 = false;
-                        }
-                    }
-                }
-                if (z2) {
-                    arrayList2.add(packageInfo3);
-                }
-            }
-            if (arrayList2.isEmpty()) {
-                return;
-            }
-            TbLog defaultLog4 = DefaultLog.getInstance();
-            defaultLog4.i("PMS", "删除已经废弃资源:" + arrayList2.toString());
-            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
-            if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
-                eh ehVar = new eh();
-                ehVar.setKey("key_res_del");
-                ehVar.execute(arrayList2);
             }
         }
     }

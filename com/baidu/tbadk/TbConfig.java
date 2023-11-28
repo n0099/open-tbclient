@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hd;
+import com.baidu.tieba.id;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,6 +65,7 @@ public class TbConfig {
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static int BIG_IMAGE_SIZE = 0;
     public static final int BIG_PHOTO_MAX_SIZE = 110;
+    public static final String BOT_PORTRAIT_FILE = "tieba_bot_portrait_image";
     public static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
     public static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
     public static final String BROADCAST_FIELD_SKIN_TYPE = "skin_type";
@@ -352,6 +353,7 @@ public class TbConfig {
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String REQUEST_FOLLOWED_FRS_LIST = "c/f/chat/commonChannel";
+    public static final String REQUEST_SPRITE_CHAT_DETAIL = "c/f/sprite/getSpriteChatDetail";
     public static final String REQUEST_SPRITE_CREATE_MEME = "c/c/chatroom/createMeme";
     public static final String REQUEST_SPRITE_LOOP = "c/f/sprite/getSpriteSpeech";
     public static final String REQUEST_SPRITE_QUERY_MEME = "c/f/chat/queryMeme";
@@ -483,6 +485,7 @@ public class TbConfig {
     public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/hybrid/godCheck?customfullscreen=1&nonavigationbar=1&skin=";
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
     public static final String URL_HOT_ACTIVITIES = "https://tieba.baidu.com/mo/q/creativeCenter?local=hots";
+    public static final String URL_HYBRID_USERGROW_SEARCH;
     public static final String URL_IMAGE_PREFIX = "https://tiebac.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/mo/q/packetpage/myPacket?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
@@ -855,6 +858,7 @@ public class TbConfig {
         USER_GROWTH_GET_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayGetUserInfo";
         URL_EXCEPTION_REPORT = TIEBA_ADDRESS + "c/s/upClientErrLog";
         URL_STATISTICS_REPORT = TIEBA_ADDRESS + "c/s/upClientMonitorLog";
+        URL_HYBRID_USERGROW_SEARCH = TIEBA_ADDRESS + "mo/q/hybrid-usergrow-search/searchGlobal";
     }
 
     public TbConfig() {
@@ -1372,7 +1376,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.B().M(i);
+                TbImageMemoryCache.w().M(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1416,7 +1420,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!hd.a()) {
+            if (!id.a()) {
                 return f2 * 0.5f;
             }
             return f2;

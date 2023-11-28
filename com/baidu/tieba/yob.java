@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
+import org.chromium.base.Log;
 /* loaded from: classes9.dex */
-public class yob implements fpb {
+public class yob implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lob a;
-    public int b;
-    public int c;
-    public boolean d;
+    public final BlockingQueue<Runnable> a;
+    public boolean b;
+    public boolean c;
+    public InterruptedIOException d;
+    public RuntimeException e;
+    public final String f;
 
-    public yob() {
+    public yob(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,127 +41,100 @@ public class yob implements fpb {
                 return;
             }
         }
-        this.d = true;
+        this.f = str;
+        this.a = new LinkedBlockingQueue();
     }
 
-    @Override // com.baidu.tieba.fpb
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public void a() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            lob lobVar = this.a;
-            if (lobVar == null || bArr == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(0);
+        }
+    }
+
+    public void quit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public void b(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            long nanoTime = System.nanoTime();
+            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
+            if (this.c) {
+                InterruptedIOException interruptedIOException = this.d;
+                if (interruptedIOException != null) {
+                    throw interruptedIOException;
+                }
+                throw this.e;
+            } else if (!this.b) {
+                this.b = true;
+                while (this.b) {
+                    if (i == 0) {
+                        try {
+                            c(false, 0L).run();
+                        } catch (InterruptedIOException e) {
+                            this.b = false;
+                            this.c = true;
+                            this.d = e;
+                            throw e;
+                        } catch (RuntimeException e2) {
+                            this.b = false;
+                            this.c = true;
+                            this.e = e2;
+                            throw e2;
+                        }
+                    } else {
+                        c(true, (convert - System.nanoTime()) + nanoTime).run();
+                    }
+                }
+            } else {
+                throw new IllegalStateException("Cannot run loop when it is already running.");
             }
-            this.b += bArr.length;
-            lobVar.putBytes(bArr, i);
-            return this.b;
         }
-        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.fpb
-    public boolean a() {
-        InterceptResult invokeV;
+    public final Runnable c(boolean z, long j) throws InterruptedIOException {
+        Runnable poll;
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (lob) nsb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            try {
+                if (!z) {
+                    poll = this.a.take();
+                } else {
+                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
+                }
+                if (poll != null) {
+                    return poll;
+                }
+                Log.e("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f);
+                throw new SocketTimeoutException();
+            } catch (InterruptedException e) {
+                InterruptedIOException interruptedIOException = new InterruptedIOException();
+                interruptedIOException.initCause(e);
+                throw interruptedIOException;
             }
-            lob lobVar = this.a;
-            if (lobVar != null) {
-                lobVar.initVoiceChanger(i, i2, i3, i4);
+        }
+        return (Runnable) invokeCommon.objValue;
+    }
+
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) throws RejectedExecutionException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            if (runnable != null) {
+                try {
+                    this.a.put(runnable);
+                    return;
+                } catch (InterruptedException e) {
+                    throw new RejectedExecutionException(e);
+                }
             }
-            return this.a != null;
+            throw new IllegalArgumentException();
         }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            lob lobVar = this.a;
-            if (lobVar == null || lobVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(int[] iArr) {
-        lob lobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (lobVar = this.a) == null) {
-            return;
-        }
-        lobVar.setVoiceChangeType(iArr);
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public void c() {
-        lob lobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lobVar = this.a) == null) {
-            return;
-        }
-        lobVar.flush();
-    }
-
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        lob lobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (lobVar = this.a) == null) {
-            return;
-        }
-        lobVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public void d() {
-        lob lobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (lobVar = this.a) == null) {
-            return;
-        }
-        lobVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.fpb
-    public void e() {
-        lob lobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (lobVar = this.a) == null) {
-            return;
-        }
-        lobVar.clearQueues();
     }
 }

@@ -55,17 +55,17 @@ public final class CardMutiImageViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0910ea;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910ea);
+            int i = R.id.obfuscated_res_0x7f091112;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091112);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f0910f8;
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f8);
+                i = R.id.obfuscated_res_0x7f091120;
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091120);
                 if (tbImageView2 != null) {
-                    i = R.id.obfuscated_res_0x7f0910fa;
-                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910fa);
+                    i = R.id.obfuscated_res_0x7f091122;
+                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091122);
                     if (tbImageView3 != null) {
-                        i = R.id.obfuscated_res_0x7f091141;
-                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091141);
+                        i = R.id.obfuscated_res_0x7f091169;
+                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091169);
                         if (textView != null) {
                             return new CardMutiImageViewBinding(view2, tbImageView, tbImageView2, tbImageView3, textView);
                         }
@@ -83,7 +83,7 @@ public final class CardMutiImageViewBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, layoutInflater, viewGroup)) == null) {
             if (viewGroup != null) {
-                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d01d6, viewGroup);
+                layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d01dc, viewGroup);
                 return a(viewGroup);
             }
             throw new NullPointerException("parent");

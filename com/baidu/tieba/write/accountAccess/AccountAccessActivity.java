@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.c9b;
-import com.baidu.tieba.d9b;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.ydb;
+import com.baidu.tieba.zdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9b a;
-    public c9b b;
+    public zdb a;
+    public ydb b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -95,7 +95,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
-    public String J0() {
+    public String H0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new d9b(this);
+            this.a = new zdb(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -151,10 +151,10 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.k0(z);
                 }
-                c9b c9bVar = new c9b(this.a, this.c);
-                this.b = c9bVar;
-                this.a.m(c9bVar);
-                this.b.h(J0());
+                ydb ydbVar = new ydb(this.a, this.c);
+                this.b = ydbVar;
+                this.a.m(ydbVar);
+                this.b.h(H0());
                 return;
             }
             finish();

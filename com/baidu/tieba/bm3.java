@@ -1,37 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static dm3 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final dm3 a;
 
-    @NonNull
-    public static dm3 a() {
-        InterceptResult invokeV;
+    public bm3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new dm3("0");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return (dm3) invokeV.objValue;
+        this.a = new dm3();
     }
 
-    public static void b(@NonNull String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            dm3 dm3Var = a;
-            if (dm3Var == null) {
-                a = new dm3(str);
-            } else {
-                dm3Var.n(str);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
         }
     }
 }

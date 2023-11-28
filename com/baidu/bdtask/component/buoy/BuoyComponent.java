@@ -14,17 +14,17 @@ import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.al;
-import com.baidu.tieba.bq;
-import com.baidu.tieba.br;
-import com.baidu.tieba.cl;
-import com.baidu.tieba.co;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.bl;
 import com.baidu.tieba.cq;
-import com.baidu.tieba.gp;
+import com.baidu.tieba.cr;
+import com.baidu.tieba.dl;
+import com.baidu.tieba.dq;
 import com.baidu.tieba.hp;
-import com.baidu.tieba.ql;
-import com.baidu.tieba.sp;
-import com.baidu.tieba.vo;
+import com.baidu.tieba.ip;
+import com.baidu.tieba.rl;
+import com.baidu.tieba.tp;
+import com.baidu.tieba.wo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,9 +39,9 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b&\u0018\u0000 F2\u00020\u0001:\u0001FB+\u0012\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00020>\u0012\u0004\u0012\u00020?0=\u0012\u0006\u0010B\u001a\u00020?\u0012\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\bD\u0010EJ!\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000b\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000f\u0010\nJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0018\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u001b\u0010\u001cJ\u001f\u0010\u001d\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u001d\u0010\u0019J\u0017\u0010\u001e\u001a\u00020\f2\u0006\u0010\u0016\u001a\u00020\u0015H\u0014¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010 \u001a\u00020\fH\u0016¢\u0006\u0004\b \u0010!J\u001f\u0010\"\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0006H\u0014¢\u0006\u0004\b$\u0010\nJ\u001b\u0010&\u001a\u00020\f2\n\b\u0002\u0010%\u001a\u0004\u0018\u00010\u0013H\u0002¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020\u0006H\u0002¢\u0006\u0004\b(\u0010\nJ!\u0010)\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\b\u0010\u0016\u001a\u0004\u0018\u00010\u0015H\u0017¢\u0006\u0004\b)\u0010#R\u0016\u0010*\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010+R\u0016\u0010-\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010+R\u0016\u0010.\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010+R*\u00100\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010/8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u00103\"\u0004\b4\u00105R$\u00106\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u00107\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u0016\u0010\u0014\u001a\u00020\u00138\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010<R\"\u0010@\u001a\u000e\u0012\u0004\u0012\u00020>\u0012\u0004\u0012\u00020?0=8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020?8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bB\u0010C¨\u0006G"}, d2 = {"Lcom/baidu/bdtask/component/buoy/BuoyComponent;", "Lcom/baidu/tieba/ql;", "Landroid/view/ViewGroup;", "viewGroup", "Landroid/view/ViewGroup$LayoutParams;", "layoutParams", "", "attachToWindow", "(Landroid/view/ViewGroup;Landroid/view/ViewGroup$LayoutParams;)V", "buoyViewRemoveFromWindow", "()V", "destroy", "", NativeConstants.COMPONENT_SYNC_TEXT_VIEW, "(Z)V", "detachFromWindow", "Lcom/baidu/bdtask/framework/ui/buoy/IBuoyView;", "getBuoyView", "()Lcom/baidu/bdtask/framework/ui/buoy/IBuoyView;", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "", "getCurProcessRate", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)F", "", "getFormatTotal", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)J", "getFullProcessRate", "isSingleProcessDuplicated", "(Lcom/baidu/bdtask/ctrl/model/TaskStatus;)Z", "isValid", "()Z", "onChanged", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)V", "onDuplicated", "curTaskInfo", "taskSignCheck", "(Lcom/baidu/bdtask/model/info/TaskInfo;)Z", "tryAttachBuoyVie2Window", StickerDataChangeType.UPDATE, "bindTaskHasUnRegistered", "Z", "hasAttached", "hasDestroyed", "hasShowUBCRecord", "Lkotlin/Function0;", "lazyAttach", "Lkotlin/Function0;", "getLazyAttach", "()Lkotlin/jvm/functions/Function0;", "setLazyAttach", "(Lkotlin/jvm/functions/Function0;)V", "rootView", "Landroid/view/ViewGroup;", "getRootView", "()Landroid/view/ViewGroup;", "setRootView", "(Landroid/view/ViewGroup;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewData;", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "view", "Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;", "viewModel", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "<init>", "(Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;Lcom/baidu/bdtask/model/info/TaskInfo;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b&\u0018\u0000 F2\u00020\u0001:\u0001FB+\u0012\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00020>\u0012\u0004\u0012\u00020?0=\u0012\u0006\u0010B\u001a\u00020?\u0012\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\bD\u0010EJ!\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000b\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000f\u0010\nJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0018\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u001b\u0010\u001cJ\u001f\u0010\u001d\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H&¢\u0006\u0004\b\u001d\u0010\u0019J\u0017\u0010\u001e\u001a\u00020\f2\u0006\u0010\u0016\u001a\u00020\u0015H\u0014¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010 \u001a\u00020\fH\u0016¢\u0006\u0004\b \u0010!J\u001f\u0010\"\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0006H\u0014¢\u0006\u0004\b$\u0010\nJ\u001b\u0010&\u001a\u00020\f2\n\b\u0002\u0010%\u001a\u0004\u0018\u00010\u0013H\u0002¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020\u0006H\u0002¢\u0006\u0004\b(\u0010\nJ!\u0010)\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\b\u0010\u0016\u001a\u0004\u0018\u00010\u0015H\u0017¢\u0006\u0004\b)\u0010#R\u0016\u0010*\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010+R\u0016\u0010-\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010+R\u0016\u0010.\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010+R*\u00100\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010/8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u00103\"\u0004\b4\u00105R$\u00106\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u00107\u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u0016\u0010\u0014\u001a\u00020\u00138\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010<R\"\u0010@\u001a\u000e\u0012\u0004\u0012\u00020>\u0012\u0004\u0012\u00020?0=8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020?8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bB\u0010C¨\u0006G"}, d2 = {"Lcom/baidu/bdtask/component/buoy/BuoyComponent;", "Lcom/baidu/tieba/rl;", "Landroid/view/ViewGroup;", "viewGroup", "Landroid/view/ViewGroup$LayoutParams;", "layoutParams", "", "attachToWindow", "(Landroid/view/ViewGroup;Landroid/view/ViewGroup$LayoutParams;)V", "buoyViewRemoveFromWindow", "()V", "destroy", "", NativeConstants.COMPONENT_SYNC_TEXT_VIEW, "(Z)V", "detachFromWindow", "Lcom/baidu/bdtask/framework/ui/buoy/IBuoyView;", "getBuoyView", "()Lcom/baidu/bdtask/framework/ui/buoy/IBuoyView;", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "", "getCurProcessRate", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)F", "", "getFormatTotal", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)J", "getFullProcessRate", "isSingleProcessDuplicated", "(Lcom/baidu/bdtask/ctrl/model/TaskStatus;)Z", "isValid", "()Z", "onChanged", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)V", "onDuplicated", "curTaskInfo", "taskSignCheck", "(Lcom/baidu/bdtask/model/info/TaskInfo;)Z", "tryAttachBuoyVie2Window", StickerDataChangeType.UPDATE, "bindTaskHasUnRegistered", "Z", "hasAttached", "hasDestroyed", "hasShowUBCRecord", "Lkotlin/Function0;", "lazyAttach", "Lkotlin/Function0;", "getLazyAttach", "()Lkotlin/jvm/functions/Function0;", "setLazyAttach", "(Lkotlin/jvm/functions/Function0;)V", "rootView", "Landroid/view/ViewGroup;", "getRootView", "()Landroid/view/ViewGroup;", "setRootView", "(Landroid/view/ViewGroup;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewData;", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "view", "Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;", "viewModel", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "<init>", "(Lcom/baidu/bdtask/framework/ui/buoy/BaseBuoyView;Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;Lcom/baidu/bdtask/model/info/TaskInfo;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public abstract class BuoyComponent implements ql {
+public abstract class BuoyComponent implements rl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -49,7 +49,7 @@ public abstract class BuoyComponent implements ql {
     public boolean c;
     public ViewGroup d;
     public Function0<Unit> e;
-    public final co<TaskBuoyViewData, TaskBuoyViewModel> f;
+    public final Cdo<TaskBuoyViewData, TaskBuoyViewModel> f;
     public final TaskBuoyViewModel g;
     public final TaskInfo h;
 
@@ -121,9 +121,9 @@ public abstract class BuoyComponent implements ql {
         /* JADX WARN: Type inference failed for: r7v2, types: [T, com.baidu.bdtask.model.ui.TaskUIData] */
         @Override // java.lang.Runnable
         public final void run() {
-            cl clVar;
+            dl dlVar;
             String str;
-            bq f;
+            cq f;
             T t;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.u()) {
@@ -147,7 +147,7 @@ public abstract class BuoyComponent implements ql {
                 final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                 objectRef2.element = this.c.getTaskMeter().getUi();
                 long r = this.a.r(this.c, (TaskStatus) objectRef.element);
-                gp a = hp.a.a((TaskStatus) objectRef.element, this.c);
+                hp a = ip.a.a((TaskStatus) objectRef.element, this.c);
                 final int b = a.b();
                 ?? a2 = a.a();
                 if (a2 != 0) {
@@ -195,22 +195,22 @@ public abstract class BuoyComponent implements ql {
                     return;
                 }
                 this.a.y();
-                al alVar = new al(b, ((TaskUIData) objectRef2.element).getMessage(), ((TaskUIData) objectRef2.element).getTxtColor(), ((TaskUIData) objectRef2.element).getBgUrl(), ((TaskUIData) objectRef2.element).getProgress().getForeColor(), ((TaskUIData) objectRef2.element).getProgress().getBackColor(), ((TaskUIData) objectRef2.element).getCloseBg(), ((TaskUIData) objectRef2.element).getBackBtn().getScheme());
+                bl blVar = new bl(b, ((TaskUIData) objectRef2.element).getMessage(), ((TaskUIData) objectRef2.element).getTxtColor(), ((TaskUIData) objectRef2.element).getBgUrl(), ((TaskUIData) objectRef2.element).getProgress().getForeColor(), ((TaskUIData) objectRef2.element).getProgress().getBackColor(), ((TaskUIData) objectRef2.element).getCloseBg(), ((TaskUIData) objectRef2.element).getBackBtn().getScheme());
                 if (!this.c.getResponse().isEmpty()) {
                     taskProcessData = this.c.getResponse().getProcessData();
                 }
                 TaskProcessData taskProcessData2 = taskProcessData;
-                cl clVar2 = new cl(this.a.q(this.c, (TaskStatus) objectRef.element), r);
+                dl dlVar2 = new dl(this.a.q(this.c, (TaskStatus) objectRef.element), r);
                 if (this.a.t((TaskStatus) objectRef.element)) {
-                    ?? a3 = br.a.a((TaskStatus) objectRef.element);
+                    ?? a3 = cr.a.a((TaskStatus) objectRef.element);
                     objectRef.element = a3;
-                    cl clVar3 = new cl(this.a.s(this.c, (TaskStatus) a3), r);
+                    dl dlVar3 = new dl(this.a.s(this.c, (TaskStatus) a3), r);
                     this.a.v();
-                    clVar = clVar3;
+                    dlVar = dlVar3;
                 } else {
-                    clVar = clVar2;
+                    dlVar = dlVar2;
                 }
-                final TaskBuoyViewData taskBuoyViewData = new TaskBuoyViewData((TaskStatus) objectRef.element, alVar, clVar, taskProcessData2, ((TaskUIData) objectRef2.element).getExtra());
+                final TaskBuoyViewData taskBuoyViewData = new TaskBuoyViewData((TaskStatus) objectRef.element, blVar, dlVar, taskProcessData2, ((TaskUIData) objectRef2.element).getExtra());
                 DebugTrace.a.c(new Function0<String>(objectRef, objectRef2, taskBuoyViewData) { // from class: com.baidu.bdtask.component.buoy.BuoyComponent$update$1$4
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ Ref.ObjectRef $curTaskStatus;
@@ -262,10 +262,10 @@ public abstract class BuoyComponent implements ql {
                 } else {
                     str = "y_task_diyicon";
                 }
-                String c = cq.a.c((TaskStatus) objectRef.element);
-                sp v = BDPTask.m.v();
+                String c = dq.a.c((TaskStatus) objectRef.element);
+                tp v = BDPTask.m.v();
                 if (v != null && (f = v.f()) != null) {
-                    f.a(str, "c_pv", cq.a.a(this.c.getId(), this.c.getActTaskId(), c));
+                    f.a(str, "c_pv", dq.a.a(this.c.getId(), this.c.getActTaskId(), c));
                     return;
                 }
                 return;
@@ -310,12 +310,12 @@ public abstract class BuoyComponent implements ql {
         }
     }
 
-    public BuoyComponent(co<TaskBuoyViewData, TaskBuoyViewModel> coVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
+    public BuoyComponent(Cdo<TaskBuoyViewData, TaskBuoyViewModel> cdo, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {coVar, taskBuoyViewModel, taskInfo};
+            Object[] objArr = {cdo, taskBuoyViewModel, taskInfo};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -325,10 +325,10 @@ public abstract class BuoyComponent implements ql {
                 return;
             }
         }
-        this.f = coVar;
+        this.f = cdo;
         this.g = taskBuoyViewModel;
         this.h = taskInfo;
-        coVar.a(taskBuoyViewModel);
+        cdo.a(taskBuoyViewModel);
     }
 
     public void o(boolean z) {
@@ -384,20 +384,20 @@ public abstract class BuoyComponent implements ql {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                co coVar;
+                Cdo cdo;
                 ViewParent viewParent;
-                co coVar2;
-                co coVar3;
-                co coVar4;
-                co coVar5;
-                co coVar6;
+                Cdo cdo2;
+                Cdo cdo3;
+                Cdo cdo4;
+                Cdo cdo5;
+                Cdo cdo6;
                 ViewParent viewParent2;
-                co coVar7;
-                co coVar8;
+                Cdo cdo7;
+                Cdo cdo8;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    coVar = this.this$0.f;
-                    View contentView = coVar.getContentView();
+                    cdo = this.this$0.f;
+                    View contentView = cdo.getContentView();
                     ViewParent viewParent3 = null;
                     if (contentView != null) {
                         viewParent = contentView.getParent();
@@ -405,8 +405,8 @@ public abstract class BuoyComponent implements ql {
                         viewParent = null;
                     }
                     if (viewParent != null) {
-                        coVar6 = this.this$0.f;
-                        View contentView2 = coVar6.getContentView();
+                        cdo6 = this.this$0.f;
+                        View contentView2 = cdo6.getContentView();
                         if (contentView2 != null) {
                             viewParent2 = contentView2.getParent();
                         } else {
@@ -416,22 +416,22 @@ public abstract class BuoyComponent implements ql {
                             viewParent2 = null;
                         }
                         if (((ViewGroup) viewParent2) != null) {
-                            coVar7 = this.this$0.f;
-                            View contentView3 = coVar7.getContentView();
+                            cdo7 = this.this$0.f;
+                            View contentView3 = cdo7.getContentView();
                             if (contentView3 != null) {
                                 viewParent3 = contentView3.getParent();
                             }
                             if (viewParent3 != null) {
-                                coVar8 = this.this$0.f;
-                                ((ViewGroup) viewParent3).removeView(coVar8.getContentView());
+                                cdo8 = this.this$0.f;
+                                ((ViewGroup) viewParent3).removeView(cdo8.getContentView());
                             } else {
                                 throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                             }
                         }
                     }
                     ViewGroup viewGroup2 = this.$viewGroup;
-                    coVar2 = this.this$0.f;
-                    if (viewGroup2.indexOfChild(coVar2.getContentView()) != -1) {
+                    cdo2 = this.this$0.f;
+                    if (viewGroup2.indexOfChild(cdo2.getContentView()) != -1) {
                         ViewGroup viewGroup3 = this.$viewGroup;
                         viewGroup3.removeView(viewGroup3);
                     }
@@ -439,20 +439,20 @@ public abstract class BuoyComponent implements ql {
                     if (findViewWithTag != null) {
                         this.$viewGroup.removeView(findViewWithTag);
                     }
-                    coVar3 = this.this$0.f;
-                    View contentView4 = coVar3.getContentView();
+                    cdo3 = this.this$0.f;
+                    View contentView4 = cdo3.getContentView();
                     if (contentView4 != null) {
                         contentView4.setTag("TaskSDKBuoyViewTag");
                     }
                     if (this.$layoutParams == null) {
                         ViewGroup viewGroup4 = this.$viewGroup;
-                        coVar5 = this.this$0.f;
-                        viewGroup4.addView(coVar5.getContentView());
+                        cdo5 = this.this$0.f;
+                        viewGroup4.addView(cdo5.getContentView());
                         return;
                     }
                     ViewGroup viewGroup5 = this.$viewGroup;
-                    coVar4 = this.this$0.f;
-                    viewGroup5.addView(coVar4.getContentView(), this.$layoutParams);
+                    cdo4 = this.this$0.f;
+                    viewGroup5.addView(cdo4.getContentView(), this.$layoutParams);
                 }
             }
         };
@@ -464,7 +464,7 @@ public abstract class BuoyComponent implements ql {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, taskInfo, taskStatus) == null) {
             synchronized (this) {
-                vo.c(new b(this, taskStatus, taskInfo));
+                wo.c(new b(this, taskStatus, taskInfo));
             }
         }
     }
@@ -479,7 +479,7 @@ public abstract class BuoyComponent implements ql {
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: taskSignCheck");
     }
 
-    @Override // com.baidu.tieba.xk
+    @Override // com.baidu.tieba.yk
     public void a(final TaskInfo taskInfo, TaskStatus taskStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {

@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PayUVEventType {
     public static final String PAY_AMOUNT_DIALOG_CHANNEL_CLICK = "68";
     public static final String PAY_AMOUNT_DIALOG_COMFIRM_BTN_CLICK = "2";
@@ -72,7 +72,7 @@ public class PayUVEventType {
     public static final String THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK = "30";
     public static final String THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK = "29";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class SplitOrderScene {
         public static final String NORMAL_PAY = "0";
         public static final String SPLIT_AFTER_PAY = "2";
@@ -82,7 +82,7 @@ public class PayUVEventType {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class UserType {
         public static final String BAIDU = "2";
         public static final String YYUID = "1";

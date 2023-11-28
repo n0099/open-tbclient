@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.i1;
+import com.kuaishou.weapon.p0.bi;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -86,7 +86,7 @@ public class d extends com.baidu.platform.base.e {
                         }
                     }
                 }
-                this.a.a(i1.q, str2);
+                this.a.a(bi.q, str2);
                 this.a.a("wpc", str3);
             }
         }

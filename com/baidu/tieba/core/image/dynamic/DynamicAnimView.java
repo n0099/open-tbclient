@@ -15,10 +15,10 @@ import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.tbadk.afx.TbAlphaVideo;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.core.image.dynamic.DynamicAnimView;
+import com.baidu.tieba.fr6;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimAfxViewBinding;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimViewBinding;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimWebpViewBinding;
-import com.baidu.tieba.vq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +104,7 @@ public final class DynamicAnimView extends FrameLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("webpBinding");
                     dynamicAnimWebpViewBinding = null;
                 }
-                dynamicAnimWebpViewBinding.b.p();
+                dynamicAnimWebpViewBinding.b.q();
             }
         }
 
@@ -122,10 +122,10 @@ public final class DynamicAnimView extends FrameLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("webpBinding");
                     dynamicAnimWebpViewBinding = null;
                 }
-                dynamicAnimWebpViewBinding.b.q();
+                dynamicAnimWebpViewBinding.b.r();
                 SafeHandler inst = SafeHandler.getInst();
                 final DynamicAnimView dynamicAnimView = this.b;
-                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.uq6
+                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.er6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -165,7 +165,7 @@ public final class DynamicAnimView extends FrameLayout {
         DynamicAnimViewBinding c = DynamicAnimViewBinding.c(LayoutInflater.from(context), this, true);
         Intrinsics.checkNotNullExpressionValue(c, "inflate(LayoutInflater.from(context), this, true)");
         this.a = c;
-        c.b.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.sq6
+        c.b.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.cr6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,7 +177,7 @@ public final class DynamicAnimView extends FrameLayout {
                 }
             }
         });
-        this.a.c.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.tq6
+        this.a.c.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.dr6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -289,7 +289,7 @@ public final class DynamicAnimView extends FrameLayout {
         }
         TbImage tbImage = dynamicAnimWebpViewBinding.b;
         tbImage.setVisibility(8);
-        tbImage.q();
+        tbImage.r();
         tbImage.setLooping(true);
         tbImage.setOnWebpEndedListener(null);
         tbImage.setOnClickListener(null);
@@ -338,9 +338,9 @@ public final class DynamicAnimView extends FrameLayout {
         }
     }
 
-    public final void h(vq6 vq6Var) {
+    public final void h(fr6 fr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vq6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, fr6Var) == null) {
             if (d(this.a.b)) {
                 this.a.b.inflate();
             }
@@ -352,16 +352,16 @@ public final class DynamicAnimView extends FrameLayout {
             TbAlphaVideo tbAlphaVideo = dynamicAnimAfxViewBinding.b;
             tbAlphaVideo.setVisibility(0);
             tbAlphaVideo.setOnClickListener(this.d);
-            tbAlphaVideo.setKeepLastFrame(vq6Var.c());
-            tbAlphaVideo.setSourcePath(vq6Var.a());
-            if (vq6Var.c()) {
+            tbAlphaVideo.setKeepLastFrame(fr6Var.c());
+            tbAlphaVideo.setSourcePath(fr6Var.a());
+            if (fr6Var.c()) {
                 tbAlphaVideo.setKeepLastFrame(false);
                 tbAlphaVideo.setLooping(true);
                 tbAlphaVideo.setOnVideoEndedListener(null);
             } else {
                 tbAlphaVideo.setKeepLastFrame(true);
                 tbAlphaVideo.setLooping(false);
-                tbAlphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.rq6
+                tbAlphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.br6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -378,7 +378,7 @@ public final class DynamicAnimView extends FrameLayout {
         }
     }
 
-    public final void j(vq6 data) {
+    public final void j(fr6 data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, data) == null) {
@@ -408,9 +408,9 @@ public final class DynamicAnimView extends FrameLayout {
         }
     }
 
-    public final void k(vq6 vq6Var) {
+    public final void k(fr6 fr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vq6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, fr6Var) == null) {
             if (d(this.a.c)) {
                 this.a.c.inflate();
             }
@@ -422,8 +422,8 @@ public final class DynamicAnimView extends FrameLayout {
             TbImage tbImage = dynamicAnimWebpViewBinding.b;
             tbImage.setVisibility(0);
             tbImage.setOnClickListener(this.d);
-            tbImage.setImageURI(Uri.fromFile(new File(vq6Var.a())), (Object) null);
-            if (vq6Var.c()) {
+            tbImage.setImageURI(Uri.fromFile(new File(fr6Var.a())), (Object) null);
+            if (fr6Var.c()) {
                 tbImage.setLooping(true);
                 tbImage.setOnWebpEndedListener(null);
                 return;

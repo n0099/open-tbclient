@@ -1,238 +1,81 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uda extends zb9 {
+public class uda extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.zb9
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
-    }
+    public Context a;
+    public a b;
 
     /* loaded from: classes8.dex */
-    public class a implements bk5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public a(uda udaVar, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {udaVar, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.bk5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardSinglePicView(this.a);
-            }
-            return invokeV.objValue;
-        }
+    public interface a {
+        void onChange(boolean z);
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements bk5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(uda udaVar, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {udaVar, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.bk5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardMultiPicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements bk5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public c(uda udaVar, TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {udaVar, tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.bk5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardVideoView(this.a, this.b);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    public uda() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uda(Context context, Handler handler) {
+        super(handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.zb9
-    public <T> rc9 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
+    public final void a() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
-            }
-            if (cardType != 17 && cardType != 34) {
-                return null;
-            }
-            return e(tbPageContext, iCardInfo, i);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (context = this.a) == null) {
+            return;
         }
-        return (rc9) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zb9
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 17 && i != 34) {
-                return null;
-            }
-            return new AdCard(jSONObject);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zb9
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = zb9.a;
-            sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = zb9.a;
-            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = zb9.a;
-            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
-            zb9.b.put(17, BdUniqueId.gen());
-            zb9.b.put(33, BdUniqueId.gen());
-            zb9.b.put(34, BdUniqueId.gen());
-        }
-    }
-
-    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (!(iCardInfo instanceof AdCard)) {
-                return null;
-            }
-            AdCard adCard = (AdCard) iCardInfo;
-            int cardType = adCard.getCardType();
-            if (cardType != 17 && cardType != 34) {
-                BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
-                return null;
-            }
-            int i2 = adCard.goodsStyle;
-            if (i2 != 2) {
-                if (i2 != 14) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            if (i2 != 8) {
-                                return null;
-                            }
-                        }
-                    } else {
-                        return (AdCardMultiPicView) bk5.e().d(1102, new b(this, tbPageContext));
-                    }
+        try {
+            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
+            if (this.b != null) {
+                a aVar = this.b;
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
                 }
-                AdCardVideoView adCardVideoView = (AdCardVideoView) bk5.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
-                adCardVideoView.setBusinessType(i);
-                return adCardVideoView;
+                aVar.onChange(z);
             }
-            return (AdCardSinglePicView) bk5.e().d(1101, new a(this, tbPageContext));
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
         }
-        return (BaseLegoCardView) invokeLLI.objValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+            a();
+        }
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            a();
+        }
     }
 }

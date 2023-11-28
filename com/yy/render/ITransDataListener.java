@@ -7,10 +7,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ITransDataListener extends IInterface {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Default implements ITransDataListener {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -63,7 +63,7 @@ public interface ITransDataListener extends IInterface {
 
     String transDataForStr(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements ITransDataListener {
         public static final String DESCRIPTOR = "com.yy.render.ITransDataListener";
         public static final int TRANSACTION_log = 7;
@@ -79,7 +79,7 @@ public interface ITransDataListener extends IInterface {
             return this;
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements ITransDataListener {
             public static ITransDataListener sDefaultImpl;
             public IBinder mRemote;

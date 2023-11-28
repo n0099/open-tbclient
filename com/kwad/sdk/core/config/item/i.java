@@ -1,65 +1,30 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import com.baidu.searchbox.dns.stratege.DnsStrategy;
-import com.ksad.json.annotation.KsJson;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public final class i extends b<a> {
-
-    @KsJson
-    /* loaded from: classes10.dex */
-    public static class a extends com.kwad.sdk.core.response.kwai.a {
-        public int VD = DnsStrategy.Factory.PRE_FETCH_INTERVAL;
-        public int VE = 90000;
-    }
-
-    public i(String str) {
-        super(str, new a());
-    }
-
+public final class i extends b<com.kwad.sdk.core.network.idc.a.b> {
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(SharedPreferences sharedPreferences) {
-        a value = getValue();
-        if (value == null) {
-            value = new a();
-        }
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(sharedPreferences.getString(getKey(), ""));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-        }
-        if (jSONObject != null) {
-            value.parseJson(jSONObject);
-        }
-        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void b(SharedPreferences.Editor editor) {
-        String key;
-        String str;
-        if (getValue() == null || getValue().toJson() == null) {
-            key = getKey();
-            str = "";
-        } else {
-            key = getKey();
-            str = getValue().toJson().toString();
-        }
-        editor.putString(key, str);
+    }
+
+    public i() {
+        super("idc", new com.kwad.sdk.core.network.idc.a.b());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void e(JSONObject jSONObject) {
+    public final void j(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) {
-            setValue(sx());
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(getKey())) != null) {
+            com.kwad.sdk.core.network.idc.a.b bVar = new com.kwad.sdk.core.network.idc.a.b();
+            bVar.parseJson(optJSONObject);
+            setValue(bVar);
             return;
         }
-        a aVar = new a();
-        aVar.parseJson(optJSONObject);
-        setValue(aVar);
+        setValue(Bx());
     }
 }

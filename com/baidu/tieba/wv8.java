@@ -1,76 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes9.dex */
 public class wv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<int[]> a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284144, "Lcom/baidu/tieba/wv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284144, "Lcom/baidu/tieba/wv8;");
-                return;
+    @Nullable
+    public static Object a(@NonNull qv8 qv8Var, @NonNull rv8 rv8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, qv8Var, rv8Var, obj)) == null) {
+            try {
+                return qv8Var.b(rv8Var, obj);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
-        a = new ArrayList();
-        b = SkinManager.getColor(R.color.CAM_X0304);
+        return invokeLLL.objValue;
     }
 
-    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder, int i) {
-        InterceptResult invokeLI;
+    @Nullable
+    public static Object b(@NonNull qv8 qv8Var, @NonNull rv8 rv8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, spannableStringBuilder, i)) == null) {
-            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
-                for (int[] iArr : a) {
-                    int i2 = iArr[0];
-                    int i3 = iArr[1];
-                    if (i2 < spannableStringBuilder.length() && i3 <= spannableStringBuilder.length() && i2 >= 0 && i3 >= 0) {
-                        if (i == -1) {
-                            i = b;
-                        }
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(i), i2, i3, 18);
-                    }
-                }
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLI.objValue;
-    }
-
-    public static void b(List<TbAtUserInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
-            a.clear();
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (TbAtUserInfo tbAtUserInfo : list) {
-                if (tbAtUserInfo != null) {
-                    int atPosition = tbAtUserInfo.getAtPosition();
-                    a.add(new int[]{atPosition, tbAtUserInfo.getAtName().length() + atPosition + 1});
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, qv8Var, rv8Var, obj)) == null) {
+            try {
+                return qv8Var.a(rv8Var, obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+                BdLog.e(e);
+                return null;
             }
         }
+        return invokeLLL.objValue;
     }
 }

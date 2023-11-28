@@ -1,61 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class t19 {
     public static /* synthetic */ Interceptable $ic;
+    public static final t19 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948128493, "Lcom/baidu/tieba/t19;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128493, "Lcom/baidu/tieba/t19;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948128493, "Lcom/baidu/tieba/t19;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new t19();
+    }
+
+    public t19() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948128493, "Lcom/baidu/tieba/t19;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    public static final wk8 a(ChatRoomDetail.BasicInfo info) {
+    public final void a(List<?> data, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, data, str) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data.size() > 0 && data.get(0) != null && (data.get(0) instanceof ChatGroupInfo)) {
+                Object obj = data.get(0);
+                if (obj != null) {
+                    ChatGroupInfo chatGroupInfo = (ChatGroupInfo) obj;
+                    if (chatGroupInfo.getRoomInfoList() != null && chatGroupInfo.getRoomInfoList().get(0) != null) {
+                        chatGroupInfo.getRoomInfoList().get(0).setSingleListHotText(str);
+                        return;
+                    }
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo");
+            }
+        }
+    }
+
+    public final boolean b(List<?> data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, info)) == null) {
-            Intrinsics.checkNotNullParameter(info, "info");
-            wk8 wk8Var = new wk8(0L, null, 3, null);
-            wk8Var.c(info.getForumId());
-            wk8Var.d(info.getForumName());
-            return wk8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            int size = data.size();
+            for (int i = 0; i < size; i++) {
+                if (data.get(i) instanceof ChatGroupInfo) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (wk8) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @JvmStatic
-    public static final zk8 b(long j, ChatRoomDetail roomDetail) {
-        InterceptResult invokeJL;
+    public final boolean c(List<?> data) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, roomDetail)) == null) {
-            Intrinsics.checkNotNullParameter(roomDetail, "roomDetail");
-            zk8 zk8Var = new zk8(0L, 0, 0, null, null, 31, null);
-            zk8Var.i(j);
-            zk8Var.f(roomDetail.getUserInfo().getIdentityRole());
-            zk8Var.j(roomDetail.getExtraInfo().getTalkThresholdLevel());
-            zk8Var.g(roomDetail.getMaskInfoList());
-            zk8Var.h(roomDetail.getQuickTalk());
-            return zk8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            int size = data.size();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                if ((data.get(i2) instanceof ChatGroupInfo) && (i = i + 1) > 1) {
+                    return false;
+                }
+            }
+            if (i != 1) {
+                return false;
+            }
+            return true;
         }
-        return (zk8) invokeJL.objValue;
+        return invokeL.booleanValue;
     }
 }

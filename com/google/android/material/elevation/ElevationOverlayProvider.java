@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ElevationOverlayProvider {
     public static final float FORMULA_MULTIPLIER = 4.5f;
     public static final float FORMULA_OFFSET = 2.0f;

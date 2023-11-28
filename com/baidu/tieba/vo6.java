@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u27;
+import com.baidu.tieba.compact.RecommendCollectCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class vo6 implements u27.q {
+public class vo6 extends wa7<RecommendCollectCardView, rbb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vo6() {
+        super("template_stub_head_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,37 +25,35 @@ public final class vo6 implements u27.q {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.u27.q
-    public void a(u27.r holder, k47 state) {
+    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, state) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            Intrinsics.checkNotNullParameter(state, "state");
-            holder.k(state);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            fd7.i(a, Integer.valueOf((fd7.e() / 2) - du.r));
+            return a;
         }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.u27.q
-    public u27.r b(Context context, ViewGroup rootView) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb7
+    /* renamed from: e */
+    public void b(@NonNull RecommendCollectCardView recommendCollectCardView, @NonNull rbb rbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            if (context instanceof TbadkCoreApplication) {
-                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
-                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
-                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
-                }
-            }
-            return new uo6(context, rootView);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCollectCardView, rbbVar) == null) {
+            recommendCollectCardView.setData(rbbVar);
+            recommendCollectCardView.f();
         }
-        return (u27.r) invokeLL.objValue;
     }
 }

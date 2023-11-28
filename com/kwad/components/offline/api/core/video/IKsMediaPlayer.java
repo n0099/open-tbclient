@@ -3,8 +3,9 @@ package com.kwad.components.offline.api.core.video;
 import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.video.IMediaPlayer;
+import com.kwad.components.offline.api.core.video.listener.OfflineVideoPlayStateListener;
 import com.kwad.components.offline.api.core.video.listener.ReleaseCallback;
-import com.kwad.components.offline.api.core.video.listener.VideoPlayStateListener;
+import com.kwad.components.offline.api.core.video.listener.VideoMuteStateChangeListener;
 import com.kwad.components.offline.api.core.video.mdoel.KsPlayerLogParams;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 /* loaded from: classes10.dex */
@@ -57,7 +58,9 @@ public interface IKsMediaPlayer {
 
     void prepareAsync();
 
-    void registerVideoPlayStateListener(VideoPlayStateListener videoPlayStateListener);
+    void registerVideoMuteStateListener(VideoMuteStateChangeListener videoMuteStateChangeListener);
+
+    void registerVideoPlayStateListener(OfflineVideoPlayStateListener offlineVideoPlayStateListener);
 
     void release();
 
@@ -81,11 +84,15 @@ public interface IKsMediaPlayer {
 
     void setDataSource(@NonNull PlayVideoInfo playVideoInfo);
 
+    void setForceGetAudioFocus(boolean z);
+
     void setRadius(float f, float f2, float f3, float f4);
 
     void setSpeed(float f);
 
     void setSurface(Surface surface);
+
+    void setVideoAdaptStrategy(int i);
 
     void setVolume(float f, float f2);
 
@@ -95,7 +102,7 @@ public interface IKsMediaPlayer {
 
     void stopAndPrepareAsync();
 
-    void unRegisterVideoPlayStateListener(VideoPlayStateListener videoPlayStateListener);
+    void unRegisterVideoPlayStateListener(OfflineVideoPlayStateListener offlineVideoPlayStateListener);
 
     void updateKsPlayLogParam(KsPlayerLogParams ksPlayerLogParams);
 }

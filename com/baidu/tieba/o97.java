@@ -1,57 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.jvm.internal.StringCompanionObject;
+import tbclient.FeedVideoComponent;
+import tbclient.ThumbnailInfo;
+import tbclient.VideoField;
 /* loaded from: classes7.dex */
-public final class o97 implements j97 {
+public final class o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public o97() {
+    public static final String a(String schema, n67 feedExtraData) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String a = ua7.a(ua7.b(schema, feedExtraData.d()), "author_is_living", feedExtraData.a().a().get("author_is_living"));
+            String str = feedExtraData.a().a().get("yy_ext");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (z) {
+                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
+                return a;
+            }
+            String a2 = ua7.a(a, "yy_ext", str);
+            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
+            return a2;
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.j97
-    public SpannableString b(Context context, k77 richTextData, ClickableSpan clickableSpan) {
+    public static final x47 b(VideoField videoField, i87 videoSchemaData, n67 feedExtraData) {
         InterceptResult invokeLLL;
-        n57 b;
+        String str;
+        boolean z;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            p77 g = richTextData.g();
-            SpannableString spannableString = new SpannableString(g.c());
-            if (g.b() != null) {
-                if ((clickableSpan instanceof k97) && (b = g.b()) != null) {
-                    ((k97) clickableSpan).a(rc7.a.a(b));
-                }
-                int length = g.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(g.c(), " ", false, 2, null)) {
-                    length = g.c().length() - 1;
-                }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(videoField, "videoField");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            h87 h87Var = new h87();
+            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
+            if (thumbnailInfo != null) {
+                str = thumbnailInfo.url;
+            } else {
+                str = null;
             }
-            return spannableString;
+            h87Var.a = str;
+            Integer num = videoField.is_vertical;
+            if (num != null && num.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            h87Var.d = z;
+            Integer num2 = videoField.width;
+            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
+            h87Var.b = num2.intValue();
+            Integer num3 = videoField.height;
+            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
+            h87Var.c = num3.intValue();
+            StringBuilder sb = new StringBuilder();
+            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = r27.a.getString(R.string.play_count_new);
+            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            sb.append(format);
+            sb.toString();
+            h87Var.e = videoField.url;
+            Integer num4 = videoField.duration;
+            Intrinsics.checkNotNullExpressionValue(num4, "videoField.duration");
+            h87Var.f = num4.intValue();
+            h87Var.g = 0;
+            Integer num5 = videoField.play_count;
+            Intrinsics.checkNotNullExpressionValue(num5, "videoField.play_count");
+            h87Var.h = num5.intValue();
+            h87Var.i = videoField.md5;
+            Map<String, String> a2 = feedExtraData.a().a();
+            h87Var.j = a2;
+            Intrinsics.checkNotNullExpressionValue(a2, "videoData.businessInfo");
+            ub7 ub7Var = feedExtraData.e().get(PageInfo.KEY);
+            a2.put("page_from", (ub7Var == null || (a = ub7Var.a(new r57())) == null || (r0 = a.get("page_from")) == null) ? "" : "");
+            return new x47(h87Var, videoSchemaData, CollectionsKt__CollectionsKt.listOf((Object[]) new a87[]{o67.e(feedExtraData, "video_click", null, 2, null), o67.e(feedExtraData, "video_click2", null, 2, null)}), feedExtraData.a().a(), feedExtraData.c().a(), null, 32, null);
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (x47) invokeLLL.objValue;
+    }
+
+    public static final void c(FeedVideoComponent feedVideoComponent, List<nb7<?>> dataList, i87 videoSchemaData, n67 feedExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            VideoField videoField = feedVideoComponent.video_info;
+            if (videoField != null) {
+                dataList.add(new ob7(b(videoField, videoSchemaData, feedExtraData), "video"));
+            }
+        }
     }
 }

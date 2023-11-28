@@ -1,128 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.faceshop.UserCollectModel;
-import com.baidu.tieba.faceshop.UserDiyModel;
-import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import com.baidu.tieba.newfaceshop.NewFaceSyncDownloadModel;
-import com.baidu.tieba.newfaceshop.NewFaceSyncUploadModel;
-import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tieba.memberCenter.tail.message.AddTailHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.AddTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.AddTailSocketResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.SetTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class on9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile on9 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewFaceSyncUploadModel a;
-    public NewFaceSyncDownloadModel b;
-    public NewFaceGroupDownloadModel c;
-    public k17 d;
-    public n17 e;
-    public boolean f;
-    public boolean g;
+    public boolean a;
+    public boolean b;
+    public TailData c;
+    public TailData d;
+    public TbPageContext<?> e;
+    public jo9<Integer> f;
+    public jo9<Integer> g;
+    public NetMessageListener h;
+    public NetMessageListener i;
+
+    public boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 50 : invokeI.booleanValue;
+    }
+
+    public boolean m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i > 50 : invokeI.booleanValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class b implements pn9 {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ on9 a;
 
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GetCloudFaceGroupMessage a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, getCloudFaceGroupMessage};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = getCloudFaceGroupMessage;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ln9.a("【表情云同步】：3 - 开始：处理收藏的表情");
-                    this.b.a.d.f(this.a.getCollectEmotionList());
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.on9$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0424b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GetCloudFaceGroupMessage a;
-            public final /* synthetic */ b b;
-
-            public RunnableC0424b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, getCloudFaceGroupMessage};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = getCloudFaceGroupMessage;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ln9.a("【表情云同步】：3 - 开始：处理diy的表情");
-                    this.b.a.e.f(this.a.getDiyEmotionList());
-                }
-            }
-        }
-
-        public b(on9 on9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(on9 on9Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {on9Var};
+                Object[] objArr = {on9Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -131,77 +76,53 @@ public class on9 {
             this.a = on9Var;
         }
 
-        @Override // com.baidu.tieba.pn9
-        public void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            in9 in9Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, getCloudFaceGroupMessage) == null) {
-                if (getCloudFaceGroupMessage != null) {
-                    if (getCloudFaceGroupMessage.getCollectUpdateTime() > on9.l()) {
-                        if (getCloudFaceGroupMessage.getCollectEmotionList() != null) {
-                            kn9.b().a(new a(this, getCloudFaceGroupMessage));
-                        } else {
-                            this.a.g = false;
-                        }
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (this.a.f != null) {
+                    Integer num = null;
+                    if (responsedMessage instanceof AddTailHttpResponseMessage) {
+                        in9Var = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
+                    } else if (responsedMessage instanceof AddTailSocketResponseMessage) {
+                        in9Var = ((AddTailSocketResponseMessage) responsedMessage).getResultData();
                     } else {
-                        this.a.g = false;
-                        if (getCloudFaceGroupMessage.getCollectUpdateTime() < on9.l()) {
-                            ln9.a("【表情云同步】：上传本地的收藏的状态");
-                            new UserCollectModel().O();
-                        }
-                        i17.t().o();
+                        in9Var = null;
                     }
-                    if (getCloudFaceGroupMessage.getDiyUpdateTime() > on9.m()) {
-                        if (getCloudFaceGroupMessage.getDiyEmotionList() != null) {
-                            kn9.b().a(new RunnableC0424b(this, getCloudFaceGroupMessage));
-                        } else {
-                            this.a.g = false;
+                    if (in9Var != null) {
+                        num = Integer.valueOf(in9Var.a());
+                        if (this.a.b) {
+                            this.a.p(num.intValue());
                         }
-                    } else {
-                        this.a.g = false;
-                        if (getCloudFaceGroupMessage.getDiyUpdateTime() < on9.m()) {
-                            ln9.a("【表情云同步】：上传本地的diy的状态");
-                            new UserDiyModel().O();
-                        }
-                        m17.q().m();
                     }
-                    if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() > on9.n()) {
-                        if (getCloudFaceGroupMessage.getFaceGroupData() != null) {
-                            ln9.a("【表情云同步】：3 - 开始：处理收藏的表情包");
-                            this.a.r(getCloudFaceGroupMessage.getFaceGroupData());
-                            return;
-                        }
-                        this.a.f = false;
-                        return;
-                    }
-                    this.a.f = false;
-                    if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() < on9.n()) {
-                        this.a.z();
-                    }
-                    nn9.i().e();
-                    return;
+                    this.a.f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
                 }
-                this.a.g = false;
-                this.a.f = false;
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class b extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ on9 a;
 
-        public a(on9 on9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(on9 on9Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {on9Var};
+                Object[] objArr = {on9Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -210,172 +131,36 @@ public class on9 {
             this.a = on9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            List<MyEmotionGroupData> f;
-            String str;
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            nn9 nn9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (f = nn9.i().f()) == null) {
-                return;
-            }
-            if (!f.isEmpty()) {
-                StringBuilder sb = new StringBuilder();
-                int i = 0;
-                for (int i2 = 0; i2 < f.size() && i < 30; i2++) {
-                    MyEmotionGroupData myEmotionGroupData = f.get(i2);
-                    if (myEmotionGroupData != null) {
-                        sb.append(myEmotionGroupData.getGroupId());
-                        if (i2 < f.size() - 1) {
-                            sb.append("_");
-                        }
-                        i++;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (this.a.g != null) {
+                    Integer num = null;
+                    if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
+                        nn9Var = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
+                    } else if (responsedMessage instanceof UpdateTailSocketResponseMessage) {
+                        nn9Var = ((UpdateTailSocketResponseMessage) responsedMessage).getResultData();
+                    } else {
+                        nn9Var = null;
                     }
-                }
-                str = sb.toString();
-            } else {
-                str = "all_delete";
-            }
-            this.a.a.O(str);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ on9 b;
-
-        public c(on9 on9Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on9Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = on9Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nn9.i().b(true);
-                List<MyEmotionGroupData> f = nn9.i().f();
-                ArrayList arrayList = new ArrayList();
-                if (f != null) {
-                    for (MyEmotionGroupData myEmotionGroupData : f) {
-                        arrayList.add(myEmotionGroupData.getGroupId());
+                    if (nn9Var != null) {
+                        num = Integer.valueOf(nn9Var.a());
                     }
+                    this.a.g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
                 }
-                this.b.i(this.a, arrayList);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d implements qn9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ on9 c;
-
-        @Override // com.baidu.tieba.qn9
-        public void onProgress(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            }
-        }
-
-        public d(on9 on9Var, AtomicInteger atomicInteger, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on9Var, atomicInteger, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = on9Var;
-            this.a = atomicInteger;
-            this.b = list;
-        }
-
-        @Override // com.baidu.tieba.qn9
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.decrementAndGet() != 0) {
-                return;
-            }
-            this.c.s(this.b);
-        }
-
-        @Override // com.baidu.tieba.qn9
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.a.decrementAndGet() != 0) {
-                return;
-            }
-            this.c.s(this.b);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ on9 b;
-
-        public e(on9 on9Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on9Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = on9Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.s(this.a);
-        }
-    }
-
-    public on9() {
+    public on9(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -385,207 +170,167 @@ public class on9 {
                 return;
             }
         }
-        this.a = new NewFaceSyncUploadModel();
-        this.b = new NewFaceSyncDownloadModel();
-        this.c = new NewFaceGroupDownloadModel();
-        this.d = new k17();
-        this.e = new n17();
+        this.a = false;
+        this.b = false;
+        this.h = new a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
+        this.i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
+        this.e = tbPageContext;
+        tbPageContext.registerListener(this.h);
+        this.e.registerListener(this.i);
+        this.d = new TailData();
     }
 
-    public static long l() {
-        InterceptResult invokeV;
+    public int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getLong("face_collect_update_time" + k(), 0L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length();
         }
-        return invokeV.longValue;
+        return invokeL.intValue;
     }
 
-    public static long m() {
-        InterceptResult invokeV;
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getLong("face_diy_update_time" + k(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getLong("face_group_update_time" + k(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static void u(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("face_collect_update_time" + k(), j);
-        }
-    }
-
-    public static void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65551, null, j) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("face_diy_update_time" + k(), j);
-        }
-    }
-
-    public static void w(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65552, null, j) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("face_group_update_time" + k(), j);
-        }
-    }
-
-    public final void r(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            kn9.b().a(new c(this, list));
-        }
-    }
-
-    public final void s(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            ln9.a("【表情云同步】：5 - 收藏表情包：根据云端数据进行排序");
-            if (nn9.i().j(list, false)) {
-                w(System.currentTimeMillis());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() > 0) {
+                return str.substring(0, str.length() - 1);
             }
-            this.f = false;
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void t(List<String> list) {
+    public String h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            if (BdUtilHelper.isMainThread()) {
-                kn9.b().a(new e(this, list));
-            } else {
-                s(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            while (e(str) > 50) {
+                str = f(str);
             }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void x(boolean z) {
+    public void n(jo9<Integer> jo9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jo9Var) == null) {
+            this.f = jo9Var;
         }
     }
 
-    public static String k() {
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d.setFontColor(str);
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, 1));
+        }
+    }
+
+    public void q(jo9<Integer> jo9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jo9Var) == null) {
+            this.g = jo9Var;
+        }
+    }
+
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                return "";
-            }
-            return String.valueOf(Math.abs(TbadkCoreApplication.getCurrentAccount().hashCode()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.getFontColor();
         }
         return (String) invokeV.objValue;
     }
 
-    public static on9 o() {
+    public TailData i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (h == null) {
-                synchronized (on9.class) {
-                    if (h == null) {
-                        h = new on9();
-                    }
-                }
-            }
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return (on9) invokeV.objValue;
+        return (TailData) invokeV.objValue;
     }
 
-    public boolean p() {
-        InterceptResult invokeV;
+    public void j(int i, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ln9.a("【表情云同步】：1 - 开始，请求\"c/e/meme/getAllMeme\"接口");
-            this.f = true;
-            this.g = true;
-            this.b.O(new b(this));
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            kn9.b().a(new a(this));
-        }
-    }
-
-    public final void i(List<String> list, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
-            if (list2 != null) {
-                ArrayList arrayList = new ArrayList();
-                for (String str : list2) {
-                    if (!TextUtils.isEmpty(str) && !list.contains(str)) {
-                        arrayList.add(str);
-                    }
-                }
-                if (!arrayList.isEmpty()) {
-                    ln9.a("【表情云同步】：5 - 收藏表情包：删除云端没有的表情包");
-                    nn9.i().c(arrayList, false);
-                }
-            }
-            j(list, list2);
-        }
-    }
-
-    public final void j(List<String> list, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                ArrayList<String> arrayList = new ArrayList();
-                for (String str : list) {
-                    if (!list2.contains(str)) {
-                        arrayList.add(str);
-                    }
-                }
-                if (!arrayList.isEmpty()) {
-                    ln9.a("【表情云同步】：5 - 收藏表情包：下载本地没有的表情包");
-                    AtomicInteger atomicInteger = new AtomicInteger(arrayList.size());
-                    for (String str2 : arrayList) {
-                        this.c.O(str2, Boolean.FALSE, new d(this, atomicInteger, list));
-                    }
-                    return;
-                }
-                t(list);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
+            TailData tailData = new TailData();
+            this.d = tailData;
+            if (i != 0) {
+                TailData tailData2 = new TailData();
+                this.c = tailData2;
+                tailData2.setId(i);
+                this.c.setContent(str);
+                this.c.setFontColor(str2);
+                this.d.setId(i);
+                this.d.setContent(str);
+                this.d.setFontColor(str2);
                 return;
             }
-            this.f = false;
+            tailData.setContent("");
+            this.d.setFontColor("7a7c80");
+            this.b = z;
         }
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TailData tailData = this.d;
+            if (tailData != null && tailData.getFontColor() != null) {
+                TailData tailData2 = this.c;
+                if (tailData2 == null) {
+                    if (!StringUtils.isNull(this.d.getContent()) || !this.d.getFontColor().equals("7a7c80")) {
+                        return true;
+                    }
+                } else if (tailData2.getContent() != null && this.c.getFontColor() != null && (!this.c.getContent().equals(this.d.getContent()) || !this.c.getFontColor().equals(this.d.getFontColor()))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.a) {
+            return;
+        }
+        String f = mo9.f(str);
+        if (!StringUtils.isNull(f)) {
+            this.e.showToast(f);
+            return;
+        }
+        String b2 = mo9.b(str);
+        this.d.setContent(b2);
+        this.a = true;
+        TailData tailData = this.c;
+        if (tailData != null && tailData.getId() > 0) {
+            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
+        } else {
+            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
+        }
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (StringUtils.isNull(this.d.getContent()) || !k() || !StringUtils.isNull(mo9.f(this.d.getContent()))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

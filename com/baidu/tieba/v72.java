@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface v72 {
-    void a(qs1 qs1Var);
+    boolean a(String str);
 
-    void b(qs1 qs1Var);
+    void b(int i);
+
+    void c(int i, String str, String str2);
+
+    void d(String str);
+
+    void e(String str);
+
+    void goBack();
 }

@@ -4,17 +4,17 @@ public class an {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f900a;
+    public long f896a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f901a;
+    public boolean f897a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f902b;
+    public long f898b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f903b;
+    public boolean f899b;
     public long c;
     public long d;
 }

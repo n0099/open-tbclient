@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h2c;
+import com.baidu.tieba.b7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.ks.y;
+import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class KSNativeAdVideoAppDownloadView extends y {
+public class KSNativeAdVideoAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView b;
@@ -128,7 +128,7 @@ public class KSNativeAdVideoAppDownloadView extends y {
         }
     }
 
-    @Override // com.fun.module.ks.y
+    @Override // com.fun.module.ks.x
     public void a(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
@@ -161,7 +161,7 @@ public class KSNativeAdVideoAppDownloadView extends y {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new h2c(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new b7c(ksNativeAd.getActionDescription(), this.h));
         }
     }
 }

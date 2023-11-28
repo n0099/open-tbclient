@@ -4,33 +4,30 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.TabSkin;
-import tbclient.FrsPage.WorldcupSkin;
+import tbclient.FeedPicComponent;
+import tbclient.PicInfo;
 /* loaded from: classes5.dex */
-public class ayc extends qoc {
+public class ayc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldcupSkin worldcupSkin) {
+    public static JSONObject b(@NonNull FeedPicComponent feedPicComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldcupSkin)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPicComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "worldcup_icon_height", worldcupSkin.worldcup_icon_height);
-            qoc.a(jSONObject, "worldcup_bottom", worldcupSkin.worldcup_bottom);
-            qoc.a(jSONObject, "worldcup_bottom_night", worldcupSkin.worldcup_bottom_night);
-            qoc.a(jSONObject, "worldcup_top", worldcupSkin.worldcup_top);
-            qoc.a(jSONObject, "worldcup_top_night", worldcupSkin.worldcup_top_night);
-            if (worldcupSkin.tab_skin != null) {
+            if (feedPicComponent.pics != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (TabSkin tabSkin : worldcupSkin.tab_skin) {
-                    jSONArray.put(ixc.b(tabSkin));
+                for (PicInfo picInfo : feedPicComponent.pics) {
+                    jSONArray.put(j6d.b(picInfo));
                 }
-                qoc.a(jSONObject, "tab_skin", jSONArray);
+                ltc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
             }
+            ltc.a(jSONObject, "schema", feedPicComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

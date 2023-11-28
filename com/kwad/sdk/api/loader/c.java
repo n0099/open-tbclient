@@ -8,20 +8,34 @@ public final class c {
 
     /* loaded from: classes10.dex */
     public static class a extends Application {
-        public final Context a;
+        public final Context alz;
 
         public a(Context context) {
-            this.a = context;
+            this.alz = context;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public final Context getApplicationContext() {
-            return this.a;
+            return this.alz;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public final ApplicationInfo getApplicationInfo() {
-            return this.a.getApplicationInfo();
+            return this.alz.getApplicationInfo();
         }
+    }
+
+    public static Context aw(Context context) {
+        if (context == null) {
+            return null;
+        }
+        Context applicationContext = context.getApplicationContext();
+        if (applicationContext == null) {
+            return context;
+        }
+        if (!applicationContext.getClassLoader().equals(context.getClassLoader())) {
+            return new a(context);
+        }
+        return context.getApplicationContext();
     }
 }

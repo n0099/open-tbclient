@@ -65,7 +65,7 @@ public class AccountLoginAgreeConfig {
     public static Spannable generateAccountDialogAgreement1(Context context, BoxOneKeyLoginResult boxOneKeyLoginResult) {
         if (boxOneKeyLoginResult != null) {
             Resources resources = context.getResources();
-            return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0086, AccountConstants.easyBrowserScheme + boxOneKeyLoginResult.getAgreeUrl(), boxOneKeyLoginResult.getAgreeText(), AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
+            return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0087, AccountConstants.easyBrowserScheme + boxOneKeyLoginResult.getAgreeUrl(), boxOneKeyLoginResult.getAgreeText(), AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
         }
         return generateAccountDialogAgreement3(context);
     }
@@ -73,18 +73,18 @@ public class AccountLoginAgreeConfig {
     public static Spannable generateAccountDialogAgreement2(Context context, BoxOneKeyLoginResult boxOneKeyLoginResult) {
         if (boxOneKeyLoginResult != null) {
             Resources resources = context.getResources();
-            return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0087, AccountConstants.easyBrowserScheme + boxOneKeyLoginResult.getAgreeUrl(), boxOneKeyLoginResult.getAgreeText(), AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
+            return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0088, AccountConstants.easyBrowserScheme + boxOneKeyLoginResult.getAgreeUrl(), boxOneKeyLoginResult.getAgreeText(), AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
         }
         return generateAccountDialogAgreement3(context);
     }
 
     public static Spannable generateAccountDialogAgreement3(Context context) {
         Resources resources = context.getResources();
-        return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0088, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
+        return (Spannable) Html.fromHtml(resources.getString(R.string.obfuscated_res_0x7f0f0089, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.PASS_ACCOUNT_AGREE, AccountConstants.easyBrowserScheme + BoxOneKeyLoginResult.BAIDU_PRIVACY));
     }
 
     public static Builder getDefaulgBuilder() {
-        return new Builder().setTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f008b)).setAgreementText(generateAccountDialogAgreement3(AppRuntime.getAppContext())).setButtonText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0089)).setFirstOneKeyLogin(false);
+        return new Builder().setTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f008c)).setAgreementText(generateAccountDialogAgreement3(AppRuntime.getAppContext())).setButtonText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f008a)).setFirstOneKeyLogin(false);
     }
 
     public Spannable getAgreementText() {

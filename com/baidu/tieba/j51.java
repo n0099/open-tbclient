@@ -1,9 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.t51;
 /* loaded from: classes6.dex */
 public interface j51 {
-    boolean a(@NonNull i51 i51Var, @NonNull String str);
+    boolean a(String str);
 
-    void b(@NonNull i51 i51Var, @NonNull String str);
+    Activity b();
+
+    boolean c();
+
+    LinearLayout d();
+
+    boolean h();
+
+    FrameLayout j();
+
+    t51.d l();
+
+    AbsNadBrowserView m();
 }

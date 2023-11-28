@@ -1,11 +1,7 @@
 package com.kwad.sdk.core.videocache.a;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
 /* loaded from: classes10.dex */
-public final class a implements b {
-    @Override // com.kwad.sdk.core.videocache.a.b
-    public final Map<String, String> vZ() {
-        return new HashMap();
-    }
+public interface a {
+    void s(File file);
 }

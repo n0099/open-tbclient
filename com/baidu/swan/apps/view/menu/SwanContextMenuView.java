@@ -16,11 +16,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q53;
 import com.baidu.tieba.r53;
+import com.baidu.tieba.s53;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SwanContextMenuView extends FrameLayout implements q53.g {
+public class SwanContextMenuView extends FrameLayout implements r53.g {
     public final Context a;
     public boolean b;
     public ListView c;
@@ -30,7 +30,7 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
     /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public final Context a;
-        public List<r53> b;
+        public List<s53> b;
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
@@ -46,20 +46,20 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
             }
         }
 
-        public b(Context context, List<r53> list) {
+        public b(Context context, List<s53> list) {
             this.b = list;
             this.a = context;
         }
 
         public void a(int i) {
-            r53 r53Var = this.b.get(i);
-            r53.a d = r53Var.d();
+            s53 s53Var = this.b.get(i);
+            s53.a d = s53Var.d();
             if (d != null) {
-                d.a(r53Var);
+                d.a(s53Var);
             }
         }
 
-        public void c(List<r53> list) {
+        public void c(List<s53> list) {
             this.b = list;
             notifyDataSetChanged();
         }
@@ -71,13 +71,13 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
 
         public final void b(View view2, int i) {
             if (getCount() == 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081449));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146c));
             } else if (i == 0) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08144a));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146d));
             } else if (i == getCount() - 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081447));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146a));
             } else {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081448));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146b));
             }
         }
 
@@ -91,32 +91,32 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
         public View getView(int i, View view2, ViewGroup viewGroup) {
             a aVar;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0936, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0950, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09120b);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09123b);
+                aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091234);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091264);
                 b(view2, i);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            r53 r53Var = this.b.get(i);
-            aVar.b.setText(r53Var.e());
+            s53 s53Var = this.b.get(i);
+            aVar.b.setText(s53Var.e());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-            if (r53Var.b() != null) {
+            if (s53Var.b() != null) {
                 aVar.a.setVisibility(0);
-                aVar.a.setImageDrawable(r53Var.b());
-                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707f6));
+                aVar.a.setImageDrawable(s53Var.b());
+                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070809));
             } else {
                 aVar.a.setVisibility(8);
-                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707f5));
+                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070808));
             }
             aVar.b.setLayoutParams(layoutParams);
             if (SwanContextMenuView.this.e) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
-                if (r53Var.b() != null) {
+                if (s53Var.b() != null) {
                     layoutParams2.setMarginStart(0);
                     aVar.a.setLayoutParams(layoutParams2);
                 } else {
@@ -146,7 +146,7 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
         b();
     }
 
-    public void c(List<r53> list) {
+    public void c(List<s53> list) {
         if (!this.b) {
             b bVar = this.d;
             if (bVar == null) {
@@ -180,11 +180,11 @@ public class SwanContextMenuView extends FrameLayout implements q53.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081446));
+        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081469));
         ListView listView = new ListView(this.a);
         this.c = listView;
         listView.setCacheColorHint(0);
-        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060ae2));
+        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060ae9));
         this.c.setDividerHeight(1);
         this.c.setSelector(new ColorDrawable(0));
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));

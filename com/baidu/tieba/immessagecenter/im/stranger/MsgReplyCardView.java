@@ -8,17 +8,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
+import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.j29;
+import com.baidu.tieba.r59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgReplyCardView extends ap8 {
+public class MsgReplyCardView extends hs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout I;
@@ -62,7 +62,7 @@ public class MsgReplyCardView extends ap8 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0653);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d066c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,12 +87,12 @@ public class MsgReplyCardView extends ap8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i == 1) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09d4);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09de);
             }
             if (i == 2) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1416);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1426);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f15ff);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f160f);
         }
         return (String) invokeI.objValue;
     }
@@ -102,29 +102,29 @@ public class MsgReplyCardView extends ap8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i == 1) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f00f3);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f00f4);
             }
             return this.mContext.getResources().getString(R.string.topic_thread);
         }
         return (String) invokeI.objValue;
     }
 
-    public final String o0(j29.a aVar, String str) {
+    public final String o0(r59.a aVar, String str) {
         InterceptResult invokeLL;
         String r0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                r0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0c94);
+                r0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0ca2);
             } else {
                 r0 = r0(aVar.a);
             }
             if (aVar.h == 1) {
-                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f0), r0));
+                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f1), r0));
                 sb.append(aVar.c);
             } else {
-                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f1), r0));
+                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f2), r0));
                 sb.append(aVar.g);
             }
             return sb.toString();
@@ -132,7 +132,7 @@ public class MsgReplyCardView extends ap8 {
         return (String) invokeLL.objValue;
     }
 
-    public final String p0(j29.a aVar, String str) {
+    public final String p0(r59.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
         String r0;
@@ -140,12 +140,12 @@ public class MsgReplyCardView extends ap8 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
                 string = r0(aVar.a);
-                r0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f191f);
+                r0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f192f);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f191f);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f192f);
                 r0 = r0(aVar.a);
             }
-            return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f2), string, q0(aVar.h), r0);
+            return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00f3), string, q0(aVar.h), r0);
         }
         return (String) invokeLL.objValue;
     }
@@ -153,11 +153,11 @@ public class MsgReplyCardView extends ap8 {
     public final void s0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.I = (LinearLayout) g(R.id.obfuscated_res_0x7f091f49);
-            this.J = (TextView) g(R.id.obfuscated_res_0x7f091f5a);
-            this.K = (TextView) g(R.id.obfuscated_res_0x7f091f4c);
-            this.L = (TextView) g(R.id.obfuscated_res_0x7f091f57);
-            this.M = (TextView) g(R.id.obfuscated_res_0x7f091f4f);
+            this.I = (LinearLayout) g(R.id.obfuscated_res_0x7f091fc1);
+            this.J = (TextView) g(R.id.obfuscated_res_0x7f091fd2);
+            this.K = (TextView) g(R.id.obfuscated_res_0x7f091fc4);
+            this.L = (TextView) g(R.id.obfuscated_res_0x7f091fcf);
+            this.M = (TextView) g(R.id.obfuscated_res_0x7f091fc7);
             this.I.setOnClickListener(new a(this));
         }
     }
@@ -167,12 +167,12 @@ public class MsgReplyCardView extends ap8 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        j29.a a2 = j29.a(chatMessage.getContent());
+        r59.a a2 = r59.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.J.setText(p0(a2, valueOf));
         this.K.setText(a2.b);
         this.L.setText(o0(a2, valueOf));
         TextView textView = this.M;
-        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f0787));
+        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f078f));
     }
 }

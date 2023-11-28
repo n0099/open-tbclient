@@ -8,23 +8,28 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 /* loaded from: classes10.dex */
 public final class s {
-    public static final char[] SI = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] amG = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0060 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r7v0, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.Closeable] */
-    public static String a(File file) {
-        Throwable th;
-        Exception e;
-        DigestInputStream digestInputStream;
-        try {
+    public static void b(Closeable closeable) {
+        if (closeable != null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                digestInputStream = new DigestInputStream(new FileInputStream((File) file), messageDigest);
+                closeable.close();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static String getFileMD5(File file) {
+        Throwable th;
+        DigestInputStream digestInputStream;
+        Exception e;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            digestInputStream = new DigestInputStream(new FileInputStream(file), messageDigest);
+            try {
                 try {
-                    while (digestInputStream.read(new byte[1024]) != -1) {
+                    byte[] bArr = new byte[1024];
+                    for (int read = digestInputStream.read(bArr); read != -1; read = digestInputStream.read(bArr)) {
                     }
                     byte[] digest = messageDigest.digest();
                     StringBuilder sb = new StringBuilder(digest.length * 2);
@@ -36,17 +41,17 @@ public final class s {
                         sb.append(Integer.toHexString(i));
                     }
                     String sb2 = sb.toString();
-                    a(digestInputStream);
+                    b(digestInputStream);
                     return sb2;
                 } catch (Exception e2) {
                     e = e2;
                     e.printStackTrace();
-                    a(digestInputStream);
+                    b(digestInputStream);
                     return "";
                 }
             } catch (Throwable th2) {
                 th = th2;
-                a((Closeable) file);
+                b(digestInputStream);
                 throw th;
             }
         } catch (Exception e3) {
@@ -54,18 +59,9 @@ public final class s {
             digestInputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            file = 0;
-            a((Closeable) file);
+            digestInputStream = null;
+            b(digestInputStream);
             throw th;
-        }
-    }
-
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable unused) {
-            }
         }
     }
 }

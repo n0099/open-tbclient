@@ -11,20 +11,11 @@ import java.util.Map;
 public abstract class BaseMemoryCache implements MemoryCache {
     public final Map<String, Reference<DecodedResult>> softMap = Collections.synchronizedMap(new HashMap());
 
-    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public void clear() {
-        this.softMap.clear();
-    }
-
     public abstract Reference<DecodedResult> createReference(DecodedResult decodedResult);
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public DecodedResult get(String str) {
-        Reference<DecodedResult> reference = this.softMap.get(str);
-        if (reference != null) {
-            return reference.get();
-        }
-        return null;
+    public void clear() {
+        this.softMap.clear();
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -37,9 +28,12 @@ public abstract class BaseMemoryCache implements MemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public boolean put(String str, DecodedResult decodedResult) {
-        this.softMap.put(str, createReference(decodedResult));
-        return true;
+    public DecodedResult get(String str) {
+        Reference<DecodedResult> reference = this.softMap.get(str);
+        if (reference != null) {
+            return reference.get();
+        }
+        return null;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -49,5 +43,11 @@ public abstract class BaseMemoryCache implements MemoryCache {
             return null;
         }
         return remove.get();
+    }
+
+    @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
+    public boolean put(String str, DecodedResult decodedResult) {
+        this.softMap.put(str, createReference(decodedResult));
+        return true;
     }
 }

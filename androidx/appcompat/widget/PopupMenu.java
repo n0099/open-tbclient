@@ -43,7 +43,7 @@ public class PopupMenu {
     }
 
     public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
-        this(context, view2, i, R.attr.obfuscated_res_0x7f0405a5, 0);
+        this(context, view2, i, R.attr.obfuscated_res_0x7f0405ab, 0);
     }
 
     public PopupMenu(@NonNull Context context, @NonNull View view2, int i, @AttrRes int i2, @StyleRes int i3) {

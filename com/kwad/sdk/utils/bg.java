@@ -1,32 +1,44 @@
 package com.kwad.sdk.utils;
 
-import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes10.dex */
-public final class bg extends Handler {
-    public WeakReference<a> apk;
+public final class bg {
+    public static final SimpleDateFormat aOw = new SimpleDateFormat("MM/dd", Locale.US);
+    public static final SimpleDateFormat aOx = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat aOy = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat aOz = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat aOA = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat aOB = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat aOC = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void a(Message message);
+    public static boolean gh(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return true;
+        }
+        return false;
     }
 
-    public bg(a aVar) {
-        this.apk = new WeakReference<>(aVar);
+    public static boolean gi(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return str.matches(".*\\.kpg.*");
+        }
+        return false;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        a aVar;
-        try {
-        } catch (Exception e) {
-            com.kwad.sdk.core.e.b.printStackTrace(e);
+    public static boolean isNullString(String str) {
+        if (!TextUtils.isEmpty(str) && !StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
+            return false;
         }
-        if (this.apk == null || (aVar = this.apk.get()) == null) {
-            return;
+        return true;
+    }
+
+    public static boolean isEquals(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && str.equals(str2)) {
+            return true;
         }
-        aVar.a(message);
-        super.handleMessage(message);
+        return false;
     }
 }

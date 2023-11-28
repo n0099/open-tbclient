@@ -1,170 +1,72 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.TabList;
 /* loaded from: classes5.dex */
-public class bm8 {
+public class bm8 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* loaded from: classes5.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ AnimatorListenerAdapter b;
-
-        public a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947649884, "Lcom/baidu/tieba/bm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, animatorListenerAdapter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = view2;
-            this.b = animatorListenerAdapter;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            AnimatorListenerAdapter animatorListenerAdapter;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
-                animatorListenerAdapter.onAnimationCancel(animator);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947649884, "Lcom/baidu/tieba/bm8;");
+                return;
             }
         }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            AnimatorListenerAdapter animatorListenerAdapter;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
-                animatorListenerAdapter.onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.setVisibility(0);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationStart(animator);
-                }
-            }
-        }
+        b = BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ AnimatorListenerAdapter b;
-
-        public b(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, animatorListenerAdapter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = animatorListenerAdapter;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationCancel(animator);
-                }
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-                AnimatorListenerAdapter animatorListenerAdapter = this.b;
-                if (animatorListenerAdapter != null) {
-                    animatorListenerAdapter.onAnimationEnd(animator);
-                }
-            }
-        }
-    }
-
-    public static void a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+    public bm8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, animatorListenerAdapter) == null) {
-            b(view2, animatorListenerAdapter, 300L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void c(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, animatorListenerAdapter) == null) {
-            d(view2, animatorListenerAdapter, 300L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static void b(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+    public void a(TabList tabList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 0.0f);
-            ofFloat.setDuration(j);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f, view2.getMeasuredHeight());
-            ofFloat2.setDuration(j);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ofFloat2, ofFloat);
-            animatorSet.addListener(new b(view2, animatorListenerAdapter));
-            animatorSet.start();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tabList) != null) || tabList == null) {
+            return;
         }
-    }
-
-    public static void d(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
-            ofFloat.setDuration(j);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, view2.getMeasuredHeight(), 0.0f);
-            ofFloat2.setDuration(j);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ofFloat2, ofFloat);
-            animatorSet.addListener(new a(view2, animatorListenerAdapter));
-            animatorSet.start();
-        }
+        String str = tabList.tab_name;
+        this.a = tabList.tab_type;
+        String str2 = tabList.share_pic;
+        String str3 = tabList.share_title;
+        String str4 = tabList.share_desc;
+        String str5 = tabList.share_url;
     }
 }

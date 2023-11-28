@@ -1,90 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.SaveDraftMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Objects;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class qx8 {
+public abstract class qx8 implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final qx8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public xw8 a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107320, "Lcom/baidu/tieba/qx8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948107320, "Lcom/baidu/tieba/qx8;");
-                return;
-            }
-        }
-        a = new qx8();
-    }
-
-    public qx8() {
+    public qx8(xw8 xw8Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xw8Var, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = xw8Var;
+        this.b = i;
     }
 
-    public final <T> boolean a(List<? extends T> first, List<? extends T> second) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<SaveDraftMessage.a> customMessage) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, first, second)) == null) {
-            Intrinsics.checkNotNullParameter(first, "first");
-            Intrinsics.checkNotNullParameter(second, "second");
-            if (first == second) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.b);
+            if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
+                return null;
             }
-            if (first.size() != second.size()) {
-                return false;
+            SaveDraftMessage.a data = customMessage.getData();
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str = TbadkCoreApplication.getCurrentAccountObj().getID();
+            } else {
+                str = "";
             }
-            int i = 0;
-            for (T t : first) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                if (!Objects.equals(t, second.get(i))) {
-                    return false;
-                }
-                i = i2;
+            ChatSetting setting = this.a.getSetting(str, data.b);
+            if (setting == null) {
+                return null;
             }
-            return true;
+            setting.setDraft(data.a);
+            this.a.saveSetting(setting);
+            return customResponsedMessage;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final <T> boolean b(List<? extends T> list, List<? extends T> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
-            if (list == null || list2 == null) {
-                return true;
-            }
-            return !a(list, list2);
-        }
-        return invokeLL.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

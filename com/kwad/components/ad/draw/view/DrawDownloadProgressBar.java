@@ -8,34 +8,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.core.page.widget.TextProgressBar;
-import com.kwad.sdk.b.kwai.a;
+import com.kwad.sdk.d.a.a;
+import com.kwad.sdk.m.l;
 /* loaded from: classes10.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
-    public TextProgressBar bZ;
-    public View ca;
+    public TextProgressBar dh;
+    public View di;
     public Context mContext;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
-        E(context);
+        B(context);
     }
 
-    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        E(context);
-    }
-
-    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        E(context);
-    }
-
-    private void E(Context context) {
+    private void B(Context context) {
         this.mContext = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b0, this);
-        this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091310);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091311);
-        this.ca = findViewById;
+        l.inflate(context, R.layout.obfuscated_res_0x7f0d04c2, this);
+        this.dh = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091355);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091356);
+        this.di = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
@@ -44,29 +35,34 @@ public class DrawDownloadProgressBar extends FrameLayout {
         });
     }
 
-    public final void f(String str, int i) {
-        View view2;
-        int i2;
-        if (i == 0 || i == getMax()) {
-            view2 = this.ca;
-            i2 = 0;
-        } else {
-            view2 = this.ca;
-            i2 = 8;
-        }
-        view2.setVisibility(i2);
-        this.bZ.f(str, i);
-    }
-
-    public int getMax() {
-        return this.bZ.getMax();
-    }
-
     public void setTextColor(int i) {
-        this.bZ.setTextColor(i);
+        this.dh.setTextColor(i);
     }
 
     public void setTextSize(int i) {
-        this.bZ.setTextDimen(a.a(getContext(), i));
+        this.dh.setTextDimen(a.a(getContext(), i));
+    }
+
+    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        B(context);
+    }
+
+    public final void e(String str, int i) {
+        if (i != 0 && i != getMax()) {
+            this.di.setVisibility(8);
+        } else {
+            this.di.setVisibility(0);
+        }
+        this.dh.e(str, i);
+    }
+
+    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        B(context);
+    }
+
+    public int getMax() {
+        return this.dh.getMax();
     }
 }

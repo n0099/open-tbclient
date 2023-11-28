@@ -31,7 +31,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MaterialCardViewHelper {
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
     public static final int CHECKED_ICON_LAYER_INDEX = 2;
@@ -146,7 +146,7 @@ public class MaterialCardViewHelper {
         if (this.clickableForegroundDrawable == null) {
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
             this.clickableForegroundDrawable = layerDrawable;
-            layerDrawable.setId(2, R.id.obfuscated_res_0x7f091883);
+            layerDrawable.setId(2, R.id.obfuscated_res_0x7f0918f4);
         }
         return this.clickableForegroundDrawable;
     }
@@ -333,8 +333,8 @@ public class MaterialCardViewHelper {
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ea);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705eb);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ff);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070600);
         obtainStyledAttributes.recycle();
     }
 
@@ -424,7 +424,7 @@ public class MaterialCardViewHelper {
             DrawableCompat.setTintList(wrap, this.checkedIconTint);
         }
         if (this.clickableForegroundDrawable != null) {
-            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091883, createCheckedIconLayer());
+            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f0918f4, createCheckedIconLayer());
         }
     }
 

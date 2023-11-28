@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ci4 extends oh4 {
+public class ci4 extends qh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,69 +26,66 @@ public class ci4 extends oh4 {
         }
     }
 
-    @Override // com.baidu.tieba.oh4, com.baidu.tieba.rh4
-    public void b(JSONObject jSONObject, be4 be4Var, @Nullable be4 be4Var2, @Nullable be4 be4Var3) {
+    @Override // com.baidu.tieba.qh4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, be4Var, be4Var2, be4Var3) != null) || jSONObject == null) {
-            return;
-        }
-        ei4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        ii4.f().k(jSONObject.optJSONObject("page_tips"));
-        ai4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        ki4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        si4.f(jSONObject.optJSONObject("app_inner_preload"));
-        di4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        pi4.b().d(jSONObject.optJSONObject("tts"));
-        li4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        qi4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (mi4.a) {
-            c(jSONObject);
-        }
-        oi4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        fi4.a().c(jSONObject.optJSONObject("local_debug"));
-        rd4.a().b(jSONObject.optJSONObject(rd4.a().c()));
-        if (ni4.b()) {
-            hi4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        gi4.a().e(jSONObject.optJSONObject("no_history_apps"));
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
-            return;
-        }
-        pd4 b = rd4.b();
-        hm4 hm4Var = null;
-        if (b != null) {
-            hm4Var = b.i();
-        }
-        String optString = optJSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString)) {
-            mi4.b = optString;
-            if (hm4Var != null) {
-                hm4Var.putString("key_h2_heart_beat_version", optString);
-            }
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            if (optJSONObject2.optInt("switch") > 0) {
-                int optInt = optJSONObject2.optInt("timespan");
-                int optInt2 = optJSONObject2.optInt("timeout");
-                if (hm4Var != null) {
-                    if (optInt > 0) {
-                        hm4Var.putInt("key_h2_heart_beat_timespan", optInt);
-                    }
-                    if (optInt2 > 0) {
-                        hm4Var.putInt("key_h2_heart_beat_timeout", optInt2);
-                        return;
-                    }
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", fi4.b().d());
+                jSONObject.put("tipmsgs", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                pi4.b();
+                jSONObject3.put("version", pi4.c());
+                jSONObject.put("web_degrade_strategy", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("version", li4.a().b());
+                jSONObject.put("pkg_preload", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("version", bi4.b().c());
+                jSONObject.put("pkg_clean_strategy", jSONObject5);
+                JSONObject jSONObject6 = new JSONObject();
+                jSONObject6.put("version", ei4.a().b());
+                jSONObject.put("getpkg_retry_switch", jSONObject6);
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put("version", ri4.d());
+                jSONObject.put("update_expire_time", jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("version", ji4.f().h());
+                jSONObject.put("page_tips", jSONObject8);
+                if (ni4.a) {
+                    JSONObject jSONObject9 = new JSONObject();
+                    jSONObject9.put("version", ni4.b);
+                    jSONObject.put("heartbeat", jSONObject9);
                 }
-                return;
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("version", gi4.a().b());
+                jSONObject.put("local_debug", jSONObject10);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("version", sd4.a().a());
+                jSONObject.put(sd4.a().c(), jSONObject11);
+                if (oi4.b()) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("version", oi4.a());
+                    jSONObject.put("api_description", jSONObject12);
+                }
+                JSONObject jSONObject13 = new JSONObject();
+                jSONObject13.put("version", qi4.b().c());
+                jSONObject.put("tts", jSONObject13);
+                new JSONObject().put("version", hi4.a().c());
+                jSONObject.put("no_history_apps", jSONObject13);
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("version", ti4.d());
+                jSONObject.put("app_inner_preload", jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("version", mi4.a().b());
+                jSONObject.put("simple_control_item", jSONObject15);
+            } catch (JSONException unused) {
             }
-            mi4.a = false;
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

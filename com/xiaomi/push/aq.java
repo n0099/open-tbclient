@@ -13,23 +13,23 @@ public class aq implements at {
     public static boolean a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f110a;
+    public Context f106a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f111a;
+    public ServiceConnection f107a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f109a = 0;
+    public volatile int f105a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile String f113a = null;
+    public volatile String f109a = null;
 
     /* renamed from: b  reason: collision with other field name */
-    public volatile boolean f114b = false;
+    public volatile boolean f110b = false;
     public volatile String b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f112a = new Object();
+    public final Object f108a = new Object();
 
     /* loaded from: classes10.dex */
     public class a implements ServiceConnection {
@@ -63,7 +63,7 @@ public class aq implements at {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m273a(IBinder iBinder) {
+        public static boolean m277a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -79,31 +79,31 @@ public class aq implements at {
     }
 
     public aq(Context context) {
-        this.f110a = context;
+        this.f106a = context;
         a();
     }
 
     private void a() {
         boolean z;
-        this.f111a = new a();
+        this.f107a = new a();
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         try {
-            z = this.f110a.bindService(intent, this.f111a, 1);
+            z = this.f106a.bindService(intent, this.f107a, 1);
         } catch (Exception unused) {
             z = false;
         }
-        this.f109a = z ? 1 : 2;
+        this.f105a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f109a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f105a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f112a) {
+        synchronized (this.f108a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m186a("huawei's " + str + " wait...");
-                this.f112a.wait(3000L);
+                com.xiaomi.channel.commonutils.logger.b.m190a("huawei's " + str + " wait...");
+                this.f108a.wait(3000L);
             } catch (Exception unused) {
             }
         }
@@ -122,10 +122,10 @@ public class aq implements at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        ServiceConnection serviceConnection = this.f111a;
+        ServiceConnection serviceConnection = this.f107a;
         if (serviceConnection != null) {
             try {
-                this.f110a.unbindService(serviceConnection);
+                this.f106a.unbindService(serviceConnection);
             } catch (Exception unused) {
             }
         }
@@ -133,14 +133,14 @@ public class aq implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public String mo271a() {
+    public String mo275a() {
         a("getOAID");
-        return this.f113a;
+        return this.f109a;
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo272a() {
+    public boolean mo276a() {
         return a;
     }
 }

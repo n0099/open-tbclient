@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d71;
+import com.baidu.tieba.e71;
 /* loaded from: classes3.dex */
 public class ArrowView extends View {
     public Paint a;
@@ -179,7 +179,7 @@ public class ArrowView extends View {
     }
 
     public final void d() {
-        this.d = d71.a().getResources().getColor(R.color.NAD_UC29);
+        this.d = e71.a().getResources().getColor(R.color.NAD_UC29);
         this.b = new Path();
         Paint paint = new Paint();
         this.a = paint;

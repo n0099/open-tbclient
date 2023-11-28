@@ -1,77 +1,8 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class m72 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static synchronized l72 a(@NonNull String str) {
-        InterceptResult invokeL;
-        l72 q72Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            synchronized (m72.class) {
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case 48:
-                        if (str.equals("0")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 49:
-                        if (str.equals("1")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 50:
-                        if (str.equals("2")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 51:
-                        if (str.equals("3")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 52:
-                        if (str.equals("4")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            if (c != 3) {
-                                if (c != 4) {
-                                    q72Var = new k72();
-                                } else {
-                                    q72Var = new o72();
-                                }
-                            } else {
-                                q72Var = new n72();
-                            }
-                        } else {
-                            q72Var = new p72();
-                        }
-                    } else {
-                        q72Var = new j72();
-                    }
-                } else {
-                    q72Var = new q72();
-                }
-            }
-            return q72Var;
-        }
-        return (l72) invokeL.objValue;
-    }
+public interface m72<T, R> {
+    @NonNull
+    R a(@NonNull T t);
 }

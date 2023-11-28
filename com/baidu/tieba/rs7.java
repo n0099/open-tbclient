@@ -1,262 +1,146 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.view.View;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.ie6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.tbadk.module.frs.FrsService;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
-public class rs7 {
+public final class rs7 extends cg1<FrsService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ke6 b;
-    public ke6 c;
-    public ke6 d;
-    public ValueAnimator e;
 
     /* loaded from: classes8.dex */
-    public class a implements ie6.i {
+    public static final class a implements FrsService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
 
-        public a(rs7 rs7Var, TBLottieAnimationView tBLottieAnimationView) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rs7Var, tBLottieAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.ie6.i
-        public void a(ie6 ie6Var, boolean z, float f, float f2) {
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void navToVoiceRoom(TbPageContext<?> tbPageContext, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{ie6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.playAnimation();
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                navToVoiceRoom(tbPageContext, "bdtiebalive://video/mixlive?room_id=" + j);
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void shareForum(Context context, Object data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, context, data) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(data, "data");
+                r68.d(context, data);
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void statStartRoomEvent(Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, l, str) == null) {
+                VoiceRoomStat.d(l, str);
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void navToVoiceRoom(TbPageContext<?> tbPageContext, long j, Map<String, String> extParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j), extParams}) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(extParams, "extParams");
+                navToVoiceRoom(tbPageContext, String.valueOf(j), extParams);
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void navToVoiceRoom(TbPageContext<?> tbPageContext, String scheme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, scheme) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(scheme, "scheme");
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void navToVoiceRoom(TbPageContext<?> tbPageContext, String str, Map<String, String> extParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, extParams) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(extParams, "extParams");
+                StringBuilder sb = new StringBuilder();
+                sb.append("bdtiebalive://video/mixlive?room_id=" + str);
+                for (Map.Entry<String, String> entry : extParams.entrySet()) {
+                    if (!Intrinsics.areEqual(entry.getKey(), "room_id")) {
+                        sb.append('&' + entry.getKey() + '=' + entry.getValue());
+                    }
+                }
+                if (!StringsKt__StringsKt.contains$default((CharSequence) sb, (CharSequence) "&source=", false, 2, (Object) null)) {
+                    sb.append("&source=source_audio_unknown");
+                }
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+            }
+        }
+
+        @Override // com.baidu.tbadk.module.frs.FrsService
+        public void navToVoiceRoomList(Context context, Frs$From from, Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, from, l, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(from, "from");
+                VoiceRoomListActivity.a.a(context, from, l, str);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs7 a;
-
-        public b(rs7 rs7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rs7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rs7Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.e.start();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs7 a;
-
-        public c(rs7 rs7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rs7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rs7Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.a != null) {
-                this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs7 a;
-
-        public d(rs7 rs7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rs7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rs7Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.d.h();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements ie6.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public e(rs7 rs7Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rs7Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.baidu.tieba.ie6.i
-        @SuppressLint({"WrongConstant"})
-        public void a(ie6 ie6Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{ie6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.setRepeatCount(-1);
-                this.a.setRepeatMode(2);
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    public rs7(View view2, TBLottieAnimationView tBLottieAnimationView) {
+    public rs7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tBLottieAnimationView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = view2;
-        this.b = d(view2, ie6.m, 170.0f, 0.5f, 1.0f);
-        this.c = d(view2, ie6.n, 170.0f, 0.5f, 1.0f);
-        this.e = e(view2, 0.0f, 6.0f, 100L);
-        this.d = d(view2, ie6.o, 200.0f, 0.4f, 0.0f);
-        f(tBLottieAnimationView);
     }
 
-    public final ke6 d(View view2, je6<View> je6Var, float f, float f2, float f3) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public FrsService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, je6Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            le6 le6Var = new le6(f3);
-            le6Var.f(f);
-            le6Var.d(f2);
-            ke6 ke6Var = new ke6(view2, je6Var);
-            ke6Var.m(le6Var);
-            return ke6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return (ke6) invokeCommon.objValue;
-    }
-
-    public final ValueAnimator e(View view2, float f, float f2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
-            ofFloat.setTarget(view2);
-            ofFloat.setDuration(j);
-            return ofFloat;
-        }
-        return (ValueAnimator) invokeCommon.objValue;
-    }
-
-    public final void f(TBLottieAnimationView tBLottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) != null) || tBLottieAnimationView == null) {
-            return;
-        }
-        this.b.b(new a(this, tBLottieAnimationView));
-        tBLottieAnimationView.addAnimatorListener(new b(this));
-        this.e.addUpdateListener(new c(this));
-        this.e.addListener(new d(this));
-        this.d.b(new e(this, tBLottieAnimationView));
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.h();
-            this.c.h();
-        }
+        return (FrsService) invokeV.objValue;
     }
 }

@@ -1,33 +1,34 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ParrScores;
+import tbclient.FrsPage.Info;
+import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes8.dex */
-public class v0d extends qoc {
+public class v0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ParrScores parrScores) {
+    public static JSONObject b(@NonNull Info info) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, parrScores)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, info)) == null) {
             JSONObject jSONObject = new JSONObject();
-            qoc.a(jSONObject, "scores_total", parrScores.scores_total);
-            qoc.a(jSONObject, "scores_fetch", parrScores.scores_fetch);
-            qoc.a(jSONObject, "scores_money", parrScores.scores_money);
-            qoc.a(jSONObject, "scores_other", parrScores.scores_other);
-            qoc.a(jSONObject, "update_time", parrScores.update_time);
-            qoc.a(jSONObject, "level", parrScores.level);
-            qoc.a(jSONObject, Constants.EXTRA_CONFIG_LIMIT, parrScores.limit);
-            qoc.a(jSONObject, "i_total", parrScores.i_total);
-            qoc.a(jSONObject, "i_money", parrScores.i_money);
-            qoc.a(jSONObject, "i_other", parrScores.i_other);
+            ltc.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, info.user_num);
+            ltc.a(jSONObject, "post_num", info.post_num);
+            if (info.recm_forum_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (RecmForumInfo recmForumInfo : info.recm_forum_list) {
+                    jSONArray.put(s1d.b(recmForumInfo));
+                }
+                ltc.a(jSONObject, "recm_forum_list", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
